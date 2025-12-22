@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salam App</title>
+  <title>Aplikasi Islam</title>
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
@@ -50,6 +50,11 @@
       padding: 16px 8px;
       text-align: center;
       box-shadow: 0 6px 12px rgba(0,0,0,.08);
+      transition: transform .2s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.05);
     }
 
     .menu-item img {
@@ -61,21 +66,6 @@
     .menu-item span {
       font-size: 13px;
       font-weight: 600;
-    }
-
-    .theme-box {
-      margin-top: 26px;
-      background: var(--card-bg);
-      padding: 14px;
-      border-radius: 14px;
-      box-shadow: 0 4px 10px rgba(0,0,0,.08);
-    }
-
-    select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 14px;
     }
 
     /* Install banner */
@@ -100,6 +90,7 @@
       padding: 6px 12px;
       margin-left: 10px;
       font-weight: 600;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -110,21 +101,30 @@
 
 <div class="container">
   <div class="menu-grid">
-    <div class="menu-item"><img src="logo_alquran.png"><span>Al-Qur'an</span></div>
-    <div class="menu-item"><img src="jadwal.png"><span>Jadwal Sholat</span></div>
-    <div class="menu-item"><img src="kiblat.png"><span>Arah Kiblat</span></div>
-    <div class="menu-item"><img src="video.png"><span>Video Kajian</span></div>
-    <div class="menu-item"><img src="dzikir.png"><span>Dzikir Harian</span></div>
-    <div class="menu-item"><img src="about.png"><span>Tentang</span></div>
-  </div>
-
-  <div class="theme-box">
-    <strong>Pilih Tema Warna</strong>
-    <select onchange="ubahTema(this.value)">
-      <option value="hijau">Hijau Islami</option>
-      <option value="biru">Biru Putih</option>
-      <option value="merah">Merah Putih</option>
-    </select>
+    <div class="menu-item">
+      <img src="logo_alquran.png">
+      <span>Al-Qur'an</span>
+    </div>
+    <div class="menu-item">
+      <img src="jadwal.png">
+      <span>Jadwal Sholat</span>
+    </div>
+    <div class="menu-item">
+      <img src="kiblat.png">
+      <span>Arah Kiblat</span>
+    </div>
+    <div class="menu-item">
+      <img src="video.png">
+      <span>Video Kajian</span>
+    </div>
+    <div class="menu-item">
+      <img src="dzikir.png">
+      <span>Dzikir Harian</span>
+    </div>
+    <div class="menu-item">
+      <img src="about.png">
+      <span>Tentang</span>
+    </div>
   </div>
 </div>
 
@@ -134,22 +134,8 @@
 </div>
 
 <script>
-  function ubahTema(t) {
-    if (t === "hijau") {
-      document.documentElement.style.setProperty('--bg-main','#dcfce7');
-      document.documentElement.style.setProperty('--text-main','#065f46');
-    }
-    if (t === "biru") {
-      document.documentElement.style.setProperty('--bg-main','#eff6ff');
-      document.documentElement.style.setProperty('--text-main','#1e3a8a');
-    }
-    if (t === "merah") {
-      document.documentElement.style.setProperty('--bg-main','#fee2e2');
-      document.documentElement.style.setProperty('--text-main','#7f1d1d');
-    }
-  }
-
   let deferredPrompt;
+
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
     deferredPrompt = e;
@@ -157,14 +143,15 @@
   });
 
   function installApp() {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => {
-      document.getElementById('installBox').style.display = 'none';
-    });
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        document.getElementById('installBox').style.display = 'none';
+      });
+    }
   }
 
-  // Register Service Worker
-if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
   }
 </script>
