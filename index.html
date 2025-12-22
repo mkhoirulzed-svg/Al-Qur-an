@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aplikasi Islam</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salam App</title>
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4ade80">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -15,9 +16,8 @@
   <style>
     :root {
       --bg-main: #dcfce7;
-      --bg-card: #4ade80;
       --text-main: #065f46;
-      --white: #ffffff;
+      --card-bg: #ffffff;
     }
 
     body {
@@ -30,8 +30,8 @@
     header {
       text-align: center;
       padding: 16px;
-      font-weight: 600;
       font-size: 20px;
+      font-weight: 600;
     }
 
     .container {
@@ -45,16 +45,11 @@
     }
 
     .menu-item {
-      background: var(--white);
+      background: var(--card-bg);
       border-radius: 18px;
       padding: 16px 8px;
       text-align: center;
       box-shadow: 0 6px 12px rgba(0,0,0,.08);
-      transition: transform .2s;
-    }
-
-    .menu-item:hover {
-      transform: scale(1.05);
     }
 
     .menu-item img {
@@ -66,12 +61,11 @@
     .menu-item span {
       font-size: 13px;
       font-weight: 600;
-      display: block;
     }
 
     .theme-box {
-      margin-top: 28px;
-      background: var(--white);
+      margin-top: 26px;
+      background: var(--card-bg);
       padding: 14px;
       border-radius: 14px;
       box-shadow: 0 4px 10px rgba(0,0,0,.08);
@@ -81,11 +75,10 @@
       width: 100%;
       padding: 10px;
       border-radius: 10px;
-      border: 1px solid #ccc;
       font-size: 14px;
     }
 
-    /* Install Popup */
+    /* Install banner */
     #installBox {
       position: fixed;
       bottom: 20px;
@@ -113,40 +106,20 @@
 
 <body>
 
-<header>
-  Aplikasi Islam
-</header>
+<header>Aplikasi Islam</header>
 
 <div class="container">
   <div class="menu-grid">
-    <div class="menu-item">
-      <img src="logo_alquran.png">
-      <span>Al-Qur'an</span>
-    </div>
-    <div class="menu-item">
-      <img src="jadwal.png">
-      <span>Jadwal Sholat</span>
-    </div>
-    <div class="menu-item">
-      <img src="kiblat.png">
-      <span>Arah Kiblat</span>
-    </div>
-    <div class="menu-item">
-      <img src="video.png">
-      <span>Video Kajian</span>
-    </div>
-    <div class="menu-item">
-      <img src="dzikir.png">
-      <span>Dzikir Harian</span>
-    </div>
-    <div class="menu-item">
-      <img src="about.png">
-      <span>Tentang</span>
-    </div>
+    <div class="menu-item"><img src="logo_alquran.png"><span>Al-Qur'an</span></div>
+    <div class="menu-item"><img src="jadwal.png"><span>Jadwal Sholat</span></div>
+    <div class="menu-item"><img src="kiblat.png"><span>Arah Kiblat</span></div>
+    <div class="menu-item"><img src="video.png"><span>Video Kajian</span></div>
+    <div class="menu-item"><img src="dzikir.png"><span>Dzikir Harian</span></div>
+    <div class="menu-item"><img src="about.png"><span>Tentang</span></div>
   </div>
 
   <div class="theme-box">
-    <label><strong>Pilih Tema Warna</strong></label>
+    <strong>Pilih Tema Warna</strong>
     <select onchange="ubahTema(this.value)">
       <option value="hijau">Hijau Islami</option>
       <option value="biru">Biru Putih</option>
@@ -155,42 +128,40 @@
   </div>
 </div>
 
-<!-- Install PWA -->
 <div id="installBox">
   Install Aplikasi ini?
   <button onclick="installApp()">Install</button>
 </div>
 
 <script>
-  function ubahTema(theme) {
-    if (theme === "hijau") {
-      document.documentElement.style.setProperty('--bg-main', '#dcfce7');
-      document.documentElement.style.setProperty('--text-main', '#065f46');
-    } else if (theme === "biru") {
-      document.documentElement.style.setProperty('--bg-main', '#eff6ff');
-      document.documentElement.style.setProperty('--text-main', '#1e3a8a');
-    } else if (theme === "merah") {
-      document.documentElement.style.setProperty('--bg-main', '#fee2e2');
-      document.documentElement.style.setProperty('--text-main', '#7f1d1d');
+  function ubahTema(t) {
+    if (t === "hijau") {
+      document.documentElement.style.setProperty('--bg-main','#dcfce7');
+      document.documentElement.style.setProperty('--text-main','#065f46');
+    }
+    if (t === "biru") {
+      document.documentElement.style.setProperty('--bg-main','#eff6ff');
+      document.documentElement.style.setProperty('--text-main','#1e3a8a');
+    }
+    if (t === "merah") {
+      document.documentElement.style.setProperty('--bg-main','#fee2e2');
+      document.documentElement.style.setProperty('--text-main','#7f1d1d');
     }
   }
 
   let deferredPrompt;
-  window.addEventListener('beforeinstallprompt', (e) => {
+  window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
     deferredPrompt = e;
     document.getElementById('installBox').style.display = 'block';
   });
 
   function installApp() {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => {
-        document.getElementById('installBox').style.display = 'none';
-      });
-    }
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      document.getElementById('installBox').style.display = 'none';
+    });
   }
-</script>
 
-</body>
-</html>
+  // Register Service Worker
+  if ('service
