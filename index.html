@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplikasi Islam</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4ade80">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #dcfce7;
+      --bg-card: #4ade80;
+      --text-main: #065f46;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+    }
+
+    header {
+      text-align: center;
+      padding: 16px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .menu-item {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 16px 8px;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,.08);
+      transition: transform .2s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-item img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 8px;
+    }
+
+    .menu-item span {
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+    }
+
+    .theme-box {
+      margin-top: 28px;
+      background: var(--white);
+      padding: 14px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,.08);
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    /* Install Popup */
+    #installBox {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #16a34a;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 14px;
+      display: none;
+      z-index: 99;
+    }
+
+    #installBox button {
+      background: white;
+      color: #166534;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 12px;
+      margin-left: 10px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Aplikasi Islam
+</header>
+
+<div class="container">
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="logo_alquran.png">
+      <span>Al-Qur'an</span>
+    </div>
+    <div class="menu-item">
+      <img src="jadwal.png">
+      <span>Jadwal Sholat</span>
+    </div>
+    <div class="menu-item">
+      <img src="kiblat.png">
+      <span>Arah Kiblat</span>
+    </div>
+    <div class="menu-item">
+      <img src="video.png">
+      <span>Video Kajian</span>
+    </div>
+    <div class="menu-item">
+      <img src="dzikir.png">
+      <span>Dzikir Harian</span>
+    </div>
+    <div class="menu-item">
+      <img src="about.png">
+      <span>Tentang</span>
+    </div>
+  </div>
+
+  <div class="theme-box">
+    <label><strong>Pilih Tema Warna</strong></label>
+    <select onchange="ubahTema(this.value)">
+      <option value="hijau">Hijau Islami</option>
+      <option value="biru">Biru Putih</option>
+      <option value="merah">Merah Putih</option>
+    </select>
+  </div>
+</div>
+
+<!-- Install PWA -->
+<div id="installBox">
+  Install Aplikasi ini?
+  <button onclick="installApp()">Install</button>
+</div>
+
+<script>
+  function ubahTema(theme) {
+    if (theme === "hijau") {
+      document.documentElement.style.setProperty('--bg-main', '#dcfce7');
+      document.documentElement.style.setProperty('--text-main', '#065f46');
+    } else if (theme === "biru") {
+      document.documentElement.style.setProperty('--bg-main', '#eff6ff');
+      document.documentElement.style.setProperty('--text-main', '#1e3a8a');
+    } else if (theme === "merah") {
+      document.documentElement.style.setProperty('--bg-main', '#fee2e2');
+      document.documentElement.style.setProperty('--text-main', '#7f1d1d');
+    }
+  }
+
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('installBox').style.display = 'block';
+  });
+
+  function installApp() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        document.getElementById('installBox').style.display = 'none';
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
