@@ -13,86 +13,8 @@
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg-main: #dcfce7;
-      --text-main: #065f46;
-      --card-bg: #ffffff;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg-main);
-      color: var(--text-main);
-    }
-
-    header {
-      text-align: center;
-      padding: 16px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .container {
-      padding: 16px;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .menu-item {
-      background: var(--card-bg);
-      border-radius: 18px;
-      padding: 16px 8px;
-      text-align: center;
-      box-shadow: 0 6px 12px rgba(0,0,0,.08);
-      transition: transform .2s;
-    }
-
-    .menu-item:hover {
-      transform: scale(1.05);
-    }
-
-    .menu-item img {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 8px;
-    }
-
-    .menu-item span {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* Install banner */
-    #installBox {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #16a34a;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 14px;
-      display: none;
-      z-index: 99;
-    }
-
-    #installBox button {
-      background: white;
-      color: #166534;
-      border: none;
-      border-radius: 8px;
-      padding: 6px 12px;
-      margin-left: 10px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -102,27 +24,27 @@
 <div class="container">
   <div class="menu-grid">
     <div class="menu-item">
-      <img src="logo_alquran.png">
+      <img src="logo_alquran.png" alt="Al-Qur'an">
       <span>Al-Qur'an</span>
     </div>
     <div class="menu-item">
-      <img src="jadwal.png">
+      <img src="jadwal.png" alt="Jadwal Sholat">
       <span>Jadwal Sholat</span>
     </div>
     <div class="menu-item">
-      <img src="kiblat.png">
+      <img src="kiblat.png" alt="Arah Kiblat">
       <span>Arah Kiblat</span>
     </div>
     <div class="menu-item">
-      <img src="video.png">
+      <img src="video.png" alt="Video Kajian">
       <span>Video Kajian</span>
     </div>
     <div class="menu-item">
-      <img src="dzikir.png">
+      <img src="dzikir.png" alt="Dzikir Harian">
       <span>Dzikir Harian</span>
     </div>
     <div class="menu-item">
-      <img src="about.png">
+      <img src="about.png" alt="Tentang">
       <span>Tentang</span>
     </div>
   </div>
@@ -130,31 +52,10 @@
 
 <div id="installBox">
   Install Aplikasi ini?
-  <button onclick="installApp()">Install</button>
+  <button id="installBtn">Install</button>
 </div>
 
-<script>
-  let deferredPrompt;
-
-  window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
-    deferredPrompt = e;
-    document.getElementById('installBox').style.display = 'block';
-  });
-
-  function installApp() {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => {
-        document.getElementById('installBox').style.display = 'none';
-      });
-    }
-  }
-
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-  }
-</script>
-
+<!-- JS -->
+<script src="app.js"></script>
 </body>
 </html>
