@@ -3,60 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salam APP</title>
+  <title>Salam App</title>
 
+  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4ade80">
+  <meta name="theme-color" content="#16a34a">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>Salam APP</header>
+<header class="app-header">Salam App</header>
 
-<div class="container">
+<main class="container">
   <div class="menu-grid">
 
-    <a href="alquran.html" class="menu-item">
-      <img src="logo_alquran.png" alt="">
+    <a href="pages/quran.html" class="menu-item ripple">
+      <img src="icons/logo_alquran.png">
       <span>Al-Qur'an</span>
     </a>
 
-    <a href="jadwal.html" class="menu-item">
-      <img src="jadwal.png" alt="">
-      <span>Sholat</span>
+    <a href="pages/jadwal.html" class="menu-item ripple">
+      <img src="icons/jadwal.png">
+      <span>Jadwal Sholat</span>
     </a>
 
-    <a href="kiblat.html" class="menu-item">
-      <img src="kiblat.png" alt="">
-      <span>Kiblat</span>
+    <a href="pages/kiblat.html" class="menu-item ripple">
+      <img src="icons/kiblat.png">
+      <span>Arah Kiblat</span>
     </a>
 
-    <a href="video.html" class="menu-item">
-      <img src="video.png" alt="">
-      <span>Kajian</span>
+    <a href="pages/video.html" class="menu-item ripple">
+      <img src="icons/video.png">
+      <span>Video Kajian</span>
     </a>
 
-    <a href="dzikir.html" class="menu-item">
-      <img src="dzikir.png" alt="">
+    <a href="pages/dzikir.html" class="menu-item ripple">
+      <img src="icons/dzikir.png">
       <span>Dzikir</span>
     </a>
 
-    <a href="about.html" class="menu-item">
-      <img src="about.png" alt="">
+    <a href="pages/about.html" class="menu-item ripple">
+      <img src="icons/about.png">
       <span>Tentang</span>
     </a>
 
   </div>
-</div>
+</main>
 
-<div id="installBox">
-  Install Aplikasi ini?
-  <button id="installBtn">Install</button>
-</div>
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+  <a href="index.html" class="active">Home</a>
+  <a href="pages/video.html">Video</a>
+  <a href="pages/dzikir.html">Dzikir</a>
+  <a href="pages/about.html">Tentang</a>
+</nav>
 
 <script src="app.js"></script>
 </body>
