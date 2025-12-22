@@ -164,4 +164,10 @@
   }
 
   // Register Service Worker
-  if ('service
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+
+</body>
+</html>
