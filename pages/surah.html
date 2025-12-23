@@ -153,6 +153,30 @@ document.addEventListener('click', function (e) {
 
   e.target.classList.add('active');
 });
+
+const audioPlayer = document.getElementById('audioPlayer');
+
+document.addEventListener('click', async (e) => {
+  if (!e.target.classList.contains('audio-btn')) return;
+
+  const ayatEl = e.target.closest('.ayat-item');
+  const surah = ayatEl.dataset.surah;
+  const ayat  = ayatEl.dataset.ayat;
+
+  try {
+    const res = await fetch(`https://equran.id/api/v2/surat/${surah}/ayat/${ayat}`);
+    const json = await res.json();
+
+    const audioUrl = json.data.audio.primary;
+
+    audioPlayer.src = audioUrl;
+    audioPlayer.play();
+
+  } catch (err) {
+    alert('Gagal memuat audio');
+  }
+});
+
 </script>
 <audio id="audioPlayer"></audio>
 </body>
