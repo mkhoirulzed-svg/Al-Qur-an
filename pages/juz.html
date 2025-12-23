@@ -10,9 +10,15 @@
 
 <body>
 
+<!-- =========================
+     HEADER MODERN
+========================= -->
 <header class="app-header">
-  <button onclick="history.back()">←</button>
-  <span id="judul">Juz</span>
+  <button class="nav-btn" onclick="history.back()">←</button>
+
+  <span id="judul" class="header-title">Juz</span>
+
+  <button id="toggleTerjemah" class="nav-btn translate-btn">🌐</button>
 </header>
 
 <main class="container" id="juzContent">
@@ -24,9 +30,24 @@
 const juzNo = Number(new URLSearchParams(location.search).get('no'));
 const juzContent = document.getElementById('juzContent');
 const judul = document.getElementById('judul');
+const toggleBtn = document.getElementById('toggleTerjemah');
 
 judul.textContent = `Juz ${juzNo}`;
 
+let showTranslation = true;
+
+/* =========================
+   TOGGLE TERJEMAH
+========================= */
+toggleBtn.onclick = () => {
+  showTranslation = !showTranslation;
+  document.body.classList.toggle('hide-translation', !showTranslation);
+  toggleBtn.classList.toggle('active', showTranslation);
+};
+
+/* =========================
+   LOAD JUZ
+========================= */
 const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
 
 if (!juzInfo) {
@@ -84,7 +105,7 @@ async function loadJuz({ start, end }) {
       }
 
       /* =========================
-         AYAT + BOOKMARK + AUDIO
+         AYAT (MUSHAF VIEW)
       ========================= */
       json.data.ayat.forEach(a => {
         const ayatNo = a.nomorAyat;
@@ -104,18 +125,19 @@ async function loadJuz({ start, end }) {
         div.dataset.ayat = ayatNo;
         div.dataset.juz = juzNo;
         div.dataset.text = a.teksArab;
-        div.dataset.audio = a.audio?.primary || ''; // tambahkan audio jika ada
+        div.dataset.audio = a.audio?.primary || '';
 
         div.innerHTML = `
-          <div class="ayat-header">
+          <div class="ayat-content">
             <span class="ayat-nomor">${json.data.namaLatin} : ${ayatNo}</span>
-            <div>
-              <button class="audio-btn" title="Putar murrotal">🔊</button>
-              <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
-            </div>
+            <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
+            <div class="ayat-indo">${a.teksIndonesia}</div>
           </div>
-          <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
-          <div class="ayat-indo">${a.teksIndonesia}</div>
+
+          <div class="ayat-actions">
+            <button class="audio-btn" title="Putar murrotal">🔊</button>
+            <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
+          </div>
         `;
 
         juzContent.appendChild(div);
@@ -129,9 +151,14 @@ async function loadJuz({ start, end }) {
 }
 
 /* =========================
-   BOOKMARK HANDLER
+   AUDIO & BOOKMARK HANDLER
 ========================= */
+const audioPlayer = document.createElement('audio');
+document.body.appendChild(audioPlayer);
+
 document.addEventListener('click', function (e) {
+
+  /* BOOKMARK */
   if (e.target.classList.contains('bookmark-btn')) {
     const ayatEl = e.target.closest('.ayat-item');
 
@@ -161,22 +188,22 @@ document.addEventListener('click', function (e) {
     e.target.classList.add('active');
   }
 
+  /* AUDIO */
   if (e.target.classList.contains('audio-btn')) {
     const ayatEl = e.target.closest('.ayat-item');
     const audioUrl = ayatEl.dataset.audio;
+
     if (!audioUrl) return alert('Audio tidak tersedia');
 
     audioPlayer.src = audioUrl;
     audioPlayer.play();
 
-    // highlight ayat saat diputar
-    document.querySelectorAll('.ayat-item').forEach(el => el.classList.remove('ayat-playing'));
+    document.querySelectorAll('.ayat-item')
+      .forEach(el => el.classList.remove('ayat-playing'));
+
     ayatEl.classList.add('ayat-playing');
   }
 });
-
-const audioPlayer = document.createElement('audio');
-document.body.appendChild(audioPlayer);
 </script>
 
 </body>
