@@ -30,22 +30,30 @@
 
 <script src="../data/surah.js"></script>
 <script>
-  const list = document.getElementById('surahList');
+const list = document.getElementById('surahList');
 
-  surahList.forEach(s => {
-    const item = document.createElement('a');
-    item.href = `surah.html?no=${s.nomor}`;
-    item.className = 'surah-item';
-    item.innerHTML = `
-      <div>
-        <strong>${s.nomor}. ${s.nama}</strong>
-        <small>${s.arti}</small>
-      </div>
-      <span>${s.ayat} ayat</span>
-    `;
-    list.appendChild(item);
+fetch('https://equran.id/api/v2/surat')
+  .then(res => res.json())
+  .then(data => {
+    data.data.forEach(s => {
+      const item = document.createElement('a');
+      item.href = `surah.html?no=${s.nomor}`;
+      item.className = 'surah-item';
+      item.innerHTML = `
+        <div>
+          <strong>${s.nomor}. ${s.namaLatin}</strong>
+          <small>${s.arti}</small>
+        </div>
+        <span>${s.jumlahAyat} ayat</span>
+      `;
+      list.appendChild(item);
+    });
+  })
+  .catch(() => {
+    list.innerHTML = '<p>Gagal memuat data Al-Qur’an</p>';
   });
 </script>
+
 
 </body>
 </html>
