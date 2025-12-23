@@ -244,3 +244,23 @@ body {
 .surah-header small {
   color: #555;
 }
+
+.ayat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.bookmark-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.bookmark-btn.active {
+  opacity: 1;
+  color: #f59e0b;
+}
