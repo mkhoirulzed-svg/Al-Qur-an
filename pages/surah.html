@@ -9,13 +9,13 @@
 
 <style>
 /* =========================
-   MUSHAF STYLE
+   AYAT STYLE
 ========================= */
 .ayat-item {
   display: flex;
+  justify-content: space-between;
   gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
 }
 
 .ayat-content {
@@ -25,35 +25,65 @@
 .ayat-arab {
   font-size: 1.6rem;
   line-height: 2.6rem;
+  text-align: right;
+}
+
+.ayat-indo {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.ayat-nomor {
+  color: #888;
+  font-size: 0.85rem;
 }
 
 .ayat-actions {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .audio-btn,
 .bookmark-btn {
-  font-size: 1.2rem;
   cursor: pointer;
+  font-size: 1rem;
+  background: none;
+  border: none;
 }
 
+/* =========================
+   BISMILLAH
+========================= */
 .bismillah {
   text-align: center;
-  font-size: 1.8rem;
-  margin: 20px 0;
+  font-size: 1.6rem;
+  margin: 16px 0;
 }
 
+/* =========================
+   AUDIO PLAYING
+========================= */
 .ayat-playing {
   background-color: #fef9c3;
   border-right: 4px solid #f59e0b;
   padding-right: 8px;
 }
 
+/* =========================
+   HIGHLIGHT
+========================= */
 .ayat-highlight {
   background: #e0f2fe;
+}
+
+/* =========================
+   TOGGLE TERJEMAH
+========================= */
+.hide-translation .ayat-indo {
+  display: none;
 }
 </style>
 </head>
@@ -63,6 +93,7 @@
 <header class="app-header">
   <button onclick="history.back()">←</button>
   <span id="judul">Surah</span>
+  <button id="toggleTerjemah">Terjemah</button>
 </header>
 
 <main class="container" id="ayatList">
@@ -78,17 +109,24 @@ const no = Number(params.get('no'));
 const ayatList = document.getElementById('ayatList');
 const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
+const toggleBtn = document.getElementById('toggleTerjemah');
 
 if (!no) {
   ayatList.innerHTML = '<p>Surah tidak valid</p>';
   throw new Error('Nomor surah tidak valid');
 }
 
-fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
+/* =========================
+   FETCH API (ARAB + INDO)
+========================= */
+fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesian`)
   .then(res => res.json())
   .then(res => {
-    const s = res.data;
-    judul.textContent = `${s.englishName} (${s.name})`;
+
+    const arab = res.data[0];
+    const indo = res.data[1];
+
+    judul.textContent = `${arab.englishName} (${arab.name})`;
     ayatList.innerHTML = '';
 
     function tajwidColor(text) {
@@ -99,26 +137,27 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
     }
 
     /* =========================
-       BISMILLAH HEADER (MUSHAF)
+       BISMILLAH HEADER
     ========================= */
-    if (s.number !== 1 && s.number !== 9) {
-      const bis = document.createElement('div');
-      bis.className = 'bismillah ayat-arab';
-      bis.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-      ayatList.appendChild(bis);
+    if (arab.number !== 1 && arab.number !== 9) {
+      const bismillah = document.createElement('div');
+      bismillah.className = 'bismillah ayat-arab';
+      bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      ayatList.appendChild(bismillah);
     }
 
     /* =========================
-       AYAT
+       AYAT LOOP
     ========================= */
-    s.ayahs.forEach(a => {
+    arab.ayahs.forEach(a => {
+
       let ayatText = a.text;
 
-      // Hilangkan bismillah dari ayat 1 (visual mushaf)
+      // Mushaf view: hilangkan bismillah dari ayat 1 (visual saja)
       if (
         a.numberInSurah === 1 &&
-        s.number !== 1 &&
-        s.number !== 9
+        arab.number !== 1 &&
+        arab.number !== 9
       ) {
         ayatText = ayatText.replace(
           /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u,
@@ -126,12 +165,16 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
         );
       }
 
+      const terjemah = indo.ayahs.find(
+        x => x.numberInSurah === a.numberInSurah
+      );
+
       const div = document.createElement('div');
       div.className = 'ayat-item';
       div.id = `ayat-${a.numberInSurah}`;
 
-      div.dataset.surah = s.number;
-      div.dataset.surahName = s.englishName;
+      div.dataset.surah = arab.number;
+      div.dataset.surahName = arab.englishName;
       div.dataset.ayat = a.numberInSurah;
       div.dataset.text = a.text;
       div.dataset.audio = a.audio;
@@ -140,6 +183,7 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
         <div class="ayat-content">
           <span class="ayat-nomor">(${a.numberInSurah})</span>
           <div class="ayat-arab">${tajwidColor(ayatText)}</div>
+          <div class="ayat-indo">${terjemah?.text || ''}</div>
         </div>
         <div class="ayat-actions">
           <button class="audio-btn" title="Putar murrotal">🔊</button>
@@ -170,6 +214,16 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
   });
 
 /* =========================
+   TOGGLE TERJEMAH
+========================= */
+let showTerjemah = true;
+toggleBtn.addEventListener('click', () => {
+  showTerjemah = !showTerjemah;
+  document.body.classList.toggle('hide-translation', !showTerjemah);
+  toggleBtn.textContent = showTerjemah ? 'Terjemah' : 'Terjemah ❌';
+});
+
+/* =========================
    BOOKMARK
 ========================= */
 document.addEventListener('click', e => {
@@ -194,7 +248,6 @@ document.addEventListener('click', e => {
 
   bookmarks.push(bookmark);
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-  e.target.classList.add('active');
 });
 
 /* =========================
@@ -207,6 +260,11 @@ document.addEventListener('click', e => {
 
   const ayatEl = e.target.closest('.ayat-item');
   const audioUrl = ayatEl.dataset.audio;
+
+  if (!audioUrl) {
+    alert('Audio tidak tersedia');
+    return;
+  }
 
   if (currentPlaying) {
     currentPlaying.classList.remove('ayat-playing');
