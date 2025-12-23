@@ -6,6 +6,12 @@
 <title>Juz</title>
 
 <link rel="stylesheet" href="../style.css">
+<style>
+/* PAKSA TAMPIL (DEBUG) */
+.ayat-item { margin-bottom: 16px; }
+.arab { font-size: 22px; direction: rtl; }
+.arti { font-size: 14px; color: #333; }
+</style>
 </head>
 
 <body>
@@ -16,32 +22,30 @@
 </header>
 
 <main class="container">
-  <div id="juzContent">Memuat juz...</div>
+  <div id="juzContent">🔄 Memuat juz...</div>
 </main>
 
 <script>
-const juzNo = parseInt(new URLSearchParams(location.search).get('no'));
+const juzNo = Number(new URLSearchParams(location.search).get('no'));
 const juzContent = document.getElementById('juzContent');
 
 if (!juzNo) {
-  juzContent.innerHTML = '<p>Juz tidak valid</p>';
-} else {
-  loadJuzFromSurah(juzNo);
+  juzContent.innerHTML = '<p>❌ Juz tidak valid</p>';
+  throw new Error("Juz invalid");
 }
 
-async function loadJuzFromSurah(juzTarget) {
+(async function loadJuz() {
+  let count = 0;
   juzContent.innerHTML = '';
-  let found = false;
 
-  try {
-    for (let surah = 1; surah <= 114; surah++) {
+  for (let surah = 1; surah <= 114; surah++) {
+    try {
       const res = await fetch(`https://equran.id/api/v2/surat/${surah}`);
       const json = await res.json();
-      const ayat = json.data.ayat;
 
-      ayat.forEach(a => {
-        if (a.juz === juzTarget) {
-          found = true;
+      json.data.ayat.forEach(a => {
+        if (a.juz === juzNo) {
+          count++;
           const el = document.createElement('div');
           el.className = 'ayat-item';
           el.innerHTML = `
@@ -52,16 +56,21 @@ async function loadJuzFromSurah(juzTarget) {
           juzContent.appendChild(el);
         }
       });
-    }
 
-    if (!found) {
-      juzContent.innerHTML = '<p>Isi juz tidak ditemukan</p>';
-    }
+      // 🔥 render bertahap (anti blank)
+      if (count > 0) {
+        await new Promise(r => setTimeout(r, 0));
+      }
 
-  } catch (e) {
-    juzContent.innerHTML = '<p>Gagal memuat isi juz</p>';
+    } catch (e) {
+      console.error("Surah error:", surah);
+    }
   }
-}
+
+  if (count === 0) {
+    juzContent.innerHTML = '<p>❌ Tidak ada ayat ditemukan</p>';
+  }
+})();
 </script>
 
 </body>
