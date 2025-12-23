@@ -9,23 +9,47 @@
 
 <style>
 /* =========================
-   Audio & highlight
+   MUSHAF STYLE
 ========================= */
-.ayat-header {
+.ayat-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
 }
 
-.audio-btn {
-  font-size: 1rem;
+.ayat-content {
+  flex: 1;
+}
+
+.ayat-arab {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.ayat-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.audio-btn,
+.bookmark-btn {
+  font-size: 1.2rem;
   cursor: pointer;
+}
+
+.bismillah {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 20px 0;
 }
 
 .ayat-playing {
   background-color: #fef9c3;
-  border-left: 4px solid #f59e0b;
-  padding-left: 8px;
+  border-right: 4px solid #f59e0b;
+  padding-right: 8px;
 }
 
 .ayat-highlight {
@@ -75,9 +99,33 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
     }
 
     /* =========================
-       AYAT (RAW DARI API)
+       BISMILLAH HEADER (MUSHAF)
+    ========================= */
+    if (s.number !== 1 && s.number !== 9) {
+      const bis = document.createElement('div');
+      bis.className = 'bismillah ayat-arab';
+      bis.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      ayatList.appendChild(bis);
+    }
+
+    /* =========================
+       AYAT
     ========================= */
     s.ayahs.forEach(a => {
+      let ayatText = a.text;
+
+      // Hilangkan bismillah dari ayat 1 (visual mushaf)
+      if (
+        a.numberInSurah === 1 &&
+        s.number !== 1 &&
+        s.number !== 9
+      ) {
+        ayatText = ayatText.replace(
+          /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u,
+          ''
+        );
+      }
+
       const div = document.createElement('div');
       div.className = 'ayat-item';
       div.id = `ayat-${a.numberInSurah}`;
@@ -89,14 +137,14 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
       div.dataset.audio = a.audio;
 
       div.innerHTML = `
-        <div class="ayat-header">
-          <span class="ayat-nomor">${a.numberInSurah}</span>
-          <div>
-            <button class="audio-btn" title="Putar murrotal">🔊</button>
-            <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
-          </div>
+        <div class="ayat-content">
+          <span class="ayat-nomor">(${a.numberInSurah})</span>
+          <div class="ayat-arab">${tajwidColor(ayatText)}</div>
         </div>
-        <div class="ayat-arab">${tajwidColor(a.text)}</div>
+        <div class="ayat-actions">
+          <button class="audio-btn" title="Putar murrotal">🔊</button>
+          <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
+        </div>
       `;
 
       ayatList.appendChild(div);
@@ -159,11 +207,6 @@ document.addEventListener('click', e => {
 
   const ayatEl = e.target.closest('.ayat-item');
   const audioUrl = ayatEl.dataset.audio;
-
-  if (!audioUrl) {
-    alert('Audio tidak tersedia');
-    return;
-  }
 
   if (currentPlaying) {
     currentPlaying.classList.remove('ayat-playing');
