@@ -80,25 +80,22 @@ function loadSurah() {
 }
 
 function loadJuz() {
-  list.innerHTML = 'Memuat juz...';
+  list.innerHTML = '';
 
-  fetch('https://equran.id/api/v2/juz')
-    .then(res => res.json())
-    .then(data => {
-      list.innerHTML = '';
-      data.data.forEach(j => {
-        const item = document.createElement('a');
-        item.href = `juz.html?no=${j.nomor}`;
-        item.className = 'surah-item';
-        item.innerHTML = `
-          <div>
-            <strong>Juz ${j.nomor}</strong>
-            <small>${j.nama}</small>
-          </div>
-          <span>${j.jumlahAyat} ayat</span>
-        `;
-        list.appendChild(item);
-      });
+  for (let i = 1; i <= 30; i++) {
+    const item = document.createElement('a');
+    item.href = `juz.html?no=${i}`;
+    item.className = 'surah-item';
+    item.innerHTML = `
+      <div>
+        <strong>Juz ${i}</strong>
+        <small>Juz ke-${i}</small>
+      </div>
+      <span>30 Juz</span>
+    `;
+    list.appendChild(item);
+  }
+}
     })
     .catch(() => list.innerHTML = '<p>Gagal memuat Juz</p>');
 }
