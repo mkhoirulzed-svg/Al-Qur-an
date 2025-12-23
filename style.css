@@ -315,7 +315,13 @@ body {
 }
 
 .bookmark-btn {
-  width: 24px;   /* lebar ikon */
-  height: 24px;  /* tinggi ikon */
-  cursor: pointer;
+  width: 24px;      /* lebar ikon */
+  height: 24px;     /* tinggi ikon */
+  object-fit: contain; /* agar proporsional */
+  cursor: pointer;  /* pointer saat hover */
+  vertical-align: middle; /* sejajar dengan teks atau nomor ayat */
+  border: none;     /* hilangkan border jika pakai <button> */
+  background: none; /* hilangkan background */
+  padding: 0;       /* hilangkan padding default */
+  margin-left: 5px; /* jarak dari nomor ayat */
 }
