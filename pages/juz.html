@@ -40,6 +40,15 @@ async function loadJuz({ start, end }) {
       const res = await fetch(`https://equran.id/api/v2/surat/${surah}`);
       const json = await res.json();
 
+// 🔹 Penanda ganti surah
+const header = document.createElement('div');
+header.className = 'surah-header';
+header.innerHTML = `
+  <h3>${json.data.namaLatin}</h3>
+  <small>${json.data.arti} • ${json.data.jumlahAyat} ayat</small>
+`;
+juzContent.appendChild(header);
+
       json.data.ayat.forEach(a => {
         const ayatNo = a.nomorAyat;
 
