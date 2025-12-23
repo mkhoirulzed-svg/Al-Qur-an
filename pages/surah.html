@@ -12,12 +12,42 @@
 
 <header class="app-header">
   <button onclick="history.back()">←</button>
-  Surah
+  <span id="judul">Surah</span>
 </header>
 
-<main class="container">
-  <p>Halaman ayat akan ditampilkan di sini.</p>
+<main class="container" id="ayatList">
+  <p>Memuat ayat...</p>
 </main>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const no = params.get('no');
+const ayatList = document.getElementById('ayatList');
+const judul = document.getElementById('judul');
+
+fetch(`https://equran.id/api/v2/surat/${no}`)
+  .then(res => res.json())
+  .then(res => {
+    const s = res.data;
+    judul.textContent = s.namaLatin;
+
+    ayatList.innerHTML = '';
+
+    s.ayat.forEach(a => {
+      const div = document.createElement('div');
+      div.className = 'ayat-item';
+      div.innerHTML = `
+        <div class="ayat-arab">${a.teksArab}</div>
+        <div class="ayat-indo">${a.teksIndonesia}</div>
+        <div class="ayat-nomor">${a.nomorAyat}</div>
+      `;
+      ayatList.appendChild(div);
+    });
+  })
+  .catch(() => {
+    ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
+  });
+</script>
 
 </body>
 </html>
