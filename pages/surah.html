@@ -19,6 +19,8 @@
   <p>Memuat ayat...</p>
 </main>
 
+<audio id="audioPlayer"></audio>
+
 <script>
 /* =========================
    PARAM & ELEMENT
@@ -27,9 +29,10 @@ const params = new URLSearchParams(window.location.search);
 const no = Number(params.get('no'));
 const ayatList = document.getElementById('ayatList');
 const judul = document.getElementById('judul');
+const audioPlayer = document.getElementById('audioPlayer');
 
 /* =========================
-   VALIDASI NOMOR SURAH
+   VALIDASI
 ========================= */
 if (!no) {
   ayatList.innerHTML = '<p>Surah tidak valid</p>';
@@ -58,7 +61,6 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
 
     /* =========================
        BISMILLAH
-       (kecuali Al-Fatihah & At-Taubah)
     ========================= */
     if (s.nomor !== 1 && s.nomor !== 9) {
       const bismillah = document.createElement('div');
@@ -81,50 +83,46 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
       div.dataset.surahName = s.namaLatin;
       div.dataset.ayat = a.nomorAyat;
       div.dataset.text = a.teksArab;
+      div.dataset.audio = a.audio?.primary || '';
 
       div.innerHTML = `
-  <div class="ayat-header">
-    <span class="ayat-nomor">${a.nomorAyat}</span>
-    <div>
-      <button class="audio-btn" title="Putar murrotal">🔊</button>
-      <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
-    </div>
-  </div>
+        <div class="ayat-header">
+          <span class="ayat-nomor">${a.nomorAyat}</span>
+          <div>
+            <button class="audio-btn" title="Putar murrotal">🔊</button>
+            <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
+          </div>
+        </div>
 
-  <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
-  <div class="ayat-indo">${a.teksIndonesia}</div>
+        <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
+        <div class="ayat-indo">${a.teksIndonesia}</div>
       `;
 
       ayatList.appendChild(div);
     });
 
     /* =========================
-       SCROLL KE AYAT BOOKMARK
+       SCROLL KE BOOKMARK
     ========================= */
     const targetAyat = localStorage.getItem('scrollToAyat');
-if (targetAyat) {
-  const el = document.getElementById(`ayat-${targetAyat}`);
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    el.classList.add('ayat-highlight');
-
-    // hilangkan highlight setelah 3 detik
-    setTimeout(() => {
-      el.classList.remove('ayat-highlight');
-    }, 3000);
-  }
-  localStorage.removeItem('scrollToAyat');
-}
+    if (targetAyat) {
+      const el = document.getElementById(`ayat-${targetAyat}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ayat-highlight');
+        setTimeout(() => el.classList.remove('ayat-highlight'), 3000);
+      }
+      localStorage.removeItem('scrollToAyat');
+    }
   })
-  .catch(err => {
-    console.error(err);
+  .catch(() => {
     ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
   });
 
 /* =========================
-   BOOKMARK CLICK
+   BOOKMARK
 ========================= */
-document.addEventListener('click', function (e) {
+document.addEventListener('click', e => {
   if (!e.target.classList.contains('bookmark-btn')) return;
 
   const ayatEl = e.target.closest('.ayat-item');
@@ -137,47 +135,36 @@ document.addEventListener('click', function (e) {
     text: ayatEl.dataset.text
   };
 
-  let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
-  const sudahAda = bookmarks.some(b =>
-    b.surah == bookmark.surah && b.ayat == bookmark.ayat
-  );
-
-  if (sudahAda) {
+  if (bookmarks.some(b => b.surah == bookmark.surah && b.ayat == bookmark.ayat)) {
     alert('Ayat ini sudah dibookmark');
     return;
   }
 
   bookmarks.push(bookmark);
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-
   e.target.classList.add('active');
 });
 
-const audioPlayer = document.getElementById('audioPlayer');
-
-document.addEventListener('click', async (e) => {
+/* =========================
+   AUDIO (FIXED)
+========================= */
+document.addEventListener('click', e => {
   if (!e.target.classList.contains('audio-btn')) return;
 
   const ayatEl = e.target.closest('.ayat-item');
-  const surah = ayatEl.dataset.surah;
-  const ayat  = ayatEl.dataset.ayat;
+  const audioUrl = ayatEl.dataset.audio;
 
-  try {
-    const res = await fetch(`https://equran.id/api/v2/surat/${surah}/ayat/${ayat}`);
-    const json = await res.json();
-
-    const audioUrl = json.data.audio.primary;
-
-    audioPlayer.src = audioUrl;
-    audioPlayer.play();
-
-  } catch (err) {
-    alert('Gagal memuat audio');
+  if (!audioUrl) {
+    alert('Audio tidak tersedia');
+    return;
   }
-});
 
+  audioPlayer.src = audioUrl;
+  audioPlayer.play();
+});
 </script>
-<audio id="audioPlayer"></audio>
+
 </body>
 </html>
