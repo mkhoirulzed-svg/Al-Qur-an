@@ -171,6 +171,10 @@ async function loadJuz({ start, end }) {
       juzContent.appendChild(div);
       ayatQueue.push(div);
     });
+    if (bookmarked) {
+  div.classList.add('bookmarked');
+}
+
   }
 }
 
