@@ -6,12 +6,6 @@
 <title>Juz</title>
 
 <link rel="stylesheet" href="../style.css">
-<style>
-/* PAKSA TAMPIL (DEBUG) */
-.ayat-item { margin-bottom: 16px; }
-.arab { font-size: 22px; direction: rtl; }
-.arti { font-size: 14px; color: #333; }
-</style>
 </head>
 
 <body>
@@ -22,55 +16,56 @@
 </header>
 
 <main class="container">
-  <div id="juzContent">🔄 Memuat juz...</div>
+  <div id="juzContent">Memuat juz...</div>
 </main>
 
+<script src="../data/juz-map.js"></script>
 <script>
 const juzNo = Number(new URLSearchParams(location.search).get('no'));
 const juzContent = document.getElementById('juzContent');
 
-if (!juzNo) {
-  juzContent.innerHTML = '<p>❌ Juz tidak valid</p>';
-  throw new Error("Juz invalid");
+const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
+
+if (!juzInfo) {
+  juzContent.innerHTML = '<p>Juz tidak valid</p>';
+} else {
+  loadJuz(juzInfo);
 }
 
-(async function loadJuz() {
-  let count = 0;
+async function loadJuz({ start, end }) {
   juzContent.innerHTML = '';
 
-  for (let surah = 1; surah <= 114; surah++) {
+  for (let surah = start[0]; surah <= end[0]; surah++) {
     try {
       const res = await fetch(`https://equran.id/api/v2/surat/${surah}`);
       const json = await res.json();
 
       json.data.ayat.forEach(a => {
-        if (a.juz === juzNo) {
-          count++;
-          const el = document.createElement('div');
-          el.className = 'ayat-item';
-          el.innerHTML = `
-            <p class="arab">${a.teksArab}</p>
-            <p class="arti">${a.teksIndonesia}</p>
-            <small>${json.data.namaLatin} : ${a.nomorAyat}</small>
-          `;
-          juzContent.appendChild(el);
-        }
+        const ayatNo = a.nomorAyat;
+
+        const isStartSurah = surah === start[0];
+        const isEndSurah   = surah === end[0];
+
+        if (
+          (isStartSurah && ayatNo < start[1]) ||
+          (isEndSurah && ayatNo > end[1])
+        ) return;
+
+        const el = document.createElement('div');
+        el.className = 'ayat-item';
+        el.innerHTML = `
+          <p class="arab">${a.teksArab}</p>
+          <p class="arti">${a.teksIndonesia}</p>
+          <small>${json.data.namaLatin} : ${ayatNo}</small>
+        `;
+        juzContent.appendChild(el);
       });
 
-      // 🔥 render bertahap (anti blank)
-      if (count > 0) {
-        await new Promise(r => setTimeout(r, 0));
-      }
-
     } catch (e) {
-      console.error("Surah error:", surah);
+      juzContent.innerHTML = '<p>Gagal memuat juz</p>';
     }
   }
-
-  if (count === 0) {
-    juzContent.innerHTML = '<p>❌ Tidak ada ayat ditemukan</p>';
-  }
-})();
+}
 </script>
 
 </body>
