@@ -300,3 +300,16 @@ body {
 .hide-translation .ayat-indo {
   display: none;
 }
+
+.ayat-item.bookmarked {
+  background: #fff7cc;
+  border-left: 4px solid #f59e0b;
+}
+
+.bookmark-btn {
+  opacity: 0.4;
+}
+
+.ayat-item.bookmarked .bookmark-btn {
+  opacity: 1;
+}
