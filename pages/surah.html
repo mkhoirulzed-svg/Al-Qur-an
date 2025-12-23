@@ -83,13 +83,16 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
       div.dataset.text = a.teksArab;
 
       div.innerHTML = `
-        <div class="ayat-header">
-          <span class="ayat-nomor">${a.nomorAyat}</span>
-          <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
-        </div>
+  <div class="ayat-header">
+    <span class="ayat-nomor">${a.nomorAyat}</span>
+    <div>
+      <button class="audio-btn" title="Putar murrotal">🔊</button>
+      <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
+    </div>
+  </div>
 
-        <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
-        <div class="ayat-indo">${a.teksIndonesia}</div>
+  <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
+  <div class="ayat-indo">${a.teksIndonesia}</div>
       `;
 
       ayatList.appendChild(div);
