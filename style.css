@@ -313,3 +313,9 @@ body {
 .ayat-item.bookmarked .bookmark-btn {
   opacity: 1;
 }
+
+.bookmark-btn {
+  width: 24px;   /* lebar ikon */
+  height: 24px;  /* tinggi ikon */
+  cursor: pointer;
+}
