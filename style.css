@@ -222,3 +222,20 @@ body {
   background: #0f766e;
   color: white;
 }
+
+.surah-header {
+  margin: 24px 0 12px;
+  padding: 12px;
+  background: #f0fdfa;
+  border-left: 4px solid #0f766e;
+  border-radius: 8px;
+}
+
+.surah-header h3 {
+  margin: 0;
+  color: #0f766e;
+}
+
+.surah-header small {
+  color: #555;
+}
