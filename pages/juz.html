@@ -40,34 +40,33 @@ async function loadJuz({ start, end }) {
       const res = await fetch(`https://equran.id/api/v2/surat/${surah}`);
       const json = await res.json();
 
-     // 🔹 Header Surah
-const header = document.createElement('div');
-header.className = 'surah-header';
-header.innerHTML = `
-  <h3>${json.data.namaLatin}</h3>
-  <small>${json.data.arti}</small>
-`;
-juzContent.appendChild(header);
+      /* =========================
+         HEADER SURAH
+      ========================= */
+      const header = document.createElement('div');
+      header.className = 'surah-header';
+      header.innerHTML = `
+        <h3>${json.data.namaLatin}</h3>
+        <small>${json.data.arti} • ${json.data.jumlahAyat} ayat</small>
+      `;
+      juzContent.appendChild(header);
 
-// 🔹 Bismillah (kecuali Al-Fatihah & At-Taubah)
-if (json.data.nomor !== 1 && json.data.nomor !== 9) {
-  const bismillah = document.createElement('div');
-  bismillah.className = 'bismillah';
-  bismillah.textContent =
-    json.data.bismillah?.teksArab ||
-    'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-  juzContent.appendChild(bismillah);
-}
+      /* =========================
+         BISMILLAH
+         (kecuali Al-Fatihah & At-Taubah)
+      ========================= */
+      if (json.data.nomor !== 1 && json.data.nomor !== 9) {
+        const bismillah = document.createElement('div');
+        bismillah.className = 'bismillah';
+        bismillah.textContent =
+          json.data.bismillah?.teksArab ||
+          'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+        juzContent.appendChild(bismillah);
+      }
 
-// 🔹 Penanda ganti surah
-const header = document.createElement('div');
-header.className = 'surah-header';
-header.innerHTML = `
-  <h3>${json.data.namaLatin}</h3>
-  <small>${json.data.arti} • ${json.data.jumlahAyat} ayat</small>
-`;
-juzContent.appendChild(header);
-
+      /* =========================
+         AYAT-AYAT
+      ========================= */
       json.data.ayat.forEach(a => {
         const ayatNo = a.nomorAyat;
 
