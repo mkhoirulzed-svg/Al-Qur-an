@@ -1,9 +1,53 @@
-<script>
-const juz = new URLSearchParams(location.search).get('no');
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juz</title>
 
-fetch(`https://equran.id/api/v2/juz/${juz}`)
-  .then(res => res.json())
-  .then(data => {
-    console.log(data.data); // ayat lengkap per juz
-  });
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <button onclick="history.back()">←</button>
+  Juz
+</header>
+
+<main class="container">
+  <div id="juzContent">Memuat juz...</div>
+</main>
+
+<script>
+const juzNo = new URLSearchParams(window.location.search).get('no');
+const juzContent = document.getElementById('juzContent');
+
+if (!juzNo) {
+  juzContent.innerHTML = '<p>Juz tidak ditemukan</p>';
+} else {
+  fetch(`https://equran.id/api/v2/juz/${juzNo}`)
+    .then(res => res.json())
+    .then(res => {
+      const ayat = res.data.ayat;
+      juzContent.innerHTML = '';
+
+      ayat.forEach(a => {
+        const el = document.createElement('div');
+        el.className = 'ayat-item';
+        el.innerHTML = `
+          <p class="arab">${a.teksArab}</p>
+          <p class="arti">${a.teksIndonesia}</p>
+          <small>${a.surah.namaLatin} : ${a.nomorAyat}</small>
+        `;
+        juzContent.appendChild(el);
+      });
+    })
+    .catch(() => {
+      juzContent.innerHTML = '<p>Gagal memuat isi juz</p>';
+    });
+}
 </script>
+
+</body>
+</html>
