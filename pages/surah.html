@@ -82,6 +82,37 @@ div.dataset.text = a.teksArab;
   .catch(() => {
     ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
   });
+
+
+document.addEventListener('click', function (e) {
+  if (!e.target.classList.contains('bookmark-btn')) return;
+
+  const ayatEl = e.target.closest('.ayat-item');
+
+  const bookmark = {
+    mode: 'surah',
+    surah: ayatEl.dataset.surah,
+    surahName: ayatEl.dataset.surahName,
+    ayat: ayatEl.dataset.ayat,
+    text: ayatEl.dataset.text
+  };
+
+  let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+
+  const sudahAda = bookmarks.some(b =>
+    b.surah == bookmark.surah && b.ayat == bookmark.ayat
+  );
+
+  if (sudahAda) {
+    alert('Ayat ini sudah dibookmark');
+    return;
+  }
+
+  bookmarks.push(bookmark);
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+  e.target.classList.add('active');
+});
 </script>
 
 </body>
