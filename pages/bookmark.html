@@ -55,8 +55,8 @@ if (bookmarks.length === 0) {
 
     // 🔗 Klik ayat → kembali ke surah
     item.querySelector('.bookmark-link').onclick = () => {
-      location.href = `surah.html?no=${b.surah}#ayat-${b.ayat}`;
-    };
+ localStorage.setItem('scrollToAyat', b.ayat);
+location.href = `surah.html?no=${b.surah}`;
 
     // ❌ Hapus bookmark
     item.querySelector('.hapus-bookmark').onclick = () => {
