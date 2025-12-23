@@ -9,7 +9,7 @@
 
 <style>
 /* =========================
-   Tambahan style audio & highlight
+   Audio & highlight
 ========================= */
 .ayat-header {
   display: flex;
@@ -17,16 +17,25 @@
   align-items: center;
 }
 
-.ayat-header button.audio-btn {
-  margin-left: 8px;
+.audio-btn {
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .ayat-playing {
-  background-color: #fef9c3; /* kuning muda */
-  border-left: 4px solid #f59e0b; /* aksen oranye */
+  background-color: #fef9c3;
+  border-left: 4px solid #f59e0b;
   padding-left: 8px;
-  transition: background 0.3s;
+}
+
+.bismillah {
+  text-align: center;
+  font-size: 1.6rem;
+  margin: 16px 0;
+}
+
+.ayat-highlight {
+  background: #e0f2fe;
 }
 </style>
 </head>
@@ -47,6 +56,7 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const no = Number(params.get('no'));
+
 const ayatList = document.getElementById('ayatList');
 const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
@@ -60,7 +70,7 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
   .then(res => res.json())
   .then(res => {
     const s = res.data;
-    judul.textContent = s.englishName + " (" + s.name + ")";
+    judul.textContent = `${s.englishName} (${s.name})`;
     ayatList.innerHTML = '';
 
     function tajwidColor(text) {
@@ -70,7 +80,9 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
         .replace(/([قطبجد])/g, '<span class="tajwid-qalqalah">$1</span>');
     }
 
-    /* BISMILLAH */
+    /* =========================
+       BISMILLAH (HEADER)
+    ========================= */
     if (s.number !== 1 && s.number !== 9) {
       const bismillah = document.createElement('div');
       bismillah.className = 'bismillah ayat-arab';
@@ -78,40 +90,51 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
       ayatList.appendChild(bismillah);
     }
 
-    /* AYAT */
-   s.ayahs.forEach(a => {
+    /* =========================
+       AYAT (TIDAK ADA YANG DI-SKIP)
+    ========================= */
+    s.ayahs.forEach(a => {
 
-  // SKIP ayat 1 jika surah bukan Al-Fatihah & bukan At-Taubah
-  if (a.numberInSurah === 1 && s.number !== 1 && s.number !== 9) {
-    return;
-  }
+      let ayatText = a.text;
 
-  const div = document.createElement('div');
-  div.className = 'ayat-item';
-  div.id = `ayat-${a.numberInSurah}`;
+      // 🔒 HILANGKAN BISMILLAH DARI AYAT 1 (VISUAL SAJA)
+      if (
+        a.numberInSurah === 1 &&
+        s.number !== 1 &&
+        s.number !== 9 &&
+        ayatText.startsWith('بِسْمِ اللَّهِ')
+      ) {
+        ayatText = ayatText
+          .replace(/^بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\s*/,'');
+      }
 
-  div.dataset.surah = s.number;
-  div.dataset.surahName = s.englishName;
-  div.dataset.ayat = a.numberInSurah;
-  div.dataset.text = a.text;
-  div.dataset.audio = a.audio;
+      const div = document.createElement('div');
+      div.className = 'ayat-item';
+      div.id = `ayat-${a.numberInSurah}`;
 
-  div.innerHTML = `
-    <div class="ayat-header">
-      <div><span class="ayat-nomor">${a.numberInSurah}</span></div>
-      <div>
-        <button class="audio-btn">🔊</button>
-        <button class="bookmark-btn">🔖</button>
-      </div>
-    </div>
-    <div class="ayat-arab">${tajwidColor(a.text)}</div>
-  `;
+      div.dataset.surah = s.number;
+      div.dataset.surahName = s.englishName;
+      div.dataset.ayat = a.numberInSurah;
+      div.dataset.text = a.text;
+      div.dataset.audio = a.audio;
 
-  ayatList.appendChild(div);
-});
+      div.innerHTML = `
+        <div class="ayat-header">
+          <span class="ayat-nomor">${a.numberInSurah}</span>
+          <div>
+            <button class="audio-btn" title="Putar murrotal">🔊</button>
+            <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
+          </div>
+        </div>
+        <div class="ayat-arab">${tajwidColor(ayatText)}</div>
+      `;
 
+      ayatList.appendChild(div);
+    });
 
-    /* SCROLL KE BOOKMARK */
+    /* =========================
+       SCROLL KE BOOKMARK
+    ========================= */
     const targetAyat = localStorage.getItem('scrollToAyat');
     if (targetAyat) {
       const el = document.getElementById(`ayat-${targetAyat}`);
@@ -172,7 +195,10 @@ document.addEventListener('click', e => {
     return;
   }
 
-  if (currentPlaying) currentPlaying.classList.remove('ayat-playing');
+  if (currentPlaying) {
+    currentPlaying.classList.remove('ayat-playing');
+  }
+
   ayatEl.classList.add('ayat-playing');
   currentPlaying = ayatEl;
 
