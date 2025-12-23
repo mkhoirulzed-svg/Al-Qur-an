@@ -201,3 +201,24 @@ body {
 .tajwid-qalqalah {
   color: #dc2626;
 }
+
+.quran-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.quran-toggle button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #0f766e;
+  background: white;
+  color: #0f766e;
+  font-weight: 600;
+}
+
+.quran-toggle button.active {
+  background: #0f766e;
+  color: white;
+}
