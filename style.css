@@ -265,6 +265,12 @@ body {
   color: #f59e0b;
 }
 
+.ayat-highlight {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding-left: 10px;
+  transition: background 0.5s;
+}
 .hapus-bookmark {
   background: none;
   border: none;
@@ -279,3 +285,4 @@ body {
   color: #2563eb;
   cursor: pointer;
 }
+
