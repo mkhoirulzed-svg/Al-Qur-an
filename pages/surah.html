@@ -78,7 +78,15 @@ div.dataset.text = a.teksArab;
       `;
       ayatList.appendChild(div);
     });
+const targetAyat = localStorage.getItem('scrollToAyat');
 
+if (targetAyat) {
+  const el = document.getElementById(`ayat-${targetAyat}`);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  localStorage.removeItem('scrollToAyat');
+}
   })
   .catch(() => {
     ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
