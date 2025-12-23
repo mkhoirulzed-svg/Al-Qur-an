@@ -28,12 +28,6 @@
   padding-left: 8px;
 }
 
-.bismillah {
-  text-align: center;
-  font-size: 1.6rem;
-  margin: 16px 0;
-}
-
 .ayat-highlight {
   background: #e0f2fe;
 }
@@ -81,33 +75,9 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
     }
 
     /* =========================
-       BISMILLAH (HEADER)
-    ========================= */
-    if (s.number !== 1 && s.number !== 9) {
-      const bismillah = document.createElement('div');
-      bismillah.className = 'bismillah ayat-arab';
-      bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-      ayatList.appendChild(bismillah);
-    }
-
-    /* =========================
-       AYAT (TIDAK ADA YANG DI-SKIP)
+       AYAT (RAW DARI API)
     ========================= */
     s.ayahs.forEach(a => {
-
-      let ayatText = a.text;
-
-      // 🔒 HILANGKAN BISMILLAH DARI AYAT 1 (VISUAL SAJA)
-      if (
-        a.numberInSurah === 1 &&
-        s.number !== 1 &&
-        s.number !== 9 &&
-        ayatText.startsWith('بِسْمِ اللَّهِ')
-      ) {
-        ayatText = ayatText
-          .replace(/^بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\s*/,'');
-      }
-
       const div = document.createElement('div');
       div.className = 'ayat-item';
       div.id = `ayat-${a.numberInSurah}`;
@@ -126,7 +96,7 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
             <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
           </div>
         </div>
-        <div class="ayat-arab">${tajwidColor(ayatText)}</div>
+        <div class="ayat-arab">${tajwidColor(a.text)}</div>
       `;
 
       ayatList.appendChild(div);
