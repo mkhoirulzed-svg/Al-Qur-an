@@ -99,13 +99,19 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
        SCROLL KE AYAT BOOKMARK
     ========================= */
     const targetAyat = localStorage.getItem('scrollToAyat');
-    if (targetAyat) {
-      const el = document.getElementById(`ayat-${targetAyat}`);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      localStorage.removeItem('scrollToAyat');
-    }
+if (targetAyat) {
+  const el = document.getElementById(`ayat-${targetAyat}`);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.add('ayat-highlight');
+
+    // hilangkan highlight setelah 3 detik
+    setTimeout(() => {
+      el.classList.remove('ayat-highlight');
+    }, 3000);
+  }
+  localStorage.removeItem('scrollToAyat');
+}
   })
   .catch(err => {
     console.error(err);
