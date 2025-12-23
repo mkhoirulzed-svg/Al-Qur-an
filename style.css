@@ -156,3 +156,35 @@ body {
   color: #6b7280;
 }
 
+/* ===== AYAT ===== */
+.ayat-item {
+  background: #ffffff;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.05);
+  position: relative;
+}
+
+.ayat-arab {
+  font-size: 22px;
+  line-height: 1.8;
+  text-align: right;
+  font-family: 'Amiri', serif;
+}
+
+.ayat-indo {
+  font-size: 13px;
+  margin-top: 8px;
+  color: #374151;
+}
+
+.ayat-nomor {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 12px;
+  color: #16a34a;
+  font-weight: 600;
+}
+
