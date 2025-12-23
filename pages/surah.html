@@ -45,36 +45,24 @@
 <audio id="audioPlayer"></audio>
 
 <script>
-/* =========================
-   PARAM & ELEMENT
-========================= */
 const params = new URLSearchParams(window.location.search);
 const no = Number(params.get('no'));
 const ayatList = document.getElementById('ayatList');
 const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
 
-/* =========================
-   VALIDASI
-========================= */
 if (!no) {
   ayatList.innerHTML = '<p>Surah tidak valid</p>';
   throw new Error('Nomor surah tidak valid');
 }
 
-/* =========================
-   FETCH SURAH
-========================= */
-fetch(`https://equran.id/api/v2/surat/${no}`)
+fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
   .then(res => res.json())
   .then(res => {
     const s = res.data;
-    judul.textContent = s.namaLatin;
+    judul.textContent = s.englishName + " (" + s.name + ")";
     ayatList.innerHTML = '';
 
-    /* =========================
-       TAJWID COLOR
-    ========================= */
     function tajwidColor(text) {
       return text
         .replace(/([اوي])/g, '<span class="tajwid-mad">$1</span>')
@@ -82,53 +70,41 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
         .replace(/([قطبجد])/g, '<span class="tajwid-qalqalah">$1</span>');
     }
 
-    /* =========================
-       BISMILLAH
-       (kecuali Al-Fatihah & At-Taubah)
-    ========================= */
-    if (s.nomor !== 1 && s.nomor !== 9) {
+    /* BISMILLAH */
+    if (s.number !== 1 && s.number !== 9) {
       const bismillah = document.createElement('div');
       bismillah.className = 'bismillah ayat-arab';
-      bismillah.innerHTML =
-        s.bismillah?.teksArab || 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
       ayatList.appendChild(bismillah);
     }
 
-    /* =========================
-       AYAT
-    ========================= */
-    s.ayat.forEach(a => {
+    /* AYAT */
+    s.ayahs.forEach(a => {
       const div = document.createElement('div');
       div.className = 'ayat-item';
-      div.id = `ayat-${a.nomorAyat}`;
+      div.id = `ayat-${a.numberInSurah}`;
 
-      div.dataset.surah = s.nomor;
-      div.dataset.surahName = s.namaLatin;
-      div.dataset.ayat = a.nomorAyat;
-      div.dataset.text = a.teksArab;
-      div.dataset.audio = a.audio?.primary || '';
+      div.dataset.surah = s.number;
+      div.dataset.surahName = s.englishName;
+      div.dataset.ayat = a.numberInSurah;
+      div.dataset.text = a.text;
+      div.dataset.audio = a.audio;
 
       div.innerHTML = `
         <div class="ayat-header">
-          <div>
-            <span class="ayat-nomor">${a.nomorAyat}</span>
-          </div>
+          <div><span class="ayat-nomor">${a.numberInSurah}</span></div>
           <div>
             <button class="audio-btn" title="Putar murrotal">🔊</button>
             <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
           </div>
         </div>
 
-        <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
-        <div class="ayat-indo">${a.teksIndonesia}</div>
+        <div class="ayat-arab">${tajwidColor(a.text)}</div>
       `;
-
       ayatList.appendChild(div);
     });
 
-    /* =========================
-       SCROLL KE BOOKMARK
-    ========================= */
+    /* SCROLL KE BOOKMARK */
     const targetAyat = localStorage.getItem('scrollToAyat');
     if (targetAyat) {
       const el = document.getElementById(`ayat-${targetAyat}`);
@@ -140,7 +116,8 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
       localStorage.removeItem('scrollToAyat');
     }
   })
-  .catch(() => {
+  .catch(err => {
+    console.error(err);
     ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
   });
 
@@ -188,14 +165,10 @@ document.addEventListener('click', e => {
     return;
   }
 
-  // hapus highlight sebelumnya
   if (currentPlaying) currentPlaying.classList.remove('ayat-playing');
-
-  // highlight ayat sekarang
   ayatEl.classList.add('ayat-playing');
   currentPlaying = ayatEl;
 
-  // putar audio
   audioPlayer.src = audioUrl;
   audioPlayer.play();
 });
