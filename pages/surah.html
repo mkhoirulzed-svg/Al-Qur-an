@@ -227,7 +227,7 @@ let showTerjemah = true;
 toggleBtn.addEventListener('click', () => {
   showTerjemah = !showTerjemah;
   document.body.classList.toggle('hide-translation', !showTerjemah);
-  toggleBtn.textContent = showTerjemah ? 'Terjemah' : 'Terjemah ❌';
+  toggleBtn.classList.toggle('active', showTerjemah);
 });
 
 /* =========================
