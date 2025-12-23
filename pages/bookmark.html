@@ -26,14 +26,17 @@
   <a href="about.html">Tentang</a>
 </nav>
 
-<script>
+<<script>
 const list = document.getElementById('bookmarkList');
 
-const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+function renderBookmarks() {
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
-if (bookmarks.length === 0) {
-  list.innerHTML = '<p>Belum ada bookmark</p>';
-} else {
+  if (bookmarks.length === 0) {
+    list.innerHTML = '<p>Belum ada bookmark</p>';
+    return;
+  }
+
   list.innerHTML = '';
 
   bookmarks.forEach((b, index) => {
@@ -47,28 +50,27 @@ if (bookmarks.length === 0) {
       </div>
 
       <div class="ayat-arab">${b.text}</div>
-
-      <small class="bookmark-link">
-        Buka kembali
-      </small>
+      <small class="bookmark-link">Buka kembali</small>
     `;
 
-    // 🔗 Klik ayat → kembali ke surah
+    // 🔗 buka surah ke ayat
     item.querySelector('.bookmark-link').onclick = () => {
- localStorage.setItem('scrollToAyat', b.ayat);
-location.href = `surah.html?no=${b.surah}`;
+      localStorage.setItem('scrollToAyat', b.ayat);
+      location.href = `surah.html?no=${b.surah}`;
+    };
 
-    // ❌ Hapus bookmark
+    // ❌ hapus bookmark (TANPA reload)
     item.querySelector('.hapus-bookmark').onclick = () => {
       bookmarks.splice(index, 1);
       localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-      location.reload();
+      renderBookmarks(); // render ulang
     };
 
     list.appendChild(item);
   });
 }
-</script>
 
+renderBookmarks();
+</script>
 </body>
 </html>
