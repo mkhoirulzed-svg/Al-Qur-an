@@ -6,6 +6,29 @@
 <title>Surah</title>
 
 <link rel="stylesheet" href="../style.css">
+
+<style>
+/* =========================
+   Tambahan style audio & highlight
+========================= */
+.ayat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ayat-header button.audio-btn {
+  margin-left: 8px;
+  font-size: 1rem;
+}
+
+.ayat-playing {
+  background-color: #fef9c3; /* kuning muda */
+  border-left: 4px solid #f59e0b; /* aksen oranye */
+  padding-left: 8px;
+  transition: background 0.3s;
+}
+</style>
 </head>
 
 <body>
@@ -61,13 +84,13 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
 
     /* =========================
        BISMILLAH
+       (kecuali Al-Fatihah & At-Taubah)
     ========================= */
     if (s.nomor !== 1 && s.nomor !== 9) {
       const bismillah = document.createElement('div');
       bismillah.className = 'bismillah ayat-arab';
       bismillah.innerHTML =
-        s.bismillah?.teksArab ||
-        'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+        s.bismillah?.teksArab || 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
       ayatList.appendChild(bismillah);
     }
 
@@ -87,7 +110,9 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
 
       div.innerHTML = `
         <div class="ayat-header">
-          <span class="ayat-nomor">${a.nomorAyat}</span>
+          <div>
+            <span class="ayat-nomor">${a.nomorAyat}</span>
+          </div>
           <div>
             <button class="audio-btn" title="Putar murrotal">🔊</button>
             <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
@@ -148,8 +173,10 @@ document.addEventListener('click', e => {
 });
 
 /* =========================
-   AUDIO (FIXED)
+   AUDIO + HIGHLIGHT
 ========================= */
+let currentPlaying = null;
+
 document.addEventListener('click', e => {
   if (!e.target.classList.contains('audio-btn')) return;
 
@@ -161,6 +188,14 @@ document.addEventListener('click', e => {
     return;
   }
 
+  // hapus highlight sebelumnya
+  if (currentPlaying) currentPlaying.classList.remove('ayat-playing');
+
+  // highlight ayat sekarang
+  ayatEl.classList.add('ayat-playing');
+  currentPlaying = ayatEl;
+
+  // putar audio
   audioPlayer.src = audioUrl;
   audioPlayer.play();
 });
