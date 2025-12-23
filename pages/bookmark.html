@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookmark</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <button onclick="history.back()">←</button>
+  Bookmark
+</header>
+
+<main class="container" id="bookmarkList">
+  <p>Memuat bookmark...</p>
+</main>
+
+<nav class="bottom-nav">
+  <a href="../index.html">Home</a>
+  <a href="quran.html">Al-Qur'an</a>
+  <a href="bookmark.html" class="active">Bookmark</a>
+  <a href="about.html">Tentang</a>
+</nav>
+
+<script>
+const list = document.getElementById('bookmarkList');
+
+const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+
+if (bookmarks.length === 0) {
+  list.innerHTML = '<p>Belum ada bookmark</p>';
+} else {
+  list.innerHTML = '';
+
+  bookmarks.forEach((b, index) => {
+    const item = document.createElement('div');
+    item.className = 'ayat-item';
+
+    item.innerHTML = `
+      <div class="ayat-header">
+        <strong>${b.surahName} : ${b.ayat}</strong>
+        <button class="hapus-bookmark">✖</button>
+      </div>
+
+      <div class="ayat-arab">${b.text}</div>
+
+      <small class="bookmark-link">
+        Buka kembali
+      </small>
+    `;
+
+    // 🔗 Klik ayat → kembali ke surah
+    item.querySelector('.bookmark-link').onclick = () => {
+      location.href = `surah.html?no=${b.surah}#ayat-${b.ayat}`;
+    };
+
+    // ❌ Hapus bookmark
+    item.querySelector('.hapus-bookmark').onclick = () => {
+      bookmarks.splice(index, 1);
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      location.reload();
+    };
+
+    list.appendChild(item);
+  });
+}
+</script>
+
+</body>
+</html>
