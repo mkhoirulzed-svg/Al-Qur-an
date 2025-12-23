@@ -91,10 +91,17 @@
 <body>
 
 <header class="app-header">
-  <button onclick="history.back()">←</button>
-  <span id="judul">Surah</span>
-  <button id="toggleTerjemah">Terjemah</button>
+  <button class="nav-btn back-btn" onclick="history.back()">←</button>
+
+  <div class="header-title">
+    <span id="judul">Surah</span>
+  </div>
+
+  <button class="nav-btn translate-btn" id="toggleTerjemah" title="Toggle Terjemah">
+    🌐
+  </button>
 </header>
+
 
 <main class="container" id="ayatList">
   <p>Memuat ayat...</p>
