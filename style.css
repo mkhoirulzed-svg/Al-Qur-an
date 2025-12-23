@@ -170,13 +170,7 @@ body {
   font-size: 28px;
 }
 
-.arab {
-  font-size: 28px;
-  line-height: 2.2;
-  text-align: right;
-  direction: rtl;
-  font-family: "Scheherazade New", serif;
-}
+
 .ayat-arab {
   font-size: 28px;          /* LEBIH BESAR */
   line-height: 2.2;         /* NAFAS BACA */
