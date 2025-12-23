@@ -203,7 +203,6 @@ document.addEventListener('click', e => {
   }
 
   /* BOOKMARK TOGGLE */
-/* BOOKMARK TOGGLE */
 const bookmarkBtn = e.target.closest('.bookmark-btn');
 if (bookmarkBtn) {
   const ayatEl = bookmarkBtn.closest('.ayat-item');
@@ -222,7 +221,7 @@ if (bookmarkBtn) {
 
   if (idx >= 0) {
     bookmarks.splice(idx, 1);
-    bookmarkBtn.classList.remove('active');
+    ayatEl.classList.remove('bookmarked');
   } else {
     bookmarks.push({
       mode: 'juz',
@@ -231,11 +230,12 @@ if (bookmarkBtn) {
       ayat,
       text: ayatEl.querySelector('.ayat-arab').innerText
     });
-    bookmarkBtn.classList.add('active');
+    ayatEl.classList.add('bookmarked');
   }
 
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 }
+
 });
 </script>
 
