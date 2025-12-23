@@ -1,0 +1,9 @@
+<script>
+const juz = new URLSearchParams(location.search).get('no');
+
+fetch(`https://equran.id/api/v2/juz/${juz}`)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data.data); // ayat lengkap per juz
+  });
+</script>
