@@ -381,3 +381,81 @@ body {
   color: #2563eb;
 }
 
+
+/* =========================
+   AYAT STYLE
+========================= */
+.ayat-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ayat-content {
+  flex: 1;
+}
+
+.ayat-arab {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  text-align: right;
+}
+
+.ayat-indo {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.ayat-nomor {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.ayat-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.audio-btn,
+.bookmark-btn {
+  cursor: pointer;
+  font-size: 1rem;
+  background: none;
+  border: none;
+}
+
+/* =========================
+   BISMILLAH
+========================= */
+.bismillah {
+  text-align: center;
+  font-size: 1.6rem;
+  margin: 16px 0;
+}
+
+/* =========================
+   AUDIO PLAYING
+========================= */
+.ayat-playing {
+  background-color: #fef9c3;
+  border-right: 4px solid #f59e0b;
+  padding-right: 8px;
+}
+
+/* =========================
+   HIGHLIGHT
+========================= */
+.ayat-highlight {
+  background: #e0f2fe;
+}
+
+/* =========================
+   TOGGLE TERJEMAH
+========================= */
+.hide-translation .ayat-indo {
+  display: none;
+}
