@@ -12,9 +12,11 @@
 
 <header class="app-header">
   <button class="nav-btn back-btn" onclick="history.back()">←</button>
+
   <div class="header-title">
     <span id="judul">Juz</span>
   </div>
+
   <button class="nav-btn translate-btn" id="toggleTerjemah">🌐</button>
 </header>
 
@@ -22,11 +24,14 @@
   <p>Memuat juz...</p>
 </main>
 
+<audio id="audioPlayer"></audio>
+
 <script src="../data/juz-map.js"></script>
 <script>
 const juzNo = Number(new URLSearchParams(location.search).get('no'));
 const juzContent = document.getElementById('juzContent');
 const judul = document.getElementById('judul');
+const audioPlayer = document.getElementById('audioPlayer');
 const toggleBtn = document.getElementById('toggleTerjemah');
 
 judul.textContent = `Juz ${juzNo}`;
@@ -38,11 +43,20 @@ if (!juzInfo) {
 }
 
 /* =========================
-   AUDIO CONTROLLER (GLOBAL)
+   BOOKMARK HELPERS
 ========================= */
-const audioPlayer = new Audio();
-let ayatQueue = [];
-let currentIndex = -1;
+function getBookmarks() {
+  return JSON.parse(localStorage.getItem('bookmarks')) || [];
+}
+
+function isBookmarked(juz, surah, ayat) {
+  return getBookmarks().some(b =>
+    b.mode === 'juz' &&
+    b.juz == juz &&
+    b.surah == surah &&
+    b.ayat == ayat
+  );
+}
 
 /* =========================
    TAJWID COLOR
@@ -55,139 +69,112 @@ function tajwidColor(text) {
 }
 
 /* =========================
+   AUDIO CONTROLLER
+========================= */
+let currentAyat = null;
+let ayatQueue = [];
+let currentIndex = -1;
+
+audioPlayer.addEventListener('ended', () => {
+  if (currentAyat) {
+    currentAyat.classList.remove('ayat-playing');
+  }
+  currentIndex++;
+  playFromQueue();
+});
+
+function playFromQueue() {
+  if (currentIndex >= ayatQueue.length) return;
+
+  const ayatEl = ayatQueue[currentIndex];
+  const audioUrl = ayatEl.dataset.audio;
+  if (!audioUrl) {
+    currentIndex++;
+    playFromQueue();
+    return;
+  }
+
+  if (currentAyat) {
+    currentAyat.classList.remove('ayat-playing');
+  }
+
+  currentAyat = ayatEl;
+  ayatEl.classList.add('ayat-playing');
+  audioPlayer.src = audioUrl;
+  audioPlayer.play();
+}
+
+/* =========================
    LOAD JUZ
 ========================= */
 async function loadJuz({ start, end }) {
   juzContent.innerHTML = '';
   ayatQueue = [];
+  currentIndex = -1;
 
   for (let surah = start[0]; surah <= end[0]; surah++) {
-    try {
-      const res = await fetch(`https://api.alquran.cloud/v1/surah/${surah}/editions/ar.alafasy,id.indonesian`);
-      const json = await res.json();
+    const res = await fetch(
+      `https://api.alquran.cloud/v1/surah/${surah}/editions/ar.alafasy,id.indonesian`
+    );
+    const json = await res.json();
 
-      const arab = json.data[0];
-      const indo = json.data[1];
+    const arab = json.data[0];
+    const indo = json.data[1];
 
-      /* HEADER SURAH */
-      const header = document.createElement('div');
-      header.className = 'surah-header';
-      header.innerHTML = `
-        <h3>${arab.englishName}</h3>
-        <small>${arab.englishNameTranslation}</small>
+    /* HEADER SURAH */
+    const header = document.createElement('div');
+    header.className = 'surah-header';
+    header.innerHTML = `
+      <h3>${arab.englishName}</h3>
+      <small>${arab.englishNameTranslation}</small>
+    `;
+    juzContent.appendChild(header);
+
+    /* BISMILLAH */
+    if (arab.number !== 1 && arab.number !== 9) {
+      const b = document.createElement('div');
+      b.className = 'bismillah ayat-arab';
+      b.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      juzContent.appendChild(b);
+    }
+
+    arab.ayahs.forEach(a => {
+      const ayatNo = a.numberInSurah;
+
+      if (
+        (surah === start[0] && ayatNo < start[1]) ||
+        (surah === end[0] && ayatNo > end[1])
+      ) return;
+
+      const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
+      const bookmarked = isBookmarked(juzNo, surah, ayatNo);
+
+      const div = document.createElement('div');
+      div.className = 'ayat-item';
+      div.dataset.juz = juzNo;
+      div.dataset.surah = surah;
+      div.dataset.ayat = ayatNo;
+      div.dataset.audio = a.audio;
+
+      div.innerHTML = `
+        <div class="ayat-content">
+          <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
+          <div class="ayat-arab">${tajwidColor(a.text)}</div>
+          <div class="ayat-indo">${terjemah?.text || ''}</div>
+        </div>
+        <div class="ayat-actions">
+          <button class="audio-btn">🔊</button>
+          <button class="bookmark-btn ${bookmarked ? 'active' : ''}">🔖</button>
+        </div>
       `;
-      juzContent.appendChild(header);
 
-      /* BISMILLAH */
-      if (arab.number !== 1 && arab.number !== 9) {
-        const bismillah = document.createElement('div');
-        bismillah.className = 'bismillah ayat-arab';
-        bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-        juzContent.appendChild(bismillah);
-      }
-
-      arab.ayahs.forEach(a => {
-        const ayatNo = a.numberInSurah;
-
-        const isStart = surah === start[0] && ayatNo < start[1];
-        const isEnd   = surah === end[0]   && ayatNo > end[1];
-        if (isStart || isEnd) return;
-
-        const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
-
-        const div = document.createElement('div');
-        div.className = 'ayat-item';
-
-        div.dataset.audio = a.audio;
-        div.dataset.index = ayatQueue.length;
-
-        div.innerHTML = `
-          <div class="ayat-content">
-            <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
-            <div class="ayat-arab">${tajwidColor(a.text)}</div>
-            <div class="ayat-indo">${terjemah?.text || ''}</div>
-          </div>
-          <div class="ayat-actions">
-            <button class="audio-btn">🔊</button>
-            <button class="bookmark-btn">🔖</button>
-          </div>
-        `;
-
-        ayatQueue.push(div);
-        juzContent.appendChild(div);
-      });
-
-    } catch (e) {
-      console.error(e);
-      juzContent.innerHTML = '<p>Gagal memuat juz</p>';
-    }
+      juzContent.appendChild(div);
+      ayatQueue.push(div);
+    });
   }
 }
 
-/* =========================
-   AUDIO PLAY SEQUENTIAL
-========================= */
-function playAyat(index) {
-  const ayatEl = ayatQueue[index];
-  if (!ayatEl) return;
-
-  document.querySelectorAll('.ayat-item')
-    .forEach(el => el.classList.remove('ayat-playing'));
-
-  ayatEl.classList.add('ayat-playing');
-  ayatEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-  audioPlayer.src = ayatEl.dataset.audio;
-  audioPlayer.play();
-
-  currentIndex = index;
-}
-
-audioPlayer.addEventListener('ended', () => {
-  const next = currentIndex + 1;
-  if (next < ayatQueue.length) {
-    playAyat(next);
-  } else {
-    currentIndex = -1;
-  }
-});
-
-/* =========================
-   CLICK HANDLER
-========================= */
-document.addEventListener('click', e => {
-
-  /* AUDIO */
-  if (e.target.classList.contains('audio-btn')) {
-    const ayatEl = e.target.closest('.ayat-item');
-    const index = Number(ayatEl.dataset.index);
-
-    if (currentIndex === index && !audioPlayer.paused) {
-      audioPlayer.pause();
-      ayatEl.classList.remove('ayat-playing');
-      return;
-    }
-
-    playAyat(index);
-  }
-
-  /* BOOKMARK */
-  if (e.target.classList.contains('bookmark-btn')) {
-    const ayatEl = e.target.closest('.ayat-item');
-
-    const bookmark = {
-      mode: 'juz',
-      juz: juzNo,
-      text: ayatEl.querySelector('.ayat-arab').innerText
-    };
-
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    bookmarks.push(bookmark);
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-
-    e.target.classList.add('active');
-  }
-});
+loadJuz(juzInfo);
 
 /* =========================
    TOGGLE TERJEMAH
@@ -200,9 +187,48 @@ toggleBtn.addEventListener('click', () => {
 });
 
 /* =========================
-   INIT
+   CLICK HANDLER
 ========================= */
-loadJuz(juzInfo);
+document.addEventListener('click', e => {
+
+  /* AUDIO */
+  if (e.target.classList.contains('audio-btn')) {
+    const ayatEl = e.target.closest('.ayat-item');
+    currentIndex = ayatQueue.indexOf(ayatEl);
+    playFromQueue();
+  }
+
+  /* BOOKMARK TOGGLE */
+  if (e.target.classList.contains('bookmark-btn')) {
+    const ayatEl = e.target.closest('.ayat-item');
+    const surah = ayatEl.dataset.surah;
+    const ayat  = ayatEl.dataset.ayat;
+
+    let bookmarks = getBookmarks();
+    const idx = bookmarks.findIndex(b =>
+      b.mode === 'juz' &&
+      b.juz == juzNo &&
+      b.surah == surah &&
+      b.ayat == ayat
+    );
+
+    if (idx >= 0) {
+      bookmarks.splice(idx, 1);
+      e.target.classList.remove('active');
+    } else {
+      bookmarks.push({
+        mode: 'juz',
+        juz: juzNo,
+        surah,
+        ayat,
+        text: ayatEl.querySelector('.ayat-arab').innerText
+      });
+      e.target.classList.add('active');
+    }
+
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  }
+});
 </script>
 
 </body>
