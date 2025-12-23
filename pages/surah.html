@@ -44,6 +44,18 @@ if (!no) {
   throw new Error('Nomor surah tidak valid');
 }
 
+  function getBookmarks() {
+  return JSON.parse(localStorage.getItem('bookmarks')) || [];
+}
+
+function isBookmarkedSurah(surah, ayat) {
+  return getBookmarks().some(b =>
+    b.mode === 'surah' &&
+    b.surah == surah &&
+    b.ayat == ayat
+  );
+}
+
 /* =========================
    FETCH API (ARAB + INDO)
 ========================= */
@@ -98,7 +110,12 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
       );
 
       const div = document.createElement('div');
-      div.className = 'ayat-item';
+div.className = 'ayat-item';
+
+if (isBookmarkedSurah(arab.number, a.numberInSurah)) {
+  div.classList.add('bookmarked');
+}
+
       div.id = `ayat-${a.numberInSurah}`;
 
       div.dataset.surah = arab.number;
@@ -154,27 +171,39 @@ toggleBtn.addEventListener('click', () => {
 /* =========================
    BOOKMARK
 ========================= */
+/* =========================
+   BOOKMARK TOGGLE + HIGHLIGHT
+========================= */
 document.addEventListener('click', e => {
-  if (!e.target.classList.contains('bookmark-btn')) return;
+  const btn = e.target.closest('.bookmark-btn');
+  if (!btn) return;
 
-  const ayatEl = e.target.closest('.ayat-item');
+  const ayatEl = btn.closest('.ayat-item');
+  const surah = ayatEl.dataset.surah;
+  const ayat  = ayatEl.dataset.ayat;
 
-  const bookmark = {
-    mode: 'surah',
-    surah: ayatEl.dataset.surah,
-    surahName: ayatEl.dataset.surahName,
-    ayat: ayatEl.dataset.ayat,
-    text: ayatEl.dataset.text
-  };
+  let bookmarks = getBookmarks();
 
-  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+  const idx = bookmarks.findIndex(b =>
+    b.mode === 'surah' &&
+    b.surah == surah &&
+    b.ayat == ayat
+  );
 
-  if (bookmarks.some(b => b.surah == bookmark.surah && b.ayat == bookmark.ayat)) {
-    alert('Ayat ini sudah dibookmark');
-    return;
+  if (idx >= 0) {
+    bookmarks.splice(idx, 1);
+    ayatEl.classList.remove('bookmarked');
+  } else {
+    bookmarks.push({
+      mode: 'surah',
+      surah,
+      surahName: ayatEl.dataset.surahName,
+      ayat,
+      text: ayatEl.dataset.text
+    });
+    ayatEl.classList.add('bookmarked');
   }
 
-  bookmarks.push(bookmark);
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 });
 
