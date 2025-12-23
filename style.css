@@ -17,21 +17,17 @@ body {
   color: var(--text);
 }
 
-/* HEADER */
-.app-header {
-  text-align: center;
-  padding: 16px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-/* CONTENT */
+/* =========================
+   CONTAINER
+========================= */
 .container {
   padding: 16px;
   padding-bottom: 90px;
 }
 
-/* MENU GRID */
+/* =========================
+   MENU GRID
+========================= */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -67,10 +63,11 @@ body {
   text-align: center;
   font-size: 12px;
   font-weight: 600;
-  line-height: 1.1;
 }
 
-/* RIPPLE */
+/* =========================
+   RIPPLE
+========================= */
 .ripple::after {
   content: "";
   position: absolute;
@@ -88,14 +85,16 @@ body {
   transition: transform .4s, opacity .6s;
 }
 
-/* BOTTOM NAV */
+/* =========================
+   BOTTOM NAV
+========================= */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
 
-  height: 70px; /* TINGGI NAV */
+  height: 70px;
   display: flex;
   align-items: center;
 
@@ -112,14 +111,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  padding: 0; /* biar full */
-  text-align: center;
   text-decoration: none;
-
   color: #6b7280;
-  font-size: 14px; /* TEKS LEBIH BESAR */
-  
-  touch-action: manipulation;
+  font-size: 14px;
 }
 
 .bottom-nav a.active {
@@ -128,7 +122,9 @@ body {
   border-top: 3px solid var(--green);
 }
 
-/* ===== AL-QURAN ===== */
+/* =========================
+   SURAH LIST
+========================= */
 .surah-list {
   display: flex;
   flex-direction: column;
@@ -156,172 +152,6 @@ body {
   color: #6b7280;
 }
 
-/* ===== AYAT ===== */
-.ayat-item {
-  background: #ffffff;
-  padding: 16px;
-  margin-bottom: 14px;
-  border-radius: 14px;
-  box-shadow: 0 4px 8px rgba(0,0,0,.05);
-  position: relative;
-}
-
-.ayat-item .arab {
-  font-size: 28px;
-}
-
-
-.ayat-arab {
-  font-size: 28px;          /* LEBIH BESAR */
-  line-height: 2.2;         /* NAFAS BACA */
-  text-align: right;
-  font-family: 'Amiri', serif;
-  direction: rtl;
-
-}
-
-.ayat-indo {
-  font-size: 13px;
-  margin-top: 8px;
-  color: #374151;
-}
-
-.ayat-nomor {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  font-size: 12px;
-  color: #16a34a;
-  font-weight: 600;
-}
-
-.tajwid-mad {
-  color: #16a34a;
-}
-
-.tajwid-idgham {
-  color: #2563eb;
-}
-
-.tajwid-qalqalah {
-  color: #dc2626;
-}
-
-.quran-toggle {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.quran-toggle button {
-  flex: 1;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #0f766e;
-  background: white;
-  color: #0f766e;
-  font-weight: 600;
-}
-
-.quran-toggle button.active {
-  background: #0f766e;
-  color: white;
-}
-
-.surah-header {
-  margin: 24px 0 12px;
-  padding: 12px;
-  background: #f0fdfa;
-  border-left: 4px solid #0f766e;
-  border-radius: 8px;
-}
-
-.surah-header h3 {
-  margin: 0;
-  color: #0f766e;
-}
-
-.surah-header small {
-  color: #555;
-}
-
-.ayat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.bookmark-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  opacity: 0.4;
-}
-
-.bookmark-btn.active {
-  opacity: 1;
-  color: #f59e0b;
-}
-
-.ayat-highlight {
-  background: #fef3c7;
-  border-left: 4px solid #f59e0b;
-  padding-left: 10px;
-  transition: background 0.5s;
-}
-.hapus-bookmark {
-  background: none;
-  border: none;
-  color: red;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.bookmark-link {
-  display: inline-block;
-  margin-top: 6px;
-  color: #2563eb;
-  cursor: pointer;
-}
-
-
-/* =========================
-   HEADER AYAT
-========================= */
-.ayat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.ayat-header > div {
-  display: flex;
-  gap: 8px;
-}
-
-/* tombol audio & bookmark */
-.audio-btn,
-.bookmark-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  padding: 2px;
-}
-
-.audio-btn:hover,
-.bookmark-btn:hover {
-  opacity: 0.7;
-}
-
-.bookmark-btn.active {
-  color: #16a34a; /* hijau */
-}
-
 /* =========================
    MODERN HEADER
 ========================= */
@@ -340,7 +170,6 @@ body {
   border-bottom: 1px solid #eee;
 }
 
-/* Tombol kiri & kanan */
 .nav-btn {
   width: 40px;
   height: 40px;
@@ -353,19 +182,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .nav-btn:hover {
   background: #e5e7eb;
 }
 
-.nav-btn:active {
-  transform: scale(0.95);
+.translate-btn.active {
+  background: #dbeafe;
+  color: #2563eb;
 }
 
-/* Judul tengah */
 .header-title {
   text-align: center;
   font-weight: 600;
@@ -375,57 +202,67 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Tombol terjemah aktif */
-.translate-btn.active {
-  background: #dbeafe;
-  color: #2563eb;
-}
-
-
 /* =========================
-   AYAT STYLE
+   AYAT (FINAL)
 ========================= */
 .ayat-item {
+  background: #ffffff;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.05);
+
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 20px;
 }
 
 .ayat-content {
   flex: 1;
 }
 
+.ayat-nomor {
+  font-size: 0.85rem;
+  color: #16a34a;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
 .ayat-arab {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 2.6rem;
   text-align: right;
+  font-family: 'Amiri', serif;
+  direction: rtl;
 }
 
 .ayat-indo {
   font-size: 0.95rem;
-  color: #555;
-  margin-top: 6px;
+  color: #374151;
+  margin-top: 8px;
   line-height: 1.6;
-}
-
-.ayat-nomor {
-  color: #888;
-  font-size: 0.85rem;
 }
 
 .ayat-actions {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  align-items: center;
 }
 
 .audio-btn,
 .bookmark-btn {
-  cursor: pointer;
-  font-size: 1rem;
-  background: none;
+  background: #f3f4f6;
   border: none;
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.bookmark-btn.active {
+  color: #f59e0b;
 }
 
 /* =========================
@@ -438,7 +275,7 @@ body {
 }
 
 /* =========================
-   AUDIO PLAYING
+   AUDIO & HIGHLIGHT
 ========================= */
 .ayat-playing {
   background-color: #fef9c3;
@@ -446,12 +283,16 @@ body {
   padding-right: 8px;
 }
 
-/* =========================
-   HIGHLIGHT
-========================= */
 .ayat-highlight {
   background: #e0f2fe;
 }
+
+/* =========================
+   TAJWID
+========================= */
+.tajwid-mad { color: #16a34a; }
+.tajwid-idgham { color: #2563eb; }
+.tajwid-qalqalah { color: #dc2626; }
 
 /* =========================
    TOGGLE TERJEMAH
