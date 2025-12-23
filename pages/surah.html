@@ -21,7 +21,7 @@
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const no = params.get('no');
+const no = Number(params.get('no'));
 const ayatList = document.getElementById('ayatList');
 const judul = document.getElementById('judul');
 
@@ -30,26 +30,45 @@ fetch(`https://equran.id/api/v2/surat/${no}`)
   .then(res => {
     const s = res.data;
     judul.textContent = s.namaLatin;
-
     ayatList.innerHTML = '';
 
-   function tajwidColor(text) {
-  return text
-    .replace(/([اوي])/g, '<span class="tajwid-mad">$1</span>')
-    .replace(/([نم]ْ)/g, '<span class="tajwid-idgham">$1</span>')
-    .replace(/([قطبجد])/g, '<span class="tajwid-qalqalah">$1</span>');
-}
+    /* =========================
+       TAJWID COLOR
+    ========================= */
+    function tajwidColor(text) {
+      return text
+        .replace(/([اوي])/g, '<span class="tajwid-mad">$1</span>')
+        .replace(/([نم]ْ)/g, '<span class="tajwid-idgham">$1</span>')
+        .replace(/([قطبجد])/g, '<span class="tajwid-qalqalah">$1</span>');
+    }
 
-s.ayat.forEach(a => {
-  const div = document.createElement('div');
-  div.className = 'ayat-item';
-  div.innerHTML = `
-    <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
-    <div class="ayat-indo">${a.teksIndonesia}</div>
-    <div class="ayat-nomor">${a.nomorAyat}</div>
-  `;
-  ayatList.appendChild(div);
-});
+    /* =========================
+       BISMILLAH
+       - tampil di awal surah
+       - kecuali Al-Fatihah (1) & At-Taubah (9)
+    ========================= */
+    if (s.nomor !== 1 && s.nomor !== 9) {
+      const bismillah = document.createElement('div');
+      bismillah.className = 'bismillah ayat-arab';
+      bismillah.innerHTML =
+        s.bismillah?.teksArab ||
+        'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      ayatList.appendChild(bismillah);
+    }
+
+    /* =========================
+       AYAT-AYAT
+    ========================= */
+    s.ayat.forEach(a => {
+      const div = document.createElement('div');
+      div.className = 'ayat-item';
+      div.innerHTML = `
+        <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
+        <div class="ayat-indo">${a.teksIndonesia}</div>
+        <div class="ayat-nomor">${a.nomorAyat}</div>
+      `;
+      ayatList.appendChild(div);
+    });
 
   })
   .catch(() => {
