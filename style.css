@@ -167,10 +167,12 @@ body {
 }
 
 .ayat-arab {
-  font-size: 22px;
-  line-height: 1.8;
+  font-size: 28px;          /* LEBIH BESAR */
+  line-height: 2.2;         /* NAFAS BACA */
   text-align: right;
   font-family: 'Amiri', serif;
+  direction: rtl;
+
 }
 
 .ayat-indo {
