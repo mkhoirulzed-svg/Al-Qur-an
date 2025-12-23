@@ -36,7 +36,7 @@ if (!juzInfo) {
 }
 
 /* =========================
-   TAJWID COLOR (SAMA)
+   TAJWID COLOR
 ========================= */
 function tajwidColor(text) {
   return text
@@ -64,31 +64,27 @@ async function loadJuz({ start, end }) {
       `;
       juzContent.appendChild(header);
 
-      
       /* =========================
-   BISMILLAH
-   - hanya di awal surah
-   - bukan awal juz di tengah surah
-   - kecuali Al-Fatihah & At-Taubah
-========================= */
-const isFirstSurahInJuz = surah === start[0];
-const isStartFromAyat1 = start[1] === 1;
+         BISMILLAH
+      ========================= */
+      const isFirstSurahInJuz = surah === start[0];
+      const isStartFromAyat1 = start[1] === 1;
 
-if (
-  json.data.nomor !== 1 &&
-  json.data.nomor !== 9 &&
-  (!isFirstSurahInJuz || isStartFromAyat1)
-) {
-  const bismillah = document.createElement('div');
-  bismillah.className = 'bismillah ayat-arab';
-  bismillah.innerHTML =
-    json.data.bismillah?.teksArab ||
-    'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-  juzContent.appendChild(bismillah);
-}
+      if (
+        json.data.nomor !== 1 &&
+        json.data.nomor !== 9 &&
+        (!isFirstSurahInJuz || isStartFromAyat1)
+      ) {
+        const bismillah = document.createElement('div');
+        bismillah.className = 'bismillah ayat-arab';
+        bismillah.innerHTML =
+          json.data.bismillah?.teksArab ||
+          'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+        juzContent.appendChild(bismillah);
+      }
 
       /* =========================
-         AYAT (STYLE SAMA SURAH)
+         AYAT + BOOKMARK
       ========================= */
       json.data.ayat.forEach(a => {
         const ayatNo = a.nomorAyat;
@@ -103,13 +99,22 @@ if (
 
         const div = document.createElement('div');
         div.className = 'ayat-item';
+        div.dataset.surah = surah;
+        div.dataset.surahName = json.data.namaLatin;
+        div.dataset.ayat = ayatNo;
+        div.dataset.juz = juzNo;
+        div.dataset.text = a.teksArab;
+
         div.innerHTML = `
+          <div class="ayat-header">
+            <span class="ayat-nomor">${json.data.namaLatin} : ${ayatNo}</span>
+            <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
+          </div>
+
           <div class="ayat-arab">${tajwidColor(a.teksArab)}</div>
           <div class="ayat-indo">${a.teksIndonesia}</div>
-          <div class="ayat-nomor">
-            ${json.data.namaLatin} : ${ayatNo}
-          </div>
         `;
+
         juzContent.appendChild(div);
       });
 
@@ -118,6 +123,40 @@ if (
     }
   }
 }
+
+/* =========================
+   BOOKMARK HANDLER (JUZ)
+========================= */
+document.addEventListener('click', function (e) {
+  if (!e.target.classList.contains('bookmark-btn')) return;
+
+  const ayatEl = e.target.closest('.ayat-item');
+
+  const bookmark = {
+    mode: 'juz',
+    juz: ayatEl.dataset.juz,
+    surah: ayatEl.dataset.surah,
+    surahName: ayatEl.dataset.surahName,
+    ayat: ayatEl.dataset.ayat,
+    text: ayatEl.dataset.text
+  };
+
+  let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+
+  const sudahAda = bookmarks.some(b =>
+    b.surah == bookmark.surah && b.ayat == bookmark.ayat
+  );
+
+  if (sudahAda) {
+    alert('Ayat ini sudah dibookmark');
+    return;
+  }
+
+  bookmarks.push(bookmark);
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+  e.target.classList.add('active');
+});
 </script>
 
 </body>
