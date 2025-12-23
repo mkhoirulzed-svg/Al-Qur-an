@@ -166,6 +166,10 @@ body {
   position: relative;
 }
 
+.ayat-item .arab {
+  font-size: 28px;
+}
+
 .ayat-arab {
   font-size: 28px;          /* LEBIH BESAR */
   line-height: 2.2;         /* NAFAS BACA */
