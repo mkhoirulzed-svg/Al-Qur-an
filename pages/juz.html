@@ -64,17 +64,28 @@ async function loadJuz({ start, end }) {
       `;
       juzContent.appendChild(header);
 
+      
       /* =========================
-         BISMILLAH
-      ========================= */
-      if (json.data.nomor !== 1 && json.data.nomor !== 9) {
-        const bismillah = document.createElement('div');
-        bismillah.className = 'bismillah ayat-arab';
-        bismillah.innerHTML =
-          json.data.bismillah?.teksArab ||
-          'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-        juzContent.appendChild(bismillah);
-      }
+   BISMILLAH
+   - hanya di awal surah
+   - bukan awal juz di tengah surah
+   - kecuali Al-Fatihah & At-Taubah
+========================= */
+const isFirstSurahInJuz = surah === start[0];
+const isStartFromAyat1 = start[1] === 1;
+
+if (
+  json.data.nomor !== 1 &&
+  json.data.nomor !== 9 &&
+  (!isFirstSurahInJuz || isStartFromAyat1)
+) {
+  const bismillah = document.createElement('div');
+  bismillah.className = 'bismillah ayat-arab';
+  bismillah.innerHTML =
+    json.data.bismillah?.teksArab ||
+    'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+  juzContent.appendChild(bismillah);
+}
 
       /* =========================
          AYAT (STYLE SAMA SURAH)
