@@ -79,30 +79,37 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/ar.alafasy`)
     }
 
     /* AYAT */
-    s.ayahs.forEach(a => {
-      const div = document.createElement('div');
-      div.className = 'ayat-item';
-      div.id = `ayat-${a.numberInSurah}`;
+   s.ayahs.forEach(a => {
 
-      div.dataset.surah = s.number;
-      div.dataset.surahName = s.englishName;
-      div.dataset.ayat = a.numberInSurah;
-      div.dataset.text = a.text;
-      div.dataset.audio = a.audio;
+  // SKIP ayat 1 jika surah bukan Al-Fatihah & bukan At-Taubah
+  if (a.numberInSurah === 1 && s.number !== 1 && s.number !== 9) {
+    return;
+  }
 
-      div.innerHTML = `
-        <div class="ayat-header">
-          <div><span class="ayat-nomor">${a.numberInSurah}</span></div>
-          <div>
-            <button class="audio-btn" title="Putar murrotal">🔊</button>
-            <button class="bookmark-btn" title="Bookmark ayat">🔖</button>
-          </div>
-        </div>
+  const div = document.createElement('div');
+  div.className = 'ayat-item';
+  div.id = `ayat-${a.numberInSurah}`;
 
-        <div class="ayat-arab">${tajwidColor(a.text)}</div>
-      `;
-      ayatList.appendChild(div);
-    });
+  div.dataset.surah = s.number;
+  div.dataset.surahName = s.englishName;
+  div.dataset.ayat = a.numberInSurah;
+  div.dataset.text = a.text;
+  div.dataset.audio = a.audio;
+
+  div.innerHTML = `
+    <div class="ayat-header">
+      <div><span class="ayat-nomor">${a.numberInSurah}</span></div>
+      <div>
+        <button class="audio-btn">🔊</button>
+        <button class="bookmark-btn">🔖</button>
+      </div>
+    </div>
+    <div class="ayat-arab">${tajwidColor(a.text)}</div>
+  `;
+
+  ayatList.appendChild(div);
+});
+
 
     /* SCROLL KE BOOKMARK */
     const targetAyat = localStorage.getItem('scrollToAyat');
