@@ -33,30 +33,75 @@
   <a href="about.html">Tentang</a>
 </nav>
 
-<script src="../data/surah.js"></script>
 <script>
 const list = document.getElementById('surahList');
+const btnSurah = document.getElementById('btnSurah');
+const btnJuz = document.getElementById('btnJuz');
 
-fetch('https://equran.id/api/v2/surat')
-  .then(res => res.json())
-  .then(data => {
-    data.data.forEach(s => {
-      const item = document.createElement('a');
-      item.href = `surah.html?no=${s.nomor}`;
-      item.className = 'surah-item';
-      item.innerHTML = `
-        <div>
-          <strong>${s.nomor}. ${s.namaLatin}</strong>
-          <small>${s.arti}</small>
-        </div>
-        <span>${s.jumlahAyat} ayat</span>
-      `;
-      list.appendChild(item);
-    });
-  })
-  .catch(() => {
-    list.innerHTML = '<p>Gagal memuat data Al-Qur’an</p>';
-  });
+loadSurah(); // default
+
+btnSurah.onclick = () => {
+  setActive(btnSurah, btnJuz);
+  loadSurah();
+};
+
+btnJuz.onclick = () => {
+  setActive(btnJuz, btnSurah);
+  loadJuz();
+};
+
+function setActive(activeBtn, inactiveBtn) {
+  activeBtn.classList.add('active');
+  inactiveBtn.classList.remove('active');
+}
+
+function loadSurah() {
+  list.innerHTML = 'Memuat surah...';
+
+  fetch('https://equran.id/api/v2/surat')
+    .then(res => res.json())
+    .then(data => {
+      list.innerHTML = '';
+      data.data.forEach(s => {
+        const item = document.createElement('a');
+        item.href = `surah.html?no=${s.nomor}`;
+        item.className = 'surah-item';
+        item.innerHTML = `
+          <div>
+            <strong>${s.nomor}. ${s.namaLatin}</strong>
+            <small>${s.arti}</small>
+          </div>
+          <span>${s.jumlahAyat} ayat</span>
+        `;
+        list.appendChild(item);
+      });
+    })
+    .catch(() => list.innerHTML = '<p>Gagal memuat Surah</p>');
+}
+
+function loadJuz() {
+  list.innerHTML = 'Memuat juz...';
+
+  fetch('https://equran.id/api/v2/juz')
+    .then(res => res.json())
+    .then(data => {
+      list.innerHTML = '';
+      data.data.forEach(j => {
+        const item = document.createElement('a');
+        item.href = `juz.html?no=${j.nomor}`;
+        item.className = 'surah-item';
+        item.innerHTML = `
+          <div>
+            <strong>Juz ${j.nomor}</strong>
+            <small>${j.nama}</small>
+          </div>
+          <span>${j.jumlahAyat} ayat</span>
+        `;
+        list.appendChild(item);
+      });
+    })
+    .catch(() => list.innerHTML = '<p>Gagal memuat Juz</p>');
+}
 </script>
 
 
