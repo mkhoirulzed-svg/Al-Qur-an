@@ -20,32 +20,47 @@
 </main>
 
 <script>
-const juzNo = new URLSearchParams(window.location.search).get('no');
+const juzNo = parseInt(new URLSearchParams(location.search).get('no'));
 const juzContent = document.getElementById('juzContent');
 
 if (!juzNo) {
-  juzContent.innerHTML = '<p>Juz tidak ditemukan</p>';
+  juzContent.innerHTML = '<p>Juz tidak valid</p>';
 } else {
-  fetch(`https://equran.id/api/v2/juz/${juzNo}`)
-    .then(res => res.json())
-    .then(res => {
-      const ayat = res.data.ayat;
-      juzContent.innerHTML = '';
+  loadJuzFromSurah(juzNo);
+}
+
+async function loadJuzFromSurah(juzTarget) {
+  juzContent.innerHTML = '';
+  let found = false;
+
+  try {
+    for (let surah = 1; surah <= 114; surah++) {
+      const res = await fetch(`https://equran.id/api/v2/surat/${surah}`);
+      const json = await res.json();
+      const ayat = json.data.ayat;
 
       ayat.forEach(a => {
-        const el = document.createElement('div');
-        el.className = 'ayat-item';
-        el.innerHTML = `
-          <p class="arab">${a.teksArab}</p>
-          <p class="arti">${a.teksIndonesia}</p>
-          <small>${a.surah.namaLatin} : ${a.nomorAyat}</small>
-        `;
-        juzContent.appendChild(el);
+        if (a.juz === juzTarget) {
+          found = true;
+          const el = document.createElement('div');
+          el.className = 'ayat-item';
+          el.innerHTML = `
+            <p class="arab">${a.teksArab}</p>
+            <p class="arti">${a.teksIndonesia}</p>
+            <small>${json.data.namaLatin} : ${a.nomorAyat}</small>
+          `;
+          juzContent.appendChild(el);
+        }
       });
-    })
-    .catch(() => {
-      juzContent.innerHTML = '<p>Gagal memuat isi juz</p>';
-    });
+    }
+
+    if (!found) {
+      juzContent.innerHTML = '<p>Isi juz tidak ditemukan</p>';
+    }
+
+  } catch (e) {
+    juzContent.innerHTML = '<p>Gagal memuat isi juz</p>';
+  }
 }
 </script>
 
