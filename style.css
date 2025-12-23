@@ -95,21 +95,35 @@ body {
   left: 0;
   right: 0;
 
+  height: 70px; /* TINGGI NAV */
   display: flex;
+  align-items: center;
+
   background: #ffffff;
   border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -4px 10px rgba(0,0,0,.08);
 }
 
 .bottom-nav a {
   flex: 1;
-  padding: 12px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0; /* biar full */
   text-align: center;
   text-decoration: none;
+
   color: #6b7280;
-  font-size: 12px;
+  font-size: 14px; /* TEKS LEBIH BESAR */
+  
+  touch-action: manipulation;
 }
 
 .bottom-nav a.active {
   color: var(--green);
   font-weight: 600;
+  border-top: 3px solid var(--green);
 }
