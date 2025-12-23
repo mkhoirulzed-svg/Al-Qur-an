@@ -199,35 +199,39 @@ document.addEventListener('click', e => {
   }
 
   /* BOOKMARK TOGGLE */
-  if (e.target.classList.contains('bookmark-btn')) {
-    const ayatEl = e.target.closest('.ayat-item');
-    const surah = ayatEl.dataset.surah;
-    const ayat  = ayatEl.dataset.ayat;
+/* BOOKMARK TOGGLE */
+const bookmarkBtn = e.target.closest('.bookmark-btn');
+if (bookmarkBtn) {
+  const ayatEl = bookmarkBtn.closest('.ayat-item');
 
-    let bookmarks = getBookmarks();
-    const idx = bookmarks.findIndex(b =>
-      b.mode === 'juz' &&
-      b.juz == juzNo &&
-      b.surah == surah &&
-      b.ayat == ayat
-    );
+  const surah = ayatEl.dataset.surah;
+  const ayat  = ayatEl.dataset.ayat;
 
-    if (idx >= 0) {
-      bookmarks.splice(idx, 1);
-      e.target.classList.remove('active');
-    } else {
-      bookmarks.push({
-        mode: 'juz',
-        juz: juzNo,
-        surah,
-        ayat,
-        text: ayatEl.querySelector('.ayat-arab').innerText
-      });
-      e.target.classList.add('active');
-    }
+  let bookmarks = getBookmarks();
 
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  const idx = bookmarks.findIndex(b =>
+    b.mode === 'juz' &&
+    b.juz == juzNo &&
+    b.surah == surah &&
+    b.ayat == ayat
+  );
+
+  if (idx >= 0) {
+    bookmarks.splice(idx, 1);
+    bookmarkBtn.classList.remove('active');
+  } else {
+    bookmarks.push({
+      mode: 'juz',
+      juz: juzNo,
+      surah,
+      ayat,
+      text: ayatEl.querySelector('.ayat-arab').innerText
+    });
+    bookmarkBtn.classList.add('active');
   }
+
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+}
 });
 </script>
 
