@@ -190,3 +190,14 @@ body {
   font-weight: 600;
 }
 
+.tajwid-mad {
+  color: #16a34a;
+}
+
+.tajwid-idgham {
+  color: #2563eb;
+}
+
+.tajwid-qalqalah {
+  color: #dc2626;
+}
