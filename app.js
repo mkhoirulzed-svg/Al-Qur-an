@@ -1,13 +1,14 @@
-// Register Service Worker
+// ================= SERVICE WORKER =================
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("Al-Qur-an/sw.js")
-    .then(() => console.log("Service Worker registered"))
-    .catch(err => console.error("SW failed:", err));
+  navigator.serviceWorker.register("/Al-Qur-an/sw.js")
+    .then(() => console.log("SW registered"))
+    .catch(err => console.error("SW error:", err));
 }
 
-// ================= INSTALL BUTTON =================
-
+// ================= INSTALL POPUP =================
 let deferredPrompt;
+
+const popup = document.getElementById("installPopup");
 const installBtn = document.getElementById("installBtn");
 
 function isAppInstalled() {
@@ -15,21 +16,23 @@ function isAppInstalled() {
     || window.navigator.standalone === true;
 }
 
-// Jika sudah install → hapus tombol
+// Jika sudah install → popup dihapus
 if (isAppInstalled()) {
-  installBtn?.remove();
+  popup?.remove();
 }
 
-// Event install
+// Tangkap event install
 window.addEventListener("beforeinstallprompt", (e) => {
   if (isAppInstalled()) return;
 
   e.preventDefault();
   deferredPrompt = e;
-  installBtn.hidden = false;
+
+  // Tampilkan popup
+  popup?.classList.remove("hidden");
 });
 
-// Klik tombol
+// Klik tombol install
 installBtn?.addEventListener("click", async () => {
   if (!deferredPrompt) return;
 
@@ -37,13 +40,13 @@ installBtn?.addEventListener("click", async () => {
   const { outcome } = await deferredPrompt.userChoice;
 
   if (outcome === "accepted") {
-    installBtn.remove();
+    popup?.remove();
   }
 
   deferredPrompt = null;
 });
 
-// Setelah terinstall
+// Setelah benar-benar terinstall
 window.addEventListener("appinstalled", () => {
-  installBtn?.remove();
+  popup?.remove();
 });
