@@ -342,22 +342,20 @@ body {
   font-weight: 600;
 }
 
-.back-btn {
-  width: 36px;
-  height: 36px;
-  border: none;
+back-btn {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.18);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
-.back-btn img {
-  width: 18px;
-  height: 18px;
-  filter: invert(1);
+
+back-btn svg {
+  color: white;
 }
 
 .quran-toggle {
