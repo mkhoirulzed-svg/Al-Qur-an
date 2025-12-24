@@ -193,15 +193,6 @@ body {
   color: #2563eb;
 }
 
-.header-title {
-  text-align: center;
-  font-weight: 600;
-  font-size: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 /* =========================
    AYAT (FINAL)
 ========================= */
@@ -327,9 +318,9 @@ body {
 .app-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
   padding: 14px 16px;
-  background: #0f766e; /* hijau islami */
+  background: #0f766e;
   color: white;
   position: sticky;
   top: 0;
@@ -337,11 +328,13 @@ body {
 }
 
 .header-title {
+  flex: 1;
+  text-align: center;
   font-size: 18px;
   font-weight: 600;
 }
 
-back-btn {
+.back-btn {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -350,6 +343,7 @@ back-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 
