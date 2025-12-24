@@ -1,24 +1,41 @@
 let deferredPrompt;
-const installBox = document.getElementById("installBox");
 const installBtn = document.getElementById("installBtn");
 
+// CEK apakah app sudah terinstall
+function isAppInstalled() {
+  return window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone === true;
+}
+
+// Kalau sudah install → tombol jangan muncul
+if (isAppInstalled()) {
+  installBtn?.remove();
+}
+
+// Tangkap event install
 window.addEventListener("beforeinstallprompt", (e) => {
+  if (isAppInstalled()) return;
+
   e.preventDefault();
   deferredPrompt = e;
-  installBox.style.display = "block";
+  installBtn.hidden = false;
 });
 
-installBtn.addEventListener("click", () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => {
-      installBox.style.display = "none";
-      deferredPrompt = null;
-    });
+// Klik tombol install
+installBtn?.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+
+  if (outcome === "accepted") {
+    installBtn.remove();
   }
+
+  deferredPrompt = null;
 });
 
-// Register Service Worker
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
+// Jika app benar-benar terinstall
+window.addEventListener("appinstalled", () => {
+  installBtn?.remove();
+});
