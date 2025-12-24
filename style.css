@@ -206,11 +206,10 @@ body {
    AYAT (FINAL)
 ========================= */
 .ayat-item {
-  background: white;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
   display: flex;
