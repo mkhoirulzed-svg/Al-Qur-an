@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bookmark</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark</title>
 
-<link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="app-header">
   <button class="back-btn" onclick="history.back()">
     <svg viewBox="0 0 24 24" width="22" height="22"
@@ -21,12 +22,14 @@
   <h1 class="header-title">Bookmark</h1>
 </header>
 
+<!-- CONTENT -->
 <main class="container">
-  <div id="bookmarkList"></div>
-</main>
-  <p>Memuat bookmark...</p>
+  <div id="bookmarkList">
+    <p class="loading">Memuat bookmark...</p>
+  </div>
 </main>
 
+<!-- NAV -->
 <nav class="bottom-nav">
   <a href="../index.html">Home</a>
   <a href="quran.html">Al-Qur'an</a>
@@ -34,6 +37,7 @@
   <a href="about.html">Tentang</a>
 </nav>
 
+<!-- SCRIPT -->
 <script>
 const list = document.getElementById('bookmarkList');
 
@@ -41,7 +45,7 @@ function renderBookmarks() {
   const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
   if (bookmarks.length === 0) {
-    list.innerHTML = '<p>Belum ada bookmark</p>';
+    list.innerHTML = '<p class="loading">Belum ada bookmark</p>';
     return;
   }
 
@@ -52,26 +56,31 @@ function renderBookmarks() {
     item.className = 'ayat-item';
 
     item.innerHTML = `
-      <div class="ayat-header">
-        <strong>${b.surahName} : ${b.ayat}</strong>
-        <button class="hapus-bookmark">✖</button>
+      <div class="bookmark-header">
+        <div>
+          <strong>${b.surahName}</strong>
+          <small>Ayat ${b.ayat}</small>
+        </div>
+
+        <button class="hapus-bookmark" title="Hapus">✕</button>
       </div>
 
       <div class="ayat-arab">${b.text}</div>
-      <small class="bookmark-link">Buka kembali</small>
+
+      <button class="bookmark-open">Buka Ayat</button>
     `;
 
-    // 🔗 buka surah ke ayat
-    item.querySelector('.bookmark-link').onclick = () => {
+    // buka ayat
+    item.querySelector('.bookmark-open').onclick = () => {
       localStorage.setItem('scrollToAyat', b.ayat);
       location.href = `surah.html?no=${b.surah}`;
     };
 
-    // ❌ hapus bookmark (TANPA reload)
+    // hapus bookmark
     item.querySelector('.hapus-bookmark').onclick = () => {
       bookmarks.splice(index, 1);
       localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-      renderBookmarks(); // render ulang
+      renderBookmarks();
     };
 
     list.appendChild(item);
@@ -80,5 +89,6 @@ function renderBookmarks() {
 
 renderBookmarks();
 </script>
+
 </body>
 </html>
