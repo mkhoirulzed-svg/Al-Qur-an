@@ -161,17 +161,20 @@ if (
   arab.number !== 1 &&
   arab.number !== 9
 ) {
-  const bismillah =
-    'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+ const bismillahRegex =
+  /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
 
-  if (arabText.startsWith(bismillah)) {
-    arabText = arabText.replace(bismillah, '').trim();
-    bismillahHTML = `
-      <div class="bismillah ayat-arab">
-        ${bismillah}
-      </div>
-    `;
-  }
+if (bismillahRegex.test(arabText)) {
+  const match = arabText.match(bismillahRegex)[0];
+
+  arabText = arabText.replace(bismillahRegex, '').trim();
+
+  bismillahHTML = `
+    <div class="bismillah ayat-arab">
+      ${match.trim()}
+    </div>
+  `;
+}
 }
 
       
