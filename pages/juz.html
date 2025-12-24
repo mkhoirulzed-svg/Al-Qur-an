@@ -147,10 +147,15 @@ async function loadJuz({ start, end }) {
       ) return;
 
       const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
-      const bookmarked = isBookmarked(juzNo, surah, ayatNo);
+     const bookmarked = isBookmarked(juzNo, surah, ayatNo);
 
-      const div = document.createElement('div');
-      div.className = 'ayat-item';
+const div = document.createElement('div');
+div.className = 'ayat-item';
+
+if (bookmarked) {
+  div.classList.add('bookmarked');
+}
+
       div.dataset.juz = juzNo;
       div.dataset.surah = surah;
       div.dataset.ayat = ayatNo;
@@ -171,9 +176,7 @@ async function loadJuz({ start, end }) {
       juzContent.appendChild(div);
       ayatQueue.push(div);
     });
-    if (bookmarked) {
-  div.classList.add('bookmarked');
-}
+   
 
   }
 }
