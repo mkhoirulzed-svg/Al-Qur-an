@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juz</title>
+
 <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -11,9 +12,11 @@
 
 <header class="app-header">
   <button class="nav-btn back-btn" onclick="history.back()">←</button>
+
   <div class="header-title">
     <span id="judul">Juz</span>
   </div>
+
   <button class="nav-btn translate-btn" id="toggleTerjemah">🌐</button>
 </header>
 
@@ -45,6 +48,7 @@ if (!juzInfo) {
 function getBookmarks() {
   return JSON.parse(localStorage.getItem('bookmarks')) || [];
 }
+
 function isBookmarked(juz, surah, ayat) {
   return getBookmarks().some(b =>
     b.mode === 'juz' &&
@@ -79,13 +83,16 @@ audioPlayer.addEventListener('ended', () => {
 
 function playFromQueue() {
   if (currentIndex >= ayatQueue.length) return;
+
   const ayatEl = ayatQueue[currentIndex];
   if (!ayatEl.dataset.audio) {
     currentIndex++;
     playFromQueue();
     return;
   }
+
   if (currentAyat) currentAyat.classList.remove('ayat-playing');
+
   currentAyat = ayatEl;
   ayatEl.classList.add('ayat-playing');
   audioPlayer.src = ayatEl.dataset.audio;
@@ -100,17 +107,12 @@ async function loadJuz({ start, end }) {
   ayatQueue = [];
   currentIndex = -1;
 
-  /* INFO AWAL JUZ (HANYA SEKALI) */
-  const info = document.createElement('div');
-  info.className = 'juz-info';
-  info.innerHTML = `Mulai dari Surah ${start[0]} ayat ${start[1]}`;
-  juzContent.appendChild(info);
-
   for (let surah = start[0]; surah <= end[0]; surah++) {
     const res = await fetch(
       `https://api.alquran.cloud/v1/surah/${surah}/editions/ar.alafasy,id.indonesian`
     );
     const json = await res.json();
+
     const arab = json.data[0];
     const indo = json.data[1];
 
@@ -142,6 +144,7 @@ async function loadJuz({ start, end }) {
       ) {
         const regex =
           /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
+
         if (regex.test(arabText)) {
           const match = arabText.match(regex)[0];
           arabText = arabText.replace(regex, '').trim();
