@@ -6,7 +6,8 @@
   <title>Salam App</title>
 
   <!-- PWA -->
-  <link rel="manifest" href="Al-Qur-an/manifest.json">
+  <!-- FIX: path manifest -->
+  <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#16a34a">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -56,9 +57,8 @@
   </div>
 </main>
 
-<button id="installBtn" class="install-btn" hidden>
-  Install Salam App
-</button>
+<!-- FIX: hapus tombol install yang duplikat -->
+<!-- <button id="installBtn" class="install-btn" hidden>Install Salam App</button> -->
 
 <!-- Bottom Nav -->
 <nav class="bottom-nav">
@@ -68,12 +68,12 @@
   <a href="pages/about.html">Tentang</a>
 </nav>
 
-
+<!-- FIX: satu popup + satu tombol -->
 <div id="installPopup" class="install-popup hidden">
   <span>Install Salam App</span>
-  <button id="installBtn">Install</button>
+  <button id="installBtnPopup">Install</button>
 </div>
-<script src="app.js"></script>
 
+<script src="./app.js"></script>
 </body>
 </html>
