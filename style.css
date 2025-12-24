@@ -390,3 +390,19 @@ back-btn svg {
 .toggle-btn:active {
   transform: scale(0.96);
 }
+
+.hapus-bookmark {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.bookmark-link {
+  color: #0f766e;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 6px;
+}
