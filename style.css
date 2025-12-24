@@ -479,3 +479,33 @@ back-btn svg {
   box-shadow: 0 8px 20px rgba(0,0,0,.25);
   z-index: 9999; /* WAJIB lebih besar dari nav */
 }
+
+.install-popup {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #16a34a;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+
+  z-index: 99999;
+}
+
+.install-popup button {
+  background: #fff;
+  color: #16a34a;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
