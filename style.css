@@ -325,3 +325,38 @@ body {
   padding: 0;       /* hilangkan padding default */
   margin-left: 5px; /* jarak dari nomor ayat */
 }
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #0f766e; /* hijau islami */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.back-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.back-btn img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+}
+
