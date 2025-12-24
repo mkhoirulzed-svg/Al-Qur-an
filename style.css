@@ -205,16 +205,15 @@ body {
 /* =========================
    AYAT (FINAL)
 ========================= */
+/* ===== AYAT SURAH ===== */
+
 .ayat-item {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 20px;
-}
-
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  padding: 14px 0;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .ayat-content {
