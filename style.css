@@ -464,3 +464,17 @@ back-btn svg {
   margin-top: 8px;
 }
 
+.install-btn {
+  position: fixed;
+  bottom: 72px; /* di atas bottom-nav */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+  z-index: 999;
+}
