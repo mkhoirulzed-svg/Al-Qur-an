@@ -1,19 +1,19 @@
 {
   "name": "Salam App",
   "short_name": "Salam",
-  "start_url": "/Al-Qur-an/index.html",
-  "scope": "/Al-Qur-an/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#16a34a",
   "icons": [
     {
-      "src": "/Al-Qur-an/icons/icon-192.png",
+      "src": "./icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/Al-Qur-an/icons/icon-512.png",
+      "src": "./icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
