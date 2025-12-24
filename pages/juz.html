@@ -76,9 +76,7 @@ let ayatQueue = [];
 let currentIndex = -1;
 
 audioPlayer.addEventListener('ended', () => {
-  if (currentAyat) {
-    currentAyat.classList.remove('ayat-playing');
-  }
+  if (currentAyat) currentAyat.classList.remove('ayat-playing');
   currentIndex++;
   playFromQueue();
 });
@@ -94,9 +92,7 @@ function playFromQueue() {
     return;
   }
 
-  if (currentAyat) {
-    currentAyat.classList.remove('ayat-playing');
-  }
+  if (currentAyat) currentAyat.classList.remove('ayat-playing');
 
   currentAyat = ayatEl;
   ayatEl.classList.add('ayat-playing');
@@ -130,6 +126,14 @@ async function loadJuz({ start, end }) {
     `;
     juzContent.appendChild(header);
 
+    /* BISMILLAH (SAMA DENGAN SURAH.HTML) */
+    if (arab.number !== 1 && arab.number !== 9) {
+      const bismillah = document.createElement('div');
+      bismillah.className = 'bismillah ayat-arab';
+      bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      juzContent.appendChild(bismillah);
+    }
+
     arab.ayahs.forEach(a => {
       const ayatNo = a.numberInSurah;
 
@@ -139,63 +143,46 @@ async function loadJuz({ start, end }) {
       ) return;
 
       const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
-     const bookmarked = isBookmarked(juzNo, surah, ayatNo);
+      const bookmarked = isBookmarked(juzNo, surah, ayatNo);
 
-const div = document.createElement('div');
-div.className = 'ayat-item';
+      /* HAPUS BISMILLAH DARI AYAT 1 (VISUAL) */
+      let ayatText = a.text;
+      if (
+        ayatNo === 1 &&
+        arab.number !== 1 &&
+        arab.number !== 9
+      ) {
+        ayatText = ayatText.replace(
+          /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u,
+          ''
+        );
+      }
 
-if (bookmarked) {
-  div.classList.add('bookmarked');
-}
+      const div = document.createElement('div');
+      div.className = 'ayat-item';
+
+      if (bookmarked) div.classList.add('bookmarked');
 
       div.dataset.juz = juzNo;
       div.dataset.surah = surah;
       div.dataset.ayat = ayatNo;
       div.dataset.audio = a.audio;
 
-      let arabText = a.text;
-let bismillahHTML = '';
-
-if (
-  a.numberInSurah === 1 &&
-  arab.number !== 1 &&
-  arab.number !== 9
-) {
- const bismillahRegex =
-  /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
-
-if (bismillahRegex.test(arabText)) {
-  const match = arabText.match(bismillahRegex)[0];
-
-  arabText = arabText.replace(bismillahRegex, '').trim();
-
-  bismillahHTML = `
-    <div class="bismillah ayat-arab">
-      ${match.trim()}
-    </div>
-  `;
-}
-}
-
-      
       div.innerHTML = `
-  ${bismillahHTML}
-  <div class="ayat-content">
-    <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
-    <div class="ayat-arab">${tajwidColor(arabText)}</div>
-    <div class="ayat-indo">${terjemah?.text || ''}</div>
-  </div>
-  <div class="ayat-actions">
-    <button class="audio-btn">🔊</button>
-    <img src="../icons/bookmark.png" class="bookmark-btn" />
-  </div>
-`;
+        <div class="ayat-content">
+          <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
+          <div class="ayat-arab">${tajwidColor(ayatText)}</div>
+          <div class="ayat-indo">${terjemah?.text || ''}</div>
+        </div>
+        <div class="ayat-actions">
+          <button class="audio-btn">🔊</button>
+          <img src="../icons/bookmark.png" class="bookmark-btn" />
+        </div>
+      `;
 
       juzContent.appendChild(div);
       ayatQueue.push(div);
     });
-   
-
   }
 }
 
@@ -223,40 +210,38 @@ document.addEventListener('click', e => {
     playFromQueue();
   }
 
-  /* BOOKMARK TOGGLE */
-const bookmarkBtn = e.target.closest('.bookmark-btn');
-if (bookmarkBtn) {
-  const ayatEl = bookmarkBtn.closest('.ayat-item');
+  /* BOOKMARK */
+  const bookmarkBtn = e.target.closest('.bookmark-btn');
+  if (bookmarkBtn) {
+    const ayatEl = bookmarkBtn.closest('.ayat-item');
+    const surah = ayatEl.dataset.surah;
+    const ayat  = ayatEl.dataset.ayat;
 
-  const surah = ayatEl.dataset.surah;
-  const ayat  = ayatEl.dataset.ayat;
+    let bookmarks = getBookmarks();
 
-  let bookmarks = getBookmarks();
+    const idx = bookmarks.findIndex(b =>
+      b.mode === 'juz' &&
+      b.juz == juzNo &&
+      b.surah == surah &&
+      b.ayat == ayat
+    );
 
-  const idx = bookmarks.findIndex(b =>
-    b.mode === 'juz' &&
-    b.juz == juzNo &&
-    b.surah == surah &&
-    b.ayat == ayat
-  );
+    if (idx >= 0) {
+      bookmarks.splice(idx, 1);
+      ayatEl.classList.remove('bookmarked');
+    } else {
+      bookmarks.push({
+        mode: 'juz',
+        juz: juzNo,
+        surah,
+        ayat,
+        text: ayatEl.querySelector('.ayat-arab').innerText
+      });
+      ayatEl.classList.add('bookmarked');
+    }
 
-  if (idx >= 0) {
-    bookmarks.splice(idx, 1);
-    ayatEl.classList.remove('bookmarked');
-  } else {
-    bookmarks.push({
-      mode: 'juz',
-      juz: juzNo,
-      surah,
-      ayat,
-      text: ayatEl.querySelector('.ayat-arab').innerText
-    });
-    ayatEl.classList.add('bookmarked');
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
-
-  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-}
-
 });
 </script>
 
