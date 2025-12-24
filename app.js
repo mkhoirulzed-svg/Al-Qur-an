@@ -1,6 +1,6 @@
 // Register Service Worker
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/service-worker.js")
+  navigator.serviceWorker.register("Al-Qur-an/sw.js")
     .then(() => console.log("Service Worker registered"))
     .catch(err => console.error("SW failed:", err));
 }
