@@ -125,6 +125,11 @@ body {
 /* =========================
    SURAH LIST
 ========================= */
+.surah-header {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
 .surah-list {
   display: flex;
   flex-direction: column;
@@ -260,9 +265,20 @@ body {
 ========================= */
 .bismillah {
   text-align: center;
-  font-size: 1.6rem;
-  margin: 16px 0;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+
+  margin: 20px 0 24px;
+  padding: 8px 0;
+
+  opacity: 0.95;
+  letter-spacing: 0.05em;
 }
+
+.bismillah + .ayat-item {
+  margin-top: 12px;
+}
+
 
 /* =========================
    AUDIO & HIGHLIGHT
