@@ -23,7 +23,7 @@ function showBanner(autoHide = true) {
 
 window.addEventListener("load", () => {
   if (isInstalled()) {
-    text.textContent = "✅ Salam App sudah terpasang";
+    text.textContent = "Assalamualaikum Warahmatullahi Wabarakatuh";
     btn.style.display = "none";
     showBanner(true);
   } else {
