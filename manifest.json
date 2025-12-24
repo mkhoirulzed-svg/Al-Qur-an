@@ -1,11 +1,11 @@
 {
   "name": "Salam App",
-  "short_name": "Salam App",
+  "short_name": "Salam",
   "start_url": "/Al-Qur-an/index.html",
   "scope": "/Al-Qur-an/",
   "display": "standalone",
-  "theme_color": "#16a34a",
   "background_color": "#ffffff",
+  "theme_color": "#16a34a",
   "icons": [
     {
       "src": "/Al-Qur-an/icons/icon-192.png",
