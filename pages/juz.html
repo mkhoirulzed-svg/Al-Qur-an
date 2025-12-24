@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juz</title>
-
 <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -12,18 +11,13 @@
 
 <header class="app-header">
   <button class="nav-btn back-btn" onclick="history.back()">←</button>
-
   <div class="header-title">
     <span id="judul">Juz</span>
   </div>
-
   <button class="nav-btn translate-btn" id="toggleTerjemah">🌐</button>
 </header>
 
 <main class="container" id="juzContent">
-  <!-- INFO JUZ -->
-  <div id="juzInfo" class="juz-info"></div>
-
   <p>Memuat juz...</p>
 </main>
 
@@ -36,7 +30,6 @@ const juzContent = document.getElementById('juzContent');
 const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
 const toggleBtn = document.getElementById('toggleTerjemah');
-const infoBox = document.getElementById('juzInfo');
 
 judul.textContent = `Juz ${juzNo}`;
 
@@ -47,12 +40,11 @@ if (!juzInfo) {
 }
 
 /* =========================
-   BOOKMARK HELPERS
+   BOOKMARK
 ========================= */
 function getBookmarks() {
   return JSON.parse(localStorage.getItem('bookmarks')) || [];
 }
-
 function isBookmarked(juz, surah, ayat) {
   return getBookmarks().some(b =>
     b.mode === 'juz' &&
@@ -63,7 +55,7 @@ function isBookmarked(juz, surah, ayat) {
 }
 
 /* =========================
-   TAJWID COLOR
+   TAJWID
 ========================= */
 function tajwidColor(text) {
   return text
@@ -73,7 +65,7 @@ function tajwidColor(text) {
 }
 
 /* =========================
-   AUDIO CONTROLLER
+   AUDIO
 ========================= */
 let currentAyat = null;
 let ayatQueue = [];
@@ -87,20 +79,16 @@ audioPlayer.addEventListener('ended', () => {
 
 function playFromQueue() {
   if (currentIndex >= ayatQueue.length) return;
-
   const ayatEl = ayatQueue[currentIndex];
-  const audioUrl = ayatEl.dataset.audio;
-  if (!audioUrl) {
+  if (!ayatEl.dataset.audio) {
     currentIndex++;
     playFromQueue();
     return;
   }
-
   if (currentAyat) currentAyat.classList.remove('ayat-playing');
-
   currentAyat = ayatEl;
   ayatEl.classList.add('ayat-playing');
-  audioPlayer.src = audioUrl;
+  audioPlayer.src = ayatEl.dataset.audio;
   audioPlayer.play();
 }
 
@@ -108,23 +96,23 @@ function playFromQueue() {
    LOAD JUZ
 ========================= */
 async function loadJuz({ start, end }) {
-  juzContent.querySelector('p')?.remove();
+  juzContent.innerHTML = '';
   ayatQueue = [];
   currentIndex = -1;
+
+  /* INFO AWAL JUZ (HANYA SEKALI) */
+  const info = document.createElement('div');
+  info.className = 'juz-info';
+  info.innerHTML = `Mulai dari Surah ${start[0]} ayat ${start[1]}`;
+  juzContent.appendChild(info);
 
   for (let surah = start[0]; surah <= end[0]; surah++) {
     const res = await fetch(
       `https://api.alquran.cloud/v1/surah/${surah}/editions/ar.alafasy,id.indonesian`
     );
     const json = await res.json();
-
     const arab = json.data[0];
     const indo = json.data[1];
-
-    /* INFO JUZ (SURAH PERTAMA SAJA) */
-    if (surah === start[0]) {
-      infoBox.textContent = `Mulai dari ${arab.englishName} ayat ${start[1]}`;
-    }
 
     /* HEADER SURAH */
     const header = document.createElement('div');
@@ -135,14 +123,6 @@ async function loadJuz({ start, end }) {
     `;
     juzContent.appendChild(header);
 
-    /* BISMILLAH (SEPERTI SURAH.HTML) */
-    if (arab.number !== 1 && arab.number !== 9) {
-      const bismillah = document.createElement('div');
-      bismillah.className = 'bismillah ayat-arab';
-      bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-      juzContent.appendChild(bismillah);
-    }
-
     arab.ayahs.forEach(a => {
       const ayatNo = a.numberInSurah;
 
@@ -151,20 +131,31 @@ async function loadJuz({ start, end }) {
         (surah === end[0] && ayatNo > end[1])
       ) return;
 
-      const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
-      const bookmarked = isBookmarked(juzNo, surah, ayatNo);
+      let arabText = a.text;
+      let bismillahHTML = '';
 
-      let ayatText = a.text;
-      if (ayatNo === 1 && arab.number !== 1 && arab.number !== 9) {
-        ayatText = ayatText.replace(
-          /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u,
-          ''
-        );
+      /* PISAHKAN BISMILLAH DARI AYAT 1 */
+      if (
+        ayatNo === 1 &&
+        arab.number !== 1 &&
+        arab.number !== 9
+      ) {
+        const regex =
+          /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
+        if (regex.test(arabText)) {
+          const match = arabText.match(regex)[0];
+          arabText = arabText.replace(regex, '').trim();
+          bismillahHTML = `
+            <div class="bismillah ayat-arab">${match}</div>
+          `;
+        }
       }
+
+      const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
 
       const div = document.createElement('div');
       div.className = 'ayat-item';
-      if (bookmarked) div.classList.add('bookmarked');
+      if (isBookmarked(juzNo, surah, ayatNo)) div.classList.add('bookmarked');
 
       div.dataset.juz = juzNo;
       div.dataset.surah = surah;
@@ -172,14 +163,15 @@ async function loadJuz({ start, end }) {
       div.dataset.audio = a.audio;
 
       div.innerHTML = `
+        ${bismillahHTML}
         <div class="ayat-content">
           <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
-          <div class="ayat-arab">${tajwidColor(ayatText)}</div>
+          <div class="ayat-arab">${tajwidColor(arabText)}</div>
           <div class="ayat-indo">${terjemah?.text || ''}</div>
         </div>
         <div class="ayat-actions">
           <button class="audio-btn">🔊</button>
-          <img src="../icons/bookmark.png" class="bookmark-btn" />
+          <img src="../icons/bookmark.png" class="bookmark-btn">
         </div>
       `;
 
@@ -219,7 +211,6 @@ document.addEventListener('click', e => {
     const ayat  = ayatEl.dataset.ayat;
 
     let bookmarks = getBookmarks();
-
     const idx = bookmarks.findIndex(b =>
       b.mode === 'juz' &&
       b.juz == juzNo &&
