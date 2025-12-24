@@ -206,11 +206,12 @@ body {
    AYAT (FINAL)
 ========================= */
 .ayat-item {
-  background: #ffffff;
-  padding: 16px;
-  margin-bottom: 20px;
+  background: white;
   border-radius: 14px;
-  box-shadow: 0 4px 8px rgba(0,0,0,.05);
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
 
   display: flex;
   justify-content: space-between;
@@ -394,8 +395,8 @@ back-btn svg {
 .hapus-bookmark {
   background: none;
   border: none;
+  font-size: 18px;
   color: #ef4444;
-  font-size: 16px;
   cursor: pointer;
 }
 
@@ -405,4 +406,30 @@ back-btn svg {
   cursor: pointer;
   display: inline-block;
   margin-top: 6px;
+}
+
+.bookmark-open {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #0f766e;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  color: #6b7280;
+}
+
+.bookmark-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookmark-header small {
+  color: #6b7280;
 }
