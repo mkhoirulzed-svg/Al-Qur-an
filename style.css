@@ -453,3 +453,14 @@ back-btn svg {
   margin-bottom: 14px;
   box-shadow: 0 4px 10px rgba(0,0,0,.08);
 }
+
+.page-juz .bismillah {
+  margin: 18px 0 24px;
+  text-align: center;
+  line-height: 2;
+}
+
+.page-juz .ayat-item:first-of-type .ayat-content {
+  margin-top: 8px;
+}
+
