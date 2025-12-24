@@ -29,6 +29,7 @@
 <div class="quran-toggle">
   <button id="btnSurah" class="toggle-btn active">Surah</button>
   <button id="btnJuz" class="toggle-btn">Juz</button>
+  <button id="btnBookmark" class="toggle-btn">Bookmark</button>
 </div>
 
   <div id="surahList" class="surah-list"></div>
@@ -59,9 +60,17 @@ btnJuz.onclick = () => {
   loadJuz();
 };
 
-function setActive(activeBtn, inactiveBtn) {
-  activeBtn.classList.add('active');
-  inactiveBtn.classList.remove('active');
+const btnBookmark = document.getElementById('btnBookmark');
+
+btnBookmark.onclick = () => {
+  window.location.href = 'bookmark.html';
+};
+
+function setActive(btn) {
+  document
+    .querySelectorAll('.toggle-btn')
+    .forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
 function loadSurah() {
