@@ -1,18 +1,26 @@
+// Register Service Worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then(() => console.log("Service Worker registered"))
+    .catch(err => console.error("SW failed:", err));
+}
+
+// ================= INSTALL BUTTON =================
+
 let deferredPrompt;
 const installBtn = document.getElementById("installBtn");
 
-// CEK apakah app sudah terinstall
 function isAppInstalled() {
-  return window.matchMedia('(display-mode: standalone)').matches
+  return window.matchMedia("(display-mode: standalone)").matches
     || window.navigator.standalone === true;
 }
 
-// Kalau sudah install → tombol jangan muncul
+// Jika sudah install → hapus tombol
 if (isAppInstalled()) {
   installBtn?.remove();
 }
 
-// Tangkap event install
+// Event install
 window.addEventListener("beforeinstallprompt", (e) => {
   if (isAppInstalled()) return;
 
@@ -21,7 +29,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
   installBtn.hidden = false;
 });
 
-// Klik tombol install
+// Klik tombol
 installBtn?.addEventListener("click", async () => {
   if (!deferredPrompt) return;
 
@@ -35,7 +43,7 @@ installBtn?.addEventListener("click", async () => {
   deferredPrompt = null;
 });
 
-// Jika app benar-benar terinstall
+// Setelah terinstall
 window.addEventListener("appinstalled", () => {
   installBtn?.remove();
 });
