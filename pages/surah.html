@@ -137,7 +137,10 @@ if (isBookmarkedSurah(arab.number, a.numberInSurah)) {
 
       div.innerHTML = `
         <div class="ayat-content">
-          <span class="ayat-nomor">(${a.numberInSurah})</span>
+     <span class="ayat-nomor">
+  <span class="ayat-nomor-deco">۝</span>
+  ${a.numberInSurah}
+</span>
           <div class="ayat-arab">${tajwidColor(ayatText)}</div>
           <div class="ayat-indo">${terjemah?.text || ''}</div>
         </div>
