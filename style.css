@@ -613,3 +613,22 @@ back-btn svg {
   background: rgba(15, 118, 110, 0.08);
   border-radius: 8px;
 }
+
+.ayat-actions.bottom {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.ayat-item.active .ayat-actions.bottom {
+  opacity: 1;
+}
+
+
+.ayat-item:active .ayat-actions.bottom,
+.ayat-item:hover .ayat-actions.bottom {
+  opacity: 1;
+}
