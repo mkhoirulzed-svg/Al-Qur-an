@@ -191,7 +191,7 @@ async function loadJuz({ start, end }) {
     /* HEADER SURAH */
     const header = document.createElement('div');
     header.className = 'surah-header';
-  header.dataset.surahName = `${arab.name} (${indo.name})`;
+  header.dataset.surahName = `${arab.englishName} (${arab.name})`;
     header.innerHTML = `
       <h3>${arab.englishName}</h3>
       <small>${arab.englishNameTranslation}</small>
