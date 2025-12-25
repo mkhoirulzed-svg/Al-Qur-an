@@ -89,7 +89,11 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
     if (arab.number !== 1 && arab.number !== 9) {
       const bismillah = document.createElement('div');
       bismillah.className = 'bismillah ayat-arab';
-      bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      bismillah.innerHTML = `
+    <span class="bismillah-deco">❁</span>
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    <span class="bismillah-deco">❁</span>
+  `;
       ayatList.appendChild(bismillah);
     }
 
