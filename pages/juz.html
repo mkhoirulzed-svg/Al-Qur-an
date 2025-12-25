@@ -105,23 +105,23 @@ function tajwidColor(text) {
 ========================= */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    const name = entry.target.dataset.surahName;
+    if (!entry.isIntersecting) return;
 
-    if (entry.isIntersecting) {
-      visibleSurahHeaders.set(entry.target, entry.boundingClientRect.top);
-    } else {
-      visibleSurahHeaders.delete(entry.target);
+    const rect = entry.boundingClientRect;
+    const containerRect = juzContent.getBoundingClientRect();
+
+    // 🔼 Scroll ke ATAS (header menyentuh atas container)
+    if (rect.top <= containerRect.top + 8) {
+      judulSurah.textContent = entry.target.dataset.surahName;
+    }
+
+    // 🔽 Scroll ke BAWAH (header menyentuh bawah container)
+    if (rect.bottom >= containerRect.bottom - 8) {
+      judulSurah.textContent = entry.target.dataset.surahName;
     }
   });
-
-  if (visibleSurahHeaders.size > 0) {
-    const topHeader = [...visibleSurahHeaders.entries()]
-      .sort((a, b) => a[1] - b[1])[0][0];
-
-    judulSurah.textContent = topHeader.dataset.surahName;
-  }
 }, {
-  rootMargin: '-40% 0px -55% 0px',
+  root: juzContent,
   threshold: 0
 });
 
