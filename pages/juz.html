@@ -241,6 +241,14 @@ document.addEventListener('click', e => {
   }
 });
 
+
+document.querySelectorAll('body *').forEach(el => {
+  if (/juz ke-|30 juz/i.test(el.textContent)) {
+    el.remove();
+  }
+});
+
+  
 </script>
 
 </body>
