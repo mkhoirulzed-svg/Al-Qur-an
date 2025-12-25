@@ -51,7 +51,17 @@ const list = document.getElementById('surahList');
 const btnSurah = document.getElementById('btnSurah');
 const btnJuz = document.getElementById('btnJuz');
 
-loadSurah(); // default
+const params = new URLSearchParams(location.search);
+const mode = params.get('mode');
+
+if (mode === 'juz') {
+  setActive(btnJuz);
+  loadJuz();
+} else {
+  setActive(btnSurah);
+  loadSurah();
+}
+
 
 btnSurah.onclick = () => {
   setActive(btnSurah, btnJuz);
