@@ -28,14 +28,24 @@
 
 <script src="../data/juz-map.js"></script>
 <script>
-const juzNo = Number(new URLSearchParams(location.search).get('no'));
 const juzContent = document.getElementById('juzContent');
 const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
 const toggleBtn = document.getElementById('toggleTerjemah');
 
-judul.textContent = 'Juz ' + juzNo;
-  console.log(document.querySelector('.header-title').innerHTML);
+const juzParam = new URLSearchParams(location.search).get('no');
+const juzNo = Number(juzParam);
+
+// VALIDASI JUZ
+if (!juzParam || isNaN(juzNo) || juzNo < 1 || juzNo > 30) {
+  judul.textContent = 'Juz tidak valid';
+  juzContent.innerHTML = '<p>Juz tidak ditemukan.</p>';
+  throw new Error('Invalid Juz Number');
+}
+
+// SET JUDUL SETELAH VALID
+judul.textContent = `Juz ${juzNo}`;
+
 
 const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
 if (!juzInfo) {
