@@ -138,7 +138,25 @@ audioPlayer.addEventListener('ended', () => {
 
   // cari ayat berikutnya (skip elemen lain)
   while (nextAyat && !nextAyat.classList.contains('ayat-item')) {
-    nextAy
+    nextAyat = nextAyat.nextElementSibling;
+  }
+
+  if (nextAyat) {
+    const nextBtn = nextAyat.querySelector('.audio-btn');
+    if (nextBtn) nextBtn.click();
+
+    nextAyat.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  } else {
+    const btn = currentPlaying.querySelector('.audio-btn');
+    if (btn) btn.textContent = '▶';
+
+    currentPlaying.classList.remove('ayat-playing');
+    currentPlaying = null;
+  }
+});
 
 /* =========================
    LOAD JUZ
@@ -209,17 +227,15 @@ async function loadJuz({ start, end }) {
       div.innerHTML = `
   ${bismillahHTML || ''}
 
-  <div class="ayat-item">
-    <div class="ayat-content">
-      <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
+  <div class="ayat-content">
+    <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
 
-      <div class="ayat-arab">${tajwidColor(arabText)}</div>
-      <div class="ayat-indo">${terjemah?.text || ''}</div>
+    <div class="ayat-arab">${tajwidColor(arabText)}</div>
+    <div class="ayat-indo">${terjemah?.text || ''}</div>
 
-      <div class="ayat-actions bottom">
-        <button class="audio-btn">▶</button>
-        <img src="../icons/bookmark.png" class="bookmark-btn">
-      </div>
+    <div class="ayat-actions bottom">
+      <button class="audio-btn">▶</button>
+      <img src="../icons/bookmark.png" class="bookmark-btn">
     </div>
   </div>
 `;
