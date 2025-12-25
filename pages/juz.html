@@ -35,26 +35,28 @@
 <audio id="audioPlayer"></audio>
 
 <script src="../data/juz-map.js"></script>
+<script src="../data/juz-map.js"></script>
 <script>
-const judulJuz = document.getElementById('judul-juz');
+/* =========================
+   DOM ELEMENT
+========================= */
+const judulJuz   = document.getElementById('judul-juz');
 const judulSurah = document.getElementById('judul-surah');
-
 const juzContent = document.getElementById('juzContent');
-const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
-const toggleBtn = document.getElementById('toggleTerjemah');
+const toggleBtn  = document.getElementById('toggleTerjemah');
 
 const juzParam = new URLSearchParams(location.search).get('no');
 const juzNo = Number(juzParam);
 
-// VALIDASI JUZ
+/* =========================
+   VALIDASI JUZ
+========================= */
 if (!juzParam || isNaN(juzNo) || juzNo < 1 || juzNo > 30) {
-  judul.textContent = 'Juz tidak valid';
   juzContent.innerHTML = '<p>Juz tidak ditemukan.</p>';
   throw new Error('Invalid Juz Number');
 }
 
-// SET JUDUL SETELAH VALID
 judulJuz.textContent = `Juz ${juzNo}`;
 
 const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
@@ -62,6 +64,15 @@ if (!juzInfo) {
   juzContent.innerHTML = '<p>Juz tidak valid</p>';
   throw new Error('Juz tidak valid');
 }
+
+/* =========================
+   GLOBAL STATE (WAJIB DI SINI)
+========================= */
+let visibleSurahHeaders = new Map();
+let currentPlaying = null;
+let isPlaying = false;
+let ayatQueue = [];
+let currentIndex = -1;
 
 /* =========================
    BOOKMARK
@@ -90,13 +101,32 @@ function tajwidColor(text) {
 }
 
 /* =========================
-   AUDIO
+   OBSERVER JUDUL SURAH (FIX SCROLL UP & DOWN)
 ========================= */
-let currentPlaying = null;
-let isPlaying = false;
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const name = entry.target.dataset.surahName;
+
+    if (entry.isIntersecting) {
+      visibleSurahHeaders.set(entry.target, entry.boundingClientRect.top);
+    } else {
+      visibleSurahHeaders.delete(entry.target);
+    }
+  });
+
+  if (visibleSurahHeaders.size > 0) {
+    const topHeader = [...visibleSurahHeaders.entries()]
+      .sort((a, b) => a[1] - b[1])[0][0];
+
+    judulSurah.textContent = topHeader.dataset.surahName;
+  }
+}, {
+  rootMargin: '-40% 0px -55% 0px',
+  threshold: 0
+});
 
 /* =========================
-   PLAY / PAUSE BUTTON
+   AUDIO CONTROL
 ========================= */
 document.addEventListener('click', e => {
   const btn = e.target.closest('.audio-btn');
@@ -106,7 +136,6 @@ document.addEventListener('click', e => {
 
   const ayatEl = btn.closest('.ayat-item');
   const audioUrl = ayatEl.dataset.audio;
-
   if (!audioUrl) return alert('Audio tidak tersedia');
 
   if (currentPlaying === ayatEl && !audioPlayer.paused) {
@@ -156,20 +185,6 @@ audioPlayer.addEventListener('ended', () => {
 });
 
 /* =========================
-   OBSERVER JUDUL SURAH
-========================= */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      judulSurah.textContent = entry.target.dataset.surahName;
-    }
-  });
-}, {
-  rootMargin: '-45% 0px -45% 0px',
-  threshold: 0
-});
-
-/* =========================
    LOAD JUZ
 ========================= */
 async function loadJuz({ start, end }) {
@@ -188,19 +203,17 @@ async function loadJuz({ start, end }) {
     const arab = json.data[0];
     const indo = json.data[1];
 
-    /* HEADER SURAH */
     const header = document.createElement('div');
     header.className = 'surah-header';
-  header.dataset.surahName = `${arab.englishName} (${arab.name})`;
+    header.dataset.surahName = `${arab.englishName} (${arab.name})`;
     header.innerHTML = `
       <h3>${arab.englishName}</h3>
       <small>${arab.englishNameTranslation}</small>
     `;
 
     juzContent.appendChild(header);
-    observer.observe(header); // ✅ INI KUNCI UTAMA
+    observer.observe(header);
 
-    // set judul awal
     if (!firstSurahSet) {
       judulSurah.textContent = header.dataset.surahName;
       firstSurahSet = true;
@@ -271,7 +284,7 @@ toggleBtn.addEventListener('click', () => {
 });
 
 /* =========================
-   CLICK HANDLER
+   BOOKMARK CLICK
 ========================= */
 document.addEventListener('click', e => {
   const bookmarkBtn = e.target.closest('.bookmark-btn');
@@ -306,6 +319,9 @@ document.addEventListener('click', e => {
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 });
 
+/* =========================
+   ACTIVE AYAT
+========================= */
 document.addEventListener('click', e => {
   const ayat = e.target.closest('.ayat-item');
 
@@ -323,6 +339,7 @@ document.addEventListener('click', e => {
   ayat.classList.add('active');
 });
 </script>
+
 
 </body>
 </html>
