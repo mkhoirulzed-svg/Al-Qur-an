@@ -161,12 +161,12 @@ audioPlayer.addEventListener('ended', () => {
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const name = entry.target.dataset.surahName;
-      if (name) judulSurah.textContent = name;
+      judulSurah.textContent = entry.target.dataset.surahName;
     }
   });
 }, {
-  rootMargin: '-40% 0px -55% 0px'
+  rootMargin: '-45% 0px -45% 0px',
+  threshold: 0
 });
 
 /* =========================
