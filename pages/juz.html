@@ -274,6 +274,25 @@ async function loadJuz({ start, end }) {
 loadJuz(juzInfo);
 
 /* =========================
+   JUDUL SURAH BERDASARKAN AYAT (PRESISI)
+========================= */
+juzContent.addEventListener('scroll', () => {
+  const ayats = document.querySelectorAll('.ayat-item');
+  const containerRect = juzContent.getBoundingClientRect();
+
+  for (let ayat of ayats) {
+    const rect = ayat.getBoundingClientRect();
+
+    // ayat yang sedang "menempel" di atas container
+    if (rect.top <= containerRect.top + 24 && rect.bottom >= containerRect.top + 24) {
+      judulSurah.textContent = ayat.dataset.surahName;
+      break;
+    }
+  }
+});
+
+
+/* =========================
    TOGGLE TERJEMAH
 ========================= */
 let showTerjemah = true;
