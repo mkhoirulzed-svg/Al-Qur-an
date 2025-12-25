@@ -601,7 +601,13 @@ back-btn svg {
 .ayat-actions {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  display: flex;
+  gap: 12px;
+  transition: opacity .25s ease;
+}
+
+.ayat-item.active .ayat-actions {
+  opacity: 1;
 }
 
 .ayat-item.active .ayat-actions {
