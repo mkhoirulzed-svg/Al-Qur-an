@@ -597,3 +597,14 @@ back-btn svg {
   border: none;
   cursor: pointer;
 }
+
+.ayat-actions {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.ayat-item.active .ayat-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
