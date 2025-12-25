@@ -34,8 +34,7 @@ const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
 const toggleBtn = document.getElementById('toggleTerjemah');
 
-document.querySelector('.header-title').innerHTML =
-  'Juz ' + parseInt(juzNo, 10);
+judul.textContent = 'Juz ' + juzNo;
   console.log(document.querySelector('.header-title').innerHTML);
 
 const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
@@ -240,14 +239,6 @@ document.addEventListener('click', e => {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
 });
-
-
-document.querySelectorAll('body *').forEach(el => {
-  if (/juz ke-|30 juz/i.test(el.textContent)) {
-    el.remove();
-  }
-});
-
   
 </script>
 
