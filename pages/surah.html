@@ -229,9 +229,10 @@ document.addEventListener('click', e => {
 let currentPlaying = null;
 
 document.addEventListener('click', e => {
-  if (!e.target.classList.contains('audio-btn')) return;
+  const btn = e.target.closest('.audio-btn');
+  if (!btn) return;
 
-  const ayatEl = e.target.closest('.ayat-item');
+  const ayatEl = btn.closest('.ayat-item');
   const audioUrl = ayatEl.dataset.audio;
 
   if (!audioUrl) {
@@ -239,16 +240,59 @@ document.addEventListener('click', e => {
     return;
   }
 
-  if (currentPlaying) {
+  // PAUSE jika ayat yang sama sedang diputar
+  if (currentPlaying === ayatEl && !audioPlayer.paused) {
+    audioPlayer.pause();
+    btn.textContent = '▶';
+    ayatEl.classList.remove('ayat-playing');
+    return;
+  }
+
+  // Reset ayat sebelumnya
+  if (currentPlaying && currentPlaying !== ayatEl) {
+    const oldBtn = currentPlaying.querySelector('.audio-btn');
+    if (oldBtn) oldBtn.textContent = '▶';
     currentPlaying.classList.remove('ayat-playing');
   }
 
-  ayatEl.classList.add('ayat-playing');
+  // Play ayat baru
   currentPlaying = ayatEl;
+  ayatEl.classList.add('ayat-playing');
+  btn.textContent = '⏸';
 
   audioPlayer.src = audioUrl;
   audioPlayer.play();
 });
+
+
+audioPlayer.addEventListener('ended', () => {
+  if (!currentPlaying) return;
+
+  const nextAyat = currentPlaying.nextElementSibling;
+
+  // Jika ayat berikutnya ada
+  if (nextAyat && nextAyat.classList.contains('ayat-item')) {
+    const nextBtn = nextAyat.querySelector('.audio-btn');
+    if (nextBtn) nextBtn.click();
+
+    nextAyat.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  } else {
+    // Ayat terakhir
+    const btn = currentPlaying.querySelector('.audio-btn');
+    if (btn) btn.textContent = '▶';
+
+    currentPlaying.classList.remove('ayat-playing');
+    currentPlaying = null;
+  }
+});
+
+
+/* =========================
+   KLIK
+========================= */
 
 document.addEventListener('click', e => {
   const ayat = e.target.closest('.ayat-item');
