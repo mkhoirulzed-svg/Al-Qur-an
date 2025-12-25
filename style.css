@@ -608,3 +608,8 @@ back-btn svg {
   opacity: 1;
   pointer-events: auto;
 }
+
+.ayat-item.ayat-playing {
+  background: rgba(15, 118, 110, 0.08);
+  border-radius: 8px;
+}
