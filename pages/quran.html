@@ -43,6 +43,8 @@
   <a href="about.html">Tentang</a>
 </nav>
 
+  <script src="../data/juz-map.js"></script>
+  
 <script>
 const list = document.getElementById('surahList');
 const btnSurah = document.getElementById('btnSurah');
@@ -100,20 +102,43 @@ function loadSurah() {
 function loadJuz() {
   list.innerHTML = '';
 
-  for (let i = 1; i <= 30; i++) {
+  JUZ_MAP.forEach(j => {
     const item = document.createElement('a');
-    item.href = `juz.html?no=${i}`;
+    item.href = `juz.html?no=${j.juz}`;
     item.className = 'surah-item';
+
+    const surahName = getSurahName(j.start[0]);
+    const ayatNo = j.start[1];
+
     item.innerHTML = `
       <div>
-        <strong>Juz ${i}</strong>
-        <small>Juz ke-${i}</small>
+        <strong>Juz ${j.juz}</strong>
+        <small>${surahName} ayat ${ayatNo}</small>
       </div>
-      <span>30 Juz</span>
     `;
+
     list.appendChild(item);
-  }
+  });
 }
+
+  function getSurahName(no) {
+  const names = {
+    1: 'Al-Fatihah',
+    2: 'Al-Baqarah',
+    3: "Ali 'Imran",
+    4: 'An-Nisa',
+    5: 'Al-Ma’idah',
+    6: 'Al-An’am',
+    7: 'Al-A’raf',
+    8: 'Al-Anfal',
+    9: 'At-Taubah',
+    10: 'Yunus',
+    // (boleh lanjut nanti, ini tidak wajib semua)
+  };
+
+  return names[no] || `Surah ${no}`;
+}
+
 </script>
 
 
