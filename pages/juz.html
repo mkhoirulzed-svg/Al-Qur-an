@@ -138,6 +138,35 @@ audioPlayer.addEventListener('ended', () => {
   currentPlaying = null;
 });
 
+audioPlayer.addEventListener('ended', () => {
+  if (!currentPlaying) return;
+
+  let nextAyat = currentPlaying.nextElementSibling;
+
+  // cari ayat berikutnya (skip elemen lain)
+  while (nextAyat && !nextAyat.classList.contains('ayat-item')) {
+    nextAyat = nextAyat.nextElementSibling;
+  }
+
+  // jika masih ada ayat
+  if (nextAyat) {
+    const nextBtn = nextAyat.querySelector('.audio-btn');
+    if (nextBtn) nextBtn.click();
+
+    nextAyat.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  } else {
+    // akhir juz
+    const btn = currentPlaying.querySelector('.audio-btn');
+    if (btn) btn.textContent = '▶';
+
+    currentPlaying.classList.remove('ayat-playing');
+    currentPlaying = null;
+  }
+});
+
 /* =========================
    LOAD JUZ
 ========================= */
