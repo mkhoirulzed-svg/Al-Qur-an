@@ -57,7 +57,6 @@ if (!juzParam || isNaN(juzNo) || juzNo < 1 || juzNo > 30) {
 // SET JUDUL SETELAH VALID
 judulJuz.textContent = `Juz ${juzNo}`;
 
-
 const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
 if (!juzInfo) {
   juzContent.innerHTML = '<p>Juz tidak valid</p>';
@@ -103,33 +102,28 @@ document.addEventListener('click', e => {
   const btn = e.target.closest('.audio-btn');
   if (!btn) return;
 
-  e.stopPropagation(); // ⬅️ penting (hindari bentrok click ayat)
+  e.stopPropagation();
 
   const ayatEl = btn.closest('.ayat-item');
   const audioUrl = ayatEl.dataset.audio;
 
   if (!audioUrl) return alert('Audio tidak tersedia');
 
-  // PAUSE (klik ayat yang sama)
   if (currentPlaying === ayatEl && !audioPlayer.paused) {
     audioPlayer.pause();
     btn.textContent = '▶';
-
     ayatEl.classList.remove('ayat-playing', 'active');
     currentPlaying = null;
     isPlaying = false;
     return;
   }
 
-  // Reset ayat sebelumnya
   if (currentPlaying && currentPlaying !== ayatEl) {
     const oldBtn = currentPlaying.querySelector('.audio-btn');
     if (oldBtn) oldBtn.textContent = '▶';
-
     currentPlaying.classList.remove('ayat-playing', 'active');
   }
 
-  // PLAY ayat baru
   currentPlaying = ayatEl;
   isPlaying = true;
 
@@ -147,24 +141,32 @@ audioPlayer.addEventListener('ended', () => {
   if (!currentPlaying) return;
 
   let nextAyat = currentPlaying.nextElementSibling;
-
   while (nextAyat && !nextAyat.classList.contains('ayat-item')) {
     nextAyat = nextAyat.nextElementSibling;
   }
 
   if (nextAyat) {
     nextAyat.querySelector('.audio-btn')?.click();
-
-    nextAyat.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
+    nextAyat.scrollIntoView({ behavior: 'smooth', block: 'center' });
   } else {
-    // akhir juz / surah
     currentPlaying.classList.remove('ayat-playing', 'active');
     currentPlaying = null;
     isPlaying = false;
   }
+});
+
+/* =========================
+   OBSERVER JUDUL SURAH
+========================= */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const name = entry.target.dataset.surahName;
+      if (name) judulSurah.textContent = name;
+    }
+  });
+}, {
+  rootMargin: '-40% 0px -55% 0px'
 });
 
 /* =========================
@@ -174,6 +176,8 @@ async function loadJuz({ start, end }) {
   juzContent.innerHTML = '';
   ayatQueue = [];
   currentIndex = -1;
+
+  let firstSurahSet = false;
 
   for (let surah = start[0]; surah <= end[0]; surah++) {
     const res = await fetch(
@@ -185,14 +189,22 @@ async function loadJuz({ start, end }) {
     const indo = json.data[1];
 
     /* HEADER SURAH */
-const header = document.createElement('div');
-header.className = 'surah-header';
-header.dataset.surahName = `${indo.englishNameTranslation} (${arab.name})`;
-header.innerHTML = `
-  <h3>${arab.englishName}</h3>
-  <small>${arab.englishNameTranslation}</small>
-`;
-juzContent.appendChild(header);
+    const header = document.createElement('div');
+    header.className = 'surah-header';
+    header.dataset.surahName = `${indo.englishNameTranslation} (${arab.name})`;
+    header.innerHTML = `
+      <h3>${arab.englishName}</h3>
+      <small>${arab.englishNameTranslation}</small>
+    `;
+
+    juzContent.appendChild(header);
+    observer.observe(header); // ✅ INI KUNCI UTAMA
+
+    // set judul awal
+    if (!firstSurahSet) {
+      judulSurah.textContent = header.dataset.surahName;
+      firstSurahSet = true;
+    }
 
     arab.ayahs.forEach(a => {
       const ayatNo = a.numberInSurah;
@@ -205,21 +217,14 @@ juzContent.appendChild(header);
       let arabText = a.text;
       let bismillahHTML = '';
 
-      /* PISAHKAN BISMILLAH DARI AYAT 1 */
-      if (
-        ayatNo === 1 &&
-        arab.number !== 1 &&
-        arab.number !== 9
-      ) {
+      if (ayatNo === 1 && arab.number !== 1 && arab.number !== 9) {
         const regex =
           /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
 
         if (regex.test(arabText)) {
           const match = arabText.match(regex)[0];
           arabText = arabText.replace(regex, '').trim();
-          bismillahHTML = `
-            <div class="bismillah ayat-arab">${match}</div>
-          `;
+          bismillahHTML = `<div class="bismillah ayat-arab">${match}</div>`;
         }
       }
 
@@ -235,20 +240,17 @@ juzContent.appendChild(header);
       div.dataset.audio = a.audio;
 
       div.innerHTML = `
-  ${bismillahHTML || ''}
-
-  <div class="ayat-content">
-    <span class="ayat-nomor">﴿${ayatNo}﴾</span>
-
-    <div class="ayat-arab">${tajwidColor(arabText)}</div>
-    <div class="ayat-indo">${terjemah?.text || ''}</div>
-
-    <div class="ayat-actions bottom">
-      <button class="audio-btn">▶</button>
-      <img src="../icons/bookmark.png" class="bookmark-btn">
-    </div>
-  </div>
-`;
+        ${bismillahHTML}
+        <div class="ayat-content">
+          <span class="ayat-nomor">﴿${ayatNo}﴾</span>
+          <div class="ayat-arab">${tajwidColor(arabText)}</div>
+          <div class="ayat-indo">${terjemah?.text || ''}</div>
+          <div class="ayat-actions bottom">
+            <button class="audio-btn">▶</button>
+            <img src="../icons/bookmark.png" class="bookmark-btn">
+          </div>
+        </div>
+      `;
 
       juzContent.appendChild(div);
       ayatQueue.push(div);
@@ -272,81 +274,54 @@ toggleBtn.addEventListener('click', () => {
    CLICK HANDLER
 ========================= */
 document.addEventListener('click', e => {
-
-  if (e.target.classList.contains('audio-btn')) {
-    const ayatEl = e.target.closest('.ayat-item');
-    currentIndex = ayatQueue.indexOf(ayatEl);
-    playFromQueue();
-  }
-
   const bookmarkBtn = e.target.closest('.bookmark-btn');
-  if (bookmarkBtn) {
-    const ayatEl = bookmarkBtn.closest('.ayat-item');
-    const surah = ayatEl.dataset.surah;
-    const ayat  = ayatEl.dataset.ayat;
+  if (!bookmarkBtn) return;
 
-    let bookmarks = getBookmarks();
-    const idx = bookmarks.findIndex(b =>
-      b.mode === 'juz' &&
-      b.juz == juzNo &&
-      b.surah == surah &&
-      b.ayat == ayat
-    );
+  const ayatEl = bookmarkBtn.closest('.ayat-item');
+  const surah = ayatEl.dataset.surah;
+  const ayat  = ayatEl.dataset.ayat;
 
-    if (idx >= 0) {
-      bookmarks.splice(idx, 1);
-      ayatEl.classList.remove('bookmarked');
-    } else {
-      bookmarks.push({
-        mode: 'juz',
-        juz: juzNo,
-        surah,
-        ayat,
-        text: ayatEl.querySelector('.ayat-arab').innerText
-      });
-      ayatEl.classList.add('bookmarked');
-    }
+  let bookmarks = getBookmarks();
+  const idx = bookmarks.findIndex(b =>
+    b.mode === 'juz' &&
+    b.juz == juzNo &&
+    b.surah == surah &&
+    b.ayat == ayat
+  );
 
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  if (idx >= 0) {
+    bookmarks.splice(idx, 1);
+    ayatEl.classList.remove('bookmarked');
+  } else {
+    bookmarks.push({
+      mode: 'juz',
+      juz: juzNo,
+      surah,
+      ayat,
+      text: ayatEl.querySelector('.ayat-arab').innerText
+    });
+    ayatEl.classList.add('bookmarked');
   }
+
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 });
-  
 
 document.addEventListener('click', e => {
   const ayat = e.target.closest('.ayat-item');
 
-  // klik di luar ayat → sembunyikan semua
   if (!ayat) {
     document.querySelectorAll('.ayat-item.active')
       .forEach(a => a.classList.remove('active'));
     return;
   }
 
-  // klik tombol (play / bookmark) → jangan toggle
   if (e.target.closest('.ayat-actions')) return;
 
-  // matikan ayat lain
   document.querySelectorAll('.ayat-item.active')
     .forEach(a => a.classList.remove('active'));
 
-  // aktifkan ayat ini
   ayat.classList.add('active');
 });
-
-// autoganti nama surah
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const name = entry.target.dataset.surahName;
-      if (name) judulSurah.textContent = name;
-    }
-  });
-}, {
-  rootMargin: '-40% 0px -55% 0px'
-});
-
-// observe semua header surah
-document.querySelectorAll('.surah-header').forEach(h => observer.observe(h));
 </script>
 
 </body>
