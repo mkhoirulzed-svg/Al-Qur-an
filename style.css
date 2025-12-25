@@ -635,3 +635,11 @@ back-btn svg {
 .ayat-item:hover .ayat-actions.bottom {
   opacity: 1;
 }
+
+.ayat-actions.bottom {
+  pointer-events: none;
+}
+
+.ayat-item.active .ayat-actions.bottom {
+  pointer-events: auto;
+}
