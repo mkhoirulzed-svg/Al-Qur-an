@@ -219,11 +219,16 @@ body {
 }
 
 .ayat-nomor {
-  font-size: 0.85rem;
-  color: #16a34a;
-  font-weight: 600;
-  margin-bottom: 6px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  color: #0f766e;
+  font-family: "Amiri", "Scheherazade New", serif;
+}
+
+.ayat-nomor-deco {
+  font-size: 22px;
 }
 
 .ayat-arab {
