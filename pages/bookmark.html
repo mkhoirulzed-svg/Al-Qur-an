@@ -26,14 +26,16 @@
   <button class="toggle-btn" onclick="location.href='quran.html'">
     Surah
   </button>
-  <button class="toggle-btn" onclick="location.href='quran.html#juz'">
-    Juz
-  </button>
+ <button class="toggle-btn" onclick="location.href='quran.html?mode=juz'">
+  Juz
+</button>
   <button class="toggle-btn active">
     Bookmark
   </button>
 </div>
 
+  <script src="../data/surah-names.js"></script>
+  
 <!-- CONTENT -->
 <main class="container">
   <div id="bookmarkList">
@@ -70,7 +72,11 @@ function renderBookmarks() {
     item.innerHTML = `
       <div class="bookmark-header">
         <div>
-          <strong>${b.surahName}</strong>
+         <strong>
+  ${b.mode === 'surah'
+    ? b.surahName
+    : SURAH_NAMES[b.surah] || 'Surah tidak diketahui'}
+</strong>
           <small>Ayat ${b.ayat}</small>
         </div>
 
