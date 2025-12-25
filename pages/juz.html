@@ -105,11 +105,13 @@ document.addEventListener('click', e => {
 
   // PAUSE jika ayat sama & sedang play
   if (currentPlaying === ayatEl && !audioPlayer.paused) {
-    audioPlayer.pause();
-    btn.textContent = '▶';
-    ayatEl.classList.remove('ayat-playing');
-    return;
-  }
+  audioPlayer.pause();
+  btn.textContent = '▶';
+  ayatEl.classList.remove('ayat-playing');
+  ayatEl.classList.remove('active'); // ⬅️ ini kunci
+  currentPlaying = null;
+  return;
+}
 
   // Reset ayat sebelumnya
   if (currentPlaying && currentPlaying !== ayatEl) {
@@ -154,6 +156,7 @@ audioPlayer.addEventListener('ended', () => {
     if (btn) btn.textContent = '▶';
 
     currentPlaying.classList.remove('ayat-playing');
+currentPlaying.classList.remove('active'); // ⬅️ ini
     currentPlaying = null;
   }
 });
