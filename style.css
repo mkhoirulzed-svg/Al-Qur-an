@@ -588,3 +588,12 @@ back-btn svg {
   font-size: 26px;
   vertical-align: middle;
 }
+
+
+.audio-btn {
+  color: #0f766e; /* hijau islami */
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
