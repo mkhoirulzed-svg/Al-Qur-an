@@ -209,14 +209,16 @@ async function loadJuz({ start, end }) {
       div.innerHTML = `
         ${bismillahHTML}
         <div class="ayat-content">
-          <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
-          <div class="ayat-arab">${tajwidColor(arabText)}</div>
-          <div class="ayat-indo">${terjemah?.text || ''}</div>
-        </div>
-        <div class="ayat-actions">
-          <button class="audio-btn">▶</button>
-          <img src="../icons/bookmark.png" class="bookmark-btn">
-        </div>
+  <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
+
+  <div class="ayat-arab">${tajwidColor(arabText)}</div>
+  <div class="ayat-indo">${terjemah?.text || ''}</div>
+
+  <div class="ayat-actions bottom">
+    <button class="audio-btn">▶</button>
+    <img src="../icons/bookmark.png" class="bookmark-btn">
+  </div>
+</div>
       `;
 
       juzContent.appendChild(div);
