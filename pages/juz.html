@@ -11,19 +11,21 @@
 <body class="page-juz">
 
 <header class="app-header">
-  <button class="nav-btn back-btn" onclick="history.back()"> <svg viewBox="0 0 24 24" width="22" height="22"
+  <button class="nav-btn back-btn" onclick="history.back()"> 
+    <svg viewBox="0 0 24 24" width="22" height="22"
       fill="none"
       stroke="currentColor"
       stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round">
       <polyline points="15 18 9 12 15 6"></polyline>
-    </svg></button>
+    </svg>
+  </button>
 
- <div class="header-title">
-  <div id="judul-juz">Juz</div>
-  <div id="judul-surah" class="judul-surah"></div>
-</div>
+  <div class="header-title">
+    <div id="judul-juz">Juz</div>
+    <div id="judul-surah" class="judul-surah"></div>
+  </div>
 
   <button class="nav-btn translate-btn" id="toggleTerjemah">🌐</button>
 </header>
@@ -40,7 +42,6 @@ const judulJuz = document.getElementById('judul-juz');
 const judulSurah = document.getElementById('judul-surah');
 
 const juzContent = document.getElementById('juzContent');
-const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
 const toggleBtn = document.getElementById('toggleTerjemah');
 
@@ -49,7 +50,6 @@ const juzNo = Number(juzParam);
 
 // VALIDASI JUZ
 if (!juzParam || isNaN(juzNo) || juzNo < 1 || juzNo > 30) {
-  judul.textContent = 'Juz tidak valid';
   juzContent.innerHTML = '<p>Juz tidak ditemukan.</p>';
   throw new Error('Invalid Juz Number');
 }
@@ -126,7 +126,6 @@ document.addEventListener('click', e => {
 
   currentPlaying = ayatEl;
   isPlaying = true;
-
   ayatEl.classList.add('ayat-playing', 'active');
   btn.textContent = '⏸';
 
@@ -156,28 +155,12 @@ audioPlayer.addEventListener('ended', () => {
 });
 
 /* =========================
-   OBSERVER JUDUL SURAH
-========================= */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      judulSurah.textContent = entry.target.dataset.surahName;
-    }
-  });
-}, {
-  rootMargin: '-45% 0px -45% 0px',
-  threshold: 0
-});
-
-/* =========================
    LOAD JUZ
 ========================= */
 async function loadJuz({ start, end }) {
   juzContent.innerHTML = '';
   ayatQueue = [];
   currentIndex = -1;
-
-  let firstSurahSet = false;
 
   for (let surah = start[0]; surah <= end[0]; surah++) {
     const res = await fetch(
@@ -191,20 +174,12 @@ async function loadJuz({ start, end }) {
     /* HEADER SURAH */
     const header = document.createElement('div');
     header.className = 'surah-header';
-  header.dataset.surahName = `${arab.englishName} (${arab.name})`;
+    header.dataset.surahName = `${indo.englishName} (${arab.name})`; // Nama latin (Arab)
     header.innerHTML = `
-      <h3>${arab.englishName}</h3>
-      <small>${arab.englishNameTranslation}</small>
+      <h3>${indo.englishName} (${arab.name})</h3>
+      <small>${indo.englishNameTranslation}</small>
     `;
-
     juzContent.appendChild(header);
-    observer.observe(header); // ✅ INI KUNCI UTAMA
-
-    // set judul awal
-    if (!firstSurahSet) {
-      judulSurah.textContent = header.dataset.surahName;
-      firstSurahSet = true;
-    }
 
     arab.ayahs.forEach(a => {
       const ayatNo = a.numberInSurah;
@@ -218,9 +193,7 @@ async function loadJuz({ start, end }) {
       let bismillahHTML = '';
 
       if (ayatNo === 1 && arab.number !== 1 && arab.number !== 9) {
-        const regex =
-          /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
-
+        const regex = /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
         if (regex.test(arabText)) {
           const match = arabText.match(regex)[0];
           arabText = arabText.replace(regex, '').trim();
@@ -240,7 +213,7 @@ async function loadJuz({ start, end }) {
       div.dataset.audio = a.audio;
 
       div.innerHTML = `
-        ${bismillahHTML}
+        ${bismillahHTML || ''}
         <div class="ayat-content">
           <span class="ayat-nomor">﴿${ayatNo}﴾</span>
           <div class="ayat-arab">${tajwidColor(arabText)}</div>
@@ -258,7 +231,24 @@ async function loadJuz({ start, end }) {
   }
 }
 
-loadJuz(juzInfo);
+/* =========================
+   OBSERVER SURAH
+========================= */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const name = entry.target.dataset.surahName;
+      if (name) judulSurah.textContent = name;
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+/* =========================
+   LOAD JUZ & PASANG OBSERVER
+========================= */
+loadJuz(juzInfo).then(() => {
+  document.querySelectorAll('.surah-header').forEach(h => observer.observe(h));
+});
 
 /* =========================
    TOGGLE TERJEMAH
@@ -274,37 +264,44 @@ toggleBtn.addEventListener('click', () => {
    CLICK HANDLER
 ========================= */
 document.addEventListener('click', e => {
-  const bookmarkBtn = e.target.closest('.bookmark-btn');
-  if (!bookmarkBtn) return;
-
-  const ayatEl = bookmarkBtn.closest('.ayat-item');
-  const surah = ayatEl.dataset.surah;
-  const ayat  = ayatEl.dataset.ayat;
-
-  let bookmarks = getBookmarks();
-  const idx = bookmarks.findIndex(b =>
-    b.mode === 'juz' &&
-    b.juz == juzNo &&
-    b.surah == surah &&
-    b.ayat == ayat
-  );
-
-  if (idx >= 0) {
-    bookmarks.splice(idx, 1);
-    ayatEl.classList.remove('bookmarked');
-  } else {
-    bookmarks.push({
-      mode: 'juz',
-      juz: juzNo,
-      surah,
-      ayat,
-      text: ayatEl.querySelector('.ayat-arab').innerText
-    });
-    ayatEl.classList.add('bookmarked');
+  if (e.target.classList.contains('audio-btn')) {
+    const ayatEl = e.target.closest('.ayat-item');
+    currentIndex = ayatQueue.indexOf(ayatEl);
+    playFromQueue();
   }
 
-  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  const bookmarkBtn = e.target.closest('.bookmark-btn');
+  if (bookmarkBtn) {
+    const ayatEl = bookmarkBtn.closest('.ayat-item');
+    const surah = ayatEl.dataset.surah;
+    const ayat  = ayatEl.dataset.ayat;
+
+    let bookmarks = getBookmarks();
+    const idx = bookmarks.findIndex(b =>
+      b.mode === 'juz' &&
+      b.juz == juzNo &&
+      b.surah == surah &&
+      b.ayat == ayat
+    );
+
+    if (idx >= 0) {
+      bookmarks.splice(idx, 1);
+      ayatEl.classList.remove('bookmarked');
+    } else {
+      bookmarks.push({
+        mode: 'juz',
+        juz: juzNo,
+        surah,
+        ayat,
+        text: ayatEl.querySelector('.ayat-arab').innerText
+      });
+      ayatEl.classList.add('bookmarked');
+    }
+
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  }
 });
+
 
 document.addEventListener('click', e => {
   const ayat = e.target.closest('.ayat-item');
