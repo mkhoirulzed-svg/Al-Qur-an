@@ -277,6 +277,27 @@ document.addEventListener('click', e => {
   }
 });
   
+
+document.addEventListener('click', e => {
+  const ayat = e.target.closest('.ayat-item');
+
+  // klik di luar ayat → sembunyikan semua
+  if (!ayat) {
+    document.querySelectorAll('.ayat-item.active')
+      .forEach(a => a.classList.remove('active'));
+    return;
+  }
+
+  // klik tombol (play / bookmark) → jangan toggle
+  if (e.target.closest('.ayat-actions')) return;
+
+  // matikan ayat lain
+  document.querySelectorAll('.ayat-item.active')
+    .forEach(a => a.classList.remove('active'));
+
+  // aktifkan ayat ini
+  ayat.classList.add('active');
+});
 </script>
 
 </body>
