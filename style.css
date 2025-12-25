@@ -569,3 +569,17 @@ back-btn svg {
 .hidden {
   display: none;
 }
+
+.bismillah {
+  text-align: center;
+  font-size: 32px;
+  margin: 24px 0;
+  line-height: 2.2;
+  font-family: "Amiri", "Scheherazade New", serif;
+}
+
+.bismillah-deco {
+  color: #0f766e;
+  font-size: 26px;
+  vertical-align: middle;
+}
