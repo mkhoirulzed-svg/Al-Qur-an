@@ -34,7 +34,8 @@ const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
 const toggleBtn = document.getElementById('toggleTerjemah');
 
-judul.textContent = `Juz ${juzNo}`;
+judul.textContent = 'Juz ' + parseInt(juzNo, 10);
+
 
 const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
 if (!juzInfo) {
