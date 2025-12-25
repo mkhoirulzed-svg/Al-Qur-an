@@ -89,41 +89,48 @@ function tajwidColor(text) {
 /* =========================
    AUDIO
 ========================= */
+const audioPlayer = new Audio();
 let currentPlaying = null;
+let isPlaying = false;
 
+/* =========================
+   PLAY / PAUSE BUTTON
+========================= */
 document.addEventListener('click', e => {
   const btn = e.target.closest('.audio-btn');
   if (!btn) return;
 
+  e.stopPropagation(); // ⬅️ penting (hindari bentrok click ayat)
+
   const ayatEl = btn.closest('.ayat-item');
   const audioUrl = ayatEl.dataset.audio;
 
-  if (!audioUrl) {
-    alert('Audio tidak tersedia');
+  if (!audioUrl) return alert('Audio tidak tersedia');
+
+  // PAUSE (klik ayat yang sama)
+  if (currentPlaying === ayatEl && !audioPlayer.paused) {
+    audioPlayer.pause();
+    btn.textContent = '▶';
+
+    ayatEl.classList.remove('ayat-playing', 'active');
+    currentPlaying = null;
+    isPlaying = false;
     return;
   }
-
-  // PAUSE jika ayat sama & sedang play
-  if (currentPlaying === ayatEl && !audioPlayer.paused) {
-  audioPlayer.pause();
-  btn.textContent = '▶';
-  ayatEl.classList.remove('ayat-playing');
-  ayatEl.classList.remove('active'); // ⬅️ ini kunci
-  currentPlaying = null;
-  return;
-}
 
   // Reset ayat sebelumnya
   if (currentPlaying && currentPlaying !== ayatEl) {
     const oldBtn = currentPlaying.querySelector('.audio-btn');
     if (oldBtn) oldBtn.textContent = '▶';
-    currentPlaying.classList.remove('ayat-playing');
+
+    currentPlaying.classList.remove('ayat-playing', 'active');
   }
 
-  // Play ayat baru
+  // PLAY ayat baru
   currentPlaying = ayatEl;
-  ayatEl.classList.add('active');
-  ayatEl.classList.add('ayat-playing');
+  isPlaying = true;
+
+  ayatEl.classList.add('ayat-playing', 'active');
   btn.textContent = '⏸';
 
   audioPlayer.src = audioUrl;
@@ -131,33 +138,29 @@ document.addEventListener('click', e => {
 });
 
 /* =========================
-   AUTOPLAY (FIXED)
+   AUTOPLAY NEXT AYAT
 ========================= */
 audioPlayer.addEventListener('ended', () => {
   if (!currentPlaying) return;
 
   let nextAyat = currentPlaying.nextElementSibling;
 
-  // cari ayat berikutnya (skip elemen lain)
   while (nextAyat && !nextAyat.classList.contains('ayat-item')) {
     nextAyat = nextAyat.nextElementSibling;
   }
 
   if (nextAyat) {
-    const nextBtn = nextAyat.querySelector('.audio-btn');
-    if (nextBtn) nextBtn.click();
+    nextAyat.querySelector('.audio-btn')?.click();
 
     nextAyat.scrollIntoView({
       behavior: 'smooth',
       block: 'center'
     });
   } else {
-    const btn = currentPlaying.querySelector('.audio-btn');
-    if (btn) btn.textContent = '▶';
-
-    currentPlaying.classList.remove('ayat-playing');
-currentPlaying.classList.remove('active'); // ⬅️ ini
+    // akhir juz / surah
+    currentPlaying.classList.remove('ayat-playing', 'active');
     currentPlaying = null;
+    isPlaying = false;
   }
 });
 
