@@ -616,9 +616,12 @@ back-btn svg {
 
 .ayat-actions.bottom {
   display: flex;
+  flex-direction: row;   /* ⬅️ ini kuncinya */
   justify-content: center;
-  gap: 14px;
-  margin-top: 8px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+
   opacity: 0;
   transition: opacity 0.25s ease;
 }
