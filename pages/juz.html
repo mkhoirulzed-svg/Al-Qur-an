@@ -36,6 +36,9 @@
 
 <script src="../data/juz-map.js"></script>
 <script>
+const judulJuz = document.getElementById('judul-juz');
+const judulSurah = document.getElementById('judul-surah');
+
 const juzContent = document.getElementById('juzContent');
 const judul = document.getElementById('judul');
 const audioPlayer = document.getElementById('audioPlayer');
@@ -52,7 +55,7 @@ if (!juzParam || isNaN(juzNo) || juzNo < 1 || juzNo > 30) {
 }
 
 // SET JUDUL SETELAH VALID
-judul.textContent = `Juz ${juzNo}`;
+judulJuz.textContent = `Juz ${juzNo}`;
 
 
 const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
@@ -182,13 +185,14 @@ async function loadJuz({ start, end }) {
     const indo = json.data[1];
 
     /* HEADER SURAH */
-    const header = document.createElement('div');
-    header.className = 'surah-header';
-    header.innerHTML = `
-      <h3>${arab.englishName}</h3>
-      <small>${arab.englishNameTranslation}</small>
-    `;
-    juzContent.appendChild(header);
+const header = document.createElement('div');
+header.className = 'surah-header';
+header.dataset.surahName = `${indo.englishNameTranslation} (${arab.name})`;
+header.innerHTML = `
+  <h3>${arab.englishName}</h3>
+  <small>${arab.englishNameTranslation}</small>
+`;
+juzContent.appendChild(header);
 
     arab.ayahs.forEach(a => {
       const ayatNo = a.numberInSurah;
@@ -234,7 +238,7 @@ async function loadJuz({ start, end }) {
   ${bismillahHTML || ''}
 
   <div class="ayat-content">
-    <span class="ayat-nomor">${arab.englishName} : ${ayatNo}</span>
+    <span class="ayat-nomor">﴿${ayatNo}﴾</span>
 
     <div class="ayat-arab">${tajwidColor(arabText)}</div>
     <div class="ayat-indo">${terjemah?.text || ''}</div>
@@ -328,6 +332,21 @@ document.addEventListener('click', e => {
   // aktifkan ayat ini
   ayat.classList.add('active');
 });
+
+// autoganti nama surah
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const name = entry.target.dataset.surahName;
+      if (name) judulSurah.textContent = name;
+    }
+  });
+}, {
+  rootMargin: '-40% 0px -55% 0px'
+});
+
+// observe semua header surah
+document.querySelectorAll('.surah-header').forEach(h => observer.observe(h));
 </script>
 
 </body>
