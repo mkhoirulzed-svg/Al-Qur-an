@@ -89,33 +89,53 @@ function tajwidColor(text) {
 /* =========================
    AUDIO
 ========================= */
-let currentAyat = null;
-let ayatQueue = [];
-let currentIndex = -1;
+let currentPlaying = null;
 
-audioPlayer.addEventListener('ended', () => {
-  if (currentAyat) currentAyat.classList.remove('ayat-playing');
-  currentIndex++;
-  playFromQueue();
-});
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.audio-btn');
+  if (!btn) return;
 
-function playFromQueue() {
-  if (currentIndex >= ayatQueue.length) return;
+  const ayatEl = btn.closest('.ayat-item');
+  const audioUrl = ayatEl.dataset.audio;
 
-  const ayatEl = ayatQueue[currentIndex];
-  if (!ayatEl.dataset.audio) {
-    currentIndex++;
-    playFromQueue();
+  if (!audioUrl) {
+    alert('Audio tidak tersedia');
     return;
   }
 
-  if (currentAyat) currentAyat.classList.remove('ayat-playing');
+  // PAUSE jika ayat sama & sedang play
+  if (currentPlaying === ayatEl && !audioPlayer.paused) {
+    audioPlayer.pause();
+    btn.textContent = '▶';
+    ayatEl.classList.remove('ayat-playing');
+    return;
+  }
 
-  currentAyat = ayatEl;
+  // Reset ayat sebelumnya
+  if (currentPlaying && currentPlaying !== ayatEl) {
+    const oldBtn = currentPlaying.querySelector('.audio-btn');
+    if (oldBtn) oldBtn.textContent = '▶';
+    currentPlaying.classList.remove('ayat-playing');
+  }
+
+  // Play ayat baru
+  currentPlaying = ayatEl;
   ayatEl.classList.add('ayat-playing');
-  audioPlayer.src = ayatEl.dataset.audio;
+  btn.textContent = '⏸';
+
+  audioPlayer.src = audioUrl;
   audioPlayer.play();
-}
+});
+
+audioPlayer.addEventListener('ended', () => {
+  if (!currentPlaying) return;
+
+  const btn = currentPlaying.querySelector('.audio-btn');
+  if (btn) btn.textContent = '▶';
+
+  currentPlaying.classList.remove('ayat-playing');
+  currentPlaying = null;
+});
 
 /* =========================
    LOAD JUZ
