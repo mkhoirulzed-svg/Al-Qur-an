@@ -249,6 +249,18 @@ document.addEventListener('click', e => {
   audioPlayer.src = audioUrl;
   audioPlayer.play();
 });
+
+document.addEventListener('click', e => {
+  const ayat = e.target.closest('.ayat-item');
+  if (!ayat) return;
+
+  // matikan ayat lain
+  document.querySelectorAll('.ayat-item.active')
+    .forEach(a => a.classList.remove('active'));
+
+  // aktifkan ayat ini
+  ayat.classList.add('active');
+});
 </script>
 
 </body>
