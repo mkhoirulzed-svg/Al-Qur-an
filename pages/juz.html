@@ -89,6 +89,11 @@ function tajwidColor(text) {
     .replace(/([قطبجد])/g, '<span class="tajwid-qalqalah">$1</span>');
 }
 
+  function toArabicNumber(num) {
+  const arabicDigits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(num).replace(/\d/g, d => arabicDigits[d]);
+}
+
 /* =========================
    AUDIO
 ========================= */
