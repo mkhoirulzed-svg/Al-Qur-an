@@ -235,6 +235,13 @@ body {
   font-family: "Amiri", "Scheherazade New", serif;
 }
 
+.ayat-nomor-inline {
+  font-size: 0.9em;
+  color: #92400e; /* senada dengan highlight */
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
 .ayat-nomor-deco {
   font-size: 22px;
 }
