@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Daily Amal</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* =========================
+   DAILY AMAL STYLE
+========================= */
+.page-daily {
+  background: #f8fafc;
+}
+
+.daily-container {
+  padding: 16px;
+}
+
+.daily-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.daily-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.daily-date {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.amal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.amal-item:last-child {
+  border-bottom: none;
+}
+
+.amal-item label {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #0284c7;
+}
+</style>
+</head>
+
+<body class="page-daily">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div>My Daily Amal</div>
+    <div class="judul-surah">Evaluasi ibadah harian</div>
+  </div>
+</header>
+
+<main class="daily-container">
+
+  <div class="daily-card">
+    <div class="daily-title">📋 Checklist Amal</div>
+    <div class="daily-date" id="todayDate"></div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="sholat5">
+      <label>Sholat 5 Waktu</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="jamaah">
+      <label>Sholat Berjamaah</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="sunnah">
+      <label>Sholat Sunnah</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="tilawah">
+      <label>Tilawah Al-Qur’an</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="kajian">
+      <label>Mengikuti Kajian</label>
+    </div>
+
+  </div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a href="../index.html">Home</a>
+  <a href="quran.html">Al-Qur'an</a>
+  <a href="bookmark.html">Bookmark</a>
+  <a href="about.html">Tentang</a>
+</nav>
+
+<script>
+const today = new Date().toISOString().slice(0, 10);
+const dateEl = document.getElementById('todayDate');
+dateEl.textContent = `Tanggal: ${today}`;
+
+function getData() {
+  const all = JSON.parse(localStorage.getItem('dailyAmal')) || {};
+  return all[today] || {};
+}
+
+function saveData(data) {
+  const all = JSON.parse(localStorage.getItem('dailyAmal')) || {};
+  all[today] = data;
+  localStorage.setItem('dailyAmal', JSON.stringify(all));
+}
+
+const data = getData();
+
+document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+  const key = cb.dataset.key;
+  cb.checked = !!data[key];
+
+  cb.addEventListener('change', () => {
+    data[key] = cb.checked;
+    saveData(data);
+  });
+});
+</script>
+
+</body>
+</html>
