@@ -196,6 +196,15 @@ async function loadJuz({ start, end }) {
     /* ===== BISMAILLAH MANUAL ===== */
     arab.ayahs.forEach(a => {
   const ayatNo = a.numberInSurah;
+
+  // ===============================
+  // FILTER AYAT DI LUAR RANGE JUZ
+  // ===============================
+  if (
+    (surah === start[0] && ayatNo < start[1]) ||
+    (surah === end[0] && ayatNo > end[1])
+  ) return;
+
   let arabText = a.text;
 
   // ===============================
@@ -206,22 +215,18 @@ async function loadJuz({ start, end }) {
     arab.number !== 1 &&
     arab.number !== 9
   ) {
-    // tampilkan bismillah manual
     const bismillah = document.createElement('div');
     bismillah.className = 'bismillah-manual';
     bismillah.innerHTML = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
     juzContent.appendChild(bismillah);
 
-    // hapus bismillah dari teks ayat API
     arabText = arabText.replace(
       /^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u,
       ''
     ).trim();
   }
-      if (
-        (surah === start[0] && ayatNo < start[1]) ||
-        (surah === end[0] && ayatNo > end[1])
-      ) return;
+
+  // === lanjut render ayat ===
 
       const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
 
