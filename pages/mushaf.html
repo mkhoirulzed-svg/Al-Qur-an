@@ -238,11 +238,12 @@ function toggleBookmark(el) {
     el.classList.remove('bookmarked');
   } else {
     bookmarks.push({
-      mode: 'juz',
-      juz,
-      surah,
-      ayat
-    });
+  mode: 'juz',
+  juz,
+  surah,
+  ayat,
+  text: el.parentElement.textContent.trim()
+});
     el.classList.add('bookmarked');
   }
 
