@@ -87,7 +87,9 @@
     <option value="Banjarmasin">Banjarmasin</option>
     <option value="Pontianak">Pontianak</option>
   </select>
-
+<button id="autoLocationBtn" class="kota-select">
+  📍 Gunakan Lokasi Saat Ini
+</button>
   <div id="jadwalSholat">
     <p>Memuat jadwal sholat...</p>
   </div>
@@ -118,14 +120,14 @@ async function loadJadwal(kota) {
     const json = await res.json();
     const t = json.data.timings;
 
-    const jadwal = [
-      ['Subuh', t.Fajr],
-      ['Dzuhur', t.Dhuhr],
-      ['Ashar', t.Asr],
-      ['Maghrib', t.Maghrib],
-      ['Isya', t.Isha]
-    ];
-
+   function renderJadwal(t) {
+  const jadwal = [
+    ['Subuh', t.Fajr],
+    ['Dzuhur', t.Dhuhr],
+    ['Ashar', t.Asr],
+    ['Maghrib', t.Maghrib],
+    ['Isya', t.Isha]
+  ];
     const now = new Date();
 
     jadwalEl.innerHTML = '';
@@ -158,6 +160,20 @@ kotaSelect.addEventListener('change', () => {
 // load awal
 loadJadwal(kotaSelect.value);
 </script>
+
+   async function loadJadwalByCoord(lat, lon) {
+  jadwalEl.innerHTML = '<p>Mendeteksi lokasi...</p>';
+
+  try {
+    const res = await fetch(
+      `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=11`
+    );
+    const json = await res.json();
+    renderJadwal(json.data.timings);
+  } catch (err) {
+    jadwalEl.innerHTML = '<p>Gagal memuat jadwal dari lokasi.</p>';
+  }
+}
 
 </body>
 </html>
