@@ -240,21 +240,26 @@ async function loadJuz({ start, end }) {
       div.dataset.audio = a.audio;
 
       div.innerHTML = `
-        ${bismillahHTML}
-        <div class="ayat-content">
-          <span class="ayat-nomor">﴿${ayatNo}﴾</span>
-          <div class="ayat-arab">${tajwidColor(arabText)}</div>
-          <div class="ayat-indo">${terjemah?.text || ''}</div>
-          <div class="ayat-actions bottom">
-            <button class="audio-btn">▶</button>
-            <img src="../icons/bookmark.png" class="bookmark-btn">
-          </div>
-        </div>
-      `;
+  ${bismillahHTML}
+  <div class="ayat-content">
 
-      juzContent.appendChild(div);
-      ayatQueue.push(div);
-    });
+    <div class="ayat-arab">
+      ${tajwidColor(arabText)}
+      <span class="ayat-nomor-inline">﴿${toArabicNumber(ayatNo)}﴾</span>
+    </div>
+
+    <div class="ayat-indo">
+      ${terjemah?.text || ''}
+    </div>
+
+    <div class="ayat-actions bottom">
+      <button class="audio-btn">▶</button>
+      <img src="../icons/bookmark.png" class="bookmark-btn">
+    </div>
+
+  </div>
+`;
+
   }
 }
 
