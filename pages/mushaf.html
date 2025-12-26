@@ -72,6 +72,27 @@ body {
   padding: 2px 4px;
 }
 
+   .toast {
+  position: fixed;
+  bottom: 90px; /* di atas bottom-nav */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 64, 175, 0.95);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-6px);
+}
+
 </style>
 </head>
 
@@ -98,7 +119,7 @@ body {
 <main class="mushaf-container" id="mushafContent">
   <p>Memuat mushaf...</p>
 </main>
-
+<div id="toast" class="toast"></div>
 <script src="../data/juz-map.js"></script>
 <script>
 const mushafContent = document.getElementById('mushafContent');
@@ -107,6 +128,17 @@ const judulJuz = document.getElementById('judul-juz');
 const juzParam = new URLSearchParams(location.search).get('no');
 const juzNo = Number(juzParam);
 const judulSurah = document.getElementById('judul-surah');
+
+   const toastEl = document.getElementById('toast');
+
+function showToast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+
+  setTimeout(() => {
+    toastEl.classList.remove('show');
+  }, 1600);
+}
 
 
 if (!juzParam || isNaN(juzNo) || juzNo < 1 || juzNo > 30) {
@@ -258,22 +290,27 @@ function toggleBookmark(el) {
     b.ayat == ayat
   );
 
-  if (idx >= 0) {
-    bookmarks.splice(idx, 1);
-    el.classList.remove('bookmarked');
-  } else {
-    bookmarks.push({
-  mode: 'juz',
-  juz,
-  surah,
-  ayat,
-  text: el.textContent.replace(/﴿.*?﴾/, '').trim()
-});
-    el.classList.add('bookmarked');
-  }
+ if (idx >= 0) {
+  bookmarks.splice(idx, 1);
+  el.classList.remove('bookmarked');
+  showToast('Bookmark dihapus');
+} else {
+  bookmarks.push({
+    mode: 'juz',
+    juz,
+    surah,
+    ayat,
+    text: el.textContent.replace(/﴿.*?﴾/, '').trim()
+  });
+  el.classList.add('bookmarked');
+  showToast('Berhasil ditambahkan ke bookmark');
+}
 
   saveBookmarks(bookmarks);
 }
+
+   if (navigator.vibrate) navigator.vibrate(20);
+
 
 </script>
 
