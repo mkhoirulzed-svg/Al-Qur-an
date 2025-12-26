@@ -52,6 +52,12 @@
   background: #e0f2fe;
   border-left: 4px solid #0284c7;
 }
+   #lokasi-aktif {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
 </style>
 </head>
 
@@ -70,8 +76,10 @@
   </button>
 
   <div class="header-title">
-    <div id="judul-sholat">Jadwal Sholat</div>
-  </div>
+  <div id="judul-sholat">Jadwal Sholat</div>
+  <div id="lokasi-aktif" class="judul-surah"></div>
+</div>
+
 </header>
 
 <main class="sholat-container">
@@ -105,6 +113,7 @@
 const jadwalEl = document.getElementById('jadwalSholat');
 const kotaSelect = document.getElementById('kotaSelect');
 const autoBtn = document.getElementById('autoLocationBtn');
+const lokasiEl = document.getElementById('lokasi-aktif');
 
 /* =========================
    RENDER JADWAL (GLOBAL)
@@ -183,7 +192,8 @@ async function loadJadwalByCoord(lat, lon) {
    EVENT LISTENER
 ========================= */
 kotaSelect.addEventListener('change', () => {
-  loadJadwal(kotaSelect.value);
+ lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
+   loadJadwal(kotaSelect.value);
 });
 
 autoBtn.addEventListener('click', () => {
@@ -195,14 +205,15 @@ autoBtn.addEventListener('click', () => {
   jadwalEl.innerHTML = '<p>Meminta izin lokasi...</p>';
 
   navigator.geolocation.getCurrentPosition(
-    pos => {
-      loadJadwalByCoord(
-        pos.coords.latitude,
-        pos.coords.longitude
-      );
-    },
-    () => {
-      alert('Izin lokasi ditolak.');
+  pos => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+
+    getNamaLokasi(lat, lon);   // ⬅️ INI
+    loadJadwalByCoord(lat, lon);
+  },
+  () => {
+    alert('Izin lokasi ditolak.');
     },
     {
       enableHighAccuracy: true,
@@ -216,6 +227,29 @@ autoBtn.addEventListener('click', () => {
    LOAD AWAL
 ========================= */
 loadJadwal(kotaSelect.value);
+
+   async function getNamaLokasi(lat, lon) {
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+    );
+    const json = await res.json();
+
+    const city =
+      json.address.city ||
+      json.address.town ||
+      json.address.village ||
+      '';
+
+    const state = json.address.state || '';
+
+    lokasiEl.textContent = `📍 ${city}${state ? ', ' + state : ''}`;
+  } catch {
+    lokasiEl.textContent = '📍 Lokasi saat ini';
+  }
+}
+
+   
 </script>
 
 
