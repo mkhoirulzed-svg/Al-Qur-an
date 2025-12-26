@@ -135,13 +135,16 @@ if (isBookmarkedSurah(arab.number, a.numberInSurah)) {
       div.dataset.text = a.text;
       div.dataset.audio = a.audio;
 
+      function toArabicNumber(num) {
+  const arabicDigits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(num).replace(/\d/g, d => arabicDigits[d]);
+}
+
       div.innerHTML = `
   <div class="ayat-content">
-    <span class="ayat-nomor-arab">﴾${a.numberInSurah}﴿</span>
-
     <div class="ayat-arab">
       ${tajwidColor(ayatText)}
-    </div>
+   <span class="ayat-nomor-inline">﴾${toArabicNumber(a.numberInSurah)}﴿</span> </div>
 
     <div class="ayat-indo">
       ${terjemah?.text || ''}
