@@ -48,6 +48,19 @@ body {
   font-size: 1.3rem;
   margin: 0 4px;
 }
+   /* nomor ayat */
+.ayat-no {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+/* ayat dibookmark */
+.ayat-no.bookmarked {
+  color: #1e40af;
+  font-weight: 600;
+}
+
 </style>
 </head>
 
@@ -90,6 +103,16 @@ function toArabicNumber(num) {
   return String(num).replace(/\d/g, x => d[x]);
 }
 
+  function isBookmarked(juz, surah, ayat) {
+  return getBookmarks().some(b =>
+    b.mode === 'juz' &&
+    b.juz == juz &&
+    b.surah == surah &&
+    b.ayat == ayat
+  );
+}
+ 
+   
 async function loadMushaf({ start, end }) {
   mushafContent.innerHTML = '';
 
@@ -135,8 +158,20 @@ async function loadMushaf({ start, end }) {
           ''
         ).trim();
       }
-
-      ayatText += `${text} <span class="ayat-no">﴿${toArabicNumber(ayatNo)}﴾</span> `;
+       
+const bookmarked = isBookmarked(juzNo, surah, ayatNo)
+    ? 'bookmarked'
+    : '';
+       
+     ayatText += `
+  ${text}
+  <span
+    class="ayat-no"
+    data-juz="${juzNo}"
+    data-surah="${surah}"
+    data-ayat="${ayatNo}"
+  >﴿${toArabicNumber(ayatNo)}﴾</span>
+`;
     });
 
     const block = document.createElement('div');
@@ -147,6 +182,73 @@ async function loadMushaf({ start, end }) {
 }
 
 loadMushaf(juzInfo);
+
+   /* =========================
+   BOOKMARK (LONG PRESS)
+========================= */
+function getBookmarks() {
+  return JSON.parse(localStorage.getItem('bookmarks')) || [];
+}
+
+function saveBookmarks(data) {
+  localStorage.setItem('bookmarks', JSON.stringify(data));
+}
+
+let pressTimer = null;
+let pressedEl = null;
+
+document.addEventListener('touchstart', e => {
+  const target = e.target.closest('.ayat-no');
+  if (!target) return;
+
+  pressedEl = target;
+
+  pressTimer = setTimeout(() => {
+    toggleBookmark(target);
+  }, 600);
+});
+
+document.addEventListener('touchend', clearPress);
+document.addEventListener('touchmove', clearPress);
+document.addEventListener('touchcancel', clearPress);
+
+function clearPress() {
+  if (pressTimer) {
+    clearTimeout(pressTimer);
+    pressTimer = null;
+  }
+}
+
+function toggleBookmark(el) {
+  const juz   = el.dataset.juz;
+  const surah = el.dataset.surah;
+  const ayat  = el.dataset.ayat;
+
+  let bookmarks = getBookmarks();
+
+  const idx = bookmarks.findIndex(b =>
+    b.mode === 'juz' &&
+    b.juz == juz &&
+    b.surah == surah &&
+    b.ayat == ayat
+  );
+
+  if (idx >= 0) {
+    bookmarks.splice(idx, 1);
+    el.classList.remove('bookmarked');
+  } else {
+    bookmarks.push({
+      mode: 'juz',
+      juz,
+      surah,
+      ayat
+    });
+    el.classList.add('bookmarked');
+  }
+
+  saveBookmarks(bookmarks);
+}
+
 </script>
 
 </body>
