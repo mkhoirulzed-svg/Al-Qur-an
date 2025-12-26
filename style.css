@@ -252,11 +252,12 @@ body {
   text-align: right;
   font-family: 'Amiri', serif;
   direction: rtl;
+  margin-bottom: 4px;
 }
 
 .ayat-nomor-arab {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .ayat-indo {
@@ -646,7 +647,7 @@ back-btn svg {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-top: 10px;
+  margin-top: 4px;
 
   opacity: 0;
   transition: opacity 0.25s ease;
