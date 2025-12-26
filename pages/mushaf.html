@@ -61,6 +61,17 @@ body {
   font-weight: 600;
 }
 
+   .ayat-text {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ayat-text.bookmarked {
+  background: rgba(30, 64, 175, 0.08);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
 </style>
 </head>
 
@@ -183,14 +194,16 @@ const bookmarked = isBookmarked(juzNo, surah, ayatNo)
     : '';
        
      ayatText += `
+<span class="ayat-text"
+  data-juz="${juzNo}"
+  data-surah="${surah}"
+  data-ayat="${ayatNo}"
+>
   ${text}
-  <span
-    class="ayat-no"
-    data-juz="${juzNo}"
-    data-surah="${surah}"
-    data-ayat="${ayatNo}"
-  >﴿${toArabicNumber(ayatNo)}﴾</span>
+  <span class="ayat-no">﴿${toArabicNumber(ayatNo)}﴾</span>
+</span>
 `;
+
     });
 
     const block = document.createElement('div');
@@ -217,7 +230,7 @@ let pressTimer = null;
 let pressedEl = null;
 
 document.addEventListener('touchstart', e => {
-  const target = e.target.closest('.ayat-no');
+ const target = e.target.closest('.ayat-text');
   if (!target) return;
 
   pressedEl = target;
@@ -261,7 +274,7 @@ function toggleBookmark(el) {
   juz,
   surah,
   ayat,
-  text: el.parentElement.textContent.trim()
+  text: el.textContent.replace(/﴿.*?﴾/, '').trim()
 });
     el.classList.add('bookmarked');
   }
