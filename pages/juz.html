@@ -194,16 +194,30 @@ async function loadJuz({ start, end }) {
     }
 
     /* ===== BISMAILLAH MANUAL ===== */
-    if (arab.number !== 1 && arab.number !== 9) {
-      const bismillah = document.createElement('div');
-      bismillah.className = 'bismillah-manual';
-      bismillah.innerHTML = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-      juzContent.appendChild(bismillah);
-    }
-
     arab.ayahs.forEach(a => {
-      const ayatNo = a.numberInSurah;
+  const ayatNo = a.numberInSurah;
+  let arabText = a.text;
 
+  // ===============================
+  // BISMAILLAH MANUAL (AWAL SURAH)
+  // ===============================
+  if (
+    ayatNo === 1 &&
+    arab.number !== 1 &&
+    arab.number !== 9
+  ) {
+    // tampilkan bismillah manual
+    const bismillah = document.createElement('div');
+    bismillah.className = 'bismillah-manual';
+    bismillah.innerHTML = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+    juzContent.appendChild(bismillah);
+
+    // hapus bismillah dari teks ayat API
+    arabText = arabText.replace(
+      /^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u,
+      ''
+    ).trim();
+  }
       if (
         (surah === start[0] && ayatNo < start[1]) ||
         (surah === end[0] && ayatNo > end[1])
@@ -223,7 +237,7 @@ async function loadJuz({ start, end }) {
       div.innerHTML = `
         <div class="ayat-content">
           <div class="ayat-arab">
-            ${tajwidColor(a.text)}
+            ${tajwidColor(arabText)}
             <span class="ayat-nomor-inline">﴿${toArabicNumber(ayatNo)}﴾</span>
           </div>
           <div class="ayat-indo">
