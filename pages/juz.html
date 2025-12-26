@@ -249,6 +249,7 @@ async function loadJuz({ start, end }) {
       div.dataset.surah = surah;
       div.dataset.ayat = ayatNo;
       div.dataset.audio = a.audio;
+div.dataset.surahName = `${arab.englishName} (${arab.name})`;
 
       div.innerHTML = `
         ${bismillahHTML}
