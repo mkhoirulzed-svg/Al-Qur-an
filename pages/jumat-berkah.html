@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jumat Berkah</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* =========================
+   JUMAT BERKAH STYLE
+========================= */
+.page-jumat {
+  background: #f8fafc;
+}
+
+.jumat-container {
+  padding: 16px;
+}
+
+.jumat-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.jumat-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.jumat-date {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.amal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.amal-item:last-child {
+  border-bottom: none;
+}
+
+.amal-item label {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #0284c7;
+}
+</style>
+</head>
+
+<body class="page-jumat">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div>Jumat Berkah</div>
+    <div class="judul-surah">Amalan sunnah hari Jumat</div>
+  </div>
+</header>
+
+<main class="jumat-container">
+
+  <div class="jumat-card">
+    <div class="jumat-title">🤲 Checklist Amalan Jumat</div>
+    <div class="jumat-date" id="fridayDate"></div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="jumat">
+      <label>Sholat Jum’at</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="jamaah">
+      <label>Sholat Berjamaah</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="shodaqoh">
+      <label>Shodaqoh</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="sholawat">
+      <label>Memperbanyak Sholawat</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="alkahfi">
+      <label>Membaca Surah Al-Kahfi</label>
+    </div>
+
+    <div class="amal-item">
+      <input type="checkbox" data-key="doa">
+      <label>Berdo’a di Akhir Jum'at</label>
+    </div>
+
+  </div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a href="../index.html">Home</a>
+  <a href="quran.html">Al-Qur'an</a>
+  <a href="bookmark.html">Bookmark</a>
+  <a href="about.html">Tentang</a>
+</nav>
+
+<script>
+const today = new Date().toISOString().slice(0, 10);
+document.getElementById('fridayDate').textContent =
+  `Tanggal: ${today}`;
+
+function getData() {
+  const all = JSON.parse(localStorage.getItem('jumatBerkah')) || {};
+  return all[today] || {};
+}
+
+function saveData(data) {
+  const all = JSON.parse(localStorage.getItem('jumatBerkah')) || {};
+  all[today] = data;
+  localStorage.setItem('jumatBerkah', JSON.stringify(all));
+}
+
+const data = getData();
+
+document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+  const key = cb.dataset.key;
+  cb.checked = !!data[key];
+
+  cb.addEventListener('change', () => {
+    data[key] = cb.checked;
+    saveData(data);
+  });
+});
+</script>
+
+</body>
+</html>
