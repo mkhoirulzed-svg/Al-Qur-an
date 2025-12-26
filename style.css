@@ -203,6 +203,11 @@ body {
    AYAT (FINAL)
 ========================= */
 /* ===== AYAT SURAH ===== */
+.ayat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
 .ayat-item {
   display: flex;
@@ -215,9 +220,10 @@ body {
 }
 
 .ayat-content {
+  flex: 1;
+  text-align: right;
   margin: 0;
   padding: 0;
-  flex: 1;
 }
 
 .ayat-nomor {
@@ -239,6 +245,11 @@ body {
   text-align: right;
   font-family: 'Amiri', serif;
   direction: rtl;
+}
+
+.ayat-nomor-arab {
+  display: block;
+  margin-bottom: 6px;
 }
 
 .ayat-indo {
@@ -650,6 +661,7 @@ display: flex;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   min-width: 36px;
+  flex-shrink: 0;
 }
