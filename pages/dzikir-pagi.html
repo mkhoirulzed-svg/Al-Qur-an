@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dzikir Pagi</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* =========================
+   DZIKIR PAGI STYLE
+========================= */
+.page-dzikir {
+  background: #f8fafc;
+}
+
+.dzikir-container {
+  padding: 16px;
+  max-width: 720px;
+  margin: auto;
+}
+
+.dzikir-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.dzikir-arab {
+  direction: rtl;
+  font-family: 'Amiri', serif;
+  font-size: 1.9rem;
+  line-height: 2.6;
+  margin-bottom: 8px;
+}
+
+.dzikir-arti {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+
+.dzikir-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #0284c7;
+}
+</style>
+</head>
+
+<body class="page-dzikir">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div>Dzikir Pagi</div>
+    <div class="judul-surah">Setelah Subuh hingga matahari terbit</div>
+  </div>
+</header>
+
+<main class="dzikir-container" id="dzikirList">
+
+  <!-- 1 -->
+  <div class="dzikir-card" data-key="istighfar">
+    <div class="dzikir-arab">أَسْتَغْفِرُ اللَّهَ</div>
+    <div class="dzikir-arti">Aku memohon ampun kepada Allah (dibaca 100x)</div>
+    <div class="dzikir-action">
+      <span class="counter">0 / 100</span>
+      <input type="checkbox">
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="dzikir-card" data-key="tasbih">
+    <div class="dzikir-arab">سُبْحَانَ اللَّهِ</div>
+    <div class="dzikir-arti">Maha Suci Allah (33x)</div>
+    <div class="dzikir-action">
+      <span class="counter">0 / 33</span>
+      <input type="checkbox">
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="dzikir-card" data-key="tahmid">
+    <div class="dzikir-arab">الْحَمْدُ لِلَّهِ</div>
+    <div class="dzikir-arti">Segala puji bagi Allah (33x)</div>
+    <div class="dzikir-action">
+      <span class="counter">0 / 33</span>
+      <input type="checkbox">
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="dzikir-card" data-key="takbir">
+    <div class="dzikir-arab">اللَّهُ أَكْبَرُ</div>
+    <div class="dzikir-arti">Allah Maha Besar (33x)</div>
+    <div class="dzikir-action">
+      <span class="counter">0 / 33</span>
+      <input type="checkbox">
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="dzikir-card" data-key="ayatkursi">
+    <div class="dzikir-arab">
+      اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...
+    </div>
+    <div class="dzikir-arti">Ayat Kursi (1x)</div>
+    <div class="dzikir-action">
+      <span class="counter">0 / 1</span>
+      <input type="checkbox">
+    </div>
+  </div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a href="../index.html">Home</a>
+  <a href="quran.html">Al-Qur'an</a>
+  <a href="bookmark.html">Bookmark</a>
+  <a href="about.html">Tentang</a>
+</nav>
+
+<script>
+const today = new Date().toISOString().slice(0,10);
+const STORAGE_KEY = 'dzikirPagi';
+
+const cards = document.querySelectorAll('.dzikir-card');
+
+function getData() {
+  const all = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  return all[today] || {};
+}
+
+function saveData(data) {
+  const all = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  all[today] = data;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+}
+
+const data = getData();
+
+cards.forEach(card => {
+  const key = card.dataset.key;
+  const checkbox = card.querySelector('input');
+  const counter = card.querySelector('.counter');
+  const [done, total] = counter.textContent.split('/').map(s => Number(s));
+
+  if (data[key]) checkbox.checked = true;
+
+  checkbox.addEventListener('change', () => {
+    data[key] = checkbox.checked;
+    saveData(data);
+  });
+});
+</script>
+
+</body>
+</html>
