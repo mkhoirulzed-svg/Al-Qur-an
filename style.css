@@ -253,12 +253,12 @@ body {
   font-family: 'Amiri', serif;
   direction: rtl;
   margin-bottom: 2px;
-  margin-top: 2px
+  margin-top: 0px
 }
 
 .ayat-nomor-arab {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .ayat-indo {
