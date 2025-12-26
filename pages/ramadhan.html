@@ -99,7 +99,7 @@ input[type="checkbox"] {
         <th>Hari</th>
         <th>Puasa</th>
         <th>Tilawah</th>
-        <th>Amal</th>
+        <th>Tarawih</th>
         <th>Sedekah</th>
       </tr>
     </thead>
@@ -133,7 +133,7 @@ for (let day = 1; day <= 30; day++) {
 
   row.innerHTML = `
     <td>${day}</td>
-    ${['puasa','tilawah','amal','sedekah'].map(type => `
+    ${['puasa','tilawah','tarawih','sedekah'].map(type => `
       <td>
         <input type="checkbox"
           data-day="${day}"
