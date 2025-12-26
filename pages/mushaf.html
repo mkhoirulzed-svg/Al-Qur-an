@@ -226,30 +226,23 @@ function saveBookmarks(data) {
   localStorage.setItem('bookmarks', JSON.stringify(data));
 }
 
-let pressTimer = null;
-let pressedEl = null;
+let lastTap = 0;
 
-document.addEventListener('touchstart', e => {
- const target = e.target.closest('.ayat-text');
+document.addEventListener('click', e => {
+  const target = e.target.closest('.ayat-text');
   if (!target) return;
 
-  pressedEl = target;
+  const now = Date.now();
+  const delay = 300; // toleransi double tap (ms)
 
-  pressTimer = setTimeout(() => {
+  if (now - lastTap < delay) {
     toggleBookmark(target);
-  }, 600);
+    lastTap = 0;
+  } else {
+    lastTap = now;
+  }
 });
 
-document.addEventListener('touchend', clearPress);
-document.addEventListener('touchmove', clearPress);
-document.addEventListener('touchcancel', clearPress);
-
-function clearPress() {
-  if (pressTimer) {
-    clearTimeout(pressTimer);
-    pressTimer = null;
-  }
-}
 
 function toggleBookmark(el) {
   const juz   = el.dataset.juz;
