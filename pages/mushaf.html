@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mushaf</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* =========================
+   MUSHAF STYLE
+========================= */
+body {
+  background: #fdfcf8;
+}
+
+.mushaf-container {
+  max-width: 720px;
+  margin: auto;
+  padding: 20px 16px 80px;
+  font-family: 'Amiri', serif;
+}
+
+.surah-header {
+  text-align: center;
+  margin: 50px 0 24px;
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+.bismillah {
+  text-align: center;
+  font-size: 2.6rem;
+  margin: 28px 0 20px;
+  letter-spacing: 1px;
+}
+
+.mushaf-arab {
+  direction: rtl;
+  text-align: justify;
+  font-size: 2.2rem;
+  line-height: 3;
+  word-spacing: 4px;
+}
+
+.ayat-no {
+  font-size: 1.3rem;
+  margin: 0 4px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">←</button>
+  <div class="header-title">
+    <div id="judul-juz">Juz</div>
+  </div>
+</header>
+
+<main class="mushaf-container" id="mushafContent">
+  <p>Memuat mushaf...</p>
+</main>
+
+<script src="../data/juz-map.js"></script>
+<script>
+const mushafContent = document.getElementById('mushafContent');
+const judulJuz = document.getElementById('judul-juz');
+
+const juzParam = new URLSearchParams(location.search).get('no');
+const juzNo = Number(juzParam);
+
+if (!juzParam || isNaN(juzNo) || juzNo < 1 || juzNo > 30) {
+  mushafContent.innerHTML = '<p>Juz tidak ditemukan.</p>';
+  throw new Error('Invalid Juz');
+}
+
+judulJuz.textContent = `Juz ${juzNo}`;
+
+const juzInfo = JUZ_MAP.find(j => j.juz === juzNo);
+if (!juzInfo) {
+  mushafContent.innerHTML = '<p>Juz tidak valid</p>';
+  throw new Error('Invalid Juz');
+}
+
+function toArabicNumber(num) {
+  const d = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(num).replace(/\d/g, x => d[x]);
+}
+
+async function loadMushaf({ start, end }) {
+  mushafContent.innerHTML = '';
+
+  for (let surah = start[0]; surah <= end[0]; surah++) {
+    const res = await fetch(
+      `https://api.alquran.cloud/v1/surah/${surah}/editions/ar.alafasy`
+    );
+    const json = await res.json();
+    const arab = json.data[0];
+
+    // HEADER SURAH
+    const header = document.createElement('div');
+    header.className = 'surah-header';
+    header.textContent = `${arab.englishName} (${arab.name})`;
+    mushafContent.appendChild(header);
+
+    // KUMPULKAN AYAT DALAM 1 BLOK
+    let ayatText = '';
+
+    arab.ayahs.forEach(a => {
+      const ayatNo = a.numberInSurah;
+
+      if (
+        (surah === start[0] && ayatNo < start[1]) ||
+        (surah === end[0] && ayatNo > end[1])
+      ) return;
+
+      let text = a.text;
+
+      // BISMAILLAH MANUAL (AWAL SURAH)
+      if (
+        ayatNo === 1 &&
+        arab.number !== 1 &&
+        arab.number !== 9
+      ) {
+        const bismillah = document.createElement('div');
+        bismillah.className = 'bismillah';
+        bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+        mushafContent.appendChild(bismillah);
+
+        text = text.replace(
+          /^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u,
+          ''
+        ).trim();
+      }
+
+      ayatText += `${text} <span class="ayat-no">﴿${toArabicNumber(ayatNo)}﴾</span> `;
+    });
+
+    const block = document.createElement('div');
+    block.className = 'mushaf-arab';
+    block.innerHTML = ayatText;
+    mushafContent.appendChild(block);
+  }
+}
+
+loadMushaf(juzInfo);
+</script>
+
+</body>
+</html>
 
