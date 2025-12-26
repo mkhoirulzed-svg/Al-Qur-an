@@ -197,10 +197,17 @@ async function loadJuz({ start, end }) {
     const header = document.createElement('div');
     header.className = 'surah-header';
   header.dataset.surahName = `${arab.englishName} (${arab.name})`;
+    
     header.innerHTML = `
-      <h3>${arab.englishName}</h3>
-      <small>${arab.englishNameTranslation}</small>
-    `;
+  <div class="surah-title-deco">
+    <span class="deco">❁</span>
+    <span class="surah-title-text">
+      ${arab.englishName} (${arab.name})
+    </span>
+    <span class="deco">❁</span>
+  </div>
+`;
+
 
     juzContent.appendChild(header);
     observer.observe(header); // ✅ INI KUNCI UTAMA
