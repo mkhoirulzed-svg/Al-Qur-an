@@ -311,6 +311,14 @@ function toggleBookmark(el) {
 
    if (navigator.vibrate) navigator.vibrate(20);
 
+window.addEventListener('load', () => {
+  if (!localStorage.getItem('hintBookmarkShown')) {
+    setTimeout(() => {
+      showToast('💡 Double tap ayat untuk bookmark', 2500);
+      localStorage.setItem('hintBookmarkShown', '1');
+    }, 600);
+  }
+});
 
 </script>
 
