@@ -211,62 +211,66 @@ async function loadJuz({ start, end }) {
       firstSurahSet = true;
     }
 
-    arab.ayahs.forEach(a => {
-      const ayatNo = a.numberInSurah;
+   arab.ayahs.forEach(a => {
+  const ayatNo = a.numberInSurah;
 
-      if (
-        (surah === start[0] && ayatNo < start[1]) ||
-        (surah === end[0] && ayatNo > end[1])
-      ) return;
+  if (
+    (surah === start[0] && ayatNo < start[1]) ||
+    (surah === end[0] && ayatNo > end[1])
+  ) return;
 
-      let arabText = a.text;
-      let bismillahHTML = '';
+  let arabText = a.text;
+  let bismillahHTML = '';
 
-      if (ayatNo === 1 && arab.number !== 1 && arab.number !== 9) {
-        const regex =
-          /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
+  if (ayatNo === 1 && arab.number !== 1 && arab.number !== 9) {
+    const regex =
+      /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u;
 
-        if (regex.test(arabText)) {
-          const match = arabText.match(regex)[0];
-          arabText = arabText.replace(regex, '').trim();
-          bismillahHTML = `<div class="bismillah ayat-arab">${match}</div>`;
-        }
-      }
-
-      const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
-
-      const div = document.createElement('div');
-      div.className = 'ayat-item';
-      if (isBookmarked(juzNo, surah, ayatNo)) div.classList.add('bookmarked');
-
-      div.dataset.juz = juzNo;
-      div.dataset.surah = surah;
-      div.dataset.ayat = ayatNo;
-      div.dataset.audio = a.audio;
-
-      div.innerHTML = `
-  ${bismillahHTML}
-  <div class="ayat-content">
-
-    <div class="ayat-arab">
-      ${tajwidColor(arabText)}
-      <span class="ayat-nomor-inline">﴿${toArabicNumber(ayatNo)}﴾</span>
-    </div>
-
-    <div class="ayat-indo">
-      ${terjemah?.text || ''}
-    </div>
-
-    <div class="ayat-actions bottom">
-      <button class="audio-btn">▶</button>
-      <img src="../icons/bookmark.png" class="bookmark-btn">
-    </div>
-
-  </div>
-`;
-
+    if (regex.test(arabText)) {
+      const match = arabText.match(regex)[0];
+      arabText = arabText.replace(regex, '').trim();
+      bismillahHTML = `<div class="bismillah ayat-arab">${match}</div>`;
+    }
   }
-}
+
+  const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
+
+  const div = document.createElement('div');
+  div.className = 'ayat-item';
+
+  if (isBookmarked(juzNo, surah, ayatNo)) {
+    div.classList.add('bookmarked');
+  }
+
+  div.dataset.juz = juzNo;
+  div.dataset.surah = surah;
+  div.dataset.ayat = ayatNo;
+  div.dataset.audio = a.audio;
+
+  div.innerHTML = `
+    ${bismillahHTML}
+    <div class="ayat-content">
+
+      <div class="ayat-arab">
+        ${tajwidColor(arabText)}
+        <span class="ayat-nomor-inline">﴿${toArabicNumber(ayatNo)}﴾</span>
+      </div>
+
+      <div class="ayat-indo">
+        ${terjemah?.text || ''}
+      </div>
+
+      <div class="ayat-actions bottom">
+        <button class="audio-btn">▶</button>
+        <img src="../icons/bookmark.png" class="bookmark-btn">
+      </div>
+
+    </div>
+  `;
+
+  // ✅ INI YANG KAMU LUPA
+  juzContent.appendChild(div);
+});
 
 loadJuz(juzInfo);
 
