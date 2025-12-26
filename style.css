@@ -329,6 +329,14 @@ body {
   margin-top: 12px;
 }
 
+.bismillah-manual {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 18px 0 12px;
+  font-family: 'Amiri', serif;
+  color: #1e293b;
+}
+
 
 /* =========================
    AUDIO & HIGHLIGHT
