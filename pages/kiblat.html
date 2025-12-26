@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arah Kiblat</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* =========================
+   KIBLAT STYLE
+========================= */
+.page-kiblat {
+  background: #f8fafc;
+}
+
+.kiblat-container {
+  padding: 16px;
+  text-align: center;
+}
+
+.kiblat-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.kompas-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 20px auto;
+}
+
+.kompas {
+  width: 100%;
+  height: 100%;
+  border: 8px solid #e2e8f0;
+  border-radius: 50%;
+  position: relative;
+}
+
+.panah {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 90px;
+  background: #0284c7;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(0deg);
+  border-radius: 4px;
+}
+
+.panah::after {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 14px solid #0284c7;
+}
+
+.info-kiblat {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+.btn-kiblat {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  border-radius: 10px;
+  border: none;
+  background: #0284c7;
+  color: #fff;
+  font-size: 1rem;
+}
+</style>
+</head>
+
+<body class="page-kiblat">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div>Arah Kiblat</div>
+    <div id="lokasi-aktif" class="judul-surah"></div>
+  </div>
+</header>
+
+<main class="kiblat-container">
+  <div class="kiblat-card">
+    <div class="kompas-wrapper">
+      <div class="kompas">
+        <div class="panah" id="panahKiblat"></div>
+      </div>
+    </div>
+
+    <div class="info-kiblat" id="infoArah">
+      Menunggu izin lokasi & sensor...
+    </div>
+
+    <button class="btn-kiblat" onclick="initKiblat()">
+      📍 Aktifkan Arah Kiblat
+    </button>
+  </div>
+</main>
+
+<nav class="bottom-nav">
+  <a href="../index.html">Home</a>
+  <a href="quran.html">Al-Qur'an</a>
+  <a href="bookmark.html">Bookmark</a>
+  <a href="about.html">Tentang</a>
+</nav>
+
+<script>
+const panah = document.getElementById('panahKiblat');
+const info = document.getElementById('infoArah');
+const lokasiEl = document.getElementById('lokasi-aktif');
+
+/* =========================
+   HITUNG ARAH KIBLAT
+========================= */
+function hitungKiblat(lat, lon) {
+  const kaabaLat = 21.4225 * Math.PI / 180;
+  const kaabaLon = 39.8262 * Math.PI / 180;
+
+  lat = lat * Math.PI / 180;
+  lon = lon * Math.PI / 180;
+
+  const y = Math.sin(kaabaLon - lon);
+  const x = Math.cos(lat) * Math.tan(kaabaLat) -
+            Math.sin(lat) * Math.cos(kaabaLon - lon);
+
+  let brng = Math.atan2(y, x) * 180 / Math.PI;
+  return (brng + 360) % 360;
+}
+
+/* =========================
+   INIT KIBLAT
+========================= */
+function initKiblat() {
+  if (!navigator.geolocation) {
+    alert('Browser tidak mendukung GPS');
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+
+    lokasiEl.textContent = `📍 Lokasi Anda`;
+    const arahKiblat = hitungKiblat(lat, lon);
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', e => {
+        if (e.alpha === null) return;
+
+        const heading = 360 - e.alpha;
+        const rotate = arahKiblat - heading;
+
+        panah.style.transform =
+          `translate(-50%, -100%) rotate(${rotate}deg)`;
+
+        info.textContent =
+          `Arah Kiblat: ${Math.round(arahKiblat)}° dari Utara`;
+      });
+    } else {
+      info.textContent =
+        `Arah Kiblat: ${Math.round(arahKiblat)}° dari Utara`;
+    }
+  }, () => {
+    alert('Izin lokasi ditolak');
+  });
+}
+</script>
+
+</body>
+</html>
