@@ -104,7 +104,45 @@
 <script>
 const jadwalEl = document.getElementById('jadwalSholat');
 const kotaSelect = document.getElementById('kotaSelect');
+const autoBtn = document.getElementById('autoLocationBtn');
 
+/* =========================
+   RENDER JADWAL (GLOBAL)
+========================= */
+function renderJadwal(t) {
+  const jadwal = [
+    ['Subuh', t.Fajr],
+    ['Dzuhur', t.Dhuhr],
+    ['Ashar', t.Asr],
+    ['Maghrib', t.Maghrib],
+    ['Isya', t.Isha]
+  ];
+
+  const now = new Date();
+  jadwalEl.innerHTML = '';
+
+  jadwal.forEach(([nama, jam]) => {
+    const [h, m] = jam.split(':');
+    const waktu = new Date();
+    waktu.setHours(h, m, 0);
+
+    const active =
+      now >= waktu &&
+      now < new Date(waktu.getTime() + 60 * 60 * 1000);
+
+    const div = document.createElement('div');
+    div.className = 'jadwal-card' + (active ? ' active' : '');
+    div.innerHTML = `
+      <span>${nama}</span>
+      <span class="jam">${jam}</span>
+    `;
+    jadwalEl.appendChild(div);
+  });
+}
+
+/* =========================
+   LOAD JADWAL BY CITY
+========================= */
 async function loadJadwal(kota) {
   jadwalEl.innerHTML = '<p>Memuat jadwal sholat...</p>';
 
@@ -118,50 +156,16 @@ async function loadJadwal(kota) {
       `https://api.aladhan.com/v1/timingsByCity/${date}-${month}-${year}?city=${kota}&country=Indonesia&method=11`
     );
     const json = await res.json();
-    const t = json.data.timings;
-
-   function renderJadwal(t) {
-  const jadwal = [
-    ['Subuh', t.Fajr],
-    ['Dzuhur', t.Dhuhr],
-    ['Ashar', t.Asr],
-    ['Maghrib', t.Maghrib],
-    ['Isya', t.Isha]
-  ];
-    const now = new Date();
-
-    jadwalEl.innerHTML = '';
-    jadwal.forEach(([nama, jam]) => {
-      const [h, m] = jam.split(':');
-      const waktu = new Date();
-      waktu.setHours(h, m, 0);
-
-      const active = now >= waktu &&
-        now < new Date(waktu.getTime() + 60 * 60 * 1000);
-
-      const div = document.createElement('div');
-      div.className = 'jadwal-card' + (active ? ' active' : '');
-      div.innerHTML = `
-        <span>${nama}</span>
-        <span class="jam">${jam}</span>
-      `;
-      jadwalEl.appendChild(div);
-    });
-
+    renderJadwal(json.data.timings);
   } catch (err) {
     jadwalEl.innerHTML = '<p>Gagal memuat jadwal sholat.</p>';
   }
 }
 
-kotaSelect.addEventListener('change', () => {
-  loadJadwal(kotaSelect.value);
-});
-
-// load awal
-loadJadwal(kotaSelect.value);
-</script>
-
-   async function loadJadwalByCoord(lat, lon) {
+/* =========================
+   LOAD BY COORDINATE (GPS)
+========================= */
+async function loadJadwalByCoord(lat, lon) {
   jadwalEl.innerHTML = '<p>Mendeteksi lokasi...</p>';
 
   try {
@@ -174,6 +178,46 @@ loadJadwal(kotaSelect.value);
     jadwalEl.innerHTML = '<p>Gagal memuat jadwal dari lokasi.</p>';
   }
 }
+
+/* =========================
+   EVENT LISTENER
+========================= */
+kotaSelect.addEventListener('change', () => {
+  loadJadwal(kotaSelect.value);
+});
+
+autoBtn.addEventListener('click', () => {
+  if (!navigator.geolocation) {
+    alert('Browser tidak mendukung GPS.');
+    return;
+  }
+
+  jadwalEl.innerHTML = '<p>Meminta izin lokasi...</p>';
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      loadJadwalByCoord(
+        pos.coords.latitude,
+        pos.coords.longitude
+      );
+    },
+    () => {
+      alert('Izin lokasi ditolak.');
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 60000
+    }
+  );
+});
+
+/* =========================
+   LOAD AWAL
+========================= */
+loadJadwal(kotaSelect.value);
+</script>
+
 
 </body>
 </html>
