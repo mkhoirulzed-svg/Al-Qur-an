@@ -39,6 +39,14 @@ const toggleBtn = document.getElementById('toggleTerjemah');
 
 const juzParam = new URLSearchParams(location.search).get('no');
 const juzNo = Number(juzParam);
+/* =========================
+   OPEN MUSHAF MODE
+========================= */
+const mushafBtn = document.getElementById('openMushaf');
+
+mushafBtn.addEventListener('click', () => {
+  location.href = `mushaf.html?no=${juzNo}`;
+});
 
 /* =========================
    VALIDASI JUZ
