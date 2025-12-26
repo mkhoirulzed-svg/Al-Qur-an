@@ -136,13 +136,6 @@ if (isBookmarkedSurah(arab.number, a.numberInSurah)) {
       div.dataset.audio = a.audio;
 
       div.innerHTML = `
-<div class="ayat-row">
-
-  <div class="ayat-actions left">
-    <button class="audio-btn">▶</button>
-    <img src="../icons/bookmark.png" class="bookmark-btn" title="Bookmark ayat" />
-  </div>
-
   <div class="ayat-content">
     <span class="ayat-nomor-arab">﴾${a.numberInSurah}﴿</span>
 
@@ -150,10 +143,15 @@ if (isBookmarkedSurah(arab.number, a.numberInSurah)) {
       ${tajwidColor(ayatText)}
     </div>
 
-    <div class="ayat-indo">${terjemah?.text || ''}</div>
-  </div>
+    <div class="ayat-indo">
+      ${terjemah?.text || ''}
+    </div>
 
-</div>
+    <div class="ayat-actions bottom">
+      <button class="audio-btn">▶</button>
+      <img src="../icons/bookmark.png" class="bookmark-btn" title="Bookmark ayat" />
+    </div>
+  </div>
 `;
 
       ayatList.appendChild(div);
