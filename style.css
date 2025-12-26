@@ -127,8 +127,26 @@ body {
    SURAH LIST
 ========================= */
 .surah-header {
-  margin-top: 24px;
-  margin-bottom: 16px;
+ text-align: center;
+  margin: 24px 0 16px;
+}
+
+.surah-title-deco {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.surah-title-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0f766e; /* hijau islami */
+}
+
+.surah-title-deco .deco {
+  color: #f59e0b; /* emas lembut */
+  font-size: 1.1rem;
 }
 
 .surah-list {
