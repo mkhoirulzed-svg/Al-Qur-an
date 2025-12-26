@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal Sholat</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* =========================
+   JADWAL SHOLAT STYLE
+========================= */
+.page-sholat {
+  background: #f8fafc;
+}
+
+.sholat-container {
+  padding: 16px;
+}
+
+.kota-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.jadwal-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.jadwal-card span {
+  font-size: 1.05rem;
+}
+
+.jadwal-card .jam {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.jadwal-card.active {
+  background: #e0f2fe;
+  border-left: 4px solid #0284c7;
+}
+</style>
+</head>
+
+<body class="page-sholat">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div id="judul-sholat">Jadwal Sholat</div>
+  </div>
+</header>
+
+<main class="sholat-container">
+  <select class="kota-select" id="kotaSelect">
+    <option value="Jakarta">Jakarta</option>
+    <option value="Bandung">Bandung</option>
+    <option value="Surabaya">Surabaya</option>
+    <option value="Semarang">Semarang</option>
+    <option value="Yogyakarta">Yogyakarta</option>
+    <option value="Medan">Medan</option>
+    <option value="Makassar">Makassar</option>
+    <option value="Palembang">Palembang</option>
+    <option value="Banjarmasin">Banjarmasin</option>
+    <option value="Pontianak">Pontianak</option>
+  </select>
+
+  <div id="jadwalSholat">
+    <p>Memuat jadwal sholat...</p>
+  </div>
+</main>
+
+<script>
+const jadwalEl = document.getElementById('jadwalSholat');
+const kotaSelect = document.getElementById('kotaSelect');
+
+async function loadJadwal(kota) {
+  jadwalEl.innerHTML = '<p>Memuat jadwal sholat...</p>';
+
+  const today = new Date();
+  const date = today.getDate();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+
+  try {
+    const res = await fetch(
+      `https://api.aladhan.com/v1/timingsByCity/${date}-${month}-${year}?city=${kota}&country=Indonesia&method=11`
+    );
+    const json = await res.json();
+    const t = json.data.timings;
+
+    const jadwal = [
+      ['Subuh', t.Fajr],
+      ['Dzuhur', t.Dhuhr],
+      ['Ashar', t.Asr],
+      ['Maghrib', t.Maghrib],
+      ['Isya', t.Isha]
+    ];
+
+    const now = new Date();
+
+    jadwalEl.innerHTML = '';
+    jadwal.forEach(([nama, jam]) => {
+      const [h, m] = jam.split(':');
+      const waktu = new Date();
+      waktu.setHours(h, m, 0);
+
+      const active = now >= waktu &&
+        now < new Date(waktu.getTime() + 60 * 60 * 1000);
+
+      const div = document.createElement('div');
+      div.className = 'jadwal-card' + (active ? ' active' : '');
+      div.innerHTML = `
+        <span>${nama}</span>
+        <span class="jam">${jam}</span>
+      `;
+      jadwalEl.appendChild(div);
+    });
+
+  } catch (err) {
+    jadwalEl.innerHTML = '<p>Gagal memuat jadwal sholat.</p>';
+  }
+}
+
+kotaSelect.addEventListener('change', () => {
+  loadJadwal(kotaSelect.value);
+});
+
+// load awal
+loadJadwal(kotaSelect.value);
+</script>
+
+</body>
+</html>
