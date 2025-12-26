@@ -194,6 +194,7 @@ async function loadJadwalByCoord(lat, lon) {
 kotaSelect.addEventListener('change', () => {
  lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
    loadJadwal(kotaSelect.value);
+   lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
 });
 
 autoBtn.addEventListener('click', () => {
