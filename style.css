@@ -638,3 +638,16 @@ pointer-events: auto;
 .ayat-actions.bottom {
   pointer-events: none;
 }
+
+.ayat-row {
+  display: flex;
+  align-items: center;
+}
+
+.ayat-actions.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 36px;
+}
