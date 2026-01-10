@@ -93,6 +93,31 @@ body {
   transform: translateX(-50%) translateY(-6px);
 }
 
+
+   /* =========================
+   HINT DOUBLE TAP
+========================= */
+.hint-bookmark {
+  position: fixed;
+  top: 56px; /* di bawah app-header */
+  left: 0;
+  width: 100%;
+  background: #dc2626; /* merah */
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  z-index: 998;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hint-bookmark.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 </style>
 </head>
 
@@ -115,6 +140,9 @@ body {
     <div id="judul-surah" class="judul-surah"></div>
   </div>
 </header>
+<div id="hintBookmark" class="hint-bookmark">
+  🔴 Double tap ayat untuk bookmark
+</div>
 
 <main class="mushaf-container" id="mushafContent">
   <p>Memuat mushaf...</p>
@@ -320,6 +348,20 @@ window.addEventListener('load', () => {
   }
 });
 
+
+window.addEventListener('load', () => {
+  const hint = document.getElementById('hintBookmark');
+
+  // tampilkan
+  hint.classList.add('show');
+
+  // hilangkan setelah 5 detik
+  setTimeout(() => {
+    hint.classList.remove('show');
+  }, 5000);
+});
+
+   
 </script>
 
 </body>
