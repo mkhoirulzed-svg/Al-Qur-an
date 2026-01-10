@@ -10,15 +10,15 @@
 <style>
 /* ===== POPUP AYAT ===== */
 .ayat-popup{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.45);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  z-index: 999;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  z-index:999;
 }
-.ayat-popup.hidden{ display:none }
+.ayat-popup.hidden{display:none}
 
 .popup-sheet{
   width:100%;
@@ -27,7 +27,7 @@
   color:#fff;
   border-radius:16px 16px 0 0;
   padding:16px;
-  animation: slideUp .25s ease;
+  animation:slideUp .25s ease;
 }
 .popup-handle{
   width:40px;height:4px;
@@ -57,12 +57,18 @@
   width:100%;
   padding:10px;
 }
+
+/* highlight ayat aktif */
+.ayat-item.playing{
+  background:rgba(26,86,219,.12);
+  border-left:4px solid #1a56db;
+}
+
 @keyframes slideUp{
   from{transform:translateY(100%)}
   to{transform:translateY(0)}
 }
 </style>
-
 </head>
 
 <body>
@@ -94,7 +100,6 @@
   <div class="popup-sheet">
     <div class="popup-handle"></div>
     <div class="popup-title" id="popupTitle">QS - : -</div>
-
     <button id="popupPlay" class="popup-btn">▶ Putar Murattal</button>
     <button id="popupBookmark" class="popup-btn">⭐ Bookmark Ayat</button>
     <button id="popupClose" class="popup-close">Tutup</button>
@@ -124,12 +129,13 @@ function getBookmarks(){
 }
 function isBookmarkedSurah(surah, ayat){
   return getBookmarks().some(b =>
-    b.mode==='surah' && b.surah==surah && b.ayat==ayat
+    b.mode === 'surah' && b.surah == surah && b.ayat == ayat
   );
 }
 
+/* ================= FETCH ================= */
 fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesian`)
-.then(r=>r.json())
+.then(res=>res.json())
 .then(res=>{
   const arab=res.data[0];
   const indo=res.data[1];
@@ -145,6 +151,7 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
     const terjemah=indo.ayahs.find(x=>x.numberInSurah===a.numberInSurah);
     const div=document.createElement('div');
     div.className='ayat-item';
+
     if(isBookmarkedSurah(arab.number,a.numberInSurah)){
       div.classList.add('bookmarked');
     }
@@ -161,21 +168,21 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
           ${a.text}
           <span class="ayat-nomor-inline">﴿${toArabicNumber(a.numberInSurah)}﴾</span>
         </div>
-        <div class="ayat-indo">${terjemah?.text||''}</div>
+        <div class="ayat-indo">${terjemah?.text || ''}</div>
       </div>
     `;
     ayatList.appendChild(div);
   });
 });
 
-/* TOGGLE TERJEMAH */
+/* ========== TOGGLE TERJEMAH ========== */
 let showTerjemah=true;
 toggleBtn.onclick=()=>{
   showTerjemah=!showTerjemah;
   document.body.classList.toggle('hide-translation',!showTerjemah);
 };
 
-/* ===== KLIK AYAT → POPUP ===== */
+/* ========== KLIK AYAT → POPUP ========== */
 document.addEventListener('click',e=>{
   const ayat=e.target.closest('.ayat-item');
   if(!ayat) return;
@@ -186,12 +193,19 @@ document.addEventListener('click',e=>{
   popup.classList.remove('hidden');
 });
 
-/* ===== POPUP ACTIONS ===== */
+/* ========== POPUP ACTIONS ========== */
 popupPlay.onclick=()=>{
   if(!selectedAyat) return;
-  audioPlayer.src=selectedAyat.dataset.audio;
-  audioPlayer.play();
+
+  if(currentPlaying){
+    currentPlaying.classList.remove('playing');
+  }
+
   currentPlaying=selectedAyat;
+  currentPlaying.classList.add('playing');
+
+  audioPlayer.src=currentPlaying.dataset.audio;
+  audioPlayer.play();
   popup.classList.add('hidden');
 };
 
@@ -223,6 +237,29 @@ popupBookmark.onclick=()=>{
 };
 
 popupClose.onclick=()=>popup.classList.add('hidden');
+
+/* ========== AUTO NEXT AYAT ========== */
+audioPlayer.addEventListener('ended',()=>{
+  if(!currentPlaying) return;
+
+  const next=currentPlaying.nextElementSibling;
+  if(next && next.classList.contains('ayat-item')){
+    currentPlaying.classList.remove('playing');
+    currentPlaying=next;
+    currentPlaying.classList.add('playing');
+
+    audioPlayer.src=currentPlaying.dataset.audio;
+    audioPlayer.play();
+
+    currentPlaying.scrollIntoView({
+      behavior:'smooth',
+      block:'center'
+    });
+  }else{
+    currentPlaying.classList.remove('playing');
+    currentPlaying=null;
+  }
+});
 </script>
 
 </body>
