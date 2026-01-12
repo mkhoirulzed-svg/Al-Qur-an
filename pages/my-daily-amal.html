@@ -85,33 +85,42 @@ input[type="checkbox"] {
 
 <main class="daily-container">
 
-  <div class="daily-card">
+  <div class="daily-card" id="amalContainer">
     <div class="daily-title">📋 Checklist Amal</div>
     <div class="daily-date" id="todayDate"></div>
 
-    <div class="amal-item">
-      <input type="checkbox" data-key="sholat5">
-      <label>Sholat 5 Waktu</label>
-    </div>
+    <!-- AMAL AKAN DIRENDER DI SINI -->
 
-    <div class="amal-item">
-      <input type="checkbox" data-key="jamaah">
-      <label>Sholat Berjamaah</label>
-    </div>
+    <hr style="margin:16px 0; opacity:.3">
 
-    <div class="amal-item">
-      <input type="checkbox" data-key="sunnah">
-      <label>Sholat Sunnah</label>
-    </div>
+    <div class="daily-title">➕ Tambah Amal Custom</div>
 
-    <div class="amal-item">
-      <input type="checkbox" data-key="tilawah">
-      <label>Tilawah Al-Qur’an</label>
-    </div>
-
-    <div class="amal-item">
-      <input type="checkbox" data-key="kajian">
-      <label>Mengikuti Kajian</label>
+    <div style="display:flex; gap:8px; margin-top:10px;">
+      <input
+        type="text"
+        id="customAmalInput"
+        placeholder="Contoh: Membantu orang tua"
+        style="
+          flex:1;
+          padding:10px;
+          border-radius:10px;
+          border:1px solid #e5e7eb;
+          font-size:.9rem;
+        "
+      >
+      <button
+        id="addCustomAmal"
+        style="
+          padding:10px 14px;
+          border-radius:10px;
+          border:none;
+          background:#0284c7;
+          color:#fff;
+          font-weight:600;
+        "
+      >
+        Tambah
+      </button>
     </div>
 
   </div>
@@ -126,32 +135,110 @@ input[type="checkbox"] {
 </nav>
 
 <script>
-const today = new Date().toISOString().slice(0, 10);
-const dateEl = document.getElementById('todayDate');
-dateEl.textContent = `Tanggal: ${today}`;
+/* =========================
+   DAILY AMAL SCRIPT
+========================= */
 
-function getData() {
+const today = new Date().toISOString().slice(0, 10);
+document.getElementById('todayDate').textContent = `Tanggal: ${today}`;
+
+/* ---------- STORAGE ---------- */
+function getDailyData() {
   const all = JSON.parse(localStorage.getItem('dailyAmal')) || {};
   return all[today] || {};
 }
 
-function saveData(data) {
+function saveDailyData(data) {
   const all = JSON.parse(localStorage.getItem('dailyAmal')) || {};
   all[today] = data;
   localStorage.setItem('dailyAmal', JSON.stringify(all));
 }
 
-const data = getData();
+function getAmalConfig() {
+  return JSON.parse(localStorage.getItem('amalConfig')) || {};
+}
 
-document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-  const key = cb.dataset.key;
-  cb.checked = !!data[key];
+function getCustomAmal() {
+  return JSON.parse(localStorage.getItem('customAmal')) || [];
+}
+
+function saveCustomAmal(list) {
+  localStorage.setItem('customAmal', JSON.stringify(list));
+}
+
+/* ---------- INIT ---------- */
+const dailyData = getDailyData();
+const amalConfig = getAmalConfig();
+const customAmal = getCustomAmal();
+const container = document.getElementById('amalContainer');
+
+/* ---------- LABEL MAP ---------- */
+const labelMap = {
+  sholat5: 'Sholat 5 Waktu',
+  jamaah: 'Sholat Berjamaah',
+  sunnah: 'Sholat Sunnah',
+  tilawah: 'Tilawah Al-Qur’an',
+  dzikir: 'Dzikir',
+  sedekah: 'Sedekah',
+  kajian: 'Mengikuti Kajian',
+  istighfar: 'Istighfar'
+};
+
+/* ---------- RENDER ---------- */
+function renderAmal() {
+  container.querySelectorAll('.amal-item').forEach(e => e.remove());
+
+  Object.keys(amalConfig).forEach(key => {
+    if (amalConfig[key]) {
+      addCheckbox(key, labelMap[key] || key);
+    }
+  });
+
+  customAmal.forEach(item => {
+    addCheckbox(item.key, item.label);
+  });
+}
+
+/* ---------- ADD CHECKBOX ---------- */
+function addCheckbox(key, label) {
+  const div = document.createElement('div');
+  div.className = 'amal-item';
+
+  const cb = document.createElement('input');
+  cb.type = 'checkbox';
+  cb.checked = !!dailyData[key];
 
   cb.addEventListener('change', () => {
-    data[key] = cb.checked;
-    saveData(data);
+    dailyData[key] = cb.checked;
+    saveDailyData(dailyData);
   });
+
+  const lbl = document.createElement('label');
+  lbl.textContent = label;
+
+  div.appendChild(cb);
+  div.appendChild(lbl);
+
+  container.insertBefore(div, container.querySelector('hr'));
+}
+
+/* ---------- ADD CUSTOM ---------- */
+document.getElementById('addCustomAmal').addEventListener('click', () => {
+  const input = document.getElementById('customAmalInput');
+  const value = input.value.trim();
+
+  if (!value) return;
+
+  const key = 'custom_' + Date.now();
+  customAmal.push({ key, label: value });
+  saveCustomAmal(customAmal);
+
+  input.value = '';
+  renderAmal();
 });
+
+/* ---------- START ---------- */
+renderAmal();
 </script>
 
 </body>
