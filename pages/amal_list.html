@@ -37,6 +37,27 @@ input[type="checkbox"] {
   accent-color:#0284c7;
 }
 
+  /* COLLAPSE SUB MENU */
+.sub-amal {
+  margin-left: 28px;
+  border-left: 2px solid #e0f2fe;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.sub-amal.open {
+  max-height: 500px; /* cukup untuk semua submenu */
+}
+
+.parent-row {
+  cursor: pointer;
+}
+.parent-row:hover {
+  background: #f8fafc;
+}
+
+
 /* tombol simpan */
 .save-bar {
   position:fixed;
@@ -74,8 +95,8 @@ input[type="checkbox"] {
 <div class="daily-desc">Centang amal dan detail yang ingin dicatat</div>
 
 <!-- SHOLAT 5 WAKTU -->
-<div class="amal-item">
-  <input type="checkbox" data-key="sholat5" class="parent">
+<div class="amal-item parent-row" data-toggle="sholat5">
+  <input type="checkbox" data-key="sholat5">
   <label>Sholat 5 Waktu</label>
 </div>
 <div class="sub-amal" data-parent="sholat5">
@@ -87,8 +108,8 @@ input[type="checkbox"] {
 </div>
 
 <!-- SHOLAT BERJAMAAH -->
-<div class="amal-item">
-  <input type="checkbox" data-key="jamaah" class="parent">
+<div class="amal-item parent-row" data-toggle="jamaah">
+  <input type="checkbox" data-key="jamaah">
   <label>Sholat Berjamaah</label>
 </div>
 <div class="sub-amal" data-parent="jamaah">
@@ -100,8 +121,8 @@ input[type="checkbox"] {
 </div>
 
 <!-- SHOLAT SUNNAH -->
-<div class="amal-item">
-  <input type="checkbox" data-key="sunnah" class="parent">
+<div class="amal-item parent-row" data-toggle="sunnah">
+  <input type="checkbox" data-key="sunnah">
   <label>Sholat Sunnah</label>
 </div>
 <div class="sub-amal" data-parent="sunnah">
@@ -113,9 +134,9 @@ input[type="checkbox"] {
 </div>
 
 <!-- TILAWAH -->
-<div class="amal-item">
-  <input type="checkbox" data-key="tilawah" class="parent">
-  <label>Tilawah Al-Qur'an</label>
+<div class="amal-item parent-row" data-toggle="tilawah">
+  <input type="checkbox" data-key="tilawah">
+  <label>Tilawah Al-Qur’an</label>
 </div>
 <div class="sub-amal" data-parent="tilawah">
   <div class="amal-item"><input type="checkbox" data-key="tilawah_ayat"><label>1 Ayat</label></div>
@@ -124,8 +145,8 @@ input[type="checkbox"] {
 </div>
 
 <!-- DZIKIR -->
-<div class="amal-item">
-  <input type="checkbox" data-key="dzikir" class="parent">
+<div class="amal-item parent-row" data-toggle="dzikir">
+  <input type="checkbox" data-key="dzikir">
   <label>Dzikir</label>
 </div>
 <div class="sub-amal" data-parent="dzikir">
@@ -148,26 +169,41 @@ input[type="checkbox"] {
 <script>
 const config = JSON.parse(localStorage.getItem('amalConfig')) || {};
 
-/* init checkbox */
-document.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
-  cb.checked = !!config[cb.dataset.key];
-  cb.addEventListener('change',()=> config[cb.dataset.key]=cb.checked);
+/* INIT CHECKBOX */
+document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+  const key = cb.dataset.key;
+  cb.checked = !!config[key];
+
+  cb.addEventListener('change', () => {
+    config[key] = cb.checked;
+  });
 });
 
-/* show hide submenu */
-document.querySelectorAll('.parent').forEach(p=>{
-  const sub = document.querySelector(`[data-parent="${p.dataset.key}"]`);
-  const toggle = ()=> sub.style.display = p.checked?'block':'none';
-  p.addEventListener('change', toggle);
-  toggle();
+/* COLLAPSE TOGGLE */
+document.querySelectorAll('.parent-row').forEach(row => {
+  const key = row.dataset.toggle;
+  const sub = document.querySelector(`.sub-amal[data-parent="${key}"]`);
+
+  if (!sub) return;
+
+  row.addEventListener('click', (e) => {
+    // biar klik checkbox tidak toggle
+    if (e.target.tagName === 'INPUT') return;
+    sub.classList.toggle('open');
+  });
+
+  // auto buka jika ada sub yang dicentang
+  const hasChecked = sub.querySelector('input:checked');
+  if (hasChecked) sub.classList.add('open');
 });
 
-/* save */
-document.getElementById('saveAmal').onclick=()=>{
-  localStorage.setItem('amalConfig',JSON.stringify(config));
-  location.href='my-daily-amal.html';
+/* SIMPAN */
+document.getElementById('saveAmal').onclick = () => {
+  localStorage.setItem('amalConfig', JSON.stringify(config));
+  location.href = 'daily_amal.html';
 };
 </script>
+
 
 </body>
 </html>
