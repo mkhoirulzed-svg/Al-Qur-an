@@ -23,7 +23,7 @@
   background: #fff;
   border-radius: 14px;
   padding: 16px;
-  margin-bottom: 14px;
+  margin-bottom: 80px; /* ruang tombol */
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
@@ -59,6 +59,29 @@
 input[type="checkbox"] {
   transform: scale(1.2);
   accent-color: #0284c7;
+}
+
+/* =========================
+   BUTTON SIMPAN
+========================= */
+.save-bar {
+  position: fixed;
+  bottom: 56px; /* di atas bottom-nav */
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: #f8fafc;
+}
+
+.save-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #0284c7;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
 }
 </style>
 </head>
@@ -135,9 +158,16 @@ input[type="checkbox"] {
 
 </main>
 
+<!-- TOMBOL SIMPAN -->
+<div class="save-bar">
+  <button class="save-btn" id="saveAmal">
+    💾 Simpan & Kembali
+  </button>
+</div>
+
 <nav class="bottom-nav">
   <a href="../index.html">Home</a>
-  <a href="daily_amal.html">Daily Amal</a>
+  <a href="quran.html">Al-Qur'an</a>
   <a href="bookmark.html">Bookmark</a>
   <a href="about.html">Tentang</a>
 </nav>
@@ -157,14 +187,20 @@ function saveAmalConfig(data) {
 
 const config = getAmalConfig();
 
+/* INIT CHECKBOX */
 document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
   const key = cb.dataset.key;
   cb.checked = !!config[key];
 
   cb.addEventListener('change', () => {
     config[key] = cb.checked;
-    saveAmalConfig(config);
   });
+});
+
+/* SIMPAN & REDIRECT */
+document.getElementById('saveAmal').addEventListener('click', () => {
+  saveAmalConfig(config);
+  window.location.href = 'daily_amal.html';
 });
 </script>
 
