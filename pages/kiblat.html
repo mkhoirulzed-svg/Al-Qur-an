@@ -275,14 +275,40 @@
 
 <script>
 const panah = document.getElementById('panahKiblat');
-const info = document.getElementById('infoArah');
+const info  = document.getElementById('infoArah');
 const lokasiEl = document.getElementById('lokasi-aktif');
 
 let arahKiblatGlobal = null;
-let compassStarted = false;
+let compassStarted    = false;
+let hasReceivedEvent  = false;
+
+/* =========================
+   BUFFER SMOOTHING
+   Rata-rata melingkar agar
+   jarum tidak melompat.
+========================= */
+const HISTORY_SIZE = 10;
+let headingHistory = [];
+
+function smoothHeading(heading) {
+  headingHistory.push(heading);
+  if (headingHistory.length > HISTORY_SIZE) {
+    headingHistory.shift();
+  }
+  let sumSin = 0, sumCos = 0;
+  for (let i = 0; i < headingHistory.length; i++) {
+    const rad = headingHistory[i] * Math.PI / 180;
+    sumSin += Math.sin(rad);
+    sumCos += Math.cos(rad);
+  }
+  let avg = Math.atan2(sumSin, sumCos) * 180 / Math.PI;
+  return (avg + 360) % 360;
+}
 
 /* =========================
    HITUNG ARAH KIBLAT
+   Great-circle initial
+   bearing → Ka'bah.
 ========================= */
 function hitungKiblat(lat, lon) {
   const kaabaLat = 21.4225 * Math.PI / 180;
@@ -291,6 +317,9 @@ function hitungKiblat(lat, lon) {
   lat = lat * Math.PI / 180;
   lon = lon * Math.PI / 180;
 
+  /* Rumus bearing — dibagi cos(kaabaLat)
+     agar ekuivalen dengan rumus standar
+     tapi lebih stabil secara numerik. */
   const y = Math.sin(kaabaLon - lon);
   const x =
     Math.cos(lat) * Math.tan(kaabaLat) -
@@ -301,7 +330,7 @@ function hitungKiblat(lat, lon) {
 }
 
 /* =========================
-   IZIN SENSOR IPHONE
+   IZIN SENSOR (iOS)
 ========================= */
 async function requestCompassPermission() {
   if (
@@ -310,7 +339,6 @@ async function requestCompassPermission() {
   ) {
     try {
       const permission = await DeviceOrientationEvent.requestPermission();
-
       if (permission !== 'granted') {
         info.textContent = 'Izin sensor kompas ditolak.';
         return false;
@@ -320,30 +348,69 @@ async function requestCompassPermission() {
       return false;
     }
   }
-
   return true;
 }
 
 /* =========================
-   AMBIL HEADING KOMPAS
+   EKSTRAK HEADING KOMPAS
+   — PERBAIKAN UTAMA —
 ========================= */
 function getHeading(e) {
-  // iPhone Safari
+  /* ---- iOS Safari ----
+     webkitCompassHeading sudah:
+       • absolute (relatif utara bumi)
+       • memperhitungkan orientasi layar
+       • satuan: derajat searah jarum jam dari utara */
   if (typeof e.webkitCompassHeading === 'number') {
     return e.webkitCompassHeading;
   }
 
-  // Android Chrome absolute
+  /* ---- Android: event deviceorientationabsolute ----
+     alpha dijamin absolute (relatif utara magnet bumi).
+     Rumus: heading = (360 − alpha) mod 360
+     karena alpha bertambah berlawanan arah jarum jam. */
+  if (e.type === 'deviceorientationabsolute' && typeof e.alpha === 'number') {
+    return (360 - e.alpha) % 360;
+  }
+
+  /* ---- Android: event deviceorientation dgn absolute=true ----
+     Beberapa perangkat mengirim absolute=true pada
+     event biasa — gunakan jika bersifat absolute. */
   if (e.absolute === true && typeof e.alpha === 'number') {
-    return 360 - e.alpha;
+    return (360 - e.alpha) % 360;
   }
 
-  // fallback Android
-  if (typeof e.alpha === 'number') {
-    return 360 - e.alpha;
-  }
-
+  /* ---- JANGAN pakai alpha non-absolute! ----
+     Nilai non-absolute relatif terhadap orientasi
+     awal perangkat, BUKAN utara bumi → arah salah. */
   return null;
+}
+
+/* =========================
+   THROTTLE UI
+   Gunakan requestAnimationFrame
+   agar tidak update DOM berlebihan.
+========================= */
+let pendingFrame = false;
+let lastRawHeading = null;
+
+function scheduleUpdate(arahKiblat) {
+  if (pendingFrame) return;
+  pendingFrame = true;
+  requestAnimationFrame(function () {
+    pendingFrame = false;
+    if (lastRawHeading === null) return;
+
+    const smoothed = smoothHeading(lastRawHeading);
+    const rotate   = arahKiblat - smoothed;
+
+    panah.style.transform =
+      `translate(-50%, -100%) rotate(${rotate}deg)`;
+
+    info.innerHTML =
+      `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+      `Kompas HP: ${Math.round(smoothed)}°`;
+  });
 }
 
 /* =========================
@@ -355,24 +422,57 @@ function startCompass(arahKiblat) {
 
   function handleOrientation(e) {
     const heading = getHeading(e);
+    if (heading === null) return;
 
-    if (heading === null) {
-      info.textContent = 'Sensor kompas tidak tersedia di perangkat ini.';
-      return;
-    }
-
-    const rotate = arahKiblat - heading;
-
-    panah.style.transform =
-      `translate(-50%, -100%) rotate(${rotate}deg)`;
-
-    info.innerHTML =
-      `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>
-       Kompas HP: ${Math.round(heading)}°`;
+    hasReceivedEvent = true;
+    lastRawHeading   = heading;
+    scheduleUpdate(arahKiblat);
   }
 
-  window.addEventListener('deviceorientationabsolute', handleOrientation, true);
-  window.addEventListener('deviceorientation', handleOrientation, true);
+  /* Cek apakah deviceorientationabsolute didukung
+     (hanya Android Chrome). */
+  const absoluteSupported =
+    'ondeviceorientationabsolute' in window;
+
+  if (absoluteSupported) {
+    window.addEventListener(
+      'deviceorientationabsolute',
+      handleOrientation,
+      true
+    );
+  }
+
+  /* Selalu dengarkan deviceorientation:
+     • iOS  → untuk webkitCompassHeading
+     • Android tanpa absolute → hanya jika absolute=true */
+  window.addEventListener('deviceorientation', function (e) {
+    /* iOS: proses langsung */
+    if (typeof e.webkitCompassHeading !== 'undefined') {
+      handleOrientation(e);
+      return;
+    }
+    /* Android tanpa deviceorientationabsolute:
+       hanya terima jika absolute=true */
+    if (
+      !absoluteSupported &&
+      e.absolute === true &&
+      typeof e.alpha === 'number'
+    ) {
+      handleOrientation(e);
+    }
+    /* Jangan proses alpha non-absolute */
+  }, true);
+
+  /* Deteksi jika tidak ada event sensor dalam 2.5 detik */
+  setTimeout(function () {
+    if (!hasReceivedEvent) {
+      info.innerHTML =
+        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+        `<span style="font-size:12px;font-weight:400">` +
+        `Sensor kompas tidak terdeteksi. Pastikan kompas perangkat berfungsi.` +
+        `</span>`;
+    }
+  }, 2500);
 }
 
 /* =========================
@@ -394,14 +494,15 @@ async function initKiblat() {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
 
-      lokasiEl.textContent = '📍 Lokasi Anda';
+      lokasiEl.textContent =
+        `📍 ${lat.toFixed(4)}, ${lon.toFixed(4)}`;
 
       const arahKiblat = hitungKiblat(lat, lon);
       arahKiblatGlobal = arahKiblat;
 
       info.innerHTML =
-        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>
-         Gerakkan HP seperti angka 8 untuk kalibrasi.`;
+        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+        `Gerakkan HP seperti angka 8 untuk kalibrasi.`;
 
       if (window.DeviceOrientationEvent) {
         startCompass(arahKiblat);
