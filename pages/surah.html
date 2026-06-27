@@ -5,63 +5,178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Surah</title>
 
-<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
 
 <style>
+.ayat-item{
+  background:var(--card);
+  border-radius:20px;
+  padding:18px 16px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  transition:.25s ease;
+}
+
+.ayat-item:active{
+  transform:scale(.985);
+}
+
+.ayat-item.bookmarked{
+  border-left:4px solid var(--accent);
+  background:rgba(196,154,42,.08);
+}
+
+.ayat-item.playing{
+  border-left:4px solid var(--primary);
+  background:var(--primary-ghost-strong);
+}
+
+.ayat-content{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.ayat-arab{
+  font-family:'Amiri',serif;
+  direction:rtl;
+  text-align:right;
+  font-size:29px;
+  line-height:2.15;
+  color:var(--text);
+}
+
+.ayat-nomor-inline{
+  display:inline-block;
+  color:var(--primary);
+  font-size:23px;
+  margin-right:6px;
+}
+
+.ayat-indo{
+  font-size:14px;
+  line-height:1.75;
+  color:var(--text-secondary);
+}
+
+.hide-translation .ayat-indo{
+  display:none;
+}
+
+.bismillah{
+  background:linear-gradient(145deg,#0a4d3a,#0f6e52);
+  color:#fff;
+  border-radius:20px;
+  padding:20px 16px;
+  margin-bottom:16px;
+  text-align:center;
+  direction:rtl;
+  font-size:27px;
+  box-shadow:0 8px 28px rgba(10,77,58,.2);
+}
+
+.bismillah-deco{
+  color:var(--accent);
+  font-size:18px;
+  margin:0 8px;
+}
+
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+
+.translate-btn{
+  margin-left:auto;
+  font-size:18px;
+}
+
+.header-title{
+  flex:1;
+  font-size:16px;
+  font-weight:800;
+  color:var(--primary);
+  line-height:1.25;
+}
+
 /* ===== POPUP AYAT ===== */
 .ayat-popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.42);
   display:flex;
   justify-content:center;
   align-items:flex-end;
   z-index:999;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
 }
-.ayat-popup.hidden{display:none}
+
+.ayat-popup.hidden{
+  display:none;
+}
 
 .popup-sheet{
   width:100%;
   max-width:480px;
-  background:#111;
-  color:#fff;
-  border-radius:16px 16px 0 0;
-  padding:16px;
+  background:var(--card);
+  color:var(--text);
+  border-radius:24px 24px 0 0;
+  padding:16px 18px 22px;
+  box-shadow:0 -8px 40px rgba(0,0,0,.18);
   animation:slideUp .25s ease;
 }
+
 .popup-handle{
-  width:40px;height:4px;
-  background:#555;border-radius:2px;
-  margin:0 auto 10px;
+  width:42px;
+  height:4px;
+  background:var(--border);
+  border-radius:999px;
+  margin:0 auto 12px;
 }
+
 .popup-title{
   text-align:center;
   font-size:14px;
-  opacity:.8;
-  margin-bottom:12px;
-}
-.popup-btn{
-  width:100%;
-  padding:12px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:none;
-  background:#1a56db;
-  color:#fff;
-  font-size:15px;
-}
-.popup-close{
-  background:transparent;
-  color:#aaa;
-  border:none;
-  width:100%;
-  padding:10px;
+  font-weight:700;
+  color:var(--text-secondary);
+  margin-bottom:14px;
 }
 
-/* highlight ayat aktif */
-.ayat-item.playing{
-  background:rgba(26,86,219,.12);
-  border-left:4px solid #1a56db;
+.popup-btn{
+  width:100%;
+  padding:13px;
+  margin-bottom:10px;
+  border-radius:14px;
+  border:none;
+  background:var(--primary);
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+}
+
+#popupBookmark{
+  background:var(--accent);
+}
+
+.popup-close{
+  background:transparent;
+  color:var(--text-muted);
+  border:none;
+  width:100%;
+  padding:11px;
+  font-size:14px;
+  font-weight:700;
 }
 
 @keyframes slideUp{
