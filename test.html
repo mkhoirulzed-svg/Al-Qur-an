@@ -3,225 +3,267 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arah Kiblat</title>
+<title>Ramadhan Tracker</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="../style.css">
 
 <style>
-/* =========================
-   KIBLAT STYLE
-========================= */
-
-.page-kiblat{
-  background:var(--bg);
+.tracker-header {
+  text-align: center;
+  margin-bottom: 16px;
 }
 
-.kiblat-container{
-  padding:18px 18px 110px;
-  text-align:center;
+.tracker-header h2 {
+  font-size: 1.3rem;
 }
 
-.nav-btn{
-  width:42px;
-  height:42px;
-  border:none;
-  border-radius:14px;
-  background:var(--card);
-  color:var(--primary);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:var(--shadow-sm);
+.tracker-header p {
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
-.header-title{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
+.tracker-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-.header-title>div:first-child{
-  font-size:17px;
-  font-weight:800;
-  color:var(--primary);
+.tracker-table th,
+.tracker-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.85rem;
 }
 
-.judul-surah{
-  font-size:12px;
-  color:var(--text-secondary);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.tracker-table th {
+  background: #f1f5f9;
+  font-weight: 600;
 }
 
-.kiblat-card{
-  background:var(--card);
-  border-radius:24px;
-  padding:24px 18px 20px;
-  box-shadow:var(--shadow-md);
-  border:1px solid rgba(255,255,255,.7);
-  position:relative;
-  overflow:hidden;
+.tracker-table tr:last-child td {
+  border-bottom: none;
 }
 
-.kiblat-card::before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  background:var(--primary-ghost);
-  top:-80px;
-  right:-70px;
+input[type="checkbox"] {
+  transform: scale(1.1);
+  accent-color: #0284c7;
 }
 
-.kompas-wrapper{
-  position:relative;
-  width:240px;
-  height:240px;
-  margin:18px auto 22px;
+/* ===== Tambahan: Kartu Progress Overview ===== */
+.progress-overview {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-.kompas{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  position:relative;
-  background:
-    radial-gradient(circle at center, #fff 0 36%, transparent 37%),
-    conic-gradient(
-      from 0deg,
-      rgba(10,77,58,.16),
-      rgba(196,154,42,.18),
-      rgba(10,77,58,.16)
-    );
-  border:10px solid #fff;
-  box-shadow:
-    inset 0 0 0 2px var(--primary-ghost-strong),
-    0 10px 32px rgba(10,77,58,.16);
+.progress-top {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.kompas::before{
-  content:"N";
-  position:absolute;
-  top:12px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:14px;
-  font-weight:800;
-  color:var(--primary);
+.circular-progress {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
 }
 
-.kompas::after{
-  content:"Kiblat";
-  position:absolute;
-  inset:50%;
-  transform:translate(-50%,-50%);
-  width:82px;
-  height:82px;
-  border-radius:50%;
-  background:var(--card);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:800;
-  color:var(--primary);
-  box-shadow:var(--shadow-sm);
+.circular-progress svg {
+  transform: rotate(-90deg);
 }
 
-.panah{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:8px;
-  height:94px;
-  background:linear-gradient(var(--accent),var(--primary));
-  transform-origin:bottom center;
-  transform:translate(-50%,-100%) rotate(0deg);
-  border-radius:999px;
-  z-index:3;
-  box-shadow:0 4px 12px rgba(10,77,58,.25);
+.circular-progress .bg-ring {
+  stroke: #e5e7eb;
 }
 
-.panah::after{
-  content:"";
-  position:absolute;
-  top:-16px;
-  left:50%;
-  transform:translateX(-50%);
-  width:0;
-  height:0;
-  border-left:13px solid transparent;
-  border-right:13px solid transparent;
-  border-bottom:18px solid var(--accent);
+.circular-progress .progress-ring {
+  stroke: #0284c7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.info-kiblat{
-  background:var(--primary-ghost);
-  color:var(--primary);
-  font-size:14px;
-  font-weight:700;
-  line-height:1.5;
-  margin-top:8px;
-  padding:12px 14px;
-  border-radius:16px;
+.circular-progress .percent-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-kiblat{
-  width:100%;
-  padding:14px;
-  margin-top:18px;
-  border-radius:16px;
-  border:none;
-  background:linear-gradient(145deg,var(--primary),var(--primary-hover));
-  color:#fff;
-  font-size:15px;
-  font-weight:800;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  box-shadow:0 8px 24px rgba(10,77,58,.22);
-  cursor:pointer;
-  transition:.25s ease;
+.circular-progress .percent-label .num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0284c7;
+  line-height: 1;
 }
 
-.btn-kiblat:active{
-  transform:scale(.98);
-}
-   .kiblat-note{
-  margin-top:16px;
-  padding:14px 16px;
-  background:rgba(10,77,58,.06);
-  border-left:4px solid var(--accent);
-  border-radius:16px;
-  text-align:left;
-  font-size:13px;
-  line-height:1.6;
-  color:var(--text-secondary);
+.circular-progress .percent-label small {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-top: 3px;
 }
 
-.kiblat-note strong{
-  display:block;
-  color:var(--primary);
-  margin-bottom:8px;
+.category-bars {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.kiblat-note ul{
-  padding-left:18px;
-  margin:0;
+.category-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
 }
 
-.kiblat-note li{
-  margin-bottom:6px;
+.category-bar .label {
+  width: 60px;
+  font-weight: 600;
+  color: #334155;
+  text-align: left;
+}
+
+.category-bar .bar {
+  flex: 1;
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.category-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #0284c7);
+  border-radius: 6px;
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-bar .value {
+  width: 52px;
+  text-align: right;
+  font-weight: 600;
+  color: #0284c7;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Tambahan: Tombol Aksi Cepat ===== */
+.quick-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.quick-actions button {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #0284c7;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.quick-actions button:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+}
+
+.quick-actions button.danger {
+  color: #dc2626;
+}
+
+.quick-actions button.danger:hover {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+/* ===== Tambahan: Tap target lebih besar ===== */
+.tracker-table td label {
+  display: inline-block;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.tracker-table td label:hover {
+  background: #f0f9ff;
+}
+
+.tracker-table td label:active {
+  background: #e0f2fe;
+}
+
+/* ===== Tambahan: Highlight hari ini ===== */
+.tracker-table tr.is-today td {
+  background: #fef9c3;
+}
+
+.tracker-table tr.is-today td:first-child {
+  font-weight: 700;
+  color: #b45309;
+}
+
+/* ===== Tambahan: Toast notifikasi ===== */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #0f172a;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 50;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 480px) {
+  .progress-top { gap: 16px; }
+  .circular-progress { width: 90px; height: 90px; }
+  .circular-progress .percent-label .num { font-size: 1.25rem; }
+  .category-bars { min-width: 100%; }
 }
 </style>
 </head>
-
-<body class="page-kiblat">
+<body>
 
 <header class="app-header">
-  <button class="nav-btn back-btn" onclick="history.back()">
+  <button class="back-btn" onclick="history.back()">
     <svg viewBox="0 0 24 24" width="22" height="22"
       fill="none"
       stroke="currentColor"
@@ -232,38 +274,67 @@
     </svg>
   </button>
 
-  <div class="header-title">
-    <div>Arah Kiblat</div>
-    <div id="lokasi-aktif" class="judul-surah"></div>
-  </div>
+  <h1 class="header-title">Ramadhan Tracker</h1>
 </header>
 
-<main class="kiblat-container">
-  <div class="kiblat-card">
-    <div class="kompas-wrapper">
-      <div class="kompas">
-        <div class="panah" id="panahKiblat"></div>
-      </div>
-    </div>
+<main class="container">
 
-    <div class="info-kiblat" id="infoArah">
-      Menunggu izin lokasi & sensor...
-    </div>
-
- <button class="btn-kiblat" onclick="initKiblat()">
-  📍 Aktifkan Arah Kiblat
-</button>
-
-<div class="kiblat-note">
-  <strong>Catatan penggunaan:</strong>
-  <ul>
-    <li>Arah kiblat menggunakan GPS dan sensor kompas perangkat.</li>
-    <li>Akurasi dapat berbeda pada setiap perangkat.</li>
-    <li>Jauhkan perangkat dari magnet, speaker, kendaraan, atau benda logam.</li>
-    <li>Untuk hasil terbaik, kalibrasi kompas dengan menggerakkan ponsel membentuk angka 8.</li>
-  </ul>
-</div>
+  <div class="tracker-header">
+    <h2>📊 Progres Ibadah Ramadhan</h2>
+    <p>Ceklis harian untuk evaluasi diri</p>
   </div>
+
+  <!-- Kartu Progress -->
+  <section class="progress-overview">
+    <div class="progress-top">
+      <div class="circular-progress">
+        <svg width="110" height="110" viewBox="0 0 110 110">
+          <circle class="bg-ring" cx="55" cy="55" r="48" fill="none" stroke-width="8"/>
+          <circle class="progress-ring" id="progressRing" cx="55" cy="55" r="48" fill="none"
+            stroke-width="8" stroke-dasharray="301.59" stroke-dashoffset="301.59"/>
+        </svg>
+        <div class="percent-label">
+          <span class="num" id="overallPercent">0%</span>
+          <small>Total Progres</small>
+        </div>
+      </div>
+
+      <div class="category-bars" id="categoryBars"></div>
+    </div>
+  </section>
+
+  <!-- Tombol Aksi -->
+  <div class="quick-actions">
+    <button id="todayBtn" type="button">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      Ke Hari Ini
+    </button>
+    <button id="resetBtn" class="danger" type="button">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/>
+      </svg>
+      Reset
+    </button>
+  </div>
+
+  <table class="tracker-table">
+    <thead>
+      <tr>
+        <th>Hari</th>
+        <th>Puasa</th>
+        <th>Tilawah</th>
+        <th>Tarawih</th>
+        <th>Sedekah</th>
+      </tr>
+    </thead>
+    <tbody id="trackerBody"></tbody>
+  </table>
+
 </main>
 
 <nav class="bottom-nav">
@@ -273,255 +344,153 @@
   <a href="about.html">Tentang</a>
 </nav>
 
+<div class="toast" id="toast"></div>
+
 <script>
-const panah = document.getElementById('panahKiblat');
-const info  = document.getElementById('infoArah');
-const lokasiEl = document.getElementById('lokasi-aktif');
+const body = document.getElementById('trackerBody');
+const TYPES = ['puasa','tilawah','tarawih','sedekah'];
+const TYPE_LABELS = { puasa: 'Puasa', tilawah: 'Tilawah', tarawih: 'Tarawih', sedekah: 'Sedekah' };
+const RING_CIRCUMFERENCE = 2 * Math.PI * 48; // ≈ 301.59
 
-let arahKiblatGlobal = null;
-let compassStarted    = false;
-let hasReceivedEvent  = false;
-
-/* =========================
-   BUFFER SMOOTHING
-   Rata-rata melingkar agar
-   jarum tidak melompat.
-========================= */
-const HISTORY_SIZE = 10;
-let headingHistory = [];
-
-function smoothHeading(heading) {
-  headingHistory.push(heading);
-  if (headingHistory.length > HISTORY_SIZE) {
-    headingHistory.shift();
-  }
-  let sumSin = 0, sumCos = 0;
-  for (let i = 0; i < headingHistory.length; i++) {
-    const rad = headingHistory[i] * Math.PI / 180;
-    sumSin += Math.sin(rad);
-    sumCos += Math.cos(rad);
-  }
-  let avg = Math.atan2(sumSin, sumCos) * 180 / Math.PI;
-  return (avg + 360) % 360;
+function getData() {
+  return JSON.parse(localStorage.getItem('ramadhanTracker')) || {};
 }
 
-/* =========================
-   HITUNG ARAH KIBLAT
-   Great-circle initial
-   bearing → Ka'bah.
-========================= */
-function hitungKiblat(lat, lon) {
-  const kaabaLat = 21.4225 * Math.PI / 180;
-  const kaabaLon = 39.8262 * Math.PI / 180;
-
-  lat = lat * Math.PI / 180;
-  lon = lon * Math.PI / 180;
-
-  /* Rumus bearing — dibagi cos(kaabaLat)
-     agar ekuivalen dengan rumus standar
-     tapi lebih stabil secara numerik. */
-  const y = Math.sin(kaabaLon - lon);
-  const x =
-    Math.cos(lat) * Math.tan(kaabaLat) -
-    Math.sin(lat) * Math.cos(kaabaLon - lon);
-
-  let brng = Math.atan2(y, x) * 180 / Math.PI;
-  return (brng + 360) % 360;
+function saveData(data) {
+  localStorage.setItem('ramadhanTracker', JSON.stringify(data));
 }
 
-/* =========================
-   IZIN SENSOR (iOS)
-========================= */
-async function requestCompassPermission() {
-  if (
-    typeof DeviceOrientationEvent !== 'undefined' &&
-    typeof DeviceOrientationEvent.requestPermission === 'function'
-  ) {
-    try {
-      const permission = await DeviceOrientationEvent.requestPermission();
-      if (permission !== 'granted') {
-        info.textContent = 'Izin sensor kompas ditolak.';
-        return false;
-      }
-    } catch (err) {
-      info.textContent = 'Gagal meminta izin sensor kompas.';
-      return false;
-    }
-  }
-  return true;
-}
+const data = getData();
 
-/* =========================
-   EKSTRAK HEADING KOMPAS
-   — PERBAIKAN UTAMA —
-========================= */
-function getHeading(e) {
-  /* ---- iOS Safari ----
-     webkitCompassHeading sudah:
-       • absolute (relatif utara bumi)
-       • memperhitungkan orientasi layar
-       • satuan: derajat searah jarum jam dari utara */
-  if (typeof e.webkitCompassHeading === 'number') {
-    return e.webkitCompassHeading;
+// Deteksi "hari ini" = hari pertama yang belum semua aktivitas tercentang
+function detectCurrentDay() {
+  for (let day = 1; day <= 30; day++) {
+    const allDone = TYPES.every(t => data[day]?.[t]);
+    if (!allDone) return day;
   }
-
-  /* ---- Android: event deviceorientationabsolute ----
-     alpha dijamin absolute (relatif utara magnet bumi).
-     Rumus: heading = (360 − alpha) mod 360
-     karena alpha bertambah berlawanan arah jarum jam. */
-  if (e.type === 'deviceorientationabsolute' && typeof e.alpha === 'number') {
-    return (360 - e.alpha) % 360;
-  }
-
-  /* ---- Android: event deviceorientation dgn absolute=true ----
-     Beberapa perangkat mengirim absolute=true pada
-     event biasa — gunakan jika bersifat absolute. */
-  if (e.absolute === true && typeof e.alpha === 'number') {
-    return (360 - e.alpha) % 360;
-  }
-
-  /* ---- JANGAN pakai alpha non-absolute! ----
-     Nilai non-absolute relatif terhadap orientasi
-     awal perangkat, BUKAN utara bumi → arah salah. */
   return null;
 }
 
-/* =========================
-   THROTTLE UI
-   Gunakan requestAnimationFrame
-   agar tidak update DOM berlebihan.
-========================= */
-let pendingFrame = false;
-let lastRawHeading = null;
+function renderTable() {
+  body.innerHTML = '';
+  const today = detectCurrentDay();
+  for (let day = 1; day <= 30; day++) {
+    const row = document.createElement('tr');
+    if (today && day === today) row.classList.add('is-today');
 
-function scheduleUpdate(arahKiblat) {
-  if (pendingFrame) return;
-  pendingFrame = true;
-  requestAnimationFrame(function () {
-    pendingFrame = false;
-    if (lastRawHeading === null) return;
+    row.innerHTML = `
+      <td>${day}</td>
+      ${TYPES.map(type => `
+        <td>
+          <label>
+            <input type="checkbox"
+              data-day="${day}"
+              data-type="${type}"
+              ${data[day]?.[type] ? 'checked' : ''}
+            >
+          </label>
+        </td>
+      `).join('')}
+    `;
+    body.appendChild(row);
+  }
+}
 
-    const smoothed = smoothHeading(lastRawHeading);
-    const rotate   = arahKiblat - smoothed;
+function renderChart() {
+  const counts = {};
+  TYPES.forEach(t => counts[t] = 0);
+  for (let day = 1; day <= 30; day++) {
+    TYPES.forEach(t => {
+      if (data[day]?.[t]) counts[t]++;
+    });
+  }
 
-    panah.style.transform =
-      `translate(-50%, -100%) rotate(${rotate}deg)`;
+  // Persentase total
+  const totalChecks = TYPES.reduce((s, t) => s + counts[t], 0);
+  const overall = Math.round((totalChecks / (30 * TYPES.length)) * 100);
 
-    info.innerHTML =
-      `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
-      `Kompas HP: ${Math.round(smoothed)}°`;
+  const ring = document.getElementById('progressRing');
+  ring.style.strokeDashoffset = RING_CIRCUMFERENCE - (RING_CIRCUMFERENCE * overall / 100);
+  document.getElementById('overallPercent').textContent = overall + '%';
+
+  // Bar per kategori
+  const barsContainer = document.getElementById('categoryBars');
+  barsContainer.innerHTML = TYPES.map(t => {
+    const pct = Math.round((counts[t] / 30) * 100);
+    return `
+      <div class="category-bar">
+        <span class="label">${TYPE_LABELS[t]}</span>
+        <div class="bar"><div class="fill" style="width:${pct}%"></div></div>
+        <span class="value">${counts[t]}/30</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function updateTodayHighlight() {
+  const today = detectCurrentDay();
+  Array.from(body.children).forEach((row, idx) => {
+    const day = idx + 1;
+    if (today && day === today) row.classList.add('is-today');
+    else row.classList.remove('is-today');
   });
 }
 
-/* =========================
-   START KOMPAS
-========================= */
-function startCompass(arahKiblat) {
-  if (compassStarted) return;
-  compassStarted = true;
-
-  function handleOrientation(e) {
-    const heading = getHeading(e);
-    if (heading === null) return;
-
-    hasReceivedEvent = true;
-    lastRawHeading   = heading;
-    scheduleUpdate(arahKiblat);
-  }
-
-  /* Cek apakah deviceorientationabsolute didukung
-     (hanya Android Chrome). */
-  const absoluteSupported =
-    'ondeviceorientationabsolute' in window;
-
-  if (absoluteSupported) {
-    window.addEventListener(
-      'deviceorientationabsolute',
-      handleOrientation,
-      true
-    );
-  }
-
-  /* Selalu dengarkan deviceorientation:
-     • iOS  → untuk webkitCompassHeading
-     • Android tanpa absolute → hanya jika absolute=true */
-  window.addEventListener('deviceorientation', function (e) {
-    /* iOS: proses langsung */
-    if (typeof e.webkitCompassHeading !== 'undefined') {
-      handleOrientation(e);
-      return;
-    }
-    /* Android tanpa deviceorientationabsolute:
-       hanya terima jika absolute=true */
-    if (
-      !absoluteSupported &&
-      e.absolute === true &&
-      typeof e.alpha === 'number'
-    ) {
-      handleOrientation(e);
-    }
-    /* Jangan proses alpha non-absolute */
-  }, true);
-
-  /* Deteksi jika tidak ada event sensor dalam 2.5 detik */
-  setTimeout(function () {
-    if (!hasReceivedEvent) {
-      info.innerHTML =
-        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
-        `<span style="font-size:12px;font-weight:400">` +
-        `Sensor kompas tidak terdeteksi. Pastikan kompas perangkat berfungsi.` +
-        `</span>`;
-    }
-  }, 2500);
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(showToast._timer);
+  showToast._timer = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-/* =========================
-   INIT KIBLAT
-========================= */
-async function initKiblat() {
-  if (!navigator.geolocation) {
-    alert('Browser tidak mendukung GPS');
+renderTable();
+// Animasi chart muncul saat halaman pertama dimuat
+requestAnimationFrame(() => renderChart());
+
+body.addEventListener('change', e => {
+  if (e.target.type !== 'checkbox') return;
+
+  const day = e.target.dataset.day;
+  const type = e.target.dataset.type;
+
+  data[day] = data[day] || {};
+  data[day][type] = e.target.checked;
+
+  saveData(data);
+  renderChart();
+  updateTodayHighlight();
+
+  // Rayakan ketika semua aktivitas hari itu selesai
+  if (data[day] && TYPES.every(t => data[day][t])) {
+    showToast(`🎉 Hari ke-${day} lengkap!`);
+  }
+});
+
+// Tombol: scroll ke hari ini
+document.getElementById('todayBtn').addEventListener('click', () => {
+  const today = detectCurrentDay();
+  if (!today) {
+    showToast('Semua hari sudah terisi 🌟');
     return;
   }
+  const row = body.querySelector('tr.is-today');
+  if (row) {
+    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    showToast(`Hari ke-${today}`);
+  }
+});
 
-  info.textContent = 'Meminta izin lokasi...';
-
-  const sensorAllowed = await requestCompassPermission();
-  if (!sensorAllowed) return;
-
-  navigator.geolocation.getCurrentPosition(
-    pos => {
-      const lat = pos.coords.latitude;
-      const lon = pos.coords.longitude;
-
-      lokasiEl.textContent =
-        `📍 ${lat.toFixed(4)}, ${lon.toFixed(4)}`;
-
-      const arahKiblat = hitungKiblat(lat, lon);
-      arahKiblatGlobal = arahKiblat;
-
-      info.innerHTML =
-        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
-        `Gerakkan HP seperti angka 8 untuk kalibrasi.`;
-
-      if (window.DeviceOrientationEvent) {
-        startCompass(arahKiblat);
-      } else {
-        info.textContent =
-          `Arah Kiblat: ${Math.round(arahKiblat)}° dari Utara`;
-      }
-    },
-    () => {
-      info.textContent = 'Izin lokasi ditolak.';
-      alert('Izin lokasi ditolak');
-    },
-    {
-      enableHighAccuracy: true,
-      timeout: 10000,
-      maximumAge: 0
-    }
-  );
-}
+// Tombol: reset semua progres
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if (confirm('Yakin ingin mereset semua progres?')) {
+    Object.keys(data).forEach(k => delete data[k]);
+    saveData(data);
+    renderTable();
+    renderChart();
+    showToast('Progres direset');
+  }
+});
 </script>
 
 </body>
