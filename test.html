@@ -3,495 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al-Qur'an</title>
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Arah Kiblat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+
 <style>
-  /* ============================================
-     HEADER HALAMAN
-     ============================================ */
-  .app-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 18px;
-    background: rgba(245, 241, 234, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
+/* =========================
+   KIBLAT STYLE
+========================= */
 
-  .back-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 13px;
-    background: var(--primary-ghost-strong);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    flex-shrink: 0;
-  }
+.page-kiblat{
+  background:var(--bg);
+}
 
-  .back-btn:active {
-    transform: scale(0.92);
-  }
+.kiblat-container{
+  padding:18px 18px 110px;
+  text-align:center;
+}
 
-  .header-title {
-    flex: 1;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-  }
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
 
-  /* ============================================
-     SEARCH BAR
-     ============================================ */
-  .search-wrap {
-    padding: 0 18px;
-    margin-bottom: 16px;
-    animation: cardSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
-  }
+.header-title{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
 
-  .search-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--card);
-    border: 1.5px solid var(--border);
-    border-radius: 14px;
-    padding: 0 16px;
-    height: 48px;
-    transition: border-color 0.25s, box-shadow 0.25s;
-  }
+.header-title>div:first-child{
+  font-size:17px;
+  font-weight:800;
+  color:var(--primary);
+}
 
-  .search-box:focus-within {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px var(--primary-ghost);
-  }
+.judul-surah{
+  font-size:12px;
+  color:var(--text-secondary);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
 
-  .search-box i {
-    color: var(--text-muted);
-    font-size: 15px;
-    flex-shrink: 0;
-  }
+.kiblat-card{
+  background:var(--card);
+  border-radius:24px;
+  padding:24px 18px 20px;
+  box-shadow:var(--shadow-md);
+  border:1px solid rgba(255,255,255,.7);
+  position:relative;
+  overflow:hidden;
+}
 
-  .search-box input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-  }
+.kiblat-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:var(--primary-ghost);
+  top:-80px;
+  right:-70px;
+}
 
-  .search-box input::placeholder {
-    color: var(--text-muted);
-    font-weight: 400;
-  }
+.kompas-wrapper{
+  position:relative;
+  width:240px;
+  height:240px;
+  margin:18px auto 22px;
+}
 
-  .search-clear {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 14px;
-    cursor: pointer;
-    padding: 4px;
-    display: none;
-    transition: color 0.2s;
-  }
+.kompas{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  position:relative;
+  background:
+    radial-gradient(circle at center, #fff 0 36%, transparent 37%),
+    conic-gradient(
+      from 0deg,
+      rgba(10,77,58,.16),
+      rgba(196,154,42,.18),
+      rgba(10,77,58,.16)
+    );
+  border:10px solid #fff;
+  box-shadow:
+    inset 0 0 0 2px var(--primary-ghost-strong),
+    0 10px 32px rgba(10,77,58,.16);
+}
 
-  .search-clear.visible {
-    display: block;
-  }
+.kompas::before{
+  content:"N";
+  position:absolute;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:14px;
+  font-weight:800;
+  color:var(--primary);
+}
 
-  .search-clear:hover {
-    color: var(--text);
-  }
+.kompas::after{
+  content:"Kiblat";
+  position:absolute;
+  inset:50%;
+  transform:translate(-50%,-50%);
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  background:var(--card);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:800;
+  color:var(--primary);
+  box-shadow:var(--shadow-sm);
+}
 
-  /* ============================================
-     TOGGLE (Pill Indicator)
-     ============================================ */
-  .quran-toggle {
-    display: flex;
-    background: var(--card);
-    padding: 5px;
-    border-radius: 16px;
-    margin: 0 18px 18px;
-    position: relative;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border);
-    animation: cardSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
-  }
+.panah{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:8px;
+  height:94px;
+  background:linear-gradient(var(--accent),var(--primary));
+  transform-origin:bottom center;
+  transform:translate(-50%,-100%) rotate(0deg);
+  border-radius:999px;
+  z-index:3;
+  box-shadow:0 4px 12px rgba(10,77,58,.25);
+  transition:transform .12s linear;
+}
 
-  .toggle-btn {
-    flex: 1;
-    padding: 11px 0;
-    border: none;
-    border-radius: 12px;
-    background: transparent;
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s ease;
-  }
+.panah::after{
+  content:"";
+  position:absolute;
+  top:-16px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:13px solid transparent;
+  border-right:13px solid transparent;
+  border-bottom:18px solid var(--accent);
+}
 
-  .toggle-btn.active {
-    color: var(--primary);
-  }
+.info-kiblat{
+  background:var(--primary-ghost);
+  color:var(--primary);
+  font-size:14px;
+  font-weight:700;
+  line-height:1.5;
+  margin-top:8px;
+  padding:12px 14px;
+  border-radius:16px;
+}
 
-  .toggle-indicator {
-    position: absolute;
-    top: 5px;
-    bottom: 5px;
-    width: calc(33.333% - 3.33px);
-    border-radius: 12px;
-    background: var(--primary-ghost-strong);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    z-index: 0;
-    transform: translateX(0);
-  }
+.info-kiblat .warn{
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+  font-weight:600;
+  color:#b35b00;
+}
 
-  .toggle-indicator[data-pos="1"] {
-    transform: translateX(calc(100% + 5px));
-  }
+.btn-kiblat{
+  width:100%;
+  padding:14px;
+  margin-top:18px;
+  border-radius:16px;
+  border:none;
+  background:linear-gradient(145deg,var(--primary),var(--primary-hover));
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  box-shadow:0 8px 24px rgba(10,77,58,.22);
+  cursor:pointer;
+  transition:.25s ease;
+}
 
-  .toggle-indicator[data-pos="2"] {
-    transform: translateX(calc(200% + 10px));
-  }
+.btn-kiblat:active{
+  transform:scale(.98);
+}
+   .kiblat-note{
+  margin-top:16px;
+  padding:14px 16px;
+  background:rgba(10,77,58,.06);
+  border-left:4px solid var(--accent);
+  border-radius:16px;
+  text-align:left;
+  font-size:13px;
+  line-height:1.6;
+  color:var(--text-secondary);
+}
 
-  /* ============================================
-     SURAH LIST
-     ============================================ */
-  .surah-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 18px;
-    min-height: 200px;
-  }
+.kiblat-note strong{
+  display:block;
+  color:var(--primary);
+  margin-bottom:8px;
+}
 
-  .surah-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: var(--card);
-    padding: 14px 16px;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    color: var(--text);
-    box-shadow: var(--shadow-sm);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(14px);
-    animation: listItemIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: var(--d, 0s);
-  }
+.kiblat-note ul{
+  padding-left:18px;
+  margin:0;
+}
 
-  .surah-item:active {
-    transform: scale(0.98);
-  }
-
-  .surah-item:hover {
-    box-shadow: var(--shadow-md);
-  }
-
-  /* Nomor surah — badge hexagonal */
-  .surah-num {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .surah-num-bg {
-    position: absolute;
-    inset: 0;
-    background: var(--primary-ghost-strong);
-    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-  }
-
-  .surah-num span {
-    position: relative;
-    z-index: 1;
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--primary);
-  }
-
-  /* Info tengah */
-  .surah-info {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .surah-info strong {
-    display: block;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-
-  .surah-info .surah-meta {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: var(--text-secondary);
-  }
-
-  .surah-meta .dot {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--text-muted);
-    flex-shrink: 0;
-  }
-
-  /* Sisi kanan: nama Arab + jumlah ayat */
-  .surah-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-
-  .surah-arab-name {
-    font-family: 'Amiri', serif;
-    font-size: 20px;
-    color: var(--primary);
-    line-height: 1.2;
-    direction: rtl;
-  }
-
-  .surah-ayat-count {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-    background: var(--primary-ghost);
-    padding: 3px 8px;
-    border-radius: 6px;
-  }
-
-  /* ============================================
-     JUZ ITEM VARIANT
-     ============================================ */
-  .surah-item.juz-item .surah-num-bg {
-    background: var(--accent-light);
-  }
-
-  .surah-item.juz-item .surah-num span {
-    color: #92700c;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: -0.3px;
-  }
-
-  /* ============================================
-     LOADING SKELETON
-     ============================================ */
-  .skeleton-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 18px;
-  }
-
-  .skeleton-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: var(--card);
-    padding: 14px 16px;
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .skeleton-hex {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    background: var(--primary-ghost);
-    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-    animation: shimmer 1.5s ease-in-out infinite;
-  }
-
-  .skeleton-lines {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .skeleton-line {
-    height: 12px;
-    border-radius: 6px;
-    background: var(--primary-ghost);
-    animation: shimmer 1.5s ease-in-out infinite;
-  }
-
-  .skeleton-line:first-child {
-    width: 55%;
-    height: 15px;
-  }
-
-  .skeleton-line:last-child {
-    width: 75%;
-  }
-
-  .skeleton-block {
-    width: 50px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background: var(--primary-ghost);
-    animation: shimmer 1.5s ease-in-out infinite;
-  }
-
-  @keyframes shimmer {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
-
-  /* ============================================
-     EMPTY STATE
-     ============================================ */
-  .empty-state {
-    text-align: center;
-    padding: 48px 20px;
-    animation: cardSlideUp 0.5s ease both;
-  }
-
-  .empty-state i {
-    font-size: 44px;
-    color: var(--text-muted);
-    opacity: 0.4;
-    margin-bottom: 16px;
-  }
-
-  .empty-state p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  /* ============================================
-     ANIMASI LIST ITEM
-     ============================================ */
-  @keyframes listItemIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ============================================
-     BOTTOM NAV (konsisten dengan index)
-     ============================================ */
-  .bottom-nav {
-    position: fixed;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    width: calc(100% - 32px);
-    max-width: 448px;
-  }
-
-  .bottom-nav a {
-    display: none; /* sembunyikan default link style */
-  }
-
-  .nav-pill-wrap {
-    display: flex;
-    align-items: stretch;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 22px;
-    padding: 8px 6px;
-    box-shadow: 0 8px 40px rgba(10, 77, 58, 0.12),
-                0 1px 0 rgba(255,255,255,0.6) inset;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    position: relative;
-  }
-
-  .nav-pill-wrap a {
-    display: flex !important;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 6px 0 4px;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-muted);
-    transition: color 0.3s ease;
-    position: relative;
-    z-index: 1;
-    border-radius: 16px;
-    text-decoration: none;
-  }
-
-  .nav-pill-wrap a i {
-    font-size: 18px;
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .nav-pill-wrap a.active {
-    color: var(--primary);
-    font-weight: 700;
-  }
-
-  .nav-pill-wrap a.active i {
-    transform: scale(1.15);
-  }
-
-  .nav-pill-indicator {
-    position: absolute;
-    top: 6px;
-    bottom: 6px;
-    width: 25%;
-    border-radius: 16px;
-    background: var(--primary-ghost-strong);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    z-index: 0;
-  }
-
-  /* ============================================
-     CONTAINER OVERRIDE
-     ============================================ */
-  .container {
-    padding: 16px 0 110px;
-  }
+.kiblat-note li{
+  margin-bottom:6px;
+}
 </style>
 </head>
-<body>
+
+<body class="page-kiblat">
 
 <header class="app-header">
-  <button class="back-btn" onclick="history.back()" aria-label="Kembali">
-    <svg viewBox="0 0 24 24" width="20" height="20"
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
       fill="none"
       stroke="currentColor"
       stroke-width="2.5"
@@ -500,321 +240,278 @@
       <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
   </button>
-  <h1 class="header-title">Al-Qur'an</h1>
+
+  <div class="header-title">
+    <div>Arah Kiblat</div>
+    <div id="lokasi-aktif" class="judul-surah"></div>
+  </div>
 </header>
 
-<main class="container">
-
-  <!-- Search -->
-  <div class="search-wrap">
-    <div class="search-box">
-      <i class="fas fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" placeholder="Cari surah..." autocomplete="off">
-      <button class="search-clear" id="searchClear" aria-label="Hapus pencarian">
-        <i class="fas fa-xmark"></i>
-      </button>
+<main class="kiblat-container">
+  <div class="kiblat-card">
+    <div class="kompas-wrapper">
+      <div class="kompas">
+        <div class="panah" id="panahKiblat"></div>
+      </div>
     </div>
+
+    <div class="info-kiblat" id="infoArah">
+      Menunggu izin lokasi & sensor...
+    </div>
+
+ <button class="btn-kiblat" onclick="initKiblat()">
+  📍 Aktifkan Arah Kiblat
+</button>
+
+<div class="kiblat-note">
+  <strong>Catatan penggunaan:</strong>
+  <ul>
+    <li>Arah kiblat menggunakan GPS dan sensor kompas perangkat.</li>
+    <li>Halaman ini harus diakses lewat <strong>HTTPS</strong> (bukan file:// atau http://) agar GPS dan kompas browser bisa berfungsi.</li>
+    <li>Akurasi dapat berbeda pada setiap perangkat.</li>
+    <li>Jauhkan perangkat dari magnet, speaker, kendaraan, atau benda logam.</li>
+    <li>Untuk hasil terbaik, kalibrasi kompas dengan menggerakkan ponsel membentuk angka 8.</li>
+  </ul>
+</div>
   </div>
-
-  <!-- Toggle -->
-  <div class="quran-toggle">
-    <button id="btnSurah" class="toggle-btn active">Surah</button>
-    <button id="btnJuz" class="toggle-btn">Juz</button>
-    <button id="btnBookmark" class="toggle-btn">Bookmark</button>
-    <div class="toggle-indicator" id="toggleIndicator" data-pos="0"></div>
-  </div>
-
-  <!-- List -->
-  <div id="surahList" class="surah-list"></div>
-
 </main>
 
-<!-- Bottom Nav -->
-<nav class="bottom-nav" aria-label="Navigasi utama">
-  <div class="nav-pill-wrap">
-    <a href="../index.html" data-nav="0">
-      <i class="fas fa-house"></i>
-      <span>Home</span>
-    </a>
-    <a href="quran.html" class="active" data-nav="1">
-      <i class="fas fa-book-quran"></i>
-      <span>Qur'an</span>
-    </a>
-    <a href="bookmark.html" data-nav="2">
-      <i class="fas fa-bookmark"></i>
-      <span>Markah</span>
-    </a>
-    <a href="about.html" data-nav="3">
-      <i class="fas fa-circle-info"></i>
-      <span>Tentang</span>
-    </a>
-    <div class="nav-pill-indicator" id="navIndicator" style="transform:translateX(100%)"></div>
-  </div>
+<nav class="bottom-nav">
+  <a href="../index.html">Home</a>
+  <a href="quran.html">Al-Qur'an</a>
+  <a href="bookmark.html">Bookmark</a>
+  <a href="about.html">Tentang</a>
 </nav>
 
-<script src="../data/juz-map.js"></script>
-<script src="../data/surah-names.js"></script>
-
 <script>
-/* ============================================
-   ELEMEN DOM
-   ============================================ */
-const list = document.getElementById('surahList');
-const btnSurah = document.getElementById('btnSurah');
-const btnJuz = document.getElementById('btnJuz');
-const btnBookmark = document.getElementById('btnBookmark');
-const toggleIndicator = document.getElementById('toggleIndicator');
-const searchInput = document.getElementById('searchInput');
-const searchClear = document.getElementById('searchClear');
+const panah = document.getElementById('panahKiblat');
+const info = document.getElementById('infoArah');
+const lokasiEl = document.getElementById('lokasi-aktif');
 
-let currentMode = 'surah';
-let allSurahData = [];
+// Koordinat Ka'bah (Masjidil Haram, Mekkah)
+const KAABA_LAT = 21.4225;
+const KAABA_LON = 39.8262;
 
-/* ============================================
-   INISIALISASI MODE DARI URL
-   ============================================ */
-const params = new URLSearchParams(location.search);
-const mode = params.get('mode');
+let arahKiblatGlobal = null;
+let jarakGlobal = null;
+let compassStarted = false;
+let lastRotation = 0;     // untuk rotasi jarum yang halus (tanpa lompat 360°)
+let headingMode = null;   // 'ios' | 'android-absolute' | 'android-relative'
+let sensorTimer = null;
 
-if (mode === 'juz') {
-  switchMode('juz');
-} else {
-  switchMode('surah');
+/* =========================
+   HITUNG ARAH KIBLAT
+   (bearing great-circle dari posisi user ke Ka'bah)
+========================= */
+function hitungKiblat(lat, lon) {
+  const lat1 = lat * Math.PI / 180;
+  const lon1 = lon * Math.PI / 180;
+  const lat2 = KAABA_LAT * Math.PI / 180;
+  const lon2 = KAABA_LON * Math.PI / 180;
+
+  const y = Math.sin(lon2 - lon1);
+  const x = Math.cos(lat1) * Math.tan(lat2) - Math.sin(lat1) * Math.cos(lon2 - lon1);
+
+  let brng = Math.atan2(y, x) * 180 / Math.PI;
+  return (brng + 360) % 360;
 }
 
-/* ============================================
-   TOGGLE KLIK
-   ============================================ */
-btnSurah.addEventListener('click', () => switchMode('surah'));
-btnJuz.addEventListener('click', () => switchMode('juz'));
-btnBookmark.addEventListener('click', () => {
-  window.location.href = 'bookmark.html';
-});
+/* =========================
+   HITUNG JARAK KE KA'BAH (km)
+   Rumus Haversine
+========================= */
+function hitungJarak(lat1, lon1, lat2, lon2) {
+  const R = 6371; // radius bumi (km)
+  const toRad = d => d * Math.PI / 180;
 
-function switchMode(mode) {
-  currentMode = mode;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
 
-  // Update tombol aktif
-  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
 
-  if (mode === 'surah') {
-    btnSurah.classList.add('active');
-    toggleIndicator.dataset.pos = '0';
-    searchInput.placeholder = 'Cari surah...';
-    loadSurah();
-  } else if (mode === 'juz') {
-    btnJuz.classList.add('active');
-    toggleIndicator.dataset.pos = '1';
-    searchInput.placeholder = 'Cari juz...';
-    loadJuz();
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function formatJarak(km) {
+  return Math.round(km).toLocaleString('id-ID') + ' km';
+}
+
+function teksArahJarak(arah, jarak) {
+  return `Arah Kiblat: <strong>${Math.round(arah)}°</strong> dari Utara` +
+         (jarak != null ? ` &middot; Jarak ke Ka'bah: <strong>${formatJarak(jarak)}</strong>` : '');
+}
+
+/* =========================
+   CEK KONTEKS AMAN (HTTPS)
+   GPS & sensor kompas browser hanya berjalan di secure context
+========================= */
+function cekSecureContext() {
+  if (!window.isSecureContext) {
+    info.textContent =
+      'Halaman ini perlu dibuka lewat HTTPS agar GPS & kompas bisa diaktifkan. ' +
+      'Coba akses lewat https:// (bukan file:// atau http://).';
+    return false;
+  }
+  return true;
+}
+
+/* =========================
+   IZIN SENSOR IPHONE
+========================= */
+async function requestCompassPermission() {
+  if (
+    typeof DeviceOrientationEvent !== 'undefined' &&
+    typeof DeviceOrientationEvent.requestPermission === 'function'
+  ) {
+    try {
+      const permission = await DeviceOrientationEvent.requestPermission();
+
+      if (permission !== 'granted') {
+        info.textContent = 'Izin sensor kompas ditolak. Aktifkan lewat Pengaturan > Safari > Motion & Orientation Access.';
+        return false;
+      }
+    } catch (err) {
+      info.textContent = 'Gagal meminta izin sensor kompas. Coba muat ulang halaman.';
+      return false;
+    }
   }
 
-  // Reset search
-  searchInput.value = '';
-  searchClear.classList.remove('visible');
+  return true;
 }
 
-/* ============================================
-   SEARCH
-   ============================================ */
-searchInput.addEventListener('input', function() {
-  const q = this.value.trim().toLowerCase();
-  searchClear.classList.toggle('visible', q.length > 0);
-
-  if (currentMode === 'surah' && allSurahData.length) {
-    filterSurah(q);
+/* =========================
+   AMBIL HEADING KOMPAS
+========================= */
+function getHeading(e) {
+  // iPhone Safari — sudah berupa heading sejati (true heading relatif kompas)
+  if (typeof e.webkitCompassHeading === 'number' && !isNaN(e.webkitCompassHeading)) {
+    headingMode = 'ios';
+    return e.webkitCompassHeading;
   }
-});
 
-searchClear.addEventListener('click', function() {
-  searchInput.value = '';
-  searchClear.classList.remove('visible');
-  if (currentMode === 'surah') {
-    filterSurah('');
+  // Android Chrome — event absolut (heading sejati terhadap utara)
+  if (typeof e.alpha === 'number') {
+    headingMode = e.absolute === true ? 'android-absolute' : 'android-relative';
+    return (360 - e.alpha) % 360;
   }
-});
 
-function filterSurah(q) {
-  const filtered = q
-    ? allSurahData.filter(s =>
-        s.namaLatin.toLowerCase().includes(q) ||
-        s.arti.toLowerCase().includes(q) ||
-        s.nomor.toString() === q
-      )
-    : allSurahData;
-
-  renderSurahList(filtered);
+  return null;
 }
 
-/* ============================================
-   SKELETON LOADING
-   ============================================ */
-function showSkeleton() {
-  let html = '<div class="skeleton-list">';
-  for (let i = 0; i < 8; i++) {
-    html += `
-      <div class="skeleton-item">
-        <div class="skeleton-hex"></div>
-        <div class="skeleton-lines">
-          <div class="skeleton-line"></div>
-          <div class="skeleton-line"></div>
-        </div>
-        <div class="skeleton-block"></div>
-      </div>`;
+/* =========================
+   ROTASI JARUM TANPA LOMPAT 360°
+========================= */
+function putarJarum(target) {
+  // cari selisih terpendek (-180..180) dari posisi terakhir ke target
+  let diff = ((target - lastRotation + 540) % 360) - 180;
+  lastRotation += diff;
+  panah.style.transform = `translate(-50%, -100%) rotate(${lastRotation}deg)`;
+}
+
+/* =========================
+   START KOMPAS
+========================= */
+function startCompass(arahKiblat) {
+  if (compassStarted) return;
+  compassStarted = true;
+
+  function handleOrientation(e) {
+    const heading = getHeading(e);
+
+    if (heading === null) {
+      info.innerHTML = teksArahJarak(arahKiblat, jarakGlobal) +
+        '<br><span class="warn">Sensor kompas tidak tersedia di perangkat ini.</span>';
+      return;
+    }
+
+    if (sensorTimer) { clearTimeout(sensorTimer); sensorTimer = null; }
+
+    const rotate = arahKiblat - heading;
+    putarJarum(rotate);
+
+    let peringatan = '';
+    if (headingMode === 'android-relative') {
+      peringatan = '<br><span class="warn">⚠️ Sensor arah absolut tidak tersedia di HP ini, akurasi kompas bisa berkurang. Kalibrasi dengan gerakan angka 8.</span>';
+    }
+
+    info.innerHTML =
+      teksArahJarak(arahKiblat, jarakGlobal) +
+      `<br>Kompas HP: ${Math.round(heading)}°` +
+      peringatan;
   }
-  html += '</div>';
-  list.innerHTML = html;
+
+  window.addEventListener('deviceorientationabsolute', handleOrientation, true);
+  window.addEventListener('deviceorientation', handleOrientation, true);
+
+  // jika setelah beberapa detik tidak ada data sensor sama sekali,
+  // beri tahu pengguna (umumnya karena browser tidak mendukung atau diblokir)
+  sensorTimer = setTimeout(() => {
+    if (headingMode === null) {
+      info.innerHTML =
+        teksArahJarak(arahKiblat, jarakGlobal) +
+        '<br><span class="warn">Sensor kompas tidak merespons. Pastikan menggunakan HTTPS dan browser mendukung sensor orientasi.</span>';
+    }
+  }, 3000);
 }
 
-/* ============================================
-   LOAD SURAH
-   ============================================ */
-function loadSurah() {
-  showSkeleton();
+/* =========================
+   INIT KIBLAT
+========================= */
+async function initKiblat() {
+  if (!cekSecureContext()) return;
 
-  fetch('https://equran.id/api/v2/surat')
-    .then(res => res.json())
-    .then(data => {
-      allSurahData = data.data;
-      renderSurahList(allSurahData);
-    })
-    .catch(() => {
-      list.innerHTML = `
-        <div class="empty-state">
-          <i class="fas fa-wifi-slash"></i>
-          <p>Gagal memuat data.<br>Pastikan koneksi internet aktif.</p>
-        </div>`;
-    });
-}
-
-function renderSurahList(data) {
-  list.innerHTML = '';
-
-  if (!data.length) {
-    list.innerHTML = `
-      <div class="empty-state">
-        <i class="fas fa-magnifying-glass"></i>
-        <p>Surah tidak ditemukan</p>
-      </div>`;
+  if (!navigator.geolocation) {
+    info.textContent = 'Browser tidak mendukung GPS.';
     return;
   }
 
-  data.forEach((s, i) => {
-    const item = document.createElement('a');
-    item.href = `surah.html?no=${s.nomor}`;
-    item.className = 'surah-item';
-    // Staggered delay: mulai cepat, maks 0.8s
-    item.style.setProperty('--d', Math.min(i * 0.025, 0.8) + 's');
+  info.textContent = 'Meminta izin lokasi...';
 
-    item.innerHTML = `
-      <div class="surah-num">
-        <div class="surah-num-bg"></div>
-        <span>${s.nomor}</span>
-      </div>
-      <div class="surah-info">
-        <strong>${s.namaLatin}</strong>
-        <div class="surah-meta">
-          <span>${s.arti}</span>
-          <span class="dot"></span>
-          <span>${s.tipe === 'Meccan' ? 'Makkiyah' : 'Madaniyah'}</span>
-        </div>
-      </div>
-      <div class="surah-right">
-        <span class="surah-arab-name">${s.nama}</span>
-        <span class="surah-ayat-count">${s.jumlahAyat} ayat</span>
-      </div>
-    `;
+  const sensorAllowed = await requestCompassPermission();
+  if (!sensorAllowed) return;
 
-    list.appendChild(item);
-  });
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+
+      lokasiEl.textContent = `📍 ${lat.toFixed(3)}, ${lon.toFixed(3)}`;
+
+      const arahKiblat = hitungKiblat(lat, lon);
+      const jarak = hitungJarak(lat, lon, KAABA_LAT, KAABA_LON);
+
+      arahKiblatGlobal = arahKiblat;
+      jarakGlobal = jarak;
+
+      info.innerHTML =
+        teksArahJarak(arahKiblat, jarak) +
+        '<br>Gerakkan HP seperti angka 8 untuk kalibrasi.';
+
+      if (window.DeviceOrientationEvent) {
+        startCompass(arahKiblat);
+      } else {
+        info.innerHTML =
+          teksArahJarak(arahKiblat, jarak) +
+          '<br><span class="warn">Perangkat ini tidak mendukung sensor kompas.</span>';
+      }
+    },
+    err => {
+      let msg = 'Gagal mengambil lokasi.';
+      if (err.code === 1) msg = 'Izin lokasi ditolak. Aktifkan izin lokasi untuk browser ini di pengaturan HP.';
+      else if (err.code === 2) msg = 'Lokasi tidak tersedia. Pastikan GPS / Layanan Lokasi aktif.';
+      else if (err.code === 3) msg = 'Permintaan lokasi melebihi waktu. Coba lagi di tempat dengan sinyal GPS lebih baik.';
+      info.textContent = msg;
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+  );
 }
-
-/* ============================================
-   LOAD JUZ
-   ============================================ */
-function loadJuz() {
-  list.innerHTML = '';
-
-  if (!JUZ_MAP || !JUZ_MAP.length) {
-    list.innerHTML = `
-      <div class="empty-state">
-        <i class="fas fa-circle-exclamation"></i>
-        <p>Data Juz belum tersedia</p>
-      </div>`;
-    return;
-  }
-
-  JUZ_MAP.forEach((j, i) => {
-    const surahName = getSurahName(j.start[0]);
-    const ayatNo = j.start[1];
-
-    const item = document.createElement('a');
-    item.href = `juz.html?no=${j.juz}`;
-    item.className = 'surah-item juz-item';
-    item.style.setProperty('--d', Math.min(i * 0.03, 0.8) + 's');
-
-    item.innerHTML = `
-      <div class="surah-num">
-        <div class="surah-num-bg"></div>
-        <span>${j.juz}</span>
-      </div>
-      <div class="surah-info">
-        <strong>Juz ${j.juz}</strong>
-        <div class="surah-meta">
-          <span>${surahName}</span>
-          <span class="dot"></span>
-          <span>Ayat ${ayatNo}</span>
-        </div>
-      </div>
-      <div class="surah-right">
-        <span class="surah-arab-name">${getArabName(j.start[0])}</span>
-        <span class="surah-ayat-count">Juz</span>
-      </div>
-    `;
-
-    list.appendChild(item);
-  });
-}
-
-function getSurahName(no) {
-  return SURAH_NAMES[no] || 'Surah ' + no;
-}
-
-function getArabName(no) {
-  // Fallback: ambil dari data surah jika sudah dimuat
-  if (allSurahData.length) {
-    const found = allSurahData.find(s => s.nomor === no);
-    return found ? found.nama : '';
-  }
-  return '';
-}
-
-/* ============================================
-   RIPPLE PADA SURAH ITEM
-   ============================================ */
-document.addEventListener('click', function(e) {
-  const item = e.target.closest('.surah-item');
-  if (!item) return;
-
-  const rect = item.getBoundingClientRect();
-  const size = Math.max(rect.width, rect.height);
-  const ripple = document.createElement('span');
-  ripple.style.cssText = `
-    position:absolute;
-    border-radius:50%;
-    background:rgba(10,77,58,0.08);
-    width:${size}px;
-    height:${size}px;
-    left:${e.clientX - rect.left - size/2}px;
-    top:${e.clientY - rect.top - size/2}px;
-    transform:scale(0);
-    animation:rippleAnim 0.6s ease-out forwards;
-    pointer-events:none;
-    z-index:2;
-  `;
-  item.appendChild(ripple);
-  ripple.addEventListener('animationend', () => ripple.remove());
-});
 </script>
 
 </body>
