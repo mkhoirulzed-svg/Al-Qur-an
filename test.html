@@ -144,7 +144,6 @@
   border-radius:999px;
   z-index:3;
   box-shadow:0 4px 12px rgba(10,77,58,.25);
-  transition:transform .12s linear;
 }
 
 .panah::after{
@@ -169,14 +168,6 @@
   margin-top:8px;
   padding:12px 14px;
   border-radius:16px;
-}
-
-.info-kiblat .warn{
-  display:block;
-  margin-top:4px;
-  font-size:12px;
-  font-weight:600;
-  color:#b35b00;
 }
 
 .btn-kiblat{
@@ -267,7 +258,6 @@
   <strong>Catatan penggunaan:</strong>
   <ul>
     <li>Arah kiblat menggunakan GPS dan sensor kompas perangkat.</li>
-    <li>Halaman ini harus diakses lewat <strong>HTTPS</strong> (bukan file:// atau http://) agar GPS dan kompas browser bisa berfungsi.</li>
     <li>Akurasi dapat berbeda pada setiap perangkat.</li>
     <li>Jauhkan perangkat dari magnet, speaker, kendaraan, atau benda logam.</li>
     <li>Untuk hasil terbaik, kalibrasi kompas dengan menggerakkan ponsel membentuk angka 8.</li>
@@ -285,81 +275,62 @@
 
 <script>
 const panah = document.getElementById('panahKiblat');
-const info = document.getElementById('infoArah');
+const info  = document.getElementById('infoArah');
 const lokasiEl = document.getElementById('lokasi-aktif');
 
-// Koordinat Ka'bah (Masjidil Haram, Mekkah)
-const KAABA_LAT = 21.4225;
-const KAABA_LON = 39.8262;
-
 let arahKiblatGlobal = null;
-let jarakGlobal = null;
-let compassStarted = false;
-let lastRotation = 0;     // untuk rotasi jarum yang halus (tanpa lompat 360°)
-let headingMode = null;   // 'ios' | 'android-absolute' | 'android-relative'
-let sensorTimer = null;
+let compassStarted    = false;
+let hasReceivedEvent  = false;
+
+/* =========================
+   BUFFER SMOOTHING
+   Rata-rata melingkar agar
+   jarum tidak melompat.
+========================= */
+const HISTORY_SIZE = 10;
+let headingHistory = [];
+
+function smoothHeading(heading) {
+  headingHistory.push(heading);
+  if (headingHistory.length > HISTORY_SIZE) {
+    headingHistory.shift();
+  }
+  let sumSin = 0, sumCos = 0;
+  for (let i = 0; i < headingHistory.length; i++) {
+    const rad = headingHistory[i] * Math.PI / 180;
+    sumSin += Math.sin(rad);
+    sumCos += Math.cos(rad);
+  }
+  let avg = Math.atan2(sumSin, sumCos) * 180 / Math.PI;
+  return (avg + 360) % 360;
+}
 
 /* =========================
    HITUNG ARAH KIBLAT
-   (bearing great-circle dari posisi user ke Ka'bah)
+   Great-circle initial
+   bearing → Ka'bah.
 ========================= */
 function hitungKiblat(lat, lon) {
-  const lat1 = lat * Math.PI / 180;
-  const lon1 = lon * Math.PI / 180;
-  const lat2 = KAABA_LAT * Math.PI / 180;
-  const lon2 = KAABA_LON * Math.PI / 180;
+  const kaabaLat = 21.4225 * Math.PI / 180;
+  const kaabaLon = 39.8262 * Math.PI / 180;
 
-  const y = Math.sin(lon2 - lon1);
-  const x = Math.cos(lat1) * Math.tan(lat2) - Math.sin(lat1) * Math.cos(lon2 - lon1);
+  lat = lat * Math.PI / 180;
+  lon = lon * Math.PI / 180;
+
+  /* Rumus bearing — dibagi cos(kaabaLat)
+     agar ekuivalen dengan rumus standar
+     tapi lebih stabil secara numerik. */
+  const y = Math.sin(kaabaLon - lon);
+  const x =
+    Math.cos(lat) * Math.tan(kaabaLat) -
+    Math.sin(lat) * Math.cos(kaabaLon - lon);
 
   let brng = Math.atan2(y, x) * 180 / Math.PI;
   return (brng + 360) % 360;
 }
 
 /* =========================
-   HITUNG JARAK KE KA'BAH (km)
-   Rumus Haversine
-========================= */
-function hitungJarak(lat1, lon1, lat2, lon2) {
-  const R = 6371; // radius bumi (km)
-  const toRad = d => d * Math.PI / 180;
-
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
-
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
-
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
-}
-
-function formatJarak(km) {
-  return Math.round(km).toLocaleString('id-ID') + ' km';
-}
-
-function teksArahJarak(arah, jarak) {
-  return `Arah Kiblat: <strong>${Math.round(arah)}°</strong> dari Utara` +
-         (jarak != null ? ` &middot; Jarak ke Ka'bah: <strong>${formatJarak(jarak)}</strong>` : '');
-}
-
-/* =========================
-   CEK KONTEKS AMAN (HTTPS)
-   GPS & sensor kompas browser hanya berjalan di secure context
-========================= */
-function cekSecureContext() {
-  if (!window.isSecureContext) {
-    info.textContent =
-      'Halaman ini perlu dibuka lewat HTTPS agar GPS & kompas bisa diaktifkan. ' +
-      'Coba akses lewat https:// (bukan file:// atau http://).';
-    return false;
-  }
-  return true;
-}
-
-/* =========================
-   IZIN SENSOR IPHONE
+   IZIN SENSOR (iOS)
 ========================= */
 async function requestCompassPermission() {
   if (
@@ -368,47 +339,78 @@ async function requestCompassPermission() {
   ) {
     try {
       const permission = await DeviceOrientationEvent.requestPermission();
-
       if (permission !== 'granted') {
-        info.textContent = 'Izin sensor kompas ditolak. Aktifkan lewat Pengaturan > Safari > Motion & Orientation Access.';
+        info.textContent = 'Izin sensor kompas ditolak.';
         return false;
       }
     } catch (err) {
-      info.textContent = 'Gagal meminta izin sensor kompas. Coba muat ulang halaman.';
+      info.textContent = 'Gagal meminta izin sensor kompas.';
       return false;
     }
   }
-
   return true;
 }
 
 /* =========================
-   AMBIL HEADING KOMPAS
+   EKSTRAK HEADING KOMPAS
+   — PERBAIKAN UTAMA —
 ========================= */
 function getHeading(e) {
-  // iPhone Safari — sudah berupa heading sejati (true heading relatif kompas)
-  if (typeof e.webkitCompassHeading === 'number' && !isNaN(e.webkitCompassHeading)) {
-    headingMode = 'ios';
+  /* ---- iOS Safari ----
+     webkitCompassHeading sudah:
+       • absolute (relatif utara bumi)
+       • memperhitungkan orientasi layar
+       • satuan: derajat searah jarum jam dari utara */
+  if (typeof e.webkitCompassHeading === 'number') {
     return e.webkitCompassHeading;
   }
 
-  // Android Chrome — event absolut (heading sejati terhadap utara)
-  if (typeof e.alpha === 'number') {
-    headingMode = e.absolute === true ? 'android-absolute' : 'android-relative';
+  /* ---- Android: event deviceorientationabsolute ----
+     alpha dijamin absolute (relatif utara magnet bumi).
+     Rumus: heading = (360 − alpha) mod 360
+     karena alpha bertambah berlawanan arah jarum jam. */
+  if (e.type === 'deviceorientationabsolute' && typeof e.alpha === 'number') {
     return (360 - e.alpha) % 360;
   }
 
+  /* ---- Android: event deviceorientation dgn absolute=true ----
+     Beberapa perangkat mengirim absolute=true pada
+     event biasa — gunakan jika bersifat absolute. */
+  if (e.absolute === true && typeof e.alpha === 'number') {
+    return (360 - e.alpha) % 360;
+  }
+
+  /* ---- JANGAN pakai alpha non-absolute! ----
+     Nilai non-absolute relatif terhadap orientasi
+     awal perangkat, BUKAN utara bumi → arah salah. */
   return null;
 }
 
 /* =========================
-   ROTASI JARUM TANPA LOMPAT 360°
+   THROTTLE UI
+   Gunakan requestAnimationFrame
+   agar tidak update DOM berlebihan.
 ========================= */
-function putarJarum(target) {
-  // cari selisih terpendek (-180..180) dari posisi terakhir ke target
-  let diff = ((target - lastRotation + 540) % 360) - 180;
-  lastRotation += diff;
-  panah.style.transform = `translate(-50%, -100%) rotate(${lastRotation}deg)`;
+let pendingFrame = false;
+let lastRawHeading = null;
+
+function scheduleUpdate(arahKiblat) {
+  if (pendingFrame) return;
+  pendingFrame = true;
+  requestAnimationFrame(function () {
+    pendingFrame = false;
+    if (lastRawHeading === null) return;
+
+    const smoothed = smoothHeading(lastRawHeading);
+    const rotate   = arahKiblat - smoothed;
+
+    panah.style.transform =
+      `translate(-50%, -100%) rotate(${rotate}deg)`;
+
+    info.innerHTML =
+      `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+      `Kompas HP: ${Math.round(smoothed)}°`;
+  });
 }
 
 /* =========================
@@ -420,51 +422,65 @@ function startCompass(arahKiblat) {
 
   function handleOrientation(e) {
     const heading = getHeading(e);
+    if (heading === null) return;
 
-    if (heading === null) {
-      info.innerHTML = teksArahJarak(arahKiblat, jarakGlobal) +
-        '<br><span class="warn">Sensor kompas tidak tersedia di perangkat ini.</span>';
-      return;
-    }
-
-    if (sensorTimer) { clearTimeout(sensorTimer); sensorTimer = null; }
-
-    const rotate = arahKiblat - heading;
-    putarJarum(rotate);
-
-    let peringatan = '';
-    if (headingMode === 'android-relative') {
-      peringatan = '<br><span class="warn">⚠️ Sensor arah absolut tidak tersedia di HP ini, akurasi kompas bisa berkurang. Kalibrasi dengan gerakan angka 8.</span>';
-    }
-
-    info.innerHTML =
-      teksArahJarak(arahKiblat, jarakGlobal) +
-      `<br>Kompas HP: ${Math.round(heading)}°` +
-      peringatan;
+    hasReceivedEvent = true;
+    lastRawHeading   = heading;
+    scheduleUpdate(arahKiblat);
   }
 
-  window.addEventListener('deviceorientationabsolute', handleOrientation, true);
-  window.addEventListener('deviceorientation', handleOrientation, true);
+  /* Cek apakah deviceorientationabsolute didukung
+     (hanya Android Chrome). */
+  const absoluteSupported =
+    'ondeviceorientationabsolute' in window;
 
-  // jika setelah beberapa detik tidak ada data sensor sama sekali,
-  // beri tahu pengguna (umumnya karena browser tidak mendukung atau diblokir)
-  sensorTimer = setTimeout(() => {
-    if (headingMode === null) {
-      info.innerHTML =
-        teksArahJarak(arahKiblat, jarakGlobal) +
-        '<br><span class="warn">Sensor kompas tidak merespons. Pastikan menggunakan HTTPS dan browser mendukung sensor orientasi.</span>';
+  if (absoluteSupported) {
+    window.addEventListener(
+      'deviceorientationabsolute',
+      handleOrientation,
+      true
+    );
+  }
+
+  /* Selalu dengarkan deviceorientation:
+     • iOS  → untuk webkitCompassHeading
+     • Android tanpa absolute → hanya jika absolute=true */
+  window.addEventListener('deviceorientation', function (e) {
+    /* iOS: proses langsung */
+    if (typeof e.webkitCompassHeading !== 'undefined') {
+      handleOrientation(e);
+      return;
     }
-  }, 3000);
+    /* Android tanpa deviceorientationabsolute:
+       hanya terima jika absolute=true */
+    if (
+      !absoluteSupported &&
+      e.absolute === true &&
+      typeof e.alpha === 'number'
+    ) {
+      handleOrientation(e);
+    }
+    /* Jangan proses alpha non-absolute */
+  }, true);
+
+  /* Deteksi jika tidak ada event sensor dalam 2.5 detik */
+  setTimeout(function () {
+    if (!hasReceivedEvent) {
+      info.innerHTML =
+        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+        `<span style="font-size:12px;font-weight:400">` +
+        `Sensor kompas tidak terdeteksi. Pastikan kompas perangkat berfungsi.` +
+        `</span>`;
+    }
+  }, 2500);
 }
 
 /* =========================
    INIT KIBLAT
 ========================= */
 async function initKiblat() {
-  if (!cekSecureContext()) return;
-
   if (!navigator.geolocation) {
-    info.textContent = 'Browser tidak mendukung GPS.';
+    alert('Browser tidak mendukung GPS');
     return;
   }
 
@@ -478,32 +494,26 @@ async function initKiblat() {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
 
-      lokasiEl.textContent = `📍 ${lat.toFixed(3)}, ${lon.toFixed(3)}`;
+      lokasiEl.textContent =
+        `📍 ${lat.toFixed(4)}, ${lon.toFixed(4)}`;
 
       const arahKiblat = hitungKiblat(lat, lon);
-      const jarak = hitungJarak(lat, lon, KAABA_LAT, KAABA_LON);
-
       arahKiblatGlobal = arahKiblat;
-      jarakGlobal = jarak;
 
       info.innerHTML =
-        teksArahJarak(arahKiblat, jarak) +
-        '<br>Gerakkan HP seperti angka 8 untuk kalibrasi.';
+        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+        `Gerakkan HP seperti angka 8 untuk kalibrasi.`;
 
       if (window.DeviceOrientationEvent) {
         startCompass(arahKiblat);
       } else {
-        info.innerHTML =
-          teksArahJarak(arahKiblat, jarak) +
-          '<br><span class="warn">Perangkat ini tidak mendukung sensor kompas.</span>';
+        info.textContent =
+          `Arah Kiblat: ${Math.round(arahKiblat)}° dari Utara`;
       }
     },
-    err => {
-      let msg = 'Gagal mengambil lokasi.';
-      if (err.code === 1) msg = 'Izin lokasi ditolak. Aktifkan izin lokasi untuk browser ini di pengaturan HP.';
-      else if (err.code === 2) msg = 'Lokasi tidak tersedia. Pastikan GPS / Layanan Lokasi aktif.';
-      else if (err.code === 3) msg = 'Permintaan lokasi melebihi waktu. Coba lagi di tempat dengan sinyal GPS lebih baik.';
-      info.textContent = msg;
+    () => {
+      info.textContent = 'Izin lokasi ditolak.';
+      alert('Izin lokasi ditolak');
     },
     {
       enableHighAccuracy: true,
