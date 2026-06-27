@@ -5,119 +5,187 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mushaf</title>
 
-<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
 
 <style>
 /* =========================
    MUSHAF STYLE
 ========================= */
-body {
-  background: #fdfcf8;
+
+body{
+  background:var(--bg);
 }
 
-.mushaf-container {
-  max-width: 720px;
-  margin: auto;
-  padding: 20px 16px 80px;
-  font-family: 'Amiri', serif;
+.mushaf-container{
+  max-width:480px;
+  margin:0 auto;
+  padding:18px 18px 110px;
+  font-family:'Amiri',serif;
 }
 
-.surah-header {
-  text-align: center;
-  margin: 50px 0 24px;
-  font-size: 1.6rem;
-  opacity: 0.8;
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
 }
 
-.bismillah {
-  text-align: center;
-  font-size: 2.6rem;
-  margin: 28px 0 20px;
-  letter-spacing: 1px;
+.header-title{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
 }
 
-.mushaf-arab {
-  direction: rtl;
-  text-align: justify;
-  font-size: 2.2rem;
-  line-height: 2.0;
-  word-spacing: 1.8px;
+#judul-juz{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:17px;
+  font-weight:800;
+  color:var(--primary);
 }
 
-.ayat-no {
-  font-size: 1.3rem;
-  margin: 0 4px;
-}
-   /* nomor ayat */
-.ayat-no {
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.2s ease;
+.judul-surah{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:12px;
+  color:var(--text-secondary);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-/* ayat dibookmark */
-.ayat-no.bookmarked {
-  color: #1e40af;
-  font-weight: 600;
+.surah-header{
+  background:linear-gradient(145deg,#0a4d3a,#0f6e52);
+  color:#fff;
+  text-align:center;
+  margin:22px 0 18px;
+  padding:18px 14px;
+  border-radius:20px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 28px rgba(10,77,58,.2);
 }
 
-   .ayat-text {
-  cursor: pointer;
-  user-select: none;
+.bismillah{
+  background:var(--card);
+  color:var(--primary);
+  text-align:center;
+  font-size:2.1rem;
+  line-height:2;
+  margin:0 0 18px;
+  padding:18px 14px;
+  border-radius:20px;
+  box-shadow:var(--shadow-sm);
 }
 
-.ayat-text.bookmarked {
-  background: rgba(30, 64, 175, 0.08);
-  border-radius: 6px;
-  padding: 2px 4px;
+.mushaf-arab{
+  direction:rtl;
+  text-align:justify;
+  font-size:2rem;
+  line-height:2.25;
+  word-spacing:2px;
+  background:var(--card);
+  padding:20px 16px;
+  border-radius:22px;
+  box-shadow:var(--shadow-sm);
+  margin-bottom:18px;
+  color:var(--text);
 }
 
-   .toast {
-  position: fixed;
-  bottom: 90px; /* di atas bottom-nav */
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(30, 64, 175, 0.95);
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 999;
+.ayat-text{
+  cursor:pointer;
+  user-select:none;
+  transition:.2s ease;
+  border-radius:8px;
 }
 
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-6px);
+.ayat-text.bookmarked{
+  background:rgba(196,154,42,.16);
+  color:var(--primary);
+  padding:2px 5px;
 }
 
+.ayat-no{
+  font-size:1.25rem;
+  margin:0 5px;
+  color:var(--primary);
+  cursor:pointer;
+  user-select:none;
+  transition:.2s ease;
+}
 
-   /* =========================
+.ayat-no.bookmarked{
+  color:var(--accent);
+  font-weight:700;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  bottom:96px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--primary);
+  color:#fff;
+  padding:11px 16px;
+  border-radius:14px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s ease;
+  z-index:999;
+  box-shadow:var(--shadow-lg);
+  width:max-content;
+  max-width:calc(100% - 36px);
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(-6px);
+}
+
+/* =========================
    HINT DOUBLE TAP
 ========================= */
-.hint-bookmark {
-  position: fixed;
-  top: 56px; /* di bawah app-header */
-  left: 0;
-  width: 100%;
-  background: #dc2626; /* merah */
-  color: #fff;
-  text-align: center;
-  font-size: 0.9rem;
-  padding: 10px 12px;
-  z-index: 998;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+
+.hint-bookmark{
+  position:fixed;
+  top:64px;
+  left:50%;
+  transform:translateX(-50%) translateY(-10px);
+  width:calc(100% - 32px);
+  max-width:448px;
+  background:var(--accent);
+  color:#fff;
+  text-align:center;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:13px;
+  font-weight:800;
+  padding:11px 14px;
+  border-radius:0 0 18px 18px;
+  z-index:998;
+  opacity:0;
+  box-shadow:var(--shadow-md);
+  transition:.35s ease;
 }
 
-.hint-bookmark.show {
-  opacity: 1;
-  transform: translateY(0);
+.hint-bookmark.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
-
 </style>
 </head>
 
