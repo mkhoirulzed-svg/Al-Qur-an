@@ -2,77 +2,894 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Salam App</title>
-
-  <!-- PWA -->
-  <!-- FIX: path manifest -->
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#16a34a">
+  <meta name="theme-color" content="#0a4d3a">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ============================================
+       VARIABEL & RESET
+       ============================================ */
+    :root {
+      --bg: #f5f1ea;
+      --card: #ffffff;
+      --primary: #0a4d3a;
+      --primary-hover: #0d6b4f;
+      --primary-ghost: rgba(10, 77, 58, 0.06);
+      --primary-ghost-strong: rgba(10, 77, 58, 0.12);
+      --accent: #c49a2a;
+      --accent-light: rgba(196, 154, 42, 0.15);
+      --text: #1c1c28;
+      --text-secondary: #5f5f72;
+      --text-muted: #9a9aaa;
+      --border: #e6e1d8;
+      --shadow-sm: 0 2px 8px rgba(10, 77, 58, 0.05);
+      --shadow-md: 0 4px 20px rgba(10, 77, 58, 0.08);
+      --shadow-lg: 0 8px 40px rgba(10, 77, 58, 0.12);
+      --radius: 20px;
+      --radius-sm: 14px;
+    }
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  <link rel="stylesheet" href="style.css">
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; }
+
+    /* ============================================
+       BACKGROUND & ATMOSPHERE
+       ============================================ */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-orb--1 {
+      width: 320px;
+      height: 320px;
+      background: var(--primary);
+      opacity: 0.10;
+      top: -120px;
+      right: -100px;
+      animation: orbFloat 22s ease-in-out infinite;
+    }
+
+    .bg-orb--2 {
+      width: 260px;
+      height: 260px;
+      background: var(--accent);
+      opacity: 0.08;
+      bottom: 80px;
+      left: -120px;
+      animation: orbFloat 28s ease-in-out infinite reverse;
+    }
+
+    .bg-dots {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(10,77,58,0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ============================================
+       APP SHELL
+       ============================================ */
+    .app-shell {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: shellEntry 0.7s ease 0.05s forwards;
+    }
+
+    .container {
+      padding: 20px 18px 110px;
+    }
+
+    /* ============================================
+       GREETING CARD
+       ============================================ */
+    .greeting-card {
+      background: linear-gradient(145deg, #0a4d3a 0%, #0f6e52 55%, #0a4d3a 100%);
+      border-radius: var(--radius);
+      padding: 28px 24px 22px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(10, 77, 58, 0.25);
+      animation: cardSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+    }
+
+    /* Pola geometris halus di kartu */
+    .greeting-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2l2 3.25-2 3.25zM0 20h2v20H0V20zm38 0h2v20h-2V20zM20 42v-2h20v-2H20v-2l-2 3 2 3z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* Garis emas dekoratif bawah */
+    .greeting-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 28px;
+      right: 28px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.5;
+    }
+
+    .greeting-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .greeting-brand i {
+      font-size: 10px;
+    }
+
+    .greeting-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 22px;
+      line-height: 1.8;
+      opacity: 0.9;
+      margin-bottom: 16px;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .greeting-text {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .greeting-sub {
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.7;
+      margin-bottom: 18px;
+    }
+
+    .greeting-deco {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .deco-line {
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.4;
+    }
+
+    .deco-diamond {
+      color: var(--accent);
+      font-size: 6px;
+      opacity: 0.6;
+    }
+
+    /* ============================================
+       SECTION HEADERS
+       ============================================ */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .section-header a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .section-header a:hover { opacity: 1; }
+
+    /* ============================================
+       TERAKHIR DIBACA
+       ============================================ */
+    .last-read-section {
+      margin-bottom: 28px;
+      animation: cardSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+    }
+
+    .last-read-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .last-read-card:active {
+      transform: scale(0.98);
+    }
+
+    .last-read-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .last-read-num {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: var(--primary-ghost-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .last-read-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .last-read-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .last-read-info p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .last-read-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary-ghost);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 13px;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .last-read-card:hover .last-read-arrow {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ============================================
+       MENU GRID
+       ============================================ */
+    .menu-section {
+      animation: cardSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .menu-item {
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.35s ease;
+      animation: menuItemIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: calc(0.4s + var(--i, 0) * 0.07s);
+    }
+
+    .menu-item:active {
+      transform: scale(0.95);
+    }
+
+    .menu-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .menu-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background: linear-gradient(145deg, var(--primary-ghost-strong), var(--primary-ghost));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      color: var(--primary);
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .menu-item:hover .menu-icon {
+      background: linear-gradient(145deg, var(--primary), var(--primary-hover));
+      color: #fff;
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(10, 77, 58, 0.3);
+    }
+
+    .menu-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.3;
+      padding: 0 4px;
+    }
+
+    /* Efek ripple */
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(10, 77, 58, 0.10);
+      transform: scale(0);
+      animation: rippleAnim 0.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ============================================
+       BOTTOM NAV (Floating Pill)
+       ============================================ */
+    .bottom-nav {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 32px);
+      max-width: 448px;
+      animation: navSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+    }
+
+    .nav-pill {
+      display: flex;
+      align-items: stretch;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 22px;
+      padding: 8px 6px;
+      box-shadow: 0 8px 40px rgba(10, 77, 58, 0.12),
+                  0 1px 0 rgba(255,255,255,0.6) inset;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+    }
+
+    .nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px 0 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+
+    .nav-item i {
+      font-size: 18px;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .nav-item.active i {
+      transform: scale(1.15);
+    }
+
+    /* Indikator geser aktif */
+    .nav-indicator {
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      width: 25%;
+      border-radius: 16px;
+      background: var(--primary-ghost-strong);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 0;
+      transform: translateX(0%);
+    }
+
+    /* ============================================
+       INSTALL BANNER
+       ============================================ */
+    .install-banner {
+      position: fixed;
+      bottom: 96px;
+      left: 18px;
+      right: 18px;
+      max-width: 444px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: var(--shadow-lg);
+      z-index: 200;
+      border: 1px solid var(--border);
+      transform: translateY(140%);
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .install-banner.show {
+      transform: translateY(0);
+    }
+
+    .install-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--primary), var(--primary-hover));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .install-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .install-info strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .install-info span {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .install-action-btn {
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .install-action-btn:active {
+      transform: scale(0.95);
+    }
+
+    .install-dismiss {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hidden { display: none !important; }
+
+    /* ============================================
+       ANIMASI
+       ============================================ */
+    @keyframes shellEntry {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes cardSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes menuItemIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes navSlideUp {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(20px, -30px); }
+      66% { transform: translate(-15px, 20px); }
+    }
+
+    @keyframes rippleAnim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.8; }
+    }
+
+    .greeting-card .greeting-deco {
+      animation: subtlePulse 4s ease-in-out infinite;
+    }
+
+    /* ============================================
+       AKSESIBILITAS
+       ============================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+
+    /* ============================================
+       RESPONSIF DESKTOP
+       ============================================ */
+    @media (min-width: 481px) {
+      body {
+        border-left: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        box-shadow: 0 0 60px rgba(10, 77, 58, 0.06);
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="app-header">Salam App</header>
+  <!-- Atmosfer background -->
+  <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+  <div class="bg-dots" aria-hidden="true"></div>
 
-<main class="container">
-  <div class="menu-grid">
+  <!-- Shell utama aplikasi -->
+  <div class="app-shell">
 
-    <a href="pages/quran.html" class="menu-item ripple">
-      <img src="icons/logo_alquran.png">
-      <span>Al-Qur'an</span>
-    </a>
+    <main class="container">
 
-    <a href="pages/jadwal.html" class="menu-item ripple">
-      <img src="icons/jadwal.png">
-      <span>Jadwal Sholat</span>
-    </a>
+      <!-- ====== KARTU SALAM ====== -->
+      <section class="greeting-card" aria-label="Salam pembuka">
+        <div class="greeting-brand">
+          <i class="fas fa-star-and-crescent"></i>
+          <span>Salam</span>
+        </div>
+        <p class="greeting-arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+        <h1 class="greeting-text">Assalamu'alaikum</h1>
+        <p class="greeting-sub" id="greetingTime">Selamat Pagi</p>
+        <div class="greeting-deco">
+          <span class="deco-line"></span>
+          <span class="deco-diamond">&#9670;</span>
+          <span class="deco-line"></span>
+        </div>
+      </section>
 
-    <a href="pages/kiblat.html" class="menu-item ripple">
-      <img src="icons/kiblat.png">
-      <span>Arah Kiblat</span>
-    </a>
+      <!-- ====== TERAKHIR DIBACA ====== -->
+      <section class="last-read-section" aria-label="Terakhir dibaca">
+        <div class="section-header">
+          <h2>Terakhir Dibaca</h2>
+          <a href="pages/quran.html">Semua <i class="fas fa-chevron-right" style="font-size:10px;margin-left:3px;"></i></a>
+        </div>
+        <a href="pages/quran.html" class="last-read-card ripple-target">
+          <div class="last-read-num">255</div>
+          <div class="last-read-info">
+            <h3>Al-Baqarah</h3>
+            <p>Ayatul Kursi &middot; Ayat 255</p>
+          </div>
+          <div class="last-read-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+      </section>
 
-    <a href="pages/amal.html" class="menu-item ripple">
-      <img src="icons/video.png">
-      <span>My Daily Amal</span>
-    </a>
+      <!-- ====== MENU UTAMA ====== -->
+      <section class="menu-section" aria-label="Menu utama">
+        <div class="section-header">
+          <h2>Fitur Utama</h2>
+        </div>
+        <div class="menu-grid">
+          <a href="pages/quran.html" class="menu-item ripple-target" style="--i:0" aria-label="Al-Qur'an">
+            <div class="menu-icon"><i class="fas fa-book-quran"></i></div>
+            <span class="menu-label">Al-Qur'an</span>
+          </a>
+          <a href="pages/jadwal.html" class="menu-item ripple-target" style="--i:1" aria-label="Jadwal Sholat">
+            <div class="menu-icon"><i class="fas fa-clock"></i></div>
+            <span class="menu-label">Jadwal Sholat</span>
+          </a>
+          <a href="pages/kiblat.html" class="menu-item ripple-target" style="--i:2" aria-label="Arah Kiblat">
+            <div class="menu-icon"><i class="fas fa-compass"></i></div>
+            <span class="menu-label">Arah Kiblat</span>
+          </a>
+          <a href="pages/amal.html" class="menu-item ripple-target" style="--i:3" aria-label="My Daily Amal">
+            <div class="menu-icon"><i class="fas fa-clipboard-check"></i></div>
+            <span class="menu-label">Daily Amal</span>
+          </a>
+          <a href="pages/dzikir.html" class="menu-item ripple-target" style="--i:4" aria-label="Dzikir">
+            <div class="menu-icon"><i class="fas fa-hands-praying"></i></div>
+            <span class="menu-label">Dzikir</span>
+          </a>
+          <a href="pages/about.html" class="menu-item ripple-target" style="--i:5" aria-label="Tentang">
+            <div class="menu-icon"><i class="fas fa-circle-info"></i></div>
+            <span class="menu-label">Tentang</span>
+          </a>
+        </div>
+      </section>
 
-    <a href="pages/dzikir.html" class="menu-item ripple">
-      <img src="icons/dzikir.png">
-      <span>Dzikir</span>
-    </a>
+    </main>
 
-    <a href="pages/about.html" class="menu-item ripple">
-      <img src="icons/about.png">
-      <span>Tentang</span>
-    </a>
-
+    <!-- ====== BOTTOM NAV ====== -->
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <div class="nav-pill">
+        <a href="index.html" class="nav-item active" data-nav="0" aria-current="page">
+          <i class="fas fa-house"></i>
+          <span>Home</span>
+        </a>
+        <a href="pages/quran.html" class="nav-item" data-nav="1">
+          <i class="fas fa-book-quran"></i>
+          <span>Qur'an</span>
+        </a>
+        <a href="pages/bookmark.html" class="nav-item" data-nav="2">
+          <i class="fas fa-bookmark"></i>
+          <span>Markah</span>
+        </a>
+        <a href="pages/about.html" class="nav-item" data-nav="3">
+          <i class="fas fa-circle-info"></i>
+          <span>Tentang</span>
+        </a>
+        <div class="nav-indicator" id="navIndicator"></div>
+      </div>
+    </nav>
   </div>
-</main>
 
-<!-- FIX: hapus tombol install yang duplikat -->
-<!-- <button id="installBtn" class="install-btn" hidden>Install Salam App</button> -->
+  <!-- ====== INSTALL BANNER ====== -->
+  <div id="installBanner" class="install-banner hidden" role="alert">
+    <button class="install-dismiss" id="installDismiss" aria-label="Tutup">
+      <i class="fas fa-xmark"></i>
+    </button>
+    <div class="install-icon">
+      <i class="fas fa-download"></i>
+    </div>
+    <div class="install-info">
+      <strong>Pasang Salam App</strong>
+      <span>Akses lebih cepat, langsung dari homescreen</span>
+    </div>
+    <button class="install-action-btn" id="installAction">Pasang</button>
+  </div>
 
-<!-- Bottom Nav -->
-<nav class="bottom-nav">
-  <a href="index.html" class="active">Home</a>
-  <a href="pages/quran.html">Al-Qur'an</a>
-  <a href="pages/bookmark.html">Bookmark</a>
-  <a href="pages/about.html">Tentang</a>
-</nav>
+  <script>
+    /* ============================================
+       SALAM BERDASARKAN WAKTU
+       ============================================ */
+    (function setGreeting() {
+      const h = new Date().getHours();
+      const el = document.getElementById('greetingTime');
+      if (h >= 0 && h < 11)      el.textContent = 'Selamat Pagi';
+      else if (h >= 11 && h < 15) el.textContent = 'Selamat Siang';
+      else if (h >= 15 && h < 18) el.textContent = 'Selamat Sore';
+      else                        el.textContent = 'Selamat Malam';
+    })();
 
-<div id="installBanner" class="install-banner hidden">
-  <span id="installText">Pasang Salam App di perangkat Anda</span>
-  <button id="installAction">Install</button>
-</div>
+    /* ============================================
+       NAVIGASI INDICATOR
+       ============================================ */
+    function moveNavIndicator(index) {
+      const indicator = document.getElementById('navIndicator');
+      if (!indicator) return;
+      indicator.style.transform = 'translateX(' + (index * 100) + '%)';
+    }
 
-<script src="./app.js"></script>
+    // Posisi awal indikator
+    const activeNav = document.querySelector('.nav-item.active');
+    if (activeNav) {
+      moveNavIndicator(parseInt(activeNav.dataset.nav, 10));
+    }
+
+    // Klik navigasi (untuk demo visual)
+    document.querySelectorAll('.nav-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-item').forEach(function(n) {
+          n.classList.remove('active');
+          n.removeAttribute('aria-current');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-current', 'page');
+        moveNavIndicator(parseInt(this.dataset.nav, 10));
+      });
+    });
+
+    /* ============================================
+       EFEK RIPPLE
+       ============================================ */
+    document.querySelectorAll('.ripple-target').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        var rect = this.getBoundingClientRect();
+        var size = Math.max(rect.width, rect.height);
+        var ripple = document.createElement('span');
+        ripple.classList.add('ripple-effect');
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        ripple.addEventListener('animationend', function() {
+          ripple.remove();
+        });
+      });
+    });
+
+    /* ============================================
+       PWA INSTALL PROMPT
+       ============================================ */
+    var deferredPrompt = null;
+    var banner = document.getElementById('installBanner');
+    var dismissBtn = document.getElementById('installDismiss');
+    var actionBtn = document.getElementById('installAction');
+
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      // Tampilkan banner setelah delay 2 detik
+      setTimeout(function() {
+        banner.classList.remove('hidden');
+        // Trigger reflow agar transisi berjalan
+        void banner.offsetHeight;
+        banner.classList.add('show');
+      }, 2000);
+    });
+
+    actionBtn.addEventListener('click', function() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function(choice) {
+          if (choice.outcome === 'accepted') {
+            closeBanner();
+          }
+          deferredPrompt = null;
+        });
+      }
+    });
+
+    dismissBtn.addEventListener('click', closeBanner);
+
+    function closeBanner() {
+      banner.classList.remove('show');
+      setTimeout(function() {
+        banner.classList.add('hidden');
+      }, 550);
+    }
+
+    /* ============================================
+       SCROLL: GREETING CARD PARALLAX HALUS
+       ============================================ */
+    var greetingCard = document.querySelector('.greeting-card');
+    var ticking = false;
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          var scrollY = window.scrollY;
+          if (scrollY < 400) {
+            greetingCard.style.transform = 'translateY(' + (scrollY * 0.12) + 'px) scale(' + (1 - scrollY * 0.0002) + ')';
+            greetingCard.style.opacity = Math.max(0, 1 - scrollY * 0.0025);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  </script>
 </body>
 </html>
