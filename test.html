@@ -1,70 +1,821 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salam App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Qur'an</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* ============================================
+     HEADER HALAMAN
+     ============================================ */
+  .app-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: rgba(245, 241, 234, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
 
-  <!-- PWA -->
-  <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#0e6f63">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+    background: var(--primary-ghost-strong);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
 
-  <!-- Fonts: Plus Jakarta Sans for UI, Amiri / Scheherazade New for Arabic text used across the app -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri&family=Scheherazade+New&display=swap" rel="stylesheet">
+  .back-btn:active {
+    transform: scale(0.92);
+  }
 
-  <link rel="stylesheet" href="test.css">
+  .header-title {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* ============================================
+     SEARCH BAR
+     ============================================ */
+  .search-wrap {
+    padding: 0 18px;
+    margin-bottom: 16px;
+    animation: cardSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 0 16px;
+    height: 48px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .search-box:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-ghost);
+  }
+
+  .search-box i {
+    color: var(--text-muted);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .search-box input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .search-clear {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px;
+    display: none;
+    transition: color 0.2s;
+  }
+
+  .search-clear.visible {
+    display: block;
+  }
+
+  .search-clear:hover {
+    color: var(--text);
+  }
+
+  /* ============================================
+     TOGGLE (Pill Indicator)
+     ============================================ */
+  .quran-toggle {
+    display: flex;
+    background: var(--card);
+    padding: 5px;
+    border-radius: 16px;
+    margin: 0 18px 18px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    animation: cardSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 11px 0;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+  }
+
+  .toggle-btn.active {
+    color: var(--primary);
+  }
+
+  .toggle-indicator {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    width: calc(33.333% - 3.33px);
+    border-radius: 12px;
+    background: var(--primary-ghost-strong);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+    transform: translateX(0);
+  }
+
+  .toggle-indicator[data-pos="1"] {
+    transform: translateX(calc(100% + 5px));
+  }
+
+  .toggle-indicator[data-pos="2"] {
+    transform: translateX(calc(200% + 10px));
+  }
+
+  /* ============================================
+     SURAH LIST
+     ============================================ */
+  .surah-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 18px;
+    min-height: 200px;
+  }
+
+  .surah-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card);
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: listItemIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--d, 0s);
+  }
+
+  .surah-item:active {
+    transform: scale(0.98);
+  }
+
+  .surah-item:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Nomor surah — badge hexagonal */
+  .surah-num {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .surah-num-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--primary-ghost-strong);
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  }
+
+  .surah-num span {
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  /* Info tengah */
+  .surah-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .surah-info strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .surah-info .surah-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .surah-meta .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  /* Sisi kanan: nama Arab + jumlah ayat */
+  .surah-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .surah-arab-name {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--primary);
+    line-height: 1.2;
+    direction: rtl;
+  }
+
+  .surah-ayat-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    background: var(--primary-ghost);
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  /* ============================================
+     JUZ ITEM VARIANT
+     ============================================ */
+  .surah-item.juz-item .surah-num-bg {
+    background: var(--accent-light);
+  }
+
+  .surah-item.juz-item .surah-num span {
+    color: #92700c;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+
+  /* ============================================
+     LOADING SKELETON
+     ============================================ */
+  .skeleton-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 18px;
+  }
+
+  .skeleton-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card);
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skeleton-hex {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: var(--primary-ghost);
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  .skeleton-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skeleton-line {
+    height: 12px;
+    border-radius: 6px;
+    background: var(--primary-ghost);
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  .skeleton-line:first-child {
+    width: 55%;
+    height: 15px;
+  }
+
+  .skeleton-line:last-child {
+    width: 75%;
+  }
+
+  .skeleton-block {
+    width: 50px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--primary-ghost);
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* ============================================
+     EMPTY STATE
+     ============================================ */
+  .empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    animation: cardSlideUp 0.5s ease both;
+  }
+
+  .empty-state i {
+    font-size: 44px;
+    color: var(--text-muted);
+    opacity: 0.4;
+    margin-bottom: 16px;
+  }
+
+  .empty-state p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ============================================
+     ANIMASI LIST ITEM
+     ============================================ */
+  @keyframes listItemIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ============================================
+     BOTTOM NAV (konsisten dengan index)
+     ============================================ */
+  .bottom-nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: calc(100% - 32px);
+    max-width: 448px;
+  }
+
+  .bottom-nav a {
+    display: none; /* sembunyikan default link style */
+  }
+
+  .nav-pill-wrap {
+    display: flex;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 22px;
+    padding: 8px 6px;
+    box-shadow: 0 8px 40px rgba(10, 77, 58, 0.12),
+                0 1px 0 rgba(255,255,255,0.6) inset;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+  }
+
+  .nav-pill-wrap a {
+    display: flex !important;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 0 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border-radius: 16px;
+    text-decoration: none;
+  }
+
+  .nav-pill-wrap a i {
+    font-size: 18px;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nav-pill-wrap a.active {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .nav-pill-wrap a.active i {
+    transform: scale(1.15);
+  }
+
+  .nav-pill-indicator {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    width: 25%;
+    border-radius: 16px;
+    background: var(--primary-ghost-strong);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+  }
+
+  /* ============================================
+     CONTAINER OVERRIDE
+     ============================================ */
+  .container {
+    padding: 16px 0 110px;
+  }
+</style>
 </head>
 <body>
 
-  <header class="app-header">
-    <span class="header-title">Salam App</span>
-  </header>
+<header class="app-header">
+  <button class="back-btn" onclick="history.back()" aria-label="Kembali">
+    <svg viewBox="0 0 24 24" width="20" height="20"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <h1 class="header-title">Al-Qur'an</h1>
+</header>
 
-  <main class="container">
-    <div class="menu-grid">
-      <a href="pages/quran.html" class="menu-item ripple">
-        <img src="icons/logo_alquran.png" alt="Al-Qur'an">
-        <span>Al-Qur'an</span>
-      </a>
-      <a href="pages/jadwal.html" class="menu-item ripple">
-        <img src="icons/jadwal.png" alt="Jadwal Sholat">
-        <span>Jadwal Sholat</span>
-      </a>
-      <a href="pages/kiblat.html" class="menu-item ripple">
-        <img src="icons/kiblat.png" alt="Arah Kiblat">
-        <span>Arah Kiblat</span>
-      </a>
-      <a href="pages/amal.html" class="menu-item ripple">
-        <img src="icons/video.png" alt="My Daily Amal">
-        <span>My Daily Amal</span>
-      </a>
-      <a href="pages/dzikir.html" class="menu-item ripple">
-        <img src="icons/dzikir.png" alt="Dzikir">
-        <span>Dzikir</span>
-      </a>
-      <a href="pages/about.html" class="menu-item ripple">
-        <img src="icons/about.png" alt="Tentang">
-        <span>Tentang</span>
-      </a>
+<main class="container">
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <div class="search-box">
+      <i class="fas fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Cari surah..." autocomplete="off">
+      <button class="search-clear" id="searchClear" aria-label="Hapus pencarian">
+        <i class="fas fa-xmark"></i>
+      </button>
     </div>
-  </main>
-
-  <!-- Bottom Nav -->
-  <nav class="bottom-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="pages/quran.html">Al-Qur'an</a>
-    <a href="pages/bookmark.html">Bookmark</a>
-    <a href="pages/about.html">Tentang</a>
-  </nav>
-
-  <div id="installBanner" class="install-banner hidden">
-    <span id="installText">Pasang Salam App di perangkat Anda</span>
-    <button id="installAction">Install</button>
   </div>
 
-  <script src="./app.js"></script>
+  <!-- Toggle -->
+  <div class="quran-toggle">
+    <button id="btnSurah" class="toggle-btn active">Surah</button>
+    <button id="btnJuz" class="toggle-btn">Juz</button>
+    <button id="btnBookmark" class="toggle-btn">Bookmark</button>
+    <div class="toggle-indicator" id="toggleIndicator" data-pos="0"></div>
+  </div>
+
+  <!-- List -->
+  <div id="surahList" class="surah-list"></div>
+
+</main>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav" aria-label="Navigasi utama">
+  <div class="nav-pill-wrap">
+    <a href="../index.html" data-nav="0">
+      <i class="fas fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="quran.html" class="active" data-nav="1">
+      <i class="fas fa-book-quran"></i>
+      <span>Qur'an</span>
+    </a>
+    <a href="bookmark.html" data-nav="2">
+      <i class="fas fa-bookmark"></i>
+      <span>Markah</span>
+    </a>
+    <a href="about.html" data-nav="3">
+      <i class="fas fa-circle-info"></i>
+      <span>Tentang</span>
+    </a>
+    <div class="nav-pill-indicator" id="navIndicator" style="transform:translateX(100%)"></div>
+  </div>
+</nav>
+
+<script src="../data/juz-map.js"></script>
+<script src="../data/surah-names.js"></script>
+
+<script>
+/* ============================================
+   ELEMEN DOM
+   ============================================ */
+const list = document.getElementById('surahList');
+const btnSurah = document.getElementById('btnSurah');
+const btnJuz = document.getElementById('btnJuz');
+const btnBookmark = document.getElementById('btnBookmark');
+const toggleIndicator = document.getElementById('toggleIndicator');
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+
+let currentMode = 'surah';
+let allSurahData = [];
+
+/* ============================================
+   INISIALISASI MODE DARI URL
+   ============================================ */
+const params = new URLSearchParams(location.search);
+const mode = params.get('mode');
+
+if (mode === 'juz') {
+  switchMode('juz');
+} else {
+  switchMode('surah');
+}
+
+/* ============================================
+   TOGGLE KLIK
+   ============================================ */
+btnSurah.addEventListener('click', () => switchMode('surah'));
+btnJuz.addEventListener('click', () => switchMode('juz'));
+btnBookmark.addEventListener('click', () => {
+  window.location.href = 'bookmark.html';
+});
+
+function switchMode(mode) {
+  currentMode = mode;
+
+  // Update tombol aktif
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+
+  if (mode === 'surah') {
+    btnSurah.classList.add('active');
+    toggleIndicator.dataset.pos = '0';
+    searchInput.placeholder = 'Cari surah...';
+    loadSurah();
+  } else if (mode === 'juz') {
+    btnJuz.classList.add('active');
+    toggleIndicator.dataset.pos = '1';
+    searchInput.placeholder = 'Cari juz...';
+    loadJuz();
+  }
+
+  // Reset search
+  searchInput.value = '';
+  searchClear.classList.remove('visible');
+}
+
+/* ============================================
+   SEARCH
+   ============================================ */
+searchInput.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  searchClear.classList.toggle('visible', q.length > 0);
+
+  if (currentMode === 'surah' && allSurahData.length) {
+    filterSurah(q);
+  }
+});
+
+searchClear.addEventListener('click', function() {
+  searchInput.value = '';
+  searchClear.classList.remove('visible');
+  if (currentMode === 'surah') {
+    filterSurah('');
+  }
+});
+
+function filterSurah(q) {
+  const filtered = q
+    ? allSurahData.filter(s =>
+        s.namaLatin.toLowerCase().includes(q) ||
+        s.arti.toLowerCase().includes(q) ||
+        s.nomor.toString() === q
+      )
+    : allSurahData;
+
+  renderSurahList(filtered);
+}
+
+/* ============================================
+   SKELETON LOADING
+   ============================================ */
+function showSkeleton() {
+  let html = '<div class="skeleton-list">';
+  for (let i = 0; i < 8; i++) {
+    html += `
+      <div class="skeleton-item">
+        <div class="skeleton-hex"></div>
+        <div class="skeleton-lines">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+        </div>
+        <div class="skeleton-block"></div>
+      </div>`;
+  }
+  html += '</div>';
+  list.innerHTML = html;
+}
+
+/* ============================================
+   LOAD SURAH
+   ============================================ */
+function loadSurah() {
+  showSkeleton();
+
+  fetch('https://equran.id/api/v2/surat')
+    .then(res => res.json())
+    .then(data => {
+      allSurahData = data.data;
+      renderSurahList(allSurahData);
+    })
+    .catch(() => {
+      list.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-wifi-slash"></i>
+          <p>Gagal memuat data.<br>Pastikan koneksi internet aktif.</p>
+        </div>`;
+    });
+}
+
+function renderSurahList(data) {
+  list.innerHTML = '';
+
+  if (!data.length) {
+    list.innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-magnifying-glass"></i>
+        <p>Surah tidak ditemukan</p>
+      </div>`;
+    return;
+  }
+
+  data.forEach((s, i) => {
+    const item = document.createElement('a');
+    item.href = `surah.html?no=${s.nomor}`;
+    item.className = 'surah-item';
+    // Staggered delay: mulai cepat, maks 0.8s
+    item.style.setProperty('--d', Math.min(i * 0.025, 0.8) + 's');
+
+    item.innerHTML = `
+      <div class="surah-num">
+        <div class="surah-num-bg"></div>
+        <span>${s.nomor}</span>
+      </div>
+      <div class="surah-info">
+        <strong>${s.namaLatin}</strong>
+        <div class="surah-meta">
+          <span>${s.arti}</span>
+          <span class="dot"></span>
+          <span>${s.tipe === 'Meccan' ? 'Makkiyah' : 'Madaniyah'}</span>
+        </div>
+      </div>
+      <div class="surah-right">
+        <span class="surah-arab-name">${s.nama}</span>
+        <span class="surah-ayat-count">${s.jumlahAyat} ayat</span>
+      </div>
+    `;
+
+    list.appendChild(item);
+  });
+}
+
+/* ============================================
+   LOAD JUZ
+   ============================================ */
+function loadJuz() {
+  list.innerHTML = '';
+
+  if (!JUZ_MAP || !JUZ_MAP.length) {
+    list.innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-circle-exclamation"></i>
+        <p>Data Juz belum tersedia</p>
+      </div>`;
+    return;
+  }
+
+  JUZ_MAP.forEach((j, i) => {
+    const surahName = getSurahName(j.start[0]);
+    const ayatNo = j.start[1];
+
+    const item = document.createElement('a');
+    item.href = `juz.html?no=${j.juz}`;
+    item.className = 'surah-item juz-item';
+    item.style.setProperty('--d', Math.min(i * 0.03, 0.8) + 's');
+
+    item.innerHTML = `
+      <div class="surah-num">
+        <div class="surah-num-bg"></div>
+        <span>${j.juz}</span>
+      </div>
+      <div class="surah-info">
+        <strong>Juz ${j.juz}</strong>
+        <div class="surah-meta">
+          <span>${surahName}</span>
+          <span class="dot"></span>
+          <span>Ayat ${ayatNo}</span>
+        </div>
+      </div>
+      <div class="surah-right">
+        <span class="surah-arab-name">${getArabName(j.start[0])}</span>
+        <span class="surah-ayat-count">Juz</span>
+      </div>
+    `;
+
+    list.appendChild(item);
+  });
+}
+
+function getSurahName(no) {
+  return SURAH_NAMES[no] || 'Surah ' + no;
+}
+
+function getArabName(no) {
+  // Fallback: ambil dari data surah jika sudah dimuat
+  if (allSurahData.length) {
+    const found = allSurahData.find(s => s.nomor === no);
+    return found ? found.nama : '';
+  }
+  return '';
+}
+
+/* ============================================
+   RIPPLE PADA SURAH ITEM
+   ============================================ */
+document.addEventListener('click', function(e) {
+  const item = e.target.closest('.surah-item');
+  if (!item) return;
+
+  const rect = item.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  const ripple = document.createElement('span');
+  ripple.style.cssText = `
+    position:absolute;
+    border-radius:50%;
+    background:rgba(10,77,58,0.08);
+    width:${size}px;
+    height:${size}px;
+    left:${e.clientX - rect.left - size/2}px;
+    top:${e.clientY - rect.top - size/2}px;
+    transform:scale(0);
+    animation:rippleAnim 0.6s ease-out forwards;
+    pointer-events:none;
+    z-index:2;
+  `;
+  item.appendChild(ripple);
+  ripple.addEventListener('animationend', () => ripple.remove());
+});
+</script>
+
 </body>
 </html>
