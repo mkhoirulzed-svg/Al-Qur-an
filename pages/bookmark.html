@@ -203,11 +203,11 @@ item.querySelector('.bookmark-open').onclick = () => {
   }
 
   // mode mushaf
-  if (b.mode === 'mushaf') {
-    localStorage.setItem('scrollToAyat', `${b.surah}-${b.ayat}`);
-    location.href = `mushaf.html?page=${b.page}`;
-    return;
-  }
+ if (b.mode === 'mushaf') {
+  localStorage.setItem('scrollToAyat', `${b.surah}-${b.ayat}`);
+  location.href = `mushaf.html?no=${b.juz}`;
+  return;
+}
 
 };
 
