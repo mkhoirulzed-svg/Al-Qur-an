@@ -262,9 +262,12 @@ judul.textContent = `${surahLatin} (${arab.name})`;
   ayatList.innerHTML='';
 
   function removeBismillah(text) {
-  if (!text.includes('بِسْمِ') && !text.includes('بسم')) {
-    return text.trim();
-  }
+  return text
+    .replace(/^بِّسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u, '')
+    .replace(/^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u, '')
+    .replace(/^بسم\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
+    .trim();
+}
 
   const rahimWords = ['الرَّحِيمِ', 'ٱلرَّحِيمِ'];
 
