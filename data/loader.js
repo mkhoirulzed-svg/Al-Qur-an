@@ -21,7 +21,7 @@ async function loadFooter(currentPage){
         home: base + "index.html",
         quran: base + "pages/quran.html",
         bookmark: base + "pages/bookmark.html",
-        about: base + "pages/about.html"
+        doa: base + "pages/doa.html"
     };
 
     document.querySelectorAll(".nav-item").forEach(item=>{
