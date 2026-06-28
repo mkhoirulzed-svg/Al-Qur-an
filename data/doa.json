@@ -1,5 +1,334 @@
 [
   {
+    "id": "doa-qiyamul-lail",
+    "judul": "Doa Pembuka Shalat Malam",
+    "arab": "اَللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ قَيِّمُ السَّمَاوَاتِ وَاْلأَرْضِ وَمَنْ فِيْهِنَّ، وَلَكَ الْحَمْدُ لَكَ مُلْكُ السَّمَاوَاتِ وَاْلأَرْضِ وَمَنْ فِيْهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ نُوْرُ السَّمَاوَاتِ وَاْلأَرْضِ وَمَنْ فِيْهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ مَلِكُ السَّمَاوَاتِ وَاْلأَرْضِ، وَلَكَ الْحَمْدُ، أَنْتَ الْحَقُّ، وَوَعْدُكَ الْحَقُّ، وَلِقَاؤُكَ الْحَقُّ، وَقَوْلُكَ الْحَقُّ، وَالْجَنَّهُ حَقٌّ، وَالنَّارُ حَقٌّ، وَالنَّبِيُّوْنَ حَقٌّ، وَمُحَمَّدٌ حَقٌّ، وَالسَّاعَةُ حَقٌّ، اَللَّهُمَّ لَكَ أَسْلَمْتُ، وَبِكَ آمَنْتُ، وَعَلَيْكَ تَوَكَّلْتُ، وَإِلَيْكَ أَنَبْتُ، وَبِكَ خَاصَمْتُ، وَإِلَيْكَ حَاكَمْتُ، فَاغْفِرْ لِيْ مَا قَدَّمْتُ وَمَا أَخَّرْتُ، وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ، أَنْتَ الْمُقَدِّمُ وَأَنْتَ الْمُؤَخِّرُ، لاَ إِلَـهَ إِلاَّ أَنْتَ",
+    "latin": "",
+    "arti": "Ya Allah, segala puji bagi-Mu. Engkaulah pengatur, pemilik, cahaya, dan raja langit dan bumi. Engkaulah Yang Mahabenar; janji-Mu, pertemuan dengan-Mu, firman-Mu, surga, neraka, para nabi, Muhammad, dan hari kiamat adalah benar. Kepada-Mu aku berserah diri, beriman, bertawakal, kembali, berhukum, dan memohon ampun atas dosa yang lalu, yang akan datang, yang tersembunyi, dan yang tampak. Tiada sesembahan yang berhak disembah selain Engkau.",
+    "sumber": "Muttafaq 'alaih. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-sapu-jagat",
+    "judul": "Doa Kebaikan Dunia dan Akhirat",
+    "arab": "رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ",
+    "latin": "",
+    "arti": "Ya Rabb kami, berilah kami kebaikan di dunia dan kebaikan di akhirat, serta lindungilah kami dari azab neraka.",
+    "sumber": "Muttafaq 'alaih. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-lemah-malas-takut-pikun-bakhil",
+    "judul": "Doa Berlindung dari Lemah, Malas, Takut, Pikun, dan Bakhil",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ الْعَجْزِ وَالْكَسَلِ وَالْجُبْنِ وَالْهَرَمِ وَالْبُخْلِ وَأَعُوْذُ بِكَ مِنْ عَذَابِ الْقَبْرِ وَأَعُوْذُ بِكَ مِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari kelemahan, kemalasan, rasa takut, pikun, kebakhilan, azab kubur, serta fitnah hidup dan mati.",
+    "sumber": "Muttafaq 'alaih. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-perbaikan-agama-dunia-akhirat",
+    "judul": "Doa Perbaikan Agama, Dunia, dan Akhirat",
+    "arab": "اَللَّهُمَّ أَصْلِحْ لِيْ دِيْنِيْ الَّذِيْ هُوَ عِصْمَةُ أَمْرِيْ وَأَصْلِحْ لِيْ دُنْيَايَ الَّتِيْ فِيْهَا مَعَاشِيْ وَأَصْلِحْ لِيْ آخِرَتِيْ الَّتِيْ فِيْهَا مَعَادِيْ وَاجْعَلِ الْحَيَاةَ زِيَادَةً لِيْ فِيْ كُلِّ خَيْرٍ وَاجْعَلِ الْمَوْتَ رَاحَةً لِيْ مِنْ كُلَّ شَرٍّ",
+    "latin": "",
+    "arti": "Ya Allah, perbaikilah agamaku yang menjadi penjaga urusanku, duniaku tempat kehidupanku, dan akhiratku tempat kembaliku. Jadikan hidupku sebagai tambahan kebaikan dan kematianku sebagai istirahat dari segala keburukan.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-memohon-petunjuk-takwa-iffah-kaya-hati",
+    "judul": "Doa Memohon Petunjuk, Takwa, Kehormatan, dan Kaya Hati",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
+    "latin": "",
+    "arti": "Ya Allah, aku memohon kepada-Mu petunjuk, ketakwaan, kehormatan diri, dan kecukupan hati.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-jiwa-bertakwa-dan-ilmu-bermanfaat",
+    "judul": "Doa Jiwa Bertakwa dan Berlindung dari Ilmu yang Tidak Bermanfaat",
+    "arab": "اَللَّهُمَّ إِنَّيْ أَعُوْذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ وَالْبُخْلِ وَالْهَرَمِ وَعَذَابِ الْقَبْرِ اَللَّهُمَّ آتِ نَفْسِيْ تَقْوَاهَا وَزَكِّهَا أَنْتَ خَيْرُ مَنْ زَكَّاهَا أَنْتَ وَلِيُّهَا وَمَوْلاَهَا اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ عِلْمٍ لاَ يَنْفَعُ وَمِنْ قَلْبٍ لاَ يَخْشَعُ وَمِنْ نَفْسٍ لاَ تَشْبَعُ وَمِنْ دَعْوَةٍ لاَ يُسْتَجَابُ لَهَا",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung dari kelemahan, kemalasan, kekikiran, pikun, dan azab kubur. Berikanlah ketakwaan kepada jiwaku dan sucikanlah ia. Aku berlindung dari ilmu yang tidak bermanfaat, hati yang tidak khusyuk, jiwa yang tidak puas, dan doa yang tidak dikabulkan.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-petunjuk-dan-ketepatan",
+    "judul": "Doa Memohon Petunjuk dan Ketepatan",
+    "arab": "اَللَّهُمَّ اهْدِنِيْ وَسَدِّدْنِيْ، اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ الْهُدَى وَالسَّدَادَ",
+    "latin": "",
+    "arti": "Ya Allah, berilah aku petunjuk dan ketepatan. Aku memohon kepada-Mu hidayah dan kelurusan.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-keburukan-amal",
+    "judul": "Doa Berlindung dari Keburukan Amal",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ شَرِّ مَا عَمِلْتُ وَمِنْ شَرِّ مَا لَمْ أَعْمَلْ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari keburukan yang telah aku lakukan dan keburukan yang belum aku lakukan.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-gelisah-sedih-hutang",
+    "judul": "Doa Berlindung dari Gelisah, Sedih, dan Lilitan Hutang",
+    "arab": "اللهُم إِنِّي أَعُوْذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari kegelisahan, kesedihan, kelemahan, kemalasan, kebakhilan, rasa takut, beratnya utang, dan tekanan manusia.",
+    "sumber": "HR. Bukhari. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-ketika-susah",
+    "judul": "Doa Ketika Susah",
+    "arab": "لاَ إِلَهَ إِلاَّ اللَّهُ الْعَظِيْمُ الْحَلِيْمُ لاَ إِلَهَ إِلاَّ اللَّهُ رَبُّ الْعَرْشِ الْعَظِيْمِ لاَ إِلَهَ إِلاَّ اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ رَبُّ الْعَرْشِ الْكَرِيْمِ",
+    "latin": "",
+    "arti": "Tidak ada sesembahan yang berhak disembah selain Allah Yang Mahaagung lagi Maha Penyantun. Tidak ada sesembahan yang berhak disembah selain Allah, Rabb Arsy yang agung, Rabb langit, bumi, dan Arsy yang mulia.",
+    "sumber": "Muttafaq 'alaih. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-hati-taat",
+    "judul": "Doa Agar Hati Taat kepada Allah",
+    "arab": "اَللَّهُمَّ مُصَرِّفَ الْقُلُوْبُ صَرِّفْ قُلُوْبَنَا عَلَى طَاعَتِكَ",
+    "latin": "",
+    "arti": "Ya Allah, Dzat yang membolak-balikkan hati, arahkanlah hati kami untuk selalu taat kepada-Mu.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-ampunan-besar",
+    "judul": "Doa Memohon Ampunan dan Rahmat",
+    "arab": "اَللَّهُمَّ إِنِّيْ ظَلَمْتُ نَفْسِيْ ظُلْمًا كَثِيْرًا، وَلاَ يَغْفِرُ الذُّنُوْبَ إِلاَّ أَنْتَ، فَاغْفِرْ لِيْ مَغْفِرَةً مِنْ عِنْدِكَ وَارْحَمْنِيْ إِنَّكَ أَنْتَ الْغَفُوْرُ الرَّحِيْمُ",
+    "latin": "",
+    "arti": "Ya Allah, aku telah banyak menzalimi diriku sendiri. Tidak ada yang mengampuni dosa selain Engkau. Maka ampunilah aku dengan ampunan dari sisi-Mu dan rahmatilah aku. Sesungguhnya Engkau Maha Pengampun lagi Maha Penyayang.",
+    "sumber": "Muttafaq 'alaih. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-hilang-nikmat",
+    "judul": "Doa Berlindung dari Hilangnya Nikmat",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ وَتَحَوُّلِ عَافِيَتِكَ وَفُجَاءَةِ نِقْمَتِكَ وَجَمِيْعِ سَخَطِكَ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari hilangnya nikmat-Mu, berubahnya kesehatan dari-Mu, datangnya siksa-Mu secara tiba-tiba, dan seluruh murka-Mu.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-ampunan-rahmat-petunjuk-rezeki",
+    "judul": "Doa Memohon Ampunan, Rahmat, Petunjuk, Kesehatan, dan Rezeki",
+    "arab": "اَللَّهُمَّ اغْفِرْ لِيْ وَارْحَمْنِيْ وَاهْدِنِيْ وَعَافِنِيْ وَارْزُقْنِيْ",
+    "latin": "",
+    "arti": "Ya Allah, ampunilah aku, rahmatilah aku, berilah aku petunjuk, sehatkanlah aku, dan berilah aku rezeki.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-saat-sedih",
+    "judul": "Doa Ketika Sedih dan Gundah",
+    "arab": "اللَّهُمَّ إِنِّي عَبْدُكَ، ابْنُ عَبْدِكَ، ابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِـيَّ حُكْمُكَ، عَدْلٌ فِـيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ، سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَداً مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيْعَ قَلْبِي، وَنُوْرَ صَدْرِي، وَجَلاَءَ حُزْنِي، وَذَهَابَ هَمِّي",
+    "latin": "",
+    "arti": "Ya Allah, aku adalah hamba-Mu. Ubun-ubunku berada di tangan-Mu, hukum-Mu berlaku atasku, dan ketetapan-Mu adil. Aku memohon dengan seluruh nama-Mu agar Engkau jadikan Al-Qur'an sebagai penyejuk hati, cahaya dada, penghapus sedih, dan penghilang gelisahku.",
+    "sumber": "HR. Ahmad. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-keteguhan-hati",
+    "judul": "Doa Agar Hati Teguh di Atas Agama",
+    "arab": "يَا مُقَلِّبَ الْقُلُوْبِ ثَبِّتْ قَلْبِيْ عَلَى دِيْنِكَ",
+    "latin": "",
+    "arti": "Wahai Dzat yang membolak-balikkan hati, teguhkanlah hatiku di atas agama-Mu.",
+    "sumber": "HR. Ahmad dan Tirmizi. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-keburukan-anggota-tubuh",
+    "judul": "Doa Berlindung dari Keburukan Anggota Tubuh",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ شَرِّ سَمْعِيْ وَمِنْ شَرِّ بَصَرِيْ وَمِنْ شَرِّ لِسَانِيْ وَمِنْ شَرِّ قَلْبِيْ وَمِنْ شَرِّ مَنِيِّيْ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari keburukan pendengaranku, penglihatanku, lisanku, hatiku, dan kemaluanku.",
+    "sumber": "HR. Tirmizi dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-penyakit-berat",
+    "judul": "Doa Berlindung dari Penyakit Berat",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِن الْبَرَصِ وَالْجُنُوْنِ وَالْجُذَامِ وَسّيِّءِ الْأَسْقَامِ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari belang, gila, kusta, dan penyakit-penyakit buruk.",
+    "sumber": "HR. Abu Daud dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-akhlak-buruk",
+    "judul": "Doa Berlindung dari Akhlak dan Hawa Nafsu Buruk",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ مُنْكَرَاتِ الْأَخْلاَقِ وَالْأَعْمَالِ وَالْأَهْوَاءِ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari akhlak buruk, amal buruk, dan hawa nafsu yang buruk.",
+    "sumber": "HR. Tirmizi. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-mohon-pertolongan-dan-hidayah",
+    "judul": "Doa Memohon Pertolongan, Hidayah, dan Diterima Taubat",
+    "arab": "رَبِّ أَعِنِّيْ وَلاَ تُعِنْ عَلَيَّ وَانْصُرْنِيْ وَلاَ تَنْصُرْ عَلَيَّ وَامْكُرْ لِيْ وَلاَ تَمْكُرْ عَلَيَّ وَاهْدِنِيْ وَيَسِّرْ الهُدَى لِيْ، وَانْصُرْنِيْ عَلَى مَنْ بَغَى عَلَيَّ، رَبِّ اجْعَلْنِيْ لَكَ شَكَّارًا لَكَ ذَكَّارًا لَكَ رَهَّابًا لَكَ مِطْوَاعًا لَكَ، مُخْبِتًا إِلَيْكَ أَوَّاهًا مُنِيْبًا رَبِّ تَقَبَّلْ تَوْبَتِيْ وَاغْسِلْ حَوْبَتِيْ وَأَجِبْ دَعْوَتِيْ وَثَبِّتْ حُجَّتِيْ وَسَدِّدْ لِسَانِيْ وَاهْدِ قَلْبِيْ وَاسْلُلْ سَخِيْمَةِ صَدْرِيْ",
+    "latin": "",
+    "arti": "Wahai Rabbku, tolonglah aku dan jangan tolong musuh atasku. Menangkanlah aku, berilah hidayah, mudahkan jalan petunjuk, dan tolong aku menghadapi orang yang menzalimi. Jadikan aku hamba yang bersyukur, berdzikir, takut, taat, tunduk, kembali kepada-Mu. Terimalah taubatku, hapus dosaku, kabulkan doaku, kuatkan hujjahku, luruskan lisanku, tunjukilah hatiku, dan hilangkan kedengkian dari dadaku.",
+    "sumber": "HR. Abu Daud dan Tirmizi. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-memohon-semua-kebaikan",
+    "judul": "Doa Memohon Seluruh Kebaikan dan Berlindung dari Seluruh Keburukan",
+    "arab": "اللَّهُمَّ إِنِّيْ أَسْأَلُكَ مِن الخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوْذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ. اللَّهُمَّ إِنِّيْ أَسْأَلُكَ مِنْ خَيْرِ مَا سَأَلَكَ عَبْدُكَ وَنَبِيُّكَ. وَأَعُوْذُ بِكَ مِنْ شَرِّ مَا عَاذَ بِهِ عَبْدُكَ وَنَبِيُّكَ. اللَّهُمَّ إِنِّي أَسْأَلُكَ الجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ وَأَعُوْذُ بِكَ مِنَ النَّارِ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ. وَأَسْأَلُكَ أَنْ تَجْعَلَ كُلَّ قَضَاءٍ قَضَيْتَهُ لِيْ خَيْرًا",
+    "latin": "",
+    "arti": "Ya Allah, aku memohon seluruh kebaikan, yang segera maupun yang akan datang, yang aku ketahui maupun tidak. Aku berlindung dari seluruh keburukan. Aku memohon kebaikan yang diminta oleh hamba dan Nabi-Mu, berlindung dari keburukan yang beliau berlindung darinya, memohon surga dan segala yang mendekatkannya, berlindung dari neraka dan segala yang mendekatkannya, serta memohon agar setiap takdir-Mu menjadi kebaikan bagiku.",
+    "sumber": "HR. Ahmad dan Ibnu Majah. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-dijaga-dengan-islam",
+    "judul": "Doa Agar Dijaga dengan Islam",
+    "arab": "اللَّهُمَّ احْفَظْنِيْ بِالإِسْلاَمِ قَائِمًا وَ احْفَظْنِيْ بِالإِسْلاَمِ قَاعِدًا وَ احْفَظْنِيْ بِالإِسْلاَمِ رَاقِدًا وَلاَ تُشْمِتْ بِي عَدُوَّا وَلاَ حَاسِدًا، اللَّهُمَّ إِنِّيْ أَسْأَلُكَ مِنْ كُلِّ خَيْرٍ خَزَائِنُهُ بِيَدِكَ وَأَعُوْذُ بِكَ مِنْ كُلِّ شَرٍّ خَزَائنُهُ بيَدِكَ",
+    "latin": "",
+    "arti": "Ya Allah, jagalah aku dengan Islam saat berdiri, duduk, dan berbaring. Jangan jadikan musuh dan pendengki bergembira atas musibahku. Aku memohon semua kebaikan yang perbendaharaannya di tangan-Mu dan berlindung dari semua keburukan yang perbendaharaannya di tangan-Mu.",
+    "sumber": "HR. Hakim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-khusyuk-taat-dan-kokoh",
+    "judul": "Doa Memohon Rasa Takut, Taat, dan Keyakinan",
+    "arab": "اَللَّهُمَّ اقْسِمْ لَنَا مِنْ خَشْيَتِكَ مَا تَحُوْلُ بِهِ بَيْنَنَا وَبَيْنَ مَعَاصِيْكَ، وَمِنْ طَاعَتِكَ مَا تُبَلِّغُنَا بِهِ جَنَّتَكَ، وَمِنْ اليَقِيْنِ مَا تُهَوِّنُ بِهِ عَلَيْنَا مَصَائِبَ الدُّنْيَا، اَللَّهُمَّ مَتِّعْنَا بِأَسْمَاعِنَا وَأَبْصَارِنَا وَقُوَّتِنَا مَا أَحْيَيْتَنَا، وَاجْعَلْهُ الْوَارِثَ مِنَّا، وَاجْعَلْ ثَأْرَنَا عَلَى مَنْ ظَلَمَنَا، وَانْصُرْنَا عَلَى مَنْ عَادَانَا، وَلاَ تَجْعَلْ مُصِيْبَتَنَا فِيْ دِيْنِنَا، وَلاَ تَجْعَلِ الدُّنْيَا أَكْبَرَ هَمِّنَا، وَلاَ مَبْلَغَ عِلْمِنَا، وَلاَ تُسَلِّطْ عَلَيْنَا مَنْ لاَ يَرْحَمُنَا",
+    "latin": "",
+    "arti": "Ya Allah, berilah kami rasa takut kepada-Mu yang menghalangi maksiat, ketaatan yang mengantarkan ke surga, dan keyakinan yang meringankan musibah dunia. Berilah manfaat pada pendengaran, penglihatan, dan kekuatan kami selama hidup. Tolonglah kami atas orang yang menzalimi dan memusuhi kami. Jangan jadikan musibah kami dalam agama, jangan jadikan dunia sebagai tujuan terbesar dan batas ilmu kami, serta jangan kuasakan atas kami orang yang tidak menyayangi kami.",
+    "sumber": "HR. Tirmizi. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-kematian-buruk",
+    "judul": "Doa Berlindung dari Kematian Buruk",
+    "arab": "اللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الهَدْمِ وَأَعُوْذُ بِكَ مِنَ التَّرَدِّي وَأَعُوْذُ بِكَ مِنَ الغَرْقِ وَالحَرَقِ وَالْهَرَمِ وَأَعُوْذُ بِكَ أَنْ يَتَخَبَّطَنِي الشَّيْطَانُ عِنْدَ المَوْتِ وَأَعُوْذُ بِكَ أَنْ أَمُوْتَ فِيْ سَبِيْلِكَ مُدْبِرًا وَأَعُوْذُ بِكَ أَنْ أَمُوْتَ لَدِيْغًا",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari tertimpa reruntuhan, jatuh dari ketinggian, tenggelam, terbakar, pikun, gangguan setan saat sakaratul maut, mati saat lari dari jalan-Mu, dan mati karena sengatan/binatang berbisa.",
+    "sumber": "HR. Abu Daud dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-lapar-dan-khianat",
+    "judul": "Doa Berlindung dari Lapar dan Khianat",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْجُوْعِ فَإِنَّهُ بِئْسَ الضَّجِيْعِ وَأَعُوْذُ بِكَ مِنَ الْخِيَانَةِ فَإِنَّهَا بِئْسَتِ الْبِطَانَةِ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari rasa lapar karena ia seburuk-buruk teman tidur, dan dari sifat khianat karena ia seburuk-buruk teman dekat.",
+    "sumber": "HR. Abu Daud dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-fakir-hina-zalim",
+    "judul": "Doa Berlindung dari Fakir, Hina, dan Zalim",
+    "arab": "اللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الفَقْرِ، وَالقِلَّةِ وَالذُّلَّةِ، وَأَعُوْذُ بِكَ مِنْ أَنْ أَظْلِمَ أَوْ أُظْلَمَ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari kefakiran, kekurangan, kehinaan, serta dari menzalimi atau dizalimi.",
+    "sumber": "HR. Abu Daud dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-waktu-teman-tetangga-buruk",
+    "judul": "Doa Berlindung dari Hari, Waktu, Teman, dan Tetangga Buruk",
+    "arab": "اللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ يَوْمِ السُّوْءِ، وَمِنْ لَيْلَةِ السُّوْءِ، وَمِنْ سَاعَةِ السُّوْءِ، وَمِنْ صَاحِبِ السُّوْءِ، وَمِنْ جَارِ السُوْءِ فِيْ دَارِ المقُاَمَةِ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari hari yang buruk, malam yang buruk, waktu yang buruk, teman yang buruk, dan tetangga yang buruk di tempat tinggal tetap.",
+    "sumber": "HR. Thabrani. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-ilmu-rezeki-amal",
+    "judul": "Doa Memohon Ilmu Bermanfaat, Rezeki Baik, dan Amal Diterima",
+    "arab": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً",
+    "latin": "",
+    "arti": "Ya Allah, aku memohon kepada-Mu ilmu yang bermanfaat, rezeki yang baik, dan amal yang diterima.",
+    "sumber": "HR. Ahmad dan Ibnu Majah. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-memohon-ampunan-dengan-asmaul-husna",
+    "judul": "Doa Memohon Ampunan dengan Nama Allah Al-Ahad Ash-Shamad",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ يَا اَللهُ بِأَنَّكَ الْوَاحِدُ اْلأَحَدُ الصَّمَدُ الَّذِيْ لَمْ يَلِدْ وَلَمْ يُوْلَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ، أَنْ تَغْفِرَ لِيْ ذُنُوْبِيْ إِنَّكَ أَنْتَ الْغَفُوْرُ الرَّحِيْمُ",
+    "latin": "",
+    "arti": "Ya Allah, aku memohon kepada-Mu dengan kesaksian bahwa Engkau Maha Esa, tempat bergantung segala sesuatu, tidak beranak dan tidak diperanakkan, serta tidak ada yang setara dengan-Mu, agar Engkau mengampuni dosa-dosaku. Sesungguhnya Engkau Maha Pengampun lagi Maha Penyayang.",
+    "sumber": "HR. Abu Daud dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-masuk-surga-dan-berlindung-dari-neraka",
+    "judul": "Doa Memohon Surga dan Berlindung dari Neraka",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ بِأَنَّ لَكَ الْحَمْدَ لاَ إِلَـهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيْكَ لَكَ، الْمَنَّانُ، بَدِيْعَ السَّمَاوَاتِ وَاْلأَرْضِ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ، يَا حَيُّ يَا قَيُّوْمُ إِنِّيْ أَسْأَلُكَ الْجَنَّةَ وَأَعُوْذُ بِكَ مِنَ النَّارِ",
+    "latin": "",
+    "arti": "Ya Allah, aku memohon kepada-Mu. Segala puji bagi-Mu, tidak ada sesembahan yang berhak disembah selain Engkau semata, tiada sekutu bagi-Mu. Wahai Yang Maha Pemberi, Pencipta langit dan bumi, Pemilik keagungan dan kemuliaan, Yang Mahahidup lagi terus mengurus makhluk, aku memohon surga dan berlindung dari neraka.",
+    "sumber": "HR. Abu Daud dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-mengakui-keesaan-allah",
+    "judul": "Doa dengan Pengakuan Keesaan Allah",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ بِأَنِّي أَشْهَدُ أَنَّكَ أَنْتَ الله لاَ إِلَهَ إِلاَّ أَنْتَ اْلأَحَدُ الصَّمَدُ الَّذِيْ لَمْ يَلِدْ وَلَمْ يُوْلَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ",
+    "latin": "",
+    "arti": "Ya Allah, aku memohon kepada-Mu dengan kesaksianku bahwa Engkaulah Allah, tidak ada sesembahan yang berhak disembah selain Engkau, Yang Maha Esa, tempat bergantung, tidak beranak dan tidak diperanakkan, serta tidak ada yang setara dengan-Mu.",
+    "sumber": "HR. Tirmizi dan Ibnu Majah. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-ampunan-dan-taubat",
+    "judul": "Doa Memohon Ampunan dan Taubat",
+    "arab": "رَبِّ اغْفِرْ لِيْ وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيْمُ",
+    "latin": "",
+    "arti": "Wahai Rabbku, ampunilah aku dan terimalah taubatku. Sesungguhnya Engkau Maha Penerima Taubat lagi Maha Penyayang.",
+    "sumber": "HR. Tirmizi dan Ibnu Majah. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-pilihan-hidup-dan-mati",
+    "judul": "Doa Memohon Hidup atau Wafat yang Terbaik",
+    "arab": "اَللَّهُمَّ بِعِلْمِكَ الْغَيْبَ وَقُدْرَتِكَ عَلَى الْخَلْقِ أَحْيِنِيْ مَا عَلِمْتَ الْحَيَاةَ خَيْرًا لِيْ، وَتَوَفَّنِيْ إِذَا عَلِمْتَ الْوَفَاةَ خَيْرًا لِيْ، اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ خَشْيَتَكَ فِي الْغَيْبِ وَالشَّهَادَةِ، وَأَسْأَلُكَ كَلِمَةَ الْحَقِّ فِي الرِّضَا وَالْغَضَبِ، وَأَسْأَلُكَ الْقَصْدَ فِي الْغِنَى وَالْفَقْرِ، وَأَسْأَلُكَ نَعِيْمًا لاَ يَنْفَدُ، وَأَسْأَلُكَ قُرَّةَ عَيْنٍ لاَ يَنْقَطِعُ، وَأَسْأَلُكَ الرِّضَا بَعْدَ الْقَضَاءِ، وَأَسْأَلُكَ بَرْدَ الْعَيْشِ بَعْدَ الْمَوْتِ، وَأَسْأَلُكَ لَذَّةَ النَّظَرِ إِلَى وَجْهِكَ وَالشَّوْقَ إِلَى لِقَائِكَ فِيْ غَيْرِ ضَرَّاءَ مُضِرَّةٍ وَلاَ فِتْنَةٍ مُضِلَّةٍ، اَللَّهُمَّ زَيِّنَّا بِزِيْنَةِ اْلإِيْمَانِ وَاجْعَلْنَا هُدَاةً مُهْتَدِيْنَ",
+    "latin": "",
+    "arti": "Ya Allah, dengan ilmu-Mu terhadap yang gaib dan kuasa-Mu atas makhluk, hidupkanlah aku bila hidup lebih baik bagiku dan wafatkanlah aku bila wafat lebih baik bagiku. Aku memohon rasa takut kepada-Mu, perkataan benar saat ridha maupun marah, sikap sederhana saat kaya maupun miskin, nikmat yang tidak habis, penyejuk mata yang tidak putus, ridha setelah takdir, kehidupan baik setelah mati, nikmat memandang wajah-Mu, rindu bertemu dengan-Mu tanpa bahaya dan fitnah yang menyesatkan. Hiasilah kami dengan iman dan jadikan kami pemberi petunjuk yang mendapat petunjuk.",
+    "sumber": "HR. Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-manfaat-pendengaran-penglihatan",
+    "judul": "Doa Memohon Manfaat Pendengaran dan Penglihatan",
+    "arab": "اللَّهُمَّ مَتِّعْنِيْ بِسَمْعِيْ وَبَصَرِيْ، وَاجْعَلْهَا الوَارِثَ مِنِّيْ وَانْصُرْنِيْ عَلَى مَنْ ظَلَمَنِيْ، وَخُذْ مِنِّيْ بَثأْرِيْ",
+    "latin": "",
+    "arti": "Ya Allah, berilah aku manfaat pada pendengaran dan penglihatanku, jadikan keduanya tetap bersamaku, tolonglah aku atas orang yang menzalimiku, dan balaskan hakku.",
+    "sumber": "HR. Tirmizi. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-hutang-musuh",
+    "judul": "Doa Berlindung dari Hutang dan Musuh",
+    "arab": "اللَّهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ، وَغَلَبَةِ العَدُوِّ، وَشَمَاتَةِ الأَعْدَاءِ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari dominasi utang, kekuasaan musuh, dan kegembiraan musuh atas musibahku.",
+    "sumber": "HR. Ahmad dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dari-bahaya-bawah",
+    "judul": "Doa Berlindung dari Bahaya dari Arah Bawah",
+    "arab": "اللَّهُمَّ إِنِّيْ أَعُوْذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung dengan keagungan-Mu agar tidak dibinasakan dari arah bawahku.",
+    "sumber": "HR. Abu Daud dan Nasa'i. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-memohon-nikmat-iman-dan-islam",
+    "judul": "Doa Memohon Nikmat, Iman, dan Wafat dalam Islam",
+    "arab": "اللَّهُمَّ لَكَ الحَمْدُ كُلُّهُ اللَّهُمَّ لاَ قَابِضَ لِمَا بَسَطْتَ وَلاَ بَاسِطَ لِمَا قَبَضْتَ وَلاَ هَادِيَ لِمَا أَضْلَلْتَ وَلاَ مُضِلَّ لِمَنْ هَدَيْتَ وَلاَ مُعْطِيَ لِمَا مَنَعْتَ وَلاَ مَانِعَ لِمَا أَعْطَيْتَ وَلاَ مُقَرِّبَ لِمَا بَاعَدْتَ وَلاَ مُبَاعِدَ لِمَا قَرَّبْتَ اللَّهُمَّ ابْسُطْ عَلَيْنَا مِنْ بَرَكَاتِكَ وَرَحْمَتِكَ وَفَضْلِكَ وَرِزْقِكَ اللَّهُمَّ إِنِّيْ أَسْأَلُكَ النَّعِيْمَ المُقِيْمَ الَّذِيْ لَا يَحُولُ وَلاَ يَزُوْلُ اللَّهُمَّ إِنِّيْ أَسْأَلُكَ النَّعِيْمَ يَوْمَ العِيْلَةِ وَالأَمْنَ يَوْمَ الخَوْفِ اللَّهُمَّ إِنِّيْ عَاِئذٌ بِكَ مِنْ شَرِّ مَا أَعْطَيْتَنَا وَشَرِّ مَا مَنَعْتَ اللَّهُمَّ حَبِّبْ إِلَيْنَا الإِيْمَانَ وَزَيِّنْهُ فِيْ قُلُوْبِنَا وَكَرِّهْ إِلَيْنَا الكُفْرَ وَالْفُسُوْقَ وَالعِصْيَانَ وَاجْعَلْناَ مِنَ الرَّاشِدِيْنَ اللَّهُمَّ تَوَفَّنَا مُسْلِِمِيْنَ وَأَحْيِنَا مُسْلِمِيْنَ وَأَلْحِقْناَ بِالصَّالِحِيْنَ غَيْرَ خَزَايَا وَلَا مَفْتُوْنِيْنَ",
+    "latin": "",
+    "arti": "Ya Allah, segala puji milik-Mu. Tidak ada yang mampu menahan apa yang Engkau lapangkan, melapangkan apa yang Engkau tahan, menyesatkan orang yang Engkau beri petunjuk, atau memberi apa yang Engkau tahan. Bentangkanlah keberkahan, rahmat, karunia, dan rezeki-Mu. Berilah kami nikmat yang menetap, keamanan saat takut, dan lindungilah kami dari keburukan pemberian maupun penahanan-Mu. Jadikan iman kami cintai dan indah di hati, bencikan kami dari kekafiran, kefasikan, dan maksiat, jadikan kami orang yang lurus, wafatkan dan hidupkan kami dalam Islam, serta gabungkan kami dengan orang-orang saleh tanpa hina dan fitnah.",
+    "sumber": "HR. Ahmad. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-lailatul-qadar-versi-karim",
+    "judul": "Doa Lailatul Qadar",
+    "arab": "اَللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيْمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّيْ",
+    "latin": "",
+    "arti": "Ya Allah, sesungguhnya Engkau Maha Pemaaf lagi Maha Mulia, menyukai pemaafan, maka maafkanlah aku.",
+    "sumber": "HR. Tirmizi dan Ibnu Majah. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-lailatul-qadar",
+    "judul": "Doa Memohon Maaf dari Allah",
+    "arab": "اَللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّيْ",
+    "latin": "",
+    "arti": "Ya Allah, sesungguhnya Engkau Maha Pemaaf dan menyukai pemaafan, maka maafkanlah aku.",
+    "sumber": "HR. Ahmad dan Ibnu Majah. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-berlindung-dengan-ridha-allah",
+    "judul": "Doa Berlindung dengan Ridha Allah",
+    "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِرِضَاكَ مِنْ سَخَطِكَ وَبِمُعَافَاتِكَ مِنْ عُقُوْبَتِكَ وَأَعُوْذُ بِكَ مِنْكَ لاَ أُحْصِيْ ثَنَاءً عَلَيْكَ أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ",
+    "latin": "",
+    "arti": "Ya Allah, aku berlindung dengan ridha-Mu dari murka-Mu, dengan ampunan-Mu dari hukuman-Mu, dan aku berlindung kepada-Mu dari-Mu. Aku tidak mampu menghitung pujian bagi-Mu; Engkau sebagaimana pujian-Mu terhadap diri-Mu sendiri.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+  {
+    "id": "doa-keberkahan-kota-madinah",
+    "judul": "Doa Keberkahan Kota Madinah",
+    "arab": "اللَّهُمَّ بَارِكْ لَنَا فِيْ مَدِيْنَتِنَا وفِيْ ثَمَرِنَا وفِيْ مُدِّنَا وفِيْ صَاعِنَا بَرَكَةً مَعَ بَرَكَةٍ",
+    "latin": "",
+    "arti": "Ya Allah, berkahilah kota kami, buah-buahan kami, mud kami, dan sha' kami dengan keberkahan yang berlipat.",
+    "sumber": "HR. Muslim. Almanhaj: https://almanhaj.or.id/83989-doa-doa-nabi-shallallahu-alaihi-wa-sallam.html"
+  },
+    
+  {
     "id": "doa-ditetapkan-hati-dalam-iman",
     "judul": "Ditetapkan Hati dalam Iman",
     "arab": "اَللَّهُمَّ يا مُصَرِّفَ الْقُلُوْبِ، صَرِّفْ قُلُوْبَنَا عَلَى دِينِكَ",
