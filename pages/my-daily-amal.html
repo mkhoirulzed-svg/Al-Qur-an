@@ -470,52 +470,6 @@ function createCheckboxItem(key, label) {
 
   return div;
 }
-  
-  customAmal.forEach(item => {
-    addCheckbox(item.key, item.label);
-  });
-
-  updateProgress();
-}
-
-function addCheckbox(key, label) {
-  const div = document.createElement('div');
-  div.className = 'amal-item';
-
-  const cb = document.createElement('input');
-  cb.type = 'checkbox';
-  cb.id = key;
-  cb.checked = !!dailyData[key];
-
-  const check = document.createElement('span');
-  check.className = 'checkmark';
-
-  const lbl = document.createElement('label');
-  lbl.setAttribute('for', key);
-  lbl.textContent = label;
-
-  cb.addEventListener('change', () => {
-    dailyData[key] = cb.checked;
-    saveDailyData(dailyData);
-
-    div.classList.toggle('checked', cb.checked);
-    div.classList.remove('pop');
-    void div.offsetWidth;
-    div.classList.add('pop');
-
-    updateProgress();
-  });
-
-  div.classList.toggle('checked', cb.checked);
-
-  div.appendChild(cb);
-  div.appendChild(check);
-  div.appendChild(lbl);
-
-  check.addEventListener('click', () => cb.click());
-
-  amalList.appendChild(div);
-}
 
 function updateProgress() {
   const items = amalList.querySelectorAll('input[type="checkbox"]');
