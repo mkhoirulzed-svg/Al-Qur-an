@@ -435,12 +435,25 @@ function renderAmal() {
     amalList.appendChild(groupBox);
   });
 
-  customAmal.forEach(item => {
-    if (amalConfig[item.key] !== false) {
-      const itemEl = createCheckboxItem(item.key, item.label);
-      amalList.appendChild(itemEl);
-    }
+ const activeCustom = customAmal.filter(item => amalConfig[item.key] !== false);
+
+if (activeCustom.length > 0) {
+  const groupBox = document.createElement('div');
+  groupBox.className = 'amal-group';
+
+  const groupTitle = document.createElement('div');
+  groupTitle.className = 'amal-group-title';
+  groupTitle.textContent = 'Amal Custom';
+
+  groupBox.appendChild(groupTitle);
+
+  activeCustom.forEach(item => {
+    const itemEl = createCheckboxItem(item.key, item.label);
+    groupBox.appendChild(itemEl);
   });
+
+  amalList.appendChild(groupBox);
+}
 
   updateProgress();
 }
