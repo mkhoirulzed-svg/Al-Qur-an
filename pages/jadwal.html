@@ -249,6 +249,12 @@ async function loadJadwal(kota) {
       `https://api.aladhan.com/v1/timingsByCity/${date}-${month}-${year}?city=${kota}&country=Indonesia&method=11`
     );
     const json = await res.json();
+
+    localStorage.setItem("jadwalSholat", JSON.stringify({
+    waktu: json.data.timings,
+    tanggal: new Date().toDateString()
+}));
+
     renderJadwal(json.data.timings);
   } catch (err) {
     jadwalEl.innerHTML = '<p>Gagal memuat jadwal sholat.</p>';
@@ -320,11 +326,6 @@ lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
       `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
     );
     const json = await res.json();
- localStorage.setItem("jadwalSholat", JSON.stringify({
-    waktu: json.data.timings,
-    tanggal: new Date().toDateString()
-}));
-
     const city =
       json.address.city ||
       json.address.town ||
