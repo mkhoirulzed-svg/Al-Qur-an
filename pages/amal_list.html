@@ -208,7 +208,7 @@ input[type="checkbox"] {
 </main>
 
 <div class="save-bar">
-  <button class="save-btn" id="saveAmal">💾 Simpan & Kembali</button>
+  <button class="save-btn" id="saveAmal"> Simpan & Kembali</button>
 </div>
 
 <nav class="bottom-nav">
@@ -368,7 +368,7 @@ function deleteCustom(key) {
 document.getElementById('saveAmal').onclick = () => {
   localStorage.setItem('amalConfig', JSON.stringify(config));
   saveCustomAmal();
-  location.href = 'daily_amal.html';
+  location.href = 'amal_list.html';
 };
 
 renderCustom();
