@@ -262,8 +262,10 @@
     <button id="popupClose" class="popup-close">Tutup</button>
   </div>
 </div>
-
+  
+<script src="../data/surah-names.js"></script>
 <script src="../data/juz-map.js"></script>
+  
 <script>
 const judulJuz = document.getElementById('judul-juz');
 const judulSurah = document.getElementById('judul-surah');
@@ -386,13 +388,13 @@ async function loadJuz({ start, end }) {
 
     const header = document.createElement('div');
     header.className = 'surah-header';
-    header.dataset.surahName = `${arab.englishName} (${arab.name})`;
+   header.dataset.surahName = `${SURAH_NAMES[surah]} (${arab.name})`;
     header.innerHTML = `
       <div class="surah-title-deco">
         <span class="deco">❁</span>
         <span class="surah-title-text">
-          ${arab.englishName} (${arab.name})
-        </span>
+  ${SURAH_NAMES[surah]} (${arab.name})
+</span>
         <span class="deco">❁</span>
       </div>
     `;
