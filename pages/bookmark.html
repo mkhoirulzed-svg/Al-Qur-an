@@ -186,7 +186,6 @@ Lanjut Membaca →
     `;
 
     // buka ayat
-    // buka ayat
 item.querySelector('.bookmark-open').onclick = () => {
 
   // mode surah
@@ -199,15 +198,16 @@ item.querySelector('.bookmark-open').onclick = () => {
   // mode juz
   if (b.mode === 'juz') {
     localStorage.setItem('scrollToAyat', `${b.surah}-${b.ayat}`);
-    location.href = `location.href = `juz.html?no=${b.juz}`;
+    location.href = `juz.html?no=${b.juz}`;
     return;
   }
-  
+
+  // mode mushaf
   if (b.mode === 'mushaf') {
-  localStorage.setItem('scrollToAyat', `${b.surah}-${b.ayat}`);
-  location.href = `mushaf.html?page=${b.page}`;
-  return;
-}
+    localStorage.setItem('scrollToAyat', `${b.surah}-${b.ayat}`);
+    location.href = `mushaf.html?page=${b.page}`;
+    return;
+  }
 
 };
 
