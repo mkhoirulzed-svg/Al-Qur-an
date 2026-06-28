@@ -175,7 +175,7 @@
     }
 
     .greeting-text {
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
       line-height: 1.3;
       margin-bottom: 4px;
@@ -596,7 +596,7 @@
           <span>Salam</span>
         </div>
         <p class="greeting-arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-        <h1 class="greeting-text">Assalamu'alaikum</h1>
+        <h1 class="greeting-text">Assalamu'alaikum Warrahmatullahi Wabarrakatuh</h1>
         <p class="greeting-sub" id="greetingTime">Selamat Pagi</p>
         <div class="greeting-deco">
           <span class="deco-line"></span>
@@ -606,22 +606,28 @@
       </section>
 
       <!-- ====== TERAKHIR DIBACA ====== -->
-      <section class="last-read-section" aria-label="Terakhir dibaca">
-        <div class="section-header">
-          <h2>Terakhir Dibaca</h2>
-          <a href="pages/quran.html">Semua <i class="fas fa-chevron-right" style="font-size:10px;margin-left:3px;"></i></a>
-        </div>
-        <a href="pages/quran.html" class="last-read-card ripple-target">
-          <div class="last-read-num">255</div>
-          <div class="last-read-info">
-            <h3>Al-Baqarah</h3>
-            <p>Ayatul Kursi &middot; Ayat 255</p>
-          </div>
-          <div class="last-read-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </a>
-      </section>
+     <!-- ====== BOOKMARK TERAKHIR ====== -->
+<section class="last-read-section" aria-label="Bookmark terakhir">
+  <div class="section-header">
+    <h2>Bookmark Terakhir</h2>
+    <a href="pages/bookmark.html">
+      Semua <i class="fas fa-chevron-right" style="font-size:10px;margin-left:3px;"></i>
+    </a>
+  </div>
+
+  <a href="pages/bookmark.html" class="last-read-card ripple-target" id="lastBookmarkCard">
+    <div class="last-read-num">
+      <i class="fas fa-bookmark"></i>
+    </div>
+    <div class="last-read-info">
+      <h3>Belum ada bookmark</h3>
+      <p>Simpan ayat favoritmu di Al-Qur'an</p>
+    </div>
+    <div class="last-read-arrow">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+  </a>
+</section>
 
       <!-- ====== MENU UTAMA ====== -->
       <section class="menu-section" aria-label="Menu utama">
@@ -796,6 +802,58 @@
       }
     }, { passive: true });
   </script>
+    <script src="data/surah-names.js"></script>
+
+<script>
+function renderLastBookmarkHome() {
+  const card = document.getElementById("lastBookmarkCard");
+  if (!card) return;
+
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+  if (bookmarks.length === 0) {
+    card.href = "pages/bookmark.html";
+    card.innerHTML = `
+      <div class="last-read-num">
+        <i class="fas fa-bookmark"></i>
+      </div>
+      <div class="last-read-info">
+        <h3>Belum ada bookmark</h3>
+        <p>Simpan ayat favoritmu di Al-Qur'an</p>
+      </div>
+      <div class="last-read-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    `;
+    return;
+  }
+
+  const b = bookmarks[bookmarks.length - 1];
+
+  const surahName =
+    b.mode === "surah"
+      ? b.surahName
+      : SURAH_NAMES[b.surah] || "Surah tidak diketahui";
+
+  card.href = `pages/surah.html?no=${b.surah}`;
+  card.onclick = () => {
+    localStorage.setItem("scrollToAyat", b.ayat);
+  };
+
+  card.innerHTML = `
+    <div class="last-read-num">${b.ayat}</div>
+    <div class="last-read-info">
+      <h3>${surahName}</h3>
+      <p>Bookmark &middot; Ayat ${b.ayat}</p>
+    </div>
+    <div class="last-read-arrow">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+  `;
+}
+
+renderLastBookmarkHome();
+</script>
 
   <div id="footer"></div>
 
@@ -803,5 +861,6 @@
 <script>
   loadFooter("home");
 </script>
+    
 </body>
 </html>
