@@ -6,23 +6,19 @@
 <title>Dzikir Pagi</title>
 
 <link rel="stylesheet" href="../style.css">
-<!-- Menambahkan font Amiri dari Google Fonts untuk Arab yang lebih bagus -->
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* =========================
-   DZIKIR PAGI STYLE
-========================= */
 .page-dzikir {
   background: #f8fafc;
+  margin: 0;
+  padding: 0;
 }
 
 .dzikir-container {
-  padding: 16px;
+  padding: 86px 16px 96px;
   max-width: 720px;
   margin: auto;
-  padding-top: 70px; /* Space for header */
-  padding-bottom: 80px; /* Space for bottom nav */
 }
 
 .dzikir-card {
@@ -31,15 +27,20 @@
   padding: 20px 16px;
   margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
-  /* Agar scroll tidak tertutup header */
-  scroll-margin-top: 80px; 
+  scroll-margin-top: 90px;
 }
 
 .dzikir-card.completed {
   border-left: 5px solid #10b981;
-  opacity: 0.7;
+  opacity: 0.75;
   background: #f0fdf4;
+}
+
+.dzikir-title {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
 }
 
 .dzikir-arab {
@@ -47,15 +48,8 @@
   font-family: 'Amiri', serif;
   font-size: 1.85rem;
   line-height: 2.5;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   text-align: right;
-}
-
-.dzikir-arti {
-  font-size: 0.85rem;
-  opacity: 0.75;
-  margin-bottom: 10px;
-  line-height: 1.6;
 }
 
 .dzikir-latin {
@@ -66,16 +60,15 @@
   margin-bottom: 10px;
 }
 
-.dzikir-title {
-  font-weight: 700;
-  color: #0f172a;
+.dzikir-arti {
+  font-size: 0.85rem;
+  opacity: 0.75;
   margin-bottom: 12px;
-  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .dzikir-count {
   display: inline-flex;
-  align-items: center;
   gap: 6px;
   background: #f1f5f9;
   color: #334155;
@@ -86,7 +79,7 @@
   margin-bottom: 16px;
 }
 
-.dzikir-count .current-count {
+.current-count {
   color: #0284c7;
   font-size: 1rem;
 }
@@ -105,32 +98,19 @@
   border-radius: 10px;
   font-weight: 700;
   font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-read:active {
-  background: #0369a1;
 }
 
 .btn-read:disabled {
   background: #94a3b8;
-  cursor: not-allowed;
 }
 
 .btn-skip {
-  padding: 12px 20px;
+  padding: 12px 18px;
   background: #f1f5f9;
   color: #64748b;
   border: none;
   border-radius: 10px;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-skip:active {
-  background: #e2e8f0;
 }
 
 .app-header {
@@ -138,30 +118,45 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(248, 250, 252, 0.9);
+  min-height: 58px;
+  background: rgba(248,250,252,0.95);
   backdrop-filter: blur(10px);
   z-index: 100;
   display: flex;
   align-items: center;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-bottom: 1px solid #e2e8f0;
-}
-
-.header-title div:first-child {
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.judul-surah {
-  font-size: 0.8rem;
-  color: #64748b;
 }
 
 .nav-btn {
   background: none;
   border: none;
-  margin-right: 12px;
+  margin-right: 10px;
   color: #0f172a;
+}
+
+.header-title {
+  flex: 1;
+}
+
+.header-title div:first-child {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.judul-surah {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.reset-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: .8rem;
+  font-weight: 700;
 }
 
 .bottom-nav {
@@ -169,34 +164,33 @@
   bottom: 0;
   left: 0;
   right: 0;
+  height: 64px;
   background: #fff;
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid #e2e8f0;
   z-index: 100;
 }
 
 .bottom-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: #64748b;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
+  text-align: center;
 }
-
 </style>
 </head>
 
 <body class="page-dzikir">
 
 <header class="app-header">
-  <button class="nav-btn back-btn" onclick="history.back()">
-    <svg viewBox="0 0 24 24" width="22" height="22"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round">
+  <button class="nav-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
   </button>
@@ -205,11 +199,12 @@
     <div>Dzikir Pagi</div>
     <div class="judul-surah">Dzikir pagi sesuai sunnah</div>
   </div>
+
+  <button class="reset-btn" onclick="resetDzikir()">Reset</button>
 </header>
 
-<main class="dzikir-container" id="dzikirList">
-</main>
-   
+<main class="dzikir-container" id="dzikirList"></main>
+
 <nav class="bottom-nav">
   <a href="../index.html">Home</a>
   <a href="quran.html">Al-Qur'an</a>
@@ -218,131 +213,145 @@
 </nav>
 
 <script>
-const today = new Date().toISOString().slice(0,10);
+const today = new Date().toISOString().slice(0, 10);
 const STORAGE_KEY = "dzikirPagiRumaysho";
+const LAST_DATE_KEY = "dzikirPagiLastDate";
 
-const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-const todayData = saved[today] || {};
+let saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 
-fetch("../data/dzikirpagi.json")
-.then(res => res.json())
-.then(data => {
+// reset otomatis saat ganti hari
+const lastDate = localStorage.getItem(LAST_DATE_KEY);
+if (lastDate !== today) {
+  saved = {};
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  localStorage.setItem(LAST_DATE_KEY, today);
+}
 
-    const list = document.getElementById("dzikirList");
+let todayData = saved[today] || {};
 
-    data.forEach((item, index) => {
-        // Jika jumlah kosong, default menjadi 1 kali baca
+function saveProgress() {
+  saved[today] = todayData;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  localStorage.setItem(LAST_DATE_KEY, today);
+}
+
+function resetDzikir() {
+  if (!confirm("Ulangi dzikir pagi dari awal?")) return;
+
+  todayData = {};
+  saved[today] = todayData;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  localStorage.setItem(LAST_DATE_KEY, today);
+
+  loadDzikir();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function loadDzikir() {
+  const list = document.getElementById("dzikirList");
+  list.innerHTML = "";
+
+  fetch("../data/dzikirpagi.json")
+    .then(res => {
+      if (!res.ok) throw new Error("File dzikirpagi.json tidak ditemukan");
+      return res.json();
+    })
+    .then(data => {
+      data.forEach((item, index) => {
         const targetJumlah = parseInt(item.jumlah) || 1;
         const currentCount = todayData[item.id] || 0;
         const isCompleted = currentCount >= targetJumlah;
-        const completedClass = isCompleted ? "completed" : "";
 
         list.insertAdjacentHTML("beforeend", `
-            <div class="dzikir-card ${completedClass}" data-key="${item.id}" id="card-${item.id}">
+          <div class="dzikir-card ${isCompleted ? "completed" : ""}" id="card-${item.id}">
+            ${item.judul ? `<div class="dzikir-title">${item.judul}</div>` : ""}
 
-                ${item.judul ? `
-                <div class="dzikir-title">
-                    ${item.judul}
-                </div>
-                ` : ""}
+            <div class="dzikir-arab">${item.arab || ""}</div>
 
-                <div class="dzikir-arab">
-                    ${item.arab}
-                </div>
+            ${item.latin ? `<div class="dzikir-latin">${item.latin}</div>` : ""}
 
-                ${item.latin ? `
-                <div class="dzikir-latin">
-                    ${item.latin}
-                </div>
-                ` : ""}
+            <div class="dzikir-arti">${item.arti || ""}</div>
 
-                <div class="dzikir-arti">
-                    ${item.arti}
-                </div>
-
-                <div class="dzikir-count">
-                    Dibaca <span class="current-count" id="count-${item.id}">${currentCount}</span> / ${targetJumlah}
-                </div>
-
-                <div class="action-buttons">
-                    <button class="btn-read" id="btn-read-${item.id}" ${isCompleted ? 'disabled' : ''}>
-                        ${isCompleted ? '✓ Selesai' : 'Baca 1x'}
-                    </button>
-                    ${index < data.length - 1 ? `
-                    <button class="btn-skip" id="btn-skip-${item.id}">
-                        Skip ➜
-                    </button>
-                    ` : ''}
-                </div>
-
+            <div class="dzikir-count">
+              Dibaca <span class="current-count" id="count-${item.id}">${currentCount}</span> / ${targetJumlah}
             </div>
-        `);
-    });
 
-    // Event Listener untuk tombol
-    data.forEach((item, index) => {
+            <div class="action-buttons">
+              <button class="btn-read" id="btn-read-${item.id}" ${isCompleted ? "disabled" : ""}>
+                ${isCompleted ? "✓ Selesai" : "Baca 1x"}
+              </button>
+
+              ${index < data.length - 1 ? `
+                <button class="btn-skip" id="btn-skip-${item.id}">
+                  Skip ➜
+                </button>
+              ` : ""}
+            </div>
+          </div>
+        `);
+      });
+
+      data.forEach(item => {
         const targetJumlah = parseInt(item.jumlah) || 1;
         const card = document.getElementById(`card-${item.id}`);
         const btnRead = document.getElementById(`btn-read-${item.id}`);
         const btnSkip = document.getElementById(`btn-skip-${item.id}`);
         const countSpan = document.getElementById(`count-${item.id}`);
 
-        // Fungsi Scroll ke kartu berikutnya
         const scrollToNext = () => {
-            const nextCard = card.nextElementSibling;
-            if (nextCard && nextCard.classList.contains('dzikir-card')) {
-                nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+          const nextCard = card.nextElementSibling;
+          if (nextCard) {
+            nextCard.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
         };
 
-        // Event Tombol Baca
-        if(btnRead) {
-            btnRead.addEventListener("click", () => {
-                let count = todayData[item.id] || 0;
-                
-                if(count < targetJumlah) {
-                    count++;
-                    todayData[item.id] = count;
-                    saved[today] = todayData;
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+        if (btnRead) {
+          btnRead.addEventListener("click", () => {
+            let count = todayData[item.id] || 0;
 
-                    // Update UI Counter
-                    countSpan.innerText = count;
+            if (count < targetJumlah) {
+              count++;
+              todayData[item.id] = count;
+              saveProgress();
 
-                    // Cek jika sudah mencapai target
-                    if(count >= targetJumlah) {
-                        card.classList.add('completed');
-                        btnRead.innerText = '✓ Selesai';
-                        btnRead.disabled = true;
-                        
-                        // Auto scroll ke dzikir berikutnya dengan delay sebentar
-                        setTimeout(() => {
-                            scrollToNext();
-                        }, 400);
-                    } else {
-                        // Jika belum selesai, scroll ke atas dzikir yang sedang dibaca
-                        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
+              countSpan.innerText = count;
+
+              if (count >= targetJumlah) {
+                card.classList.add("completed");
+                btnRead.innerText = "✓ Selesai";
+                btnRead.disabled = true;
+
+                setTimeout(scrollToNext, 350);
+              } else {
+                card.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }
+          });
         }
 
-        // Event Tombol Skip
-        if(btnSkip) {
-            btnSkip.addEventListener("click", () => {
-                scrollToNext();
-            });
+        if (btnSkip) {
+          btnSkip.addEventListener("click", scrollToNext);
         }
-    });
-})
-.catch(err => {
-    document.getElementById("dzikirList").innerHTML = `
+      });
+    })
+    .catch(err => {
+      list.innerHTML = `
         <div class="dzikir-card">
-            <b>Gagal memuat dzikir.</b><br><br>
-            ${err}
+          <b>Gagal memuat dzikir.</b><br><br>
+          Pastikan file berada di:<br>
+          <code>data/dzikirpagi.json</code><br><br>
+          Detail error:<br>
+          ${err.message}
         </div>
-    `;
-});
+      `;
+    });
+}
+
+loadDzikir();
 </script>
 
 </body>
