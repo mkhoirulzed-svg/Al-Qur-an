@@ -416,7 +416,8 @@ async function loadJuz({ start, end }) {
 
       const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
       const div = document.createElement('div');
-      div.className = 'ayat-item';
+     div.className = 'ayat-item';
+div.id = `ayat-${surah}-${ayatNo}`;
 
       if (isBookmarked(juzNo, surah, ayatNo)) div.classList.add('bookmarked');
 
@@ -442,8 +443,30 @@ async function loadJuz({ start, end }) {
   }
 }
 
-loadJuz(juzInfo);
+loadJuz(juzInfo).then(() => {
+  const targetAyat = localStorage.getItem('scrollToAyat');
 
+  if (targetAyat) {
+    setTimeout(() => {
+      const target = document.getElementById(`ayat-${targetAyat}`);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        target.classList.add('playing');
+
+        setTimeout(() => {
+          target.classList.remove('playing');
+        }, 1800);
+      }
+
+      localStorage.removeItem('scrollToAyat');
+    }, 400);
+  }
+});
 /* =========================
    TOGGLE TERJEMAH (ASLI)
 ========================= */
