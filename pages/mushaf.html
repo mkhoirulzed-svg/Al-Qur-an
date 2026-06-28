@@ -255,9 +255,9 @@ function toArabicNumber(num) {
   return String(num).replace(/\d/g, x => d[x]);
 }
 
-  function isBookmarked(juz, surah, ayat) {
+ function isBookmarked(juz, surah, ayat) {
   return getBookmarks().some(b =>
-    b.mode === 'juz' &&
+    b.mode === 'mushaf' &&
     b.juz == juz &&
     b.surah == surah &&
     b.ayat == ayat
@@ -322,7 +322,8 @@ const bookmarked = isBookmarked(juzNo, surah, ayatNo)
     : '';
        
      ayatText += `
-<span class="ayat-text"
+<span class="ayat-text ${bookmarked}"
+  id="ayat-${surah}-${ayatNo}"
   data-juz="${juzNo}"
   data-surah="${surah}"
   data-ayat="${ayatNo}"
@@ -341,7 +342,30 @@ const bookmarked = isBookmarked(juzNo, surah, ayatNo)
   }
 }
 
-loadMushaf(juzInfo);
+loadMushaf(juzInfo).then(() => {
+  const targetAyat = localStorage.getItem('scrollToAyat');
+
+  if (targetAyat) {
+    setTimeout(() => {
+      const target = document.getElementById(`ayat-${targetAyat}`);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        target.classList.add('bookmarked');
+
+        setTimeout(() => {
+          target.classList.remove('bookmarked');
+        }, 1800);
+      }
+
+      localStorage.removeItem('scrollToAyat');
+    }, 400);
+  }
+});
 
    /* =========================
    BOOKMARK (LONG PRESS)
@@ -380,11 +404,11 @@ function toggleBookmark(el) {
   let bookmarks = getBookmarks();
 
   const idx = bookmarks.findIndex(b =>
-    b.mode === 'juz' &&
-    b.juz == juz &&
-    b.surah == surah &&
-    b.ayat == ayat
-  );
+  b.mode === 'mushaf' &&
+  b.juz == juz &&
+  b.surah == surah &&
+  b.ayat == ayat
+);
 
  if (idx >= 0) {
   bookmarks.splice(idx, 1);
@@ -392,12 +416,13 @@ function toggleBookmark(el) {
   showToast('Bookmark dihapus');
 } else {
   bookmarks.push({
-    mode: 'juz',
-    juz,
-    surah,
-    ayat,
-    text: el.textContent.replace(/﴿.*?﴾/, '').trim()
-  });
+  mode: 'mushaf',
+  page: juz,
+  juz,
+  surah,
+  ayat,
+  text: el.textContent.replace(/﴿.*?﴾/, '').trim()
+});
   el.classList.add('bookmarked');
   showToast('Berhasil ditambahkan ke bookmark');
 }
