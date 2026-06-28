@@ -338,6 +338,14 @@ function toArabicNumber(num) {
   return String(num).replace(/\d/g, d => arabicDigits[d]);
 }
 
+function removeBismillah(text) {
+  return text
+    .replace(/^بِسْمِ\s+اللَّهِ\s+الرَّحْمَٰنِ\s+الرَّحِيمِ\s*/u, '')
+    .replace(/^بِسْمِ\s+ٱللَّهِ\s+ٱلرَّحْمَٰنِ\s+ٱلرَّحِيمِ\s*/u, '')
+    .replace(/^بسم\s+الله\s+الرحمن\s+الرحيم\s*/u, '')
+    .trim();
+}
+
 /* =========================
    OBSERVER JUDUL SURAH (ASLI)
 ========================= */
@@ -408,10 +416,7 @@ async function loadJuz({ start, end }) {
         bismillah.innerHTML = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
         juzContent.appendChild(bismillah);
 
-        arabText = arabText.replace(
-          /^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u,
-          ''
-        ).trim();
+        arabText = removeBismillah(arabText);
       }
 
       const terjemah = indo.ayahs.find(x => x.numberInSurah === ayatNo);
