@@ -263,28 +263,7 @@
 </header>
 
 <main class="dzikir-container" id="dzikirList"></main>
-
-<nav class="bottom-nav" aria-label="Navigasi utama">
-  <div class="nav-pill">
-    <a href="../index.html" class="nav-item" data-nav="0">
-      <i class="fas fa-house"></i>
-      <span>Home</span>
-    </a>
-    <a href="quran.html" class="nav-item" data-nav="1">
-      <i class="fas fa-book-quran"></i>
-      <span>Qur'an</span>
-    </a>
-    <a href="bookmark.html" class="nav-item" data-nav="2">
-      <i class="fas fa-bookmark"></i>
-      <span>Markah</span>
-    </a>
-    <a href="about.html" class="nav-item" data-nav="3">
-      <i class="fas fa-circle-info"></i>
-      <span>Tentang</span>
-    </a>
-    <div class="nav-indicator" id="navIndicator"></div>
-  </div>
-</nav>
+<div id="footer"></div>
 
 <script>
 const today = new Date().toISOString().slice(0, 10);
@@ -427,6 +406,6 @@ function loadDzikir() {
 
 loadDzikir();
 </script>
-
+<script src="../data/loader.js"></script>
 </body>
 </html>
