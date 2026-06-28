@@ -221,6 +221,8 @@
   </div>
 </div>
 
+<script src="../data/surah-names.js"></script>
+
 <script>
 const params = new URLSearchParams(window.location.search);
 const no = Number(params.get('no'));
@@ -255,8 +257,26 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
 .then(res=>{
   const arab=res.data[0];
   const indo=res.data[1];
-  judul.textContent=`${arab.englishName} (${arab.name})`;
+const surahLatin = SURAH_NAMES[arab.number] || arab.englishName;
+judul.textContent = `${surahLatin} (${arab.name})`;
   ayatList.innerHTML='';
+
+  function removeBismillah(text) {
+  if (!text.includes('بِسْمِ') && !text.includes('بسم')) {
+    return text.trim();
+  }
+
+  const rahimWords = ['الرَّحِيمِ', 'ٱلرَّحِيمِ'];
+
+  for (const word of rahimWords) {
+    const idx = text.indexOf(word);
+    if (idx !== -1) {
+      return text.slice(idx + word.length).trim();
+    }
+  }
+
+  return text.trim();
+}
 
   function toArabicNumber(num){
     const d=['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
@@ -284,10 +304,7 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
       arab.number !== 1 &&
       arab.number !== 9
     ){
-      ayatText = ayatText.replace(
-        /^بِسْمِ\s*[ٱا]للَّهِ\s*[ٱا]لرَّحْمَٰنِ\s*[ٱا]لرَّحِيمِ\s*/u,
-        ''
-      );
+      ayatText = removeBismillah(ayatText);
     }
 
     const terjemah=indo.ayahs.find(x=>x.numberInSurah===a.numberInSurah);
@@ -300,7 +317,7 @@ div.id = `ayat-${a.numberInSurah}`;
     }
 
     div.dataset.surah=arab.number;
-    div.dataset.surahName=arab.englishName;
+   div.dataset.surahName = surahLatin;
     div.dataset.ayat=a.numberInSurah;
     div.dataset.text=a.text;
     div.dataset.audio=a.audio;
