@@ -186,10 +186,30 @@ Lanjut Membaca →
     `;
 
     // buka ayat
-    item.querySelector('.bookmark-open').onclick = () => {
-      localStorage.setItem('scrollToAyat', b.ayat);
-      location.href = `surah.html?no=${b.surah}`;
-    };
+    // buka ayat
+item.querySelector('.bookmark-open').onclick = () => {
+
+  // mode surah
+  if (b.mode === 'surah') {
+    localStorage.setItem('scrollToAyat', b.ayat);
+    location.href = `surah.html?no=${b.surah}`;
+    return;
+  }
+
+  // mode juz
+  if (b.mode === 'juz') {
+    localStorage.setItem('scrollToAyat', `${b.surah}-${b.ayat}`);
+    location.href = `quran.html?mode=juz&juz=${b.juz}`;
+    return;
+  }
+  
+  if (b.mode === 'mushaf') {
+  localStorage.setItem('scrollToAyat', `${b.surah}-${b.ayat}`);
+  location.href = `mushaf.html?page=${b.page}`;
+  return;
+}
+
+};
 
     // hapus bookmark
     item.querySelector('.hapus-bookmark').onclick = () => {
