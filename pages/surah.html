@@ -268,19 +268,7 @@ judul.textContent = `${surahLatin} (${arab.name})`;
     .replace(/^بسم\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
     .trim();
 }
-
-  const rahimWords = ['الرَّحِيمِ', 'ٱلرَّحِيمِ'];
-
-  for (const word of rahimWords) {
-    const idx = text.indexOf(word);
-    if (idx !== -1) {
-      return text.slice(idx + word.length).trim();
-    }
-  }
-
-  return text.trim();
-}
-
+  
   function toArabicNumber(num){
     const d=['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
     return String(num).replace(/\d/g,x=>d[x]);
