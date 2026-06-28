@@ -1,157 +1,251 @@
-Ini versi full yang sudah ditambahkan animasi progress dan perubahan warna saat dicentang:
-
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramadhan Tracker</title>
+<title>My Daily Amal</title>
 
 <link rel="stylesheet" href="../style.css">
 
 <style>
-.page-ramadhan {
+.page-daily {
   background: #f8fafc;
 }
 
-.ramadhan-container {
-  padding: 16px 16px 96px;
+.daily-container {
+  padding: 86px 16px 110px;
+  max-width: 720px;
+  margin: auto;
 }
 
-.tracker-header {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.tracker-header h2 {
-  font-size: 1.3rem;
-}
-
-.tracker-header p {
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* PROGRESS CARD */
+.daily-card,
 .progress-card {
   background: #fff;
   border-radius: 18px;
-  padding: 18px;
-  margin-bottom: 18px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  text-align: center;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-.progress-circle {
-  width: 132px;
-  height: 132px;
+.daily-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.daily-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.daily-date {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.setting-btn {
+  font-size: 0.8rem;
+  padding: 7px 11px;
+  border-radius: 10px;
+  background: #e0f2fe;
+  color: #0284c7;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.progress-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.progress-ring {
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
-  margin: 0 auto 12px;
   background: conic-gradient(#0284c7 0deg, #e5e7eb 0deg);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.7s ease;
+  transition: background .6s ease;
+  flex-shrink: 0;
 }
 
 .progress-inner {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
+  width: 78px;
+  height: 78px;
   background: #fff;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
-.progress-inner strong {
-  font-size: 1.4rem;
-  color: #0284c7;
-}
-
-.progress-inner span {
-  font-size: 0.72rem;
-  opacity: 0.65;
-}
-
-.progress-info {
-  font-size: 0.85rem;
-  opacity: 0.75;
-}
-
-/* TABLE */
-.tracker-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-.tracker-table th,
-.tracker-table td {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 0.85rem;
-  transition: background 0.35s ease;
-}
-
-.tracker-table th {
-  background: #f1f5f9;
-  font-weight: 600;
-}
-
-.tracker-table tr:last-child td {
-  border-bottom: none;
-}
-
-.tracker-table tr.completed-day td {
-  background: #ecfdf5;
-}
-
-.tracker-table tr.active-day td:first-child {
+.progress-percent {
+  font-size: 1.2rem;
   font-weight: 700;
   color: #0284c7;
 }
 
-input[type="checkbox"] {
-  transform: scale(1.15);
-  accent-color: #0284c7;
-  cursor: pointer;
+.progress-label {
+  font-size: .72rem;
+  opacity: .65;
 }
 
-input[type="checkbox"]:checked {
-  animation: popCheck 0.25s ease;
+.progress-info {
+  flex: 1;
 }
 
-@keyframes popCheck {
+.progress-info h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.progress-info p {
+  font-size: .82rem;
+  opacity: .7;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 9px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #0284c7;
+  border-radius: 999px;
+  transition: width .6s ease;
+}
+
+.amal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background .3s ease, transform .25s ease;
+}
+
+.amal-item:last-child {
+  border-bottom: none;
+}
+
+.amal-item.checked {
+  background: #ecfeff;
+  margin: 0 -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 12px;
+}
+
+.amal-item.pop {
+  animation: softPulse .42s ease;
+}
+
+@keyframes softPulse {
   0% { transform: scale(1); }
-  50% { transform: scale(1.45); }
-  100% { transform: scale(1.15); }
+  50% { transform: scale(1.015); }
+  100% { transform: scale(1); }
 }
 
-.fade-in {
-  animation: fadeInUp 0.45s ease both;
+.amal-item label {
+  flex: 1;
+  font-size: .95rem;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
+input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  border: 2px solid #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .25s ease;
+  flex-shrink: 0;
+}
+
+.checkmark::after {
+  content: "✓";
+  color: #fff;
+  font-size: .85rem;
+  transform: scale(0);
+  transition: transform .2s ease;
+}
+
+input[type="checkbox"]:checked + .checkmark {
+  background: #0284c7;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 4px rgba(2,132,199,.12);
+}
+
+input[type="checkbox"]:checked + .checkmark::after {
+  transform: scale(1);
+}
+
+.custom-box {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.custom-box input {
+  flex: 1;
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: .9rem;
+}
+
+.custom-box button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: #0284c7;
+  color: #fff;
+  font-weight: 600;
+}
+
+hr {
+  margin: 16px 0;
+  opacity: .3;
+}
+
+@media (max-width: 480px) {
+  .progress-ring {
+    width: 94px;
+    height: 94px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .progress-inner {
+    width: 68px;
+    height: 68px;
+  }
+
+  .daily-title {
+    font-size: 1rem;
   }
 }
 </style>
 </head>
 
-<body class="page-ramadhan">
+<body class="page-daily">
 
 <header class="app-header">
   <button class="nav-btn back-btn" onclick="history.back()">
@@ -166,42 +260,55 @@ input[type="checkbox"]:checked {
   </button>
 
   <div class="header-title">
-    <div>Ramadhan Tracker</div>
-    <div class="judul-surah">Pantau ibadah 1–30 Ramadhan</div>
+    <div>My Daily Amal</div>
+    <div class="judul-surah">Evaluasi ibadah harian</div>
   </div>
 </header>
 
-<main class="ramadhan-container">
+<main class="daily-container">
 
-  <div class="tracker-header fade-in">
-    <h2>📊 Progres Ibadah Ramadhan</h2>
-    <p>Ceklis harian untuk evaluasi diri</p>
-  </div>
-
-  <div class="progress-card fade-in">
-    <div class="progress-circle" id="progressCircle">
+  <section class="progress-card">
+    <div class="progress-ring" id="progressRing">
       <div class="progress-inner">
-        <strong id="progressPercent">0%</strong>
-        <span>selesai</span>
+        <div class="progress-percent" id="progressPercent">0%</div>
+        <div class="progress-label">selesai</div>
       </div>
     </div>
-    <div class="progress-info" id="progressInfo">
-      0 dari 120 amalan tercatat
+
+    <div class="progress-info">
+      <h3 id="progressTitle">Semangat mulai hari ini</h3>
+      <p id="progressText">0 amal selesai hari ini.</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="daily-card" id="amalContainer">
+    <div class="daily-head">
+      <div>
+        <div class="daily-title">📋 Checklist Amal</div>
+        <div class="daily-date" id="todayDate"></div>
+      </div>
+
+      <a href="amal_list.html" class="setting-btn">⚙ Atur Amal</a>
+    </div>
+
+    <div id="amalList"></div>
+
+    <hr>
+
+    <div class="daily-title">➕ Tambah Amal Custom</div>
+
+    <div class="custom-box">
+      <input
+        type="text"
+        id="customAmalInput"
+        placeholder="Contoh: Membantu orang tua"
+      >
+      <button id="addCustomAmal">Tambah</button>
     </div>
   </div>
-
-  <table class="tracker-table fade-in">
-    <thead>
-      <tr>
-        <th>Hari</th>
-        <th>Puasa</th>
-        <th>Tilawah</th>
-        <th>Tarawih</th>
-        <th>Sedekah</th>
-      </tr>
-    </thead>
-    <tbody id="trackerBody"></tbody>
-  </table>
 
 </main>
 
@@ -213,87 +320,166 @@ input[type="checkbox"]:checked {
 </nav>
 
 <script>
-const body = document.getElementById('trackerBody');
-const progressCircle = document.getElementById('progressCircle');
+const today = new Date().toISOString().slice(0, 10);
+document.getElementById('todayDate').textContent = `Tanggal: ${today}`;
+
+const progressRing = document.getElementById('progressRing');
 const progressPercent = document.getElementById('progressPercent');
-const progressInfo = document.getElementById('progressInfo');
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+const progressTitle = document.getElementById('progressTitle');
+const amalList = document.getElementById('amalList');
 
-const amalan = ['puasa', 'tilawah', 'tarawih', 'sedekah'];
-const totalTarget = 30 * amalan.length;
-
-function getData() {
-  return JSON.parse(localStorage.getItem('ramadhanTracker')) || {};
+function getDailyData() {
+  const all = JSON.parse(localStorage.getItem('dailyAmal')) || {};
+  return all[today] || {};
 }
 
-function saveData(data) {
-  localStorage.setItem('ramadhanTracker', JSON.stringify(data));
+function saveDailyData(data) {
+  const all = JSON.parse(localStorage.getItem('dailyAmal')) || {};
+  all[today] = data;
+  localStorage.setItem('dailyAmal', JSON.stringify(all));
 }
 
-const data = getData();
+function getAmalConfig() {
+  return JSON.parse(localStorage.getItem('amalConfig')) || {};
+}
+
+function getCustomAmal() {
+  return JSON.parse(localStorage.getItem('customAmal')) || [];
+}
+
+function saveCustomAmal(list) {
+  localStorage.setItem('customAmal', JSON.stringify(list));
+}
+
+const dailyData = getDailyData();
+const amalConfig = getAmalConfig();
+const customAmal = getCustomAmal();
+
+const labelMap = {
+  sholat5: 'Sholat 5 Waktu',
+  jamaah: 'Sholat Berjamaah',
+  sunnah: 'Sholat Sunnah',
+  tilawah: 'Tilawah Al-Qur’an',
+  dzikir: 'Dzikir',
+  sedekah: 'Sedekah',
+  kajian: 'Mengikuti Kajian',
+  istighfar: 'Istighfar'
+};
+
+function renderAmal() {
+  amalList.innerHTML = '';
+
+  Object.keys(amalConfig).forEach(key => {
+    if (amalConfig[key]) {
+      addCheckbox(key, labelMap[key] || key);
+    }
+  });
+
+  customAmal.forEach(item => {
+    addCheckbox(item.key, item.label);
+  });
+
+  updateProgress();
+}
+
+function addCheckbox(key, label) {
+  const div = document.createElement('div');
+  div.className = 'amal-item';
+
+  const cb = document.createElement('input');
+  cb.type = 'checkbox';
+  cb.id = key;
+  cb.checked = !!dailyData[key];
+
+  const check = document.createElement('span');
+  check.className = 'checkmark';
+
+  const lbl = document.createElement('label');
+  lbl.setAttribute('for', key);
+  lbl.textContent = label;
+
+  cb.addEventListener('change', () => {
+    dailyData[key] = cb.checked;
+    saveDailyData(dailyData);
+
+    div.classList.toggle('checked', cb.checked);
+    div.classList.remove('pop');
+    void div.offsetWidth;
+    div.classList.add('pop');
+
+    updateProgress();
+  });
+
+  div.classList.toggle('checked', cb.checked);
+
+  div.appendChild(cb);
+  div.appendChild(check);
+  div.appendChild(lbl);
+
+  check.addEventListener('click', () => cb.click());
+
+  amalList.appendChild(div);
+}
 
 function updateProgress() {
-  let totalChecked = 0;
+  const items = amalList.querySelectorAll('input[type="checkbox"]');
+  const total = items.length;
+  let checked = 0;
 
-  for (let day = 1; day <= 30; day++) {
-    amalan.forEach(type => {
-      if (data[day]?.[type]) totalChecked++;
-    });
+  items.forEach(item => {
+    if (item.checked) checked++;
+  });
 
-    const row = document.querySelector(`tr[data-row="${day}"]`);
-    const completed = amalan.every(type => data[day]?.[type]);
+  const percent = total ? Math.round((checked / total) * 100) : 0;
+  const degree = (percent / 100) * 360;
 
-    if (row) {
-      row.classList.toggle('completed-day', completed);
-      row.classList.toggle('active-day', !completed && amalan.some(type => data[day]?.[type]));
-    }
-  }
-
-  const percent = Math.round((totalChecked / totalTarget) * 100);
-  const degree = percent * 3.6;
-
-  progressCircle.style.background =
+  progressRing.style.background =
     `conic-gradient(#0284c7 ${degree}deg, #e5e7eb ${degree}deg)`;
 
   progressPercent.textContent = `${percent}%`;
-  progressInfo.textContent = `${totalChecked} dari ${totalTarget} amalan tercatat`;
+  progressFill.style.width = `${percent}%`;
+  progressText.textContent = `${checked} dari ${total} amal selesai hari ini.`;
+
+  if (total === 0) {
+    progressTitle.textContent = 'Belum ada amal aktif';
+    progressText.textContent = 'Atur daftar amal terlebih dahulu.';
+  } else if (percent === 0) {
+    progressTitle.textContent = 'Semangat mulai hari ini';
+  } else if (percent < 40) {
+    progressTitle.textContent = 'MasyaAllah, teruskan';
+  } else if (percent < 75) {
+    progressTitle.textContent = 'Progres sangat baik';
+  } else if (percent < 100) {
+    progressTitle.textContent = 'Hampir selesai';
+  } else {
+    progressTitle.textContent = 'Alhamdulillah, lengkap';
+  }
 }
 
-for (let day = 1; day <= 30; day++) {
-  const row = document.createElement('tr');
-  row.dataset.row = day;
+document.getElementById('addCustomAmal').addEventListener('click', () => {
+  const input = document.getElementById('customAmalInput');
+  const value = input.value.trim();
 
-  row.innerHTML = `
-    <td>${day}</td>
-    ${amalan.map(type => `
-      <td>
-        <input type="checkbox"
-          data-day="${day}"
-          data-type="${type}"
-          ${data[day]?.[type] ? 'checked' : ''}
-        >
-      </td>
-    `).join('')}
-  `;
+  if (!value) return;
 
-  body.appendChild(row);
-}
+  const key = 'custom_' + Date.now();
+  customAmal.push({ key, label: value });
+  saveCustomAmal(customAmal);
 
-body.addEventListener('change', e => {
-  if (e.target.type !== 'checkbox') return;
-
-  const day = e.target.dataset.day;
-  const type = e.target.dataset.type;
-
-  data[day] = data[day] || {};
-  data[day][type] = e.target.checked;
-
-  saveData(data);
-  updateProgress();
+  input.value = '';
+  renderAmal();
 });
 
-updateProgress();
+document.getElementById('customAmalInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    document.getElementById('addCustomAmal').click();
+  }
+});
+
+renderAmal();
 </script>
 
 </body>
 </html>
-```
