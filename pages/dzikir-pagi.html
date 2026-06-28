@@ -7,7 +7,8 @@
 
 <link rel="stylesheet" href="../style.css">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 <style>
 .page-dzikir {
   background: #f8fafc;
@@ -190,6 +191,56 @@
   padding: 10px 4px;
   border-radius: 16px;
 }
+
+  .nav-pill {
+  display: flex;
+  align-items: stretch;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 8px 6px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255,255,255,.5);
+  position: relative;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 0 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+}
+
+.nav-item i {
+  font-size: 18px;
+}
+
+.nav-item.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.nav-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  width: 25%;
+  border-radius: 16px;
+  background: var(--primary-ghost-strong);
+  z-index: 0;
+  transform: translateX(0%);
+}
+  
 </style>
 </head>
 
@@ -213,11 +264,26 @@
 
 <main class="dzikir-container" id="dzikirList"></main>
 
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html">Al-Qur'an</a>
-  <a href="bookmark.html">Bookmark</a>
-  <a href="about.html">Tentang</a>
+<nav class="bottom-nav" aria-label="Navigasi utama">
+  <div class="nav-pill">
+    <a href="../index.html" class="nav-item" data-nav="0">
+      <i class="fas fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="quran.html" class="nav-item" data-nav="1">
+      <i class="fas fa-book-quran"></i>
+      <span>Qur'an</span>
+    </a>
+    <a href="bookmark.html" class="nav-item" data-nav="2">
+      <i class="fas fa-bookmark"></i>
+      <span>Markah</span>
+    </a>
+    <a href="about.html" class="nav-item" data-nav="3">
+      <i class="fas fa-circle-info"></i>
+      <span>Tentang</span>
+    </a>
+    <div class="nav-indicator" id="navIndicator"></div>
+  </div>
 </nav>
 
 <script>
