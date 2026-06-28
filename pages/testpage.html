@@ -372,43 +372,6 @@ function renderCalendar(month, year){
 
   hijriMonthTitle.textContent = Array.from(hijriMonths).join(" / ");
 }
-  const hijriMonths = new Set();
-
-  calendarData.forEach(item => {
-    const gDay = Number(item.gregorian.day);
-    const hDay = Number(item.hijri.day);
-    const hMonth = item.hijri.month.en;
-    const hMonthId = Number(item.hijri.month.number);
-    const hYear = item.hijri.year;
-    const weekday = item.gregorian.weekday.en;
-    const holidays = item.hijri.holidays || [];
-
-    hijriMonths.add(`${item.hijri.month.en} ${hYear} H`);
-
-    const cell = document.createElement("button");
-    cell.className = "day-cell";
-
-    const dateObj = new Date(year, month - 1, gDay);
-    const dayIndex = dateObj.getDay();
-
-    if(isToday(dateObj)) cell.classList.add("today");
-    if(dayIndex === 5) cell.classList.add("friday");
-    if(dayIndex === 1 || dayIndex === 4) cell.classList.add("monday-thursday");
-    if(hDay >= 13 && hDay <= 15) cell.classList.add("ayyam");
-    if(holidays.length || getLocalIslamicEvent(hDay, hMonthId)) cell.classList.add("event");
-
-    cell.innerHTML = `
-      <div class="g-date">${gDay} M</div>
-      <div class="h-date">${hDay}</div>
-      ${(holidays.length || getLocalIslamicEvent(hDay, hMonthId)) ? `<span class="badge-dot"></span>` : ``}
-    `;
-
-    cell.onclick = () => showDateInfo(item, dayIndex);
-    grid.appendChild(cell);
-  });
-
-  hijriMonthTitle.textContent = Array.from(hijriMonths).join(" / ");
-}
 
 function showDateInfo(item, dayIndex){
   const g = item.gregorian;
