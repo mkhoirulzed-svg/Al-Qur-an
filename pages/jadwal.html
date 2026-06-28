@@ -179,13 +179,6 @@
     <p>Memuat jadwal sholat...</p>
   </div>
 </main>
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html">Al-Qur'an</a>
-  <a href="bookmark.html">Bookmark</a>
-  <a href="about.html">Tentang</a>
-</nav>
-
 <script src="../data/kota.js"></script>
 <script>
 
@@ -343,7 +336,12 @@ lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
 
    
 </script>
+<div id="footer"></div>
 
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter();
+</script>
 
 </body>
 </html>
