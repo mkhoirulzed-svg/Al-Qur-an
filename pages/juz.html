@@ -339,11 +339,20 @@ function toArabicNumber(num) {
 }
 
 function removeBismillah(text) {
-  return text
-    .replace(/^بِسْمِ\s+اللَّهِ\s+الرَّحْمَٰنِ\s+الرَّحِيمِ\s*/u, '')
-    .replace(/^بِسْمِ\s+ٱللَّهِ\s+ٱلرَّحْمَٰنِ\s+ٱلرَّحِيمِ\s*/u, '')
-    .replace(/^بسم\s+الله\s+الرحمن\s+الرحيم\s*/u, '')
-    .trim();
+  const rahim1 = 'الرَّحِيمِ';
+  const rahim2 = 'ٱلرَّحِيمِ';
+
+  let idx = text.indexOf(rahim1);
+  if (idx !== -1) {
+    return text.slice(idx + rahim1.length).trim();
+  }
+
+  idx = text.indexOf(rahim2);
+  if (idx !== -1) {
+    return text.slice(idx + rahim2.length).trim();
+  }
+
+  return text.trim();
 }
 
 /* =========================
