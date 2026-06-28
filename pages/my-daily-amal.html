@@ -295,19 +295,6 @@ hr {
     </div>
 
     <div id="amalList"></div>
-
-    <hr>
-
-    <div class="daily-title">➕ Tambah Amal Custom</div>
-
-    <div class="custom-box">
-      <input
-        type="text"
-        id="customAmalInput"
-        placeholder="Contoh: Membantu orang tua"
-      >
-      <button id="addCustomAmal">Tambah</button>
-    </div>
   </div>
 
 </main>
@@ -357,26 +344,133 @@ const dailyData = getDailyData();
 const amalConfig = getAmalConfig();
 const customAmal = getCustomAmal();
 
-const labelMap = {
-  sholat5: 'Sholat 5 Waktu',
-  jamaah: 'Sholat Berjamaah',
-  sunnah: 'Sholat Sunnah',
-  tilawah: 'Tilawah Al-Qur’an',
-  dzikir: 'Dzikir',
-  sedekah: 'Sedekah',
-  kajian: 'Mengikuti Kajian',
-  istighfar: 'Istighfar'
-};
+const amalGroups = [
+  {
+    title: 'Sholat 5 Waktu',
+    keys: {
+      sholat5: 'Sholat 5 Waktu',
+      sholat5_subuh: 'Subuh',
+      sholat5_dzuhur: 'Dzuhur',
+      sholat5_ashar: 'Ashar',
+      sholat5_maghrib: 'Maghrib',
+      sholat5_isya: 'Isya'
+    }
+  },
+  {
+    title: 'Sholat Berjamaah',
+    keys: {
+      jamaah: 'Sholat Berjamaah',
+      jamaah_subuh: 'Subuh',
+      jamaah_dzuhur: 'Dzuhur',
+      jamaah_ashar: 'Ashar',
+      jamaah_maghrib: 'Maghrib',
+      jamaah_isya: 'Isya'
+    }
+  },
+  {
+    title: 'Sholat Sunnah',
+    keys: {
+      sunnah: 'Sholat Sunnah',
+      rawatib: 'Rawatib',
+      dhuha: 'Dhuha',
+      tahajjud: 'Tahajjud',
+      witir: 'Witir',
+      tahiyatul: 'Tahiyatul Masjid'
+    }
+  },
+  {
+    title: 'Tilawah Al-Qur’an',
+    keys: {
+      tilawah: 'Tilawah Al-Qur’an',
+      tilawah_ayat: '1 Ayat',
+      tilawah_halaman: '1 Halaman',
+      tilawah_juz: '1 Juz'
+    }
+  },
+  {
+    title: 'Dzikir',
+    keys: {
+      dzikir: 'Dzikir',
+      dzikir_pagi: 'Dzikir Pagi',
+      dzikir_petang: 'Dzikir Petang'
+    }
+  }
+];
 
 function renderAmal() {
   amalList.innerHTML = '';
 
-  Object.keys(amalConfig).forEach(key => {
-    if (amalConfig[key]) {
-      addCheckbox(key, labelMap[key] || key);
+  amalGroups.forEach(group => {
+    const activeKeys = Object.keys(group.keys).filter(key => amalConfig[key]);
+
+    if (activeKeys.length === 0) return;
+
+    const groupBox = document.createElement('div');
+    groupBox.className = 'amal-group';
+
+    const groupTitle = document.createElement('div');
+    groupTitle.className = 'amal-group-title';
+    groupTitle.textContent = group.title;
+
+    groupBox.appendChild(groupTitle);
+
+    activeKeys.forEach(key => {
+      const item = createCheckboxItem(key, group.keys[key]);
+      groupBox.appendChild(item);
+    });
+
+    amalList.appendChild(groupBox);
+  });
+
+  customAmal.forEach(item => {
+    if (amalConfig[item.key] !== false) {
+      const itemEl = createCheckboxItem(item.key, item.label);
+      amalList.appendChild(itemEl);
     }
   });
 
+  updateProgress();
+}
+
+function createCheckboxItem(key, label) {
+  const div = document.createElement('div');
+  div.className = 'amal-item';
+
+  const cb = document.createElement('input');
+  cb.type = 'checkbox';
+  cb.id = key;
+  cb.checked = !!dailyData[key];
+
+  const check = document.createElement('span');
+  check.className = 'checkmark';
+
+  const lbl = document.createElement('label');
+  lbl.setAttribute('for', key);
+  lbl.textContent = label;
+
+  cb.addEventListener('change', () => {
+    dailyData[key] = cb.checked;
+    saveDailyData(dailyData);
+
+    div.classList.toggle('checked', cb.checked);
+    div.classList.remove('pop');
+    void div.offsetWidth;
+    div.classList.add('pop');
+
+    updateProgress();
+  });
+
+  div.classList.toggle('checked', cb.checked);
+
+  div.appendChild(cb);
+  div.appendChild(check);
+  div.appendChild(lbl);
+
+  check.addEventListener('click', () => cb.click());
+
+  return div;
+}
+  
   customAmal.forEach(item => {
     addCheckbox(item.key, item.label);
   });
@@ -457,26 +551,6 @@ function updateProgress() {
     progressTitle.textContent = 'Alhamdulillah, lengkap';
   }
 }
-
-document.getElementById('addCustomAmal').addEventListener('click', () => {
-  const input = document.getElementById('customAmalInput');
-  const value = input.value.trim();
-
-  if (!value) return;
-
-  const key = 'custom_' + Date.now();
-  customAmal.push({ key, label: value });
-  saveCustomAmal(customAmal);
-
-  input.value = '';
-  renderAmal();
-});
-
-document.getElementById('customAmalInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    document.getElementById('addCustomAmal').click();
-  }
-});
 
 renderAmal();
 </script>
