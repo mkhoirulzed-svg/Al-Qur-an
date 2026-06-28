@@ -339,17 +339,17 @@ function toArabicNumber(num) {
 }
 
 function removeBismillah(text) {
-  const rahim1 = 'الرَّحِيمِ';
-  const rahim2 = 'ٱلرَّحِيمِ';
-
-  let idx = text.indexOf(rahim1);
-  if (idx !== -1) {
-    return text.slice(idx + rahim1.length).trim();
+  if (!text.includes('بِسْمِ') && !text.includes('بسم')) {
+    return text.trim();
   }
 
-  idx = text.indexOf(rahim2);
-  if (idx !== -1) {
-    return text.slice(idx + rahim2.length).trim();
+  const rahimWords = ['الرَّحِيمِ', 'ٱلرَّحِيمِ'];
+
+  for (const word of rahimWords) {
+    const idx = text.indexOf(word);
+    if (idx !== -1) {
+      return text.slice(idx + word.length).trim();
+    }
   }
 
   return text.trim();
