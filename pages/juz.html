@@ -348,18 +348,6 @@ function removeBismillah(text) {
     .trim();
 }
 
-  const rahimWords = ['الرَّحِيمِ', 'ٱلرَّحِيمِ'];
-
-  for (const word of rahimWords) {
-    const idx = text.indexOf(word);
-    if (idx !== -1) {
-      return text.slice(idx + word.length).trim();
-    }
-  }
-
-  return text.trim();
-}
-
 /* =========================
    OBSERVER JUDUL SURAH (ASLI)
 ========================= */
