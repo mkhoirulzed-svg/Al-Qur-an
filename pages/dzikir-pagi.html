@@ -6,6 +6,8 @@
 <title>Dzikir Pagi</title>
 
 <link rel="stylesheet" href="../style.css">
+<!-- Menambahkan font Amiri dari Google Fonts untuk Arab yang lebih bagus -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 /* =========================
@@ -19,14 +21,25 @@
   padding: 16px;
   max-width: 720px;
   margin: auto;
+  padding-top: 70px; /* Space for header */
+  padding-bottom: 80px; /* Space for bottom nav */
 }
 
 .dzikir-card {
   background: #fff;
   border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: 20px 16px;
+  margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  /* Agar scroll tidak tertutup header */
+  scroll-margin-top: 80px; 
+}
+
+.dzikir-card.completed {
+  border-left: 5px solid #10b981;
+  opacity: 0.7;
+  background: #f0fdf4;
 }
 
 .dzikir-arab {
@@ -35,48 +48,142 @@
   font-size: 1.85rem;
   line-height: 2.5;
   margin-bottom: 6px;
+  text-align: right;
 }
 
 .dzikir-arti {
   font-size: 0.85rem;
   opacity: 0.75;
   margin-bottom: 10px;
+  line-height: 1.6;
 }
 
-.amal-action {
+.dzikir-latin {
+  font-size: .95rem;
+  color: #475569;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.dzikir-title {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.dzikir-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.dzikir-count .current-count {
+  color: #0284c7;
+  font-size: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-read {
+  flex: 1;
+  padding: 12px;
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-read:active {
+  background: #0369a1;
+}
+
+.btn-read:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.btn-skip {
+  padding: 12px 20px;
+  background: #f1f5f9;
+  color: #64748b;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-skip:active {
+  background: #e2e8f0;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(248, 250, 252, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 100;
   display: flex;
   align-items: center;
-  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-input[type="checkbox"] {
-  transform: scale(1.2);
-  accent-color: #0284c7;
+.header-title div:first-child {
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
-   .dzikir-latin{
-  font-size:.95rem;
-  color:#475569;
-  font-style:italic;
-  line-height:1.7;
-  margin-bottom:10px;
+.judul-surah {
+  font-size: 0.8rem;
+  color: #64748b;
 }
 
-.dzikir-title{
-  font-weight:700;
-  color:#0f172a;
-  margin-bottom:12px;
+.nav-btn {
+  background: none;
+  border: none;
+  margin-right: 12px;
+  color: #0f172a;
 }
 
-.dzikir-count{
-  display:inline-block;
-  background:#0284c7;
-  color:#fff;
-  padding:4px 10px;
-  border-radius:999px;
-  font-size:.75rem;
-  margin-top:8px;
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 1px solid #e2e8f0;
+  z-index: 100;
 }
+
+.bottom-nav a {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 </style>
 </head>
 
@@ -123,12 +230,15 @@ fetch("../data/dzikirpagi.json")
 
     const list = document.getElementById("dzikirList");
 
-    data.forEach(item => {
-
-        const checked = todayData[item.id] ? "checked" : "";
+    data.forEach((item, index) => {
+        // Jika jumlah kosong, default menjadi 1 kali baca
+        const targetJumlah = parseInt(item.jumlah) || 1;
+        const currentCount = todayData[item.id] || 0;
+        const isCompleted = currentCount >= targetJumlah;
+        const completedClass = isCompleted ? "completed" : "";
 
         list.insertAdjacentHTML("beforeend", `
-            <div class="dzikir-card" data-key="${item.id}">
+            <div class="dzikir-card ${completedClass}" data-key="${item.id}" id="card-${item.id}">
 
                 ${item.judul ? `
                 <div class="dzikir-title">
@@ -150,44 +260,83 @@ fetch("../data/dzikirpagi.json")
                     ${item.arti}
                 </div>
 
-                ${item.jumlah ? `
                 <div class="dzikir-count">
-                    Dibaca ${item.jumlah}
+                    Dibaca <span class="current-count" id="count-${item.id}">${currentCount}</span> / ${targetJumlah}
                 </div>
-                ` : ""}
 
-                <div class="amal-action">
-                    <input type="checkbox" ${checked}>
-                    <label>Sudah dibaca</label>
+                <div class="action-buttons">
+                    <button class="btn-read" id="btn-read-${item.id}" ${isCompleted ? 'disabled' : ''}>
+                        ${isCompleted ? '✓ Selesai' : 'Baca 1x'}
+                    </button>
+                    ${index < data.length - 1 ? `
+                    <button class="btn-skip" id="btn-skip-${item.id}">
+                        Skip ➜
+                    </button>
+                    ` : ''}
                 </div>
 
             </div>
         `);
-
     });
 
-    document.querySelectorAll(".dzikir-card").forEach(card=>{
+    // Event Listener untuk tombol
+    data.forEach((item, index) => {
+        const targetJumlah = parseInt(item.jumlah) || 1;
+        const card = document.getElementById(`card-${item.id}`);
+        const btnRead = document.getElementById(`btn-read-${item.id}`);
+        const btnSkip = document.getElementById(`btn-skip-${item.id}`);
+        const countSpan = document.getElementById(`count-${item.id}`);
 
-        const key = card.dataset.key;
-        const checkbox = card.querySelector("input");
+        // Fungsi Scroll ke kartu berikutnya
+        const scrollToNext = () => {
+            const nextCard = card.nextElementSibling;
+            if (nextCard && nextCard.classList.contains('dzikir-card')) {
+                nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
 
-        checkbox.addEventListener("change",()=>{
+        // Event Tombol Baca
+        if(btnRead) {
+            btnRead.addEventListener("click", () => {
+                let count = todayData[item.id] || 0;
+                
+                if(count < targetJumlah) {
+                    count++;
+                    todayData[item.id] = count;
+                    saved[today] = todayData;
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
 
-            todayData[key]=checkbox.checked;
-            saved[today]=todayData;
+                    // Update UI Counter
+                    countSpan.innerText = count;
 
-            localStorage.setItem(
-                STORAGE_KEY,
-                JSON.stringify(saved)
-            );
+                    // Cek jika sudah mencapai target
+                    if(count >= targetJumlah) {
+                        card.classList.add('completed');
+                        btnRead.innerText = '✓ Selesai';
+                        btnRead.disabled = true;
+                        
+                        // Auto scroll ke dzikir berikutnya dengan delay sebentar
+                        setTimeout(() => {
+                            scrollToNext();
+                        }, 400);
+                    } else {
+                        // Jika belum selesai, scroll ke atas dzikir yang sedang dibaca
+                        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        }
 
-        });
-
+        // Event Tombol Skip
+        if(btnSkip) {
+            btnSkip.addEventListener("click", () => {
+                scrollToNext();
+            });
+        }
     });
-
 })
-.catch(err=>{
-    document.getElementById("dzikirList").innerHTML=`
+.catch(err => {
+    document.getElementById("dzikirList").innerHTML = `
         <div class="dzikir-card">
             <b>Gagal memuat dzikir.</b><br><br>
             ${err}
