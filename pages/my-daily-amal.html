@@ -6,6 +6,8 @@
 <title>My Daily Amal</title>
 
 <link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 .page-daily {
@@ -312,13 +314,6 @@ hr {
 
 </main>
 
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html">Al-Qur'an</a>
-  <a href="bookmark.html">Bookmark</a>
-  <a href="about.html">Tentang</a>
-</nav>
-
 <script>
 const today = new Date().toISOString().slice(0, 10);
 document.getElementById('todayDate').textContent = `Tanggal: ${today}`;
@@ -534,6 +529,11 @@ function updateProgress() {
 
 renderAmal();
 </script>
+<div id="footer"></div>
 
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter();
+</script>
 </body>
 </html>
