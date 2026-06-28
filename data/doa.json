@@ -1,16 +1,18 @@
 [
   {
-    "judul": "Doa Sebelum Makan",
-    "arab": "اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
-    "latin": "Allahumma baarik lanaa fiimaa razaqtanaa wa qinaa 'adzaaban naar.",
-    "arti": "Ya Allah, berkahilah rezeki yang Engkau berikan kepada kami dan peliharalah kami dari siksa neraka.",
-    "sumber": "Doa harian"
+    "id":"doa-sebelum-makan",
+    "judul":"Doa Sebelum Makan",
+    "arab":"...",
+    "latin":"...",
+    "arti":"...",
+    "sumber":"..."
   },
   {
-    "judul": "Doa Setelah Makan",
-    "arab": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ",
-    "latin": "Alhamdulillaahil ladzii ath'amanii haadzaa wa razaqaniih.",
-    "arti": "Segala puji bagi Allah yang telah memberiku makanan ini dan menjadikannya rezeki untukku.",
-    "sumber": "Doa harian"
+    "id":"doa-setelah-makan",
+    "judul":"Doa Setelah Makan",
+    "arab":"...",
+    "latin":"...",
+    "arti":"...",
+    "sumber":"..."
   }
 ]
