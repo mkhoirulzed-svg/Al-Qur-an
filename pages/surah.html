@@ -293,6 +293,7 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
     const terjemah=indo.ayahs.find(x=>x.numberInSurah===a.numberInSurah);
     const div=document.createElement('div');
     div.className='ayat-item';
+div.id = `ayat-${a.numberInSurah}`;
 
     if(isBookmarkedSurah(arab.number,a.numberInSurah)){
       div.classList.add('bookmarked');
@@ -315,6 +316,28 @@ fetch(`https://api.alquran.cloud/v1/surah/${no}/editions/ar.alafasy,id.indonesia
     `;
     ayatList.appendChild(div);
   });
+    const targetAyat = localStorage.getItem('scrollToAyat');
+
+  if (targetAyat) {
+    setTimeout(() => {
+      const target = document.getElementById(`ayat-${targetAyat}`);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        target.classList.add('playing');
+
+        setTimeout(() => {
+          target.classList.remove('playing');
+        }, 1800);
+      }
+
+      localStorage.removeItem('scrollToAyat');
+    }, 400);
+  }
 });
 
 /* ================= TOGGLE TERJEMAH ================= */
