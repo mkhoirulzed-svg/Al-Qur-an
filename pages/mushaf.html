@@ -216,6 +216,7 @@ body{
   <p>Memuat mushaf...</p>
 </main>
 <div id="toast" class="toast"></div>
+<script src="../data/surah-names.js"></script>
 <script src="../data/juz-map.js"></script>
 <script>
 const mushafContent = document.getElementById('mushafContent');
@@ -255,6 +256,23 @@ function toArabicNumber(num) {
   return String(num).replace(/\d/g, x => d[x]);
 }
 
+     function removeBismillah(text) {
+  if (!text.includes('بِسْمِ') && !text.includes('بسم')) {
+    return text.trim();
+  }
+
+  const rahimWords = ['الرَّحِيمِ', 'ٱلرَّحِيمِ'];
+
+  for (const word of rahimWords) {
+    const idx = text.indexOf(word);
+    if (idx !== -1) {
+      return text.slice(idx + word.length).trim();
+    }
+  }
+
+  return text.trim();
+}
+
  function isBookmarked(juz, surah, ayat) {
   return getBookmarks().some(b =>
     b.mode === 'mushaf' &&
@@ -278,12 +296,13 @@ async function loadMushaf({ start, end }) {
     // HEADER SURAH
    const header = document.createElement('div');
 header.className = 'surah-header';
-header.textContent = `${arab.englishName} (${arab.name})`;
+const surahLatin = SURAH_NAMES[surah] || arab.englishName;
+header.textContent = `${surahLatin} (${arab.name})`;
 mushafContent.appendChild(header);
 
 // set judul surah di header atas (sekali saja)
 if (!judulSurah.textContent) {
-  judulSurah.textContent = `${arab.englishName} (${arab.name})`;
+  judulSurah.textContent = `${surahLatin} (${arab.name})`;
 }
 
 
@@ -311,10 +330,7 @@ if (!judulSurah.textContent) {
         bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
         mushafContent.appendChild(bismillah);
 
-        text = text.replace(
-          /^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u,
-          ''
-        ).trim();
+        text = removeBismillah(text);
       }
        
 const bookmarked = isBookmarked(juzNo, surah, ayatNo)
