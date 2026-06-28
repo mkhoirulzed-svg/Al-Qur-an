@@ -6,6 +6,8 @@
 <title>Pilih Amal Harian</title>
 
 <link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 .page-daily { background:#f8fafc; }
@@ -211,13 +213,6 @@ input[type="checkbox"] {
   <button class="save-btn" id="saveAmal"> Simpan & Kembali</button>
 </div>
 
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html">Al-Qur'an</a>
-  <a href="bookmark.html">Bookmark</a>
-  <a href="about.html">Tentang</a>
-</nav>
-
 <script>
 const config = JSON.parse(localStorage.getItem('amalConfig')) || {};
 let customAmal = JSON.parse(localStorage.getItem('customAmal')) || [];
@@ -372,6 +367,13 @@ document.getElementById('saveAmal').onclick = () => {
 };
 
 renderCustom();
+</script>
+
+  <div id="footer"></div>
+
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter();
 </script>
 
 </body>
