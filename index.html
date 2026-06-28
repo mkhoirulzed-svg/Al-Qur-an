@@ -853,6 +853,52 @@ function renderLastBookmarkHome() {
 }
 
 renderLastBookmarkHome();
+
+  function tampilkanWaktuSholatBerikutnya(){
+
+  const el = document.getElementById("greetingTime");
+
+  const data = JSON.parse(localStorage.getItem("jadwalSholat"));
+
+  if(!data){
+    el.textContent = "Buka Jadwal Sholat untuk memuat jadwal.";
+    return;
+  }
+
+  if(data.tanggal !== new Date().toDateString()){
+    el.textContent = "Jadwal sholat perlu diperbarui.";
+    return;
+  }
+
+  const jadwal = [
+    ["Subuh", data.waktu.Fajr],
+    ["Dzuhur", data.waktu.Dhuhr],
+    ["Ashar", data.waktu.Asr],
+    ["Maghrib", data.waktu.Maghrib],
+    ["Isya", data.waktu.Isha]
+  ];
+
+  const sekarang = new Date();
+
+  for(const [nama,jam] of jadwal){
+
+    const [h,m] = jam.split(":");
+
+    const waktu = new Date();
+    waktu.setHours(h,m,0,0);
+
+    if(sekarang < waktu){
+      el.innerHTML = `Waktu sholat berikutnya <b>${nama}</b> • ${jam}`;
+      return;
+    }
+
+  }
+
+  // lewat Isya
+  el.innerHTML = `Waktu sholat berikutnya <b>Subuh</b> • ${jadwal[0][1]}`;
+}
+
+tampilkanWaktuSholatBerikutnya();
 </script>
 
   <div id="footer"></div>
