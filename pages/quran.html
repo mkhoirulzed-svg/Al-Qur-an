@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Al-Qur'an</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -36,13 +37,6 @@
   <div id="surahList" class="surah-list"></div>
 
 </main>
-
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html" class="active">Al-Qur'an</a>
-  <a href="bookmark.html">Bookmark</a>
-  <a href="about.html">Tentang</a>
-</nav>
 
   <script src="../data/juz-map.js"></script>
   <script src="../data/surah-names.js"></script>
@@ -139,7 +133,12 @@ function loadJuz() {
 
 
 </script>
+<div id="footer"></div>
 
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter();
+</script>
 
 </body>
 </html>
