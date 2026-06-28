@@ -263,8 +263,6 @@
 </header>
 
 <main class="dzikir-container" id="dzikirList"></main>
-<div id="footer"></div>
-
 <script>
 const today = new Date().toISOString().slice(0, 10);
 const STORAGE_KEY = "dzikirPagiRumaysho";
@@ -406,6 +404,11 @@ function loadDzikir() {
 
 loadDzikir();
 </script>
+<div id="footer"></div>
+
 <script src="../data/loader.js"></script>
+<script>
+  loadFooter();
+</script>
 </body>
 </html>
