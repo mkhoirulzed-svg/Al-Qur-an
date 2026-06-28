@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arah Kiblat</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 /* =========================
@@ -266,13 +267,6 @@
   </div>
 </main>
 
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html">Al-Qur'an</a>
-  <a href="bookmark.html">Bookmark</a>
-  <a href="about.html">Tentang</a>
-</nav>
-
 <script>
 const panah = document.getElementById('panahKiblat');
 const info  = document.getElementById('infoArah');
@@ -523,6 +517,12 @@ async function initKiblat() {
   );
 }
 </script>
+<div id="footer"></div>
 
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter();
+</script>
+   
 </body>
 </html>
