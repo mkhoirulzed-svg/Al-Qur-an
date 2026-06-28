@@ -8,15 +8,14 @@
 <link rel="stylesheet" href="../style.css">
 
 <style>
-/* =========================
-   RAMADHAN TRACKER STYLE
-========================= */
 .page-ramadhan {
   background: #f8fafc;
 }
 
 .ramadhan-container {
-  padding: 16px;
+  padding: 86px 16px 110px;
+  max-width: 720px;
+  margin: auto;
 }
 
 .tracker-header {
@@ -33,13 +32,119 @@
   opacity: 0.7;
 }
 
-.tracker-table {
+.progress-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.progress-ring {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background:
+    conic-gradient(#0284c7 0deg, #e5e7eb 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.6s ease;
+  flex-shrink: 0;
+}
+
+.progress-inner {
+  width: 82px;
+  height: 82px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.progress-percent {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0284c7;
+}
+
+.progress-label {
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.progress-info {
+  flex: 1;
+}
+
+.progress-info h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.progress-info p {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
   width: 100%;
-  border-collapse: collapse;
+  height: 9px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #0284c7;
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.summary-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px 6px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.summary-item strong {
+  display: block;
+  font-size: 1rem;
+  color: #0284c7;
+}
+
+.summary-item span {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.table-wrapper {
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.tracker-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .tracker-table th,
@@ -59,9 +164,82 @@
   border-bottom: none;
 }
 
+.tracker-table tr {
+  transition: background 0.35s ease, transform 0.25s ease;
+}
+
+.tracker-table tr.row-complete {
+  background: #ecfeff;
+}
+
+.tracker-table tr.row-active {
+  animation: softPulse 0.45s ease;
+}
+
+@keyframes softPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+
 input[type="checkbox"] {
-  transform: scale(1.1);
-  accent-color: #0284c7;
+  display: none;
+}
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 2px solid #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.checkmark::after {
+  content: "✓";
+  color: #fff;
+  font-size: 0.8rem;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+
+input[type="checkbox"]:checked + .checkmark {
+  background: #0284c7;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 4px rgba(2,132,199,0.12);
+}
+
+input[type="checkbox"]:checked + .checkmark::after {
+  transform: scale(1);
+}
+
+@media (max-width: 480px) {
+  .progress-card {
+    align-items: center;
+  }
+
+  .progress-ring {
+    width: 96px;
+    height: 96px;
+  }
+
+  .progress-inner {
+    width: 70px;
+    height: 70px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tracker-table th,
+  .tracker-table td {
+    padding: 9px 6px;
+    font-size: 0.78rem;
+  }
 }
 </style>
 </head>
@@ -93,18 +271,56 @@ input[type="checkbox"] {
     <p>Ceklis harian untuk evaluasi diri</p>
   </div>
 
-  <table class="tracker-table">
-    <thead>
-      <tr>
-        <th>Hari</th>
-        <th>Puasa</th>
-        <th>Tilawah</th>
-        <th>Tarawih</th>
-        <th>Sedekah</th>
-      </tr>
-    </thead>
-    <tbody id="trackerBody"></tbody>
-  </table>
+  <section class="progress-card">
+    <div class="progress-ring" id="progressRing">
+      <div class="progress-inner">
+        <div class="progress-percent" id="progressPercent">0%</div>
+        <div class="progress-label">selesai</div>
+      </div>
+    </div>
+
+    <div class="progress-info">
+      <h3 id="progressTitle">Semangat mulai hari ini</h3>
+      <p id="progressText">0 dari 120 amalan sudah diceklis.</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="summary-grid">
+    <div class="summary-item">
+      <strong id="countPuasa">0</strong>
+      <span>Puasa</span>
+    </div>
+    <div class="summary-item">
+      <strong id="countTilawah">0</strong>
+      <span>Tilawah</span>
+    </div>
+    <div class="summary-item">
+      <strong id="countTarawih">0</strong>
+      <span>Tarawih</span>
+    </div>
+    <div class="summary-item">
+      <strong id="countSedekah">0</strong>
+      <span>Sedekah</span>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="tracker-table">
+      <thead>
+        <tr>
+          <th>Hari</th>
+          <th>Puasa</th>
+          <th>Tilawah</th>
+          <th>Tarawih</th>
+          <th>Sedekah</th>
+        </tr>
+      </thead>
+      <tbody id="trackerBody"></tbody>
+    </table>
+  </div>
 
 </main>
 
@@ -118,6 +334,20 @@ input[type="checkbox"] {
 <script>
 const body = document.getElementById('trackerBody');
 
+const progressRing = document.getElementById('progressRing');
+const progressPercent = document.getElementById('progressPercent');
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+const progressTitle = document.getElementById('progressTitle');
+
+const countPuasa = document.getElementById('countPuasa');
+const countTilawah = document.getElementById('countTilawah');
+const countTarawih = document.getElementById('countTarawih');
+const countSedekah = document.getElementById('countSedekah');
+
+const types = ['puasa', 'tilawah', 'tarawih', 'sedekah'];
+const totalTarget = 30 * types.length;
+
 function getData() {
   return JSON.parse(localStorage.getItem('ramadhanTracker')) || {};
 }
@@ -130,16 +360,20 @@ const data = getData();
 
 for (let day = 1; day <= 30; day++) {
   const row = document.createElement('tr');
+  row.dataset.day = day;
 
   row.innerHTML = `
     <td>${day}</td>
-    ${['puasa','tilawah','tarawih','sedekah'].map(type => `
+    ${types.map(type => `
       <td>
-        <input type="checkbox"
-          data-day="${day}"
-          data-type="${type}"
-          ${data[day]?.[type] ? 'checked' : ''}
-        >
+        <label>
+          <input type="checkbox"
+            data-day="${day}"
+            data-type="${type}"
+            ${data[day]?.[type] ? 'checked' : ''}
+          >
+          <span class="checkmark"></span>
+        </label>
       </td>
     `).join('')}
   `;
@@ -147,17 +381,80 @@ for (let day = 1; day <= 30; day++) {
   body.appendChild(row);
 }
 
+function updateProgress() {
+  let totalChecked = 0;
+  let totals = {
+    puasa: 0,
+    tilawah: 0,
+    tarawih: 0,
+    sedekah: 0
+  };
+
+  for (let day = 1; day <= 30; day++) {
+    const row = document.querySelector(`tr[data-day="${day}"]`);
+    let dayChecked = 0;
+
+    types.forEach(type => {
+      if (data[day]?.[type]) {
+        totalChecked++;
+        totals[type]++;
+        dayChecked++;
+      }
+    });
+
+    if (row) {
+      row.classList.toggle('row-complete', dayChecked === types.length);
+    }
+  }
+
+  const percent = Math.round((totalChecked / totalTarget) * 100);
+  const degree = (percent / 100) * 360;
+
+  progressRing.style.background =
+    `conic-gradient(#0284c7 ${degree}deg, #e5e7eb ${degree}deg)`;
+
+  progressPercent.textContent = `${percent}%`;
+  progressFill.style.width = `${percent}%`;
+  progressText.textContent = `${totalChecked} dari ${totalTarget} amalan sudah diceklis.`;
+
+  if (percent === 0) {
+    progressTitle.textContent = 'Semangat mulai hari ini';
+  } else if (percent < 40) {
+    progressTitle.textContent = 'MasyaAllah, teruskan';
+  } else if (percent < 75) {
+    progressTitle.textContent = 'Progres sangat baik';
+  } else if (percent < 100) {
+    progressTitle.textContent = 'Hampir sempurna';
+  } else {
+    progressTitle.textContent = 'Alhamdulillah, lengkap';
+  }
+
+  countPuasa.textContent = totals.puasa;
+  countTilawah.textContent = totals.tilawah;
+  countTarawih.textContent = totals.tarawih;
+  countSedekah.textContent = totals.sedekah;
+}
+
 body.addEventListener('change', e => {
   if (e.target.type !== 'checkbox') return;
 
   const day = e.target.dataset.day;
   const type = e.target.dataset.type;
+  const row = document.querySelector(`tr[data-day="${day}"]`);
 
   data[day] = data[day] || {};
   data[day][type] = e.target.checked;
 
   saveData(data);
+
+  row.classList.remove('row-active');
+  void row.offsetWidth;
+  row.classList.add('row-active');
+
+  updateProgress();
 });
+
+updateProgress();
 </script>
 
 </body>
