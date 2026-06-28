@@ -835,16 +835,41 @@ function renderLastBookmarkHome() {
       ? b.surahName
       : SURAH_NAMES[b.surah] || "Surah tidak diketahui";
 
+ // arahkan bookmark sesuai sumber awal
+if (b.mode === "surah") {
   card.href = `pages/surah.html?no=${b.surah}`;
+
   card.onclick = () => {
     localStorage.setItem("scrollToAyat", b.ayat);
   };
+}
+
+else if (b.mode === "juz") {
+  card.href = `pages/juz.html?no=${b.juz}`;
+
+  card.onclick = () => {
+    localStorage.setItem("scrollToAyat", `${b.surah}-${b.ayat}`);
+  };
+}
+
+else if (b.mode === "mushaf") {
+  card.href = `pages/mushaf.html?no=${b.juz}`;
+
+  card.onclick = () => {
+    localStorage.setItem("scrollToAyat", `${b.surah}-${b.ayat}`);
+  };
+}
+
+else {
+  card.href = "pages/bookmark.html";
+  card.onclick = null;
+}
 
   card.innerHTML = `
     <div class="last-read-num">${b.ayat}</div>
     <div class="last-read-info">
       <h3>${surahName}</h3>
-      <p>Bookmark &middot; Ayat ${b.ayat}</p>
+    <p>Bookmark ${b.mode} &middot; Ayat ${b.ayat}</p>
     </div>
     <div class="last-read-arrow">
       <i class="fas fa-arrow-right"></i>
