@@ -9,63 +9,106 @@
 
 <style>
 .page-daily { background:#f8fafc; }
-.daily-container { padding:16px; }
+
+.daily-container {
+  padding:86px 16px 120px;
+  max-width:720px;
+  margin:auto;
+}
+
 .daily-card {
   background:#fff;
-  border-radius:14px;
+  border-radius:18px;
   padding:16px;
-  margin-bottom:90px;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  margin-bottom:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
+
 .daily-title { font-size:1.1rem; font-weight:600; }
 .daily-desc { font-size:.85rem; opacity:.7; margin-bottom:12px; }
 
 .amal-item {
   display:flex;
+  align-items:center;
   gap:12px;
-  padding:10px 0;
+  padding:11px 0;
   border-bottom:1px solid #e5e7eb;
 }
-.sub-amal {
-  padding-left:28px;
-  border-left:2px solid #e0f2fe;
-  margin:6px 0;
+
+.amal-item:last-child { border-bottom:none; }
+
+label {
+  flex:1;
+  font-size:.95rem;
 }
-label { flex:1; font-size:.95rem; }
+
 input[type="checkbox"] {
   transform:scale(1.2);
   accent-color:#0284c7;
 }
 
-  /* COLLAPSE SUB MENU */
 .sub-amal {
-  margin-left: 28px;
-  border-left: 2px solid #e0f2fe;
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease;
+  margin-left:28px;
+  border-left:2px solid #e0f2fe;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .3s ease;
 }
 
-.sub-amal.open {
-  max-height: 500px; /* cukup untuk semua submenu */
+.sub-amal.open { max-height:500px; }
+
+.parent-row { cursor:pointer; }
+.parent-row:hover { background:#f8fafc; }
+
+.custom-input-box {
+  display:flex;
+  gap:8px;
+  margin-top:12px;
 }
 
-.parent-row {
-  cursor: pointer;
-}
-.parent-row:hover {
-  background: #f8fafc;
+.custom-input-box input {
+  flex:1;
+  padding:11px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:.9rem;
 }
 
+.custom-input-box button {
+  border:none;
+  border-radius:12px;
+  padding:10px 14px;
+  background:#0284c7;
+  color:#fff;
+  font-weight:600;
+}
 
-/* tombol simpan */
+.action-btn {
+  border:none;
+  background:#e0f2fe;
+  color:#0284c7;
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  font-size:.9rem;
+  cursor:pointer;
+}
+
+.delete-btn {
+  background:#fee2e2;
+  color:#dc2626;
+}
+
 .save-bar {
   position:fixed;
   bottom:56px;
-  left:0; right:0;
+  left:0;
+  right:0;
   padding:12px 16px;
   background:#f8fafc;
+  z-index:10;
 }
+
 .save-btn {
   width:100%;
   padding:14px;
@@ -89,87 +132,101 @@ input[type="checkbox"] {
 </header>
 
 <main class="daily-container">
+
 <div class="daily-card">
+  <div class="daily-title">✅ Daftar Amal</div>
+  <div class="daily-desc">Centang amal dan detail yang ingin dicatat</div>
 
-<div class="daily-title">✅ Daftar Amal</div>
-<div class="daily-desc">Centang amal dan detail yang ingin dicatat</div>
+  <div class="amal-item parent-row" data-toggle="sholat5">
+    <input type="checkbox" data-key="sholat5">
+    <label>Sholat 5 Waktu</label>
+  </div>
+  <div class="sub-amal" data-parent="sholat5">
+    <div class="amal-item"><input type="checkbox" data-key="sholat5_subuh"><label>Subuh</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="sholat5_dzuhur"><label>Dzuhur</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="sholat5_ashar"><label>Ashar</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="sholat5_maghrib"><label>Maghrib</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="sholat5_isya"><label>Isya</label></div>
+  </div>
 
-<!-- SHOLAT 5 WAKTU -->
-<div class="amal-item parent-row" data-toggle="sholat5">
-  <input type="checkbox" data-key="sholat5">
-  <label>Sholat 5 Waktu</label>
-</div>
-<div class="sub-amal" data-parent="sholat5">
-  <div class="amal-item"><input type="checkbox" data-key="sholat5_subuh"><label>Subuh</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="sholat5_dzuhur"><label>Dzuhur</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="sholat5_ashar"><label>Ashar</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="sholat5_maghrib"><label>Maghrib</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="sholat5_isya"><label>Isya</label></div>
-</div>
+  <div class="amal-item parent-row" data-toggle="jamaah">
+    <input type="checkbox" data-key="jamaah">
+    <label>Sholat Berjamaah</label>
+  </div>
+  <div class="sub-amal" data-parent="jamaah">
+    <div class="amal-item"><input type="checkbox" data-key="jamaah_subuh"><label>Subuh</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="jamaah_dzuhur"><label>Dzuhur</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="jamaah_ashar"><label>Ashar</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="jamaah_maghrib"><label>Maghrib</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="jamaah_isya"><label>Isya</label></div>
+  </div>
 
-<!-- SHOLAT BERJAMAAH -->
-<div class="amal-item parent-row" data-toggle="jamaah">
-  <input type="checkbox" data-key="jamaah">
-  <label>Sholat Berjamaah</label>
-</div>
-<div class="sub-amal" data-parent="jamaah">
-  <div class="amal-item"><input type="checkbox" data-key="jamaah_subuh"><label>Subuh</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="jamaah_dzuhur"><label>Dzuhur</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="jamaah_ashar"><label>Ashar</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="jamaah_maghrib"><label>Maghrib</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="jamaah_isya"><label>Isya</label></div>
-</div>
+  <div class="amal-item parent-row" data-toggle="sunnah">
+    <input type="checkbox" data-key="sunnah">
+    <label>Sholat Sunnah</label>
+  </div>
+  <div class="sub-amal" data-parent="sunnah">
+    <div class="amal-item"><input type="checkbox" data-key="rawatib"><label>Rawatib</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="dhuha"><label>Dhuha</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="tahajjud"><label>Tahajjud</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="witir"><label>Witir</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="tahiyatul"><label>Tahiyatul Masjid</label></div>
+  </div>
 
-<!-- SHOLAT SUNNAH -->
-<div class="amal-item parent-row" data-toggle="sunnah">
-  <input type="checkbox" data-key="sunnah">
-  <label>Sholat Sunnah</label>
-</div>
-<div class="sub-amal" data-parent="sunnah">
-  <div class="amal-item"><input type="checkbox" data-key="rawatib"><label>Rawatib</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="dhuha"><label>Dhuha</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="tahajjud"><label>Tahajjud</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="witir"><label>Witir</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="tahiyatul"><label>Tahiyatul Masjid</label></div>
-</div>
+  <div class="amal-item parent-row" data-toggle="tilawah">
+    <input type="checkbox" data-key="tilawah">
+    <label>Tilawah Al-Qur’an</label>
+  </div>
+  <div class="sub-amal" data-parent="tilawah">
+    <div class="amal-item"><input type="checkbox" data-key="tilawah_ayat"><label>1 Ayat</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="tilawah_halaman"><label>1 Halaman</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="tilawah_juz"><label>1 Juz</label></div>
+  </div>
 
-<!-- TILAWAH -->
-<div class="amal-item parent-row" data-toggle="tilawah">
-  <input type="checkbox" data-key="tilawah">
-  <label>Tilawah Al-Qur’an</label>
-</div>
-<div class="sub-amal" data-parent="tilawah">
-  <div class="amal-item"><input type="checkbox" data-key="tilawah_ayat"><label>1 Ayat</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="tilawah_halaman"><label>1 Halaman</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="tilawah_juz"><label>1 Juz</label></div>
-</div>
-
-<!-- DZIKIR -->
-<div class="amal-item parent-row" data-toggle="dzikir">
-  <input type="checkbox" data-key="dzikir">
-  <label>Dzikir</label>
-</div>
-<div class="sub-amal" data-parent="dzikir">
-  <div class="amal-item"><input type="checkbox" data-key="dzikir_pagi"><label>Dzikir Pagi</label></div>
-  <div class="amal-item"><input type="checkbox" data-key="dzikir_petang"><label>Dzikir Petang</label></div>
+  <div class="amal-item parent-row" data-toggle="dzikir">
+    <input type="checkbox" data-key="dzikir">
+    <label>Dzikir</label>
+  </div>
+  <div class="sub-amal" data-parent="dzikir">
+    <div class="amal-item"><input type="checkbox" data-key="dzikir_pagi"><label>Dzikir Pagi</label></div>
+    <div class="amal-item"><input type="checkbox" data-key="dzikir_petang"><label>Dzikir Petang</label></div>
+  </div>
 </div>
 
+<div class="daily-card">
+  <div class="daily-title">➕ Amal Custom</div>
+  <div class="daily-desc">Tambahkan amal pribadi, bisa diedit atau dihapus</div>
+
+  <div id="customList"></div>
+
+  <div class="custom-input-box">
+    <input type="text" id="customInput" placeholder="Contoh: Membantu orang tua">
+    <button id="addCustom">Tambah</button>
+  </div>
 </div>
+
 </main>
 
 <div class="save-bar">
   <button class="save-btn" id="saveAmal">💾 Simpan & Kembali</button>
 </div>
+
 <nav class="bottom-nav">
   <a href="../index.html">Home</a>
   <a href="quran.html">Al-Qur'an</a>
   <a href="bookmark.html">Bookmark</a>
   <a href="about.html">Tentang</a>
 </nav>
+
 <script>
 const config = JSON.parse(localStorage.getItem('amalConfig')) || {};
+let customAmal = JSON.parse(localStorage.getItem('customAmal')) || [];
 
-/* INIT CHECKBOX */
+function saveCustomAmal() {
+  localStorage.setItem('customAmal', JSON.stringify(customAmal));
+}
+
+/* INIT CHECKBOX BAWAAN */
 document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
   const key = cb.dataset.key;
   cb.checked = !!config[key];
@@ -186,24 +243,136 @@ document.querySelectorAll('.parent-row').forEach(row => {
 
   if (!sub) return;
 
-  row.addEventListener('click', (e) => {
-    // biar klik checkbox tidak toggle
+  row.addEventListener('click', e => {
     if (e.target.tagName === 'INPUT') return;
     sub.classList.toggle('open');
   });
 
-  // auto buka jika ada sub yang dicentang
-  const hasChecked = sub.querySelector('input:checked');
-  if (hasChecked) sub.classList.add('open');
+  if (sub.querySelector('input:checked')) {
+    sub.classList.add('open');
+  }
 });
+
+/* RENDER CUSTOM */
+function renderCustom() {
+  const customList = document.getElementById('customList');
+  customList.innerHTML = '';
+
+  if (customAmal.length === 0) {
+    customList.innerHTML = `
+      <div class="daily-desc" style="margin-top:10px;">
+        Belum ada amal custom.
+      </div>
+    `;
+    return;
+  }
+
+  customAmal.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'amal-item';
+
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = config[item.key] !== false;
+    cb.addEventListener('change', () => {
+      config[item.key] = cb.checked;
+    });
+
+    const label = document.createElement('label');
+    label.textContent = item.label;
+
+    const editBtn = document.createElement('button');
+    editBtn.className = 'action-btn';
+    editBtn.innerHTML = '✏️';
+    editBtn.onclick = () => editCustom(item.key);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'action-btn delete-btn';
+    deleteBtn.innerHTML = '🗑';
+    deleteBtn.onclick = () => deleteCustom(item.key);
+
+    row.appendChild(cb);
+    row.appendChild(label);
+    row.appendChild(editBtn);
+    row.appendChild(deleteBtn);
+
+    customList.appendChild(row);
+  });
+}
+
+/* TAMBAH CUSTOM */
+document.getElementById('addCustom').addEventListener('click', () => {
+  const input = document.getElementById('customInput');
+  const value = input.value.trim();
+
+  if (!value) return;
+
+  const key = 'custom_' + Date.now();
+
+  customAmal.push({
+    key: key,
+    label: value
+  });
+
+  config[key] = true;
+
+  saveCustomAmal();
+  input.value = '';
+  renderCustom();
+});
+
+document.getElementById('customInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    document.getElementById('addCustom').click();
+  }
+});
+
+/* EDIT CUSTOM */
+function editCustom(key) {
+  const item = customAmal.find(i => i.key === key);
+  if (!item) return;
+
+  const newLabel = prompt('Edit nama amal:', item.label);
+  if (!newLabel || !newLabel.trim()) return;
+
+  item.label = newLabel.trim();
+  saveCustomAmal();
+  renderCustom();
+}
+
+/* HAPUS CUSTOM */
+function deleteCustom(key) {
+  const item = customAmal.find(i => i.key === key);
+  if (!item) return;
+
+  if (!confirm(`Hapus amal "${item.label}"?`)) return;
+
+  customAmal = customAmal.filter(i => i.key !== key);
+  saveCustomAmal();
+
+  delete config[key];
+
+  const allDaily = JSON.parse(localStorage.getItem('dailyAmal')) || {};
+  Object.keys(allDaily).forEach(date => {
+    if (allDaily[date]) {
+      delete allDaily[date][key];
+    }
+  });
+
+  localStorage.setItem('dailyAmal', JSON.stringify(allDaily));
+
+  renderCustom();
+}
 
 /* SIMPAN */
 document.getElementById('saveAmal').onclick = () => {
   localStorage.setItem('amalConfig', JSON.stringify(config));
+  saveCustomAmal();
   location.href = 'daily_amal.html';
 };
-</script>
 
+renderCustom();
+</script>
 
 </body>
 </html>
