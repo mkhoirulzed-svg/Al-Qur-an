@@ -52,50 +52,55 @@
   text-overflow:ellipsis;
 }
 
-.doa-card{
+.search-box{
+  width:100%;
+  min-height:48px;
+  padding:12px 14px;
+  font-size:14px;
+  font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.7);
+  margin-bottom:14px;
+  background:var(--card);
+  color:var(--text);
+  box-shadow:var(--shadow-sm);
+  outline:none;
+}
+
+.search-box:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(10,77,58,.12);
+}
+
+.doa-item{
   background:var(--card);
   border-radius:20px;
-  padding:18px;
-  margin-bottom:14px;
+  padding:17px 18px;
+  margin-bottom:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   box-shadow:var(--shadow-sm);
   border:1px solid rgba(255,255,255,.7);
+  cursor:pointer;
+  transition:.25s ease;
 }
 
-.doa-title{
+.doa-item:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+}
+
+.doa-item span{
   font-size:15px;
   font-weight:800;
+  color:var(--text);
+}
+
+.doa-item i{
   color:var(--primary);
-  margin-bottom:12px;
-}
-
-.doa-arab{
-  direction:rtl;
-  text-align:right;
-  font-family:'Amiri',serif;
-  font-size:26px;
-  line-height:2;
-  color:var(--text);
-  margin-bottom:12px;
-}
-
-.doa-latin{
-  font-size:14px;
-  line-height:1.7;
-  color:var(--text);
-  margin-bottom:10px;
-  font-style:italic;
-}
-
-.doa-arti{
-  font-size:14px;
-  line-height:1.7;
-  color:var(--text-secondary);
-}
-
-.doa-sumber{
-  margin-top:12px;
-  font-size:12px;
-  color:var(--text-secondary);
+  font-size:13px;
 }
 
 #daftarDoa p{
@@ -125,11 +130,18 @@
 
   <div class="header-title">
     <div id="judul-doa">Doa Harian</div>
-    <div id="subjudul-doa">Kumpulan doa pilihan</div>
+    <div id="subjudul-doa">Pilih doa yang ingin dibaca</div>
   </div>
 </header>
 
 <main class="doa-container">
+  <input 
+    type="search" 
+    id="cariDoa" 
+    class="search-box" 
+    placeholder="Cari doa..."
+  >
+
   <div id="daftarDoa">
     <p>Memuat doa...</p>
   </div>
@@ -139,38 +151,61 @@
 
 <script>
 const daftarDoaEl = document.getElementById('daftarDoa');
+const cariDoaEl = document.getElementById('cariDoa');
+
+let semuaDoa = [];
 
 async function loadDoa(){
   try{
     const res = await fetch('../data/doa.json?v=' + Date.now());
-    const data = await res.json();
 
-    daftarDoaEl.innerHTML = '';
+    if(!res.ok){
+      throw new Error('File doa.json tidak ditemukan');
+    }
 
-    data.forEach(doa => {
-      const card = document.createElement('div');
-      card.className = 'doa-card';
-
-      card.innerHTML = `
-        <div class="doa-title">${doa.judul || ''}</div>
-
-        ${doa.arab ? `<div class="doa-arab">${doa.arab}</div>` : ''}
-
-        ${doa.latin ? `<div class="doa-latin">${doa.latin}</div>` : ''}
-
-        ${doa.arti ? `<div class="doa-arti">${doa.arti}</div>` : ''}
-
-        ${doa.sumber ? `<div class="doa-sumber">Sumber: ${doa.sumber}</div>` : ''}
-      `;
-
-      daftarDoaEl.appendChild(card);
-    });
+    semuaDoa = await res.json();
+    renderDaftarDoa(semuaDoa);
 
   }catch(err){
-    daftarDoaEl.innerHTML = '<p>Gagal memuat doa.</p>';
+    daftarDoaEl.innerHTML = '<p>Gagal memuat daftar doa.</p>';
     console.error(err);
   }
 }
+
+function renderDaftarDoa(data){
+  daftarDoaEl.innerHTML = '';
+
+  if(!data || data.length === 0){
+    daftarDoaEl.innerHTML = '<p>Doa tidak ditemukan.</p>';
+    return;
+  }
+
+  data.forEach(doa => {
+    const item = document.createElement('div');
+    item.className = 'doa-item';
+
+    item.innerHTML = `
+      <span>${doa.judul || 'Tanpa Judul'}</span>
+      <i class="fas fa-chevron-right"></i>
+    `;
+
+    item.addEventListener('click', () => {
+      window.location.href = `doa-detail.html?id=${encodeURIComponent(doa.id)}`;
+    });
+
+    daftarDoaEl.appendChild(item);
+  });
+}
+
+cariDoaEl.addEventListener('input', () => {
+  const keyword = cariDoaEl.value.toLowerCase().trim();
+
+  const hasil = semuaDoa.filter(doa =>
+    (doa.judul || '').toLowerCase().includes(keyword)
+  );
+
+  renderDaftarDoa(hasil);
+});
 
 loadDoa();
 </script>
