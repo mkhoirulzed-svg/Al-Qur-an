@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookmark</title>
 
- <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=2">
+ <link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
  <style> 
 /* =========================
    BOOKMARK
@@ -145,14 +146,6 @@
   </div>
 </main>
 
-<!-- NAV -->
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html">Al-Qur'an</a>
-  <a href="bookmark.html" class="active">Bookmark</a>
-  <a href="about.html">Tentang</a>
-</nav>
-
 <!-- SCRIPT -->
 <script>
 const list = document.getElementById('bookmarkList');
@@ -211,6 +204,12 @@ Lanjut Membaca →
 
 renderBookmarks();
 </script>
+<div id="footer"></div>
 
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter(bookmark);
+</script>
+  
 </body>
 </html>
