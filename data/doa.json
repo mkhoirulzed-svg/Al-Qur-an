@@ -1,18 +1,98 @@
 [
   {
-    "id":"doa-sebelum-makan",
-    "judul":"Doa Sebelum Makan",
-    "arab":"...",
-    "latin":"...",
-    "arti":"...",
-    "sumber":"..."
+    "id": "doa-ditetapkan-hati-dalam-iman",
+    "judul": "Ditetapkan Hati dalam Iman",
+    "arab": "اَللَّهُمَّ يا مُصَرِّفَ الْقُلُوْبِ، صَرِّفْ قُلُوْبَنَا عَلَى دِينِكَ",
+    "latin": "Allaahumma yaa mushorrifal quluub, shorrif quluubanaa 'alaa diinik.",
+    "arti": "Wahai Tuhan yang membolak-balikkan hati, teguhkanlah hatiku pada agama-Mu.",
+    "sumber": "HR. Muslim no. 2654"
   },
   {
-    "id":"doa-setelah-makan",
-    "judul":"Doa Setelah Makan",
-    "arab":"...",
-    "latin":"...",
-    "arti":"...",
-    "sumber":"..."
+    "id": "doa-ampunan-dalam-segala-hal",
+    "judul": "Ampunan dalam Segala Hal",
+    "arab": "اَللّهُمَّ اغْفِرْ لِيْ خَطِيْئَتِيْ، وَجَهْلِيْ، وَإِسْرَافِيْ فِي أَمْرِيْ، وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّيْ. اللّهُمَّ اغْفِرْ لِيْ جَدِّيْ وَهَزْلِيْ، وَخَطَئِيْ وَعَمْدِيْ، وَكُلُّ ذلِكَ عِنْدِيْ، اللّهُمَّ اغْفِرْ لِيْ مَا قَدَّمْتُ، وَمَا أَخَّرْتُ، وَمَا أَسْرَرْتُ، وَمَا أَعْلَنْتُ، وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّيْ، أَنْتَ الْمُقَدِّمُ، وَأَنْتَ الْمُؤَخِّرُ، وَأَنْتَ عَلَى كُلِّ شَيْءٍ قَدِيْرٌ",
+    "latin": "Allahumma-ghfir lii khathii-atii, wa jahlii, wa israafii fii amrii, wa maa anta a'lamu bihi minnii. Allahumma-ghfir lii jiddii wa hazlii, wa khotho-ii wa 'amdii, wa kullu dzaalika 'indii. Allahumma-ghfir lii maa qoddamtu, wa maa akhkhortu, wa maa asrortu, wa maa a'lantu, wa maa anta a'lamu bihi minnii, anta-l muqoddimu, wa anta-l mu-akhkhiru, wa anta 'alaa kulli syai-in qodiir.",
+    "arti": "Ya Allah, ampunilah kesalahanku, kebodohanku, keberlebih-lebihan dalam perkaraku, dan apa yang Engkau lebih mengetahui daripadaku. Ya Allah, ampunilah diriku dalam kesungguhanku, kelalaianku, kesalahanku, kesengajaanku, dan semua itu berasal dari sisiku. Ya Allah, ampunilah aku dari segala dosa yang telah aku lakukan dan yang belum aku lakukan, segala dosa yang aku sembunyikan dan yang aku tampakkan, dan dosa yang Engkau lebih mengetahui daripadaku. Engkaulah Yang Maha Mendahulukan dan Yang Mengakhirkan, dan Engkau Mahakuasa atas segala sesuatu.",
+    "sumber": "HR. Bukhari no. 6398 dan Muslim no. 2719"
+  },
+  {
+    "id": "doa-mohon-diperbaiki-segala-urusan",
+    "judul": "Mohon Diperbaiki Segala Urusan",
+    "arab": "اَللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي، وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي، وَأَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لِي فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لِي مِنْ كُلِّ شَرٍّ",
+    "latin": "Allahumma ashlih lii diinii-l ladzii huwa 'ishmatu amrii, wa ashlih lii dun-yaaya-l latii fiihaa ma'aasyii, wa ashlih lii aakhirotii-l latii fiihaa ma'aadii, wa-j'ali-l hayaata ziyaadatan lii fii kulli khoir, wa-j'ali-l mauta raahatan lii min kulli syarr.",
+    "arti": "Ya Allah, perbaikilah bagiku urusan agamaku yang menjadi pelindung urusanku. Perbaikilah bagiku urusan duniaku yang menjadi tempat hidupku. Perbaikilah bagiku urusan akhiratku yang menjadi tempat kembaliku. Jadikanlah hidup ini tambahan kebaikan bagiku, dan jadikanlah kematian sebagai waktu istirahat bagiku dari segala keburukan.",
+    "sumber": "HR. Muslim no. 2720"
+  },
+  {
+    "id": "doa-perlindungan-dari-fitnah-kaya-dan-fitnah-miskin",
+    "judul": "Perlindungan dari Fitnah Kaya dan Fitnah Miskin",
+    "arab": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الكَسَلِ وَالهَرَمِ، وَالمَأْثَمِ وَالمَغْرَمِ، وَمِنْ فِتْنَةِ القَبْرِ، وَعَذَابِ القَبْرِ، وَمِنْ فِتْنَةِ النَّارِ وَعَذَابِ النَّارِ، وَمِنْ شَرِّ فِتْنَةِ الغِنَى، وَأَعُوذُ بِكَ مِنْ فِتْنَةِ الفَقْرِ، وَأَعُوذُ بِكَ مِنْ فِتْنَةِ المَسِيحِ الدَّجَّال",
+    "latin": "Allahumma innii a'uudzu bika minal kasali wal harami, wal ma'tsami wal maghrami, wa min fitnatil qobri wa 'adzaabil qobri, wa min fitnatin naari wa 'adzaabin naari, wa min syarri fitnatil ghinaa, wa a'uudzu bika min fitnatil faqri, wa a'uudzu bika min fitnatil masiihid dajjaal.",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari kemalasan dan usia jompo, dari perbuatan dosa dan hutang, dari fitnah kubur dan azab kubur, dari fitnah neraka dan azab neraka, dari keburukan fitnah kekayaan; aku berlindung kepada-Mu dari fitnah kemiskinan, dan aku berlindung kepada-Mu dari fitnah Al-Masih Ad-Dajjal.",
+    "sumber": "HR. Bukhari no. 6368"
+  },
+  {
+    "id": "doa-perlindungan-dicabutnya-nikmat-lahir-batin",
+    "judul": "Perlindungan Dicabutnya Nikmat Lahir Batin",
+    "arab": "اللَّهُمَّ إِنِّى أَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ وَتَحَوُّلِ عَافِيَتِكَ وَفُجَاءَةِ نِقْمَتِكَ وَجَمِيعِ سَخَطِكَ",
+    "latin": "Allahumma innii a'uudzu bika min zawaali ni'matika wa tahawwuli 'aafiyatika wa fujaa-ati niqmatika wa jamii'i sakhotik.",
+    "arti": "Ya Allah, sesungguhnya aku berlindung kepada-Mu dari hilangnya kenikmatan yang telah Engkau berikan, dari berubahnya kesehatan yang telah Engkau anugerahkan, dari siksa-Mu yang datang secara tiba-tiba, dan dari segala kemurkaan-Mu.",
+    "sumber": "HR. Muslim no. 2739"
+  },
+  {
+    "id": "doa-agar-dijauhkan-dari-sifat-pengecut-dan-tidak-pikun",
+    "judul": "Agar Dijauhkan dari Sifat Pengecut & Tidak Pikun",
+    "arab": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْجُبْنِ، وَأَعُوذُ بِكَ أَنْ أُرَدَّ إِلَى أَرْذَلِ الْعُمُرِ، وَأَعُوذُ بِكَ مِنْ فِتْنَةِ الدُّنْيَا، وَأَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ",
+    "latin": "Allahumma innii a'uudzu bika minal jubni, wa a'uudzu bika an uradda ilaa ardzalil 'umuri, wa a'uudzu bika min fitnatid dun-yaa, wa a'uudzu bika min 'adzaabil qobri.",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari sikap pengecut, aku berlindung kepada-Mu dari serendah-rendahnya usia (pikun), aku berlindung kepada-Mu dari fitnah dunia, dan aku berlindung kepada-Mu dari azab kubur.",
+    "sumber": "HR. Bukhari no. 2822"
+  },
+  {
+    "id": "doa-berlindung-dari-keburukan-amal",
+    "judul": "Berlindung dari Keburukan Amal",
+    "arab": "اللهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ شَرِّ مَا عَمِلْتُ، وَشَرِّ مَا لَمْ أَعْمَلْ",
+    "latin": "Allahumma innii a'uudzu bika min syarri maa 'amiltu, wa syarri maa lam a'mal.",
+    "arti": "Ya Allah, aku berlindung kepada-Mu dari keburukan yang telah aku perbuat dan keburukan yang belum aku perbuat.",
+    "sumber": "HR. Muslim no. 2716"
+  },
+  {
+    "id": "doa-agar-jiwanya-bertaqwa-dan-berlindung-dari-ilmu-yang-tidak-manfaat",
+    "judul": "Agar Jiwanya Bertaqwa & Berlindung dari Ilmu yang Tidak Manfaat",
+    "arab": "اللهُمَّ آتِ نَفْسِي تَقْوَاهَا، وَزَكِّهَا أَنْتَ خَيْرُ مَنْ زَكَّاهَا، أَنْتَ وَلِيُّهَا وَمَوْلَاهَا، اللهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ، وَمِنْ قَلْبٍ لَا يَخْشَعُ، وَمِنْ نَفْسٍ لَا تَشْبَعُ، وَمِنْ دَعْوَةٍ لَا يُسْتَجَابُ لَهَا",
+    "latin": "Allahumma aati nafsii taqwaahaa, wa zakkihaa anta khoiru man zakkaahaa, anta waliyyuhaa wa mawlaahaa. Allahumma innii a'uudzu bika min 'ilmin laa yanfa'u, wa min qolbin laa yakhsya'u, wa min nafsin laa tasyba'u, wa min da'watin laa yustajaabu lahaa.",
+    "arti": "Ya Allah, karuniakanlah ketakwaan pada jiwaku, sucikanlah ia, sesungguhnya Engkaulah sebaik-baik yang mensucikannya, Engkaulah yang menjaga serta melindunginya. Ya Allah, aku berlindung kepada-Mu dari ilmu yang tidak manfaat, dari hati yang tidak khusyuk, dari jiwa yang tidak pernah puas, dan dari doa yang tidak diijabahi.",
+    "sumber": "HR. Muslim no. 2722"
+  },
+  {
+    "id": "doa-mohon-bisa-melihat-wajah-allah",
+    "judul": "Mohon Bisa Melihat Wajah Allah",
+    "arab": "اللَّهُمَّ إِنِّي أَسْأَلُكَ لَذَّةَ النَّظَرِ إِلَى وَجْهِكَ، وَالشَّوْقَ إِلَى لِقَائِكَ فِي غَيْرِ ضَرَّاءَ مُضِرَّةٍ، وَلَا فِتْنَةٍ مُضِلَّةٍ",
+    "latin": "Allahumma innii as-aluka ladzdzatan nazhori ilaa wajhika, wasy syawqo ilaa liqoo-ika fii ghoiri dhorroo-a mudhirroh, wa laa fitnatin mudhillah.",
+    "arti": "Ya Allah, aku mohon kepada-Mu kenikmatan memandang wajah-Mu (di Surga), dan rindu bertemu dengan-Mu, tanpa penderitaan yang membahayakan dan tanpa fitnah yang menyesatkan.",
+    "sumber": "HR. Nasai no. 1305, dishahihkan al-Albani"
+  },
+  {
+    "id": "doa-dimudahkan-berbuat-baik-dan-mencintai-orang-miskin",
+    "judul": "Dimudahkan Berbuat Baik & Mencintai Orang Miskin",
+    "arab": "اللَّهُمَّ إِنِّى أَسْأَلُكَ فِعْلَ الْخَيْرَاتِ وَتَرْكَ الْمُنْكَرَاتِ وَحُبَّ الْمَسَاكِينِ وَأَنْ تَغْفِرَ لِى وَتَرْحَمَنِى وَإِذَا أَرَدْتَ فِتْنَةَ قَوْمٍ فَتَوَفَّنِى غَيْرَ مَفْتُونٍ",
+    "latin": "Allahumma innii as-aluka fi'lal khoiroot, wa tarkal munkaroot, wa hubbal masaakiin, wa an taghfira lii wa tarhamanii, wa idzaa arodta fitnata qoumin fatawaffanii ghoiro maftuun.",
+    "arti": "Ya Allah, aku memohon kepada-Mu untuk mudah melakukan kebaikan dan meninggalkan kemungkaran, serta mencintai orang miskin. Ampunilah (dosa-dosa)ku dan rahmatilah aku. Dan jika Engkau menghendaki untuk menguji suatu kaum dengan fitnah, maka wafatkanlah aku dalam keadaan tidak ikut tenggelam dalam fitnah itu.",
+    "sumber": "HR. Tirmidzi no. 3235 dan Ahmad 5: 243, dishahihkan al-Albani"
+  },
+  {
+    "id": "doa-mohon-agar-bisa-mencintai-orang-yang-mencintai-allah",
+    "judul": "Mohon Agar Bisa Mencintai Orang yang Mencintai Allah",
+    "arab": "اللَّهُمَّ إِنِّى أَسْأَلُكَ حُبَّكَ وَحُبَّ مَنْ يُحِبُّكَ وَحُبَّ عَمَلٍ يُقَرِّبُ إِلَى حُبِّكَ",
+    "latin": "Allahumma innii as-aluka hubbaka, wa hubba man yuhibbuka, wa hubba 'amalin yuqorribu ilaa hubbik.",
+    "arti": "Ya Allah, aku memohon kepada-Mu agar dapat mencintai-Mu, mencintai orang-orang yang mencintai-Mu, dan mencintai amal yang dapat mendekatkan diriku kepada cinta-Mu.",
+    "sumber": "HR. Tirmidzi no. 3235 dan Ahmad 5: 243, dishahihkan al-Albani"
+  },
+  {
+    "id": "doa-mohon-kebaikan-dalam-segala-hal-yang-pernah-diminta-nabi",
+    "judul": "Mohon Kebaikan dalam Segala Hal yang Pernah Diminta Nabi",
+    "arab": "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ خَيْرِ مَا سَأَلَكَ عَبْدُكَ وَنَبِيُّكَ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا عَاذَ بِهِ عَبْدُكَ وَنَبِيُّكَ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، وَأَعُوذُ بِكَ مِنَ النَّارِ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، وَأَسْأَلُكَ أَنْ تَجْعَلَ كُلَّ قَضَاءٍ قَضَيْتَهُ لِي خَيْرًا",
+    "latin": "Allahumma innii as-aluka minal khoiri kullihi 'aajilihi wa aajilihi, maa 'alimtu minhu wa maa lam a'lam, wa a'uudzu bika minasy syarri kullihi 'aajilihi wa aajilihi, maa 'alimtu minhu wa maa lam a'lam. Allahumma innii as-aluka min khoiri maa sa-alaka 'abduka wa nabiyyuk, wa a'uudzu bika min syarri maa 'aadza bihi 'abduka wa nabiyyuk. Allahumma innii as-alukal jannata wa maa qorroba ilaihaa min qoulin aw 'amal, wa a'uudzu bika minan naari wa maa qorroba ilaihaa min qoulin aw 'amal, wa as-aluka an taj'ala kulla qodhoo-in qodhoitahu lii khoiroo.",
+    "arti": "Ya Allah, sesungguhnya aku memohon kepada-Mu seluruh kebaikan yang segera (dunia) maupun yang tertunda (akhirat), kebaikan yang aku ketahui dan yang tidak aku ketahui. Dan aku berlindung kepada-Mu dari segala keburukan yang segera maupun yang tertunda, yang aku ketahui dan yang tidak aku ketahui. Aku meminta kepada-Mu kebaikan semua hal yang pernah diminta oleh hamba dan Nabi-Mu, dan aku berlindung kepada-Mu dari keburukan yang pernah dimintai perlindungan oleh hamba dan Nabi-Mu. Aku memohon surga kepada-Mu dan segala perkataan serta perbuatan yang mendekatkan kepadanya. Aku berlindung kepada-Mu dari neraka dan segala perkataan serta perbuatan yang mendekatkan kepadanya. Dan aku meminta agar segala sesuatu yang telah Engkau takdirkan untukku, Engkau jadikan kebaikan bagiku.",
+    "sumber": "HR. Ahmad no. 25019, Ibnu Majah no. 3846, dishahihkan Syuaib al-Arnauth"
   }
 ]
