@@ -3,444 +3,401 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dzikir Pagi</title>
+<title>Tasbih</title>
 
-<link rel="stylesheet" href="../style.css">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* ===== RESET GLOBAL ===== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.page-tasbih{
+  background:var(--bg);
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
+.tasbih-container{
+  padding:18px 18px 110px;
 }
 
-/* ===== PAGE ===== */
-.page-dzikir {
-  background: #f8fafc;
-  margin: 0;
-  padding: 0;
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
 }
 
-/* ===== HEADER ===== */
-.app-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  min-height: 58px;
-  background: rgba(248,250,252,0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 100;
-  border-bottom: 1px solid #e2e8f0;
-  display: flex;
-  justify-content: center;
+.header-title{
+  flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 720px;
-  padding: 10px 14px;
+.header-title>div:first-child{
+  font-size:17px;
+  font-weight:800;
+  color:var(--primary);
 }
 
-.nav-btn {
-  background: none;
-  border: none;
-  margin-right: 10px;
-  color: #0f172a;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.judul-surah{
+  font-size:12px;
+  color:var(--text-secondary);
 }
 
-.header-title {
-  flex: 1;
-  min-width: 0;
+.tasbih-card{
+  background:var(--card);
+  border-radius:26px;
+  padding:22px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  text-align:center;
+  animation:fadeUp .35s ease both;
 }
 
-.header-title div:first-child {
-  font-weight: 700;
-  font-size: 1.05rem;
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(12px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-.judul-surah {
-  font-size: 0.78rem;
-  color: #64748b;
+.tasbih-label{
+  font-size:13px;
+  color:var(--text-secondary);
+  margin-bottom:10px;
 }
 
-.reset-btn {
-  background: #fee2e2;
-  color: #b91c1c;
-  border: none;
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: .8rem;
-  font-weight: 700;
-  cursor: pointer;
-  flex-shrink: 0;
+.tasbih-count{
+  font-size:76px;
+  font-weight:800;
+  color:var(--primary);
+  line-height:1;
+  transition:.18s ease;
 }
 
-/* ===== MAIN CONTENT ===== */
-.dzikir-container {
-  padding: 86px 16px 96px;
-  max-width: 720px;
-  margin: 0 auto;
+.tasbih-count.bump{
+  transform:scale(1.08);
 }
 
-.dzikir-card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  scroll-margin-top: 90px;
+.tasbih-target{
+  margin-top:8px;
+  font-size:14px;
+  color:var(--text-secondary);
 }
 
-.dzikir-card.completed {
-  border-left: 5px solid #10b981;
-  opacity: 0.75;
-  background: #f0fdf4;
+.progress-wrap{
+  width:100%;
+  height:10px;
+  background:var(--primary-ghost);
+  border-radius:99px;
+  margin:22px 0;
+  overflow:hidden;
 }
 
-.dzikir-title {
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 12px;
-  font-size: 1.1rem;
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--primary),var(--primary-hover));
+  border-radius:99px;
+  transition:width .3s ease;
 }
 
-.dzikir-arab {
-  direction: rtl;
-  font-family: 'Amiri', serif;
-  font-size: 1.85rem;
-  line-height: 2.5;
-  margin-bottom: 8px;
-  text-align: right;
+.tap-btn{
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  border:none;
+  background:linear-gradient(145deg,var(--primary),var(--primary-hover));
+  color:#fff;
+  font-size:34px;
+  box-shadow:0 18px 35px rgba(0,0,0,.18);
+  cursor:pointer;
+  transition:.18s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin:8px auto 18px;
 }
 
-.dzikir-latin {
-  font-size: .95rem;
-  color: #475569;
-  font-style: italic;
-  line-height: 1.7;
-  margin-bottom: 10px;
+.tap-btn i{
+  font-size:38px;
+  margin-bottom:8px;
 }
 
-.dzikir-arti {
-  font-size: 0.85rem;
-  opacity: 0.75;
-  margin-bottom: 12px;
-  line-height: 1.6;
+.tap-btn span{
+  font-size:14px;
+  font-weight:700;
 }
 
-.dzikir-count {
-  display: inline-flex;
-  gap: 6px;
-  background: #f1f5f9;
-  color: #334155;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: .85rem;
-  font-weight: 600;
-  margin-bottom: 16px;
+.tap-btn:active{
+  transform:scale(.94);
+  box-shadow:0 10px 22px rgba(0,0,0,.15);
 }
 
-.current-count {
-  color: #0284c7;
-  font-size: 1rem;
+.target-list{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin:18px 0;
 }
 
-.action-buttons {
-  display: flex;
-  gap: 10px;
+.target-btn{
+  border:none;
+  border-radius:16px;
+  background:var(--primary-ghost);
+  color:var(--primary);
+  padding:12px 6px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
 }
 
-.btn-read {
-  flex: 1;
-  padding: 12px;
-  background: #0284c7;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
+.target-btn.active,
+.target-btn:hover{
+  background:var(--primary);
+  color:#fff;
 }
 
-.btn-read:disabled {
-  background: #94a3b8;
-  cursor: default;
+.custom-target{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
 }
 
-.btn-skip {
-  padding: 12px 18px;
-  background: #f1f5f9;
-  color: #64748b;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
+.custom-target input{
+  flex:1;
+  border:none;
+  outline:none;
+  border-radius:16px;
+  padding:13px 14px;
+  background:var(--primary-ghost);
+  color:var(--text);
+  font-weight:700;
 }
 
-/* ===== BOTTOM NAV ===== */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 64px;
-  background: #ffffff;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  border-top: 1px solid #e2e8f0;
-  z-index: 100;
-  margin: 0;
-  padding: 0;
+.custom-target button{
+  border:none;
+  border-radius:16px;
+  padding:0 16px;
+  background:var(--primary);
+  color:#fff;
+  font-weight:800;
 }
 
-.bottom-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  width: 100%;
-  height: 64px;
-  text-decoration: none;
-  color: #64748b;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-align: center;
-  white-space: nowrap;
-  padding: 0;
-  margin: 0;
-  transition: color 0.2s;
-  -webkit-tap-highlight-color: transparent;
+.action-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
 }
 
-.bottom-nav a:hover {
-  color: #0284c7;
+.action-btn{
+  border:none;
+  border-radius:18px;
+  padding:14px;
+  background:var(--card);
+  color:var(--primary);
+  font-weight:800;
+  box-shadow:var(--shadow-sm);
+  cursor:pointer;
+  transition:.2s ease;
 }
 
-.bottom-nav a svg {
-  flex-shrink: 0;
+.action-btn:active{
+  transform:scale(.96);
+}
+
+.done-message{
+  margin-top:12px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--primary);
+  opacity:0;
+  transform:translateY(6px);
+  transition:.25s ease;
+}
+
+.done-message.show{
+  opacity:1;
+  transform:translateY(0);
 }
 </style>
 </head>
 
-<body class="page-dzikir">
+<body class="page-tasbih">
 
 <header class="app-header">
-  <div class="header-inner">
-    <button class="nav-btn" onclick="history.back()">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
 
-    <div class="header-title">
-      <div>Dzikir Pagi</div>
-      <div class="judul-surah">Dzikir pagi sesuai sunnah</div>
-    </div>
-
-    <button class="reset-btn" onclick="resetDzikir()">Reset</button>
+  <div class="header-title">
+    <div>Tasbih</div>
+    <div class="judul-surah">Hitung dzikir harian dengan nyaman</div>
   </div>
 </header>
 
-<main class="dzikir-container" id="dzikirList"></main>
+<main class="tasbih-container">
 
-<nav class="bottom-nav">
-  <a href="../index.html">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-      <polyline points="9 22 9 12 15 12 15 22"/>
-    </svg>
-    Home
-  </a>
-  <a href="quran.html">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-    </svg>
-    Al-Qur'an
-  </a>
-  <a href="bookmark.html">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-    </svg>
-    Bookmark
-  </a>
-  <a href="about.html">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <line x1="12" y1="16" x2="12" y2="12"/>
-      <line x1="12" y1="8" x2="12.01" y2="8"/>
-    </svg>
-    Tentang
-  </a>
-</nav>
+  <section class="tasbih-card">
+    <div class="tasbih-label">Jumlah hitungan</div>
+    <div class="tasbih-count" id="count">0</div>
+    <div class="tasbih-target">
+      Target: <span id="targetText">33</span>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <button class="tap-btn" id="tapBtn">
+      <i class="fas fa-hand-point-up"></i>
+      <span>Ketuk Tasbih</span>
+    </button>
+
+    <div class="done-message" id="doneMessage">
+      Target tercapai. MasyaAllah.
+    </div>
+  </section>
+
+  <section class="tasbih-card" style="margin-top:16px;">
+    <div class="tasbih-label">Pilih target dzikir</div>
+
+    <div class="target-list">
+      <button class="target-btn active" data-target="33">33</button>
+      <button class="target-btn" data-target="99">99</button>
+      <button class="target-btn" data-target="100">100</button>
+      <button class="target-btn" data-target="1000">1000</button>
+    </div>
+
+    <div class="custom-target">
+      <input type="number" id="customInput" placeholder="Target custom">
+      <button onclick="setCustomTarget()">Pakai</button>
+    </div>
+
+    <div class="action-row">
+      <button class="action-btn" onclick="undoCount()">
+        <i class="fas fa-rotate-left"></i> Undo
+      </button>
+      <button class="action-btn" onclick="resetCount()">
+        <i class="fas fa-trash"></i> Reset
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer"></div>
+<script src="../data/loader.js"></script>
 
 <script>
-const today = new Date().toISOString().slice(0, 10);
-const STORAGE_KEY = "dzikirPagiRumaysho";
-const LAST_DATE_KEY = "dzikirPagiLastDate";
+loadFooter();
 
-let saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+let count = Number(localStorage.getItem("tasbih_count")) || 0;
+let target = Number(localStorage.getItem("tasbih_target")) || 33;
 
-// reset otomatis saat ganti hari
-const lastDate = localStorage.getItem(LAST_DATE_KEY);
-if (lastDate !== today) {
-  saved = {};
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-  localStorage.setItem(LAST_DATE_KEY, today);
-}
+const countEl = document.getElementById("count");
+const targetText = document.getElementById("targetText");
+const progressBar = document.getElementById("progressBar");
+const tapBtn = document.getElementById("tapBtn");
+const doneMessage = document.getElementById("doneMessage");
+const targetBtns = document.querySelectorAll(".target-btn");
 
-let todayData = saved[today] || {};
+function updateDisplay(){
+  countEl.textContent = count;
+  targetText.textContent = target;
 
-function saveProgress() {
-  saved[today] = todayData;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-  localStorage.setItem(LAST_DATE_KEY, today);
-}
+  const progress = Math.min((count / target) * 100, 100);
+  progressBar.style.width = progress + "%";
 
-function resetDzikir() {
-  if (!confirm("Ulangi dzikir pagi dari awal?")) return;
+  doneMessage.classList.toggle("show", count >= target);
 
-  todayData = {};
-  saved[today] = todayData;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-  localStorage.setItem(LAST_DATE_KEY, today);
-
-  loadDzikir();
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  targetBtns.forEach(btn => {
+    btn.classList.toggle("active", Number(btn.dataset.target) === target);
   });
+
+  localStorage.setItem("tasbih_count", count);
+  localStorage.setItem("tasbih_target", target);
 }
 
-function loadDzikir() {
-  const list = document.getElementById("dzikirList");
-  list.innerHTML = "";
-
-  fetch("../data/dzikirpagi.json")
-    .then(res => {
-      if (!res.ok) throw new Error("File dzikirpagi.json tidak ditemukan");
-      return res.json();
-    })
-    .then(data => {
-      data.forEach((item, index) => {
-        const targetJumlah = parseInt(item.jumlah) || 1;
-        const currentCount = todayData[item.id] || 0;
-        const isCompleted = currentCount >= targetJumlah;
-
-        list.insertAdjacentHTML("beforeend", `
-          <div class="dzikir-card ${isCompleted ? "completed" : ""}" id="card-${item.id}">
-            ${item.judul ? \`<div class="dzikir-title">\${item.judul}</div>\` : ""}
-
-            <div class="dzikir-arab">${item.arab || ""}</div>
-
-            ${item.latin ? \`<div class="dzikir-latin">\${item.latin}</div>\` : ""}
-
-            <div class="dzikir-arti">${item.arti || ""}</div>
-
-            <div class="dzikir-count">
-              Dibaca <span class="current-count" id="count-${item.id}">${currentCount}</span> / ${targetJumlah}
-            </div>
-
-            <div class="action-buttons">
-              <button class="btn-read" id="btn-read-${item.id}" ${isCompleted ? "disabled" : ""}>
-                ${isCompleted ? "✓ Selesai" : "Baca 1x"}
-              </button>
-
-              ${index < data.length - 1 ? \`
-                <button class="btn-skip" id="btn-skip-${item.id}">
-                  Skip ➜
-                </button>
-              \` : ""}
-            </div>
-          </div>
-        \`);
-      });
-
-      data.forEach(item => {
-        const targetJumlah = parseInt(item.jumlah) || 1;
-        const card = document.getElementById(\`card-\${item.id}\`);
-        const btnRead = document.getElementById(\`btn-read-\${item.id}\`);
-        const btnSkip = document.getElementById(\`btn-skip-\${item.id}\`);
-        const countSpan = document.getElementById(\`count-\${item.id}\`);
-
-        const scrollToNext = () => {
-          const nextCard = card.nextElementSibling;
-          if (nextCard) {
-            nextCard.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        };
-
-        if (btnRead) {
-          btnRead.addEventListener("click", () => {
-            let count = todayData[item.id] || 0;
-
-            if (count < targetJumlah) {
-              count++;
-              todayData[item.id] = count;
-              saveProgress();
-
-              countSpan.innerText = count;
-
-              if (count >= targetJumlah) {
-                card.classList.add("completed");
-                btnRead.innerText = "✓ Selesai";
-                btnRead.disabled = true;
-
-                setTimeout(scrollToNext, 350);
-              } else {
-                card.scrollIntoView({ behavior: "smooth", block: "start" });
-              }
-            }
-          });
-        }
-
-        if (btnSkip) {
-          btnSkip.addEventListener("click", scrollToNext);
-        }
-      });
-    })
-    .catch(err => {
-      list.innerHTML = \`
-        <div class="dzikir-card">
-          <b>Gagal memuat dzikir.</b><br><br>
-          Pastikan file berada di:<br>
-          <code>data/dzikirpagi.json</code><br><br>
-          Detail error:<br>
-          \${err.message}
-        </div>
-      \`;
-    });
+function vibrate(pattern = 25){
+  if(navigator.vibrate){
+    navigator.vibrate(pattern);
+  }
 }
 
-loadDzikir();
+function bumpCount(){
+  countEl.classList.remove("bump");
+  void countEl.offsetWidth;
+  countEl.classList.add("bump");
+}
+
+tapBtn.addEventListener("click", () => {
+  count++;
+  bumpCount();
+
+  if(count === target){
+    vibrate([120,80,120]);
+  }else{
+    vibrate(18);
+  }
+
+  updateDisplay();
+});
+
+targetBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    target = Number(btn.dataset.target);
+    count = 0;
+    doneMessage.classList.remove("show");
+    vibrate(25);
+    updateDisplay();
+  });
+});
+
+function setCustomTarget(){
+  const input = document.getElementById("customInput");
+  const value = Number(input.value);
+
+  if(!value || value < 1){
+    alert("Masukkan target yang benar.");
+    return;
+  }
+
+  target = value;
+  count = 0;
+  input.value = "";
+  vibrate(30);
+  updateDisplay();
+}
+
+function undoCount(){
+  if(count > 0){
+    count--;
+    vibrate(20);
+    updateDisplay();
+  }
+}
+
+function resetCount(){
+  if(confirm("Reset hitungan tasbih?")){
+    count = 0;
+    vibrate(30);
+    updateDisplay();
+  }
+}
+
+updateDisplay();
 </script>
 
 </body>
