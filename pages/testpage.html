@@ -341,6 +341,42 @@ function renderCalendar(month, year){
   calendarData.forEach(item => {
     const gDay = Number(item.gregorian.day);
     const hDay = Number(item.hijri.day);
+    const hMonthId = Number(item.hijri.month.number);
+    const hYear = item.hijri.year;
+
+    hijriMonths.add(`${item.hijri.month.en} ${hYear} H`);
+
+    const dateObj = new Date(year, month - 1, gDay);
+    const dayIndex = dateObj.getDay();
+
+    const localEvent = getLocalIslamicEvent(hDay, hMonthId);
+
+    const cell = document.createElement("button");
+    cell.className = "day-cell";
+
+    if(isToday(dateObj)) cell.classList.add("today");
+    if(dayIndex === 5) cell.classList.add("friday");
+    if(dayIndex === 1 || dayIndex === 4) cell.classList.add("monday-thursday");
+    if(hDay >= 13 && hDay <= 15) cell.classList.add("ayyam");
+    if(localEvent) cell.classList.add("event");
+
+    cell.innerHTML = `
+      <div class="g-date">${gDay} M</div>
+      <div class="h-date">${hDay}</div>
+      ${localEvent ? `<span class="badge-dot"></span>` : ``}
+    `;
+
+    cell.onclick = () => showDateInfo(item, dayIndex);
+    grid.appendChild(cell);
+  });
+
+  hijriMonthTitle.textContent = Array.from(hijriMonths).join(" / ");
+}
+  const hijriMonths = new Set();
+
+  calendarData.forEach(item => {
+    const gDay = Number(item.gregorian.day);
+    const hDay = Number(item.hijri.day);
     const hMonth = item.hijri.month.en;
     const hMonthId = Number(item.hijri.month.number);
     const hYear = item.hijri.year;
@@ -380,7 +416,7 @@ function showDateInfo(item, dayIndex){
 
   const hDay = Number(h.day);
   const hMonthId = Number(h.month.number);
-  const holidays = h.holidays || [];
+
   const localEvent = getLocalIslamicEvent(hDay, hMonthId);
 
   let notes = [];
@@ -389,7 +425,6 @@ function showDateInfo(item, dayIndex){
   if(dayIndex === 1 || dayIndex === 4) notes.push("Disunnahkan puasa Senin/Kamis");
   if(hDay >= 13 && hDay <= 15) notes.push("Ayyamul Bidh");
   if(localEvent) notes.push(localEvent);
-  holidays.forEach(hd => notes.push(hd));
 
   dateInfo.innerHTML = `
     <div class="info-title">${dayNames[dayIndex]}, ${g.day} ${g.month.en} ${g.year}</div>
