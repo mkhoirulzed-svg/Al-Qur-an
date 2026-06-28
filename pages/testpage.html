@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dzikir Pagi</title>
+
+<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET GLOBAL ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ===== PAGE ===== */
+.page-dzikir {
+  background: #f8fafc;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== HEADER ===== */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 58px;
+  background: rgba(248,250,252,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 720px;
+  padding: 10px 14px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  margin-right: 10px;
+  color: #0f172a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-title div:first-child {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.judul-surah {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.reset-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ===== MAIN CONTENT ===== */
+.dzikir-container {
+  padding: 86px 16px 96px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.dzikir-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  scroll-margin-top: 90px;
+}
+
+.dzikir-card.completed {
+  border-left: 5px solid #10b981;
+  opacity: 0.75;
+  background: #f0fdf4;
+}
+
+.dzikir-title {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.dzikir-arab {
+  direction: rtl;
+  font-family: 'Amiri', serif;
+  font-size: 1.85rem;
+  line-height: 2.5;
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+.dzikir-latin {
+  font-size: .95rem;
+  color: #475569;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.dzikir-arti {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.dzikir-count {
+  display: inline-flex;
+  gap: 6px;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.current-count {
+  color: #0284c7;
+  font-size: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-read {
+  flex: 1;
+  padding: 12px;
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-read:disabled {
+  background: #94a3b8;
+  cursor: default;
+}
+
+.btn-skip {
+  padding: 12px 18px;
+  background: #f1f5f9;
+  color: #64748b;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 64px;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  border-top: 1px solid #e2e8f0;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  height: 64px;
+  text-decoration: none;
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  transition: color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav a:hover {
+  color: #0284c7;
+}
+
+.bottom-nav a svg {
+  flex-shrink: 0;
+}
+</style>
+</head>
+
+<body class="page-dzikir">
+
+<header class="app-header">
+  <div class="header-inner">
+    <button class="nav-btn" onclick="history.back()">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="header-title">
+      <div>Dzikir Pagi</div>
+      <div class="judul-surah">Dzikir pagi sesuai sunnah</div>
+    </div>
+
+    <button class="reset-btn" onclick="resetDzikir()">Reset</button>
+  </div>
+</header>
+
+<main class="dzikir-container" id="dzikirList"></main>
+
+<nav class="bottom-nav">
+  <a href="../index.html">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    Home
+  </a>
+  <a href="quran.html">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    </svg>
+    Al-Qur'an
+  </a>
+  <a href="bookmark.html">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+    </svg>
+    Bookmark
+  </a>
+  <a href="about.html">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="16" x2="12" y2="12"/>
+      <line x1="12" y1="8" x2="12.01" y2="8"/>
+    </svg>
+    Tentang
+  </a>
+</nav>
+
+<script>
+const today = new Date().toISOString().slice(0, 10);
+const STORAGE_KEY = "dzikirPagiRumaysho";
+const LAST_DATE_KEY = "dzikirPagiLastDate";
+
+let saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+// reset otomatis saat ganti hari
+const lastDate = localStorage.getItem(LAST_DATE_KEY);
+if (lastDate !== today) {
+  saved = {};
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  localStorage.setItem(LAST_DATE_KEY, today);
+}
+
+let todayData = saved[today] || {};
+
+function saveProgress() {
+  saved[today] = todayData;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  localStorage.setItem(LAST_DATE_KEY, today);
+}
+
+function resetDzikir() {
+  if (!confirm("Ulangi dzikir pagi dari awal?")) return;
+
+  todayData = {};
+  saved[today] = todayData;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  localStorage.setItem(LAST_DATE_KEY, today);
+
+  loadDzikir();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function loadDzikir() {
+  const list = document.getElementById("dzikirList");
+  list.innerHTML = "";
+
+  fetch("../data/dzikirpagi.json")
+    .then(res => {
+      if (!res.ok) throw new Error("File dzikirpagi.json tidak ditemukan");
+      return res.json();
+    })
+    .then(data => {
+      data.forEach((item, index) => {
+        const targetJumlah = parseInt(item.jumlah) || 1;
+        const currentCount = todayData[item.id] || 0;
+        const isCompleted = currentCount >= targetJumlah;
+
+        list.insertAdjacentHTML("beforeend", `
+          <div class="dzikir-card ${isCompleted ? "completed" : ""}" id="card-${item.id}">
+            ${item.judul ? \`<div class="dzikir-title">\${item.judul}</div>\` : ""}
+
+            <div class="dzikir-arab">${item.arab || ""}</div>
+
+            ${item.latin ? \`<div class="dzikir-latin">\${item.latin}</div>\` : ""}
+
+            <div class="dzikir-arti">${item.arti || ""}</div>
+
+            <div class="dzikir-count">
+              Dibaca <span class="current-count" id="count-${item.id}">${currentCount}</span> / ${targetJumlah}
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-read" id="btn-read-${item.id}" ${isCompleted ? "disabled" : ""}>
+                ${isCompleted ? "✓ Selesai" : "Baca 1x"}
+              </button>
+
+              ${index < data.length - 1 ? \`
+                <button class="btn-skip" id="btn-skip-${item.id}">
+                  Skip ➜
+                </button>
+              \` : ""}
+            </div>
+          </div>
+        \`);
+      });
+
+      data.forEach(item => {
+        const targetJumlah = parseInt(item.jumlah) || 1;
+        const card = document.getElementById(\`card-\${item.id}\`);
+        const btnRead = document.getElementById(\`btn-read-\${item.id}\`);
+        const btnSkip = document.getElementById(\`btn-skip-\${item.id}\`);
+        const countSpan = document.getElementById(\`count-\${item.id}\`);
+
+        const scrollToNext = () => {
+          const nextCard = card.nextElementSibling;
+          if (nextCard) {
+            nextCard.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        };
+
+        if (btnRead) {
+          btnRead.addEventListener("click", () => {
+            let count = todayData[item.id] || 0;
+
+            if (count < targetJumlah) {
+              count++;
+              todayData[item.id] = count;
+              saveProgress();
+
+              countSpan.innerText = count;
+
+              if (count >= targetJumlah) {
+                card.classList.add("completed");
+                btnRead.innerText = "✓ Selesai";
+                btnRead.disabled = true;
+
+                setTimeout(scrollToNext, 350);
+              } else {
+                card.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }
+          });
+        }
+
+        if (btnSkip) {
+          btnSkip.addEventListener("click", scrollToNext);
+        }
+      });
+    })
+    .catch(err => {
+      list.innerHTML = \`
+        <div class="dzikir-card">
+          <b>Gagal memuat dzikir.</b><br><br>
+          Pastikan file berada di:<br>
+          <code>data/dzikirpagi.json</code><br><br>
+          Detail error:<br>
+          \${err.message}
+        </div>
+      \`;
+    });
+}
+
+loadDzikir();
+</script>
+
+</body>
+</html>
