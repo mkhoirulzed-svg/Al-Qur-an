@@ -320,6 +320,10 @@ lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
       `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
     );
     const json = await res.json();
+ localStorage.setItem("jadwalSholat", JSON.stringify({
+    waktu: json.data.timings,
+    tanggal: new Date().toDateString()
+}));
 
     const city =
       json.address.city ||
