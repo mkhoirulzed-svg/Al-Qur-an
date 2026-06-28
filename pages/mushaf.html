@@ -264,18 +264,6 @@ function toArabicNumber(num) {
     .trim();
 }
 
-  const rahimWords = ['الرَّحِيمِ', 'ٱلرَّحِيمِ'];
-
-  for (const word of rahimWords) {
-    const idx = text.indexOf(word);
-    if (idx !== -1) {
-      return text.slice(idx + word.length).trim();
-    }
-  }
-
-  return text.trim();
-}
-
  function isBookmarked(juz, surah, ayat) {
   return getBookmarks().some(b =>
     b.mode === 'mushaf' &&
