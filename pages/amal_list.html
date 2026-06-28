@@ -13,9 +13,25 @@
 .page-daily { background:#f8fafc; }
 
 .daily-container {
-  padding:86px 16px 120px;
+  padding:86px 16px 96px;
   max-width:720px;
   margin:auto;
+}
+
+.sub-amal {
+  margin-left:28px;
+  padding-left:10px;
+  border-left:none;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .3s ease;
+}
+
+.save-bar {
+  max-width:720px;
+  margin:0 auto 96px;
+  padding:0 16px;
+  background:transparent;
 }
 
 .daily-card {
@@ -47,14 +63,6 @@ label {
 input[type="checkbox"] {
   transform:scale(1.2);
   accent-color:#0284c7;
-}
-
-.sub-amal {
-  margin-left:28px;
-  border-left:2px solid #e0f2fe;
-  overflow:hidden;
-  max-height:0;
-  transition:max-height .3s ease;
 }
 
 .sub-amal.open { max-height:500px; }
@@ -99,16 +107,6 @@ input[type="checkbox"] {
 .delete-btn {
   background:#fee2e2;
   color:#dc2626;
-}
-
-.save-bar {
-  position:fixed;
-  bottom:56px;
-  left:0;
-  right:0;
-  padding:12px 16px;
-  background:#f8fafc;
-  z-index:10;
 }
 
 .save-btn {
@@ -368,7 +366,6 @@ document.getElementById('saveAmal').onclick = () => {
 
 renderCustom();
 </script>
-<hr>
   <div id="footer"></div>
 
 <script src="../data/loader.js"></script>
