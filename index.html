@@ -729,30 +729,6 @@
 
     </main>
 
-    <!-- ====== BOTTOM NAV ====== -->
-    <nav class="bottom-nav" aria-label="Navigasi utama">
-      <div class="nav-pill">
-        <a href="index.html" class="nav-item active" data-nav="0" aria-current="page">
-          <i class="fas fa-house"></i>
-          <span>Home</span>
-        </a>
-        <a href="pages/quran.html" class="nav-item" data-nav="1">
-          <i class="fas fa-book-quran"></i>
-          <span>Qur'an</span>
-        </a>
-        <a href="pages/bookmark.html" class="nav-item" data-nav="2">
-          <i class="fas fa-bookmark"></i>
-          <span>Markah</span>
-        </a>
-        <a href="pages/doa.html" class="nav-item" data-nav="3">
-          <i class="fas fa-mosque"></i>
-          <span>Doa</span>
-        </a>
-        <div class="nav-indicator" id="navIndicator"></div>
-      </div>
-    </nav>
-  </div>
-
   <!-- ====== INSTALL BANNER ====== -->
   <div id="installBanner" class="install-banner hidden" role="alert">
     <button class="install-dismiss" id="installDismiss" aria-label="Tutup">
@@ -891,5 +867,12 @@
       }
     }, { passive: true });
   </script>
+
+  <div id="footer"></div>
+
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter();
+</script>
 </body>
 </html>
