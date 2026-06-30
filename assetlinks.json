@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.zaidalabs.alquran.twa",
+        "sha256_cert_fingerprints": ["98:66:39:87:AB:0E:09:49:45:3D:70:1D:C6:F7:CC:B6:D6:B7:45:23:5B:A7:00:40:4B:88:52:1D:98:08:54:88"]
+      }
+    }]
