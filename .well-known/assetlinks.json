@@ -3,6 +3,8 @@
       "target": {
         "namespace": "android_app",
         "package_name": "com.zaidalabs.alquran.twa",
-        "sha256_cert_fingerprints": ["98:66:39:87:AB:0E:09:49:45:3D:70:1D:C6:F7:CC:B6:D6:B7:45:23:5B:A7:00:40:4B:88:52:1D:98:08:54:88"]
+        "sha256_cert_fingerprints": ["98:66:39:87:AB:0E:09:49:45:3D:70:1D:C6:F7:CC:B6:D6:B7:45:23:5B:A7:00:40:4B:88:52:1D:98:08:54:88",
+        "EE:01:88:01:A3:F8:7C:7E:87:F5:6B:8D:85:12:FF:01:09:99:91:C3:70:F5:00:04:74:AC:65:21:00:9B:AB:AB
+"]
       }
     }]
