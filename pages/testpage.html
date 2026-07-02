@@ -3,211 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jadwal Sholat</title>
+<title>Al-Qur'an</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=2">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   
-<style>
-/* =========================
-   JADWAL SHOLAT STYLE
-========================= */
-
-.page-sholat{
-  background:var(--bg);
-}
-
-.sholat-container{
-  padding:18px 18px 110px;
-}
-
-.nav-btn{
-  width:42px;
-  height:42px;
-  border:none;
-  border-radius:14px;
-  background:var(--card);
-  color:var(--primary);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:var(--shadow-sm);
-}
-
-.header-title{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-
-#judul-sholat{
-  font-size:17px;
-  font-weight:800;
-  color:var(--primary);
-}
-
-#lokasi-aktif{
-  font-size:12px;
-  color:var(--text-secondary);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.kota-select{
-  width:100%;
-  min-height:48px;
-  padding:12px 14px;
-  font-size:14px;
-  font-weight:700;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.7);
-  margin-bottom:12px;
-  background:var(--card);
-  color:var(--text);
-  box-shadow:var(--shadow-sm);
-  outline:none;
-}
-
-.kota-select:focus{
-  border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(10,77,58,.12);
-}
-
-#autoLocationBtn{
-  border:none;
-  background:linear-gradient(145deg,var(--primary),var(--primary-hover));
-  color:#fff;
-  margin-bottom:18px;
-  cursor:pointer;
-}
-
-#jadwalSholat{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-#jadwalSholat p{
-  background:var(--card);
-  border-radius:18px;
-  padding:16px;
-  text-align:center;
-  color:var(--text-secondary);
-  box-shadow:var(--shadow-sm);
-}
-
-.jadwal-card{
-  background:var(--card);
-  border-radius:20px;
-  padding:17px 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:var(--shadow-sm);
-  border:1px solid rgba(255,255,255,.7);
-  transition:.25s ease;
-}
-
-.jadwal-card:hover{
-  transform:translateY(-2px);
-  box-shadow:var(--shadow-md);
-}
-
-.jadwal-card span:first-child{
-  font-size:15px;
-  font-weight:800;
-  color:var(--text);
-}
-
-.jadwal-card .jam{
-  font-size:18px;
-  font-weight:800;
-  color:var(--primary);
-  padding:7px 11px;
-  border-radius:999px;
-  background:var(--primary-ghost);
-}
-
-.jadwal-card.active{
-  background:linear-gradient(145deg,#0a4d3a,#0f6e52);
-  color:#fff;
-  border-left:none;
-  box-shadow:0 8px 28px rgba(10,77,58,.22);
-}
-
-.jadwal-card.active span:first-child,
-.jadwal-card.active .jam{
-  color:#fff;
-}
-
-.jadwal-card.active .jam{
-  background:rgba(255,255,255,.18);
-}
-
-/* =========================
-   TAMBAHAN: wrapper kanan (jam + tombol alarm)
-   & tombol toggle alarm — tidak mengubah rule di atas,
-   hanya menambah class baru
-========================= */
-.jadwal-right{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.jadwal-sub{
-  font-size:11px;
-  font-weight:600;
-  color:var(--text-secondary);
-  opacity:.75;
-  margin-left:4px;
-}
-
-.jadwal-card.active .jadwal-sub{
-  color:rgba(255,255,255,.75);
-}
-
-.alarm-toggle{
-  width:34px;
-  height:34px;
-  flex-shrink:0;
-  border:none;
-  border-radius:50%;
-  background:rgba(0,0,0,.06);
-  color:var(--text-secondary);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:.2s ease;
-  font-size:14px;
-}
-
-.alarm-toggle.active{
-  background:var(--primary);
-  color:#fff;
-}
-
-.jadwal-card.active .alarm-toggle{
-  background:rgba(255,255,255,.18);
-  color:#fff;
-}
-
-.jadwal-card.active .alarm-toggle.active{
-  background:#fff;
-  color:var(--primary);
-}
-</style>
+  <link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body class="page-sholat">
+<body>
 
 <header class="app-header">
-  <button class="nav-btn back-btn" onclick="history.back()">
+  <button class="back-btn" onclick="history.back()">
     <svg viewBox="0 0 24 24" width="22" height="22"
       fill="none"
       stroke="currentColor"
@@ -217,338 +23,168 @@
       <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
   </button>
-
-  <div class="header-title">
-  <div id="judul-sholat">Jadwal Sholat</div>
-  <div id="lokasi-aktif" class="judul-surah"></div>
-</div>
-
+  <h1 class="header-title">Al-Qur'an</h1>
+  <button class="search-btn" id="openSearch">
+  <i class="fas fa-search"></i>
+</button>
 </header>
 
-<main class="sholat-container">
- <select class="kota-select" id="kotaSelect"></select>
-<button id="autoLocationBtn" class="kota-select">
-  📍 Gunakan Lokasi Saat Ini
-</button>
-  <div id="jadwalSholat">
-    <p>Memuat jadwal sholat...</p>
-  </div>
+<main class="container">
+
+<div class="quran-toggle">
+  <button id="btnSurah" class="toggle-btn active">Surah</button>
+  <button id="btnJuz" class="toggle-btn">Juz</button>
+  <button id="btnBookmark" class="toggle-btn">Bookmark</button>
+</div>
+<div class="search-box" id="searchBox" style="display:none;">
+  <input type="text" id="searchInput" placeholder="Cari nama surah...">
+</div>
+  <div id="surahList" class="surah-list"></div>
+
 </main>
-<script src="../data/kota.js"></script>
+
+  <script src="../data/juz-map.js"></script>
+  <script src="../data/surah-names.js"></script>
+  
 <script>
+const list = document.getElementById('surahList');
+const btnSurah = document.getElementById('btnSurah');
+const btnJuz = document.getElementById('btnJuz');
 
-   const kotaSelect = document.getElementById('kotaSelect');
+const params = new URLSearchParams(location.search);
+const mode = params.get('mode');
 
-// isi dropdown kota
-KOTA_INDONESIA.forEach(kota => {
-  const opt = document.createElement('option');
-  opt.value = kota;
-  opt.textContent = kota;
-  kotaSelect.appendChild(opt);
-   kotaSelect.value = "Palangka Raya";
-
-});
-
-const jadwalEl = document.getElementById('jadwalSholat');
-const autoBtn = document.getElementById('autoLocationBtn');
-const lokasiEl = document.getElementById('lokasi-aktif');
-
-/* =========================
-   ALARM: penyimpanan on/off per waktu sholat
-========================= */
-const ALARM_STORAGE_KEY = 'sholatAlarmSettings';
-const LOKASI_DEFAULT_KEY = 'sholatLokasiDefault';
-const ADZAN_SUBUH_AUDIO_SRC = '../data/audio/adzan-subuh.mp3'; // adzan subuh (ada "ashsholatu khoirun minan naum")
-const ADZAN_AUDIO_SRC = '../data/audio/adzan.mp3'; // adzan Dzuhur/Ashar/Maghrib/Isya
-const SIRINE_AUDIO_SRC = '../data/audio/sirine.mp3';
-   
-function getAlarmSettings() {
-  try {
-    return JSON.parse(localStorage.getItem(ALARM_STORAGE_KEY) || '{}');
-  } catch {
-    return {};
-  }
+if (mode === 'juz') {
+  setActive(btnJuz);
+  loadJuz();
+} else {
+  setActive(btnSurah);
+  loadSurah();
 }
 
-function isAlarmOn(nama) {
-  return !!getAlarmSettings()[nama];
+
+btnSurah.onclick = () => {
+  setActive(btnSurah, btnJuz);
+  loadSurah();
+};
+
+btnJuz.onclick = () => {
+  setActive(btnJuz, btnSurah);
+  loadJuz();
+};
+
+const btnBookmark = document.getElementById('btnBookmark');
+
+btnBookmark.onclick = () => {
+  window.location.href = 'bookmark.html';
+};
+
+function setActive(btn) {
+  document
+    .querySelectorAll('.toggle-btn')
+    .forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
-function toggleAlarm(nama) {
-  const settings = getAlarmSettings();
-  settings[nama] = !settings[nama];
-  localStorage.setItem(ALARM_STORAGE_KEY, JSON.stringify(settings));
-  return settings[nama];
+let SURAH_CACHE = [];
+
+function loadSurah() {
+  list.innerHTML = 'Memuat surah...';
+
+  fetch('https://equran.id/api/v2/surat')
+    .then(res => res.json())
+    .then(data => {
+      SURAH_CACHE = data.data;
+      renderSurah(SURAH_CACHE);
+    })
+    .catch(() => list.innerHTML = '<p>Gagal memuat Surah</p>');
 }
 
-function mainkanBeep() {
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const o = ctx.createOscillator();
-    const g = ctx.createGain();
-    o.connect(g);
-    g.connect(ctx.destination);
-    o.frequency.value = 880;
-    g.gain.setValueAtTime(0.001, ctx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + 0.05);
-    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
-    o.start();
-    o.stop(ctx.currentTime + 0.65);
-  } catch (e) {
-    // abaikan jika Web Audio tidak tersedia
-  }
-}
+function renderSurah(data) {
+  list.innerHTML = '';
 
-function mainkanAlarm(nama) {
-
-  if (nama === 'Terbit') {
-    const audio = new Audio(SIRINE_AUDIO_SRC);
-    audio.play().catch(() => mainkanBeep());
+  if (!data.length) {
+    list.innerHTML = '<p>Surah tidak ditemukan</p>';
     return;
   }
 
-  const src =
-    nama === 'Subuh'
-      ? ADZAN_SUBUH_AUDIO_SRC
-      : ADZAN_AUDIO_SRC;
-
-  const audio = new Audio(src);
-  audio.play().catch(() => mainkanBeep());
+  data.forEach(s => {
+    const item = document.createElement('a');
+    item.href = `surah.html?no=${s.nomor}`;
+    item.className = 'surah-item';
+    item.innerHTML = `
+      <div>
+        <strong>${s.nomor}. ${s.namaLatin}</strong>
+        <small>${s.arti}</small>
+      </div>
+      <span>${s.jumlahAyat} ayat</span>
+    `;
+    list.appendChild(item);
+  });
 }
 
-// jam yang sedang tampil, dipakai buat pengecekan alarm tiap interval
-let jamAktifSaatIni = {};
-const sudahBunyiHariIni = {};
+function loadJuz() {
+  list.innerHTML = '';
 
-setInterval(() => {
-  const now = new Date();
-  const hhmm = now.toTimeString().slice(0, 5);
-  const todayKey = now.toDateString();
+  JUZ_MAP.forEach(j => {
+    const item = document.createElement('a');
+    item.href = `juz.html?no=${j.juz}`;
+    item.className = 'surah-item';
 
-  Object.entries(jamAktifSaatIni).forEach(([nama, jam]) => {
-    if (jam === hhmm && isAlarmOn(nama) && sudahBunyiHariIni[nama] !== todayKey) {
-      mainkanAlarm(nama);
-      sudahBunyiHariIni[nama] = todayKey;
-    }
-  });
-}, 15000);
+    const surahName = getSurahName(j.start[0]);
+    const ayatNo = j.start[1];
 
-/* =========================
-   RENDER JADWAL (GLOBAL)
-========================= */
-function renderJadwal(t) {
-  const jadwal = [
-    ['Subuh', t.Fajr],
-    ['Terbit', t.Sunrise],
-    ['Dzuhur', t.Dhuhr],
-    ['Ashar', t.Asr],
-    ['Maghrib', t.Maghrib],
-    ['Isya', t.Isha]
-  ];
-
-  const now = new Date();
-  jadwalEl.innerHTML = '';
-  jamAktifSaatIni = {};
-
-  jadwal.forEach(([nama, jam]) => {
-    if (!jam) return;
-
-    const [h, m] = jam.split(':');
-    const waktu = new Date();
-    waktu.setHours(h, m, 0);
-    jamAktifSaatIni[nama] = jam;
-
-    const active =
-      now >= waktu &&
-      now < new Date(waktu.getTime() + 60 * 60 * 1000);
-
-    const alarmOn = isAlarmOn(nama);
-
-    const div = document.createElement('div');
-    div.className = 'jadwal-card' + (active ? ' active' : '');
-    div.innerHTML = `
-      <span>${nama}${nama === 'Terbit' ? '<span class="jadwal-sub">(akhir Subuh)</span>' : ''}</span>
-      <div class="jadwal-right">
-        <span class="jam">${jam}</span>
-        <button class="alarm-toggle${alarmOn ? ' active' : ''}" data-nama="${nama}" title="${nama === 'Terbit' ? 'Alarm biasa' : 'Alarm adzan'}">
-          <i class="fa-solid ${alarmOn ? 'fa-bell' : 'fa-bell-slash'}"></i>
-        </button>
+    item.innerHTML = `
+      <div>
+        <strong>Juz ${j.juz}</strong>
+        <small>Mulai dari ${surahName} ayat ${ayatNo}</small>
       </div>
     `;
-    jadwalEl.appendChild(div);
+
+    list.appendChild(item);
   });
-
-  jadwalEl.querySelectorAll('.alarm-toggle').forEach(btn => {
-  let pressTimer;
-  let isLongPress = false;
-
-  function mulaiTekan() {
-    isLongPress = false;
-
-    pressTimer = setTimeout(() => {
-      isLongPress = true;
-      const nama = btn.dataset.nama;
-      mainkanAlarm(nama);
-    }, 800);
-  }
-
-  function selesaiTekan() {
-    clearTimeout(pressTimer);
-  }
-
-  btn.addEventListener('mousedown', mulaiTekan);
-  btn.addEventListener('mouseup', selesaiTekan);
-  btn.addEventListener('mouseleave', selesaiTekan);
-
-  btn.addEventListener('touchstart', mulaiTekan);
-  btn.addEventListener('touchend', selesaiTekan);
-  btn.addEventListener('touchcancel', selesaiTekan);
-
-  btn.addEventListener('click', () => {
-    if (isLongPress) return;
-
-    const nama = btn.dataset.nama;
-    const nyala = toggleAlarm(nama);
-
-    btn.classList.toggle('active', nyala);
-
-    const icon = btn.querySelector('i');
-    icon.className = 'fa-solid ' + (nyala ? 'fa-bell' : 'fa-bell-slash');
-  });
-});
 }
 
-/* =========================
-   LOAD JADWAL BY CITY
-========================= */
-async function loadJadwal(kota) {
-  jadwalEl.innerHTML = '<p>Memuat jadwal sholat...</p>';
-
-  const today = new Date();
-  const date = today.getDate();
-  const month = today.getMonth() + 1;
-  const year = today.getFullYear();
-
-  try {
-    const res = await fetch(
-      `https://api.aladhan.com/v1/timingsByCity/${date}-${month}-${year}?city=${kota}&country=Indonesia&method=11`
-    );
-    const json = await res.json();
-
-    localStorage.setItem("jadwalSholat", JSON.stringify({
-    waktu: json.data.timings,
-    tanggal: new Date().toDateString()
-}));
-
-    renderJadwal(json.data.timings);
-  } catch (err) {
-    jadwalEl.innerHTML = '<p>Gagal memuat jadwal sholat.</p>';
-  }
+  function getSurahName(no) {
+  return SURAH_NAMES[no] || `Surah ${no}`;
 }
 
-/* =========================
-   LOAD BY COORDINATE (GPS)
-========================= */
-async function loadJadwalByCoord(lat, lon) {
-  jadwalEl.innerHTML = '<p>Mendeteksi lokasi...</p>';
+   const openSearch = document.getElementById('openSearch');
+const searchBox = document.getElementById('searchBox');
+const searchInput = document.getElementById('searchInput');
 
-  try {
-    const res = await fetch(
-      `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=11`
-    );
-    const json = await res.json();
-    renderJadwal(json.data.timings);
-  } catch (err) {
-    jadwalEl.innerHTML = '<p>Gagal memuat jadwal dari lokasi.</p>';
+openSearch.onclick = () => {
+  const isOpen = searchBox.style.display === 'block';
+  searchBox.style.display = isOpen ? 'none' : 'block';
+
+  if (!isOpen) {
+    setActive(btnSurah);
+    loadSurah();
+    setTimeout(() => searchInput.focus(), 100);
+  } else {
+    searchInput.value = '';
+    renderSurah(SURAH_CACHE);
   }
-}
+};
 
-/* =========================
-   EVENT LISTENER
-========================= */
-kotaSelect.addEventListener('change', () => {
- lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
-   loadJadwal(kotaSelect.value);
-   lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
-});
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.toLowerCase().trim();
 
-autoBtn.addEventListener('click', () => {
-  if (!navigator.geolocation) {
-    alert('Browser tidak mendukung GPS.');
-    return;
-  }
-
-  jadwalEl.innerHTML = '<p>Meminta izin lokasi...</p>';
-
-  navigator.geolocation.getCurrentPosition(
-  pos => {
-    const lat = pos.coords.latitude;
-    const lon = pos.coords.longitude;
-
-    getNamaLokasi(lat, lon).then(label => {
-      // simpan lokasi GPS ini sebagai lokasi default berikutnya
-      localStorage.setItem(LOKASI_DEFAULT_KEY, JSON.stringify({
-        type: 'coord',
-        lat,
-        lon,
-        label: label || lokasiEl.textContent
-      }));
-    });
-    loadJadwalByCoord(lat, lon);
-  },
-  () => {
-    alert('Izin lokasi ditolak.');
-    },
-    {
-      enableHighAccuracy: true,
-      timeout: 10000,
-      maximumAge: 60000
-    }
+  const filtered = SURAH_CACHE.filter(s =>
+    s.namaLatin.toLowerCase().includes(q) ||
+    s.arti.toLowerCase().includes(q) ||
+    String(s.nomor).includes(q)
   );
+
+  renderSurah(filtered);
 });
 
-/* =========================
-   LOAD AWAL
-========================= */
-const lokasiTersimpan = JSON.parse(localStorage.getItem(LOKASI_DEFAULT_KEY) || 'null');
-
-if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
-  lokasiEl.textContent = lokasiTersimpan.label || '📍 Lokasi tersimpan';
-  loadJadwalByCoord(lokasiTersimpan.lat, lokasiTersimpan.lon);
-} else {
-  loadJadwal(kotaSelect.value);
-  lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
-}
-   
-   async function getNamaLokasi(lat, lon) {
-  try {
-    const res = await fetch(
-      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
-    );
-    const json = await res.json();
-    const city =
-      json.address.city ||
-      json.address.town ||
-      json.address.village ||
-      '';
-
-    const state = json.address.state || '';
-
-    lokasiEl.textContent = `📍 ${city}${state ? ', ' + state : ''}`;
-    return lokasiEl.textContent;
-  } catch {
-    lokasiEl.textContent = '📍 Lokasi saat ini';
-    return lokasiEl.textContent;
-  }
-}
-
-   
 </script>
 <div id="footer"></div>
 
 <script src="../data/loader.js"></script>
 <script>
-  loadFooter();
+  loadFooter("quran");
 </script>
 
 </body>
