@@ -3,492 +3,457 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramadhan Tracker</title>
+<title>Surah</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
 
 <style>
-.tracker-header {
-  text-align: center;
-  margin-bottom: 16px;
+.ayat-item{
+  background:var(--card);
+  border-radius:20px;
+  padding:18px 16px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  transition:.25s ease;
 }
 
-.tracker-header h2 {
-  font-size: 1.3rem;
+.ayat-item:active{
+  transform:scale(.985);
 }
 
-.tracker-header p {
-  font-size: 0.85rem;
-  opacity: 0.7;
+.ayat-item.bookmarked{
+  border-left:4px solid var(--accent);
+  background:rgba(196,154,42,.08);
 }
 
-.tracker-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+.ayat-item.playing{
+  border-left:4px solid var(--primary);
+  background:var(--primary-ghost-strong);
 }
 
-.tracker-table th,
-.tracker-table td {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 0.85rem;
+.ayat-content{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
-.tracker-table th {
-  background: #f1f5f9;
-  font-weight: 600;
+.ayat-arab{
+  font-family:'Amiri',serif;
+  direction:rtl;
+  text-align:right;
+  font-size:29px;
+  line-height:2.15;
+  color:var(--text);
 }
 
-.tracker-table tr:last-child td {
-  border-bottom: none;
+.ayat-nomor-inline{
+  display:inline-block;
+  color:var(--primary);
+  font-size:23px;
+  margin-right:6px;
 }
 
-input[type="checkbox"] {
-  transform: scale(1.1);
-  accent-color: #0284c7;
+.ayat-indo{
+  font-size:14px;
+  line-height:1.75;
+  color:var(--text-secondary);
 }
 
-/* ===== Tambahan: Kartu Progress Overview ===== */
-.progress-overview {
-  background: #fff;
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+.hide-translation .ayat-indo{
+  display:none;
 }
 
-.progress-top {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  flex-wrap: wrap;
-  justify-content: center;
+.bismillah{
+  background:linear-gradient(145deg,#0a4d3a,#0f6e52);
+  color:#fff;
+  border-radius:20px;
+  padding:20px 16px;
+  margin-bottom:16px;
+  text-align:center;
+  direction:rtl;
+  font-size:27px;
+  box-shadow:0 8px 28px rgba(10,77,58,.2);
 }
 
-.circular-progress {
-  position: relative;
-  width: 110px;
-  height: 110px;
-  flex-shrink: 0;
+.bismillah-deco{
+  color:var(--accent);
+  font-size:18px;
+  margin:0 8px;
 }
 
-.circular-progress svg {
-  transform: rotate(-90deg);
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
 }
 
-.circular-progress .bg-ring {
-  stroke: #e5e7eb;
+.translate-btn{
+  margin-left:auto;
+  font-size:18px;
 }
 
-.circular-progress .progress-ring {
-  stroke: #0284c7;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+.header-title{
+  flex:1;
+  font-size:16px;
+  font-weight:800;
+  color:var(--primary);
+  line-height:1.25;
 }
 
-.circular-progress .percent-label {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* ===== POPUP AYAT ===== */
+.ayat-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.42);
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  z-index:999;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
 }
 
-.circular-progress .percent-label .num {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #0284c7;
-  line-height: 1;
+.ayat-popup.hidden{
+  display:none;
 }
 
-.circular-progress .percent-label small {
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: #64748b;
-  margin-top: 3px;
+.popup-sheet{
+  width:100%;
+  max-width:480px;
+  background:var(--card);
+  color:var(--text);
+  border-radius:24px 24px 0 0;
+  padding:16px 18px 22px;
+  box-shadow:0 -8px 40px rgba(0,0,0,.18);
+  animation:slideUp .25s ease;
 }
 
-.category-bars {
-  flex: 1;
-  min-width: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.popup-handle{
+  width:42px;
+  height:4px;
+  background:var(--border);
+  border-radius:999px;
+  margin:0 auto 12px;
 }
 
-.category-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.8rem;
+.popup-title{
+  text-align:center;
+  font-size:14px;
+  font-weight:700;
+  color:var(--text-secondary);
+  margin-bottom:14px;
 }
 
-.category-bar .label {
-  width: 60px;
-  font-weight: 600;
-  color: #334155;
-  text-align: left;
+.popup-btn{
+  width:100%;
+  padding:13px;
+  margin-bottom:10px;
+  border-radius:14px;
+  border:none;
+  background:var(--primary);
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
 }
 
-.category-bar .bar {
-  flex: 1;
-  height: 10px;
-  background: #f1f5f9;
-  border-radius: 6px;
-  overflow: hidden;
+#popupBookmark{
+  background:var(--accent);
 }
 
-.category-bar .fill {
-  height: 100%;
-  background: linear-gradient(90deg, #38bdf8, #0284c7);
-  border-radius: 6px;
-  width: 0%;
-  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+.popup-close{
+  background:transparent;
+  color:var(--text-muted);
+  border:none;
+  width:100%;
+  padding:11px;
+  font-size:14px;
+  font-weight:700;
 }
 
-.category-bar .value {
-  width: 52px;
-  text-align: right;
-  font-weight: 600;
-  color: #0284c7;
-  font-variant-numeric: tabular-nums;
-}
-
-/* ===== Tambahan: Tombol Aksi Cepat ===== */
-.quick-actions {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.quick-actions button {
-  flex: 1;
-  padding: 10px 14px;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-  color: #0284c7;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.quick-actions button:hover {
-  background: #f0f9ff;
-  border-color: #0284c7;
-}
-
-.quick-actions button.danger {
-  color: #dc2626;
-}
-
-.quick-actions button.danger:hover {
-  background: #fef2f2;
-  border-color: #dc2626;
-}
-
-/* ===== Tambahan: Tap target lebih besar ===== */
-.tracker-table td label {
-  display: inline-block;
-  padding: 6px 10px;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.15s;
-}
-
-.tracker-table td label:hover {
-  background: #f0f9ff;
-}
-
-.tracker-table td label:active {
-  background: #e0f2fe;
-}
-
-/* ===== Tambahan: Highlight hari ini ===== */
-.tracker-table tr.is-today td {
-  background: #fef9c3;
-}
-
-.tracker-table tr.is-today td:first-child {
-  font-weight: 700;
-  color: #b45309;
-}
-
-/* ===== Tambahan: Toast notifikasi ===== */
-.toast {
-  position: fixed;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: #0f172a;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 50;
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-@media (max-width: 480px) {
-  .progress-top { gap: 16px; }
-  .circular-progress { width: 90px; height: 90px; }
-  .circular-progress .percent-label .num { font-size: 1.25rem; }
-  .category-bars { min-width: 100%; }
+@keyframes slideUp{
+  from{transform:translateY(100%)}
+  to{transform:translateY(0)}
 }
 </style>
 </head>
+
 <body>
 
 <header class="app-header">
-  <button class="back-btn" onclick="history.back()">
+  <button class="nav-btn back-btn" onclick="history.back()">
     <svg viewBox="0 0 24 24" width="22" height="22"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round">
+      fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
   </button>
 
-  <h1 class="header-title">Ramadhan Tracker</h1>
+  <div class="header-title">
+    <span id="judul">Surah</span>
+  </div>
+
+  <button class="nav-btn translate-btn" id="toggleTerjemah">🌐</button>
 </header>
 
-<main class="container">
-
-  <div class="tracker-header">
-    <h2>📊 Progres Ibadah Ramadhan</h2>
-    <p>Ceklis harian untuk evaluasi diri</p>
-  </div>
-
-  <!-- Kartu Progress -->
-  <section class="progress-overview">
-    <div class="progress-top">
-      <div class="circular-progress">
-        <svg width="110" height="110" viewBox="0 0 110 110">
-          <circle class="bg-ring" cx="55" cy="55" r="48" fill="none" stroke-width="8"/>
-          <circle class="progress-ring" id="progressRing" cx="55" cy="55" r="48" fill="none"
-            stroke-width="8" stroke-dasharray="301.59" stroke-dashoffset="301.59"/>
-        </svg>
-        <div class="percent-label">
-          <span class="num" id="overallPercent">0%</span>
-          <small>Total Progres</small>
-        </div>
-      </div>
-
-      <div class="category-bars" id="categoryBars"></div>
-    </div>
-  </section>
-
-  <!-- Tombol Aksi -->
-  <div class="quick-actions">
-    <button id="todayBtn" type="button">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="12 6 12 12 16 14"/>
-      </svg>
-      Ke Hari Ini
-    </button>
-    <button id="resetBtn" class="danger" type="button">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/>
-      </svg>
-      Reset
-    </button>
-  </div>
-
-  <table class="tracker-table">
-    <thead>
-      <tr>
-        <th>Hari</th>
-        <th>Puasa</th>
-        <th>Tilawah</th>
-        <th>Tarawih</th>
-        <th>Sedekah</th>
-      </tr>
-    </thead>
-    <tbody id="trackerBody"></tbody>
-  </table>
-
+<main class="container" id="ayatList">
+  <p>Memuat ayat...</p>
 </main>
 
-<nav class="bottom-nav">
-  <a href="../index.html">Home</a>
-  <a href="quran.html">Al-Qur'an</a>
-  <a href="bookmark.html">Bookmark</a>
-  <a href="about.html">Tentang</a>
-</nav>
+<audio id="audioPlayer"></audio>
 
-<div class="toast" id="toast"></div>
+<!-- ===== POPUP ===== -->
+<div id="ayatPopup" class="ayat-popup hidden">
+  <div class="popup-sheet">
+    <div class="popup-handle"></div>
+    <div class="popup-title" id="popupTitle">QS - : -</div>
+    <button id="popupPlay" class="popup-btn">▶ Putar Murattal</button>
+    <button id="popupBookmark" class="popup-btn">⭐ Bookmark Ayat</button>
+    <button id="popupClose" class="popup-close">Tutup</button>
+  </div>
+</div>
+
+<script src="../data/surah-names.js"></script>
 
 <script>
-const body = document.getElementById('trackerBody');
-const TYPES = ['puasa','tilawah','tarawih','sedekah'];
-const TYPE_LABELS = { puasa: 'Puasa', tilawah: 'Tilawah', tarawih: 'Tarawih', sedekah: 'Sedekah' };
-const RING_CIRCUMFERENCE = 2 * Math.PI * 48; // ≈ 301.59
+const params = new URLSearchParams(window.location.search);
+const no = Number(params.get('no'));
 
-function getData() {
-  return JSON.parse(localStorage.getItem('ramadhanTracker')) || {};
+const ayatList = document.getElementById('ayatList');
+const judul = document.getElementById('judul');
+const audioPlayer = document.getElementById('audioPlayer');
+const toggleBtn = document.getElementById('toggleTerjemah');
+
+const popup = document.getElementById('ayatPopup');
+const popupTitle = document.getElementById('popupTitle');
+const popupPlay = document.getElementById('popupPlay');
+const popupBookmark = document.getElementById('popupBookmark');
+const popupClose = document.getElementById('popupClose');
+
+let selectedAyat = null;
+let currentPlaying = null;
+
+/* ================= BOOKMARK ================= */
+function getBookmarks(){
+  return JSON.parse(localStorage.getItem('bookmarks')) || [];
+}
+function isBookmarkedSurah(surah, ayat){
+  return getBookmarks().some(b =>
+    b.mode==='surah' && b.surah==surah && b.ayat==ayat
+  );
 }
 
-function saveData(data) {
-  localStorage.setItem('ramadhanTracker', JSON.stringify(data));
-}
+function getGlobalAyahNumber(surah, ayat) {
+  const startNumbers = [
+    0, 1, 8, 294, 494, 670, 790, 956, 1162, 1237,
+    1366, 1475, 1598, 1709, 1752, 1851, 1979, 2090,
+    2201, 2311, 2409, 2527, 2605, 2723, 2787, 2864,
+    3091, 3184, 3272, 3341, 3401, 3435, 3465, 3538,
+    3592, 3637, 3720, 3902, 3990, 4065, 4150, 4204,
+    4257, 4310, 4399, 4458, 4495, 4530, 4568, 4597,
+    4615, 4660, 4709, 4771, 4826, 4904, 5000, 5096,
+    5125, 5147, 5171, 5184, 5198, 5209, 5220, 5238,
+    5250, 5262, 5292, 5344, 5396, 5440, 5468, 5496,
+    5516, 5572, 5612, 5643, 5693, 5733, 5779, 5821,
+    5850, 5869, 5905, 5930, 5952, 5969, 5988, 6014,
+    6044, 6064, 6079, 6100, 6111, 6119, 6127, 6146,
+    6151, 6159, 6167, 6178, 6189, 6197, 6200, 6203,
+    6208, 6212, 6219, 6222, 6228, 6231, 6236
+  ];
 
-const data = getData();
+  return startNumbers[surah - 1] + ayat - 1;
+}  
+  
+/* ================= FETCH ================= */
+fetch('../data/quran-search.json')
+.then(res => res.json())
+.then(data => {
+  const ayahs = data.filter(a => Number(a.surah) === no);
 
-// Deteksi "hari ini" = hari pertama yang belum semua aktivitas tercentang
-function detectCurrentDay() {
-  for (let day = 1; day <= 30; day++) {
-    const allDone = TYPES.every(t => data[day]?.[t]);
-    if (!allDone) return day;
-  }
-  return null;
-}
-
-function renderTable() {
-  body.innerHTML = '';
-  const today = detectCurrentDay();
-  for (let day = 1; day <= 30; day++) {
-    const row = document.createElement('tr');
-    if (today && day === today) row.classList.add('is-today');
-
-    row.innerHTML = `
-      <td>${day}</td>
-      ${TYPES.map(type => `
-        <td>
-          <label>
-            <input type="checkbox"
-              data-day="${day}"
-              data-type="${type}"
-              ${data[day]?.[type] ? 'checked' : ''}
-            >
-          </label>
-        </td>
-      `).join('')}
-    `;
-    body.appendChild(row);
-  }
-}
-
-function renderChart() {
-  const counts = {};
-  TYPES.forEach(t => counts[t] = 0);
-  for (let day = 1; day <= 30; day++) {
-    TYPES.forEach(t => {
-      if (data[day]?.[t]) counts[t]++;
-    });
-  }
-
-  // Persentase total
-  const totalChecks = TYPES.reduce((s, t) => s + counts[t], 0);
-  const overall = Math.round((totalChecks / (30 * TYPES.length)) * 100);
-
-  const ring = document.getElementById('progressRing');
-  ring.style.strokeDashoffset = RING_CIRCUMFERENCE - (RING_CIRCUMFERENCE * overall / 100);
-  document.getElementById('overallPercent').textContent = overall + '%';
-
-  // Bar per kategori
-  const barsContainer = document.getElementById('categoryBars');
-  barsContainer.innerHTML = TYPES.map(t => {
-    const pct = Math.round((counts[t] / 30) * 100);
-    return `
-      <div class="category-bar">
-        <span class="label">${TYPE_LABELS[t]}</span>
-        <div class="bar"><div class="fill" style="width:${pct}%"></div></div>
-        <span class="value">${counts[t]}/30</span>
-      </div>
-    `;
-  }).join('');
-}
-
-function updateTodayHighlight() {
-  const today = detectCurrentDay();
-  Array.from(body.children).forEach((row, idx) => {
-    const day = idx + 1;
-    if (today && day === today) row.classList.add('is-today');
-    else row.classList.remove('is-today');
-  });
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(showToast._timer);
-  showToast._timer = setTimeout(() => t.classList.remove('show'), 2200);
-}
-
-renderTable();
-// Animasi chart muncul saat halaman pertama dimuat
-requestAnimationFrame(() => renderChart());
-
-body.addEventListener('change', e => {
-  if (e.target.type !== 'checkbox') return;
-
-  const day = e.target.dataset.day;
-  const type = e.target.dataset.type;
-
-  data[day] = data[day] || {};
-  data[day][type] = e.target.checked;
-
-  saveData(data);
-  renderChart();
-  updateTodayHighlight();
-
-  // Rayakan ketika semua aktivitas hari itu selesai
-  if (data[day] && TYPES.every(t => data[day][t])) {
-    showToast(`🎉 Hari ke-${day} lengkap!`);
-  }
-});
-
-// Tombol: scroll ke hari ini
-document.getElementById('todayBtn').addEventListener('click', () => {
-  const today = detectCurrentDay();
-  if (!today) {
-    showToast('Semua hari sudah terisi 🌟');
+  if (!ayahs.length) {
+    ayatList.innerHTML = '<p>Surah tidak ditemukan</p>';
     return;
   }
-  const row = body.querySelector('tr.is-today');
-  if (row) {
-    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    showToast(`Hari ke-${today}`);
+
+  const surahLatin = ayahs[0].nama || SURAH_NAMES[no] || `Surah ${no}`;
+  judul.textContent = surahLatin;
+  ayatList.innerHTML = '';
+
+  function removeBismillah(text) {
+    return text
+      .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
+      .replace(/^بِسْمِ\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
+      .trim();
   }
+
+  function toArabicNumber(num) {
+    const d = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+    return String(num).replace(/\d/g, x => d[x]);
+  }
+
+  if (no !== 1 && no !== 9) {
+    const bismillah = document.createElement('div');
+    bismillah.className = 'bismillah ayat-arab';
+    bismillah.innerHTML = `
+      <span class="bismillah-deco">❁</span>
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      <span class="bismillah-deco">❁</span>
+    `;
+    ayatList.appendChild(bismillah);
+  }
+
+  ayahs.forEach(a => {
+    let ayatText = a.arab || '';
+
+    if (Number(a.ayat) === 1 && no !== 1 && no !== 9) {
+      ayatText = removeBismillah(ayatText);
+    }
+
+    const div = document.createElement('div');
+    div.className = 'ayat-item';
+    div.id = `ayat-${a.ayat}`;
+
+    if (isBookmarkedSurah(no, a.ayat)) {
+      div.classList.add('bookmarked');
+    }
+
+    div.dataset.surah = no;
+    div.dataset.surahName = surahLatin;
+    div.dataset.ayat = a.ayat;
+    div.dataset.text = a.arab || '';
+    div.dataset.audio = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${getGlobalAyahNumber(no, Number(a.ayat))}.mp3`;
+
+    div.innerHTML = `
+      <div class="ayat-content">
+        <div class="ayat-arab">
+          ${ayatText}
+          <span class="ayat-nomor-inline">﴿${toArabicNumber(a.ayat)}﴾</span>
+        </div>
+        <div class="ayat-indo">${a.terjemahan || ''}</div>
+      </div>
+    `;
+
+    ayatList.appendChild(div);
+  });
+
+  const targetAyat = new URLSearchParams(location.search).get('ayat') || localStorage.getItem('scrollToAyat');
+
+  if (targetAyat) {
+    setTimeout(() => {
+      const target = document.getElementById(`ayat-${targetAyat}`);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        target.classList.add('playing');
+
+        setTimeout(() => {
+          target.classList.remove('playing');
+        }, 1800);
+      }
+
+      localStorage.removeItem('scrollToAyat');
+    }, 400);
+  }
+})
+.catch(() => {
+  ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
 });
 
-// Tombol: reset semua progres
-document.getElementById('resetBtn').addEventListener('click', () => {
-  if (confirm('Yakin ingin mereset semua progres?')) {
-    Object.keys(data).forEach(k => delete data[k]);
-    saveData(data);
-    renderTable();
-    renderChart();
-    showToast('Progres direset');
+/* ================= TOGGLE TERJEMAH ================= */
+let showTerjemah=true;
+toggleBtn.onclick=()=>{
+  showTerjemah=!showTerjemah;
+  document.body.classList.toggle('hide-translation',!showTerjemah);
+};
+
+/* ================= KLIK AYAT → POPUP ================= */
+document.addEventListener('click',e=>{
+  const ayat=e.target.closest('.ayat-item');
+  if(!ayat) return;
+
+  selectedAyat=ayat;
+  popupTitle.textContent=
+    `QS. ${ayat.dataset.surahName} : ${ayat.dataset.ayat}`;
+  popup.classList.remove('hidden');
+});
+
+/* ================= POPUP ACTIONS ================= */
+popupPlay.onclick=()=>{
+  if(!selectedAyat) return;
+
+  if(currentPlaying){
+    currentPlaying.classList.remove('playing');
+  }
+
+  currentPlaying=selectedAyat;
+  currentPlaying.classList.add('playing');
+
+  audioPlayer.src=currentPlaying.dataset.audio;
+  audioPlayer.play();
+  popup.classList.add('hidden');
+};
+
+popupBookmark.onclick=()=>{
+  const surah=selectedAyat.dataset.surah;
+  const ayat=selectedAyat.dataset.ayat;
+  let bookmarks=getBookmarks();
+
+  const idx=bookmarks.findIndex(b=>
+    b.mode==='surah' && b.surah==surah && b.ayat==ayat
+  );
+
+  if(idx>=0){
+    bookmarks.splice(idx,1);
+    selectedAyat.classList.remove('bookmarked');
+  }else{
+    bookmarks.push({
+      mode:'surah',
+      surah,
+      surahName:selectedAyat.dataset.surahName,
+      ayat,
+      text:selectedAyat.dataset.text
+    });
+    selectedAyat.classList.add('bookmarked');
+  }
+
+  localStorage.setItem('bookmarks',JSON.stringify(bookmarks));
+  popup.classList.add('hidden');
+};
+
+popupClose.onclick=()=>popup.classList.add('hidden');
+
+/* ================= AUTO NEXT AYAT ================= */
+audioPlayer.addEventListener('ended',()=>{
+  if(!currentPlaying) return;
+
+  const next=currentPlaying.nextElementSibling;
+  if(next && next.classList.contains('ayat-item')){
+    currentPlaying.classList.remove('playing');
+    currentPlaying=next;
+    currentPlaying.classList.add('playing');
+
+    audioPlayer.src=currentPlaying.dataset.audio;
+    audioPlayer.play();
+
+    currentPlaying.scrollIntoView({
+      behavior:'smooth',
+      block:'center'
+    });
+  }else{
+    currentPlaying.classList.remove('playing');
+    currentPlaying=null;
   }
 });
 </script>
