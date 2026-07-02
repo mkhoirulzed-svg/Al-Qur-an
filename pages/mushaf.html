@@ -277,58 +277,77 @@ function toArabicNumber(num) {
 async function loadMushaf({ start, end }) {
   mushafContent.innerHTML = '';
 
-  for (let surah = start[0]; surah <= end[0]; surah++) {
-    const res = await fetch(
-      `https://api.alquran.cloud/v1/surah/${surah}/editions/ar.alafasy`
-    );
-    const json = await res.json();
-    const arab = json.data[0];
+  const res = await fetch('../data/quran-search.json?v=3', {
+    cache: 'no-store'
+  });
 
-    // HEADER SURAH
-   const header = document.createElement('div');
-header.className = 'surah-header';
-const surahLatin = SURAH_NAMES[surah] || arab.englishName;
-header.textContent = `${surahLatin} (${arab.name})`;
-mushafContent.appendChild(header);
+  if (!res.ok) {
+    mushafContent.innerHTML = '<p>Gagal memuat mushaf.</p>';
+    throw new Error('Gagal memuat quran-search.json');
+  }
 
-// set judul surah di header atas (sekali saja)
-if (!judulSurah.textContent) {
-  judulSurah.textContent = `${surahLatin} (${arab.name})`;
-}
+  const data = await res.json();
 
+  const ayahs = data.filter(a => {
+    const surah = Number(a.surah);
+    const ayat = Number(a.ayat);
 
-    // KUMPULKAN AYAT DALAM 1 BLOK
-    let ayatText = '';
+    if (surah < start[0] || surah > end[0]) return false;
+    if (surah === start[0] && ayat < start[1]) return false;
+    if (surah === end[0] && ayat > end[1]) return false;
 
-    arab.ayahs.forEach(a => {
-      const ayatNo = a.numberInSurah;
+    return true;
+  });
 
-      if (
-        (surah === start[0] && ayatNo < start[1]) ||
-        (surah === end[0] && ayatNo > end[1])
-      ) return;
+  let lastSurah = null;
+  let ayatText = '';
 
-      let text = a.text;
+  ayahs.forEach(a => {
+    const surah = Number(a.surah);
+    const ayatNo = Number(a.ayat);
+    const surahLatin = a.nama || SURAH_NAMES[surah] || `Surah ${surah}`;
 
-      // BISMAILLAH MANUAL (AWAL SURAH)
-      if (
-        ayatNo === 1 &&
-        arab.number !== 1 &&
-        arab.number !== 9
-      ) {
-        const bismillah = document.createElement('div');
-        bismillah.className = 'bismillah';
-        bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-        mushafContent.appendChild(bismillah);
-
-        text = removeBismillah(text);
+    if (surah !== lastSurah) {
+      if (ayatText) {
+        const block = document.createElement('div');
+        block.className = 'mushaf-arab';
+        block.innerHTML = ayatText;
+        mushafContent.appendChild(block);
+        ayatText = '';
       }
-       
-const bookmarked = isBookmarked(juzNo, surah, ayatNo)
-    ? 'bookmarked'
-    : '';
-       
-     ayatText += `
+
+      const header = document.createElement('div');
+      header.className = 'surah-header';
+      header.textContent = surahLatin;
+      mushafContent.appendChild(header);
+
+      if (!judulSurah.textContent) {
+        judulSurah.textContent = surahLatin;
+      }
+
+      lastSurah = surah;
+    }
+
+    let text = a.arab || '';
+
+    if (
+      ayatNo === 1 &&
+      surah !== 1 &&
+      surah !== 9
+    ) {
+      const bismillah = document.createElement('div');
+      bismillah.className = 'bismillah';
+      bismillah.textContent = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+      mushafContent.appendChild(bismillah);
+
+      text = removeBismillah(text);
+    }
+
+    const bookmarked = isBookmarked(juzNo, surah, ayatNo)
+      ? 'bookmarked'
+      : '';
+
+    ayatText += `
 <span class="ayat-text ${bookmarked}"
   id="ayat-${surah}-${ayatNo}"
   data-juz="${juzNo}"
@@ -339,9 +358,9 @@ const bookmarked = isBookmarked(juzNo, surah, ayatNo)
   <span class="ayat-no">﴿${toArabicNumber(ayatNo)}﴾</span>
 </span>
 `;
+  });
 
-    });
-
+  if (ayatText) {
     const block = document.createElement('div');
     block.className = 'mushaf-arab';
     block.innerHTML = ayatText;
