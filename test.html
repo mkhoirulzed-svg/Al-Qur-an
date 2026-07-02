@@ -223,8 +223,10 @@
 
 <script src="../data/surah-names.js"></script>
 
+<script src="../data/surah-names.js"></script>
+
 <script>
-const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(location.search);
 const no = Number(params.get('no'));
 
 const ayatList = document.getElementById('ayatList');
@@ -240,222 +242,248 @@ const popupClose = document.getElementById('popupClose');
 
 let selectedAyat = null;
 let currentPlaying = null;
+let bookmarks = getBookmarks();
 
-/* ================= BOOKMARK ================= */
-function getBookmarks(){
-  return JSON.parse(localStorage.getItem('bookmarks')) || [];
+/* ================= UTIL ================= */
+function getBookmarks() {
+  try {
+    return JSON.parse(localStorage.getItem('bookmarks')) || [];
+  } catch {
+    return [];
+  }
 }
-function isBookmarkedSurah(surah, ayat){
-  return getBookmarks().some(b =>
-    b.mode==='surah' && b.surah==surah && b.ayat==ayat
+
+function saveBookmarks() {
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+}
+
+function isBookmarked(surah, ayat) {
+  return bookmarks.some(b =>
+    b.mode === 'surah' &&
+    Number(b.surah) === Number(surah) &&
+    Number(b.ayat) === Number(ayat)
   );
 }
 
-function getGlobalAyahNumber(surah, ayat) {
-  const startNumbers = [
-    0, 1, 8, 294, 494, 670, 790, 956, 1162, 1237,
-    1366, 1475, 1598, 1709, 1752, 1851, 1979, 2090,
-    2201, 2311, 2409, 2527, 2605, 2723, 2787, 2864,
-    3091, 3184, 3272, 3341, 3401, 3435, 3465, 3538,
-    3592, 3637, 3720, 3902, 3990, 4065, 4150, 4204,
-    4257, 4310, 4399, 4458, 4495, 4530, 4568, 4597,
-    4615, 4660, 4709, 4771, 4826, 4904, 5000, 5096,
-    5125, 5147, 5171, 5184, 5198, 5209, 5220, 5238,
-    5250, 5262, 5292, 5344, 5396, 5440, 5468, 5496,
-    5516, 5572, 5612, 5643, 5693, 5733, 5779, 5821,
-    5850, 5869, 5905, 5930, 5952, 5969, 5988, 6014,
-    6044, 6064, 6079, 6100, 6111, 6119, 6127, 6146,
-    6151, 6159, 6167, 6178, 6189, 6197, 6200, 6203,
-    6208, 6212, 6219, 6222, 6228, 6231, 6236
-  ];
+function toArabicNumber(num) {
+  const d = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(num).replace(/\d/g, x => d[x]);
+}
 
-  return startNumbers[surah - 1] + ayat - 1;
-}  
-  
-/* ================= FETCH ================= */
-fetch('../data/quran-search.json')
-.then(res => res.json())
-.then(data => {
-  const ayahs = data.filter(a => Number(a.surah) === no);
+function removeBismillah(text = '') {
+  return text
+    .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
+    .replace(/^بِسْمِ\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
+    .trim();
+}
 
-  if (!ayahs.length) {
-    ayatList.innerHTML = '<p>Surah tidak ditemukan</p>';
-    return;
+/* ================= RENDER ================= */
+function renderBismillah() {
+  if (no === 1 || no === 9) return;
+
+  const bismillah = document.createElement('div');
+  bismillah.className = 'bismillah ayat-arab';
+  bismillah.innerHTML = `
+    <span class="bismillah-deco">❁</span>
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    <span class="bismillah-deco">❁</span>
+  `;
+
+  ayatList.appendChild(bismillah);
+}
+
+function createAyatElement(a, surahLatin) {
+  let ayatText = a.arab || '';
+
+  if (Number(a.ayat) === 1 && no !== 1 && no !== 9) {
+    ayatText = removeBismillah(ayatText);
   }
 
-  const surahLatin = ayahs[0].nama || SURAH_NAMES[no] || `Surah ${no}`;
-  judul.textContent = surahLatin;
-  ayatList.innerHTML = '';
+  const div = document.createElement('div');
+  div.className = 'ayat-item';
+  div.id = `ayat-${a.ayat}`;
 
-  function removeBismillah(text) {
-    return text
-      .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
-      .replace(/^بِسْمِ\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
-      .trim();
+  if (isBookmarked(no, a.ayat)) {
+    div.classList.add('bookmarked');
   }
 
-  function toArabicNumber(num) {
-    const d = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
-    return String(num).replace(/\d/g, x => d[x]);
-  }
+  div.dataset.surah = no;
+  div.dataset.surahName = surahLatin;
+  div.dataset.ayat = a.ayat;
+  div.dataset.text = a.arab || '';
+  div.dataset.audio = a.audio || '';
 
-  if (no !== 1 && no !== 9) {
-    const bismillah = document.createElement('div');
-    bismillah.className = 'bismillah ayat-arab';
-    bismillah.innerHTML = `
-      <span class="bismillah-deco">❁</span>
-      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-      <span class="bismillah-deco">❁</span>
-    `;
-    ayatList.appendChild(bismillah);
-  }
-
-  ayahs.forEach(a => {
-    let ayatText = a.arab || '';
-
-    if (Number(a.ayat) === 1 && no !== 1 && no !== 9) {
-      ayatText = removeBismillah(ayatText);
-    }
-
-    const div = document.createElement('div');
-    div.className = 'ayat-item';
-    div.id = `ayat-${a.ayat}`;
-
-    if (isBookmarkedSurah(no, a.ayat)) {
-      div.classList.add('bookmarked');
-    }
-
-    div.dataset.surah = no;
-    div.dataset.surahName = surahLatin;
-    div.dataset.ayat = a.ayat;
-    div.dataset.text = a.arab || '';
-    div.dataset.audio = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${getGlobalAyahNumber(no, Number(a.ayat))}.mp3`;
-
-    div.innerHTML = `
-      <div class="ayat-content">
-        <div class="ayat-arab">
-          ${ayatText}
-          <span class="ayat-nomor-inline">﴿${toArabicNumber(a.ayat)}﴾</span>
-        </div>
-        <div class="ayat-indo">${a.terjemahan || ''}</div>
+  div.innerHTML = `
+    <div class="ayat-content">
+      <div class="ayat-arab">
+        ${ayatText}
+        <span class="ayat-nomor-inline">﴿${toArabicNumber(a.ayat)}﴾</span>
       </div>
-    `;
+      <div class="ayat-indo">${a.terjemahan || ''}</div>
+    </div>
+  `;
 
-    ayatList.appendChild(div);
-  });
+  return div;
+}
 
-  const targetAyat = new URLSearchParams(location.search).get('ayat') || localStorage.getItem('scrollToAyat');
+function scrollToTargetAyat() {
+  const targetAyat = params.get('ayat') || localStorage.getItem('scrollToAyat');
+  if (!targetAyat) return;
 
-  if (targetAyat) {
+  setTimeout(() => {
+    const target = document.getElementById(`ayat-${targetAyat}`);
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+    target.classList.add('playing');
+
     setTimeout(() => {
-      const target = document.getElementById(`ayat-${targetAyat}`);
+      target.classList.remove('playing');
+    }, 1800);
 
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
+    localStorage.removeItem('scrollToAyat');
+  }, 400);
+}
 
-        target.classList.add('playing');
+/* ================= LOAD DATA ================= */
+async function loadSurah() {
+  try {
+    const res = await fetch('../data/quran-search.json');
+    if (!res.ok) throw new Error('Gagal mengambil data');
 
-        setTimeout(() => {
-          target.classList.remove('playing');
-        }, 1800);
-      }
+    const data = await res.json();
+    const ayahs = data.filter(a => Number(a.surah) === no);
 
-      localStorage.removeItem('scrollToAyat');
-    }, 400);
+    if (!ayahs.length) {
+      ayatList.innerHTML = '<p>Surah tidak ditemukan</p>';
+      return;
+    }
+
+    const surahLatin = ayahs[0].nama || SURAH_NAMES[no] || `Surah ${no}`;
+
+    judul.textContent = surahLatin;
+    ayatList.innerHTML = '';
+
+    renderBismillah();
+
+    const fragment = document.createDocumentFragment();
+
+    ayahs.forEach(a => {
+      fragment.appendChild(createAyatElement(a, surahLatin));
+    });
+
+    ayatList.appendChild(fragment);
+    scrollToTargetAyat();
+
+  } catch (err) {
+    ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
   }
-})
-.catch(() => {
-  ayatList.innerHTML = '<p>Gagal memuat ayat</p>';
-});
+}
 
 /* ================= TOGGLE TERJEMAH ================= */
-let showTerjemah=true;
-toggleBtn.onclick=()=>{
-  showTerjemah=!showTerjemah;
-  document.body.classList.toggle('hide-translation',!showTerjemah);
+let showTerjemah = true;
+
+toggleBtn.onclick = () => {
+  showTerjemah = !showTerjemah;
+  document.body.classList.toggle('hide-translation', !showTerjemah);
 };
 
-/* ================= KLIK AYAT → POPUP ================= */
-document.addEventListener('click',e=>{
-  const ayat=e.target.closest('.ayat-item');
-  if(!ayat) return;
+/* ================= POPUP ================= */
+ayatList.addEventListener('click', e => {
+  const ayat = e.target.closest('.ayat-item');
+  if (!ayat) return;
 
-  selectedAyat=ayat;
-  popupTitle.textContent=
-    `QS. ${ayat.dataset.surahName} : ${ayat.dataset.ayat}`;
+  selectedAyat = ayat;
+  popupTitle.textContent = `QS. ${ayat.dataset.surahName} : ${ayat.dataset.ayat}`;
   popup.classList.remove('hidden');
 });
 
-/* ================= POPUP ACTIONS ================= */
-popupPlay.onclick=()=>{
-  if(!selectedAyat) return;
-
-  if(currentPlaying){
-    currentPlaying.classList.remove('playing');
-  }
-
-  currentPlaying=selectedAyat;
-  currentPlaying.classList.add('playing');
-
-  audioPlayer.src=currentPlaying.dataset.audio;
-  audioPlayer.play();
+popupClose.onclick = () => {
   popup.classList.add('hidden');
 };
 
-popupBookmark.onclick=()=>{
-  const surah=selectedAyat.dataset.surah;
-  const ayat=selectedAyat.dataset.ayat;
-  let bookmarks=getBookmarks();
+popup.addEventListener('click', e => {
+  if (e.target === popup) {
+    popup.classList.add('hidden');
+  }
+});
 
-  const idx=bookmarks.findIndex(b=>
-    b.mode==='surah' && b.surah==surah && b.ayat==ayat
+/* ================= AUDIO ================= */
+function playAyat(ayatEl) {
+  if (!ayatEl || !ayatEl.dataset.audio) return;
+
+  if (currentPlaying) {
+    currentPlaying.classList.remove('playing');
+  }
+
+  currentPlaying = ayatEl;
+  currentPlaying.classList.add('playing');
+
+  audioPlayer.src = currentPlaying.dataset.audio;
+  audioPlayer.play();
+
+  currentPlaying.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+}
+
+popupPlay.onclick = () => {
+  playAyat(selectedAyat);
+  popup.classList.add('hidden');
+};
+
+audioPlayer.addEventListener('ended', () => {
+  if (!currentPlaying) return;
+
+  const next = currentPlaying.nextElementSibling;
+
+  if (next && next.classList.contains('ayat-item')) {
+    playAyat(next);
+  } else {
+    currentPlaying.classList.remove('playing');
+    currentPlaying = null;
+  }
+});
+
+/* ================= BOOKMARK ================= */
+popupBookmark.onclick = () => {
+  if (!selectedAyat) return;
+
+  const surah = selectedAyat.dataset.surah;
+  const ayat = selectedAyat.dataset.ayat;
+
+  const idx = bookmarks.findIndex(b =>
+    b.mode === 'surah' &&
+    Number(b.surah) === Number(surah) &&
+    Number(b.ayat) === Number(ayat)
   );
 
-  if(idx>=0){
-    bookmarks.splice(idx,1);
+  if (idx >= 0) {
+    bookmarks.splice(idx, 1);
     selectedAyat.classList.remove('bookmarked');
-  }else{
+  } else {
     bookmarks.push({
-      mode:'surah',
+      mode: 'surah',
       surah,
-      surahName:selectedAyat.dataset.surahName,
+      surahName: selectedAyat.dataset.surahName,
       ayat,
-      text:selectedAyat.dataset.text
+      text: selectedAyat.dataset.text
     });
+
     selectedAyat.classList.add('bookmarked');
   }
 
-  localStorage.setItem('bookmarks',JSON.stringify(bookmarks));
+  saveBookmarks();
   popup.classList.add('hidden');
 };
 
-popupClose.onclick=()=>popup.classList.add('hidden');
-
-/* ================= AUTO NEXT AYAT ================= */
-audioPlayer.addEventListener('ended',()=>{
-  if(!currentPlaying) return;
-
-  const next=currentPlaying.nextElementSibling;
-  if(next && next.classList.contains('ayat-item')){
-    currentPlaying.classList.remove('playing');
-    currentPlaying=next;
-    currentPlaying.classList.add('playing');
-
-    audioPlayer.src=currentPlaying.dataset.audio;
-    audioPlayer.play();
-
-    currentPlaying.scrollIntoView({
-      behavior:'smooth',
-      block:'center'
-    });
-  }else{
-    currentPlaying.classList.remove('playing');
-    currentPlaying=null;
-  }
-});
+/* ================= START ================= */
+loadSurah();
 </script>
 
 </body>
