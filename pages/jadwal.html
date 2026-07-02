@@ -464,9 +464,16 @@ async function loadJadwalByCoord(lat, lon) {
    EVENT LISTENER
 ========================= */
 kotaSelect.addEventListener('change', () => {
- lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
-   loadJadwal(kotaSelect.value);
-   lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
+  const kota = kotaSelect.value;
+
+  localStorage.setItem(LOKASI_DEFAULT_KEY, JSON.stringify({
+    type: 'city',
+    kota: kota,
+    label: `🏙️ ${kota}`
+  }));
+
+  lokasiEl.textContent = `🏙️ ${kota}`;
+  loadJadwal(kota);
 });
 
 autoBtn.addEventListener('click', () => {
@@ -512,9 +519,16 @@ const lokasiTersimpan = JSON.parse(localStorage.getItem(LOKASI_DEFAULT_KEY) || '
 if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
   lokasiEl.textContent = lokasiTersimpan.label || '📍 Lokasi tersimpan';
   loadJadwalByCoord(lokasiTersimpan.lat, lokasiTersimpan.lon);
+
+} else if (lokasiTersimpan && lokasiTersimpan.type === 'city') {
+  kotaSelect.value = lokasiTersimpan.kota;
+  lokasiEl.textContent = lokasiTersimpan.label || `🏙️ ${lokasiTersimpan.kota}`;
+  loadJadwal(lokasiTersimpan.kota);
+
 } else {
-  loadJadwal(kotaSelect.value);
+  kotaSelect.value = "Palangka Raya";
   lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
+  loadJadwal(kotaSelect.value);
 }
    
    async function getNamaLokasi(lat, lon) {
