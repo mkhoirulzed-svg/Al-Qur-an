@@ -195,15 +195,16 @@ openSearch.onclick = () => {
 
     item.innerHTML = `
       <div>
-        <strong>${a.surahName || 'Surah ' + a.surah} : ${a.ayat}</strong>
-        <small>${a.terjemahan || a.translation || ''}</small>
+        <strong>${a.nama} : ${a.ayat}</strong>
+        <small>${a.terjemahan}</small>
       </div>
       <span>Ayat</span>
     `;
 
     list.appendChild(item);
   });
-} 
+}
+
   
 searchInput.addEventListener('input', async () => {
   const q = searchInput.value.toLowerCase().trim();
@@ -229,17 +230,18 @@ searchInput.addEventListener('input', async () => {
     const searchData = await loadQuranSearch();
 
     const filteredAyat = searchData.filter(a => {
-      const text = `
-        ${a.surahName || ''}
-        ${a.namaSurah || ''}
-        ${a.terjemahan || ''}
-        ${a.translation || ''}
-        ${a.arab || ''}
-        ${a.latin || ''}
-      `.toLowerCase();
+  const text = `
+    ${a.nama || ''}
+    ${a.artiSurah || ''}
+    ${a.terjemahan || ''}
+    ${a.latin || ''}
+    ${a.arab || ''}
+    ${a.surah || ''}
+    ${a.ayat || ''}
+  `.toLowerCase();
 
-      return text.includes(q);
-    });
+  return text.includes(q);
+});
 
     renderSearchResults(filteredAyat);
   } catch (err) {
