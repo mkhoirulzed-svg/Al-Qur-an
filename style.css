@@ -283,7 +283,7 @@ button{
   width:100%;
   padding:14px 16px;
   border-radius:16px;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
   background:var(--card);
   color:var(--text);
   outline:none;
