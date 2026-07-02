@@ -369,11 +369,8 @@ function renderJadwal(t) {
     div.innerHTML = `
       <span>${nama}${nama === 'Terbit' ? '<span class="jadwal-sub">(akhir Subuh)</span>' : ''}</span>
       <div class="jadwal-right">
-        <span class="jam">${jam}</span>
-        <button class="alarm-toggle${alarmOn ? ' active' : ''}" data-nama="${nama}" title="${nama === 'Terbit' ? 'Alarm biasa' : 'Alarm adzan'}">
-          <i class="fa-solid ${alarmOn ? 'fa-bell' : 'fa-bell-slash'}"></i>
-        </button>
-      </div>
+  <span class="jam">${jam}</span>
+</div>
     `;
     jadwalEl.appendChild(div);
   });
