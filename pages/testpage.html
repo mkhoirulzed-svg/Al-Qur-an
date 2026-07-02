@@ -373,14 +373,43 @@ function renderJadwal(t) {
   });
 
   jadwalEl.querySelectorAll('.alarm-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
+  let pressTimer;
+  let isLongPress = false;
+
+  function mulaiTekan() {
+    isLongPress = false;
+
+    pressTimer = setTimeout(() => {
+      isLongPress = true;
       const nama = btn.dataset.nama;
-      const nyala = toggleAlarm(nama);
-      btn.classList.toggle('active', nyala);
-      const icon = btn.querySelector('i');
-      icon.className = 'fa-solid ' + (nyala ? 'fa-bell' : 'fa-bell-slash');
-    });
+      mainkanAlarm(nama);
+    }, 800);
+  }
+
+  function selesaiTekan() {
+    clearTimeout(pressTimer);
+  }
+
+  btn.addEventListener('mousedown', mulaiTekan);
+  btn.addEventListener('mouseup', selesaiTekan);
+  btn.addEventListener('mouseleave', selesaiTekan);
+
+  btn.addEventListener('touchstart', mulaiTekan);
+  btn.addEventListener('touchend', selesaiTekan);
+  btn.addEventListener('touchcancel', selesaiTekan);
+
+  btn.addEventListener('click', () => {
+    if (isLongPress) return;
+
+    const nama = btn.dataset.nama;
+    const nyala = toggleAlarm(nama);
+
+    btn.classList.toggle('active', nyala);
+
+    const icon = btn.querySelector('i');
+    icon.className = 'fa-solid ' + (nyala ? 'fa-bell' : 'fa-bell-slash');
   });
+});
 }
 
 /* =========================
