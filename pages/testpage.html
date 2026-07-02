@@ -37,7 +37,7 @@
   <button id="btnBookmark" class="toggle-btn">Bookmark</button>
 </div>
 <div class="search-box" id="searchBox" style="display:none;">
-  <input type="text" id="searchInput" placeholder="Cari nama surah...">
+  <input type="text" id="searchInput" placeholder="Cari surah atau terjemahan ayat...">
 </div>
   <div id="surahList" class="surah-list"></div>
 
@@ -87,7 +87,8 @@ function setActive(btn) {
 }
 
 let SURAH_CACHE = [];
-
+let QURAN_SEARCH_CACHE = [];
+  
 function loadSurah() {
   list.innerHTML = 'Memuat surah...';
 
@@ -100,6 +101,17 @@ function loadSurah() {
     .catch(() => list.innerHTML = '<p>Gagal memuat Surah</p>');
 }
 
+function loadQuranSearch() {
+  if (QURAN_SEARCH_CACHE.length) return Promise.resolve(QURAN_SEARCH_CACHE);
+
+  return fetch('../data/quran-search.json')
+    .then(res => res.json())
+    .then(data => {
+      QURAN_SEARCH_CACHE = data;
+      return data;
+    });
+}
+  
 function renderSurah(data) {
   list.innerHTML = '';
 
@@ -167,16 +179,72 @@ openSearch.onclick = () => {
   }
 };
 
-searchInput.addEventListener('input', () => {
+ function renderSearchResults(data) {
+  list.innerHTML = '';
+
+  if (!data.length) {
+    list.innerHTML = '<p>Hasil tidak ditemukan</p>';
+    return;
+  }
+
+  data.slice(0, 80).forEach(a => {
+    const item = document.createElement('a');
+
+    item.href = `surah.html?no=${a.surah}&ayat=${a.ayat}`;
+    item.className = 'surah-item';
+
+    item.innerHTML = `
+      <div>
+        <strong>${a.surahName || 'Surah ' + a.surah} : ${a.ayat}</strong>
+        <small>${a.terjemahan || a.translation || ''}</small>
+      </div>
+      <span>Ayat</span>
+    `;
+
+    list.appendChild(item);
+  });
+} 
+  
+searchInput.addEventListener('input', async () => {
   const q = searchInput.value.toLowerCase().trim();
 
-  const filtered = SURAH_CACHE.filter(s =>
-    s.namaLatin.toLowerCase().includes(q) ||
-    s.arti.toLowerCase().includes(q) ||
-    String(s.nomor).includes(q)
-  );
+  if (!q) {
+    renderSurah(SURAH_CACHE);
+    return;
+  }
 
-  renderSurah(filtered);
+  // Kalau pendek, cari nama surah dulu
+  if (q.length < 3) {
+    const filteredSurah = SURAH_CACHE.filter(s =>
+      s.namaLatin.toLowerCase().includes(q) ||
+      s.arti.toLowerCase().includes(q) ||
+      String(s.nomor).includes(q)
+    );
+
+    renderSurah(filteredSurah);
+    return;
+  }
+
+  try {
+    const searchData = await loadQuranSearch();
+
+    const filteredAyat = searchData.filter(a => {
+      const text = `
+        ${a.surahName || ''}
+        ${a.namaSurah || ''}
+        ${a.terjemahan || ''}
+        ${a.translation || ''}
+        ${a.arab || ''}
+        ${a.latin || ''}
+      `.toLowerCase();
+
+      return text.includes(q);
+    });
+
+    renderSearchResults(filteredAyat);
+  } catch (err) {
+    list.innerHTML = '<p>Gagal memuat data pencarian</p>';
+  }
 });
 
 </script>
