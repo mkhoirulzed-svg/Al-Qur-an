@@ -289,3 +289,20 @@ button{
   outline:none;
   font-size:.95rem;
 }
+
+.app-header{
+  display:flex;
+  align-items:center;
+}
+
+.header-title{
+  flex:1;
+  text-align:center;
+}
+
+.back-btn,
+.search-btn{
+  width:42px;
+  height:42px;
+  flex-shrink:0;
+}
