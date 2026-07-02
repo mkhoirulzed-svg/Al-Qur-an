@@ -262,3 +262,30 @@ button{
     box-shadow:0 0 60px rgba(10,77,58,.06);
   }
 }
+
+.search-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.search-box{
+  margin:14px 0;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--text);
+  outline:none;
+  font-size:.95rem;
+}
