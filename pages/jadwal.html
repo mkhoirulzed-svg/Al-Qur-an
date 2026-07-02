@@ -260,7 +260,8 @@ const ALARM_STORAGE_KEY = 'sholatAlarmSettings';
 const LOKASI_DEFAULT_KEY = 'sholatLokasiDefault';
 const ADZAN_SUBUH_AUDIO_SRC = '../data/audio/adzan-subuh.mp3'; // adzan subuh (ada "ashsholatu khoirun minan naum")
 const ADZAN_AUDIO_SRC = '../data/audio/adzan.mp3'; // adzan Dzuhur/Ashar/Maghrib/Isya
-
+const SIRINE_AUDIO_SRC = '../data/audio/sirine.mp3';
+   
 function getAlarmSettings() {
   try {
     return JSON.parse(localStorage.getItem(ALARM_STORAGE_KEY) || '{}');
@@ -299,13 +300,18 @@ function mainkanBeep() {
 }
 
 function mainkanAlarm(nama) {
+
   if (nama === 'Terbit') {
-    // syuruk: alarm biasa saja
-    mainkanBeep();
+    const audio = new Audio(SIRINE_AUDIO_SRC);
+    audio.play().catch(() => mainkanBeep());
     return;
   }
-  // waktu sholat: coba mainkan suara adzan, fallback ke beep biasa
-  const src = nama === 'Subuh' ? ADZAN_SUBUH_AUDIO_SRC : ADZAN_AUDIO_SRC;
+
+  const src =
+    nama === 'Subuh'
+      ? ADZAN_SUBUH_AUDIO_SRC
+      : ADZAN_AUDIO_SRC;
+
   const audio = new Audio(src);
   audio.play().catch(() => mainkanBeep());
 }
@@ -373,14 +379,43 @@ function renderJadwal(t) {
   });
 
   jadwalEl.querySelectorAll('.alarm-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
+  let pressTimer;
+  let isLongPress = false;
+
+  function mulaiTekan() {
+    isLongPress = false;
+
+    pressTimer = setTimeout(() => {
+      isLongPress = true;
       const nama = btn.dataset.nama;
-      const nyala = toggleAlarm(nama);
-      btn.classList.toggle('active', nyala);
-      const icon = btn.querySelector('i');
-      icon.className = 'fa-solid ' + (nyala ? 'fa-bell' : 'fa-bell-slash');
-    });
+      mainkanAlarm(nama);
+    }, 800);
+  }
+
+  function selesaiTekan() {
+    clearTimeout(pressTimer);
+  }
+
+  btn.addEventListener('mousedown', mulaiTekan);
+  btn.addEventListener('mouseup', selesaiTekan);
+  btn.addEventListener('mouseleave', selesaiTekan);
+
+  btn.addEventListener('touchstart', mulaiTekan);
+  btn.addEventListener('touchend', selesaiTekan);
+  btn.addEventListener('touchcancel', selesaiTekan);
+
+  btn.addEventListener('click', () => {
+    if (isLongPress) return;
+
+    const nama = btn.dataset.nama;
+    const nyala = toggleAlarm(nama);
+
+    btn.classList.toggle('active', nyala);
+
+    const icon = btn.querySelector('i');
+    icon.className = 'fa-solid ' + (nyala ? 'fa-bell' : 'fa-bell-slash');
   });
+});
 }
 
 /* =========================
