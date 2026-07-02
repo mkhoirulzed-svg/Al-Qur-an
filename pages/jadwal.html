@@ -147,6 +147,60 @@
 .jadwal-card.active .jam{
   background:rgba(255,255,255,.18);
 }
+
+/* =========================
+   TAMBAHAN: wrapper kanan (jam + tombol alarm)
+   & tombol toggle alarm — tidak mengubah rule di atas,
+   hanya menambah class baru
+========================= */
+.jadwal-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.jadwal-sub{
+  font-size:11px;
+  font-weight:600;
+  color:var(--text-secondary);
+  opacity:.75;
+  margin-left:4px;
+}
+
+.jadwal-card.active .jadwal-sub{
+  color:rgba(255,255,255,.75);
+}
+
+.alarm-toggle{
+  width:34px;
+  height:34px;
+  flex-shrink:0;
+  border:none;
+  border-radius:50%;
+  background:rgba(0,0,0,.06);
+  color:var(--text-secondary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.2s ease;
+  font-size:14px;
+}
+
+.alarm-toggle.active{
+  background:var(--primary);
+  color:#fff;
+}
+
+.jadwal-card.active .alarm-toggle{
+  background:rgba(255,255,255,.18);
+  color:#fff;
+}
+
+.jadwal-card.active .alarm-toggle.active{
+  background:#fff;
+  color:var(--primary);
+}
 </style>
 </head>
 
@@ -200,11 +254,86 @@ const autoBtn = document.getElementById('autoLocationBtn');
 const lokasiEl = document.getElementById('lokasi-aktif');
 
 /* =========================
+   ALARM: penyimpanan on/off per waktu sholat
+========================= */
+const ALARM_STORAGE_KEY = 'sholatAlarmSettings';
+const LOKASI_DEFAULT_KEY = 'sholatLokasiDefault';
+const ADZAN_SUBUH_AUDIO_SRC = '../data/audio/adzan-subuh.mp3'; // adzan subuh (ada "ashsholatu khoirun minan naum")
+const ADZAN_AUDIO_SRC = '../data/audio/adzan.mp3'; // adzan Dzuhur/Ashar/Maghrib/Isya
+
+function getAlarmSettings() {
+  try {
+    return JSON.parse(localStorage.getItem(ALARM_STORAGE_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function isAlarmOn(nama) {
+  return !!getAlarmSettings()[nama];
+}
+
+function toggleAlarm(nama) {
+  const settings = getAlarmSettings();
+  settings[nama] = !settings[nama];
+  localStorage.setItem(ALARM_STORAGE_KEY, JSON.stringify(settings));
+  return settings[nama];
+}
+
+function mainkanBeep() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.connect(g);
+    g.connect(ctx.destination);
+    o.frequency.value = 880;
+    g.gain.setValueAtTime(0.001, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + 0.05);
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+    o.start();
+    o.stop(ctx.currentTime + 0.65);
+  } catch (e) {
+    // abaikan jika Web Audio tidak tersedia
+  }
+}
+
+function mainkanAlarm(nama) {
+  if (nama === 'Terbit') {
+    // syuruk: alarm biasa saja
+    mainkanBeep();
+    return;
+  }
+  // waktu sholat: coba mainkan suara adzan, fallback ke beep biasa
+  const src = nama === 'Subuh' ? ADZAN_SUBUH_AUDIO_SRC : ADZAN_AUDIO_SRC;
+  const audio = new Audio(src);
+  audio.play().catch(() => mainkanBeep());
+}
+
+// jam yang sedang tampil, dipakai buat pengecekan alarm tiap interval
+let jamAktifSaatIni = {};
+const sudahBunyiHariIni = {};
+
+setInterval(() => {
+  const now = new Date();
+  const hhmm = now.toTimeString().slice(0, 5);
+  const todayKey = now.toDateString();
+
+  Object.entries(jamAktifSaatIni).forEach(([nama, jam]) => {
+    if (jam === hhmm && isAlarmOn(nama) && sudahBunyiHariIni[nama] !== todayKey) {
+      mainkanAlarm(nama);
+      sudahBunyiHariIni[nama] = todayKey;
+    }
+  });
+}, 15000);
+
+/* =========================
    RENDER JADWAL (GLOBAL)
 ========================= */
 function renderJadwal(t) {
   const jadwal = [
     ['Subuh', t.Fajr],
+    ['Terbit', t.Sunrise],
     ['Dzuhur', t.Dhuhr],
     ['Ashar', t.Asr],
     ['Maghrib', t.Maghrib],
@@ -213,23 +342,44 @@ function renderJadwal(t) {
 
   const now = new Date();
   jadwalEl.innerHTML = '';
+  jamAktifSaatIni = {};
 
   jadwal.forEach(([nama, jam]) => {
+    if (!jam) return;
+
     const [h, m] = jam.split(':');
     const waktu = new Date();
     waktu.setHours(h, m, 0);
+    jamAktifSaatIni[nama] = jam;
 
     const active =
       now >= waktu &&
       now < new Date(waktu.getTime() + 60 * 60 * 1000);
 
+    const alarmOn = isAlarmOn(nama);
+
     const div = document.createElement('div');
     div.className = 'jadwal-card' + (active ? ' active' : '');
     div.innerHTML = `
-      <span>${nama}</span>
-      <span class="jam">${jam}</span>
+      <span>${nama}${nama === 'Terbit' ? '<span class="jadwal-sub">(akhir Subuh)</span>' : ''}</span>
+      <div class="jadwal-right">
+        <span class="jam">${jam}</span>
+        <button class="alarm-toggle${alarmOn ? ' active' : ''}" data-nama="${nama}" title="${nama === 'Terbit' ? 'Alarm biasa' : 'Alarm adzan'}">
+          <i class="fa-solid ${alarmOn ? 'fa-bell' : 'fa-bell-slash'}"></i>
+        </button>
+      </div>
     `;
     jadwalEl.appendChild(div);
+  });
+
+  jadwalEl.querySelectorAll('.alarm-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const nama = btn.dataset.nama;
+      const nyala = toggleAlarm(nama);
+      btn.classList.toggle('active', nyala);
+      const icon = btn.querySelector('i');
+      icon.className = 'fa-solid ' + (nyala ? 'fa-bell' : 'fa-bell-slash');
+    });
   });
 }
 
@@ -300,7 +450,15 @@ autoBtn.addEventListener('click', () => {
     const lat = pos.coords.latitude;
     const lon = pos.coords.longitude;
 
-    getNamaLokasi(lat, lon);   // ⬅️ INI
+    getNamaLokasi(lat, lon).then(label => {
+      // simpan lokasi GPS ini sebagai lokasi default berikutnya
+      localStorage.setItem(LOKASI_DEFAULT_KEY, JSON.stringify({
+        type: 'coord',
+        lat,
+        lon,
+        label: label || lokasiEl.textContent
+      }));
+    });
     loadJadwalByCoord(lat, lon);
   },
   () => {
@@ -317,8 +475,15 @@ autoBtn.addEventListener('click', () => {
 /* =========================
    LOAD AWAL
 ========================= */
-loadJadwal(kotaSelect.value);
-lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
+const lokasiTersimpan = JSON.parse(localStorage.getItem(LOKASI_DEFAULT_KEY) || 'null');
+
+if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
+  lokasiEl.textContent = lokasiTersimpan.label || '📍 Lokasi tersimpan';
+  loadJadwalByCoord(lokasiTersimpan.lat, lokasiTersimpan.lon);
+} else {
+  loadJadwal(kotaSelect.value);
+  lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
+}
    
    async function getNamaLokasi(lat, lon) {
   try {
@@ -335,8 +500,10 @@ lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
     const state = json.address.state || '';
 
     lokasiEl.textContent = `📍 ${city}${state ? ', ' + state : ''}`;
+    return lokasiEl.textContent;
   } catch {
     lokasiEl.textContent = '📍 Lokasi saat ini';
+    return lokasiEl.textContent;
   }
 }
 
