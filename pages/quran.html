@@ -24,6 +24,9 @@
     </svg>
   </button>
   <h1 class="header-title">Al-Qur'an</h1>
+  <button class="search-btn" id="openSearch">
+  <i class="fas fa-search"></i>
+</button>
 </header>
 
 <main class="container">
@@ -33,7 +36,9 @@
   <button id="btnJuz" class="toggle-btn">Juz</button>
   <button id="btnBookmark" class="toggle-btn">Bookmark</button>
 </div>
-
+<div class="search-box" id="searchBox" style="display:none;">
+  <input type="text" id="searchInput" placeholder="Cari surah atau terjemahan ayat...">
+</div>
   <div id="surahList" class="surah-list"></div>
 
 </main>
@@ -81,28 +86,53 @@ function setActive(btn) {
   btn.classList.add('active');
 }
 
+let SURAH_CACHE = [];
+let QURAN_SEARCH_CACHE = [];
+  
 function loadSurah() {
   list.innerHTML = 'Memuat surah...';
 
   fetch('https://equran.id/api/v2/surat')
     .then(res => res.json())
     .then(data => {
-      list.innerHTML = '';
-      data.data.forEach(s => {
-        const item = document.createElement('a');
-        item.href = `surah.html?no=${s.nomor}`;
-        item.className = 'surah-item';
-        item.innerHTML = `
-          <div>
-            <strong>${s.nomor}. ${s.namaLatin}</strong>
-            <small>${s.arti}</small>
-          </div>
-          <span>${s.jumlahAyat} ayat</span>
-        `;
-        list.appendChild(item);
-      });
+      SURAH_CACHE = data.data;
+      renderSurah(SURAH_CACHE);
     })
     .catch(() => list.innerHTML = '<p>Gagal memuat Surah</p>');
+}
+
+function loadQuranSearch() {
+  if (QURAN_SEARCH_CACHE.length) return Promise.resolve(QURAN_SEARCH_CACHE);
+
+  return fetch('../data/quran-search.json')
+    .then(res => res.json())
+    .then(data => {
+      QURAN_SEARCH_CACHE = data;
+      return data;
+    });
+}
+  
+function renderSurah(data) {
+  list.innerHTML = '';
+
+  if (!data.length) {
+    list.innerHTML = '<p>Surah tidak ditemukan</p>';
+    return;
+  }
+
+  data.forEach(s => {
+    const item = document.createElement('a');
+    item.href = `surah.html?no=${s.nomor}`;
+    item.className = 'surah-item';
+    item.innerHTML = `
+      <div>
+        <strong>${s.nomor}. ${s.namaLatin}</strong>
+        <small>${s.arti}</small>
+      </div>
+      <span>${s.jumlahAyat} ayat</span>
+    `;
+    list.appendChild(item);
+  });
 }
 
 function loadJuz() {
@@ -131,6 +161,93 @@ function loadJuz() {
   return SURAH_NAMES[no] || `Surah ${no}`;
 }
 
+   const openSearch = document.getElementById('openSearch');
+const searchBox = document.getElementById('searchBox');
+const searchInput = document.getElementById('searchInput');
+
+openSearch.onclick = () => {
+  const isOpen = searchBox.style.display === 'block';
+  searchBox.style.display = isOpen ? 'none' : 'block';
+
+  if (!isOpen) {
+    setActive(btnSurah);
+    loadSurah();
+    setTimeout(() => searchInput.focus(), 100);
+  } else {
+    searchInput.value = '';
+    renderSurah(SURAH_CACHE);
+  }
+};
+
+ function renderSearchResults(data) {
+  list.innerHTML = '';
+
+  if (!data.length) {
+    list.innerHTML = '<p>Hasil tidak ditemukan</p>';
+    return;
+  }
+
+  data.slice(0, 80).forEach(a => {
+    const item = document.createElement('a');
+
+    item.href = `surah.html?no=${a.surah}&ayat=${a.ayat}`;
+    item.className = 'surah-item';
+
+    item.innerHTML = `
+      <div>
+        <strong>${a.nama} : ${a.ayat}</strong>
+        <small>${a.terjemahan}</small>
+      </div>
+      <span>Ayat</span>
+    `;
+
+    list.appendChild(item);
+  });
+}
+
+  
+searchInput.addEventListener('input', async () => {
+  const q = searchInput.value.toLowerCase().trim();
+
+  if (!q) {
+    renderSurah(SURAH_CACHE);
+    return;
+  }
+
+  // Kalau pendek, cari nama surah dulu
+  if (q.length < 3) {
+    const filteredSurah = SURAH_CACHE.filter(s =>
+      s.namaLatin.toLowerCase().includes(q) ||
+      s.arti.toLowerCase().includes(q) ||
+      String(s.nomor).includes(q)
+    );
+
+    renderSurah(filteredSurah);
+    return;
+  }
+
+  try {
+    const searchData = await loadQuranSearch();
+
+    const filteredAyat = searchData.filter(a => {
+  const text = `
+    ${a.nama || ''}
+    ${a.artiSurah || ''}
+    ${a.terjemahan || ''}
+    ${a.latin || ''}
+    ${a.arab || ''}
+    ${a.surah || ''}
+    ${a.ayat || ''}
+  `.toLowerCase();
+
+  return text.includes(q);
+});
+
+    renderSearchResults(filteredAyat);
+  } catch (err) {
+    list.innerHTML = '<p>Gagal memuat data pencarian</p>';
+  }
+});
 
 </script>
 <div id="footer"></div>
