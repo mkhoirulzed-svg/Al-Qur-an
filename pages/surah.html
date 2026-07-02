@@ -223,8 +223,6 @@
 
 <script src="../data/surah-names.js"></script>
 
-<script src="../data/surah-names.js"></script>
-
 <script>
 const params = new URLSearchParams(location.search);
 const no = Number(params.get('no'));
@@ -242,6 +240,8 @@ const popupClose = document.getElementById('popupClose');
 
 let selectedAyat = null;
 let currentPlaying = null;
+let currentIndex = -1;
+let ayatElements = []; // urutan ayat yang benar (sudah di-sort), dipakai untuk next/prev audio
 let bookmarks = getBookmarks();
 
 /* ================= UTIL ================= */
@@ -272,7 +272,7 @@ function toArabicNumber(num) {
 
 function removeBismillah(text = '') {
   return text
-    .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
+    .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
     .replace(/^بِسْمِ\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
     .trim();
 }
@@ -285,7 +285,7 @@ function renderBismillah() {
   bismillah.className = 'bismillah ayat-arab';
   bismillah.innerHTML = `
     <span class="bismillah-deco">❁</span>
-    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
     <span class="bismillah-deco">❁</span>
   `;
 
@@ -356,7 +356,14 @@ async function loadSurah() {
     if (!res.ok) throw new Error('Gagal mengambil data');
 
     const data = await res.json();
-    const ayahs = data.filter(a => Number(a.surah) === no);
+
+    // 1) filter surah yang diminta
+    // 2) urutkan berdasarkan nomor ayat (jangan percaya urutan asli JSON)
+    // 3) buang duplikat ayat kalau ada entri ganda
+    const ayahs = data
+      .filter(a => Number(a.surah) === no)
+      .sort((a, b) => Number(a.ayat) - Number(b.ayat))
+      .filter((a, i, arr) => i === 0 || Number(a.ayat) !== Number(arr[i - 1].ayat));
 
     if (!ayahs.length) {
       ayatList.innerHTML = '<p>Surah tidak ditemukan</p>';
@@ -367,13 +374,16 @@ async function loadSurah() {
 
     judul.textContent = surahLatin;
     ayatList.innerHTML = '';
+    ayatElements = [];
 
     renderBismillah();
 
     const fragment = document.createDocumentFragment();
 
     ayahs.forEach(a => {
-      fragment.appendChild(createAyatElement(a, surahLatin));
+      const el = createAyatElement(a, surahLatin);
+      ayatElements.push(el);
+      fragment.appendChild(el);
     });
 
     ayatList.appendChild(fragment);
@@ -421,6 +431,7 @@ function playAyat(ayatEl) {
   }
 
   currentPlaying = ayatEl;
+  currentIndex = ayatElements.indexOf(ayatEl);
   currentPlaying.classList.add('playing');
 
   audioPlayer.src = currentPlaying.dataset.audio;
@@ -440,13 +451,15 @@ popupPlay.onclick = () => {
 audioPlayer.addEventListener('ended', () => {
   if (!currentPlaying) return;
 
-  const next = currentPlaying.nextElementSibling;
+  // pakai index array yang sudah terurut, bukan nextElementSibling DOM
+  const next = ayatElements[currentIndex + 1];
 
-  if (next && next.classList.contains('ayat-item')) {
+  if (next) {
     playAyat(next);
   } else {
     currentPlaying.classList.remove('playing');
     currentPlaying = null;
+    currentIndex = -1;
   }
 });
 
