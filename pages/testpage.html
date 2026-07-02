@@ -258,7 +258,8 @@ const lokasiEl = document.getElementById('lokasi-aktif');
 ========================= */
 const ALARM_STORAGE_KEY = 'sholatAlarmSettings';
 const LOKASI_DEFAULT_KEY = 'sholatLokasiDefault';
-const ADZAN_AUDIO_SRC = '../data/audio/adzan.mp3'; // taruh file adzan di sini (opsional)
+const ADZAN_SUBUH_AUDIO_SRC = '../data/audio/adzan-subuh.mp3'; // adzan subuh (ada "ashsholatu khoirun minan naum")
+const ADZAN_AUDIO_SRC = '../data/audio/adzan.mp3'; // adzan Dzuhur/Ashar/Maghrib/Isya
 
 function getAlarmSettings() {
   try {
@@ -304,7 +305,8 @@ function mainkanAlarm(nama) {
     return;
   }
   // waktu sholat: coba mainkan suara adzan, fallback ke beep biasa
-  const audio = new Audio(ADZAN_AUDIO_SRC);
+  const src = nama === 'Subuh' ? ADZAN_SUBUH_AUDIO_SRC : ADZAN_AUDIO_SRC;
+  const audio = new Audio(src);
   audio.play().catch(() => mainkanBeep());
 }
 
