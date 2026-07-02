@@ -3,430 +3,588 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalender Hijriah</title>
+<title>Arah Kiblat</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-.page-kalender{background:var(--bg);}
-.kalender-container{padding:18px 18px 110px;}
+/* =========================
+   KIBLAT STYLE
+========================= */
+
+.page-kiblat{
+  background:var(--bg);
+}
+
+.kiblat-container{
+  padding:18px 18px 110px;
+  text-align:center;
+}
 
 .nav-btn{
-  width:42px;height:42px;border:none;border-radius:14px;
-  background:var(--card);color:var(--primary);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:var(--shadow-sm);
-}
-
-.header-title{flex:1;display:flex;flex-direction:column;}
-.header-title>div:first-child{font-size:17px;font-weight:800;color:var(--primary);}
-.judul-surah{font-size:12px;color:var(--text-secondary);}
-
-.cal-card{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
   background:var(--card);
-  border-radius:24px;
-  padding:16px;
-  box-shadow:var(--shadow-sm);
-  border:1px solid rgba(255,255,255,.7);
-  animation:fadeUp .35s ease both;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(12px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-.cal-top{
+  color:var(--primary);
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:12px;
-  margin-bottom:14px;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
 }
 
-.month-title{
-  font-size:16px;
+.header-title{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.header-title>div:first-child{
+  font-size:17px;
   font-weight:800;
   color:var(--primary);
 }
 
-.month-sub{
+.judul-surah{
   font-size:12px;
   color:var(--text-secondary);
-  margin-top:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.month-nav{
+.kiblat-card{
+  background:var(--card);
+  border-radius:24px;
+  padding:24px 18px 20px;
+  box-shadow:var(--shadow-md);
+  border:1px solid rgba(255,255,255,.7);
+  position:relative;
+  overflow:hidden;
+}
+
+.kiblat-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:var(--primary-ghost);
+  top:-80px;
+  right:-70px;
+}
+
+.kompas-wrapper{
+  position:relative;
+  width:240px;
+  height:240px;
+  margin:18px auto 22px;
+}
+
+.kompas{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  position:relative;
+  background:
+    radial-gradient(circle at center, #fff 0 36%, transparent 37%),
+    conic-gradient(
+      from 0deg,
+      rgba(10,77,58,.16),
+      rgba(196,154,42,.18),
+      rgba(10,77,58,.16)
+    );
+  border:10px solid #fff;
+  box-shadow:
+    inset 0 0 0 2px var(--primary-ghost-strong),
+    0 10px 32px rgba(10,77,58,.16);
+}
+
+.kompas::before{
+  content:"N";
+  position:absolute;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:14px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+.kompas::after{
+  content:"Kiblat";
+  position:absolute;
+  inset:50%;
+  transform:translate(-50%,-50%);
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  background:var(--card);
   display:flex;
-  gap:8px;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:800;
+  color:var(--primary);
+  box-shadow:var(--shadow-sm);
 }
 
-.month-nav button{
-  width:38px;height:38px;border:none;border-radius:14px;
+.panah{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:8px;
+  height:94px;
+  background:linear-gradient(var(--accent),var(--primary));
+  transform-origin:bottom center;
+  transform:translate(-50%,-100%) rotate(0deg);
+  border-radius:999px;
+  z-index:3;
+  box-shadow:0 4px 12px rgba(10,77,58,.25);
+}
+
+.panah::after{
+  content:"";
+  position:absolute;
+  top:-16px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:13px solid transparent;
+  border-right:13px solid transparent;
+  border-bottom:18px solid var(--accent);
+}
+
+.info-kiblat{
   background:var(--primary-ghost);
   color:var(--primary);
+  font-size:14px;
+  font-weight:700;
+  line-height:1.5;
+  margin-top:8px;
+  padding:12px 14px;
+  border-radius:16px;
+}
+
+.btn-kiblat{
+  width:100%;
+  padding:14px;
+  margin-top:18px;
+  border-radius:16px;
+  border:none;
+  background:linear-gradient(145deg,var(--primary),var(--primary-hover));
+  color:#fff;
+  font-size:15px;
   font-weight:800;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  box-shadow:0 8px 24px rgba(10,77,58,.22);
+  cursor:pointer;
+  transition:.25s ease;
 }
 
-.week-row,.calendar-grid{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:7px;
+.btn-kiblat:active{
+  transform:scale(.98);
+}
+   .kiblat-note{
+  margin-top:16px;
+  padding:14px 16px;
+  background:rgba(10,77,58,.06);
+  border-left:4px solid var(--accent);
+  border-radius:16px;
+  text-align:left;
+  font-size:13px;
+  line-height:1.6;
+  color:var(--text-secondary);
 }
 
-.week-row{
+.kiblat-note strong{
+  display:block;
+  color:var(--primary);
   margin-bottom:8px;
 }
 
-.week-row div{
-  text-align:center;
-  font-size:11px;
-  font-weight:800;
-  color:var(--text-secondary);
+.kiblat-note ul{
+  padding-left:18px;
+  margin:0;
 }
 
-.day-cell{
-  min-height:68px;
-  border:none;
-  border-radius:16px;
-  background:var(--primary-ghost);
-  padding:7px 5px;
-  text-align:left;
-  position:relative;
-  transition:.2s ease;
-  color:var(--text);
-}
-
-.day-cell:active{
-  transform:scale(.96);
-}
-
-.day-cell.empty{
-  background:transparent;
-  pointer-events:none;
-}
-
-.day-cell.today{
-  outline:2px solid var(--primary);
-  background:#fff;
-}
-
-.day-cell.friday{
-  background:rgba(239,68,68,.13);
-}
-
-.day-cell.monday-thursday{
-  background:rgba(245,158,11,.16);
-}
-
-.day-cell.ayyam{
-  background:linear-gradient(145deg,rgba(245,158,11,.18),rgba(10,77,58,.12));
-}
-
-.day-cell.event{
-  box-shadow:inset 0 0 0 2px rgba(10,77,58,.25);
-}
-
-.g-date{
-  font-size:11px;
-  font-weight:800;
-  color:var(--text-secondary);
-}
-
-.h-date{
-  font-size:17px;
-  font-weight:900;
-  color:var(--primary);
-  margin-top:3px;
-}
-
-.badge-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--primary);
-  position:absolute;
-  right:8px;
-  top:8px;
-}
-
-.legend{
-  display:grid;
-  gap:8px;
-  margin-top:14px;
-  font-size:12px;
-  color:var(--text-secondary);
-}
-
-.legend span{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.lg{
-  width:14px;height:14px;border-radius:5px;
-  display:inline-block;
-}
-
-.lg-red{background:rgba(239,68,68,.18);}
-.lg-yellow{background:rgba(245,158,11,.22);}
-.lg-green{background:rgba(10,77,58,.18);}
-
-.info-card{
-  margin-top:16px;
-  background:var(--card);
-  border-radius:22px;
-  padding:16px;
-  box-shadow:var(--shadow-sm);
-  border:1px solid rgba(255,255,255,.7);
-}
-
-.info-title{
-  font-size:16px;
-  font-weight:800;
-  color:var(--primary);
+.kiblat-note li{
   margin-bottom:6px;
-}
-
-.info-text{
-  font-size:13px;
-  color:var(--text-secondary);
-  line-height:1.55;
-}
-
-.loading{
-  text-align:center;
-  padding:22px;
-  font-size:13px;
-  color:var(--text-secondary);
 }
 </style>
 </head>
 
-<body class="page-kalender">
+<body class="page-kiblat">
 
 <header class="app-header">
   <button class="nav-btn back-btn" onclick="history.back()">
     <svg viewBox="0 0 24 24" width="22" height="22"
-      fill="none" stroke="currentColor" stroke-width="2.5"
-      stroke-linecap="round" stroke-linejoin="round">
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
       <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
   </button>
 
   <div class="header-title">
-    <div>Kalender Hijriah</div>
-    <div class="judul-surah">Hijriah, Masehi & hari penting Islam</div>
+    <div>Arah Kiblat</div>
+    <div id="lokasi-aktif" class="judul-surah"></div>
   </div>
 </header>
 
-<main class="kalender-container">
-
-  <section class="cal-card">
-    <div class="cal-top">
-      <div>
-        <div class="month-title" id="monthTitle">Memuat...</div>
-        <div class="month-sub" id="hijriMonthTitle">Kalender Hijriah</div>
-      </div>
-
-      <div class="month-nav">
-        <button onclick="changeMonth(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button onclick="goToday()">
-          <i class="fas fa-calendar-day"></i>
-        </button>
-        <button onclick="changeMonth(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+<main class="kiblat-container">
+  <div class="kiblat-card">
+    <div class="kompas-wrapper">
+      <div class="kompas">
+        <div class="panah" id="panahKiblat"></div>
       </div>
     </div>
 
-    <div class="week-row">
-      <div>Min</div><div>Sen</div><div>Sel</div><div>Rab</div>
-      <div>Kam</div><div>Jum</div><div>Sab</div>
+    <div class="info-kiblat" id="infoArah">
+      Menunggu izin lokasi & sensor...
     </div>
 
-    <div class="calendar-grid" id="calendarGrid">
-      <div class="loading">Memuat kalender...</div>
-    </div>
+ <button class="btn-kiblat" onclick="initKiblat()">
+  📍 Aktifkan Arah Kiblat
+</button>
 
-    <div class="legend">
-      <span><i class="lg lg-red"></i> Jumat</span>
-      <span><i class="lg lg-yellow"></i> Senin / Kamis</span>
-      <span><i class="lg lg-green"></i> Ayyamul Bidh / hari penting Islam</span>
-    </div>
-  </section>
-
-  <section class="info-card" id="dateInfo">
-    <div class="info-title">Pilih tanggal</div>
-    <div class="info-text">
-      Klik salah satu tanggal untuk melihat keterangan Hijriah dan hari penting Islam.
-    </div>
-  </section>
-
+<div class="kiblat-note">
+  <strong>Catatan penggunaan:</strong>
+  <ul>
+    <li>Arah kiblat menggunakan GPS dan sensor kompas perangkat.</li>
+    <li>Akurasi dapat berbeda pada setiap perangkat.</li>
+    <li>Jauhkan perangkat dari magnet, speaker, kendaraan, atau benda logam.</li>
+    <li>Untuk hasil terbaik, kalibrasi kompas dengan menggerakkan ponsel membentuk angka 8.</li>
+  </ul>
+</div>
+  </div>
 </main>
 
-<div id="footer"></div>
-<script src="../data/loader.js"></script>
-
 <script>
-loadFooter();
+const panah = document.getElementById('panahKiblat');
+const info  = document.getElementById('infoArah');
+const lokasiEl = document.getElementById('lokasi-aktif');
 
-const monthNames = [
-  "Januari","Februari","Maret","April","Mei","Juni",
-  "Juli","Agustus","September","Oktober","November","Desember"
-];
+let arahKiblatGlobal = null;
+let compassStarted    = false;
+let hasReceivedEvent  = false;
 
-const dayNames = [
-  "Ahad","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"
-];
+/* =========================
+   LOKASI TERAKHIR (default)
+   Simpan lokasi terakhir yang
+   berhasil dicari agar bisa
+   langsung dipakai sebagai
+   default saat halaman dibuka.
+========================= */
+const KIBLAT_LOCATION_KEY = 'kiblatLastLocation';
 
-let currentDate = new Date();
-let calendarData = [];
-
-const grid = document.getElementById("calendarGrid");
-const monthTitle = document.getElementById("monthTitle");
-const hijriMonthTitle = document.getElementById("hijriMonthTitle");
-const dateInfo = document.getElementById("dateInfo");
-
-function changeMonth(step){
-  currentDate.setMonth(currentDate.getMonth() + step);
-  loadCalendar();
-}
-
-function goToday(){
-  currentDate = new Date();
-  loadCalendar();
-}
-
-async function loadCalendar(){
-  const month = currentDate.getMonth() + 1;
-  const year = currentDate.getFullYear();
-
-  monthTitle.textContent = monthNames[month - 1] + " " + year;
-  hijriMonthTitle.textContent = "Memuat data Hijriah...";
-  grid.innerHTML = `<div class="loading">Memuat kalender...</div>`;
-
-  try{
-    const url = `https://api.aladhan.com/v1/gToHCalendar/${month}/${year}`;
-    const res = await fetch(url);
-    const json = await res.json();
-
-    if(!json.data) throw new Error("Data tidak ditemukan");
-
-    calendarData = json.data;
-    renderCalendar(month, year);
-
-  }catch(err){
-    grid.innerHTML = `<div class="loading">Gagal memuat kalender. Coba periksa koneksi internet.</div>`;
-    hijriMonthTitle.textContent = "API tidak tersedia";
+function simpanLokasiTerakhir(lat, lon) {
+  try {
+    localStorage.setItem(
+      KIBLAT_LOCATION_KEY,
+      JSON.stringify({ lat, lon })
+    );
+  } catch (err) {
+    /* localStorage tidak tersedia — abaikan */
   }
 }
 
-function renderCalendar(month, year){
-  grid.innerHTML = "";
+function ambilLokasiTerakhir() {
+  try {
+    const saved = localStorage.getItem(KIBLAT_LOCATION_KEY);
+    if (!saved) return null;
+    const parsed = JSON.parse(saved);
+    if (
+      typeof parsed.lat === 'number' &&
+      typeof parsed.lon === 'number'
+    ) {
+      return parsed;
+    }
+    return null;
+  } catch (err) {
+    return null;
+  }
+}
 
-  const firstDay = new Date(year, month - 1, 1).getDay();
+/* =========================
+   BUFFER SMOOTHING
+   Rata-rata melingkar agar
+   jarum tidak melompat.
+========================= */
+const HISTORY_SIZE = 10;
+let headingHistory = [];
 
-  for(let i = 0; i < firstDay; i++){
-    const empty = document.createElement("button");
-    empty.className = "day-cell empty";
-    grid.appendChild(empty);
+function smoothHeading(heading) {
+  headingHistory.push(heading);
+  if (headingHistory.length > HISTORY_SIZE) {
+    headingHistory.shift();
+  }
+  let sumSin = 0, sumCos = 0;
+  for (let i = 0; i < headingHistory.length; i++) {
+    const rad = headingHistory[i] * Math.PI / 180;
+    sumSin += Math.sin(rad);
+    sumCos += Math.cos(rad);
+  }
+  let avg = Math.atan2(sumSin, sumCos) * 180 / Math.PI;
+  return (avg + 360) % 360;
+}
+
+/* =========================
+   HITUNG ARAH KIBLAT
+   Great-circle initial
+   bearing → Ka'bah.
+========================= */
+function hitungKiblat(lat, lon) {
+  const kaabaLat = 21.4225 * Math.PI / 180;
+  const kaabaLon = 39.8262 * Math.PI / 180;
+
+  lat = lat * Math.PI / 180;
+  lon = lon * Math.PI / 180;
+
+  /* Rumus bearing — dibagi cos(kaabaLat)
+     agar ekuivalen dengan rumus standar
+     tapi lebih stabil secara numerik. */
+  const y = Math.sin(kaabaLon - lon);
+  const x =
+    Math.cos(lat) * Math.tan(kaabaLat) -
+    Math.sin(lat) * Math.cos(kaabaLon - lon);
+
+  let brng = Math.atan2(y, x) * 180 / Math.PI;
+  return (brng + 360) % 360;
+}
+
+/* =========================
+   IZIN SENSOR (iOS)
+========================= */
+async function requestCompassPermission() {
+  if (
+    typeof DeviceOrientationEvent !== 'undefined' &&
+    typeof DeviceOrientationEvent.requestPermission === 'function'
+  ) {
+    try {
+      const permission = await DeviceOrientationEvent.requestPermission();
+      if (permission !== 'granted') {
+        info.textContent = 'Izin sensor kompas ditolak.';
+        return false;
+      }
+    } catch (err) {
+      info.textContent = 'Gagal meminta izin sensor kompas.';
+      return false;
+    }
+  }
+  return true;
+}
+
+/* =========================
+   EKSTRAK HEADING KOMPAS
+   — PERBAIKAN UTAMA —
+========================= */
+function getHeading(e) {
+  /* ---- iOS Safari ----
+     webkitCompassHeading sudah:
+       • absolute (relatif utara bumi)
+       • memperhitungkan orientasi layar
+       • satuan: derajat searah jarum jam dari utara */
+  if (typeof e.webkitCompassHeading === 'number') {
+    return e.webkitCompassHeading;
   }
 
-  const hijriMonths = new Set();
+  /* ---- Android: event deviceorientationabsolute ----
+     alpha dijamin absolute (relatif utara magnet bumi).
+     Rumus: heading = (360 − alpha) mod 360
+     karena alpha bertambah berlawanan arah jarum jam. */
+  if (e.type === 'deviceorientationabsolute' && typeof e.alpha === 'number') {
+    return (360 - e.alpha) % 360;
+  }
 
-  calendarData.forEach(item => {
-    const gDay = Number(item.gregorian.day);
-    const hDay = Number(item.hijri.day);
-    const hMonthId = Number(item.hijri.month.number);
-    const hYear = item.hijri.year;
+  /* ---- Android: event deviceorientation dgn absolute=true ----
+     Beberapa perangkat mengirim absolute=true pada
+     event biasa — gunakan jika bersifat absolute. */
+  if (e.absolute === true && typeof e.alpha === 'number') {
+    return (360 - e.alpha) % 360;
+  }
 
-    hijriMonths.add(`${item.hijri.month.en} ${hYear} H`);
+  /* ---- JANGAN pakai alpha non-absolute! ----
+     Nilai non-absolute relatif terhadap orientasi
+     awal perangkat, BUKAN utara bumi → arah salah. */
+  return null;
+}
 
-    const dateObj = new Date(year, month - 1, gDay);
-    const dayIndex = dateObj.getDay();
+/* =========================
+   THROTTLE UI
+   Gunakan requestAnimationFrame
+   agar tidak update DOM berlebihan.
+========================= */
+let pendingFrame = false;
+let lastRawHeading = null;
 
-    const localEvent = getLocalIslamicEvent(hDay, hMonthId);
+function scheduleUpdate(arahKiblat) {
+  if (pendingFrame) return;
+  pendingFrame = true;
+  requestAnimationFrame(function () {
+    pendingFrame = false;
+    if (lastRawHeading === null) return;
 
-    const cell = document.createElement("button");
-    cell.className = "day-cell";
+    const smoothed = smoothHeading(lastRawHeading);
+    const rotate   = arahKiblat - smoothed;
 
-    if(isToday(dateObj)) cell.classList.add("today");
-    if(dayIndex === 5) cell.classList.add("friday");
-    if(dayIndex === 1 || dayIndex === 4) cell.classList.add("monday-thursday");
-    if(hDay >= 13 && hDay <= 15) cell.classList.add("ayyam");
-    if(localEvent) cell.classList.add("event");
+    panah.style.transform =
+      `translate(-50%, -100%) rotate(${rotate}deg)`;
 
-    cell.innerHTML = `
-      <div class="g-date">${gDay} M</div>
-      <div class="h-date">${hDay}</div>
-      ${localEvent ? `<span class="badge-dot"></span>` : ``}
-    `;
-
-    cell.onclick = () => showDateInfo(item, dayIndex);
-    grid.appendChild(cell);
+    info.innerHTML =
+      `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+      `Kompas HP: ${Math.round(smoothed)}°`;
   });
-
-  hijriMonthTitle.textContent = Array.from(hijriMonths).join(" / ");
 }
 
-function showDateInfo(item, dayIndex){
-  const g = item.gregorian;
-  const h = item.hijri;
+/* =========================
+   START KOMPAS
+========================= */
+function startCompass(arahKiblat) {
+  if (compassStarted) return;
+  compassStarted = true;
 
-  const hDay = Number(h.day);
-  const hMonthId = Number(h.month.number);
+  function handleOrientation(e) {
+    const heading = getHeading(e);
+    if (heading === null) return;
 
-  const localEvent = getLocalIslamicEvent(hDay, hMonthId);
+    hasReceivedEvent = true;
+    lastRawHeading   = heading;
+    scheduleUpdate(arahKiblat);
+  }
 
-  let notes = [];
+  /* Cek apakah deviceorientationabsolute didukung
+     (hanya Android Chrome). */
+  const absoluteSupported =
+    'ondeviceorientationabsolute' in window;
 
-  if(dayIndex === 5) notes.push("Hari Jumat");
-  if(dayIndex === 1 || dayIndex === 4) notes.push("Disunnahkan puasa Senin/Kamis");
-  if(hDay >= 13 && hDay <= 15) notes.push("Ayyamul Bidh");
-  if(localEvent) notes.push(localEvent);
+  if (absoluteSupported) {
+    window.addEventListener(
+      'deviceorientationabsolute',
+      handleOrientation,
+      true
+    );
+  }
 
-  dateInfo.innerHTML = `
-    <div class="info-title">${dayNames[dayIndex]}, ${g.day} ${g.month.en} ${g.year}</div>
-    <div class="info-text">
-      <b>${h.day} ${h.month.en} ${h.year} H</b><br><br>
-      ${notes.length ? notes.map(n => `• ${n}`).join("<br>") : "Tidak ada keterangan khusus pada tanggal ini."}
-    </div>
-  `;
+  /* Selalu dengarkan deviceorientation:
+     • iOS  → untuk webkitCompassHeading
+     • Android tanpa absolute → hanya jika absolute=true */
+  window.addEventListener('deviceorientation', function (e) {
+    /* iOS: proses langsung */
+    if (typeof e.webkitCompassHeading !== 'undefined') {
+      handleOrientation(e);
+      return;
+    }
+    /* Android tanpa deviceorientationabsolute:
+       hanya terima jika absolute=true */
+    if (
+      !absoluteSupported &&
+      e.absolute === true &&
+      typeof e.alpha === 'number'
+    ) {
+      handleOrientation(e);
+    }
+    /* Jangan proses alpha non-absolute */
+  }, true);
+
+  /* Deteksi jika tidak ada event sensor dalam 2.5 detik */
+  setTimeout(function () {
+    if (!hasReceivedEvent) {
+      info.innerHTML =
+        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+        `<span style="font-size:12px;font-weight:400">` +
+        `Sensor kompas tidak terdeteksi. Pastikan kompas perangkat berfungsi.` +
+        `</span>`;
+    }
+  }, 2500);
 }
 
-function getLocalIslamicEvent(day, month){
-  const events = {
-    "1-1":"Tahun Baru Islam",
-    "10-1":"Hari Asyura",
-    "12-3":"Maulid Nabi",
-    "27-7":"Isra Mi'raj",
-    "15-8":"Nisfu Sya'ban",
-    "1-9":"Awal Ramadan",
-    "17-9":"Nuzulul Qur'an",
-    "1-10":"Idul Fitri",
-    "9-12":"Hari Arafah",
-    "10-12":"Idul Adha",
-    "11-12":"Hari Tasyrik",
-    "12-12":"Hari Tasyrik",
-    "13-12":"Hari Tasyrik"
-  };
+/* =========================
+   INIT KIBLAT
+========================= */
+async function initKiblat() {
+  if (!navigator.geolocation) {
+    alert('Browser tidak mendukung GPS');
+    return;
+  }
 
-  return events[`${day}-${month}`] || "";
+  info.textContent = 'Meminta izin lokasi...';
+
+  const sensorAllowed = await requestCompassPermission();
+  if (!sensorAllowed) return;
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+
+      lokasiEl.textContent =
+        `📍 ${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+
+      const arahKiblat = hitungKiblat(lat, lon);
+      arahKiblatGlobal = arahKiblat;
+
+      simpanLokasiTerakhir(lat, lon);
+
+      info.innerHTML =
+        `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+        `Gerakkan HP seperti angka 8 untuk kalibrasi.`;
+
+      if (window.DeviceOrientationEvent) {
+        startCompass(arahKiblat);
+      } else {
+        info.textContent =
+          `Arah Kiblat: ${Math.round(arahKiblat)}° dari Utara`;
+      }
+    },
+    () => {
+      info.textContent = 'Izin lokasi ditolak.';
+      alert('Izin lokasi ditolak');
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+  );
 }
 
-function isToday(date){
-  const today = new Date();
-  return date.getDate() === today.getDate() &&
-         date.getMonth() === today.getMonth() &&
-         date.getFullYear() === today.getFullYear();
-}
+/* =========================
+   TAMPILKAN LOKASI TERAKHIR
+   Saat halaman dibuka, jika ada
+   lokasi tersimpan dari kunjungan
+   sebelumnya, langsung tampilkan
+   sebagai default (kompas tetap
+   perlu diaktifkan lewat tombol).
+========================= */
+(function tampilkanLokasiTerakhir() {
+  const saved = ambilLokasiTerakhir();
+  if (!saved) return;
 
-loadCalendar();
+  const arahKiblat = hitungKiblat(saved.lat, saved.lon);
+  arahKiblatGlobal = arahKiblat;
+
+  lokasiEl.textContent =
+    `📍 ${saved.lat.toFixed(4)}, ${saved.lon.toFixed(4)} (terakhir)`;
+
+  info.innerHTML =
+    `Arah Kiblat: <strong>${Math.round(arahKiblat)}°</strong> dari Utara<br>` +
+    `Tekan tombol untuk mengaktifkan kompas.`;
+})();
 </script>
+<div id="footer"></div>
 
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter();
+</script>
+   
 </body>
 </html>
