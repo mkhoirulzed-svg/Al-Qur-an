@@ -284,6 +284,8 @@ const juzNo = Number(juzParam);
 
 let selectedAyat = null;
 let currentPlaying = null;
+let currentIndex = -1;
+let ayatElements = []; // urutan ayat yang benar (surah asc, ayat asc), dipakai untuk auto-next audio
 
 const mushafBtn = document.getElementById('openMushaf');
 if (mushafBtn) {
@@ -330,9 +332,9 @@ function toArabicNumber(num) {
 
 function removeBismillah(text = '') {
   return text
-    .replace(/^بِّسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u, '')
-    .replace(/^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u, '')
-    .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
+    .replace(/^بِّسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u, '')
+    .replace(/^بِسْمِ\s*ٱ?للَّهِ\s*ٱ?لرَّحْمَٰنِ\s*ٱ?لرَّحِيمِ\s*/u, '')
+    .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
     .replace(/^بسم\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
     .trim();
 }
@@ -379,7 +381,21 @@ async function loadJuz({ start, end }) {
 
     const data = await res.json();
 
-    const ayahs = data.filter(a => isAyatInJuz(a, start, end));
+    // 1) ambil ayat yang masuk rentang juz ini
+    // 2) urutkan berdasarkan surah lalu ayat (jangan percaya urutan asli JSON)
+    // 3) buang duplikat surah+ayat kalau ada entri ganda
+    const ayahs = data
+      .filter(a => isAyatInJuz(a, start, end))
+      .sort((a, b) => {
+        const s = Number(a.surah) - Number(b.surah);
+        if (s !== 0) return s;
+        return Number(a.ayat) - Number(b.ayat);
+      })
+      .filter((a, i, arr) => {
+        if (i === 0) return true;
+        const prev = arr[i - 1];
+        return !(Number(a.surah) === Number(prev.surah) && Number(a.ayat) === Number(prev.ayat));
+      });
 
     if (!ayahs.length) {
       juzContent.innerHTML = '<p>Ayat juz tidak ditemukan.</p>';
@@ -387,6 +403,7 @@ async function loadJuz({ start, end }) {
     }
 
     juzContent.innerHTML = '';
+    ayatElements = [];
 
     let lastSurah = null;
     let firstSurahSet = false;
@@ -424,7 +441,7 @@ async function loadJuz({ start, end }) {
       if (ayatNo === 1 && surah !== 1 && surah !== 9) {
         const bismillah = document.createElement('div');
         bismillah.className = 'bismillah-manual';
-        bismillah.innerHTML = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+        bismillah.innerHTML = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
         juzContent.appendChild(bismillah);
 
         arabText = removeBismillah(arabText);
@@ -458,6 +475,7 @@ async function loadJuz({ start, end }) {
       `;
 
       juzContent.appendChild(div);
+      ayatElements.push(div);
     });
 
     scrollToTargetAyat();
@@ -531,6 +549,7 @@ function playAyat(ayatEl) {
   }
 
   currentPlaying = ayatEl;
+  currentIndex = ayatElements.indexOf(ayatEl);
   currentPlaying.classList.add('playing');
 
   audioPlayer.src = currentPlaying.dataset.audio;
@@ -592,17 +611,15 @@ popup.addEventListener('click', e => {
 audioPlayer.addEventListener('ended', () => {
   if (!currentPlaying) return;
 
-  let next = currentPlaying.nextElementSibling;
-
-  while (next && !next.classList.contains('ayat-item')) {
-    next = next.nextElementSibling;
-  }
+  // pakai index array terurut (surah asc, ayat asc), bukan nextElementSibling DOM
+  const next = ayatElements[currentIndex + 1];
 
   if (next) {
     playAyat(next);
   } else {
     currentPlaying.classList.remove('playing');
     currentPlaying = null;
+    currentIndex = -1;
   }
 });
 
