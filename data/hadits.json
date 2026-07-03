@@ -8,7 +8,6 @@
     "perawi": "HR. Muslim No. 31",
     "derajat": "shahih",
     "kitab": "Riyadhus Sholihin",
-    "nomor": 424,
     "faedah": [
       "Hadits ini menunjukkan besarnya cinta para sahabat radhiyallāhu ‘anhum kepada Rasulullah ﷺ.",
       "Dianjurkan memberi kabar gembira kepada orang-orang beriman dan membuka pintu harapan bagi mereka.",
@@ -16,5 +15,113 @@
       "Iman yang benar akan mengantarkan seseorang masuk surga."
     ],
     "pelajaran": "Penting bagi kita untuk terus memperbaiki tauhid, bukan hanya dalam lisan, tetapi juga dalam hati dan perbuatan."
-  }
+  },
+  {
+    "id": 2,
+    "judul": "Yang Lebih Dulu Duduk, Yang Lebih Berhak",
+    "arab": "إِذَا قَامَ أَحَدُكُمْ مِنْ مَجْلِسٍ، ثُمَّ رَجَعَ إِلَيْهِ، فَهُوَ أَحَقُّ بِهِ",
+    "latin": "",
+    "terjemahan": "Jikalau seorang di antara kalian berdiri dari tempat duduknya, kemudian ia kembali ke situ, maka ia memang lebih berhak untuk menempati tempat duduknya tadi.",
+    "perawi": "HR. Muslim No. 2179",
+    "derajat": "shahih",
+    "kitab": "Riyadhus Shalihin",
+    "faedah": [
+      "Yang memiliki tempat duduk pertama kali, ia lebih berhak daripada yang lainnya.",
+      "Jika pemilik tempat duduk itu berdiri karena ada hajat (kebutuhan) lalu kembali, maka ia lebih berhak menempati tempat duduk tersebut dibanding yang lain.",
+      "Islam mengajarkan memberikan sesuatu sesuai haknya untuk mencegah kezaliman dan kerusakan."
+    ],
+    "pelajaran": "Orang yang lebih dahulu menempati suatu tempat memiliki hak atas tempat tersebut selama ia kembali setelah ada keperluan."
+  },
+  {
+    "id": 3,
+    "judul": "Adab Duduk di Majelis",
+    "arab": "كُنَّا إِذَا أَتَيْنَا النَّبِيَّ ﷺ جَلَسَ أَحَدُنَا حَيْثُ يَنْتَهِي",
+    "latin": "",
+    "terjemahan": "Kami apabila mendatangi Nabi ﷺ, maka setiap dari kami duduk di tempat mana ia berakhir.",
+    "perawi": "HR. Abu Dawud No. 4825 dan Tirmidzi No. 2725",
+    "derajat": "shahih",
+    "kitab": "Riyadhus Shalihin",
+    "faedah": [
+      "Di antara adab bermajelis adalah duduk di tempat yang terakhir didapat, tidak merampas tempat duduk orang lain.",
+      "Dalam majelis ilmu terdapat adab-adab yang perlu diperhatikan.",
+      "Boleh meminta orang lain merapat apabila masih ada celah kosong selama tidak mengganggu mereka."
+    ],
+    "pelajaran": "Islam mengajarkan adab ketika menghadiri majelis dengan tidak melangkahi atau merebut tempat orang lain."
+  },
+  {
+    "id": 4,
+    "judul": "Adab Menghadiri Shalat Jumat",
+    "arab": "لاَ يَغْتَسِلُ رَجُلٌ يَوْمَ الْجُمُعَةِ، وَيَتَطَهَّرُ مَا اسْتَطَاعَ مِنْ طُهْرٍ، وَيَدَّهِنُ مِنْ دُهْنِهِ، أَوْ يَمَسُّ مِنْ طِيبِ بَيْتِهِ، ثُمَّ يَخْرُجُ فَلاَ يُفَرِّقُ بَيْنَ اثْنَيْنِ، ثُمَّ يُصَلِّي مَا كُتِبَ لَهُ، ثُمَّ يُنْصِتُ إِذَا تَكَلَّمَ الإِمَامُ، إِلاَّ غُفِرَ لَهُ مَا بَيْنَهُ وَبَيْنَ الْجُمُعَةِ الأُخْرَى",
+    "latin": "",
+    "terjemahan": "Tidaklah seseorang mandi pada hari Jumat, bersuci semampunya, memakai minyak rambut atau wewangian, kemudian berangkat tanpa memisahkan dua orang, lalu mengerjakan shalat yang ditetapkan baginya dan diam ketika imam berkhutbah, melainkan diampuni dosanya antara Jumat itu dengan Jumat berikutnya.",
+    "perawi": "HR. Bukhari",
+    "derajat": "shahih",
+    "kitab": "Riyadhus Shalihin",
+    "faedah": [
+      "Tidak boleh memisahkan dua orang yang sedang duduk ketika datang ke masjid.",
+      "Disunnahkan datang lebih awal untuk shalat Jumat.",
+      "Dianjurkan memperbanyak shalat sunnah sebelum khutbah.",
+      "Wajib diam ketika imam berkhutbah.",
+      "Amalan-amalan tersebut menjadi sebab diampuninya dosa antara dua Jumat."
+    ],
+    "pelajaran": "Adab menuju shalat Jumat mencakup menjaga kebersihan, tidak mengganggu orang lain, memperbanyak ibadah, dan menyimak khutbah dengan baik."
+  },
+  {
+    "id": 1453,
+    "judul": "Hendaklah yang Kecil Memberi Salam pada Yang Lebih Tua",
+    "arab": "وَعَنْ أَبِي هُرَيْرَةَ رضي الله عنه قَالَ: قَالَ رَسُولُ اَللَّهِ صلى الله عليه وسلم لِيُسَلِّمْ اَلصَّغِيرُ عَلَى اَلْكَبِيرِ, وَالْمَارُّ عَلَى اَلْقَاعِدِ, وَالْقَلِيلُ عَلَى اَلْكَثِيرِ مُتَّفَقٌ عَلَيْهِ",
+    "latin": "",
+    "terjemahan": "Dari Abu Hurairah radhiyallahu 'anhu, ia berkata bahwa Rasulullah shallallahu 'alaihi wa sallam bersabda, 'Hendaklah yang kecil memberi salam pada yang lebih tua, hendaklah yang berjalan memberi salam pada yang sedang duduk, hendaklah yang sedikit memberi salam pada yang banyak.'",
+    "perawi": "Muttafaqun 'alaih (HR. Bukhari no. 3231, 3234, 6232; Muslim no. 2160)",
+    "derajat": "Shahih",
+    "kitab": "Bulughul Maram - Kitabul Jaami'",
+    "faedah": [
+      "Hendaklah yang kecil mengucapkan salam pada yang lebih dewasa karena inilah hak orang yang lebih tua.",
+      "Boleh saja yang lebih tua mengucapkan salam pada anak-anak karena Rasulullah shallallahu 'alaihi wa sallam pernah melakukan hal itu.",
+      "Orang yang berjalan hendaklah memberi salam kepada orang yang sedang duduk.",
+      "Yang berjumlah sedikit dianjurkan mengucapkan salam pada yang banyak.",
+      "Orang yang berkendaraan hendaklah mengucapkan salam pada yang berjalan, sebagai bentuk tawadhu' (rendah hati).",
+      "Jika derajatnya sama, maka sebaik-baik di antara mereka adalah yang memulai mengucapkan salam.",
+      "Memulai mengucapkan salam menunjukkan semangat menjalankan adab dan syariat."
+    ],
+    "pelajaran": "Mengucapkan salam adalah bentuk memuliakan orang lain dengan berbagai urutan yang telah ditetapkan Nabi. Yang muda harus menghormati yang tua, orang yang bergerak harus menghormati yang diam, dan kelompok kecil menghormati kelompok besar."
+  },
+  {
+    "id": 1454,
+    "judul": "Cukup Satu Orang Mengucapkan Salam dari Sekelompok Orang",
+    "arab": "وَعَنْ عَلِيٍّ – رضي الله عنه – قَالَ: قَالَ رَسُولُ اَللَّهِ – صلى الله عليه وسلم – يُجْزِئُ عَنْ اَلْجَمَاعَةِ إِذَا مَرُّوا أَنْ يُسَلِّمَ أَحَدُهُمْ, وَيُجْزِئُ عَنْ اَلْجَمَاعَةِ أَنْ يَرُدَّ أَحَدُهُمْ",
+    "latin": "",
+    "terjemahan": "Dari 'Ali radhiyallahu 'anhu, ia berkata bahwa Rasulullah shallallahu 'alaihi wa sallam bersabda, 'Cukup jika berjamaah (berada dalam kelompok) jika lewat, maka salah seorang dari mereka mengucapkan salam. Cukup jika berjamaah (berada dalam kelompok) jika ada yang mengucapkan salam, maka salah seorang dari jamaah tersebut yang membalas salamnya.'",
+    "perawi": "HR. Ahmad dan Al-Baihaqi (HR. Abu Daud no. 5210 dan Al-Baihaqi 9:49)",
+    "derajat": "Dhaif (namun ada yang mengatakan Hasan)",
+    "kitab": "Bulughul Maram - Kitabul Jaami'",
+    "faedah": [
+      "Cukup satu orang mengucapkan salam untuk mewakili jamaah dalam memulai salam.",
+      "Cukup satu orang menjawab salam dari jamaah yang ada.",
+      "Menjawab salam dari jamaah hukumnya adalah fardhu kifayah (kewajiban yang cukup jika dilakukan oleh sebagian orang).",
+      "Jika sebagian jamaah sudah menjawab salam, maka yang lain gugur kewajibannya.",
+      "Jika yang diberi salam adalah kelompok orang dan yang menjawab hanya anak-anak, maka belum mencukupi sampai dijawab oleh orang dewasa.",
+      "Yang afdal (lebih utama) adalah semuanya mengucapkan dan menjawab salam."
+    ],
+    "pelajaran": "Dalam situasi berjamaah, cukup satu orang mewakili untuk memulai dan membalas salam. Namun yang lebih baik adalah semuanya ikut serta dalam mengucapkan dan menjawab salam."
+  },
+  {
+    "id": 1455,
+    "judul": "Jangan Memulai Mengucapkan Salam kepada Yahudi dan Nashrani",
+    "arab": "وَعَنْهُ قَالَ: قَالَ رَسُولُ اَللَّهِ – صلى الله عليه وسلم – لَا تَبْدَؤُوا اَلْيَهُودَ وَالنَّصَارَى بِالسَّلَامِ, وَإِذَا لَقَيْتُمُوهُمْ فِي طَرِيقٍ, فَاضْطَرُّوهُمْ إِلَى أَضْيَقِهِ",
+    "latin": "",
+    "terjemahan": "Dari 'Ali radhiyallahu 'anhu pula, ia berkata bahwa Rasulullah shallallahu 'alaihi wa sallam bersabda, 'Janganlah memulai mengucapkan salam kepada Yahudi dan Nashrani. Jika kalian bertemu dengan mereka di jalan, maka persempitlah jalan mereka.'",
+    "perawi": "HR. Muslim no. 1319",
+    "derajat": "Shahih",
+    "kitab": "Shahih Muslim - Kitab As-Salam",
+    "faedah": [
+      "Memulai mengucapkan salam kepada orang kafir (Yahudi dan Nashrani) dinilai haram menurut Imam Nawawi.",
+      "Jika orang kafir memberi salam, maka jawablah dengan ucapan 'wa 'alaikum' saja, bukan dengan 'wa rahmatullahi wa barakatuh'.",
+      "Ada perbedaan dalam cara menjawab salam antara orang muslim dan orang kafir.",
+      "Mayoritas ulama (jumhur) berpendapat boleh membalas salam orang kafir dengan cara yang khusus (hanya 'wa 'alaikum').",
+      "Maksud 'persempitlah jalan mereka' adalah jangan membuka jalan kepada orang kafir dalam rangka memuliakan atau menghormati mereka.",
+      "Pemahaman hadits ini bukan berarti menyakiti orang kafir secara berlebihan tanpa ada sebab yang jelas."
+    ],
+    "pelajaran": "Seorang muslim tidak boleh memulai mengucapkan salam kepada orang kafir, namun jika mereka memberi salam, dapat dijawab dengan cara yang spesifik. Ini adalah bentuk menjaga identitas dan kehormatan kaum muslimin."
+  },
 ]
