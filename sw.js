@@ -37,6 +37,7 @@ const FILES_TO_CACHE = [
   "/data/loader.js",
   "/data/header.html",
   "/data/footer.html",
+  "/data/quran-search.json",
 
   "/data/audio/adzan.mp3",
   "/data/audio/adzan-subuh.mp3",
