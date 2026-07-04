@@ -2,57 +2,50 @@
   {
     "id": 1,
     "kitab": "shahih-muslim",
-    "nama": "Bagian 1: Hadits 1–103",
+    "nama": "Bagian 1: Hadits 1–100",
     "file": "001.json",
     "jumlah": 100
   },
   {
     "id": 2,
     "kitab": "shahih-muslim",
-    "nama": "Bagian 2: Hadits 104–205",
+    "nama": "Bagian 2: Hadits 101–200",
     "file": "002.json",
     "jumlah": 100
   },
   {
     "id": 3,
     "kitab": "shahih-muslim",
-    "nama": "Bagian 3: Hadits 206–308",
+    "nama": "Bagian 3: Hadits 201–300",
     "file": "003.json",
     "jumlah": 100
   },
   {
     "id": 4,
     "kitab": "shahih-muslim",
-    "nama": "Bagian 4: Hadits 309–413",
+    "nama": "Bagian 4: Hadits 301–400",
     "file": "004.json",
     "jumlah": 100
   },
   {
     "id": 5,
     "kitab": "shahih-muslim",
-    "nama": "Bagian 5: Hadits 414–517",
+    "nama": "Bagian 5: Hadits 401–500",
     "file": "005.json",
     "jumlah": 100
   },
   {
     "id": 6,
     "kitab": "shahih-muslim",
-    "nama": "Bagian 6: Hadits 518–619",
+    "nama": "Bagian 6: Hadits 501–600",
     "file": "006.json",
     "jumlah": 100
   },
   {
     "id": 7,
     "kitab": "shahih-muslim",
-    "nama": "Bagian 7: Hadits 620–719",
+    "nama": "Bagian 7: Hadits 601–685",
     "file": "007.json",
-    "jumlah": 100
-  },
-  {
-    "id": 8,
-    "kitab": "shahih-muslim",
-    "nama": "Bagian 8: Hadits 720–727",
-    "file": "008.json",
-    "jumlah": 8
+    "jumlah": 85
   }
 ]
