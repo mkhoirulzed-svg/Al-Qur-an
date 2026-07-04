@@ -186,6 +186,11 @@ async function loadDetailKitab(){
     }
 
     const data = await res.json();
+
+    if(!Array.isArray(data)){
+      throw new Error('Format kitab.json harus berupa array []');
+    }
+
     const kitab = data.find(item => String(item.id) === String(idKitab));
 
     if(!kitab){
@@ -201,8 +206,10 @@ async function loadDetailKitab(){
       return;
     }
 
-    if(kitab.daftarBab){
-      await loadDaftarBab(kitab);
+    const daftarBabPath = kitab.daftarBab || kitab.path;
+
+    if(daftarBabPath){
+      await loadDaftarBab(kitab, daftarBabPath);
     }else{
       renderBelumTersedia();
     }
@@ -210,12 +217,12 @@ async function loadDetailKitab(){
   }catch(err){
     detailKitabEl.innerHTML = '<p>Gagal memuat detail kitab.</p>';
     subjudulDoaEl.textContent = 'Terjadi kesalahan';
-    console.error(err);
+    console.error('Error load detail kitab:', err);
   }
 }
 
 function renderInfoKitab(kitab){
-  const judul = kitab.judul || kitab.kitab || 'Tanpa Judul';
+  const judul = kitab.nama || kitab.judul || kitab.kitab || 'Tanpa Judul';
 
   document.title = judul;
   judulDoaEl.textContent = judul;
@@ -225,9 +232,19 @@ function renderInfoKitab(kitab){
     <article class="doa-card">
       <div class="doa-title">${judul}</div>
 
+      ${kitab.arab ? `
+        <div class="arab">${kitab.arab}</div>
+      ` : ''}
+
       ${kitab.penulis ? `
         <div class="meta">
           <div><b>Penulis:</b> ${kitab.penulis}</div>
+        </div>
+      ` : ''}
+
+      ${kitab.jumlah ? `
+        <div class="meta">
+          <div><b>Jumlah:</b> ${kitab.jumlah} hadits</div>
         </div>
       ` : ''}
 
@@ -246,26 +263,27 @@ function renderInfoKitab(kitab){
   `;
 }
 
-async function loadDaftarBab(kitab){
+async function loadDaftarBab(kitab, daftarBabPath){
   const daftarBabEl = document.getElementById('daftarBabKitab');
 
   try{
-    const res = await fetch('../' + kitab.daftarBab + '?v=' + Date.now());
+    const cleanPath = daftarBabPath.replace(/^\/+/, '');
+    const res = await fetch('../' + cleanPath + '?v=' + Date.now());
 
     if(!res.ok){
-      throw new Error('File daftar bab tidak ditemukan');
+      throw new Error('File daftar bab tidak ditemukan: ' + cleanPath);
     }
 
     const daftarBab = await res.json();
 
-    if(!daftarBab || daftarBab.length === 0){
+    if(!Array.isArray(daftarBab) || daftarBab.length === 0){
       daftarBabEl.innerHTML = '<p>Daftar bab belum tersedia.</p>';
       return;
     }
 
     daftarBabEl.innerHTML = daftarBab.map(bab => {
       const idBab = String(bab.id).padStart(3, '0');
-      const judulBab = bab.judul || bab.kitab || `Bab ${Number(bab.id)}`;
+      const judulBab = bab.nama || bab.judul || bab.kitab || `Bab ${Number(bab.id)}`;
 
       return `
         <div class="doa-item" onclick="bukaBab('${kitab.id}', '${idBab}')">
@@ -277,7 +295,7 @@ async function loadDaftarBab(kitab){
 
   }catch(err){
     daftarBabEl.innerHTML = '<p>Gagal memuat daftar bab.</p>';
-    console.error(err);
+    console.error('Error load daftar bab:', err);
   }
 }
 
@@ -298,7 +316,7 @@ function bukaBab(idKitab, idBab){
 
 loadDetailKitab();
 </script>
-
+  
 <script src="../data/loader.js"></script>
 <script>
   loadFooter("kitab");
