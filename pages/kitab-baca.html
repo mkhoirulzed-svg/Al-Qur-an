@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baca Kitab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.page-kitab{
+  background:var(--bg);
+}
+
+.kitab-container{
+  padding:18px 18px 110px;
+}
+
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+
+.header-title{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+#judul-kitab{
+  font-size:17px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+#subjudul-kitab{
+  font-size:12px;
+  color:var(--text-secondary);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.bab-info{
+  background:var(--card);
+  border-radius:22px;
+  padding:18px;
+  margin-bottom:16px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+}
+
+.bab-title{
+  font-size:18px;
+  font-weight:800;
+  line-height:1.5;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+
+.bab-desc{
+  font-size:13px;
+  line-height:1.7;
+  color:var(--text-secondary);
+}
+
+.hadits-card{
+  background:var(--card);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  margin-bottom:14px;
+}
+
+.hadits-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:34px;
+  height:34px;
+  padding:0 10px;
+  border-radius:999px;
+  background:var(--primary-ghost);
+  color:var(--primary);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.hadits-title{
+  font-size:16px;
+  font-weight:800;
+  color:var(--primary);
+  line-height:1.5;
+  margin-bottom:14px;
+}
+
+.arab{
+  font-family:'Amiri',serif;
+  font-size:28px;
+  line-height:2.1;
+  text-align:right;
+  direction:rtl;
+  color:var(--text);
+  margin-bottom:18px;
+}
+
+.latin{
+  font-size:14px;
+  line-height:1.8;
+  color:var(--text-secondary);
+  font-style:italic;
+  margin-bottom:14px;
+}
+
+.terjemahan{
+  font-size:15px;
+  line-height:1.85;
+  color:var(--text);
+  margin-bottom:14px;
+}
+
+.meta{
+  font-size:13px;
+  line-height:1.7;
+  color:var(--text-secondary);
+  background:rgba(10,77,58,.08);
+  border-radius:16px;
+  padding:13px 14px;
+  margin-top:14px;
+}
+
+.empty-card{
+  background:var(--card);
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+  color:var(--text-secondary);
+  box-shadow:var(--shadow-sm);
+}
+
+.nav-bab{
+  display:flex;
+  gap:10px;
+  margin:18px 0 4px;
+}
+
+.nav-bab button{
+  flex:1;
+  min-height:46px;
+  border:none;
+  border-radius:16px;
+  background:var(--card);
+  color:var(--primary);
+  font-size:14px;
+  font-weight:800;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  box-shadow:var(--shadow-sm);
+  cursor:pointer;
+}
+
+.nav-bab button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+</style>
+</head>
+
+<body class="page-kitab">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div id="judul-kitab">Baca Kitab</div>
+    <div id="subjudul-kitab">Memuat isi kitab...</div>
+  </div>
+</header>
+
+<main class="kitab-container">
+  <div id="isiKitab">
+    <div class="empty-card">Memuat kitab...</div>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+const isiKitabEl = document.getElementById('isiKitab');
+const judulKitabEl = document.getElementById('judul-kitab');
+const subjudulKitabEl = document.getElementById('subjudul-kitab');
+
+const params = new URLSearchParams(window.location.search);
+
+const idKitab = params.get('kitab') || 'riyadhus';
+const idBab = params.get('bab') || '001';
+
+let kitabInfo = null;
+let daftarBab = [];
+let babAktif = null;
+
+/* =========================
+   PATH KITAB
+========================= */
+function getFolderKitab(id){
+  const map = {
+    riyadhus: 'ryadhus',
+    bukhari: 'bukhari',
+    muslim: 'muslim',
+    arbain: 'arbain',
+    'bulughul-maram': 'bulughul-maram'
+  };
+
+  return map[id] || id;
+}
+
+/* =========================
+   NORMALISASI DATA HADITS
+   Biar aman walaupun JSON beda format:
+   - array langsung
+   - object dengan items
+   - object dengan data
+   - object dengan hadits
+========================= */
+function getItems(data){
+  if(Array.isArray(data)) return data;
+
+  if(Array.isArray(data.items)) return data.items;
+  if(Array.isArray(data.data)) return data.data;
+  if(Array.isArray(data.hadits)) return data.hadits;
+  if(Array.isArray(data.list)) return data.list;
+
+  return [];
+}
+
+/* =========================
+   LOAD DATA
+========================= */
+async function loadKitabBaca(){
+  try{
+    const folder = getFolderKitab(idKitab);
+    const babFile = String(idBab).padStart(3, '0');
+
+    const kitabRes = await fetch('../data/kitab.json?v=' + Date.now());
+    if(kitabRes.ok){
+      const semuaKitab = await kitabRes.json();
+      kitabInfo = semuaKitab.find(item => String(item.id) === String(idKitab));
+    }
+
+    const daftarBabRes = await fetch(`../data/${folder}/daftar-bab.json?v=${Date.now()}`);
+    if(daftarBabRes.ok){
+      daftarBab = await daftarBabRes.json();
+      babAktif = daftarBab.find(bab => String(bab.id).padStart(3, '0') === babFile);
+    }
+
+    const isiRes = await fetch(`../data/${folder}/${babFile}.json?v=${Date.now()}`);
+
+    if(!isiRes.ok){
+      throw new Error(`File ${babFile}.json tidak ditemukan`);
+    }
+
+    const dataBab = await isiRes.json();
+
+    renderKitab(dataBab, babFile);
+
+  }catch(err){
+    isiKitabEl.innerHTML = `
+      <div class="empty-card">
+        Gagal memuat isi kitab.
+      </div>
+    `;
+    judulKitabEl.textContent = 'Baca Kitab';
+    subjudulKitabEl.textContent = 'Data tidak tersedia';
+    console.error(err);
+  }
+}
+
+/* =========================
+   RENDER
+========================= */
+function renderKitab(dataBab, babFile){
+  const items = getItems(dataBab);
+
+  const namaKitab =
+    kitabInfo?.judul ||
+    kitabInfo?.kitab ||
+    formatNamaKitab(idKitab);
+
+  const judulBab =
+    dataBab.judul ||
+    dataBab.namaBab ||
+    babAktif?.judul ||
+    `Bab ${Number(babFile)}`;
+
+  document.title = `${judulBab} - ${namaKitab}`;
+  judulKitabEl.textContent = namaKitab;
+  subjudulKitabEl.textContent = judulBab;
+
+  if(!items || items.length === 0){
+    isiKitabEl.innerHTML = `
+      <article class="bab-info">
+        <div class="bab-title">${judulBab}</div>
+        <div class="bab-desc">${namaKitab}</div>
+      </article>
+
+      <div class="empty-card">
+        Isi bab belum tersedia.
+      </div>
+
+      ${renderNavigasiBab(babFile)}
+    `;
+    return;
+  }
+
+  isiKitabEl.innerHTML = `
+    <article class="bab-info">
+      <div class="bab-title">${judulBab}</div>
+      <div class="bab-desc">
+        ${namaKitab}
+        ${items.length ? ` • ${items.length} hadits` : ''}
+      </div>
+    </article>
+
+    ${items.map((item, index) => renderHadits(item, index)).join('')}
+
+    ${renderNavigasiBab(babFile)}
+  `;
+}
+
+function renderHadits(item, index){
+  const nomor = item.id || item.no || item.nomor || index + 1;
+  const judul = item.judul || item.title || '';
+  const arab = item.arab || item.arabic || '';
+  const latin = item.latin || item.transliterasi || '';
+  const terjemahan = item.terjemahan || item.terjemah || item.indonesia || item.arti || '';
+  const perawi = item.perawi || item.rawi || '';
+  const derajat = item.derajat || item.status || '';
+  const sumber = item.sumber || item.kitab || '';
+
+  return `
+    <article class="hadits-card">
+      <div class="hadits-number">Hadits ${nomor}</div>
+
+      ${judul ? `
+        <div class="hadits-title">${judul}</div>
+      ` : ''}
+
+      ${arab ? `
+        <div class="arab">${arab}</div>
+      ` : ''}
+
+      ${latin ? `
+        <div class="latin">${latin}</div>
+      ` : ''}
+
+      ${terjemahan ? `
+        <div class="terjemahan">${terjemahan}</div>
+      ` : ''}
+
+      ${perawi || derajat || sumber ? `
+        <div class="meta">
+          ${perawi ? `<div><b>Perawi:</b> ${perawi}</div>` : ''}
+          ${derajat ? `<div><b>Derajat:</b> ${derajat}</div>` : ''}
+          ${sumber ? `<div><b>Sumber:</b> ${sumber}</div>` : ''}
+        </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+/* =========================
+   NAVIGASI BAB
+========================= */
+function renderNavigasiBab(babFile){
+  if(!daftarBab || daftarBab.length === 0) return '';
+
+  const currentIndex = daftarBab.findIndex(bab =>
+    String(bab.id).padStart(3, '0') === String(babFile).padStart(3, '0')
+  );
+
+  const prevBab = currentIndex > 0 ? daftarBab[currentIndex - 1] : null;
+  const nextBab = currentIndex >= 0 && currentIndex < daftarBab.length - 1
+    ? daftarBab[currentIndex + 1]
+    : null;
+
+  const prevId = prevBab ? String(prevBab.id).padStart(3, '0') : '';
+  const nextId = nextBab ? String(nextBab.id).padStart(3, '0') : '';
+
+  return `
+    <div class="nav-bab">
+      <button ${!prevBab ? 'disabled' : ''} onclick="pindahBab('${prevId}')">
+        <i class="fas fa-chevron-left"></i> Bab Sebelumnya
+      </button>
+
+      <button ${!nextBab ? 'disabled' : ''} onclick="pindahBab('${nextId}')">
+        Bab Berikutnya <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  `;
+}
+
+function pindahBab(bab){
+  if(!bab) return;
+  window.location.href =
+    `kitab-baca.html?kitab=${encodeURIComponent(idKitab)}&bab=${encodeURIComponent(bab)}`;
+}
+
+/* =========================
+   HELPER
+========================= */
+function formatNamaKitab(id){
+  if(id === 'riyadhus') return 'Riyadhus Shalihin';
+  if(id === 'bukhari') return 'Shahih Bukhari';
+  if(id === 'muslim') return 'Shahih Muslim';
+  if(id === 'arbain') return "Arba'in Nawawi";
+  if(id === 'bulughul-maram') return 'Bulughul Maram';
+
+  return 'Kitab';
+}
+
+loadKitabBaca();
+</script>
+
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter("kitab");
+</script>
+
+</body>
+</html>
