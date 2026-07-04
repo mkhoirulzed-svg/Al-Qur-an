@@ -114,12 +114,14 @@ function extractRows(sql) {
 }
 
 function normalizeHadith(row, index) {
-  const id = Number(row.id || index + 1);
+  const idAsli = Number(row.id || index + 1);
+  const noUrut = index + 1;
 
   return {
-    id,
-    no: id,
-    judul: `Hadits Shahih Bukhari No. ${id}`,
+    id: noUrut,
+    idAsli: idAsli,
+    no: noUrut,
+    judul: `Hadits Shahih Bukhari No. ${noUrut}`,
     arab: cleanText(row.arab || ""),
     latin: "",
     terjemahan: cleanText(row.terjemah || row.terjemahan || ""),
@@ -165,26 +167,26 @@ async function main() {
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  const daftarBab = chunks.map((items, index) => {
-    const nomorBagian = index + 1;
-    const file = `${pad(nomorBagian)}.json`;
-    const awal = items[0]?.id;
-    const akhir = items[items.length - 1]?.id;
+const daftarBab = chunks.map((items, index) => {
+  const nomorBagian = index + 1;
+  const file = `${pad(nomorBagian)}.json`;
+  const awal = items[0]?.no;
+  const akhir = items[items.length - 1]?.no;
 
-    fs.writeFileSync(
-      path.join(OUT_DIR, file),
-      JSON.stringify(items, null, 2),
-      "utf8"
-    );
+  fs.writeFileSync(
+    path.join(OUT_DIR, file),
+    JSON.stringify(items, null, 2),
+    "utf8"
+  );
 
-    return {
-      id: nomorBagian,
-      kitab: KITAB_ID,
-      nama: `Bagian ${nomorBagian}: Hadits ${awal}–${akhir}`,
-      file,
-      jumlah: items.length
-    };
-  });
+  return {
+    id: nomorBagian,
+    kitab: KITAB_ID,
+    nama: `Bagian ${nomorBagian}: Hadits ${awal}–${akhir}`,
+    file,
+    jumlah: items.length
+  };
+});
 
   fs.writeFileSync(
     path.join(OUT_DIR, "daftar-bab.json"),
