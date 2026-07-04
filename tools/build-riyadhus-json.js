@@ -6,6 +6,10 @@ const SOURCE_URL =
 
 const OUT_DIR = path.join(__dirname, "..", "data", "riyadhus");
 
+function pad(num) {
+  return String(num).padStart(3, "0");
+}
+
 function cleanSqlString(text) {
   if (!text) return "";
 
@@ -26,12 +30,40 @@ function cleanHtml(text) {
     .trim();
 }
 
-function pad(num) {
-  return String(num).padStart(3, "0");
+function findInsertEnd(sql, startIndex) {
+  let inString = false;
+  let escapeNext = false;
+
+  for (let i = startIndex; i < sql.length; i++) {
+    const ch = sql[i];
+
+    if (escapeNext) {
+      escapeNext = false;
+      continue;
+    }
+
+    if (inString && ch === "\\") {
+      escapeNext = true;
+      continue;
+    }
+
+    if (ch === "'") {
+      inString = !inString;
+      continue;
+    }
+
+    if (!inString && ch === ";") {
+      return i;
+    }
+  }
+
+  return -1;
 }
 
 function extractInsertValues(sql) {
-  const marker = /INSERT INTO\s+`riyadhus_shalihin`\s+\(`id`,\s*`kitab`,\s*`arab`,\s*`terjemah`\)\s+VALUES/i;
+  const marker =
+    /INSERT INTO\s+`riyadhus_shalihin`\s+\(`id`,\s*`kitab`,\s*`arab`,\s*`terjemah`\)\s+VALUES/i;
+
   const match = marker.exec(sql);
 
   if (!match) {
@@ -39,7 +71,7 @@ function extractInsertValues(sql) {
   }
 
   const start = match.index + match[0].length;
-  const end = sql.indexOf(";", start);
+  const end = findInsertEnd(sql, start);
 
   if (end === -1) {
     throw new Error("Akhir INSERT tidak ditemukan.");
@@ -55,9 +87,19 @@ function parseRows(valuesText) {
   let inString = false;
   let escapeNext = false;
   let depth = 0;
+  let capturing = false;
 
   for (let i = 0; i < valuesText.length; i++) {
     const ch = valuesText[i];
+
+    if (!capturing) {
+      if (ch === "(") {
+        capturing = true;
+        depth = 1;
+        current = "(";
+      }
+      continue;
+    }
 
     if (escapeNext) {
       current += ch;
@@ -78,20 +120,16 @@ function parseRows(valuesText) {
     }
 
     if (!inString) {
-      if (ch === "(") {
-        depth++;
-      }
-
-      if (ch === ")") {
-        depth--;
-      }
+      if (ch === "(") depth++;
+      if (ch === ")") depth--;
     }
 
     current += ch;
 
-    if (!inString && depth === 0 && current.trim().startsWith("(") && ch === ")") {
+    if (!inString && depth === 0) {
       rows.push(current.trim());
       current = "";
+      capturing = false;
     }
   }
 
@@ -197,17 +235,16 @@ async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   const daftarBab = [];
-  let nomorBab = 0;
 
-  for (const rowText of rowTexts) {
-    const fields = parseFields(rowText);
+  for (let i = 0; i < rowTexts.length; i++) {
+    const fields = parseFields(rowTexts[i]);
 
     if (fields.length < 4) {
-      console.warn("Field kurang dari 4, dilewati:", fields.length);
+      console.warn(`Row ${i + 1} dilewati. Jumlah field: ${fields.length}`);
       continue;
     }
 
-    const sqlId = Number(fields[0]);
+    const sourceId = Number(fields[0]);
     let arab = cleanSqlString(fields[2]);
     let terjemahan = cleanSqlString(fields[3]);
 
@@ -222,7 +259,7 @@ async function main() {
     } else if (arabTitle) {
       judul = arabTitle.judulArab;
     } else {
-      judul = `Bab ${sqlId}`;
+      judul = sourceId === 1 ? "Pendahuluan" : `Bab ${sourceId}`;
     }
 
     if (arabTitle) {
@@ -231,13 +268,12 @@ async function main() {
 
     terjemahan = cleanHtml(terjemahan);
 
-    nomorBab++;
-
-    const fileName = `${pad(nomorBab)}.json`;
+    const babId = daftarBab.length + 1;
+    const fileName = `${pad(babId)}.json`;
 
     const babData = {
-      id: nomorBab,
-      source_id: sqlId,
+      id: babId,
+      source_id: sourceId,
       judul,
       arab,
       terjemahan,
@@ -250,8 +286,8 @@ async function main() {
     );
 
     daftarBab.push({
-      id: nomorBab,
-      source_id: sqlId,
+      id: babId,
+      source_id: sourceId,
       judul,
       file: fileName,
     });
@@ -263,8 +299,8 @@ async function main() {
     "utf8"
   );
 
-  console.log("Total bab dibuat:", daftarBab.length);
-  console.log("Folder output:", OUT_DIR);
+  console.log("Total file bab dibuat:", daftarBab.length);
+  console.log("Output:", OUT_DIR);
   console.log("Selesai.");
 }
 
