@@ -2,6 +2,37 @@
   "id": 227,
   "source_id": 227,
   "judul": "Bab 227. Keutamaan Berpuasa Pada Hari Arafah, 'Asyura Dan Tasu'a",
-  "arab": "1250 - وعن أَبي قتادة - رضي الله عنه - قَالَ: سُئِلَ رسول الله - صلى الله عليه وسلم - عن صَومِ يَوْمِ عَرَفَةَ، قَالَ: «يُكَفِّرُ السَّنَةَ المَاضِيَةَ وَالبَاقِيَةَ». رواه مسلم. \n1251 - وعن ابن عباس رضي الله عنهما: أنَّ رسولَ الله - صلى الله عليه وسلم - صَامَ يَومَ عاشوراءَ وَأمَرَ بِصِيامِهِ. متفقٌ عَلَيْهِ. \n1252 - وعن أَبي قتادة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - سُئِلَ عَنْ صِيامِ يَوْمِ عَاشُوراءَ، فَقَالَ: «يُكَفِّرُ السَّنَةَ المَاضِيَةَ». رواه مسلم. \n1253 - وعن ابن عباس رضي الله عنهما، قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «لَئِنْ بَقِيتُ إِلَى قَابلٍ لأَصُومَنَّ التَّاسِعَ». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1247. Dari Abu Qatadah r.a., katanya: &quot;Rasulullah s.a.w. ditanya perihal berpuasa pada hari Arafah -yaitu tanggal 9 Zulhijjah-. Beliau s.a.w. lalu bersabda: &quot;Puasa pada hari itu dapat menutupi dosa pada tahun yang lampau serta tahun yang akan datang.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1248. Dari Ibnu Abbas radhiallahu 'anhuma bahwasanya Rasulullah s.a.w. berpuasa pada hari 'Asyura -yaitu tanggal 10 bulan Muharram- dan memerintahkan -umatnya- untuk berpuasa pada hari itu pula. (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1249. Dari Abu Qatadah r.a. bahwasanya Rasulullah s.a.w. ditanya perihal berpuasa pada hari 'Asyura -tanggal 10 Muharram-, Beliau s.a.w. lalu bersabda: &quot;Puasa pada hari itu dapat menutupi dosa tahun yang lampau.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1250. Dari Ibnu Abbas radhiallahu 'anhuma, katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Sesungguhnya jikalau saya masih tetap hidup sampai tahun depan, tentulah saya akan berpuasa pada hari kesembilan -pada bulan Muharram yakni Tasu'a.-&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 4,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1250,
+      "nomor_terjemahan": 1247,
+      "arab": "وعن أَبي قتادة - رضي الله عنه - قَالَ: سُئِلَ رسول الله - صلى الله عليه وسلم - عن صَومِ يَوْمِ عَرَفَةَ، قَالَ: «يُكَفِّرُ السَّنَةَ المَاضِيَةَ وَالبَاقِيَةَ». رواه مسلم.",
+      "terjemahan": "Dari Abu Qatadah r.a., katanya: \"Rasulullah s.a.w. ditanya perihal berpuasa pada hari Arafah -yaitu tanggal 9 Zulhijjah-. Beliau s.a.w. lalu bersabda: \"Puasa pada hari itu dapat menutupi dosa pada tahun yang lampau serta tahun yang akan datang.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1251,
+      "nomor_terjemahan": 1248,
+      "arab": "وعن ابن عباس رضي الله عنهما: أنَّ رسولَ الله - صلى الله عليه وسلم - صَامَ يَومَ عاشوراءَ وَأمَرَ بِصِيامِهِ. متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Ibnu Abbas radhiallahu 'anhuma bahwasanya Rasulullah s.a.w. berpuasa pada hari 'Asyura -yaitu tanggal 10 bulan Muharram- dan memerintahkan -umatnya- untuk berpuasa pada hari itu pula. (Muttafaq 'alaih)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1252,
+      "nomor_terjemahan": 1249,
+      "arab": "وعن أَبي قتادة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - سُئِلَ عَنْ صِيامِ يَوْمِ عَاشُوراءَ، فَقَالَ: «يُكَفِّرُ السَّنَةَ المَاضِيَةَ». رواه مسلم.",
+      "terjemahan": "Dari Abu Qatadah r.a. bahwasanya Rasulullah s.a.w. ditanya perihal berpuasa pada hari 'Asyura -tanggal 10 Muharram-, Beliau s.a.w. lalu bersabda: \"Puasa pada hari itu dapat menutupi dosa tahun yang lampau.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 4,
+      "nomor_arab": 1253,
+      "nomor_terjemahan": 1250,
+      "arab": "وعن ابن عباس رضي الله عنهما، قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «لَئِنْ بَقِيتُ إِلَى قَابلٍ لأَصُومَنَّ التَّاسِعَ». رواه مسلم.",
+      "terjemahan": "Dari Ibnu Abbas radhiallahu 'anhuma, katanya: \"Rasulullah s.a.w. bersabda: \"Sesungguhnya jikalau saya masih tetap hidup sampai tahun depan, tentulah saya akan berpuasa pada hari kesembilan -pada bulan Muharram yakni Tasu'a.-\" (Riwayat Muslim)"
+    }
+  ]
 }

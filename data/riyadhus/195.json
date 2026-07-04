@@ -1,7 +1,31 @@
 {
   "id": 195,
   "source_id": 195,
-  "judul": "Bab 195.&nbsp;Keutamaan Shalat-shalat Sunnah Rawatib Yang Mengikuti Shalat-shalat Fardhu Dan Uraian Jumlah Minimal Rakaatnya, Jumlah Maksimal Rakaatnya Dan Yang Pertengahan Antara Keduanya",
-  "arab": "1097 - وعن أُمِّ المُؤْمِنِينَ أُمِّ حَبِيبَةَ رملة بِنْتِ أبي سُفْيَانَ رَضِيَ اللهُ عَنهما، قالت: سمعت رَسُولَ اللهِ - صلى الله عليه وسلم - يقول: «مَا مِنْ عَبْدٍ مُسْلِمٍ يُصَلِّي للهِ تَعَالى كُلَّ يَوْمٍ ثِنْتَيْ عَشرَةَ رَكْعَةً تَطَوُّعًا غَيرَ الفَرِيضَةِ، إلاَّ بَنَى الله لَهُ بَيْتًا في الجَنَّةِ، أو إلاَّ بُنِيَ لَهُ بَيْتٌ فِي الجَنَّةِ». رواه مُسلِمٌ. \n1098 - وعن ابن عمر رَضِيَ اللهُ عَنهُما، قَالَ: صَلَّيْتُ مَعَ رَسُولِ اللهِ - صلى الله عليه وسلم - رَكْعَتَيْنِ قَبْلَ الظُّهْرِ، وَرَكْعَتْينِ بَعْدَهَا، وَرَكْعَتَيْنِ بَعْدَ الجُمُعَةِ، وَرَكْعَتَينِ بَعدَ المَغْرِبِ، وَرَكْعَتَينِ بَعدَ العِشَاءِ. متفقٌ عَلَيهِ. \n1099 - وعن عبد الله بن مُغَفَّلٍ - رضي الله عنه - قَالَ: قال رَسُول اللهِ - صلى الله عليه وسلم: «بَيْنَ كُلِّ أذَانَيْنِ صَلاَةٌ، بَيْنَ كُلِّ أذَانَيْنِ صَلاَةٌ، بَيْنَ كُلِّ أذَانَيْنِ صَلاَةٌ» قال في الثَّالِثةِ: «لِمَنْ شَاءَ». متفقٌ عَلَيهِ. \nالمُرَادُ بِالأَذَانيْنِ: الأذَانُ وَالإقَامَةُ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1094. Dari Ummul mu'minin yaitu Ummu Habibah yakni Ramlah binti Abu Sufyan radhiallahu 'anhuma, katanya: &quot;Saya mendengar Rasulullah s.a.w. bersabda: &quot;Tiada seorang hambapun yang Muslim yang shalat karena Allah Ta'ala setiap hari dua belas rakaat sebagai shalat sunnah yang bukan diwajibkan, melainkan Allah akan mendirikan untuknya sebuah rumah dalam syurga, atau melainkan untuknya akan didirikanlah sebuah rumah dalam syurga.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1095. Dari Ibnu Umar radhiallahu 'anhuma, katanya: &quot;Saya shalat bersama Rasulullah s.a.w. dua rakaat sebelum Zuhur dan dua rakaat lagi sesudahnya, juga dua rakaat sesudah Jum'at, dua rakaat sesudah Maghrib dan dua rakaat pula sesudah Isya'.&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1096. Dari Abdullah bin Mughaffal r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Antara setiap dua adzan boleh shalat sunnah, antara setiap dua adzan boleh shalat sunnah, antara setiap dua adzan boleh shalat sunnah.&quot; Dalam ketiga kalinya ini beliau s.a.w. bersabda: &quot;Bagi orang yang suka mengerjakan itu.&quot; (Muttafaq 'alaih) Yang dimaksudkan dengan dua adzan itu ialah adzan dan iqamat.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "judul": "Bab 195. Keutamaan Shalat-shalat Sunnah Rawatib Yang Mengikuti Shalat-shalat Fardhu Dan Uraian Jumlah Minimal Rakaatnya, Jumlah Maksimal Rakaatnya Dan Yang Pertengahan Antara Keduanya",
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1097,
+      "nomor_terjemahan": 1094,
+      "arab": "وعن أُمِّ المُؤْمِنِينَ أُمِّ حَبِيبَةَ رملة بِنْتِ أبي سُفْيَانَ رَضِيَ اللهُ عَنهما، قالت: سمعت رَسُولَ اللهِ - صلى الله عليه وسلم - يقول: «مَا مِنْ عَبْدٍ مُسْلِمٍ يُصَلِّي للهِ تَعَالى كُلَّ يَوْمٍ ثِنْتَيْ عَشرَةَ رَكْعَةً تَطَوُّعًا غَيرَ الفَرِيضَةِ، إلاَّ بَنَى الله لَهُ بَيْتًا في الجَنَّةِ، أو إلاَّ بُنِيَ لَهُ بَيْتٌ فِي الجَنَّةِ». رواه مُسلِمٌ.",
+      "terjemahan": "Dari Ummul mu'minin yaitu Ummu Habibah yakni Ramlah binti Abu Sufyan radhiallahu 'anhuma, katanya: \"Saya mendengar Rasulullah s.a.w. bersabda: \"Tiada seorang hambapun yang Muslim yang shalat karena Allah Ta'ala setiap hari dua belas rakaat sebagai shalat sunnah yang bukan diwajibkan, melainkan Allah akan mendirikan untuknya sebuah rumah dalam syurga, atau melainkan untuknya akan didirikanlah sebuah rumah dalam syurga.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1098,
+      "nomor_terjemahan": 1095,
+      "arab": "وعن ابن عمر رَضِيَ اللهُ عَنهُما، قَالَ: صَلَّيْتُ مَعَ رَسُولِ اللهِ - صلى الله عليه وسلم - رَكْعَتَيْنِ قَبْلَ الظُّهْرِ، وَرَكْعَتْينِ بَعْدَهَا، وَرَكْعَتَيْنِ بَعْدَ الجُمُعَةِ، وَرَكْعَتَينِ بَعدَ المَغْرِبِ، وَرَكْعَتَينِ بَعدَ العِشَاءِ. متفقٌ عَلَيهِ.",
+      "terjemahan": "Dari Ibnu Umar radhiallahu 'anhuma, katanya: \"Saya shalat bersama Rasulullah s.a.w. dua rakaat sebelum Zuhur dan dua rakaat lagi sesudahnya, juga dua rakaat sesudah Jum'at, dua rakaat sesudah Maghrib dan dua rakaat pula sesudah Isya'.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1099,
+      "nomor_terjemahan": 1096,
+      "arab": "وعن عبد الله بن مُغَفَّلٍ - رضي الله عنه - قَالَ: قال رَسُول اللهِ - صلى الله عليه وسلم: «بَيْنَ كُلِّ أذَانَيْنِ صَلاَةٌ، بَيْنَ كُلِّ أذَانَيْنِ صَلاَةٌ، بَيْنَ كُلِّ أذَانَيْنِ صَلاَةٌ» قال في الثَّالِثةِ: «لِمَنْ شَاءَ». متفقٌ عَلَيهِ. \nالمُرَادُ بِالأَذَانيْنِ: الأذَانُ وَالإقَامَةُ.",
+      "terjemahan": "Dari Abdullah bin Mughaffal r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Antara setiap dua adzan boleh shalat sunnah, antara setiap dua adzan boleh shalat sunnah, antara setiap dua adzan boleh shalat sunnah.\" Dalam ketiga kalinya ini beliau s.a.w. bersabda: \"Bagi orang yang suka mengerjakan itu.\" (Muttafaq 'alaih) Yang dimaksudkan dengan dua adzan itu ialah adzan dan iqamat."
+    }
+  ]
 }

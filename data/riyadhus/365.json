@@ -2,6 +2,23 @@
   "id": 365,
   "source_id": 365,
   "judul": "Bab 365. Haramnya Seorang Lelaki Mengenakan Pakaian Yang Dibubuhi Minyak Za'faran",
-  "arab": "1798 - عن أنس - رضي الله عنه - قَالَ: نَهَى النبيُّ - صلى الله عليه وسلم - أَنْ يَتَزَعْفَرَ  الرجُل. متفق عَلَيْهِ. \n1799 - وعن عبد اللهِ بن عمرو بن العاص رضي الله عنهما، قَالَ: رأى النَّبيُّ - صلى الله عليه وسلم - عَلَيَّ ثَوْبَيْنِ مُعَصْفَرَيْنِ، فَقَالَ: «أُمُّكَ أمَرَتْكَ بِهَذا؟»  قلتُ: أَغْسِلُهُمَا؟ قَالَ: «بَلْ أَحْرِقْهُمَا».\nوفي رواية، فَقَالَ: «إنَّ هَذَا مِنْ ثِيَابِ الكُفَّارِ فَلاَ تَلْبَسْهَا». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1795. Dari Anas r.a., katanya: &quot;Nabi s.a.w. melarang kalau seorang lelaki itu berpakaian dengan dibubuhi minyak za'faran.&quot; (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1796. Dari Abdullah bin 'Amr bin al-'Ash radhiallahu 'anhuma, katanya: &quot;Nabi s.a.w. melihat saya mengenakan dua baju yang disumba dengan ashfar kuning warnanya.&quot; Kemudian beliau s.a.w. bersabda: &quot;Adakah ibumu yang menyuruhmu mengenakan pakaian ini?&quot; Saya berkata: &quot;Apakah saya cuci saja kedua pakaian ini -supaya luntur warnanya-? Beliau s.a.w. lalu bersabda: &quot;Bahkan bakar sajalah keduanya itu.&quot; Dalam riwayat lain disebutkan: &quot;Beliau s.a.w. bersabda: &quot;Sesungguhnya pakaian semacam ini adalah dari golongan pakaian-pakaiannya orang-orang kafir, maka janganlah engkau mengenakannya.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1798,
+      "nomor_terjemahan": 1795,
+      "arab": "عن أنس - رضي الله عنه - قَالَ: نَهَى النبيُّ - صلى الله عليه وسلم - أَنْ يَتَزَعْفَرَ  الرجُل. متفق عَلَيْهِ.",
+      "terjemahan": "Dari Anas r.a., katanya: \"Nabi s.a.w. melarang kalau seorang lelaki itu berpakaian dengan dibubuhi minyak za'faran.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1799,
+      "nomor_terjemahan": 1796,
+      "arab": "وعن عبد اللهِ بن عمرو بن العاص رضي الله عنهما، قَالَ: رأى النَّبيُّ - صلى الله عليه وسلم - عَلَيَّ ثَوْبَيْنِ مُعَصْفَرَيْنِ، فَقَالَ: «أُمُّكَ أمَرَتْكَ بِهَذا؟»  قلتُ: أَغْسِلُهُمَا؟ قَالَ: «بَلْ أَحْرِقْهُمَا».\nوفي رواية، فَقَالَ: «إنَّ هَذَا مِنْ ثِيَابِ الكُفَّارِ فَلاَ تَلْبَسْهَا». رواه مسلم.",
+      "terjemahan": "Dari Abdullah bin 'Amr bin al-'Ash radhiallahu 'anhuma, katanya: \"Nabi s.a.w. melihat saya mengenakan dua baju yang disumba dengan ashfar kuning warnanya.\" Kemudian beliau s.a.w. bersabda: \"Adakah ibumu yang menyuruhmu mengenakan pakaian ini?\" Saya berkata: \"Apakah saya cuci saja kedua pakaian ini -supaya luntur warnanya-? Beliau s.a.w. lalu bersabda: \"Bahkan bakar sajalah keduanya itu.\" Dalam riwayat lain disebutkan: \"Beliau s.a.w. bersabda: \"Sesungguhnya pakaian semacam ini adalah dari golongan pakaian-pakaiannya orang-orang kafir, maka janganlah engkau mengenakannya.\" (Riwayat Muslim)"
+    }
+  ]
 }

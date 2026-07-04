@@ -2,6 +2,23 @@
   "id": 346,
   "source_id": 346,
   "judul": "Bab 346. Haramnya Mempersambungkan Dalam Berpuasa Yaitu Berpuasa Dua Hari Atau Lebih Dan Tidak Makan Serta Tidak Minum Antara Hari-Hari Itu",
-  "arab": "1764 - عن أَبي هريرة وعائشة رضي الله عنهما: أنَّ النبيَّ - صلى الله عليه وسلم - نهى عن الوِصَالِ. متفق عَلَيْهِ. \n1765 - وعن ابن عمر رضي الله عنهما، قَالَ: نَهَى رسُولُ اللهِ - صلى الله عليه وسلم - عَنِ الوِصَالِ. قالوا: إنَّكَ تُواصِلُ؟ قَالَ: «إنِّي لَسْتُ مِثْلَكُمْ، إنِّي أُطْعَمُ وَأُسْقَى». متفق عَلَيْهِ.  وهذا لفظ البخاري.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1761. Dari Abu Hurairah dan Aisyah radhiallahu 'anhuma bahwasanya Nabi s.a.w. melarang puasa wishal -yaitu mempersambungkan puasa dua hari atau lebih tanpa berbuka sedikitpun-. (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1762. Dari Ibnu Umar radhiallahu 'anhuma, katanya: &quot;Rasulullah s.a.w. melarang berpuasa wishal -lihat keterangan wishal dalam hadis 1761 diatas-. Para sahabat lalu bertanya: &quot;Tetapi sesungguhnya Tuan sendiri juga berpuasa wishal?&quot; Beliau s.a.w. bersabda: &quot;Sesungguhnya saya ini tidak sama denganmu semua -dalam hal berpuasa wishal ini-. Sesungguhnya saya juga diberi makan dan diberi minum.&quot; Maksudnya Allah Ta'ala memberi kekuatan kepada beliau s.a.w. itu seperti orang yang sudah makan dan minum. (Muttafaq 'alaih) Ini adalah lafaznya Imam Bukhari.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1764,
+      "nomor_terjemahan": 1761,
+      "arab": "عن أَبي هريرة وعائشة رضي الله عنهما: أنَّ النبيَّ - صلى الله عليه وسلم - نهى عن الوِصَالِ. متفق عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah dan Aisyah radhiallahu 'anhuma bahwasanya Nabi s.a.w. melarang puasa wishal -yaitu mempersambungkan puasa dua hari atau lebih tanpa berbuka sedikitpun-. (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1765,
+      "nomor_terjemahan": 1762,
+      "arab": "وعن ابن عمر رضي الله عنهما، قَالَ: نَهَى رسُولُ اللهِ - صلى الله عليه وسلم - عَنِ الوِصَالِ. قالوا: إنَّكَ تُواصِلُ؟ قَالَ: «إنِّي لَسْتُ مِثْلَكُمْ، إنِّي أُطْعَمُ وَأُسْقَى». متفق عَلَيْهِ.  وهذا لفظ البخاري.",
+      "terjemahan": "Dari Ibnu Umar radhiallahu 'anhuma, katanya: \"Rasulullah s.a.w. melarang berpuasa wishal -lihat keterangan wishal dalam hadis 1761 diatas-. Para sahabat lalu bertanya: \"Tetapi sesungguhnya Tuan sendiri juga berpuasa wishal?\" Beliau s.a.w. bersabda: \"Sesungguhnya saya ini tidak sama denganmu semua -dalam hal berpuasa wishal ini-. Sesungguhnya saya juga diberi makan dan diberi minum.\" Maksudnya Allah Ta'ala memberi kekuatan kepada beliau s.a.w. itu seperti orang yang sudah makan dan minum. (Muttafaq 'alaih) Ini adalah lafaznya Imam Bukhari."
+    }
+  ]
 }

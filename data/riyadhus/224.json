@@ -2,6 +2,37 @@
   "id": 224,
   "source_id": 224,
   "judul": "Bab 224. Berbagai Masalah Dalam Puasa",
-  "arab": "1242 - عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «إِذَا نَسِيَ أَحَدُكُمْ، فَأكَلَ، أَوْ شَرِبَ، فَلْيُتِمَّ صَوْمَهُ، فَإنَّمَا أطْعَمَهُ اللهُ وَسَقَاهُ». متفقٌ عَلَيْهِ. \n1243 - وعن لَقِيط بن صَبِرَةَ - رضي الله عنه - قَالَ: قُلْتُ: يَا رسول الله، أخْبِرْني عَنِ الوُضُوءِ؟ قَالَ: «أسْبغِ الوُضُوءَ، وَخَلِّلْ بَيْنَ الأَصَابِعِ، وَبَالِغْ في الاسْتِنْشَاقِ، إِلاَّ أَنْ تَكُونَ صَائِمًا». رواه أَبُو داود والترمذي،  وقال: «حديث حسن صحيح».\n1244 - وعن عائشة رَضِيَ اللهُ عنها، قالت: كَانَ رسول الله - صلى الله عليه وسلم - يُدْرِكُهُ الفَجْرُ وَهُوَ جُنُبٌ مِنْ أهْلِهِ، ثُمَّ يَغْتَسِلُ وَيَصُومُ. متفقٌ عَلَيْهِ. \n1245 - وعن عائشة وأم سلمة رضي الله عنهما، قالتا: كَانَ رسول الله - صلى الله عليه وسلم - يُصْبحُ جُنُبًا مِنْ غَيْرِ حُلُمٍ، ثُمَّ يَصُومُ. متفقٌ عَلَيْهِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1239. Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: &quot;Apabila seorang diantara engkau semua lupa -bahwa ia sedang berpuasa-, lalu ia makan atau minum, maka hendaklah ia menyempurnakan puasanya -yakni hal itu tidak membatalkan puasanya-, karena sesungguhnya Allah itulah yang memberinya makan dan juga minumnya.&quot; (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1240. Dari Laqith bin Shabirah r.a., katanya: &quot;Saya berkata: &quot;Ya Rasulullah, beritahukanlah padaku perihal berwudhu'.&quot; Beliau S.a.w. bersabda: &quot;Sempurnakanlah wudhu' itu, sela-selailah dengan air antara jari-jari, persangatkanlah menghirup air dalam hidung, melainkan jikalau engkau dalam keadaan berpuasa.&quot; Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi dan Tirmidzi mengatakan bahwa ini adalah hadis hasan shahih. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1241. Dari Aisyah radhiallahu 'anha, katanya: &quot;Rasulullah s.a.w. dicapai oleh fajar -yakni didahului oleh menyingsingnya fajar-, sedang beliau s.a.w. dalam keadaan berjanabat karena berkumpul dengan istrinya, lalu beliau s.a.w. mandi dan terus berpuasa.&quot; (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1242. Dari Aisyah dan Ummu Salamah radhiallahu 'anhuma berkata: &quot;Rasulullah s.a.w. berpagi-pagi dalam keadaan berjanabat, bukannya karena bermimpi -maksudnya karena berkumpul dengan istrinya-, kemudian beliau berpuasa.&quot; (Muttafaq 'alaih)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 4,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1242,
+      "nomor_terjemahan": 1239,
+      "arab": "عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «إِذَا نَسِيَ أَحَدُكُمْ، فَأكَلَ، أَوْ شَرِبَ، فَلْيُتِمَّ صَوْمَهُ، فَإنَّمَا أطْعَمَهُ اللهُ وَسَقَاهُ». متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: \"Apabila seorang diantara engkau semua lupa -bahwa ia sedang berpuasa-, lalu ia makan atau minum, maka hendaklah ia menyempurnakan puasanya -yakni hal itu tidak membatalkan puasanya-, karena sesungguhnya Allah itulah yang memberinya makan dan juga minumnya.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1243,
+      "nomor_terjemahan": 1240,
+      "arab": "وعن لَقِيط بن صَبِرَةَ - رضي الله عنه - قَالَ: قُلْتُ: يَا رسول الله، أخْبِرْني عَنِ الوُضُوءِ؟ قَالَ: «أسْبغِ الوُضُوءَ، وَخَلِّلْ بَيْنَ الأَصَابِعِ، وَبَالِغْ في الاسْتِنْشَاقِ، إِلاَّ أَنْ تَكُونَ صَائِمًا». رواه أَبُو داود والترمذي،  وقال: «حديث حسن صحيح».",
+      "terjemahan": "Dari Laqith bin Shabirah r.a., katanya: \"Saya berkata: \"Ya Rasulullah, beritahukanlah padaku perihal berwudhu'.\" Beliau S.a.w. bersabda: \"Sempurnakanlah wudhu' itu, sela-selailah dengan air antara jari-jari, persangatkanlah menghirup air dalam hidung, melainkan jikalau engkau dalam keadaan berpuasa.\" Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi dan Tirmidzi mengatakan bahwa ini adalah hadis hasan shahih."
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1244,
+      "nomor_terjemahan": 1241,
+      "arab": "وعن عائشة رَضِيَ اللهُ عنها، قالت: كَانَ رسول الله - صلى الله عليه وسلم - يُدْرِكُهُ الفَجْرُ وَهُوَ جُنُبٌ مِنْ أهْلِهِ، ثُمَّ يَغْتَسِلُ وَيَصُومُ. متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Rasulullah s.a.w. dicapai oleh fajar -yakni didahului oleh menyingsingnya fajar-, sedang beliau s.a.w. dalam keadaan berjanabat karena berkumpul dengan istrinya, lalu beliau s.a.w. mandi dan terus berpuasa.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 4,
+      "nomor_arab": 1245,
+      "nomor_terjemahan": 1242,
+      "arab": "وعن عائشة وأم سلمة رضي الله عنهما، قالتا: كَانَ رسول الله - صلى الله عليه وسلم - يُصْبحُ جُنُبًا مِنْ غَيْرِ حُلُمٍ، ثُمَّ يَصُومُ. متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Aisyah dan Ummu Salamah radhiallahu 'anhuma berkata: \"Rasulullah s.a.w. berpagi-pagi dalam keadaan berjanabat, bukannya karena bermimpi -maksudnya karena berkumpul dengan istrinya-, kemudian beliau berpuasa.\" (Muttafaq 'alaih)"
+    }
+  ]
 }

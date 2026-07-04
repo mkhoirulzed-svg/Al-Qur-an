@@ -2,6 +2,16 @@
   "id": 342,
   "source_id": 342,
   "judul": "Bab 342. Larangan Shalat Menghadap Ke Arah Kubur",
-  "arab": "1757 - عن أَبي مَرْثَدٍ كَنَّازِ بْنِ الحُصَيْنِ - رضي الله عنه - قَالَ: سَمِعْتُ رسُولَ اللهِ - صلى الله عليه وسلم - يقولُ: «لا تُصَلُّوا إِلَى القُبُورِ، وَلاَ تَجْلِسُوا عَلَيْهَا ». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1754. Dari Abu Martsad yaitu Kannaz bin al-Hushain r.a., katanya: &quot;Saya mendengar Rasulullah s.a.w. bersabda: &quot;Janganlah engkau semua shalat menghadap ke arah kubur dan jangan pula duduk di atas kubur itu.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1757,
+      "nomor_terjemahan": 1754,
+      "arab": "عن أَبي مَرْثَدٍ كَنَّازِ بْنِ الحُصَيْنِ - رضي الله عنه - قَالَ: سَمِعْتُ رسُولَ اللهِ - صلى الله عليه وسلم - يقولُ: «لا تُصَلُّوا إِلَى القُبُورِ، وَلاَ تَجْلِسُوا عَلَيْهَا ». رواه مسلم.",
+      "terjemahan": "Dari Abu Martsad yaitu Kannaz bin al-Hushain r.a., katanya: \"Saya mendengar Rasulullah s.a.w. bersabda: \"Janganlah engkau semua shalat menghadap ke arah kubur dan jangan pula duduk di atas kubur itu.\" (Riwayat Muslim)"
+    }
+  ]
 }

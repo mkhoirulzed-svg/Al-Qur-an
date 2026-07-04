@@ -2,6 +2,16 @@
   "id": 267,
   "source_id": 267,
   "judul": "Bab 267. Haramnya Memaki-maki Orang-orang Yang Sudah Mati Tanpa Adanya Hak -Kebenaran- Dan Kemaslahatan Syari'at",
-  "arab": "وَهِيَ التَّحْذِيرُ مِنَ الاقْتِدَاء بِهِ في بِدْعَتِهِ، وَفِسْقِهِ، وَنَحْوِ ذَلِكَ، وَفِيهِ الآيةُ والأحاديثُ السَّابِقَةُ في البَابِ قَبْلَهُ.\n1564 - وعن عائشة رَضِيَ اللهُ عنها، قالت: قَالَ رسُولُ الله - صلى الله عليه وسلم: «لا تَسُبُّوا الأَمْوَاتَ، فَإنَّهُمْ قَدْ أفْضَوْا إِلَى مَا قَدَّمُوا». رواه البخاري.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Ini adalah menakut-nakuti daripada meniru orang tersebut dengan kelakuan bid'ahnya, kefasikannya atau lain-lain sebagainya. Dalam bab ini ada ayat dan Hadis-hadis sebagaimana yang tercantum di muka dalam bab sebelum ini. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1561. Dari 'Aisyah radhiallahu'anha, katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Janganlah engkau semua memaki-maki orang-orang yang sudah mati, sebab sesungguhnya mereka itu telah sampai kepada amalan-amalan mereka yang sudah dikerjakan dahulu -sewaktu di dunia, baik kebajikan atau kejahatan-.&quot; (Riwayat Bukhari)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "وَهِيَ التَّحْذِيرُ مِنَ الاقْتِدَاء بِهِ في بِدْعَتِهِ، وَفِسْقِهِ، وَنَحْوِ ذَلِكَ، وَفِيهِ الآيةُ والأحاديثُ السَّابِقَةُ في البَابِ قَبْلَهُ.",
+  "pembuka_terjemahan": "Ini adalah menakut-nakuti daripada meniru orang tersebut dengan kelakuan bid'ahnya, kefasikannya atau lain-lain sebagainya. Dalam bab ini ada ayat dan Hadis-hadis sebagaimana yang tercantum di muka dalam bab sebelum ini.",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1564,
+      "nomor_terjemahan": 1561,
+      "arab": "وعن عائشة رَضِيَ اللهُ عنها، قالت: قَالَ رسُولُ الله - صلى الله عليه وسلم: «لا تَسُبُّوا الأَمْوَاتَ، فَإنَّهُمْ قَدْ أفْضَوْا إِلَى مَا قَدَّمُوا». رواه البخاري.",
+      "terjemahan": "Dari 'Aisyah radhiallahu'anha, katanya: \"Rasulullah s.a.w. bersabda: \"Janganlah engkau semua memaki-maki orang-orang yang sudah mati, sebab sesungguhnya mereka itu telah sampai kepada amalan-amalan mereka yang sudah dikerjakan dahulu -sewaktu di dunia, baik kebajikan atau kejahatan-.\" (Riwayat Bukhari)"
+    }
+  ]
 }

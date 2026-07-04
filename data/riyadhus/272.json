@@ -2,6 +2,16 @@
   "id": 272,
   "source_id": 272,
   "judul": "Bab 272. Larangan Berprasangka Buruk Kepada Kaum Muslimin",
-  "arab": "قَالَ الله تَعَالَى: {يَا أيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِنَ الظَّنِّ إنَّ بَعْضَ الظَّنِّ إثْمٌ} [الحجرات: 12].<br>1573 - وعن أَبي هريرة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - قَالَ: «إيَّاكُمْ والظَّنَّ، فإنَّ الظَّنَّ أكْذَبُ الحَدِيثِ». متفق عَلَيْهِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman: &quot;Hai orang-orang yang beriman, jauhilah kebanyakan dari prasangka, sesungguhnya sebagian prasangka itu adalah dosa.&quot; (al-Hujurat: 12)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;1570. Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: &quot;Takutlah olehmu semua akan prasangka, sebab sesungguhnya prasangka itu adalah sedusta-dustanya pembicaraan.&quot; (Muttafaq 'alaih)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "قَالَ الله تَعَالَى: {يَا أيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِنَ الظَّنِّ إنَّ بَعْضَ الظَّنِّ إثْمٌ} [الحجرات: 12].",
+  "pembuka_terjemahan": "Allah Ta'ala berfirman: \"Hai orang-orang yang beriman, jauhilah kebanyakan dari prasangka, sesungguhnya sebagian prasangka itu adalah dosa.\" (al-Hujurat: 12) 1570. Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: \"Takutlah olehmu semua akan prasangka, sebab sesungguhnya prasangka itu adalah sedusta-dustanya pembicaraan.\" (Muttafaq 'alaih)",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1573,
+      "nomor_terjemahan": null,
+      "arab": "وعن أَبي هريرة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - قَالَ: «إيَّاكُمْ والظَّنَّ، فإنَّ الظَّنَّ أكْذَبُ الحَدِيثِ». متفق عَلَيْهِ.",
+      "terjemahan": ""
+    }
+  ]
 }

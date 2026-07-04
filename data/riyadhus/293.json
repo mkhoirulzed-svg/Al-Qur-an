@@ -2,6 +2,30 @@
   "id": 293,
   "source_id": 293,
   "judul": "Bab 293. Larangan Menyerupakan Diri Dengan Syaitan Dan Orang-orang Kafir",
-  "arab": "1634 - عن جابر - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «لاَ تَأكُلُوا بِالشِّمَالِ، فَإنَّ الشَّيْطَانَ يَأكُلُ ويَشربُ بِالشِّمَالِ». رواه مسلم. \n1635 - وعن ابن عمر رضي الله عنهما: أنَّ رسُولَ الله - صلى الله عليه وسلم - قَالَ: «لاَ يَأكُلَنَّ أَحَدُكُمْ  بِشِمَالِهِ، وَلاَ يَشْرَبَنَّ بِهَا، فَإنَّ الشَّيْطَانَ يَأْكُلُ بِشِمَالِهِ وَيَشْرَبُ بِهَا». رواه مسلم. \n1636 - وعن أَبي هريرة - رضي الله عنه: أنَّ رسُولَ اللهِ - صلى الله عليه وسلم - قَالَ: «إنَّ اليَهُودَ وَالنَّصَارى لاَ يَصْبغُونَ، فَخَالِفُوهُمْ». متفق عَلَيْهِ. \nالمُرَادُ: خِضَابُ شَعْرِ اللَّحْيَةِ والرَّأسِ الأبْيَضِ بِصُفْرَةٍ أَوْ حُمْرَةٍ؛ وأمَّا السَّوَادُ، فَمَنْهِيٌّ عَنْهُ كَمَا سَنَذْكُرُهُ في البَابِ بَعْدَهُ، إنْ شَاءَ اللهُ تَعَالَى.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1631. Dari Jabir r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Janganlah engkau sekalian makan dengan tangan kiri, sebab sesungguhnya syaitan itu makan dengan tangan kiri.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1632. Dari Ibnu Umar radhiallahu 'anhuma bahwasanya Rasulullah s.a.w. bersabda: &quot;Janganlah sekali-sekali seseorang diantara engkau semua itu makan dengan tangan kirinya dan janganlah sekali-kali pula minum dengannya itu, sebab sesungguhnya syaitan itu makan dengan tangan kirinya dan minumpun dengan tangan kirinya.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1633. Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: &quot;Sesungguhnya orang-orang Yahudi dan Nasrani itu tidak suka menyumba -memberi warna atau menyemir- rambutnya, maka selisihilah mereka itu.&quot; (Muttafaq'alaih) Yang dimaksudkan dengan sumba ialah menyumba atau menyemir rambut janggut dan kepala yang putih dengan warna kuning atau merah. Adapun dengan menggunakan warna hitam adalah terlarang, sebagaimana yang akan kami uraikan dalam bab sehabis ini. Insya Allah Ta'ala.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1634,
+      "nomor_terjemahan": 1631,
+      "arab": "عن جابر - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «لاَ تَأكُلُوا بِالشِّمَالِ، فَإنَّ الشَّيْطَانَ يَأكُلُ ويَشربُ بِالشِّمَالِ». رواه مسلم.",
+      "terjemahan": "Dari Jabir r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Janganlah engkau sekalian makan dengan tangan kiri, sebab sesungguhnya syaitan itu makan dengan tangan kiri.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1635,
+      "nomor_terjemahan": 1632,
+      "arab": "وعن ابن عمر رضي الله عنهما: أنَّ رسُولَ الله - صلى الله عليه وسلم - قَالَ: «لاَ يَأكُلَنَّ أَحَدُكُمْ  بِشِمَالِهِ، وَلاَ يَشْرَبَنَّ بِهَا، فَإنَّ الشَّيْطَانَ يَأْكُلُ بِشِمَالِهِ وَيَشْرَبُ بِهَا». رواه مسلم.",
+      "terjemahan": "Dari Ibnu Umar radhiallahu 'anhuma bahwasanya Rasulullah s.a.w. bersabda: \"Janganlah sekali-sekali seseorang diantara engkau semua itu makan dengan tangan kirinya dan janganlah sekali-kali pula minum dengannya itu, sebab sesungguhnya syaitan itu makan dengan tangan kirinya dan minumpun dengan tangan kirinya.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1636,
+      "nomor_terjemahan": 1633,
+      "arab": "وعن أَبي هريرة - رضي الله عنه: أنَّ رسُولَ اللهِ - صلى الله عليه وسلم - قَالَ: «إنَّ اليَهُودَ وَالنَّصَارى لاَ يَصْبغُونَ، فَخَالِفُوهُمْ». متفق عَلَيْهِ. \nالمُرَادُ: خِضَابُ شَعْرِ اللَّحْيَةِ والرَّأسِ الأبْيَضِ بِصُفْرَةٍ أَوْ حُمْرَةٍ؛ وأمَّا السَّوَادُ، فَمَنْهِيٌّ عَنْهُ كَمَا سَنَذْكُرُهُ في البَابِ بَعْدَهُ، إنْ شَاءَ اللهُ تَعَالَى.",
+      "terjemahan": "Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: \"Sesungguhnya orang-orang Yahudi dan Nasrani itu tidak suka menyumba -memberi warna atau menyemir- rambutnya, maka selisihilah mereka itu.\" (Muttafaq'alaih) Yang dimaksudkan dengan sumba ialah menyumba atau menyemir rambut janggut dan kepala yang putih dengan warna kuning atau merah. Adapun dengan menggunakan warna hitam adalah terlarang, sebagaimana yang akan kami uraikan dalam bab sehabis ini. Insya Allah Ta'ala."
+    }
+  ]
 }

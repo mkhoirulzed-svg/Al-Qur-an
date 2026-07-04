@@ -2,6 +2,30 @@
   "id": 229,
   "source_id": 229,
   "judul": "Bab 229. Sunnahnya Berpuasa Pada Hari Senin Dan Kamis",
-  "arab": "1255 - عن أَبي قتادة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - سُئِلَ عَنْ صَومِ يَوْمِ الإثْنَيْنِ، فَقَالَ: «ذَلِكَ يَومٌ وُلِدْتُ فِيهِ، وَيَومٌ بُعِثْتُ، أَوْ أُنْزِلَ عَلَيَّ فِيهِ». رواه مسلم. \n1256 - وعن أَبي هريرة - رضي الله عنه - عن رسول الله - صلى الله عليه وسلم - قَالَ: «تُعْرَضُ الأَعْمَالُ يَومَ الإثْنَيْنِ وَالخَمِيسِ، فَأُحِبُّ أَنْ يُعْرَضَ عَمَلِي وَأنَا صَائِمٌ». رواه الترمذي،  وقال: «حديث حسن»، ورواه مسلم بغير ذِكر الصوم.\n1257 - وعن عائشة رَضِيَ اللهُ عنها، قالت: كَانَ رسولُ الله - صلى الله عليه وسلم - يَتَحَرَّى صَومَ الإثْنَيْنِ وَالخَمِيس. رواه الترمذي،  وقال: «حديث حسن».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1252. Dari Abu Qatadah r.a. bahwasanya Rasulullah s.a.w. ditanya perihal berpuasa pada hari Senin, lalu beliau s.a.w. bersabda: &quot;Itu adalah hari yang saya dilahirkan di dalamnya dan hari yang saya diangkat sebagai Rasul atau hari yang pada saya diturunkan al-Quran.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1253. Dari Abu Hurairah r.a. dari Rasulullah s.a.w. katanya: &quot;Ditunjukkanlah amalan-amalan itu -oleh para malaikat kepada Allah Ta'ala&nbsp; pada hari Senin dan Kamis, maka saya senang jikalau amalanku itu ditunjukkan, sedang saya dalam keadaan berpuasa.&quot; Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan, hadis ini diriwayatkan pula oleh Imam Muslim, tanpa menyebutkan berpuasa. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1254. Dari Aisyah radhiallahu 'anha, katanya: &quot;Rasulullah s.a.w. berusaha keras untuk berpuasa pada hari Senin dan Kamis -karena besarnya keutamaan yang terdapat di dalamnya-.&quot; Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah Hadis hasan.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1255,
+      "nomor_terjemahan": 1252,
+      "arab": "عن أَبي قتادة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - سُئِلَ عَنْ صَومِ يَوْمِ الإثْنَيْنِ، فَقَالَ: «ذَلِكَ يَومٌ وُلِدْتُ فِيهِ، وَيَومٌ بُعِثْتُ، أَوْ أُنْزِلَ عَلَيَّ فِيهِ». رواه مسلم.",
+      "terjemahan": "Dari Abu Qatadah r.a. bahwasanya Rasulullah s.a.w. ditanya perihal berpuasa pada hari Senin, lalu beliau s.a.w. bersabda: \"Itu adalah hari yang saya dilahirkan di dalamnya dan hari yang saya diangkat sebagai Rasul atau hari yang pada saya diturunkan al-Quran.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1256,
+      "nomor_terjemahan": 1253,
+      "arab": "وعن أَبي هريرة - رضي الله عنه - عن رسول الله - صلى الله عليه وسلم - قَالَ: «تُعْرَضُ الأَعْمَالُ يَومَ الإثْنَيْنِ وَالخَمِيسِ، فَأُحِبُّ أَنْ يُعْرَضَ عَمَلِي وَأنَا صَائِمٌ». رواه الترمذي،  وقال: «حديث حسن»، ورواه مسلم بغير ذِكر الصوم.",
+      "terjemahan": "Dari Abu Hurairah r.a. dari Rasulullah s.a.w. katanya: \"Ditunjukkanlah amalan-amalan itu -oleh para malaikat kepada Allah Ta'ala pada hari Senin dan Kamis, maka saya senang jikalau amalanku itu ditunjukkan, sedang saya dalam keadaan berpuasa.\" Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan, hadis ini diriwayatkan pula oleh Imam Muslim, tanpa menyebutkan berpuasa."
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1257,
+      "nomor_terjemahan": 1254,
+      "arab": "وعن عائشة رَضِيَ اللهُ عنها، قالت: كَانَ رسولُ الله - صلى الله عليه وسلم - يَتَحَرَّى صَومَ الإثْنَيْنِ وَالخَمِيس. رواه الترمذي،  وقال: «حديث حسن».",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Rasulullah s.a.w. berusaha keras untuk berpuasa pada hari Senin dan Kamis -karena besarnya keutamaan yang terdapat di dalamnya-.\" Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah Hadis hasan."
+    }
+  ]
 }

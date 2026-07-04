@@ -2,6 +2,23 @@
   "id": 161,
   "source_id": 161,
   "judul": "Bab 161. Berdoa Untuk Mayit Sesudah Dikuburkan Dan Duduk Di Sisi Kuburnya Sebentar Untuk Mendoakannya Serta Memohonkan Pengampunan Untuknya Dan Untuk Membaca Al-Quran",
-  "arab": "946 - وعن أَبي عمرو - وقيل: أَبُو عبد الله، وقيل: أَبُو ليلى - عثمان بن عفان رضي الله عنه - قَالَ: كَانَ النبيُّ - صلى الله عليه وسلم - إِذَا فُرِغَ مِن دَفْنِ المَيِّتِ وَقَفَ عَلَيْهِ، وقال: «اسْتَغْفِرُوا لأَخِيكُمْ وَسَلُوا لَهُ التَّثْبِيتَ، فَإنَّهُ الآنَ يُسألُ». رواه أَبُو داود. \n947 - وعن عمرو بن العاص - رضي الله عنه - قَالَ: إِذَا دَفَنْتُمُونِي، فَأقِيمُوا حَوْلَ قَبْرِي قَدْرَ مَا تُنْحَرُ جَزُورٌ، وَيُقَسَّمُ لَحمُهَا حَتَّى أَسْتَأنِسَ بِكُمْ، وَأعْلَمَ مَاذَا أُرَاجِعُ بِهِ رُسُلَ رَبِّي. رواه مسلم.  وَقَدْ سبق بطوله.\nقَالَ الشَّافِعِيُّ رَحِمَهُ اللهُ: وَيُسْتَحَبُّ أَنْ يُقْرَأَ عِنْدَهُ شَيْءٌ مِنَ القُرآنِ، وَإنْ خَتَمُوا القُرآنَ عِنْدَهُ كَانَ حَسَنًا .",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">943. Dari Abu 'Amr, ada yang mengatakan Abu Abdillah dan ada pula yang mengatakan Abu Laila, yaitu Usman bin Affan r.a. katanya: &quot;Rasulullah s.a.w. itu apabila telah selesai dari mengubur mayit, lalu beliau berdiri atas kuburnya dan bersabda: &quot;Mohonkanlah pengampunan untuk saudaramu semua ini dan mohonkanlah untuknya supaya dikarunia ketetapan -keteguhan hati dalam menjawab pertanyaan ketika ditanya oleh malaikat Munkar dan Nakir nanti-. Sebab sesungguhnya ia sekarang ini ditanya -oleh dua malaikat itu-.&quot;(Riwayat Abu Dawud)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">944. Dari 'Amr bin al-'Ash r.a., katanya: &quot;Jikalau engkau semua telah memakamkan saya, maka berdirilah di sekitar kuburku sekedar selama waktu menyembelih seekor unta lalu dibagi-bagikan dagingnya, sehingga saya dapat merasa tenang bertemu dengan engkau semua dan saya dapat memikirkan apa-apa yang akan saya jawabkan kepada utusan-utusan Tuhanku -yakni malaikat yang akan menanyakan sesuatu-.&quot; Diriwayatkan oleh Imam Muslim. Hadis ini sudah diuraikan selengkapnya yang panjang di muka -lihat hadis no.709-. Imam as-Syafi'i rahimahullah berkata: &quot;Disunnahkan kalau di sisi mayit yang sudah dikuburkan itu dibacakan sesuatu dari ayat-ayat al-Quran dan jikalau dapat dikhatamkan al-Quran itu seluruhnya, maka hal itu adalah baik.&quot;</p><hr color=\"#FF0000\" size=\"1\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 946,
+      "nomor_terjemahan": 943,
+      "arab": "وعن أَبي عمرو - وقيل: أَبُو عبد الله، وقيل: أَبُو ليلى - عثمان بن عفان رضي الله عنه - قَالَ: كَانَ النبيُّ - صلى الله عليه وسلم - إِذَا فُرِغَ مِن دَفْنِ المَيِّتِ وَقَفَ عَلَيْهِ، وقال: «اسْتَغْفِرُوا لأَخِيكُمْ وَسَلُوا لَهُ التَّثْبِيتَ، فَإنَّهُ الآنَ يُسألُ». رواه أَبُو داود.",
+      "terjemahan": "Dari Abu 'Amr, ada yang mengatakan Abu Abdillah dan ada pula yang mengatakan Abu Laila, yaitu Usman bin Affan r.a. katanya: \"Rasulullah s.a.w. itu apabila telah selesai dari mengubur mayit, lalu beliau berdiri atas kuburnya dan bersabda: \"Mohonkanlah pengampunan untuk saudaramu semua ini dan mohonkanlah untuknya supaya dikarunia ketetapan -keteguhan hati dalam menjawab pertanyaan ketika ditanya oleh malaikat Munkar dan Nakir nanti-. Sebab sesungguhnya ia sekarang ini ditanya -oleh dua malaikat itu-.\"(Riwayat Abu Dawud)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 947,
+      "nomor_terjemahan": 944,
+      "arab": "وعن عمرو بن العاص - رضي الله عنه - قَالَ: إِذَا دَفَنْتُمُونِي، فَأقِيمُوا حَوْلَ قَبْرِي قَدْرَ مَا تُنْحَرُ جَزُورٌ، وَيُقَسَّمُ لَحمُهَا حَتَّى أَسْتَأنِسَ بِكُمْ، وَأعْلَمَ مَاذَا أُرَاجِعُ بِهِ رُسُلَ رَبِّي. رواه مسلم.  وَقَدْ سبق بطوله.\nقَالَ الشَّافِعِيُّ رَحِمَهُ اللهُ: وَيُسْتَحَبُّ أَنْ يُقْرَأَ عِنْدَهُ شَيْءٌ مِنَ القُرآنِ، وَإنْ خَتَمُوا القُرآنَ عِنْدَهُ كَانَ حَسَنًا .",
+      "terjemahan": "Dari 'Amr bin al-'Ash r.a., katanya: \"Jikalau engkau semua telah memakamkan saya, maka berdirilah di sekitar kuburku sekedar selama waktu menyembelih seekor unta lalu dibagi-bagikan dagingnya, sehingga saya dapat merasa tenang bertemu dengan engkau semua dan saya dapat memikirkan apa-apa yang akan saya jawabkan kepada utusan-utusan Tuhanku -yakni malaikat yang akan menanyakan sesuatu-.\" Diriwayatkan oleh Imam Muslim. Hadis ini sudah diuraikan selengkapnya yang panjang di muka -lihat hadis no.709-. Imam as-Syafi'i rahimahullah berkata: \"Disunnahkan kalau di sisi mayit yang sudah dikuburkan itu dibacakan sesuatu dari ayat-ayat al-Quran dan jikalau dapat dikhatamkan al-Quran itu seluruhnya, maka hal itu adalah baik.\""
+    }
+  ]
 }

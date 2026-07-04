@@ -2,6 +2,23 @@
   "id": 158,
   "source_id": 158,
   "judul": "Bab 158. Bersegera Dalam Mengubur Jenazah",
-  "arab": "941 - عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «أسْرِعُوا بالجَنَازَةِ، فَإنْ تَكُ صَالِحَةً، فَخَيرٌ تُقَدِّمُونَهَا إِلَيْهِ، وَإنْ تَكُ سِوَى ذَلِكَ، فَشَرٌّ تَضَعُونَهُ عَنْ رِقَابِكُمْ». متفقٌ عَلَيْهِ. \nوفي روايةٍ لمسلمٍ: «فَخَيْرٌ تُقَدِّمُونَهَا عَلَيْهِ».\n942 - وعن أَبي سعيد الخدري - رضي الله عنه - قَالَ: كَانَ النبي - صلى الله عليه وسلم - يقُولُ: «إِذَا وُضِعَت الجَنَازَةُ، فَاحْتَمَلَهَا الرِّجَالُ عَلَى أعنَاقِهمْ، فَإنْ كَانَتْ صَالِحَةً، قالتْ: قَدِّمُونِي، وَإنْ كَانَتْ غَيْرَ صَالِحَةٍ، قَالَتْ لأَهْلِهَا: يَا وَيْلَهَا أَيْنَ تَذْهَبُونَ بِهَا؟ يَسْمَعُ صَوْتَهَا كُلُّ شَيْءٍ إِلاَّ الإنْسَانَ، وَلَوْ سَمِعَ الإنسَانُ لَصَعِقَ». رواه البخاري.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">938. Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: &quot;Segerakanlah mengubur jenazah itu. Jikalau ia baik, maka itulah suatu kebaikan yang engkau semua berikan padanya, sedang jikalau ia selain yang sedemikian -yakni jenazah buruk-, maka itulah suatu kejelekan yang engkau semua letakkan pada leher-lehermu semua.&quot; (Muttafaq 'alaih) Dalam riwayat Imam Muslim disebutkan: fa khairun tuqaddi-munaha 'alaih, jadi ilaihi diganti 'alaihi.</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">939. Dari Abu Said al-Khudri r.a., katanya: &quot;Nabi s.a.w. bersabda: &quot;Jikalau jenazah itu telah diletakkan -dalam keranda atau usungan mayat- lalu orang-orang lelaki membawanya di atas leher-leher mereka -untuk dimakamkan dalam kubur-, maka jikalau jenazah itu seorang yang shalih, iapun berkatalah: &quot;Dahulukanlah aku -maksudnya segerakanlah dalam menguburkan jenazahku karena ingin segera mengetahui kerahmatan Allah dalam kubur itu-. Tetapi jikalau jenazah itu tidak shalih, maka ia berkata kepada keluarganya: &quot;Aduhai celaka diriku, kemanakah engkau semua hendak pergi membawa jenazahku ini?&quot; Suaranya itu didengar oleh setiap sesuatu kecuali manusia dan andaikata manusia itu mendengar, sesungguhnya ia tidak akan sadarkan diri -pingsan-.&quot; (Riwayat Bukhari)</p><hr color=\"#FF0000\" size=\"1\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 941,
+      "nomor_terjemahan": 938,
+      "arab": "عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «أسْرِعُوا بالجَنَازَةِ، فَإنْ تَكُ صَالِحَةً، فَخَيرٌ تُقَدِّمُونَهَا إِلَيْهِ، وَإنْ تَكُ سِوَى ذَلِكَ، فَشَرٌّ تَضَعُونَهُ عَنْ رِقَابِكُمْ». متفقٌ عَلَيْهِ. \nوفي روايةٍ لمسلمٍ: «فَخَيْرٌ تُقَدِّمُونَهَا عَلَيْهِ».",
+      "terjemahan": "Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: \"Segerakanlah mengubur jenazah itu. Jikalau ia baik, maka itulah suatu kebaikan yang engkau semua berikan padanya, sedang jikalau ia selain yang sedemikian -yakni jenazah buruk-, maka itulah suatu kejelekan yang engkau semua letakkan pada leher-lehermu semua.\" (Muttafaq 'alaih) Dalam riwayat Imam Muslim disebutkan: fa khairun tuqaddi-munaha 'alaih, jadi ilaihi diganti 'alaihi."
+    },
+    {
+      "id": 2,
+      "nomor_arab": 942,
+      "nomor_terjemahan": 939,
+      "arab": "وعن أَبي سعيد الخدري - رضي الله عنه - قَالَ: كَانَ النبي - صلى الله عليه وسلم - يقُولُ: «إِذَا وُضِعَت الجَنَازَةُ، فَاحْتَمَلَهَا الرِّجَالُ عَلَى أعنَاقِهمْ، فَإنْ كَانَتْ صَالِحَةً، قالتْ: قَدِّمُونِي، وَإنْ كَانَتْ غَيْرَ صَالِحَةٍ، قَالَتْ لأَهْلِهَا: يَا وَيْلَهَا أَيْنَ تَذْهَبُونَ بِهَا؟ يَسْمَعُ صَوْتَهَا كُلُّ شَيْءٍ إِلاَّ الإنْسَانَ، وَلَوْ سَمِعَ الإنسَانُ لَصَعِقَ». رواه البخاري.",
+      "terjemahan": "Dari Abu Said al-Khudri r.a., katanya: \"Nabi s.a.w. bersabda: \"Jikalau jenazah itu telah diletakkan -dalam keranda atau usungan mayat- lalu orang-orang lelaki membawanya di atas leher-leher mereka -untuk dimakamkan dalam kubur-, maka jikalau jenazah itu seorang yang shalih, iapun berkatalah: \"Dahulukanlah aku -maksudnya segerakanlah dalam menguburkan jenazahku karena ingin segera mengetahui kerahmatan Allah dalam kubur itu-. Tetapi jikalau jenazah itu tidak shalih, maka ia berkata kepada keluarganya: \"Aduhai celaka diriku, kemanakah engkau semua hendak pergi membawa jenazahku ini?\" Suaranya itu didengar oleh setiap sesuatu kecuali manusia dan andaikata manusia itu mendengar, sesungguhnya ia tidak akan sadarkan diri -pingsan-.\" (Riwayat Bukhari)"
+    }
+  ]
 }

@@ -2,6 +2,23 @@
   "id": 349,
   "source_id": 349,
   "judul": "Bab 349. Larangan Bagi Seorang Hamba Sahaya -Budak- Melarikan Diri Dari Tuan Pemiliknya",
-  "arab": "1768 - عن جرير - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «أَيُّمَا عَبْدٍ أَبَقَ، فَقَدْ بَرِئَتْ مِنْهُ الذِّمَّةُ». رواه مسلم. \n1769 - وعنه، عن النبيِّ - صلى الله عليه وسلم: «إِذَا أَبَقَ العَبْدُ، لَمْ تُقْبَلْ لَهُ صَلاَةٌ». رواه مسلم. \nوفي روايةٍ: «فَقَدْ كَفَرَ».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1765. Dari Jabir r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Mana saja hamba sahaya yang melarikan diri maka terlepaslah tanggungan -Allah dan RasulNya- dari hamba sahaya itu,&quot; yakni ia tidak akan memperoleh kerahmatan Allah Ta'ala. (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1766. Dari Jabir r.a. pula dari Nabi s.a.w., sabdanya: &quot;Apabila seorang hamba sahaya itu melarikan diri, maka tidak diterimalah shalatnya.&quot; (Riwayat Muslim) Dalam riwayat lain disebutkan: &quot;Maka ia telah menjadi kafir.&quot; Maksudnya: Dapat menjadi kafir kalau meyakinkan bahwa perbuatannya itu halal menurut agama dan kafir di sini dapat juga diartikan menutupi kenikmatan tuannya.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1768,
+      "nomor_terjemahan": 1765,
+      "arab": "عن جرير - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «أَيُّمَا عَبْدٍ أَبَقَ، فَقَدْ بَرِئَتْ مِنْهُ الذِّمَّةُ». رواه مسلم.",
+      "terjemahan": "Dari Jabir r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Mana saja hamba sahaya yang melarikan diri maka terlepaslah tanggungan -Allah dan RasulNya- dari hamba sahaya itu,\" yakni ia tidak akan memperoleh kerahmatan Allah Ta'ala. (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1769,
+      "nomor_terjemahan": 1766,
+      "arab": "وعنه، عن النبيِّ - صلى الله عليه وسلم: «إِذَا أَبَقَ العَبْدُ، لَمْ تُقْبَلْ لَهُ صَلاَةٌ». رواه مسلم. \nوفي روايةٍ: «فَقَدْ كَفَرَ».",
+      "terjemahan": "Dari Jabir r.a. pula dari Nabi s.a.w., sabdanya: \"Apabila seorang hamba sahaya itu melarikan diri, maka tidak diterimalah shalatnya.\" (Riwayat Muslim) Dalam riwayat lain disebutkan: \"Maka ia telah menjadi kafir.\" Maksudnya: Dapat menjadi kafir kalau meyakinkan bahwa perbuatannya itu halal menurut agama dan kafir di sini dapat juga diartikan menutupi kenikmatan tuannya."
+    }
+  ]
 }

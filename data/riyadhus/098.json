@@ -2,6 +2,23 @@
   "id": 98,
   "source_id": 98,
   "judul": "Bab 98. Sunnahnya Berpergian Menuju Shalat Hari Raya -Shalat 'Ied-, Meninjau Orang Sakit, Haji, Peperangan, Jenazah, Dan Lain-lain Sebagainya Dari Satu Macam Jalan Dan Kembali Dengan Melalui Jalan Yang Selain Waktu Perginya Itu Karena Memperbanyakkan Tempat Ibadah",
-  "arab": "718 - عن جابر - رضي الله عنه - قَالَ: كَانَ النبي - صلى الله عليه وسلم - إِذَا كَانَ يومُ عيدٍ خَالَفَ الطَّريقَ. رواه البخاري. \nقَوْله: «خَالَفَ الطَّريقَ» يعني: ذَهَبَ في طريقٍ، وَرَجَعَ في طريقٍ آخَرَ.\n719 - وعن ابن عُمَرَ رضي الله عنهما: أنَّ رسول الله - صلى الله عليه وسلم - كَانَ يَخْرُجُ مِنْ طَريق الشَّجَرَةِ، وَيَدْخُلُ مِنْ طَريقِ الْمُعَرَّسِ ، وَإِذَا دَخَلَ مَكَّةَ، دَخَلَ مِن الثَّنِيَّةِ  الْعُلْيَا، وَيَخْرُجُ مِنَ الثَّنِيَّةِ السُّفْلَى. متفقٌ عَلَيْهِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">716. Dari Jabir r.a., katanya: &quot;Nabi s.a.w. itu apabila hari raya -yakni ketika pergi untuk shalat 'ied, maka beliau menyalahi jalan -yakni jalan pulang dengan jalan datang arahnya berbeda-.&quot; (Riwayat Bukhari) Ucapannya: &quot;Khalafath thariqa&quot;: menyalahi jalan artinya ialah bahwa perginya melalui jalan yang satu sedang pulangnya melalui jalan lainnya lagi -bukan jalan waktu perginya tadi-.</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">717. Dari Ibnu Umar radhialiahu 'anhuma bahwasanya Rasulullah s.a.w. itu keluar -dari Madinah- dari jalan Asysyajarah -yang di situ ada masjid Dzulhulaifah- dan masuk -yakni pulangnya- dari jalan Almu'arras -yang di situ ada masjid Almu'arras-. Dan jikalau beliau s.a.w. masuk Makkah maka beliau itu masuk dari jalan Tsaniyyah Ulya -yang merupakan suatu jalan sempit antara dua buah bukit- dan keluar dari jalan Tsaniyyah Sufla -atau yang disebut Asysyabikah-.&quot; (Muttafaq 'alaih)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 718,
+      "nomor_terjemahan": 716,
+      "arab": "عن جابر - رضي الله عنه - قَالَ: كَانَ النبي - صلى الله عليه وسلم - إِذَا كَانَ يومُ عيدٍ خَالَفَ الطَّريقَ. رواه البخاري. \nقَوْله: «خَالَفَ الطَّريقَ» يعني: ذَهَبَ في طريقٍ، وَرَجَعَ في طريقٍ آخَرَ.",
+      "terjemahan": "Dari Jabir r.a., katanya: \"Nabi s.a.w. itu apabila hari raya -yakni ketika pergi untuk shalat 'ied, maka beliau menyalahi jalan -yakni jalan pulang dengan jalan datang arahnya berbeda-.\" (Riwayat Bukhari) Ucapannya: \"Khalafath thariqa\": menyalahi jalan artinya ialah bahwa perginya melalui jalan yang satu sedang pulangnya melalui jalan lainnya lagi -bukan jalan waktu perginya tadi-."
+    },
+    {
+      "id": 2,
+      "nomor_arab": 719,
+      "nomor_terjemahan": 717,
+      "arab": "وعن ابن عُمَرَ رضي الله عنهما: أنَّ رسول الله - صلى الله عليه وسلم - كَانَ يَخْرُجُ مِنْ طَريق الشَّجَرَةِ، وَيَدْخُلُ مِنْ طَريقِ الْمُعَرَّسِ ، وَإِذَا دَخَلَ مَكَّةَ، دَخَلَ مِن الثَّنِيَّةِ  الْعُلْيَا، وَيَخْرُجُ مِنَ الثَّنِيَّةِ السُّفْلَى. متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Ibnu Umar radhialiahu 'anhuma bahwasanya Rasulullah s.a.w. itu keluar -dari Madinah- dari jalan Asysyajarah -yang di situ ada masjid Dzulhulaifah- dan masuk -yakni pulangnya- dari jalan Almu'arras -yang di situ ada masjid Almu'arras-. Dan jikalau beliau s.a.w. masuk Makkah maka beliau itu masuk dari jalan Tsaniyyah Ulya -yang merupakan suatu jalan sempit antara dua buah bukit- dan keluar dari jalan Tsaniyyah Sufla -atau yang disebut Asysyabikah-.\" (Muttafaq 'alaih)"
+    }
+  ]
 }

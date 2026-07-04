@@ -2,6 +2,30 @@
   "id": 299,
   "source_id": 299,
   "judul": "Bab 299. Makruhnya Berjalan Dengan Mengenakan Sebuah Terompah Saja -Hanya Sebelah Sandal- Atau Sebuah -Sebelah Saja- Sepatu Khuf Tanpa Adanya Uzur Dan Makruhnya Mengenakan Terompah -Sandal- Atau Sepatu Khuf Sambil Berdiri Tanpa Uzur",
-  "arab": "1649 - عن أبي هريرة - رضي الله عنه: أنَّ رسُولَ الله - صلى الله عليه وسلم - قال: «لاَ يَمْشِ أحَدُكُمْ فِي نَعْلٍ وَاحِدَةٍ، لِيَنْعَلْهُمَا جَمِيعًا، أو لِيَخْلَعْهُمَا جَمِيعًا».\nوفي رواية: «أو لِيُحْفِهِمَا جَمِيعًا». متفق عليه. \n1650 - وعنه، قال: سمعت رسولَ الله - صلى الله عليه وسلم - يقول: «إذا انْقَطَعَ شِسْعُ  نَعْلِ أَحَدِكمْ، فَلاَ يَمْشِ في الأُخْرَى حَتَّى يُصْلِحَهَا». رواهُ مسلم. \n1651 - وعن جابر - رضي الله عنه: أنَّ رسولَ اللهِ - صلى الله عليه وسلم - نَهَى أَنْ يَنْتَعِلَ الرَّجُلُ قَائِمًا. رواه أبو داود بإسناد حسن.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1646. Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: &quot;Janganlah seorang diantara engkau semua itu berjalan dengan mengenakan sebuah terompah -sandal- saja. Hendaklah kedua-duanya itu dikenakan semua atau hendaklah dilepaskan sajalah semuanya.&quot; Dalam riwayat lain disebutkan: &quot;Atau hendaklah ditanggalkan saja keduanya itu -misalnya di waktu yang satu putus dan lain-lain-.&quot; (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1647. Dari Abu Hurairah r.a. pula, katanya: &quot;Saya mendengar Rasulullah s.a.w. bersabda: &quot;Jikalau tali terompah -sandal- seseorang diantara engkau semua putus, maka janganlah berjalan pada yang satunya -yang tidak putus- sehingga ia membetulkan keduanya itu.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1648. Dari Jabir r.a. bahwasanya Rasulullah s.a.w. melarang kalau seorang itu mengenakan terompah -sandal- nya sambil berdiri. Diriwayatkan oleh Imam Abu Dawud dengan isnad hasan.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1649,
+      "nomor_terjemahan": 1646,
+      "arab": "عن أبي هريرة - رضي الله عنه: أنَّ رسُولَ الله - صلى الله عليه وسلم - قال: «لاَ يَمْشِ أحَدُكُمْ فِي نَعْلٍ وَاحِدَةٍ، لِيَنْعَلْهُمَا جَمِيعًا، أو لِيَخْلَعْهُمَا جَمِيعًا».\nوفي رواية: «أو لِيُحْفِهِمَا جَمِيعًا». متفق عليه.",
+      "terjemahan": "Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: \"Janganlah seorang diantara engkau semua itu berjalan dengan mengenakan sebuah terompah -sandal- saja. Hendaklah kedua-duanya itu dikenakan semua atau hendaklah dilepaskan sajalah semuanya.\" Dalam riwayat lain disebutkan: \"Atau hendaklah ditanggalkan saja keduanya itu -misalnya di waktu yang satu putus dan lain-lain-.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1650,
+      "nomor_terjemahan": 1647,
+      "arab": "وعنه، قال: سمعت رسولَ الله - صلى الله عليه وسلم - يقول: «إذا انْقَطَعَ شِسْعُ  نَعْلِ أَحَدِكمْ، فَلاَ يَمْشِ في الأُخْرَى حَتَّى يُصْلِحَهَا». رواهُ مسلم.",
+      "terjemahan": "Dari Abu Hurairah r.a. pula, katanya: \"Saya mendengar Rasulullah s.a.w. bersabda: \"Jikalau tali terompah -sandal- seseorang diantara engkau semua putus, maka janganlah berjalan pada yang satunya -yang tidak putus- sehingga ia membetulkan keduanya itu.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1651,
+      "nomor_terjemahan": 1648,
+      "arab": "وعن جابر - رضي الله عنه: أنَّ رسولَ اللهِ - صلى الله عليه وسلم - نَهَى أَنْ يَنْتَعِلَ الرَّجُلُ قَائِمًا. رواه أبو داود بإسناد حسن.",
+      "terjemahan": "Dari Jabir r.a. bahwasanya Rasulullah s.a.w. melarang kalau seorang itu mengenakan terompah -sandal- nya sambil berdiri. Diriwayatkan oleh Imam Abu Dawud dengan isnad hasan."
+    }
+  ]
 }

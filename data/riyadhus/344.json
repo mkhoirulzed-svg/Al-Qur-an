@@ -2,6 +2,16 @@
   "id": 344,
   "source_id": 344,
   "judul": "Bab 344. Makruhnya Makmum Memulai Shalat Sunnah Setelah Muazzin Mulai Mengucapkan Iqamah, Baikpun Yang Dilakukan Itu Shalat Sunnah Dari Shalat Wajib Yang Dikerjakan Itu -Yakni Rawatib- Ataupun Shalat Sunnah Lainnya",
-  "arab": "1759 - عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «إِذَا أُقِيمَتِ الصَّلاَةُ فَلاَ صَلاَةَ إِلاَّ المَكْتُوبَةَ». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1756. Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: &quot;Jikalau shalat sudah dibacakan iqamahnya, maka tidak ada shalat yang perlu dikerjakan selain shalat yang diwajibkan.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1759,
+      "nomor_terjemahan": 1756,
+      "arab": "عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «إِذَا أُقِيمَتِ الصَّلاَةُ فَلاَ صَلاَةَ إِلاَّ المَكْتُوبَةَ». رواه مسلم.",
+      "terjemahan": "Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: \"Jikalau shalat sudah dibacakan iqamahnya, maka tidak ada shalat yang perlu dikerjakan selain shalat yang diwajibkan.\" (Riwayat Muslim)"
+    }
+  ]
 }

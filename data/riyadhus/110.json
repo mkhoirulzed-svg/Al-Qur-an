@@ -2,6 +2,23 @@
   "id": 110,
   "source_id": 110,
   "judul": "Bab 110. Memperbanyakkan Tangan Pada Makanan -Yakni Hendaknya Ketika Makan Itu Beserta Orang Banyak-",
-  "arab": "754 - عن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «طَعَامُ الاثنينِ كافِي الثلاثةِ، وطَعَامُ الثَّلاَثَةِ كافي الأربعة» متفق عَلَيْهِ. \n755 - وعن جابر - رضي الله عنه - قَالَ: سَمِعْتُ رسول الله - صلى الله عليه وسلم - يقول: «طَعَامُ الوَاحِدِ يَكْفِي الاثْنَيْنِ، وَطَعَامُ الاثْنَيْنِ يَكْفِي الأَرْبَعَةَ، وَطَعَامُ الأرْبَعَةِ يَكْفِي الثَّمَانِيَةَ». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">752. Dari Abu Hurairah r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Makanan untuk dua orang itu dapat mencukupi tiga orang sedang makanan untuk tiga orang itu dapat mencukupi empat orang.&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">753. Dari Jabir r.a., katanya: &quot;Saya mendengar Rasulullah s.a.w. bersabda: &quot;Makanan untuk seorang itu dapat mencukupi dua orang dan makanan dua orang itu dapat mencukupi empat orang, sedang makanan empat orang itu dapat mencukupi delapan orang.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 754,
+      "nomor_terjemahan": 752,
+      "arab": "عن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «طَعَامُ الاثنينِ كافِي الثلاثةِ، وطَعَامُ الثَّلاَثَةِ كافي الأربعة» متفق عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Makanan untuk dua orang itu dapat mencukupi tiga orang sedang makanan untuk tiga orang itu dapat mencukupi empat orang.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 755,
+      "nomor_terjemahan": 753,
+      "arab": "وعن جابر - رضي الله عنه - قَالَ: سَمِعْتُ رسول الله - صلى الله عليه وسلم - يقول: «طَعَامُ الوَاحِدِ يَكْفِي الاثْنَيْنِ، وَطَعَامُ الاثْنَيْنِ يَكْفِي الأَرْبَعَةَ، وَطَعَامُ الأرْبَعَةِ يَكْفِي الثَّمَانِيَةَ». رواه مسلم.",
+      "terjemahan": "Dari Jabir r.a., katanya: \"Saya mendengar Rasulullah s.a.w. bersabda: \"Makanan untuk seorang itu dapat mencukupi dua orang dan makanan dua orang itu dapat mencukupi empat orang, sedang makanan empat orang itu dapat mencukupi delapan orang.\" (Riwayat Muslim)"
+    }
+  ]
 }

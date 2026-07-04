@@ -2,6 +2,23 @@
   "id": 203,
   "source_id": 203,
   "judul": "Bab 203. Shalat Sunnah Jum'at",
-  "arab": "فِيهِ حَديث ابن عمر السابق  أنَّه صَلَّى مَعَ النَّبِيِّ - صلى الله عليه وسلم - رَكْعَتَيْنِ بَعْدَ الجُمعَةِ. متفقٌ عَلَيْهِ.\n1126 - عن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «إِذَا صَلَّى أَحَدُكُم الجُمُعَةَ، فَلْيُصَلِّ بَعْدَهَا أرْبعًا». رواه مسلم. \n1127 - وعن ابن عمر رضي الله عنهما: أنَّ النَّبيَّ - صلى الله عليه وسلم - كَانَ لاَ يُصَلِّي بَعْدَ الجُمُعَةِ حَتَّى يَنْصَرِفَ، فَيُصَلِّي رَكْعَتَيْنِ في بَيْتِهِ. رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Dalam bab ini termasuklah Hadisnya Ibnu Umar radhiallahu 'anhuma yang lalu -lihat hadis no.1095- yang menyebutkan bahwasanya ia shalat bersama Nabi s.a.w. dua rakaat sesudah shalat Jum'at. (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1123. Dari Abu Hurairah r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Jikalau engkau semua shalat Jum'at, maka hendaklah sesudahnya itu shalat sunnah empat rakaat.&quot; (Riwayat Muslim)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1124. Dari Ibnu Umar radhiallahu 'anhuma bahwasanya Nabi s.a.w. itu tidak shalat sesudah Jum'at sehingga pulang, kemudian beliau s.a.w. shalat dua rakaat di rumahnya.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "فِيهِ حَديث ابن عمر السابق  أنَّه صَلَّى مَعَ النَّبِيِّ - صلى الله عليه وسلم - رَكْعَتَيْنِ بَعْدَ الجُمعَةِ. متفقٌ عَلَيْهِ.",
+  "pembuka_terjemahan": "Dalam bab ini termasuklah Hadisnya Ibnu Umar radhiallahu 'anhuma yang lalu -lihat hadis no.1095- yang menyebutkan bahwasanya ia shalat bersama Nabi s.a.w. dua rakaat sesudah shalat Jum'at. (Muttafaq 'alaih)",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1126,
+      "nomor_terjemahan": 1123,
+      "arab": "عن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «إِذَا صَلَّى أَحَدُكُم الجُمُعَةَ، فَلْيُصَلِّ بَعْدَهَا أرْبعًا». رواه مسلم.",
+      "terjemahan": "Dari Abu Hurairah r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Jikalau engkau semua shalat Jum'at, maka hendaklah sesudahnya itu shalat sunnah empat rakaat.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1127,
+      "nomor_terjemahan": 1124,
+      "arab": "وعن ابن عمر رضي الله عنهما: أنَّ النَّبيَّ - صلى الله عليه وسلم - كَانَ لاَ يُصَلِّي بَعْدَ الجُمُعَةِ حَتَّى يَنْصَرِفَ، فَيُصَلِّي رَكْعَتَيْنِ في بَيْتِهِ. رواه مسلم.",
+      "terjemahan": "Dari Ibnu Umar radhiallahu 'anhuma bahwasanya Nabi s.a.w. itu tidak shalat sesudah Jum'at sehingga pulang, kemudian beliau s.a.w. shalat dua rakaat di rumahnya.\" (Riwayat Muslim)"
+    }
+  ]
 }

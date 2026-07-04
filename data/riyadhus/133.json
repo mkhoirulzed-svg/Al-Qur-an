@@ -2,6 +2,23 @@
   "id": 133,
   "source_id": 133,
   "judul": "Bab 133. Adab-adab Kesopanan Bersalam",
-  "arab": "857 - عن أَبي هريرة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - قَالَ: «يُسَلِّمُ الرَّاكِبُ عَلَى المَاشِي، وَالمَاشِي عَلَى القَاعِدِ، وَالقَليلُ عَلَى الكَثِيرِ». متفقٌ عَلَيْهِ. \nوفي رواية للبخاري: «والصغيرُ عَلَى الكَبيرِ».\n858 - وعن أَبي أُمَامَة صُدَيِّ بن عجلان الباهِلي - رضي الله عنه - قَالَ: قَالَ رسولُ الله - صلى الله عليه وسلم: «إنَّ أَوْلى النَّاسِ بِاللهِ مَنْ بَدَأهُمْ بِالسَّلامِ». رواه أَبُو داود بإسنادٍ جيدٍ. \nورواه الترمذي عن أَبي أُمَامَةَ - رضي الله عنه - قِيلَ: يَا رسول الله، الرَّجُلانِ يَلْتَقِيَانِ أَيُّهُمَا يَبْدَأُ بِالسَّلاَمِ؟، قَالَ: «أَوْلاَهُمَا بِاللهِ تَعَالَى» قَالَ الترمذي: «هَذَا حديث حسن».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">854. Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: &quot;Orang yang berkendaraan supaya memberi salam kepada orang yang berjalan dan orang yang berjalan kepada orang yang duduk dan orang yang sedikit kepada orang yang banyak jumlahnya. (Muttafaq 'alaih). Dalam riwayat Imam Bukhari disebutkan: &quot;Dan orang kecil kepada orang tua -orang yang lebih besar-.&quot;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">855. Dari Abu Umamah yaitu Shudai bin 'Ajlan al-Bahili r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Sesungguhnya seutama-utama manusia dengan Allah -yakni yang lebih berhak mendekat kepada Allah- ialah orang yang memulai memberikan salam di kalangan mereka itu.&quot; Diriwayatkan oleh Imam Abu Dawud dengan isnad yang baik. Ini juga diriwayatkan oleh Imam Tirmidzi dari Abu Umamah pula, demikian riwayatnya: Rasulullah s.a.w. ditanya: &quot;Ya Rasulullah, ada dua orang yang saling bertemu muka, maka manakah diantara keduanya itu yang memulai bersalam.&quot; Beliau s.a.w. menjawab: &quot;Ialah yang lebih utama diantara keduanya itu dengan Allah Ta'ala&quot; maksudnya orang yang lebih mendekatkan dirinya kepada Allah dengan mentaatiNya, sebab yang memulai itulah yang lebih dulu berdzikirnya kepada Allah. Jadi lebih berhak untuk mendekatkan diri kepadaNya. Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan.</p><hr color=\"#FF0000\" size=\"1\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 857,
+      "nomor_terjemahan": 854,
+      "arab": "عن أَبي هريرة - رضي الله عنه: أنَّ رسول الله - صلى الله عليه وسلم - قَالَ: «يُسَلِّمُ الرَّاكِبُ عَلَى المَاشِي، وَالمَاشِي عَلَى القَاعِدِ، وَالقَليلُ عَلَى الكَثِيرِ». متفقٌ عَلَيْهِ. \nوفي رواية للبخاري: «والصغيرُ عَلَى الكَبيرِ».",
+      "terjemahan": "Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: \"Orang yang berkendaraan supaya memberi salam kepada orang yang berjalan dan orang yang berjalan kepada orang yang duduk dan orang yang sedikit kepada orang yang banyak jumlahnya. (Muttafaq 'alaih). Dalam riwayat Imam Bukhari disebutkan: \"Dan orang kecil kepada orang tua -orang yang lebih besar-.\""
+    },
+    {
+      "id": 2,
+      "nomor_arab": 858,
+      "nomor_terjemahan": 855,
+      "arab": "وعن أَبي أُمَامَة صُدَيِّ بن عجلان الباهِلي - رضي الله عنه - قَالَ: قَالَ رسولُ الله - صلى الله عليه وسلم: «إنَّ أَوْلى النَّاسِ بِاللهِ مَنْ بَدَأهُمْ بِالسَّلامِ». رواه أَبُو داود بإسنادٍ جيدٍ. \nورواه الترمذي عن أَبي أُمَامَةَ - رضي الله عنه - قِيلَ: يَا رسول الله، الرَّجُلانِ يَلْتَقِيَانِ أَيُّهُمَا يَبْدَأُ بِالسَّلاَمِ؟، قَالَ: «أَوْلاَهُمَا بِاللهِ تَعَالَى» قَالَ الترمذي: «هَذَا حديث حسن».",
+      "terjemahan": "Dari Abu Umamah yaitu Shudai bin 'Ajlan al-Bahili r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Sesungguhnya seutama-utama manusia dengan Allah -yakni yang lebih berhak mendekat kepada Allah- ialah orang yang memulai memberikan salam di kalangan mereka itu.\" Diriwayatkan oleh Imam Abu Dawud dengan isnad yang baik. Ini juga diriwayatkan oleh Imam Tirmidzi dari Abu Umamah pula, demikian riwayatnya: Rasulullah s.a.w. ditanya: \"Ya Rasulullah, ada dua orang yang saling bertemu muka, maka manakah diantara keduanya itu yang memulai bersalam.\" Beliau s.a.w. menjawab: \"Ialah yang lebih utama diantara keduanya itu dengan Allah Ta'ala\" maksudnya orang yang lebih mendekatkan dirinya kepada Allah dengan mentaatiNya, sebab yang memulai itulah yang lebih dulu berdzikirnya kepada Allah. Jadi lebih berhak untuk mendekatkan diri kepadaNya. Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan."
+    }
+  ]
 }

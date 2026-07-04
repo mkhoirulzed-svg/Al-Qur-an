@@ -2,6 +2,23 @@
   "id": 357,
   "source_id": 357,
   "judul": "Bab 357. Larangan Berisyarat Kepada Seorang Muslim Dengan Menggunakan Pedang Dan Sebagainya Baikpun Secara Sungguh-sungguh Atau Senda Gurau -Bercanda- Dan Larangan Memberikan Pedang Dalam Keadaan Terhunus",
-  "arab": "1783 - عن أبي هريرة - رضي الله عنه - عن رسولِ اللهِ - صلى الله عليه وسلم - قال: «لاَ يُشِرْ أحَدُكُمْ إلَى أخِيهِ بِالسِّلاحِ، فَإنَّهُ لاَ يَدْرِي لَعَلَّ الشَّيْطَانَ يَنْزعُ فِي يَدِهِ، فَيَقَع فِي حُفْرَةٍ مِنَ النَّارِ». متفق عليه. \nوفي رواية لمسلم قال: قال أبو القاسم - صلى الله عليه وسلم: «مَنْ أشَارَ إلَى أخِيهِ بِحَدِيدَةٍ، فَإنَّ المَلاَئِكَةَ تَلْعَنُهُ حَتَّى يَنْزعَ، وَإنْ كَانَ أخَاهُ لأَبِيهِ وَأُمِّهِ» . \nقوله - صلى الله عليه وسلم: «يَنْزع» ضُبِطَ بالعين المهملة مع كسر الزاي، وبالغين المعجمة مع فتحها، ومعناهما مُتَقَارِبٌ، وَمَعنَاهُ بالمهملةِ يَرْمِي، وبالمعجمةِ أيضًا يَرْمِي وَيُفْسِدُ. وَأصْلُ النَّزْعِ: الطَّعْنُ وَالفَسَادُ.\n1784 - وعن جابر - رضي الله عنه - قال: نهى رسولُ اللهِ - صلى الله عليه وسلم - أَنْ يُتَعَاطَى السَّيْفُ مَسْلُولًا. رواه أبو داود والترمذي،  وقال: «حديث حسن».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1780. Dari Abu Hurairah r.a. dari Rasulullah s.a.w., sabdanya: &quot;Janganlah seseorang itu memberi isyarat kepada saudaranya dengan menggunakan pedang, sebab sesungguhnya ia tidak mengetahui barangkali syaitan menusukkan apa yang di tangannya itu -pada saudaranya tadi-, sehingga menyebabkan ia terjerumus dalam lubang neraka.&quot; (Muttafaq 'alaih) Dalam riwayat Imam Muslim disebutkan: &quot;Abul Qasim -yakni Nabi Muhammad s.a.w.- bersabda: &quot;Barangsiapa yang berisyarat kepada saudaranya dengan menggunakan besi, maka sesungguhnya para malaikat melaknatinya sehingga ia melemparkannya, sekalipun yang diberi isyarat itu adalah saudara seayah dan seibu.&quot; Sabdanya s.a.w.: Yanzi'a, ditulis dengan 'ain muhmalah serta kasrahnya zai, ada pula yang dengan ghain mu'jamah serta fathah-nya zai, maknanya berdekatan. Dengan 'ain muhmalah artinya melempar dan dengan mu'jamah artinya melempar dan merusak asal kata annaz'u itu artinya ialah menusuk dan merusak. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1781. Dari Jabir r.a., katanya: &quot;Rasulullah s.a.w. melarang kalau pedang itu diberikan -atau diterima- dalam keadaan terhunus.&quot; Diriwayatkan oleh Imam-imam&nbsp;&nbsp;&nbsp; Abu Dawud dan Tirmidzi dan Tirmidzi mengatakan bahwa ini adalah hadis hasan.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1783,
+      "nomor_terjemahan": 1780,
+      "arab": "عن أبي هريرة - رضي الله عنه - عن رسولِ اللهِ - صلى الله عليه وسلم - قال: «لاَ يُشِرْ أحَدُكُمْ إلَى أخِيهِ بِالسِّلاحِ، فَإنَّهُ لاَ يَدْرِي لَعَلَّ الشَّيْطَانَ يَنْزعُ فِي يَدِهِ، فَيَقَع فِي حُفْرَةٍ مِنَ النَّارِ». متفق عليه. \nوفي رواية لمسلم قال: قال أبو القاسم - صلى الله عليه وسلم: «مَنْ أشَارَ إلَى أخِيهِ بِحَدِيدَةٍ، فَإنَّ المَلاَئِكَةَ تَلْعَنُهُ حَتَّى يَنْزعَ، وَإنْ كَانَ أخَاهُ لأَبِيهِ وَأُمِّهِ» . \nقوله - صلى الله عليه وسلم: «يَنْزع» ضُبِطَ بالعين المهملة مع كسر الزاي، وبالغين المعجمة مع فتحها، ومعناهما مُتَقَارِبٌ، وَمَعنَاهُ بالمهملةِ يَرْمِي، وبالمعجمةِ أيضًا يَرْمِي وَيُفْسِدُ. وَأصْلُ النَّزْعِ: الطَّعْنُ وَالفَسَادُ.",
+      "terjemahan": "Dari Abu Hurairah r.a. dari Rasulullah s.a.w., sabdanya: \"Janganlah seseorang itu memberi isyarat kepada saudaranya dengan menggunakan pedang, sebab sesungguhnya ia tidak mengetahui barangkali syaitan menusukkan apa yang di tangannya itu -pada saudaranya tadi-, sehingga menyebabkan ia terjerumus dalam lubang neraka.\" (Muttafaq 'alaih) Dalam riwayat Imam Muslim disebutkan: \"Abul Qasim -yakni Nabi Muhammad s.a.w.- bersabda: \"Barangsiapa yang berisyarat kepada saudaranya dengan menggunakan besi, maka sesungguhnya para malaikat melaknatinya sehingga ia melemparkannya, sekalipun yang diberi isyarat itu adalah saudara seayah dan seibu.\" Sabdanya s.a.w.: Yanzi'a, ditulis dengan 'ain muhmalah serta kasrahnya zai, ada pula yang dengan ghain mu'jamah serta fathah-nya zai, maknanya berdekatan. Dengan 'ain muhmalah artinya melempar dan dengan mu'jamah artinya melempar dan merusak asal kata annaz'u itu artinya ialah menusuk dan merusak."
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1784,
+      "nomor_terjemahan": 1781,
+      "arab": "وعن جابر - رضي الله عنه - قال: نهى رسولُ اللهِ - صلى الله عليه وسلم - أَنْ يُتَعَاطَى السَّيْفُ مَسْلُولًا. رواه أبو داود والترمذي،  وقال: «حديث حسن».",
+      "terjemahan": "Dari Jabir r.a., katanya: \"Rasulullah s.a.w. melarang kalau pedang itu diberikan -atau diterima- dalam keadaan terhunus.\" Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi dan Tirmidzi mengatakan bahwa ini adalah hadis hasan."
+    }
+  ]
 }

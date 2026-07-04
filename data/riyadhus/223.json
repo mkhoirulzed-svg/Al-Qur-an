@@ -2,6 +2,23 @@
   "id": 223,
   "source_id": 223,
   "judul": "Bab 223. Perintah Kepada Orang Yang Berpuasa Supaya Menjaga Lisan Dan Anggotanya Dari Perselisihan Dan Saling Bermaki-makian Dan Sebagainya",
-  "arab": "1240 - عن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «إِذَا كَانَ يَوْمُ صَوْمِ أَحَدِكُمْ، فَلاَ يَرْفُثْ وَلاَ يَصْخَبْ، فَإنْ سَابَّهُ أحَدٌ أَوْ قَاتَلَهُ، فَلْيَقُلْ: إنِّي صَائِمٌ». متفقٌ عَلَيْهِ. \n1241 - وعنه، قَالَ: قَالَ النبيُّ - صلى الله عليه وسلم: «مَنْ لَمْ يَدَعْ قَوْلَ الزُّورِ وَالعَمَلَ بِهِ فَلَيْسَ للهِ حَاجَةٌ فِي أَنْ يَدَعَ طَعَامَهُ وَشَرَابَهُ». رواه البخاري.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1237. Dari Abu Hurairah r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Apabila pada hari seorang diantara engkau semua itu berpuasa, maka janganlah ia bercakap-cakap yang kotor dan jangan pula bertengkar. Apabila ia dimaki-maki oleh seorang atau dilawan bermusuhan, maka hendaklah ia berkata: &quot;Sesungguhnya saya adalah -sedang- berpuasa.&quot; (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1238. Dari Abu Hurairah r.a. pula, katanya: &quot;Nabi s.a.w. bersabda: &quot;Barangsiapa yang tidak meninggalkan kata-kata dusta dan tidak pula meninggalkan berkelakuan dengan dasar dusta, maka tidak ada keperluannya bagi Allah dalam -perihal- ia meninggalkan makan dan minumnya.&quot; Maksudnya: Di waktu berpuasa itu hendaknya meninggalkan hal-hal di atas, agar berpahala puasanya tadi. (Riwayat Bukhari)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1240,
+      "nomor_terjemahan": 1237,
+      "arab": "عن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «إِذَا كَانَ يَوْمُ صَوْمِ أَحَدِكُمْ، فَلاَ يَرْفُثْ وَلاَ يَصْخَبْ، فَإنْ سَابَّهُ أحَدٌ أَوْ قَاتَلَهُ، فَلْيَقُلْ: إنِّي صَائِمٌ». متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Apabila pada hari seorang diantara engkau semua itu berpuasa, maka janganlah ia bercakap-cakap yang kotor dan jangan pula bertengkar. Apabila ia dimaki-maki oleh seorang atau dilawan bermusuhan, maka hendaklah ia berkata: \"Sesungguhnya saya adalah -sedang- berpuasa.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1241,
+      "nomor_terjemahan": 1238,
+      "arab": "وعنه، قَالَ: قَالَ النبيُّ - صلى الله عليه وسلم: «مَنْ لَمْ يَدَعْ قَوْلَ الزُّورِ وَالعَمَلَ بِهِ فَلَيْسَ للهِ حَاجَةٌ فِي أَنْ يَدَعَ طَعَامَهُ وَشَرَابَهُ». رواه البخاري.",
+      "terjemahan": "Dari Abu Hurairah r.a. pula, katanya: \"Nabi s.a.w. bersabda: \"Barangsiapa yang tidak meninggalkan kata-kata dusta dan tidak pula meninggalkan berkelakuan dengan dasar dusta, maka tidak ada keperluannya bagi Allah dalam -perihal- ia meninggalkan makan dan minumnya.\" Maksudnya: Di waktu berpuasa itu hendaknya meninggalkan hal-hal di atas, agar berpahala puasanya tadi. (Riwayat Bukhari)"
+    }
+  ]
 }

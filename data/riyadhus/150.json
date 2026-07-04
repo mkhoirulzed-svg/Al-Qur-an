@@ -1,7 +1,24 @@
 {
   "id": 150,
   "source_id": 150,
-  "judul": "Bab 150. Mengajarkan (Mentalqin) Orang Yang Sudah Hampir Didatangi Oleh Ajal Kematiannya Dengan Ucapan &quot;La ilaha illallah&quot;",
-  "arab": "917 - عن معاذ - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «مَنْ كَانَ آخِرَ كَلامِهِ لاَ إلهَ إِلاَّ اللهُ دَخَلَ الجَنَّةَ». رواه أَبُو داود والحاكم، وقال: «صحيح الإسناد». \n918 - وعن أَبي سعيد الخدري - رضي الله عنه - قَالَ: قَالَ رسولُ الله - صلى الله عليه وسلم: «لَقِّنُوا مَوْتَاكُمْ لاَ إلهَ إِلاَّ اللهُ». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">914. Dari Mu'az r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Barangsiapa yang akhir percakapannya itu La ilaha illallah, maka ia akan masuk syurga.&quot; Diriwayatkan oleh Imam-imam Abu Dawud serta Hakim dan Hakim mengatakan bahwa ini adalah shahih isnadnya.</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">915. Dari Abu Said al-Khudri r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Ajarkanlah kepada orang-orang yang hendak mati diantara engkau semua itu dengan bacaan La ilaha illallah.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "judul": "Bab 150. Mengajarkan (Mentalqin) Orang Yang Sudah Hampir Didatangi Oleh Ajal Kematiannya Dengan Ucapan \"La ilaha illallah\"",
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 917,
+      "nomor_terjemahan": 914,
+      "arab": "عن معاذ - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «مَنْ كَانَ آخِرَ كَلامِهِ لاَ إلهَ إِلاَّ اللهُ دَخَلَ الجَنَّةَ». رواه أَبُو داود والحاكم، وقال: «صحيح الإسناد».",
+      "terjemahan": "Dari Mu'az r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Barangsiapa yang akhir percakapannya itu La ilaha illallah, maka ia akan masuk syurga.\" Diriwayatkan oleh Imam-imam Abu Dawud serta Hakim dan Hakim mengatakan bahwa ini adalah shahih isnadnya."
+    },
+    {
+      "id": 2,
+      "nomor_arab": 918,
+      "nomor_terjemahan": 915,
+      "arab": "وعن أَبي سعيد الخدري - رضي الله عنه - قَالَ: قَالَ رسولُ الله - صلى الله عليه وسلم: «لَقِّنُوا مَوْتَاكُمْ لاَ إلهَ إِلاَّ اللهُ». رواه مسلم.",
+      "terjemahan": "Dari Abu Said al-Khudri r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Ajarkanlah kepada orang-orang yang hendak mati diantara engkau semua itu dengan bacaan La ilaha illallah.\" (Riwayat Muslim)"
+    }
+  ]
 }

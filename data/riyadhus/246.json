@@ -2,6 +2,16 @@
   "id": 246,
   "source_id": 246,
   "judul": "Bab 246. Apa Yang Diucapkan Ketika Hendak Tidur Dan Bangun Tidur",
-  "arab": "1446 - عن حُذَيفَةَ، وأبي ذرٍ رضي الله عنهما، قالا: كَانَ رسولُ الله - صلى الله عليه وسلم - إِذَا أوَى إِلَى فِرَاشِهِ، قَالَ: «بِاسْمِكَ اللَّهُمَّ أَحْيَا وَأموتُ» وَإذَا اسْتَيقَظَ قَالَ: «الحَمْدُ للهِ الَّذِي أَحْيَانَا بعْدَ مَا أماتَنَا وإِلَيْهِ النُّشُورُ». رواه البخاري.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1443. Dari Hudzaifah dan Abu Zar radhiallahu 'anhuma, katanya: &quot;Rasulullah s.a.w. itu apabila menempati tempat tidur -yakni hendak tidur-, beliau s.a.w. mengucapkan: Bismikallahumma ahya wa amutu -artinya: &quot;Dengan namaMu ya Allah saya hidup dan mati&quot;-. Dan apabila beliau s.a.w. bangun dari tidur, lalu mengucapkan: Alhamdulillahil ladzi ahyana ba'da ma amatana wa ilaihin nusyur -artinya: &quot;Segenap puji bagi Allah yang menghidupkan kita -yakni membangunkan dari tidur- sesudah mematikan kita -yakni sehabis kita tidur yang disamakan sebagai mati- dan kepadaNyalah kita kembali.-&quot; (Riwayat Bukhari)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1446,
+      "nomor_terjemahan": 1443,
+      "arab": "عن حُذَيفَةَ، وأبي ذرٍ رضي الله عنهما، قالا: كَانَ رسولُ الله - صلى الله عليه وسلم - إِذَا أوَى إِلَى فِرَاشِهِ، قَالَ: «بِاسْمِكَ اللَّهُمَّ أَحْيَا وَأموتُ» وَإذَا اسْتَيقَظَ قَالَ: «الحَمْدُ للهِ الَّذِي أَحْيَانَا بعْدَ مَا أماتَنَا وإِلَيْهِ النُّشُورُ». رواه البخاري.",
+      "terjemahan": "Dari Hudzaifah dan Abu Zar radhiallahu 'anhuma, katanya: \"Rasulullah s.a.w. itu apabila menempati tempat tidur -yakni hendak tidur-, beliau s.a.w. mengucapkan: Bismikallahumma ahya wa amutu -artinya: \"Dengan namaMu ya Allah saya hidup dan mati\"-. Dan apabila beliau s.a.w. bangun dari tidur, lalu mengucapkan: Alhamdulillahil ladzi ahyana ba'da ma amatana wa ilaihin nusyur -artinya: \"Segenap puji bagi Allah yang menghidupkan kita -yakni membangunkan dari tidur- sesudah mematikan kita -yakni sehabis kita tidur yang disamakan sebagai mati- dan kepadaNyalah kita kembali.-\" (Riwayat Bukhari)"
+    }
+  ]
 }

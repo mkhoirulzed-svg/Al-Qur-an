@@ -2,6 +2,16 @@
   "id": 239,
   "source_id": 239,
   "judul": "Bab 239. Keutamaan Beribadah Dalam Keadaan Penuh Kekacauan Yaitu Ketika Timbulnya Berbagai Fitnah Dan Sebagainya",
-  "arab": "وَهُوَ: الاختلاط والفتن ونحوها\n\n1366 - عن مَعْقِلِ بن يسار - رضي الله عنه - قَالَ: قَالَ رسولُ الله - صلى الله عليه وسلم: «العِبَادَةُ في الهَرْجِ كَهِجْرَةٍ إليَّ». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1363. Dari Ma'qil bin Yasar r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Beribadah dalam keadaan penuh kekacauan itu sama keutamaannya dengan berhijrah padaku.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "وَهُوَ: الاختلاط والفتن ونحوها",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1366,
+      "nomor_terjemahan": 1363,
+      "arab": "عن مَعْقِلِ بن يسار - رضي الله عنه - قَالَ: قَالَ رسولُ الله - صلى الله عليه وسلم: «العِبَادَةُ في الهَرْجِ كَهِجْرَةٍ إليَّ». رواه مسلم.",
+      "terjemahan": "Dari Ma'qil bin Yasar r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Beribadah dalam keadaan penuh kekacauan itu sama keutamaannya dengan berhijrah padaku.\" (Riwayat Muslim)"
+    }
+  ]
 }

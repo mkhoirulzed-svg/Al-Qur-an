@@ -2,6 +2,30 @@
   "id": 300,
   "source_id": 300,
   "judul": "Bab 300. Larangan Membiarkan Api Menyala Di Rumah Ketika Hendak Tidur Dan Lain-lain, Baikpun Api Itu Berada Di Dalam Lampu Ataupun Lain-lainnya",
-  "arab": "1652 - عن ابن عمر رضي الله عنهما، عن النبيِّ - صلى الله عليه وسلم - قال: «لاَ تَتْرُكُوا\nالنَّارَ فِي بُيُوتِكُمْ حِينَ تَنَامُونَ».  متفق عليه. \n1653 - وعن أبي موسى الأشعري - رضي الله عنه - قال: احْتَرَقَ بَيْتٌ بالمَدِينَةِ عَلَى أهْلِهِ مِنَ اللَّيْلِ، فَلَمَّا حُدِّثَ رَسُولُ اللهِ - صلى الله عليه وسلم - بِشَأنِهِم، قالَ: «إنَّ هذِهِ النَّارَ عَدُوٌّ لَكُمْ، فَإذا نِمْتُمْ، فَأطْفِئُوهَا» متفق عليه. \n1654 - وعن جابر - رضي الله عنه - عن رسولِ اللهِ - صلى الله عليه وسلم - قال: «غَطُّوا الإنَاءَ، وَأَوْكِئُوا السِّقَاءَ، وَأَغْلِقُوا الأَبْوَابَ، وَأَطْفِئُوا السِّرَاجَ، فَإِنَّ الشَّيْطَانَ لاَ يَحُلُّ سِقَاءً، وَلاَ يَفْتَحُ  بَابًا، وَلاَ يَكْشِفُ إنَاءً. فإنْ لَمْ يَجِدْ أَحَدُكُمْ إلاَّ أَنْ يَعْرُضَ عَلَى إنَائِهِ عُودًا، وَيَذْكُرَ اسْمَ اللهِ، فَلْيَفْعَل، فإنَّ الفُوَيْسِقَةَ تُضْرِمُ عَلَى أهْلِ البَيْتِ بَيْتَهُمْ». رواه مسلم. \n«الفُويْسِقَةُ»: الفَأرَةُ، «وَتُضْرِمُ»: تُحْرِقُ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1649. Dari Ibnu Umar radhiallahu 'anhuma dari Nabi s.a.w., sabdanya: &quot;Janganlah engkau semua membiarkan api itu dalam rumah-rumahmu -yakni dalam keadaan menyala-, ketika engkau semua masuk tidur&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1650. Dari Abu Musa al-Asy'ari r.a., katanya: &quot;Ada rumah yang terbakar di Madinah mengenai keluarga dalam rumah itu di waktu malam.&quot; Setelah Rasulullah s.a.w. diberitahu akan hal ihwal mereka yang rumahnya terbakar tadi, lalu beliau s.a.w. bersabda: &quot;Sesungguhnya api itu adalah musuhmu semua, maka dari itu jikalau engkau semua hendak tidur, padamkanlah api itu dulu.&quot; (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1651. Dari Jabir r.a. dari Rasulullah s.a.w., sabdanya: &quot;Tutuplah wadah, ikatlah mulut -tutup- tempat air - atau sumbatlah, tutuplah semua pintu dan padamkanlah lampu. Sebab sesungguhnya syaitan itu tidak dapat mengurai ikatan tempat air, tidak dapat membuka pintu, juga tidak dapat membuka wadah. Jikalau seseorang diantara engkau semua itu tidak dapat menemukan, melainkan hanya dapat memalangkan sebatang tangkai kecil di atas wadahnya, dan menyebutkan nama Allah, maka hendaklah melakukan saja yang ia dapat melakukannya itu. Sesungguhnya tikus itu dapat menyalakan -membakar- rumah dari sesuatu keluarga rumah -sebab bisa jadi ia menabrak lampu yang sedang menyala sehingga terjadi kebakaran-.&quot; (Riwayat Muslim) Alfuwaisiqah artinya ialah tikus, sedang tudhrimu artinya membakar.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1652,
+      "nomor_terjemahan": 1649,
+      "arab": "عن ابن عمر رضي الله عنهما، عن النبيِّ - صلى الله عليه وسلم - قال: «لاَ تَتْرُكُوا\nالنَّارَ فِي بُيُوتِكُمْ حِينَ تَنَامُونَ».  متفق عليه.",
+      "terjemahan": "Dari Ibnu Umar radhiallahu 'anhuma dari Nabi s.a.w., sabdanya: \"Janganlah engkau semua membiarkan api itu dalam rumah-rumahmu -yakni dalam keadaan menyala-, ketika engkau semua masuk tidur\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1653,
+      "nomor_terjemahan": 1650,
+      "arab": "وعن أبي موسى الأشعري - رضي الله عنه - قال: احْتَرَقَ بَيْتٌ بالمَدِينَةِ عَلَى أهْلِهِ مِنَ اللَّيْلِ، فَلَمَّا حُدِّثَ رَسُولُ اللهِ - صلى الله عليه وسلم - بِشَأنِهِم، قالَ: «إنَّ هذِهِ النَّارَ عَدُوٌّ لَكُمْ، فَإذا نِمْتُمْ، فَأطْفِئُوهَا» متفق عليه.",
+      "terjemahan": "Dari Abu Musa al-Asy'ari r.a., katanya: \"Ada rumah yang terbakar di Madinah mengenai keluarga dalam rumah itu di waktu malam.\" Setelah Rasulullah s.a.w. diberitahu akan hal ihwal mereka yang rumahnya terbakar tadi, lalu beliau s.a.w. bersabda: \"Sesungguhnya api itu adalah musuhmu semua, maka dari itu jikalau engkau semua hendak tidur, padamkanlah api itu dulu.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1654,
+      "nomor_terjemahan": 1651,
+      "arab": "وعن جابر - رضي الله عنه - عن رسولِ اللهِ - صلى الله عليه وسلم - قال: «غَطُّوا الإنَاءَ، وَأَوْكِئُوا السِّقَاءَ، وَأَغْلِقُوا الأَبْوَابَ، وَأَطْفِئُوا السِّرَاجَ، فَإِنَّ الشَّيْطَانَ لاَ يَحُلُّ سِقَاءً، وَلاَ يَفْتَحُ  بَابًا، وَلاَ يَكْشِفُ إنَاءً. فإنْ لَمْ يَجِدْ أَحَدُكُمْ إلاَّ أَنْ يَعْرُضَ عَلَى إنَائِهِ عُودًا، وَيَذْكُرَ اسْمَ اللهِ، فَلْيَفْعَل، فإنَّ الفُوَيْسِقَةَ تُضْرِمُ عَلَى أهْلِ البَيْتِ بَيْتَهُمْ». رواه مسلم. \n«الفُويْسِقَةُ»: الفَأرَةُ، «وَتُضْرِمُ»: تُحْرِقُ.",
+      "terjemahan": "Dari Jabir r.a. dari Rasulullah s.a.w., sabdanya: \"Tutuplah wadah, ikatlah mulut -tutup- tempat air - atau sumbatlah, tutuplah semua pintu dan padamkanlah lampu. Sebab sesungguhnya syaitan itu tidak dapat mengurai ikatan tempat air, tidak dapat membuka pintu, juga tidak dapat membuka wadah. Jikalau seseorang diantara engkau semua itu tidak dapat menemukan, melainkan hanya dapat memalangkan sebatang tangkai kecil di atas wadahnya, dan menyebutkan nama Allah, maka hendaklah melakukan saja yang ia dapat melakukannya itu. Sesungguhnya tikus itu dapat menyalakan -membakar- rumah dari sesuatu keluarga rumah -sebab bisa jadi ia menabrak lampu yang sedang menyala sehingga terjadi kebakaran-.\" (Riwayat Muslim) Alfuwaisiqah artinya ialah tikus, sedang tudhrimu artinya membakar."
+    }
+  ]
 }

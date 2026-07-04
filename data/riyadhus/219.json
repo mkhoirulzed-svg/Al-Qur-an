@@ -2,6 +2,37 @@
   "id": 219,
   "source_id": 219,
   "judul": "Bab 219. Larangan Mendahului Ramadhan Dengan Puasa Sesudah Pertengahan Sya'ban, Melainkan Bagi Orang Yang Mempersambungkan Dengan hari-hari Yang Sebelumnya Atau Tepat Pada Kebiasaan Yang Dilakukannya, Misalnya Bahwa Kebiasaannya Itu ialah Berpuasa Hari Senin Dan Kamis Lalu Bertepatan Dengan Itu",
-  "arab": "1224 - عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «لاَ يَتَقَدَّمَنَّ أَحَدُكُم رَمَضَانَ بِصَوْمِ يَوْمٍ أَوْ يَوْمَيْنِ، إِلاَّ أَنْ يَكُونَ رَجُلٌ كَانَ يَصُومُ صَومَهُ، فَليَصُمْ ذَلِكَ اليَوْمَ». متفقٌ عَلَيْهِ. \n1225 - وعن ابن عباس رضي الله عنهما، قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «لاَ تَصُومُوا قَبْلَ رَمضَانَ، صُومُوا لِرُؤيَتِهِ، وَأفْطِرُوا لِرُؤيَتِهِ، فَإنْ حَالَتْ دُونَهُ غَيَايَةٌ فَأكْمِلُوا ثَلاثِينَ يَوْمًا». رواه الترمذي،  وقال: «حديث حسنٌ صحيح».\n«الغَيايَةُ» بالغين المعجمة وبالياءِ المثناةِ من تَحْت المكررةِ، وهي: السحابة.\n1226 - وعن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «إِذَا بَقِيَ نِصْفٌ مِنْ شَعْبَانَ فَلاَ تَصُومُوا». رواه الترمذي،  وقال: «حديث حسن صحيح».\n1227 - وعن أَبي اليقظان عمارِ بن يَاسِرٍ رضي الله عنهما، قَالَ: مَنْ صَامَ اليَوْمَ الَّذِي يُشَكُّ فِيهِ، فَقَدْ عَصَى أَبَا القَاسِمِ - صلى الله عليه وسلم. رواه أَبُو داود والترمذي،  وقال: «حديث حسن صحيح».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1221. Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: &quot;Janganlah seseorang diantara engkau semua itu mendahului Ramadhan dengan puasa sehari atau dua hari -sebelumnya-, kecuali kalau seseorang itu -sudah- biasa berpuasa tepat -pada- hari puasanya, maka hendaklah ia berpuasa pada hari itu.&quot; (Muttafaq 'alaih) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1222. Dari Ibnu Abbas radhiallahu 'anhuma, katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Janganlah engkau semua berpuasa sebelum Ramadhan. Berpuasalah Ramadhan itu karena melihat -yakni rukyah- bulan dan berbukalah karena melihat bulan. Apabila terhalang di balik bulan itu oleh awan, maka sempurnakanlah hitungan -menjadi- tiga puluh hari.&quot; Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1223. Dari Abu Hurairah r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Apabila telah tertinggal separuh dari bulan Sya'ban, maka janganlah engkau berpuasa.&quot; Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1224. Dari Abul Yaqzhan, yaitu 'Ammar bin Yasir radhiallahu 'anhuma, katanya: &quot;Barangsiapa yang berpuasa pada hari yang diragu-ragukan -pada- hari itu -yakni apakah masih Sya'ban ataukah sudah masuk hari Ramadhan, maka ia telah bermaksiat kepada Abul Qasim -yakni Nabi Muhammad s.a.w.-&quot; Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi, dan Tirmidzi mengatakan bahwa ini adalah hadis hasan shahih.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 4,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1224,
+      "nomor_terjemahan": 1221,
+      "arab": "عن أَبي هريرة - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «لاَ يَتَقَدَّمَنَّ أَحَدُكُم رَمَضَانَ بِصَوْمِ يَوْمٍ أَوْ يَوْمَيْنِ، إِلاَّ أَنْ يَكُونَ رَجُلٌ كَانَ يَصُومُ صَومَهُ، فَليَصُمْ ذَلِكَ اليَوْمَ». متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: \"Janganlah seseorang diantara engkau semua itu mendahului Ramadhan dengan puasa sehari atau dua hari -sebelumnya-, kecuali kalau seseorang itu -sudah- biasa berpuasa tepat -pada- hari puasanya, maka hendaklah ia berpuasa pada hari itu.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1225,
+      "nomor_terjemahan": 1222,
+      "arab": "وعن ابن عباس رضي الله عنهما، قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «لاَ تَصُومُوا قَبْلَ رَمضَانَ، صُومُوا لِرُؤيَتِهِ، وَأفْطِرُوا لِرُؤيَتِهِ، فَإنْ حَالَتْ دُونَهُ غَيَايَةٌ فَأكْمِلُوا ثَلاثِينَ يَوْمًا». رواه الترمذي،  وقال: «حديث حسنٌ صحيح».\n«الغَيايَةُ» بالغين المعجمة وبالياءِ المثناةِ من تَحْت المكررةِ، وهي: السحابة.",
+      "terjemahan": "Dari Ibnu Abbas radhiallahu 'anhuma, katanya: \"Rasulullah s.a.w. bersabda: \"Janganlah engkau semua berpuasa sebelum Ramadhan. Berpuasalah Ramadhan itu karena melihat -yakni rukyah- bulan dan berbukalah karena melihat bulan. Apabila terhalang di balik bulan itu oleh awan, maka sempurnakanlah hitungan -menjadi- tiga puluh hari.\" Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih."
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1226,
+      "nomor_terjemahan": 1223,
+      "arab": "وعن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «إِذَا بَقِيَ نِصْفٌ مِنْ شَعْبَانَ فَلاَ تَصُومُوا». رواه الترمذي،  وقال: «حديث حسن صحيح».",
+      "terjemahan": "Dari Abu Hurairah r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Apabila telah tertinggal separuh dari bulan Sya'ban, maka janganlah engkau berpuasa.\" Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih."
+    },
+    {
+      "id": 4,
+      "nomor_arab": 1227,
+      "nomor_terjemahan": 1224,
+      "arab": "وعن أَبي اليقظان عمارِ بن يَاسِرٍ رضي الله عنهما، قَالَ: مَنْ صَامَ اليَوْمَ الَّذِي يُشَكُّ فِيهِ، فَقَدْ عَصَى أَبَا القَاسِمِ - صلى الله عليه وسلم. رواه أَبُو داود والترمذي،  وقال: «حديث حسن صحيح».",
+      "terjemahan": "Dari Abul Yaqzhan, yaitu 'Ammar bin Yasir radhiallahu 'anhuma, katanya: \"Barangsiapa yang berpuasa pada hari yang diragu-ragukan -pada- hari itu -yakni apakah masih Sya'ban ataukah sudah masuk hari Ramadhan, maka ia telah bermaksiat kepada Abul Qasim -yakni Nabi Muhammad s.a.w.-\" Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi, dan Tirmidzi mengatakan bahwa ini adalah hadis hasan shahih."
+    }
+  ]
 }

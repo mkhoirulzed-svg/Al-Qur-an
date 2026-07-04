@@ -2,6 +2,30 @@
   "id": 192,
   "source_id": 192,
   "judul": "Bab 192. Anjuran Mendatangi Shalat Berjamaah Shubuh Dan Isya",
-  "arab": "1071 - عن عثمان بن عفان - رضي الله عنه - قَالَ: سَمِعْتُ رَسُول اللهِ - صلى الله عليه وسلم - يقول: «مَنْ صَلَّى العِشَاءَ فِي جَمَاعَةٍ، فَكَأنَّمَا قَامَ نِصْفَ اللَّيْلِ، وَمَنْ صَلَّى الصُّبْحَ في جَمَاعَةٍ، فَكَأنَّمَا صَلَّى اللَّيْلَ كُلَّهُ». رواه مُسلِم.  \nوفي رواية الترمذي عن عثمان بن عفان - رضي الله عنه - قَالَ: قال رَسُول اللهِ - صلى الله عليه وسلم: «مَنْ شَهِدَ العِشَاءَ فِي جَمَاعَةٍ كَانَ لَهُ قِيَامُ نِصْفَ لَيلَةٍ، وَمَنْ صَلَّى العِشَاءَ وَالفَجْرَ فِي جَمَاعَةٍ، كَانَ لَهُ كَقِيَامِ لَيْلَةٍ» قَالَ الترمذي: «حديث حسن صحيح».\n1072 - وعن أبي هريرة - رضي الله عنه: أنَّ رَسُول اللهِ - صلى الله عليه وسلم - قَالَ: «وَلَوْ يَعْلَمُونَ مَا في العَتَمَةِ وَالصُّبْحِ لأَتَوْهُمَا وَلَوْ حَبْوًا». متفقٌ عَلَيهِ.  وقد سبق بِطولِهِ.\n1073 - وعنه، قَالَ: قال رَسُول اللهِ - صلى الله عليه وسلم: «لَيْسَ صَلاَةٌ أثْقَلَ عَلَى المُنَافِقِينَ مِنْ صَلاَةِ الفَجْرِ وَالعِشَاءِ، وَلَوْ يَعْلَمُونَ مَا فِيهِمَا لأَتَوْهُمَا وَلَوْ حَبْوًا». متفقٌ عَلَيهِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1068. Dari Usman r.a., katanya: &quot;Saya mendengar Rasulullah s.a.w. bersabda: &quot;Barangsiapa yang mengerjakan shalat Isya' dengan berjamaah, maka seolah-olah ia mendirikan shalat separuh malam dan barangsiapa yang mengerjakan shalat Subuh dengan berjamaah, maka seolah-olah ia mendirikan shalat semalam suntuk.&quot; (Riwayat Muslim) Dalam riwayat Imam Tirmidzi dari Usman r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Barangsiapa yang menghadiri shalat Isya' dengan berjamaah maka baginya adalah pahala mengerjakan shalat selama separuh malam dan barangsiapa yang bershalat Isya' dan Subuh dengan berjamaah, maka baginya adalah pahala seperti mengerjakan shalat semalam suntuk.&quot; Imam Tirmidzi mengatakan bahwa ini adalah Hadis hasan shahih. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1069. Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: &quot;Andaikata para manusia itu mengetahui betapa besar pahalanya mengerjakan shalat Isya' dan Subuh -dengan berjamaah-, sesungguhnya mereka akan mendatangi kedua shalat itu, sekalipun dengan berjalan merangkak.&quot; (Muttafaq 'alaih) Dan hadis ini telah dahulu secara lengkapnya yang panjang. Lihat hadis no.1030.</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1070. Dari Abu Hurairah r.a. pula katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Tidak ada suatu shalatpun yang lebih berat dirasakan oleh orang-orang munafik itu daripada shalat Subuh dan Isya', tetapi andaikata mereka mengetahui betapa besar pahalanya kedua shalat itu, sesungguhnya mereka akan mendatanginya sekalipun dengan berjalan merangkak -ke tempat shalat berjamaah-.&quot; (Muttafaq 'alaih)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1071,
+      "nomor_terjemahan": 1068,
+      "arab": "عن عثمان بن عفان - رضي الله عنه - قَالَ: سَمِعْتُ رَسُول اللهِ - صلى الله عليه وسلم - يقول: «مَنْ صَلَّى العِشَاءَ فِي جَمَاعَةٍ، فَكَأنَّمَا قَامَ نِصْفَ اللَّيْلِ، وَمَنْ صَلَّى الصُّبْحَ في جَمَاعَةٍ، فَكَأنَّمَا صَلَّى اللَّيْلَ كُلَّهُ». رواه مُسلِم.  \nوفي رواية الترمذي عن عثمان بن عفان - رضي الله عنه - قَالَ: قال رَسُول اللهِ - صلى الله عليه وسلم: «مَنْ شَهِدَ العِشَاءَ فِي جَمَاعَةٍ كَانَ لَهُ قِيَامُ نِصْفَ لَيلَةٍ، وَمَنْ صَلَّى العِشَاءَ وَالفَجْرَ فِي جَمَاعَةٍ، كَانَ لَهُ كَقِيَامِ لَيْلَةٍ» قَالَ الترمذي: «حديث حسن صحيح».",
+      "terjemahan": "Dari Usman r.a., katanya: \"Saya mendengar Rasulullah s.a.w. bersabda: \"Barangsiapa yang mengerjakan shalat Isya' dengan berjamaah, maka seolah-olah ia mendirikan shalat separuh malam dan barangsiapa yang mengerjakan shalat Subuh dengan berjamaah, maka seolah-olah ia mendirikan shalat semalam suntuk.\" (Riwayat Muslim) Dalam riwayat Imam Tirmidzi dari Usman r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Barangsiapa yang menghadiri shalat Isya' dengan berjamaah maka baginya adalah pahala mengerjakan shalat selama separuh malam dan barangsiapa yang bershalat Isya' dan Subuh dengan berjamaah, maka baginya adalah pahala seperti mengerjakan shalat semalam suntuk.\" Imam Tirmidzi mengatakan bahwa ini adalah Hadis hasan shahih."
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1072,
+      "nomor_terjemahan": 1069,
+      "arab": "وعن أبي هريرة - رضي الله عنه: أنَّ رَسُول اللهِ - صلى الله عليه وسلم - قَالَ: «وَلَوْ يَعْلَمُونَ مَا في العَتَمَةِ وَالصُّبْحِ لأَتَوْهُمَا وَلَوْ حَبْوًا». متفقٌ عَلَيهِ.  وقد سبق بِطولِهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: \"Andaikata para manusia itu mengetahui betapa besar pahalanya mengerjakan shalat Isya' dan Subuh -dengan berjamaah-, sesungguhnya mereka akan mendatangi kedua shalat itu, sekalipun dengan berjalan merangkak.\" (Muttafaq 'alaih) Dan hadis ini telah dahulu secara lengkapnya yang panjang. Lihat hadis no.1030."
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1073,
+      "nomor_terjemahan": 1070,
+      "arab": "وعنه، قَالَ: قال رَسُول اللهِ - صلى الله عليه وسلم: «لَيْسَ صَلاَةٌ أثْقَلَ عَلَى المُنَافِقِينَ مِنْ صَلاَةِ الفَجْرِ وَالعِشَاءِ، وَلَوْ يَعْلَمُونَ مَا فِيهِمَا لأَتَوْهُمَا وَلَوْ حَبْوًا». متفقٌ عَلَيهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a. pula katanya: \"Rasulullah s.a.w. bersabda: \"Tidak ada suatu shalatpun yang lebih berat dirasakan oleh orang-orang munafik itu daripada shalat Subuh dan Isya', tetapi andaikata mereka mengetahui betapa besar pahalanya kedua shalat itu, sesungguhnya mereka akan mendatanginya sekalipun dengan berjalan merangkak -ke tempat shalat berjamaah-.\" (Muttafaq 'alaih)"
+    }
+  ]
 }

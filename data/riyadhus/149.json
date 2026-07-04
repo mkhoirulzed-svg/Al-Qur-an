@@ -1,7 +1,31 @@
 {
   "id": 149,
   "source_id": 149,
-  "judul": "Bab 149. Bolehnya Seorang Yang Sakit Mengatakan: &quot;Saya Sakit&quot; Atau &quot;Sangat Sakit&quot; Atau &quot;Panas&quot; Atau &quot;Aduh Kepalaku&quot; Dan Lain Sebagainya Dan Uraian Bahwasanya Tidak Ada Kemakruhan Mengatakan Sedemikian Tadi, Asalkan Tidak Karena Timbulnya Kemarahan Dan Menunjukkan Kegelisahan Sebab Sakitnya Tadi",
-  "arab": "914 - عن ابن مسعود - رضي الله عنه - قَالَ: دَخَلْتُ عَلَى النَّبيِّ - صلى الله عليه وسلم - وَهُوَ يُوعَكُ، فَمَسَسْتُهُ، فَقلتُ: إنَّكَ لَتُوعَكُ وَعَكًا شَديدًا، فَقَالَ: «أجَلْ، إنِّي أُوعَكُ كَمَا يُوعَكُ رَجُلانِ مِنْكُمْ». متفقٌ عَلَيْهِ .\n915 - وعن سعدِ بن أَبي وقاصٍ - رضي الله عنه - قَالَ: جَاءني رسولُ الله - صلى الله عليه وسلم - يَعُودُنِي مِنْ وَجَعٍ اشْتَدَّ بِي، فقلتُ: بَلَغَ بِي مَا تَرَى، وَأنَا ذُو مَالٍ، وَلاَ يَرِثُنِي إِلاَّ ابْنَتِي .. وذَكر الحديث. متفقٌ عَلَيْهِ. \n916 - وعن القاسم بن محمد، قَالَ: قالت عائشةُ رضي الله عنها: وَارَأسَاهُ! فَقَالَ النَّبيُّ - صلى الله عليه وسلم: «بَلْ أنَا، وَارَأسَاهُ!» ... وذكر الحديث. رواه البخاري.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">911. Dari Ibnu Mas'ud r.a., katanya: &quot;Saya masuk ke tempat Nabi s.a.w. dan beliau di kala itu menderita penyakit panas, lalu saya memegangnya, kemudian saya berkata: &quot;Sesungguhnya Tuan ini benar-benar sakit panas yang sangat.&quot; Lalu beliau s.a.w. bersabda: &quot;Benar, sesungguhnya penyakit panas saya ini adalah seperti sakit panasnya dua orang diantara engkau semua -yang dijadikan satu-.&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">912. Dari Sa'ad bin Abu Waqqash r.a., katanya: &quot;Rasulullah s.a.w. datang ke tempatku untuk meninjau sewaktu saya menderita sesuatu penyakit yang sangat parah. Kemudian saya berkata: &quot;Telah sampai padaku penyakit sebagaimana yang Tuan maklumi ini, sedang saya adalah seorang yang berharta dan tidak ada yang akan mewarisi harta itu melainkan anak perempuan saya,&quot; selanjutnya disebutkanlah hadis ini sampai selengkapnya. (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">913. Dari Alqasim bin Muhammad, katanya: &quot;Aisyah radhiallahu 'anha berkata: &quot;Aduh kepalaku.&quot; Kemudian Nabi s.a.w. bersabda: &quot;Bahkan sayalah -yang lebih sangat sakitnya-. Aduh kepalaku,&quot; selanjutnya disebutkanlah hadis ini sampai selengkapnya. (Riwayat Bukhari)</p><hr color=\"#FF0000\" size=\"1\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "judul": "Bab 149. Bolehnya Seorang Yang Sakit Mengatakan: \"Saya Sakit\" Atau \"Sangat Sakit\" Atau \"Panas\" Atau \"Aduh Kepalaku\" Dan Lain Sebagainya Dan Uraian Bahwasanya Tidak Ada Kemakruhan Mengatakan Sedemikian Tadi, Asalkan Tidak Karena Timbulnya Kemarahan Dan Menunjukkan Kegelisahan Sebab Sakitnya Tadi",
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 914,
+      "nomor_terjemahan": 911,
+      "arab": "عن ابن مسعود - رضي الله عنه - قَالَ: دَخَلْتُ عَلَى النَّبيِّ - صلى الله عليه وسلم - وَهُوَ يُوعَكُ، فَمَسَسْتُهُ، فَقلتُ: إنَّكَ لَتُوعَكُ وَعَكًا شَديدًا، فَقَالَ: «أجَلْ، إنِّي أُوعَكُ كَمَا يُوعَكُ رَجُلانِ مِنْكُمْ». متفقٌ عَلَيْهِ .",
+      "terjemahan": "Dari Ibnu Mas'ud r.a., katanya: \"Saya masuk ke tempat Nabi s.a.w. dan beliau di kala itu menderita penyakit panas, lalu saya memegangnya, kemudian saya berkata: \"Sesungguhnya Tuan ini benar-benar sakit panas yang sangat.\" Lalu beliau s.a.w. bersabda: \"Benar, sesungguhnya penyakit panas saya ini adalah seperti sakit panasnya dua orang diantara engkau semua -yang dijadikan satu-.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 915,
+      "nomor_terjemahan": 912,
+      "arab": "وعن سعدِ بن أَبي وقاصٍ - رضي الله عنه - قَالَ: جَاءني رسولُ الله - صلى الله عليه وسلم - يَعُودُنِي مِنْ وَجَعٍ اشْتَدَّ بِي، فقلتُ: بَلَغَ بِي مَا تَرَى، وَأنَا ذُو مَالٍ، وَلاَ يَرِثُنِي إِلاَّ ابْنَتِي .. وذَكر الحديث. متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Sa'ad bin Abu Waqqash r.a., katanya: \"Rasulullah s.a.w. datang ke tempatku untuk meninjau sewaktu saya menderita sesuatu penyakit yang sangat parah. Kemudian saya berkata: \"Telah sampai padaku penyakit sebagaimana yang Tuan maklumi ini, sedang saya adalah seorang yang berharta dan tidak ada yang akan mewarisi harta itu melainkan anak perempuan saya,\" selanjutnya disebutkanlah hadis ini sampai selengkapnya. (Muttafaq 'alaih)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 916,
+      "nomor_terjemahan": 913,
+      "arab": "وعن القاسم بن محمد، قَالَ: قالت عائشةُ رضي الله عنها: وَارَأسَاهُ! فَقَالَ النَّبيُّ - صلى الله عليه وسلم: «بَلْ أنَا، وَارَأسَاهُ!» ... وذكر الحديث. رواه البخاري.",
+      "terjemahan": "Dari Alqasim bin Muhammad, katanya: \"Aisyah radhiallahu 'anha berkata: \"Aduh kepalaku.\" Kemudian Nabi s.a.w. bersabda: \"Bahkan sayalah -yang lebih sangat sakitnya-. Aduh kepalaku,\" selanjutnya disebutkanlah hadis ini sampai selengkapnya. (Riwayat Bukhari)"
+    }
+  ]
 }

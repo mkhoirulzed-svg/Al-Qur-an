@@ -2,6 +2,16 @@
   "id": 135,
   "source_id": 135,
   "judul": "Bab 135. Sunnahnya Mengucapkan Salam Jikalau Memasuki Rumahnya",
-  "arab": "قَالَ الله تَعَالَى: {فَإذَا دَخَلْتُمْ بُيُوتًا فَسَلِّمُوا عَلَى أَنْفُسِكُمْ تَحِيَّةً مِنْ عِنْدِ اللهِ مُبَارَكَةً طَيِّبَةً} [النور: 61].<br>861 - وعن أنسٍ - رضي الله عنه - قَالَ: قَالَ لي رسول الله - صلى الله عليه وسلم: «يَا بُنَيَّ، إِذَا دَخَلْتَ عَلَى أهْلِكَ، فَسَلِّمْ، يَكُنْ بَرَكَةً عَلَيْكَ، وعلى أهْلِ بَيْتِكَ». رواه الترمذي،  وقال: «حديث حسن صحيح».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman: &quot;Maka apabila engkau semua memasuki rumah, ucapkanlah salam kepada dirimu sendiri sebagai penghormatan dari sisi Allah yang diberkahi serta yang dianggap baik sekali.&quot; (an-Nur: 61)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">858. Dari Anas r.a., katanya: &quot;Rasulullah s.a.w. bersabda kepada saya: &quot;Hai anakku, jikalau engkau masuk ke tempat keluargamu, maka ucapkanlah salam. Kalau itu engkau lakukan, maka hal itu akan menyebabkan adanya keberkahan atas dirimu sendiri dan juga atas seluruh keluarga dirumahmu.&quot; Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "قَالَ الله تَعَالَى: {فَإذَا دَخَلْتُمْ بُيُوتًا فَسَلِّمُوا عَلَى أَنْفُسِكُمْ تَحِيَّةً مِنْ عِنْدِ اللهِ مُبَارَكَةً طَيِّبَةً} [النور: 61].",
+  "pembuka_terjemahan": "Allah Ta'ala berfirman: \"Maka apabila engkau semua memasuki rumah, ucapkanlah salam kepada dirimu sendiri sebagai penghormatan dari sisi Allah yang diberkahi serta yang dianggap baik sekali.\" (an-Nur: 61)",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 861,
+      "nomor_terjemahan": 858,
+      "arab": "وعن أنسٍ - رضي الله عنه - قَالَ: قَالَ لي رسول الله - صلى الله عليه وسلم: «يَا بُنَيَّ، إِذَا دَخَلْتَ عَلَى أهْلِكَ، فَسَلِّمْ، يَكُنْ بَرَكَةً عَلَيْكَ، وعلى أهْلِ بَيْتِكَ». رواه الترمذي،  وقال: «حديث حسن صحيح».",
+      "terjemahan": "Dari Anas r.a., katanya: \"Rasulullah s.a.w. bersabda kepada saya: \"Hai anakku, jikalau engkau masuk ke tempat keluargamu, maka ucapkanlah salam. Kalau itu engkau lakukan, maka hal itu akan menyebabkan adanya keberkahan atas dirimu sendiri dan juga atas seluruh keluarga dirumahmu.\" Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih."
+    }
+  ]
 }

@@ -2,6 +2,30 @@
   "id": 88,
   "source_id": 88,
   "judul": "Bab 88. Sunnahnya Berbicara Yang Baik Dan Menunjukkan Wajah Yang Manis Ketika Bertemu",
-  "arab": "قَالَ الله تَعَالَى: {وَاخْفِضْ جَنَاحَكَ لِلْمُؤْمِنينَ} [الحجر: 88]، وقال تَعَالَى: {وَلَوْ كُنْتَ فَظًّا غَلِيظَ القَلْبِ لاَنْفَضُّوا مِنْ حَوْلِكَ} [آل عمران: 159].<br>692 - وعن عدي بن حاتمٍ - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «اتَّقُوا النَّارَ وَلَوْ بِشِقِّ تَمْرَةٍ، فَمَنْ لَمْ يَجِدْ فَبِكَلِمَةٍ طَيِّبَةٍ». متفقٌ عَلَيْهِ. \n693 - وعن أَبي هريرة - رضي الله عنه: أنَّ النبيَّ - صلى الله عليه وسلم - قَالَ: «وَالكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ». متفقٌ عَلَيْهِ،  وَهُوَ بعض حديث تقدم بطولِه.\n694 - وعن أَبي ذَرٍّ - رضي الله عنه - قَالَ: قَالَ لي رسول الله - صلى الله عليه وسلم: «لاَ تَحْقِرَنَّ مِنَ الْمَعْرُوفِ شَيْئًا، وَلَوْ أَنْ تَلْقَى أخَاكَ بوَجْهٍ طَلْقٍ». رواه مسلم .",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman: &quot;Dan tundukkanlah sayapmu -yakni bersikap merendahkan dirilah- terhadap kaum mu'minin.&quot; (al-Hijr: 88)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman pula: &quot;Andaikata engkau itu berakhlak jelek serta keras hati, sesungguhnya orang-orang itu sama lari dari sekelilingmu.&quot; (Ali-Imran: 159)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">691. Dari 'Adiy bin Hatim r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Takutlah engkau semua kepada neraka, sekalipun dengan jalan bersedekah dengan potongan kurma, maka barangsiapa yang tidak dapat menemukan itu, maka hendaklah bersedekah dengan mengucapkan perkataan yang baik.&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">692. Dari Abu Hurairah r.a. bahwasanya Nabi s.a.w. bersabda: &quot;Dan mengucapkan perkataan yang baik itu adalah merupakan sedekah.&quot; (Muttafaq 'alaih) Dan hadis ini adalah sebagian dari hadis yang lampau dengan kelengkapannya yang panjang -lihat hadis no.122-.</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">693. Dari Abu Zar r.a., katanya: &quot;Rasulullah s.a.w. bersabda kepada saya: &quot;Janganlah engkau menghinakan sesuatupun dari amal kebaikan -yakni sekalipun tampaknya kecil, janganlah tidak dilakukan-, meskipun andaikata engkau bertemu saudaramu dengan menunjukkan wajah yang manis,&quot; -atau berseri-seri tanda bersuka cita ketika bertemu itu-. (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "قَالَ الله تَعَالَى: {وَاخْفِضْ جَنَاحَكَ لِلْمُؤْمِنينَ} [الحجر: 88]، وقال تَعَالَى: {وَلَوْ كُنْتَ فَظًّا غَلِيظَ القَلْبِ لاَنْفَضُّوا مِنْ حَوْلِكَ} [آل عمران: 159].",
+  "pembuka_terjemahan": "Allah Ta'ala berfirman: \"Dan tundukkanlah sayapmu -yakni bersikap merendahkan dirilah- terhadap kaum mu'minin.\" (al-Hijr: 88) Allah Ta'ala berfirman pula: \"Andaikata engkau itu berakhlak jelek serta keras hati, sesungguhnya orang-orang itu sama lari dari sekelilingmu.\" (Ali-Imran: 159)",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 692,
+      "nomor_terjemahan": 691,
+      "arab": "وعن عدي بن حاتمٍ - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «اتَّقُوا النَّارَ وَلَوْ بِشِقِّ تَمْرَةٍ، فَمَنْ لَمْ يَجِدْ فَبِكَلِمَةٍ طَيِّبَةٍ». متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari 'Adiy bin Hatim r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Takutlah engkau semua kepada neraka, sekalipun dengan jalan bersedekah dengan potongan kurma, maka barangsiapa yang tidak dapat menemukan itu, maka hendaklah bersedekah dengan mengucapkan perkataan yang baik.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 693,
+      "nomor_terjemahan": 692,
+      "arab": "وعن أَبي هريرة - رضي الله عنه: أنَّ النبيَّ - صلى الله عليه وسلم - قَالَ: «وَالكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ». متفقٌ عَلَيْهِ،  وَهُوَ بعض حديث تقدم بطولِه.",
+      "terjemahan": "Dari Abu Hurairah r.a. bahwasanya Nabi s.a.w. bersabda: \"Dan mengucapkan perkataan yang baik itu adalah merupakan sedekah.\" (Muttafaq 'alaih) Dan hadis ini adalah sebagian dari hadis yang lampau dengan kelengkapannya yang panjang -lihat hadis no.122-."
+    },
+    {
+      "id": 3,
+      "nomor_arab": 694,
+      "nomor_terjemahan": 693,
+      "arab": "وعن أَبي ذَرٍّ - رضي الله عنه - قَالَ: قَالَ لي رسول الله - صلى الله عليه وسلم: «لاَ تَحْقِرَنَّ مِنَ الْمَعْرُوفِ شَيْئًا، وَلَوْ أَنْ تَلْقَى أخَاكَ بوَجْهٍ طَلْقٍ». رواه مسلم .",
+      "terjemahan": "Dari Abu Zar r.a., katanya: \"Rasulullah s.a.w. bersabda kepada saya: \"Janganlah engkau menghinakan sesuatupun dari amal kebaikan -yakni sekalipun tampaknya kecil, janganlah tidak dilakukan-, meskipun andaikata engkau bertemu saudaramu dengan menunjukkan wajah yang manis,\" -atau berseri-seri tanda bersuka cita ketika bertemu itu-. (Riwayat Muslim)"
+    }
+  ]
 }

@@ -2,6 +2,16 @@
   "id": 118,
   "source_id": 118,
   "judul": "Bab 118. Sunnahnya Mengenakan Baju Gamis",
-  "arab": "788 - عن أُمِّ سَلَمَة رضي الله عنها، قالت: كَانَ أحَبُّ الثِّيَابِ إِلَى رسول الله - صلى الله عليه وسلم - الْقَمِيص. رواه أَبُو داود والترمذي ، وقال: «حديث حسن».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">786. Dari Ummu Salamah radhiallahu 'anha, katanya: &quot;Pakaian yang amat dicintai oleh Rasulullah s.a.w. ialah baju gamis.&quot; Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 788,
+      "nomor_terjemahan": 786,
+      "arab": "عن أُمِّ سَلَمَة رضي الله عنها، قالت: كَانَ أحَبُّ الثِّيَابِ إِلَى رسول الله - صلى الله عليه وسلم - الْقَمِيص. رواه أَبُو داود والترمذي ، وقال: «حديث حسن».",
+      "terjemahan": "Dari Ummu Salamah radhiallahu 'anha, katanya: \"Pakaian yang amat dicintai oleh Rasulullah s.a.w. ialah baju gamis.\" Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan."
+    }
+  ]
 }

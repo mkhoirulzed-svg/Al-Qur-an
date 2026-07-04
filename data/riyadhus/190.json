@@ -2,6 +2,30 @@
   "id": 190,
   "source_id": 190,
   "judul": "Bab 190. Keutamaan Menantikan Shalat Fardhu",
-  "arab": "1061 - وعن أبي هريرة - رضي الله عنه: أنَّ رَسُول اللهِ - صلى الله عليه وسلم - قَالَ: «لا يَزَالُ أحَدُكُمْ في صَلاَةٍ مَا دَامَتِ الصَّلاَةُ تَحْبِسُهُ، لا يَمنَعُهُ أَنْ يَنقَلِبَ إلى أهلِهِ إلاَّ الصَّلاةُ». متفقٌ عَلَيْهِ. \n1062 - وعنه - رضي الله عنه: أنَّ رَسُول اللهِ - صلى الله عليه وسلم - قَالَ: «الْمَلائِكَةُ تُصَلِّي عَلَى أَحَدِكُمْ مَا دَامَ فِي مُصَلاَّهُ الَّذِي صَلَّى فِيهِ، مَا لَمْ يُحْدِثْ، تَقُولُ: اللَّهُمَّ اغْفِرْ لَهُ، اللَّهُمَّ ارْحَمْهُ». رواه البُخَارِيُّ. \n1063 - وعن أنس - رضي الله عنه: أنَّ رَسُولَ اللهِ - صلى الله عليه وسلم - أَخَّرَ لَيْلَةً صَلاَةَ العِشَاءِ إِلَى شَطْرِ اللَّيْلِ ثُمَّ أقْبَلَ عَلَيْنَا بِوَجْهِهِ بَعْدَمَا صَلَّى، فَقَالَ: «صَلَّى النَّاسُ وَرَقَدُوا، وَلَمْ تَزَالُوا في صَلاَةٍ مُنْذُ انْتَظَرْتُمُوهَا». رواه البُخَارِيُّ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1058. Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: &quot;Seseorang diantara engkau semua itu masih tetap dianggap dalam shalat, selama shalat itu menyebabkan ia tertahan. Jadi tidak ada yang menghalang-halangi ia untuk kembali ketempat keluarga itu melainkan karena menantikan shalat.&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1059. Dari Abu Hurairah r.a., pula bahwasanya Rasulullah s.a.w. bersabda: &quot;Dan malaikat itu mendoakan kepada seseorang diantara engkau semua supaya mendapatkan kerahmatan, selama orang itu masih ada di dalam tempat shalatnya yang ia shalat di situ, juga selama ia belum berhadas. Malaikat itu mengucapkan: &quot;Ya Allah, ampunilah orang itu, ya Allah, belas kasihanilah ia.&quot; (Riwayat Bukhari)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1060. Dari Anas r.a. bahwasanya Rasulullah s.a.w. mengakhirkan shalat Isya' pada suatu malam sampai ke pertengahan malam, kemudian beliau s.a.w. menghadap -kepada orang banyak- dengan wajahnya setelah selesai shalat, lalu beliau s.a.w. bersabda: &quot;Orang-orang sudah shalat dan mereka telah tidur dan engkau semua senantiasa dianggap dalam melakukan shalat, sejak engkau semua menantikan shalat itu.&quot; (Riwayat Bukhari)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1061,
+      "nomor_terjemahan": 1058,
+      "arab": "وعن أبي هريرة - رضي الله عنه: أنَّ رَسُول اللهِ - صلى الله عليه وسلم - قَالَ: «لا يَزَالُ أحَدُكُمْ في صَلاَةٍ مَا دَامَتِ الصَّلاَةُ تَحْبِسُهُ، لا يَمنَعُهُ أَنْ يَنقَلِبَ إلى أهلِهِ إلاَّ الصَّلاةُ». متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a. bahwasanya Rasulullah s.a.w. bersabda: \"Seseorang diantara engkau semua itu masih tetap dianggap dalam shalat, selama shalat itu menyebabkan ia tertahan. Jadi tidak ada yang menghalang-halangi ia untuk kembali ketempat keluarga itu melainkan karena menantikan shalat.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1062,
+      "nomor_terjemahan": 1059,
+      "arab": "وعنه - رضي الله عنه: أنَّ رَسُول اللهِ - صلى الله عليه وسلم - قَالَ: «الْمَلائِكَةُ تُصَلِّي عَلَى أَحَدِكُمْ مَا دَامَ فِي مُصَلاَّهُ الَّذِي صَلَّى فِيهِ، مَا لَمْ يُحْدِثْ، تَقُولُ: اللَّهُمَّ اغْفِرْ لَهُ، اللَّهُمَّ ارْحَمْهُ». رواه البُخَارِيُّ.",
+      "terjemahan": "Dari Abu Hurairah r.a., pula bahwasanya Rasulullah s.a.w. bersabda: \"Dan malaikat itu mendoakan kepada seseorang diantara engkau semua supaya mendapatkan kerahmatan, selama orang itu masih ada di dalam tempat shalatnya yang ia shalat di situ, juga selama ia belum berhadas. Malaikat itu mengucapkan: \"Ya Allah, ampunilah orang itu, ya Allah, belas kasihanilah ia.\" (Riwayat Bukhari)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1063,
+      "nomor_terjemahan": 1060,
+      "arab": "وعن أنس - رضي الله عنه: أنَّ رَسُولَ اللهِ - صلى الله عليه وسلم - أَخَّرَ لَيْلَةً صَلاَةَ العِشَاءِ إِلَى شَطْرِ اللَّيْلِ ثُمَّ أقْبَلَ عَلَيْنَا بِوَجْهِهِ بَعْدَمَا صَلَّى، فَقَالَ: «صَلَّى النَّاسُ وَرَقَدُوا، وَلَمْ تَزَالُوا في صَلاَةٍ مُنْذُ انْتَظَرْتُمُوهَا». رواه البُخَارِيُّ.",
+      "terjemahan": "Dari Anas r.a. bahwasanya Rasulullah s.a.w. mengakhirkan shalat Isya' pada suatu malam sampai ke pertengahan malam, kemudian beliau s.a.w. menghadap -kepada orang banyak- dengan wajahnya setelah selesai shalat, lalu beliau s.a.w. bersabda: \"Orang-orang sudah shalat dan mereka telah tidur dan engkau semua senantiasa dianggap dalam melakukan shalat, sejak engkau semua menantikan shalat itu.\" (Riwayat Bukhari)"
+    }
+  ]
 }

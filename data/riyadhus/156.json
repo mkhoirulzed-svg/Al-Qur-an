@@ -2,6 +2,30 @@
   "id": 156,
   "source_id": 156,
   "judul": "Bab 156. Sunnahnya Memperbanyakkan Orang Yang Menshalatkan Jenazah Dan Membuat Barisan-barisan Orang-orang Yang Menshalatkan Itu Menjadi Tiga Shaf -Baris- Atau Lebih",
-  "arab": "932 - عن عائشة رضي الله عنها، قالت: قَالَ رسولُ الله - صلى الله عليه وسلم: «مَا مِنْ مَيتٍ يُصَلِّي عَلَيْهِ أُمَّةٌ مِنَ المُسْلِمِينَ يَبْلُغُونَ مِئَةً كُلُّهُمْ يَشْفَعُونَ لَهُ إِلاَّ شُفِّعُوا فِيهِ». رواه مسلم. \n933 - وعن ابن عباسٍ رضي الله عنهما، قَالَ: سَمِعْتُ رسول الله - صلى الله عليه وسلم - يقول: «مَا مِنْ رَجُلٍ مُسْلِمٍ يَمُوتُ، فَيقومُ عَلَى جَنَازَتِهِ أرْبَعُونَ رَجُلًا لاَ يُشْرِكُونَ بِاللهِ شَيْئًا، إِلاَّ شَفَّعَهُمُ اللهُ فِيهِ». رواه مسلم. \n934 - وعن مرثدِ بن عبدِ الله اليَزَنِيِّ، قَالَ: كَانَ مَالِكُ بن هُبَيْرَة - رضي الله عنه - إِذَا صَلَّى عَلَى الجَنَازَةِ، فَتَقَالَّ النَّاس عَلَيْهَا، جَزَّأَهُمْ عَلَيْهَا ثَلاَثَةَ أجْزَاءٍ، ثُمَّ قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «مَنْ صَلَّى عَلَيْهِ ثَلاَثَةُ صُفُوفٍ فَقَدْ أوْجَبَ». رواه أَبُو داود والترمذي،  وقال: «حديث حسن».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">929. Dari Aisyah radhiallahu 'anha, katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Tiada seorang mayitpun yang dishalatkan oleh sesuatu umat dari kaum Muslimin yang sampai berjumlah seratus orang yang semuanya memohonkan syafaat -yakni pertolongan supaya diampuni dosa-dosanya- kepada mayit tadi, melainkan Allah akan mengabulkan permohonan syafaat mereka itu pada mayit tersebut.&quot; (Riwayat Muslim)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">930. Dari Ibnu Abbas radhiallahu 'anhuma, katanya: &quot;Saya mendengar Rasulullah s.a.w. bersabda: &quot;Tiada seorang Muslimpun yang mati, lalu jenazahnya dishalatkan oleh empat puluh orang yang semuanya tidak menyekutukan sesuatu kepada Allah, melainkan Allah akan mengabulkan permohonan syafaat orang-orang yang menshalatkan itu -yakni mohon pertolongan kepada Allah agar diampuni dosa-dosanya- bagi mayit tersebut.&quot; (Riwayat Muslim)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">931. Dari Martsad bin Abdullah al-Yazani, katanya: &quot;Malik bin Hubairah itu apabila menshalatkan jenazah dan dianggapnya sedikit orang-orang yang ikut menshalatkan itu, maka mereka itu dibaginya rnenjadi tiga bagian -yakni tiga baris-. Kemudian ia berkata: &quot;Rasulullah s.a.w. bersabda: &quot;Barangsiapa yang dishalatkan oleh tiga baris, maka ia dapat dipastikan untuk diampuni dosanya.&quot; Diriwayatkan oleh imam-imam Abu Dawud dan Tirmidzi dan ia mengatakan bahwa ia adalah hadis hasan.</p><hr color=\"#FF0000\" size=\"1\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 932,
+      "nomor_terjemahan": 929,
+      "arab": "عن عائشة رضي الله عنها، قالت: قَالَ رسولُ الله - صلى الله عليه وسلم: «مَا مِنْ مَيتٍ يُصَلِّي عَلَيْهِ أُمَّةٌ مِنَ المُسْلِمِينَ يَبْلُغُونَ مِئَةً كُلُّهُمْ يَشْفَعُونَ لَهُ إِلاَّ شُفِّعُوا فِيهِ». رواه مسلم.",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Rasulullah s.a.w. bersabda: \"Tiada seorang mayitpun yang dishalatkan oleh sesuatu umat dari kaum Muslimin yang sampai berjumlah seratus orang yang semuanya memohonkan syafaat -yakni pertolongan supaya diampuni dosa-dosanya- kepada mayit tadi, melainkan Allah akan mengabulkan permohonan syafaat mereka itu pada mayit tersebut.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 933,
+      "nomor_terjemahan": 930,
+      "arab": "وعن ابن عباسٍ رضي الله عنهما، قَالَ: سَمِعْتُ رسول الله - صلى الله عليه وسلم - يقول: «مَا مِنْ رَجُلٍ مُسْلِمٍ يَمُوتُ، فَيقومُ عَلَى جَنَازَتِهِ أرْبَعُونَ رَجُلًا لاَ يُشْرِكُونَ بِاللهِ شَيْئًا، إِلاَّ شَفَّعَهُمُ اللهُ فِيهِ». رواه مسلم.",
+      "terjemahan": "Dari Ibnu Abbas radhiallahu 'anhuma, katanya: \"Saya mendengar Rasulullah s.a.w. bersabda: \"Tiada seorang Muslimpun yang mati, lalu jenazahnya dishalatkan oleh empat puluh orang yang semuanya tidak menyekutukan sesuatu kepada Allah, melainkan Allah akan mengabulkan permohonan syafaat orang-orang yang menshalatkan itu -yakni mohon pertolongan kepada Allah agar diampuni dosa-dosanya- bagi mayit tersebut.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 934,
+      "nomor_terjemahan": 931,
+      "arab": "وعن مرثدِ بن عبدِ الله اليَزَنِيِّ، قَالَ: كَانَ مَالِكُ بن هُبَيْرَة - رضي الله عنه - إِذَا صَلَّى عَلَى الجَنَازَةِ، فَتَقَالَّ النَّاس عَلَيْهَا، جَزَّأَهُمْ عَلَيْهَا ثَلاَثَةَ أجْزَاءٍ، ثُمَّ قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «مَنْ صَلَّى عَلَيْهِ ثَلاَثَةُ صُفُوفٍ فَقَدْ أوْجَبَ». رواه أَبُو داود والترمذي،  وقال: «حديث حسن».",
+      "terjemahan": "Dari Martsad bin Abdullah al-Yazani, katanya: \"Malik bin Hubairah itu apabila menshalatkan jenazah dan dianggapnya sedikit orang-orang yang ikut menshalatkan itu, maka mereka itu dibaginya rnenjadi tiga bagian -yakni tiga baris-. Kemudian ia berkata: \"Rasulullah s.a.w. bersabda: \"Barangsiapa yang dishalatkan oleh tiga baris, maka ia dapat dipastikan untuk diampuni dosanya.\" Diriwayatkan oleh imam-imam Abu Dawud dan Tirmidzi dan ia mengatakan bahwa ia adalah hadis hasan."
+    }
+  ]
 }

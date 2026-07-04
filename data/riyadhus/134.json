@@ -2,6 +2,23 @@
   "id": 134,
   "source_id": 134,
   "judul": "Bab 134. Sunnahnya Mengulangi Salam Kepada Orang Yang Berulang Kali Pula Bertemu Dengannya Sekalipun Dalam Waktu Dekat, Seperti Ia Masuk Lalu Keluar Lalu Masuk Lagi Seketika Itu Ataupun Dihalang-halangi Oleh Pohon Dan Sebagainya Antara Kedua Orang Itu",
-  "arab": "859 - عن أَبي هريرة - رضي الله عنه - في حديثِ المسِيءِ صلاته: أنّه جَاءَ فَصَلَّى، ثُمَّ جَاءَ إِلَى النَّبيِّ - صلى الله عليه وسلم - فَسَلَّمَ عَلَيْهِ، فَرَدَّ عَلَيْهِ السَّلاَمَ، فَقَالَ: «ارْجِعْ فَصَلِّ فَإنَّكَ لَمْ تُصَلِّ» فَرَجَعَ فَصَلَّى، ثُمَّ جَاءَ فَسَلَّمَ عَلَى النَّبيِّ - صلى الله عليه وسلم - حَتَّى فَعَلَ ذَلِكَ ثَلاثَ مَرَّاتٍ. متفقٌ عَلَيْهِ. \n860 - وعنه، عن رسول الله - صلى الله عليه وسلم - قَالَ: «إِذَا لَقِيَ أَحَدُكُمْ أخَاهُ فَلْيُسَلِّمْ عَلَيْهِ، فَإنْ حَالَتْ بَيْنَهُمَا شَجَرَةٌ، أَوْ جِدَارٌ، أَوْ حَجَرٌ، ثُمَّ لَقِيَهُ، فَلْيُسَلِّمْ عَلَيْهِ». رواه أَبُو داود.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">856. Dari Abu Hurairah r.a. dalam meriwayatkan hadisnya orang yang berbuat buruk dalam shalatnya, bahwasanya orang itu datang lalu shalat, kemudian datang lagi kepada Nabi s.a.w. terus ia memberi salam kepada beliau dan beliau menjawab salamnya, selanjutnya beliau bersabda: &quot;Kembalilah shalat lagi, sebab engkau tadi sebenarnya belum shalat.&quot; Orang itu kembali lagi lalu bershalat, setelah itu datang lagi terus mengucapkan salam kepada Nabi s.a.w. sehingga ia melakukan sedemikian itu sampai tiga kali banyaknya. (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">857. Dari Abu Hurairah r.a. pula dari Rasulullah s.a.w., sabdanya: &quot;Apabila seorang diantara engkau semua bertemu saudaranya -yakni sesama Muslim-, maka hendaklah mengucapkan salam padanya. Jikalau antara keduanya itu terhalang oleh sebuah pohon, dinding atau batu kemudian bertemu lagi dengan saudaranya itu, maka hendaklah bersalam pula sekali lagi.&quot; (Riwayat Abu Dawud)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 859,
+      "nomor_terjemahan": 856,
+      "arab": "عن أَبي هريرة - رضي الله عنه - في حديثِ المسِيءِ صلاته: أنّه جَاءَ فَصَلَّى، ثُمَّ جَاءَ إِلَى النَّبيِّ - صلى الله عليه وسلم - فَسَلَّمَ عَلَيْهِ، فَرَدَّ عَلَيْهِ السَّلاَمَ، فَقَالَ: «ارْجِعْ فَصَلِّ فَإنَّكَ لَمْ تُصَلِّ» فَرَجَعَ فَصَلَّى، ثُمَّ جَاءَ فَسَلَّمَ عَلَى النَّبيِّ - صلى الله عليه وسلم - حَتَّى فَعَلَ ذَلِكَ ثَلاثَ مَرَّاتٍ. متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a. dalam meriwayatkan hadisnya orang yang berbuat buruk dalam shalatnya, bahwasanya orang itu datang lalu shalat, kemudian datang lagi kepada Nabi s.a.w. terus ia memberi salam kepada beliau dan beliau menjawab salamnya, selanjutnya beliau bersabda: \"Kembalilah shalat lagi, sebab engkau tadi sebenarnya belum shalat.\" Orang itu kembali lagi lalu bershalat, setelah itu datang lagi terus mengucapkan salam kepada Nabi s.a.w. sehingga ia melakukan sedemikian itu sampai tiga kali banyaknya. (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 860,
+      "nomor_terjemahan": 857,
+      "arab": "وعنه، عن رسول الله - صلى الله عليه وسلم - قَالَ: «إِذَا لَقِيَ أَحَدُكُمْ أخَاهُ فَلْيُسَلِّمْ عَلَيْهِ، فَإنْ حَالَتْ بَيْنَهُمَا شَجَرَةٌ، أَوْ جِدَارٌ، أَوْ حَجَرٌ، ثُمَّ لَقِيَهُ، فَلْيُسَلِّمْ عَلَيْهِ». رواه أَبُو داود.",
+      "terjemahan": "Dari Abu Hurairah r.a. pula dari Rasulullah s.a.w., sabdanya: \"Apabila seorang diantara engkau semua bertemu saudaranya -yakni sesama Muslim-, maka hendaklah mengucapkan salam padanya. Jikalau antara keduanya itu terhalang oleh sebuah pohon, dinding atau batu kemudian bertemu lagi dengan saudaranya itu, maka hendaklah bersalam pula sekali lagi.\" (Riwayat Abu Dawud)"
+    }
+  ]
 }

@@ -2,6 +2,23 @@
   "id": 366,
   "source_id": 366,
   "judul": "Bab 366. Larangan Berdiam -Tidak Berbicara Seharian Hingga Malam-",
-  "arab": "1800 - عن عليٍّ - رضي الله عنه - قَالَ: حَفِظْتُ عَنْ رَسُولِ اللهِ - صلى الله عليه وسلم: «لاَ يُتْمَ بَعْدَ احْتِلاَمٍ، وَلاَ صُمَاتَ يَومٍ إِلَى اللَّيْلِ». رواه أَبُو داود بإسناد حسن. \nقَالَ الخَطَّابِيُ  في تَفسيرِ هَذَا الحديث: كَانَ مِنْ نُسُكِ الجَاهِلِيَّةِ الصُّمَاتُ. فَنُهُوا في الإسْلاَمِ عَن ذَلِكَ وأُمِرُوا بالذِّكْرِ وَالحَدِيثِ بالخَيْرِ.\n1801 - وعن قيس بن أَبي حازم، قَالَ: دَخَلَ أَبُو بكر الصِّدِّيق - رضي الله عنه - عَلَى امْرأَةٍ مِنْ أحْمَسَ يُقَالُ لَهَا: زَيْنَبُ، فَرَآهَا لاَ تَتَكَلَّمُ. فَقَالَ: مَا لَهَا لا تتكلمُ؟ فقالوا: حَجَّتْ مصمِتةً، فقالَ لها: تَكَلَّمِي، فَإنَّ هَذَا لاَ يَحِلُّ، هَذَا مِنْ عَمَلِ الجَاهِليَّةِ، فَتَكَلَّمَتْ. رواه البخاري.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1797. Dari Ali r.a., katanya: &quot;Saya menghafal hadis dari Rasulullah s.a.w., yaitu sabdanya: &quot;Tidak ada keyatiman apabila telah bermimpi -maksudnya bila sudah akil baligh tidak disebut lagi sebagai anak yatim- dan tidak boleh berdiam -tidak berbicara- seharian hingga malam.&quot; Diriwayatkan oleh Imam Abu Dawud dengan isnad hasan. Al-Khaththabi berkata dalam menafsiri hadis ini, demikian: &quot;Termasuk golongan salah satu diantara cara ibadah di zaman Jahiliyah ialah berdiam diri -yakni tidak berbicara-. Lalu mereka itu dilarang berbuat demikian dalam Islam dan diperintah untuk berdzikir serta bercakap-cakap dengan baik-baik.&quot;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1798. Dari Qais bin Abu Hazim, katanya: &quot;Abu Bakar as-Shiddiq masuk ke tempat seorang wanita dari suku Ahmas dan bernama Zainab. Ia melihat wanita itu tidak bercakap-cakap, lalu ia berkata: &quot;Mengapa wanita itu tidak bercakap-cakap.&quot; Orang-orang berkata: &quot;Ia sengaja berdiam diri -tidak bercakap-cakap-.&quot; Kemudian Abu Bakar berkata kepada wanita itu: &quot;Berbicaralah engkau, sebab kelakuan sedemikian itu tidak halal. Ini adalah dari kelakuan orang Jahiliyah.&quot; Selanjutnya wanita itupun berbicaralah. (Riwayat Bukhari)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1800,
+      "nomor_terjemahan": 1797,
+      "arab": "عن عليٍّ - رضي الله عنه - قَالَ: حَفِظْتُ عَنْ رَسُولِ اللهِ - صلى الله عليه وسلم: «لاَ يُتْمَ بَعْدَ احْتِلاَمٍ، وَلاَ صُمَاتَ يَومٍ إِلَى اللَّيْلِ». رواه أَبُو داود بإسناد حسن. \nقَالَ الخَطَّابِيُ  في تَفسيرِ هَذَا الحديث: كَانَ مِنْ نُسُكِ الجَاهِلِيَّةِ الصُّمَاتُ. فَنُهُوا في الإسْلاَمِ عَن ذَلِكَ وأُمِرُوا بالذِّكْرِ وَالحَدِيثِ بالخَيْرِ.",
+      "terjemahan": "Dari Ali r.a., katanya: \"Saya menghafal hadis dari Rasulullah s.a.w., yaitu sabdanya: \"Tidak ada keyatiman apabila telah bermimpi -maksudnya bila sudah akil baligh tidak disebut lagi sebagai anak yatim- dan tidak boleh berdiam -tidak berbicara- seharian hingga malam.\" Diriwayatkan oleh Imam Abu Dawud dengan isnad hasan. Al-Khaththabi berkata dalam menafsiri hadis ini, demikian: \"Termasuk golongan salah satu diantara cara ibadah di zaman Jahiliyah ialah berdiam diri -yakni tidak berbicara-. Lalu mereka itu dilarang berbuat demikian dalam Islam dan diperintah untuk berdzikir serta bercakap-cakap dengan baik-baik.\""
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1801,
+      "nomor_terjemahan": 1798,
+      "arab": "وعن قيس بن أَبي حازم، قَالَ: دَخَلَ أَبُو بكر الصِّدِّيق - رضي الله عنه - عَلَى امْرأَةٍ مِنْ أحْمَسَ يُقَالُ لَهَا: زَيْنَبُ، فَرَآهَا لاَ تَتَكَلَّمُ. فَقَالَ: مَا لَهَا لا تتكلمُ؟ فقالوا: حَجَّتْ مصمِتةً، فقالَ لها: تَكَلَّمِي، فَإنَّ هَذَا لاَ يَحِلُّ، هَذَا مِنْ عَمَلِ الجَاهِليَّةِ، فَتَكَلَّمَتْ. رواه البخاري.",
+      "terjemahan": "Dari Qais bin Abu Hazim, katanya: \"Abu Bakar as-Shiddiq masuk ke tempat seorang wanita dari suku Ahmas dan bernama Zainab. Ia melihat wanita itu tidak bercakap-cakap, lalu ia berkata: \"Mengapa wanita itu tidak bercakap-cakap.\" Orang-orang berkata: \"Ia sengaja berdiam diri -tidak bercakap-cakap-.\" Kemudian Abu Bakar berkata kepada wanita itu: \"Berbicaralah engkau, sebab kelakuan sedemikian itu tidak halal. Ini adalah dari kelakuan orang Jahiliyah.\" Selanjutnya wanita itupun berbicaralah. (Riwayat Bukhari)"
+    }
+  ]
 }

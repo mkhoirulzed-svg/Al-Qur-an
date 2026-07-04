@@ -2,6 +2,30 @@
   "id": 364,
   "source_id": 364,
   "judul": "Bab 364. Haramnya Menggunakan Wadah Yang Terbuat Dari Emas Dan Wadah Dari Perak Untuk Makan, Minum, Bersuci Dan Macam-macam Penggunaan Yang Lain-lain",
-  "arab": "1795 - عن أُمِّ سلمة رَضِيَ اللهُ عنها: أنَّ رسُولَ اللهِ - صلى الله عليه وسلم - قَالَ: «الَّذِي يَشْرَبُ في آنِيَةِ الفِضَّةِ، إنَّمَا يُجَرْجِرُ  في بَطْنِهِ نَارَ جَهَنَّمَ» متفق عَلَيْهِ. \nوفي رواية لمسلم: «إنَّ الَّذِي يَأكُلُ أَوْ يَشْرَبُ في آنِيَةِ الفِضَّةِ والذَّهَبِ».\n1796 - وعن حُذَيفَةَ - رضي الله عنه - قَالَ: إنَّ النبيَّ - صلى الله عليه وسلم - نهانا عنِ الحَريِرِ، وَالدِّيبَاجِ، وَالشُّرْبِ في آنِيَةِ الذَّهَبِ وَالفِضَّةِ، وقالَ: «هُنَّ لَهُمْ في الدُّنْيَا، وَهِيَ لَكُمْ فِي الآخِرَةِ». متفق عَلَيْهِ. \nوفي رواية في الصحيحين عن حُذيْفَةَ - رضي الله عنه: سَمِعْتُ رسولَ الله - صلى الله عليه وسلم - يقولُ: «لاَ تَلْبسُوا الحَرِيرَ وَلاَ الدِّيبَاجَ، وَلاَ تَشْرَبُوا فِي آنِيَةِ الذَّهَبِ وَالفِضَّةِ وَلاَ تَأكُلُوا في صِحَافِهَا».\n1797 - وعن أنس بن سِيِرين، قَالَ: كنتُ مَعَ أنس بن مالك - رضي الله عنه - عِنْدَ نَفَرٍ مِنَ المَجُوسِ؛ فَجِيءَ بفَالُوذَجٍ  عَلَى إنَاءٍ مِنْ فِضَّةٍ، فَلَمْ يَأَكُلْهُ، فَقِيلَ لَهُ: حَوِّلْهُ، فَحَوَّلَهُ عَلَى إناءٍ مِنْ خَلَنْجٍ وَجِيءَ بِهِ فَأَكَلَهُ. رواه البيهقي بإسناد حسن. \n«الخَلَنْج»: الجفْنَةُ .",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1792. Dari Ummu Salamah radhiallahu 'anha bahwasanya Rasulullah s.a.w. bersabda: &quot;Seseorang yang minum dari wadah yang terbuat dari perak itu, sesungguhnya ia memasukkan api neraka Jahanam dalam perutnya.&quot; (Muttafaq 'alaih) Dalam riwayat Imam Muslim disebutkan &quot;Sesungguhnya orang yang makan atau minum dalam wadah yang terbuat dari emas dan perak itu sebenarnya memasukkan api Jahanam dalam perutnya.&quot; </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1793. Dari Hudzaifah r.a., katanya: &quot;Sesungguhnya Nabi s.a.w. itu melarang kita dari mengenakan sutera tebal dan sutera tipis, juga minum dalam wadah yang terbuat dari emas dan perak.&quot; Selanjutnya beliau s.a.w. bersabda: &quot;Semuanya itu untuk mereka -orang-orang kafir- di dunia dan untukmu semua nanti di akhirat.&quot; (Muttafaq 'alaih) Dalam riwayat Shahih-shahih Imam-imam Bukhari dan Muslim dari Hudzaifah r.a., katanya: &quot;Saya mendengar Rasulullah s.a.w. bersabda: &quot;Janganlah engkau semua mengenakan sutera tebal atau sutera tipis dan janganlah pula engkau semua minum dari wadah yang terbuat dari emas dan perak dan janganlah makan dari piring emas dan perak itu.&quot;</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1795,
+      "nomor_terjemahan": 1792,
+      "arab": "عن أُمِّ سلمة رَضِيَ اللهُ عنها: أنَّ رسُولَ اللهِ - صلى الله عليه وسلم - قَالَ: «الَّذِي يَشْرَبُ في آنِيَةِ الفِضَّةِ، إنَّمَا يُجَرْجِرُ  في بَطْنِهِ نَارَ جَهَنَّمَ» متفق عَلَيْهِ. \nوفي رواية لمسلم: «إنَّ الَّذِي يَأكُلُ أَوْ يَشْرَبُ في آنِيَةِ الفِضَّةِ والذَّهَبِ».",
+      "terjemahan": "Dari Ummu Salamah radhiallahu 'anha bahwasanya Rasulullah s.a.w. bersabda: \"Seseorang yang minum dari wadah yang terbuat dari perak itu, sesungguhnya ia memasukkan api neraka Jahanam dalam perutnya.\" (Muttafaq 'alaih) Dalam riwayat Imam Muslim disebutkan \"Sesungguhnya orang yang makan atau minum dalam wadah yang terbuat dari emas dan perak itu sebenarnya memasukkan api Jahanam dalam perutnya.\""
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1796,
+      "nomor_terjemahan": 1793,
+      "arab": "وعن حُذَيفَةَ - رضي الله عنه - قَالَ: إنَّ النبيَّ - صلى الله عليه وسلم - نهانا عنِ الحَريِرِ، وَالدِّيبَاجِ، وَالشُّرْبِ في آنِيَةِ الذَّهَبِ وَالفِضَّةِ، وقالَ: «هُنَّ لَهُمْ في الدُّنْيَا، وَهِيَ لَكُمْ فِي الآخِرَةِ». متفق عَلَيْهِ. \nوفي رواية في الصحيحين عن حُذيْفَةَ - رضي الله عنه: سَمِعْتُ رسولَ الله - صلى الله عليه وسلم - يقولُ: «لاَ تَلْبسُوا الحَرِيرَ وَلاَ الدِّيبَاجَ، وَلاَ تَشْرَبُوا فِي آنِيَةِ الذَّهَبِ وَالفِضَّةِ وَلاَ تَأكُلُوا في صِحَافِهَا».",
+      "terjemahan": "Dari Hudzaifah r.a., katanya: \"Sesungguhnya Nabi s.a.w. itu melarang kita dari mengenakan sutera tebal dan sutera tipis, juga minum dalam wadah yang terbuat dari emas dan perak.\" Selanjutnya beliau s.a.w. bersabda: \"Semuanya itu untuk mereka -orang-orang kafir- di dunia dan untukmu semua nanti di akhirat.\" (Muttafaq 'alaih) Dalam riwayat Shahih-shahih Imam-imam Bukhari dan Muslim dari Hudzaifah r.a., katanya: \"Saya mendengar Rasulullah s.a.w. bersabda: \"Janganlah engkau semua mengenakan sutera tebal atau sutera tipis dan janganlah pula engkau semua minum dari wadah yang terbuat dari emas dan perak dan janganlah makan dari piring emas dan perak itu.\""
+    },
+    {
+      "id": 3,
+      "nomor_arab": 1797,
+      "nomor_terjemahan": null,
+      "arab": "وعن أنس بن سِيِرين، قَالَ: كنتُ مَعَ أنس بن مالك - رضي الله عنه - عِنْدَ نَفَرٍ مِنَ المَجُوسِ؛ فَجِيءَ بفَالُوذَجٍ  عَلَى إنَاءٍ مِنْ فِضَّةٍ، فَلَمْ يَأَكُلْهُ، فَقِيلَ لَهُ: حَوِّلْهُ، فَحَوَّلَهُ عَلَى إناءٍ مِنْ خَلَنْجٍ وَجِيءَ بِهِ فَأَكَلَهُ. رواه البيهقي بإسناد حسن. \n«الخَلَنْج»: الجفْنَةُ .",
+      "terjemahan": ""
+    }
+  ]
 }

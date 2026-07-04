@@ -2,6 +2,30 @@
   "id": 137,
   "source_id": 137,
   "judul": "Bab 137. Salamnya Seorang Lelaki Kepada Istrinya Dan Wanita Yang Menjadi Mahramnya Atau Kepada Orang Lain -Yakni Bukan Istri Atau Mahram-, Sendiri atauBanyak Yang Tidak Dikhawatirkan Timbulnya FitnahDengan Mereka Itu, Demikian Pula Salam KaumWanita Itu Pada lelaki Dengan Syarat TidakMenimbulkan Fitnah",
-  "arab": "863 - عن سهل بن سعدٍ - رضي الله عنه - قال: كَانَتْ فِينَا امْرَأةٌ - وفي رواية: كَانَتْ لَنَا عَجُوزٌ - تَأخُذُ مِنْ أصُولِ السِّلْقِ فَتَطْرَحُهُ فِي القِدْرِ، وَتُكَرْكِرُ حَبَّاتٍ مِنْ شَعِيرٍ، فَإذَا صَلَّيْنَا الْجُمُعَةَ، وَانْصَرَفْنَا، نُسَلِّمُ عَلَيْهَا، فَتُقَدِّمُهُ إلَيْنَا. رواه البخاري. \nقَوْله: «تُكَرْكِرُ» أيْ: تَطْحَنُ.\n864 - وعن أُم هَانِىءٍ فاخِتَةَ بنتِ أَبي طالب رضي الله عنها، قالت: أتيت النبيَّ - صلى الله عليه وسلم - يَوْمَ الفَتْحِ وَهُوَ يَغْتَسِلُ، وَفَاطِمَةُ تَسْتُرُهُ بِثَوْبٍ، فَسَلَّمْتُ ... وَذَكَرَتِ الحديث. رواه مسلم. \n865 - وعن أسماءَ بنتِ يزيدَ رضي الله عنها، قالت: مَرّ عَلَيْنَا النّبيُّ - صلى الله عليه وسلم - فِي نِسوَةٍ فَسَلَّمَ عَلَيْنَا. رواه أَبُو داود والترمذي،  وقال: «حديث حسن»، وهذا لفظ أَبي داود.\nولفظ الترمذي: أنَّ رسول الله - صلى الله عليه وسلم - مَرَّ في المَسْجِدِ يَوْمًا، وَعُصْبَةٌ مِنَ النِّسَاءِ قُعُودٌ، فَأَلْوَى بِيَدِهِ بالتَّسْلِيمِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">860. Dari Sahl bin Sa'ad r.a., katanya: &quot;Di rumah kita ada seorang wanita, atau dalam riwayat lain disebutkan: &quot;Kita mempunyai seorang wanita yang sudah tua. Ia mengambil dari pokok tanaman sayur bernama silik lalu sayur itu diletakkan olehnya dalam kuali dan ia menumbuk biji-bijian gandum. Maka jikalau kita semua telah selesai melakukan shalat Jumaat, kitapun pulanglah lalu kita mengucapkan salam pada wanita tadi, kemudian ia menghidangkan makanan yang dimasaknya itu pada kita.&quot; (Riwayat Bukhari) Tukarkiru artinya menumbuk.</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">861. Dari Ummu Hani' yaitu Fakhitah binti Abu Thalib radhiallahu'anha, katanya: &quot;Saya datang di tempat Nabi s.a.w. pada hari penaklukan kota Makkah dan beliau s.a.w. sedang mandi, sedang Fathimah menutupinya, kemudian saya mengucapkan salam padanya,&quot; dan selanjutnya Fakhitah menyebutkan kelanjutan hadis ini sampai selesai. (Riwayat Muslim)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">862. Dari Asma' binti Yazid radhiallahu 'anha, katanya: &quot;Nabi s.a.w. berjalan melalui kita, yaitu kelompok kaum wanita, lalu beliau s.a.w. mengucapkan salam kepada kita.&quot; Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi dan Tirmidzi mengatakan bahwa ini adalah hadis hasan. Ini adalah lafaznya Imam Abu Dawud. Adapun lafaznya Imam Tirmidzi ialah: Bahwasanya Rasulullah s.a.w. berjalan dalam masjid pada suatu hari melalui sekelompok kaum wanita yang sedang duduk-duduk, lalu beliau s.a.w. memberikan isyarat dengan tangannya dengan disertai ucapan salam.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 3,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 863,
+      "nomor_terjemahan": 860,
+      "arab": "عن سهل بن سعدٍ - رضي الله عنه - قال: كَانَتْ فِينَا امْرَأةٌ - وفي رواية: كَانَتْ لَنَا عَجُوزٌ - تَأخُذُ مِنْ أصُولِ السِّلْقِ فَتَطْرَحُهُ فِي القِدْرِ، وَتُكَرْكِرُ حَبَّاتٍ مِنْ شَعِيرٍ، فَإذَا صَلَّيْنَا الْجُمُعَةَ، وَانْصَرَفْنَا، نُسَلِّمُ عَلَيْهَا، فَتُقَدِّمُهُ إلَيْنَا. رواه البخاري. \nقَوْله: «تُكَرْكِرُ» أيْ: تَطْحَنُ.",
+      "terjemahan": "Dari Sahl bin Sa'ad r.a., katanya: \"Di rumah kita ada seorang wanita, atau dalam riwayat lain disebutkan: \"Kita mempunyai seorang wanita yang sudah tua. Ia mengambil dari pokok tanaman sayur bernama silik lalu sayur itu diletakkan olehnya dalam kuali dan ia menumbuk biji-bijian gandum. Maka jikalau kita semua telah selesai melakukan shalat Jumaat, kitapun pulanglah lalu kita mengucapkan salam pada wanita tadi, kemudian ia menghidangkan makanan yang dimasaknya itu pada kita.\" (Riwayat Bukhari) Tukarkiru artinya menumbuk."
+    },
+    {
+      "id": 2,
+      "nomor_arab": 864,
+      "nomor_terjemahan": 861,
+      "arab": "وعن أُم هَانِىءٍ فاخِتَةَ بنتِ أَبي طالب رضي الله عنها، قالت: أتيت النبيَّ - صلى الله عليه وسلم - يَوْمَ الفَتْحِ وَهُوَ يَغْتَسِلُ، وَفَاطِمَةُ تَسْتُرُهُ بِثَوْبٍ، فَسَلَّمْتُ ... وَذَكَرَتِ الحديث. رواه مسلم.",
+      "terjemahan": "Dari Ummu Hani' yaitu Fakhitah binti Abu Thalib radhiallahu'anha, katanya: \"Saya datang di tempat Nabi s.a.w. pada hari penaklukan kota Makkah dan beliau s.a.w. sedang mandi, sedang Fathimah menutupinya, kemudian saya mengucapkan salam padanya,\" dan selanjutnya Fakhitah menyebutkan kelanjutan hadis ini sampai selesai. (Riwayat Muslim)"
+    },
+    {
+      "id": 3,
+      "nomor_arab": 865,
+      "nomor_terjemahan": 862,
+      "arab": "وعن أسماءَ بنتِ يزيدَ رضي الله عنها، قالت: مَرّ عَلَيْنَا النّبيُّ - صلى الله عليه وسلم - فِي نِسوَةٍ فَسَلَّمَ عَلَيْنَا. رواه أَبُو داود والترمذي،  وقال: «حديث حسن»، وهذا لفظ أَبي داود.\nولفظ الترمذي: أنَّ رسول الله - صلى الله عليه وسلم - مَرَّ في المَسْجِدِ يَوْمًا، وَعُصْبَةٌ مِنَ النِّسَاءِ قُعُودٌ، فَأَلْوَى بِيَدِهِ بالتَّسْلِيمِ.",
+      "terjemahan": "Dari Asma' binti Yazid radhiallahu 'anha, katanya: \"Nabi s.a.w. berjalan melalui kita, yaitu kelompok kaum wanita, lalu beliau s.a.w. mengucapkan salam kepada kita.\" Diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi dan Tirmidzi mengatakan bahwa ini adalah hadis hasan. Ini adalah lafaznya Imam Abu Dawud. Adapun lafaznya Imam Tirmidzi ialah: Bahwasanya Rasulullah s.a.w. berjalan dalam masjid pada suatu hari melalui sekelompok kaum wanita yang sedang duduk-duduk, lalu beliau s.a.w. memberikan isyarat dengan tangannya dengan disertai ucapan salam."
+    }
+  ]
 }

@@ -2,6 +2,23 @@
   "id": 176,
   "source_id": 176,
   "judul": "Bab 176. Sunnahnya Datang Di Tempat Keluarganya Di Waktu Siang Dan Makruhnya Datang Di Waktu Malam, Jikalau Tidak Ada Keperluan Penting",
-  "arab": "985 - عن جابر - رضي الله عنه: أنَّ رسولَ الله - صلى الله عليه وسلم - قَالَ: «إِذَا أطال أحَدُكُمُ الغَيْبَةَ فَلاَ يَطْرُقَنَّ أهْلَهُ لَيْلًا».\nوفي روايةٍ: أنَّ رسول الله - صلى الله عليه وسلم - نَهَى أَنْ يَطْرُقَ الرَّجُلُ أهْلَهُ لَيْلًا. متفقٌ عَلَيْهِ. \n986 - وعن أنسٍ - رضي الله عنه - قَالَ: كَانَ رسولُ الله - صلى الله عليه وسلم - لا يَطْرُقُ أهْلَهُ لَيْلًا، وَكَانَ يَأتِيهمْ غُدْوَةً أَوْ عَشِيَّةً. متفقٌ عَلَيْهِ. \n«الطُّرُوقُ»: المَجيءُ فِي اللَّيْلِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">982. Dari Jabir r.a. bahwasanya Rasulullah s.a.w. bersabda: &quot;Jikalau seorang diantara engkau semua itu telah lama tidak ada -yakni lama dalam berpergian-, maka janganlah datang di tempat keluarganya di waktu malam.&quot; Dalam riwayat lain disebutkan: &quot;Bahwasanya Rasulullah s.a.w. itu melarang kalau seorang lelaki itu datang di tempat keluarganya -dari berpergian- di waktu malam.&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">983. Dari Anas r.a., katanya: &quot;Rasulullah s.a.w. itu tidak pernah datang di tempat keluarganya di waktu malam. Beliau s.a.w. datang di tempat mereka di waktu pagi atau petang.&quot; (Muttafaq 'alaih) Aththuruq ialah datang di waktu malam.</p><hr color=\"#FF0000\" size=\"1\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 985,
+      "nomor_terjemahan": 982,
+      "arab": "عن جابر - رضي الله عنه: أنَّ رسولَ الله - صلى الله عليه وسلم - قَالَ: «إِذَا أطال أحَدُكُمُ الغَيْبَةَ فَلاَ يَطْرُقَنَّ أهْلَهُ لَيْلًا».\nوفي روايةٍ: أنَّ رسول الله - صلى الله عليه وسلم - نَهَى أَنْ يَطْرُقَ الرَّجُلُ أهْلَهُ لَيْلًا. متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Jabir r.a. bahwasanya Rasulullah s.a.w. bersabda: \"Jikalau seorang diantara engkau semua itu telah lama tidak ada -yakni lama dalam berpergian-, maka janganlah datang di tempat keluarganya di waktu malam.\" Dalam riwayat lain disebutkan: \"Bahwasanya Rasulullah s.a.w. itu melarang kalau seorang lelaki itu datang di tempat keluarganya -dari berpergian- di waktu malam.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 986,
+      "nomor_terjemahan": 983,
+      "arab": "وعن أنسٍ - رضي الله عنه - قَالَ: كَانَ رسولُ الله - صلى الله عليه وسلم - لا يَطْرُقُ أهْلَهُ لَيْلًا، وَكَانَ يَأتِيهمْ غُدْوَةً أَوْ عَشِيَّةً. متفقٌ عَلَيْهِ. \n«الطُّرُوقُ»: المَجيءُ فِي اللَّيْلِ.",
+      "terjemahan": "Dari Anas r.a., katanya: \"Rasulullah s.a.w. itu tidak pernah datang di tempat keluarganya di waktu malam. Beliau s.a.w. datang di tempat mereka di waktu pagi atau petang.\" (Muttafaq 'alaih) Aththuruq ialah datang di waktu malam."
+    }
+  ]
 }

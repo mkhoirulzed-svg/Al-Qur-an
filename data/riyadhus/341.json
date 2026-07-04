@@ -2,6 +2,23 @@
   "id": 341,
   "source_id": 341,
   "judul": "Bab 341. Makruhnya Menoleh Dalam Shalat Tanpa Adanya Uzur",
-  "arab": "1755 - عن عائشة رَضِيَ اللهُ عنها، قالت: سألت رسُولَ الله - صلى الله عليه وسلم - عَنِ الالتفَاتِ في الصَّلاَةِ، فَقَالَ: «هُوَ اخْتِلاَسٌ  يَخْتَلِسُهُ الشَّيْطَانُ مِنْ صَلاَةِ العَبْدِ». رواه البخاري .\n1756 - وعن أنس - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «إيَّاكَ والالتِفَاتَ فِي الصَّلاَةِ، فَإنَّ الالتفَاتَ في الصَّلاَةِ هَلَكَةٌ، فَإنْ كَانَ لاَ بُدَّ، فَفِي التَّطَوُّعِ لاَ في الفَريضَةِ». رواه الترمذي،  وقال: «حديث حسن صحيح».",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1752. Dari Aisyah radhiallahu 'anha, katanya: &quot;Saya bertanya kepada Rasulullah s.a.w. perihal menoleh di waktu shalat, lalu beliau s.a.w. bersabda: &quot;Menoleh itu adalah sambaran karena lengah yang dilakukan oleh syaitan dengan cara penyambaran yang cepat sekali dalam shalatnya seorang hamba.&quot; (Riwayat Bukhari)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1753. Dari Anas r.a., katanya: &quot;Rasulullah s.a.w. bersabda kepada saya: &quot;Takutlah engkau akan menoleh di waktu shalat, sebab sesungguhnya menoleh di waktu shalat itu menyebabkan kerusakan. Jikalau terpaksa harus menoleh, maka lakukanlah dalam shalat sunnah saja, jangan dalam shalat fardhu.&quot; Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih. [<a href=\"dhaif_riyadhus_shalihin/Bab341.htm\">Baca Status Hadis Disini</a>]</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1755,
+      "nomor_terjemahan": 1752,
+      "arab": "عن عائشة رَضِيَ اللهُ عنها، قالت: سألت رسُولَ الله - صلى الله عليه وسلم - عَنِ الالتفَاتِ في الصَّلاَةِ، فَقَالَ: «هُوَ اخْتِلاَسٌ  يَخْتَلِسُهُ الشَّيْطَانُ مِنْ صَلاَةِ العَبْدِ». رواه البخاري .",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Saya bertanya kepada Rasulullah s.a.w. perihal menoleh di waktu shalat, lalu beliau s.a.w. bersabda: \"Menoleh itu adalah sambaran karena lengah yang dilakukan oleh syaitan dengan cara penyambaran yang cepat sekali dalam shalatnya seorang hamba.\" (Riwayat Bukhari)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1756,
+      "nomor_terjemahan": 1753,
+      "arab": "وعن أنس - رضي الله عنه - قَالَ: قَالَ رسولُ اللهِ - صلى الله عليه وسلم: «إيَّاكَ والالتِفَاتَ فِي الصَّلاَةِ، فَإنَّ الالتفَاتَ في الصَّلاَةِ هَلَكَةٌ، فَإنْ كَانَ لاَ بُدَّ، فَفِي التَّطَوُّعِ لاَ في الفَريضَةِ». رواه الترمذي،  وقال: «حديث حسن صحيح».",
+      "terjemahan": "Dari Anas r.a., katanya: \"Rasulullah s.a.w. bersabda kepada saya: \"Takutlah engkau akan menoleh di waktu shalat, sebab sesungguhnya menoleh di waktu shalat itu menyebabkan kerusakan. Jikalau terpaksa harus menoleh, maka lakukanlah dalam shalat sunnah saja, jangan dalam shalat fardhu.\" Diriwayatkan oleh Imam Tirmidzi dan ia mengatakan bahwa ini adalah hadis hasan shahih. [ Baca Status Hadis Disini ]"
+    }
+  ]
 }

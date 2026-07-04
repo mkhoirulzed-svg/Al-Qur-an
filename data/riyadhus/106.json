@@ -2,6 +2,16 @@
   "id": 106,
   "source_id": 106,
   "judul": "Bab 106. Apa-apa Yang Diucapkan Dan Dilakukan Oleh Orang Yang Makan Dan Tidak Sampai Kenyang",
-  "arab": "742 - عن وَحْشِيِّ بن حرب - رضي الله عنه: أنَّ أصحابَ رسولِ الله - صلى الله عليه وسلم - قالوا: يَا رسولَ اللهِ، إنَّا نَأكُلُ وَلاَ نَشْبَعُ؟ قَالَ: «فَلَعَلَّكُمْ تَفْتَرِقُونَ» قالوا: نَعَمْ. قَالَ: «فَاجْتَمِعُوا عَلَى طَعَامِكُمْ، وَاذْكُرُوا اسْمَ اللهِ، يُبَارَكْ لَكُمْ فِيهِ». رواه أَبُو داود.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">740. Dari Wahsyi bin Harb r.a. bahwasanya para sahabat Rasulullah s.a.w. berkata; &quot;Ya Rasulullah, sesungguhnya kita semua ini makan dan tidak kenyang.&quot; Beliau s.a.w. bersabda: &quot;Barangkali engkau semua berpisah-pisah -dalam makan itu-.&quot; Mereka menjawab: &quot;Ya.&quot; Beliau s.a.w. bersabda lagi: &quot;Maka dari itu berkumpullah engkau semua kepada makananmu itu dan sebutkanlah nama Allah -yakni bacalah Bismillah-, tentu akan diberkahi dalam makanan itu.&quot; (Riwayat Abu Dawud) Maksudnya makannya bersama dalam satu piring atau nampan.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 742,
+      "nomor_terjemahan": 740,
+      "arab": "عن وَحْشِيِّ بن حرب - رضي الله عنه: أنَّ أصحابَ رسولِ الله - صلى الله عليه وسلم - قالوا: يَا رسولَ اللهِ، إنَّا نَأكُلُ وَلاَ نَشْبَعُ؟ قَالَ: «فَلَعَلَّكُمْ تَفْتَرِقُونَ» قالوا: نَعَمْ. قَالَ: «فَاجْتَمِعُوا عَلَى طَعَامِكُمْ، وَاذْكُرُوا اسْمَ اللهِ، يُبَارَكْ لَكُمْ فِيهِ». رواه أَبُو داود.",
+      "terjemahan": "Dari Wahsyi bin Harb r.a. bahwasanya para sahabat Rasulullah s.a.w. berkata; \"Ya Rasulullah, sesungguhnya kita semua ini makan dan tidak kenyang.\" Beliau s.a.w. bersabda: \"Barangkali engkau semua berpisah-pisah -dalam makan itu-.\" Mereka menjawab: \"Ya.\" Beliau s.a.w. bersabda lagi: \"Maka dari itu berkumpullah engkau semua kepada makananmu itu dan sebutkanlah nama Allah -yakni bacalah Bismillah-, tentu akan diberkahi dalam makanan itu.\" (Riwayat Abu Dawud) Maksudnya makannya bersama dalam satu piring atau nampan."
+    }
+  ]
 }

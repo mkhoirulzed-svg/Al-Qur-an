@@ -2,6 +2,16 @@
   "id": 275,
   "source_id": 275,
   "judul": "Bab 275. Haramnya Menodai Nasab -Menghina Keturunan- Yang Terang Menurut Zahirnya Syara'",
-  "arab": "قَالَ الله تَعَالَى: {والَّذِينَ يُؤْذُونَ المُؤْمِنِينَ والمُؤْمِنَاتِ بِغَيْرِ مَا اكْتَسَبُوا فَقَدِ احْتَمَلُوا بُهْتانًا وإثْمًا مُبِينًا} [الأحزاب: 58]<br>1578 - وعن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «اثْنَتَان في النَّاسِ هُمَا بِهِم كُفْرٌ: الطَّعْنُ فِي النَّسَبِ، وَالنِّيَاحَةُ عَلَى المَيِّتِ» . رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman: &quot;Dan orang-orang yang menyakiti orang-orang yang beriman, lelaki atau perempuan, tanpa adanya sesuatu yang mereka perbuat, maka orang-orang yang menyakiti itu benar-benar telah menanggung kedustaan dan dosa yang nyata.&quot; (al-Ahzab: 58) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1575. Dari Abu Hurairah r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Ada dua perkara di kalangan para manusia yang keduanya itu menyebabkan kekafiran pada mereka -jika dikerjakan dengan sengaja dan mengetahui akan keharamannya-, yaitu: menodai keturunan -menghina nasab- dan menangis dengan suara keras-keras kepada mayat.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "قَالَ الله تَعَالَى: {والَّذِينَ يُؤْذُونَ المُؤْمِنِينَ والمُؤْمِنَاتِ بِغَيْرِ مَا اكْتَسَبُوا فَقَدِ احْتَمَلُوا بُهْتانًا وإثْمًا مُبِينًا} [الأحزاب: 58]",
+  "pembuka_terjemahan": "Allah Ta'ala berfirman: \"Dan orang-orang yang menyakiti orang-orang yang beriman, lelaki atau perempuan, tanpa adanya sesuatu yang mereka perbuat, maka orang-orang yang menyakiti itu benar-benar telah menanggung kedustaan dan dosa yang nyata.\" (al-Ahzab: 58)",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1578,
+      "nomor_terjemahan": 1575,
+      "arab": "وعن أَبي هريرة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «اثْنَتَان في النَّاسِ هُمَا بِهِم كُفْرٌ: الطَّعْنُ فِي النَّسَبِ، وَالنِّيَاحَةُ عَلَى المَيِّتِ» . رواه مسلم.",
+      "terjemahan": "Dari Abu Hurairah r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Ada dua perkara di kalangan para manusia yang keduanya itu menyebabkan kekafiran pada mereka -jika dikerjakan dengan sengaja dan mengetahui akan keharamannya-, yaitu: menodai keturunan -menghina nasab- dan menangis dengan suara keras-keras kepada mayat.\" (Riwayat Muslim)"
+    }
+  ]
 }

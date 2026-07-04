@@ -2,6 +2,23 @@
   "id": 208,
   "source_id": 208,
   "judul": "Bab 208. Anjuran Melakukan Shalat Sunnah Tahiyatul Masjid -Menghormat Masjid- Dua Rakaat Dan Makruhnya Duduk Sebelum Shalat Dua Rakaat, Di Waktu Manapun juga Masuknya Masjid Itu Dan Sama Halnya, Apakah Shalat Dua Rakaat Tadi Dengan Niat Tahiyat, Shalat Fardhu, Sunnah Rawatib Dan Lain-lainnya",
-  "arab": "1144 - عن أَبي قتادة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «إِذَا دَخَلَ أحَدُكُمُ المَسْجِدَ، فَلاَ يَجْلِسْ حَتَّى يُصَلِّي رَكْعَتَيْنِ». متفقٌ عَلَيْهِ. \n1145 - وعن جابرٍ - رضي الله عنه - قَالَ: أَتَيْتُ النَّبيَّ - صلى الله عليه وسلم - وَهُوَ في المَسْجِدِ، فَقَالَ: «صَلِّ رَكْعَتَيْنِ». متفقٌ عَلَيْهِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1141. Dari Abu Qatadah r.a., katanya: &quot;Rasulullah s.a.w. bersabda: &quot;Jikalau salah seorang diantara engkau semua itu masuk masjid, maka janganlah duduk dulu sebelum shalat dua rakaat.&quot; (Muttafaq 'alaih)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1142. Dari Jabir r.a., katanya: &quot;Saya mendatangi Nabi s.a.w. dan ia berada di masjid, lalu beliau s.a.w. bersabda: &quot;Bershalatlah dua rakaat.&quot; (Muttafaq 'alaih)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1144,
+      "nomor_terjemahan": 1141,
+      "arab": "عن أَبي قتادة - رضي الله عنه - قَالَ: قَالَ رسول الله - صلى الله عليه وسلم: «إِذَا دَخَلَ أحَدُكُمُ المَسْجِدَ، فَلاَ يَجْلِسْ حَتَّى يُصَلِّي رَكْعَتَيْنِ». متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Abu Qatadah r.a., katanya: \"Rasulullah s.a.w. bersabda: \"Jikalau salah seorang diantara engkau semua itu masuk masjid, maka janganlah duduk dulu sebelum shalat dua rakaat.\" (Muttafaq 'alaih)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1145,
+      "nomor_terjemahan": 1142,
+      "arab": "وعن جابرٍ - رضي الله عنه - قَالَ: أَتَيْتُ النَّبيَّ - صلى الله عليه وسلم - وَهُوَ في المَسْجِدِ، فَقَالَ: «صَلِّ رَكْعَتَيْنِ». متفقٌ عَلَيْهِ.",
+      "terjemahan": "Dari Jabir r.a., katanya: \"Saya mendatangi Nabi s.a.w. dan ia berada di masjid, lalu beliau s.a.w. bersabda: \"Bershalatlah dua rakaat.\" (Muttafaq 'alaih)"
+    }
+  ]
 }

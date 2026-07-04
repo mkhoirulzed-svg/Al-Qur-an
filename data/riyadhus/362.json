@@ -2,6 +2,16 @@
   "id": 362,
   "source_id": 362,
   "judul": "Bab 362. Memperkeras Keharamannya Sihir",
-  "arab": "قَالَ الله تَعَالَى: {وَمَا كَفَرَ سُلَيْمَانُ وَلكِنَّ الشَّيَاطِينَ كَفَرُوا يُعَلِّمُونَ النَّاسَ السِّحْرَ} [البقرة: 102].<br>1793 - وعن أَبي هريرة - رضي الله عنه - عن النَّبيّ - صلى الله عليه وسلم - قَالَ: «اجْتَنِبُوا السَّبْعَ الْمُوبِقَاتِ». قالوا: يَا رسولَ اللهِ، وَمَا هُنَّ؟ قَالَ: «الشِّرْكُ باللهِ، وَالسِّحْرُ، وَقَتْلُ النَّفْسِ الَّتي حَرَّمَ اللهُ إِلاَّ بِالحَقِّ، وأكْلُ الرِّبَا، وأكْلُ مَالِ اليَتِيمِ، وَالتَّوَلِّي يَوْمَ الزَّحْفِ؛ وَقَذْفُ المُحْصَنَاتِ المُؤْمِنَاتِ الغَافِلاَتِ». متفق عَلَيْهِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman: &quot;Sulaiman itu tidaklah kafir, tetapi syaitan-syaitan itulah yang kafir, mereka mengajarkan sihir kepada seluruh manusia,&quot; sampai habisnya ayat. (al-Baqarah: 102) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1790. Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: &quot;Jauhilah olehmu semua akan tujuh hal yang merusak.&quot; Para sahabat bertanya: &quot;Ya Rasulullah, apakah tujuh macam hal yang merusak itu?&quot; Beliau s.a.w. bersabda: &quot;Yaitu menyekutukan sesuatu dengan Allah, sihir, membunuh jiwa yang diharamkan oleh Allah, melainkan dengan dasar kebenaran -menurut ketentuan-ketentuan Agama Islam-, makan harta riba, makan harta anak yatim, mundur ke belakang di saat berkecamuknya peperangan serta mendakwa zina kepada wanita mu'min yang telah bersuami.&quot; (Muttafaq 'alaih)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "قَالَ الله تَعَالَى: {وَمَا كَفَرَ سُلَيْمَانُ وَلكِنَّ الشَّيَاطِينَ كَفَرُوا يُعَلِّمُونَ النَّاسَ السِّحْرَ} [البقرة: 102].",
+  "pembuka_terjemahan": "Allah Ta'ala berfirman: \"Sulaiman itu tidaklah kafir, tetapi syaitan-syaitan itulah yang kafir, mereka mengajarkan sihir kepada seluruh manusia,\" sampai habisnya ayat. (al-Baqarah: 102)",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1793,
+      "nomor_terjemahan": 1790,
+      "arab": "وعن أَبي هريرة - رضي الله عنه - عن النَّبيّ - صلى الله عليه وسلم - قَالَ: «اجْتَنِبُوا السَّبْعَ الْمُوبِقَاتِ». قالوا: يَا رسولَ اللهِ، وَمَا هُنَّ؟ قَالَ: «الشِّرْكُ باللهِ، وَالسِّحْرُ، وَقَتْلُ النَّفْسِ الَّتي حَرَّمَ اللهُ إِلاَّ بِالحَقِّ، وأكْلُ الرِّبَا، وأكْلُ مَالِ اليَتِيمِ، وَالتَّوَلِّي يَوْمَ الزَّحْفِ؛ وَقَذْفُ المُحْصَنَاتِ المُؤْمِنَاتِ الغَافِلاَتِ». متفق عَلَيْهِ.",
+      "terjemahan": "Dari Abu Hurairah r.a. dari Nabi s.a.w., sabdanya: \"Jauhilah olehmu semua akan tujuh hal yang merusak.\" Para sahabat bertanya: \"Ya Rasulullah, apakah tujuh macam hal yang merusak itu?\" Beliau s.a.w. bersabda: \"Yaitu menyekutukan sesuatu dengan Allah, sihir, membunuh jiwa yang diharamkan oleh Allah, melainkan dengan dasar kebenaran -menurut ketentuan-ketentuan Agama Islam-, makan harta riba, makan harta anak yatim, mundur ke belakang di saat berkecamuknya peperangan serta mendakwa zina kepada wanita mu'min yang telah bersuami.\" (Muttafaq 'alaih)"
+    }
+  ]
 }

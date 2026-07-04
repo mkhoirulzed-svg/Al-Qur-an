@@ -2,6 +2,16 @@
   "id": 92,
   "source_id": 92,
   "judul": "Bab 92. Bersikap Tenang Dan Pelan-pelan",
-  "arab": "قَالَ الله تَعَالَى: {وَعِبَادُ الرَّحْمانِ الَّذِينَ يَمْشُونَ عَلَى الأرْضِ هَوْنًا وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلاَمًا} [الفرقان: 63].<br>702 - وعن عائشة رضي الله عنها، قالت: مَا رَأيْتُ رسول الله - صلى الله عليه وسلم - مُسْتَجْمِعًا قَطُّ ضَاحِكًا حَتَّى تُرَى مِنهُ لَهَوَاتُهُ، إنَّمَا كَانَ يَتَبَسَّمُ. متفقٌ عَلَيْهِ. \n«اللَّهْوَاتُ» جَمْعُ لَهَاةٍ: وَهِيَ اللَّحْمَةُ الَّتي في أقْصى سَقْفِ الْفَمِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman: &quot;Dan hamba-hamba Tuhan yang Maha Pengasih ialah mereka yang berjalan di bumi dengan sikap sopan dan apabila orang-orang bodoh mengucapkan -kata-kata yang tidak baik-, mereka menjawabnya dengan kata-kata 'selamat'.&quot; (al-Furqan: 63)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">701. Dari Aisyah radhiallahu 'anha, katanya: &quot;Saya sama sekali tidak pernah melihat Rasulullah s.a.w. dalam ketawanya itu berlebihan sehingga terlihat anak tekaknya, sesungguhnya ketawa beliau s.a.w. itu adalah tersenyum. (Muttafaq 'alaih) Allahawat jamaknya lahat yaitu daging yang ada di sudut terakhir dari atap mulut.</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "قَالَ الله تَعَالَى: {وَعِبَادُ الرَّحْمانِ الَّذِينَ يَمْشُونَ عَلَى الأرْضِ هَوْنًا وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلاَمًا} [الفرقان: 63].",
+  "pembuka_terjemahan": "Allah Ta'ala berfirman: \"Dan hamba-hamba Tuhan yang Maha Pengasih ialah mereka yang berjalan di bumi dengan sikap sopan dan apabila orang-orang bodoh mengucapkan -kata-kata yang tidak baik-, mereka menjawabnya dengan kata-kata 'selamat'.\" (al-Furqan: 63)",
+  "jumlah_hadits": 1,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 702,
+      "nomor_terjemahan": 701,
+      "arab": "وعن عائشة رضي الله عنها، قالت: مَا رَأيْتُ رسول الله - صلى الله عليه وسلم - مُسْتَجْمِعًا قَطُّ ضَاحِكًا حَتَّى تُرَى مِنهُ لَهَوَاتُهُ، إنَّمَا كَانَ يَتَبَسَّمُ. متفقٌ عَلَيْهِ. \n«اللَّهْوَاتُ» جَمْعُ لَهَاةٍ: وَهِيَ اللَّحْمَةُ الَّتي في أقْصى سَقْفِ الْفَمِ.",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Saya sama sekali tidak pernah melihat Rasulullah s.a.w. dalam ketawanya itu berlebihan sehingga terlihat anak tekaknya, sesungguhnya ketawa beliau s.a.w. itu adalah tersenyum. (Muttafaq 'alaih) Allahawat jamaknya lahat yaitu daging yang ada di sudut terakhir dari atap mulut."
+    }
+  ]
 }

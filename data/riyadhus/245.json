@@ -2,6 +2,23 @@
   "id": 245,
   "source_id": 245,
   "judul": "Bab 245. Berdzikir Kepada Allah Ta'ala Dengan Berdiri, Duduk, Berbaring, Berhadas, Walaupun Ketika Sedang Junub Dan Haidh",
-  "arab": "قَالَ الله تَعَالَى: {إنَّ في خَلْقِ السَّماوَاتِ وَالأرْضِ وَاخْتِلاَفِ اللَّيْلِ وَالنَّهَارِ لآيَاتٍ لأُولِي الأَلْبَابِ الَّذِينَ يَذْكُرُونَ اللهَ قِيَامًا وَقُعُودًا وَعَلَى جُنُوبِهِمْ} [آل عمران: 190، 191].<br>1444 - وعن عائشة رَضِيَ اللهُ عنها، قالت: كَانَ رسُولُ الله - صلى الله عليه وسلم - يَذْكُرُ اللهَ عَلَى كُلِّ أَحْيَانِهِ. رواهُ مسلم. \n1445 - وعن ابن عباسٍ - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «لَوْ أنَّ أَحَدَكُمْ إِذَا أتَى أهْلَهُ قَالَ: بِسْمِ الله، اللَّهُمَّ جَنِّبْنَا الشَّيْطَانَ، وَجَنِّبِ الشَّيْطَانَ مَا رَزَقْتَنَا، فَقُضِيَ بَيْنَهُمَا وَلَدٌ، لَمْ يَضُرَّهُ». متفق عَلَيْهِ.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">Allah Ta'ala berfirman: &quot;Sesungguhnya dalam penciptaan langit-langit dan bumi, perbedaan malam dan siang, itu semua adalah tanda-tanda kekuasaan Allah bagi orang-orang yang mempunyai pemikiran -yakni suka menggunakan akal fikirannya-, yaitu orang-orang yang suka berdzikir kepada Allah, baik sedang berdiri, duduk ataupun ketika berbaring pada lambung-lambung mereka.&quot; (Ali-Imran: 190)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1441. Dari Aisyah radhiallahu 'anha, katanya: &quot;Rasulullah s.a.w. itu berdzikir kepada Allah dalam segala keadaannya.&quot; (Riwayat Muslim) </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1442. Dari Ibnu Abbas radhiallahu 'anhuma dari Nabi s.a.w., sabdanya: &quot;Andaikata seseorang diantara engkau semua itu ketika mendatangi istrinya -hendak bersetubuh dengannya- lalu mengucapkan dulu: Bismillah Allahumma jannibnasy syaithana wa jannibisy syaithana ma razaqtana -Dengan nama Allah, ya Allah, jauhkanlah syaitan dari kita dan jauhkan pula syaitan itu dari anak yang akan Engkau rezekikan pada kita-, kemudian ditakdirkan akan ada seorang anak diantara kedua suami istri itu, tentulah syaitan tidak akan dapat membuat bahaya pada anak itu.&quot; (Muttafaq 'alaih)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "قَالَ الله تَعَالَى: {إنَّ في خَلْقِ السَّماوَاتِ وَالأرْضِ وَاخْتِلاَفِ اللَّيْلِ وَالنَّهَارِ لآيَاتٍ لأُولِي الأَلْبَابِ الَّذِينَ يَذْكُرُونَ اللهَ قِيَامًا وَقُعُودًا وَعَلَى جُنُوبِهِمْ} [آل عمران: 190، 191].",
+  "pembuka_terjemahan": "Allah Ta'ala berfirman: \"Sesungguhnya dalam penciptaan langit-langit dan bumi, perbedaan malam dan siang, itu semua adalah tanda-tanda kekuasaan Allah bagi orang-orang yang mempunyai pemikiran -yakni suka menggunakan akal fikirannya-, yaitu orang-orang yang suka berdzikir kepada Allah, baik sedang berdiri, duduk ataupun ketika berbaring pada lambung-lambung mereka.\" (Ali-Imran: 190)",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1444,
+      "nomor_terjemahan": 1441,
+      "arab": "وعن عائشة رَضِيَ اللهُ عنها، قالت: كَانَ رسُولُ الله - صلى الله عليه وسلم - يَذْكُرُ اللهَ عَلَى كُلِّ أَحْيَانِهِ. رواهُ مسلم.",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Rasulullah s.a.w. itu berdzikir kepada Allah dalam segala keadaannya.\" (Riwayat Muslim)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1445,
+      "nomor_terjemahan": 1442,
+      "arab": "وعن ابن عباسٍ - رضي الله عنه - عن النبيِّ - صلى الله عليه وسلم - قَالَ: «لَوْ أنَّ أَحَدَكُمْ إِذَا أتَى أهْلَهُ قَالَ: بِسْمِ الله، اللَّهُمَّ جَنِّبْنَا الشَّيْطَانَ، وَجَنِّبِ الشَّيْطَانَ مَا رَزَقْتَنَا، فَقُضِيَ بَيْنَهُمَا وَلَدٌ، لَمْ يَضُرَّهُ». متفق عَلَيْهِ.",
+      "terjemahan": "Dari Ibnu Abbas radhiallahu 'anhuma dari Nabi s.a.w., sabdanya: \"Andaikata seseorang diantara engkau semua itu ketika mendatangi istrinya -hendak bersetubuh dengannya- lalu mengucapkan dulu: Bismillah Allahumma jannibnasy syaithana wa jannibisy syaithana ma razaqtana -Dengan nama Allah, ya Allah, jauhkanlah syaitan dari kita dan jauhkan pula syaitan itu dari anak yang akan Engkau rezekikan pada kita-, kemudian ditakdirkan akan ada seorang anak diantara kedua suami istri itu, tentulah syaitan tidak akan dapat membuat bahaya pada anak itu.\" (Muttafaq 'alaih)"
+    }
+  ]
 }

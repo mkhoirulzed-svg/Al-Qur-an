@@ -2,6 +2,23 @@
   "id": 297,
   "source_id": 297,
   "judul": "Bab 297. Larangan Mencabut Uban dari Janggut, Kepala Dan Lain-lain",
-  "arab": "1646 - عن عمرو بن شعيب، عن أبيهِ، عن جَدِّهِ - رضي الله عنه - عن النَّبيِّ - صلى الله عليه وسلم - قال: «لاَ تَنْتِفُوا الشَّيْبَ؛ فَإنَّهُ نُورُ المُسْلِمِ يَوْمَ القِيَامَةِ» حديث حسن، رواه أبو داود، والترمذي، والنسائي بأسانيد حسنة، قال الترمذي: «هو حديث حسن» .\n1647 - وعن عائشة رضي الله عنها، قالت: قال رسولُ اللهِ - صلى الله عليه وسلم: «مَنْ عَمِلَ عَمَلًا لَيْسَ علَيْهِ أمْرُنَا فَهُوَ رَدٌّ». رواه مسلم.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1643. Dari 'Amr bin Syu'aib dari ayahnya dari neneknya lelaki r.a. dari Nabi s.a.w., sabdanya: &quot;Janganlah engkau semua mencabuti uban, sebab uban itu adalah merupakan cahaya seorang Muslim pada hari kiamat.&quot; Hadis hasan yang diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi serta Nasa'i dengan isnad-isnad yang bagus. Imam Tirmidzi mengatakan bahwa ini adalah hadis hasan. </p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">1644. Dari Aisyah radhiallahu 'anha, katanya: &quot;Rasulullah s a w bersabda: &quot;Barangsiapa yang mengerjakan sesuatu amalan yang tidak ada perintah dari kita, maka amalan itu wajib ditolak.&quot; (Riwayat Muslim)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 1646,
+      "nomor_terjemahan": 1643,
+      "arab": "عن عمرو بن شعيب، عن أبيهِ، عن جَدِّهِ - رضي الله عنه - عن النَّبيِّ - صلى الله عليه وسلم - قال: «لاَ تَنْتِفُوا الشَّيْبَ؛ فَإنَّهُ نُورُ المُسْلِمِ يَوْمَ القِيَامَةِ» حديث حسن، رواه أبو داود، والترمذي، والنسائي بأسانيد حسنة، قال الترمذي: «هو حديث حسن» .",
+      "terjemahan": "Dari 'Amr bin Syu'aib dari ayahnya dari neneknya lelaki r.a. dari Nabi s.a.w., sabdanya: \"Janganlah engkau semua mencabuti uban, sebab uban itu adalah merupakan cahaya seorang Muslim pada hari kiamat.\" Hadis hasan yang diriwayatkan oleh Imam-imam Abu Dawud dan Tirmidzi serta Nasa'i dengan isnad-isnad yang bagus. Imam Tirmidzi mengatakan bahwa ini adalah hadis hasan."
+    },
+    {
+      "id": 2,
+      "nomor_arab": 1647,
+      "nomor_terjemahan": 1644,
+      "arab": "وعن عائشة رضي الله عنها، قالت: قال رسولُ اللهِ - صلى الله عليه وسلم: «مَنْ عَمِلَ عَمَلًا لَيْسَ علَيْهِ أمْرُنَا فَهُوَ رَدٌّ». رواه مسلم.",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Rasulullah s a w bersabda: \"Barangsiapa yang mengerjakan sesuatu amalan yang tidak ada perintah dari kita, maka amalan itu wajib ditolak.\" (Riwayat Muslim)"
+    }
+  ]
 }

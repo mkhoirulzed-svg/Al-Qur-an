@@ -2,6 +2,23 @@
   "id": 89,
   "source_id": 89,
   "judul": "Bab 89. Sunnahnya Menerangkan Dan Menjelaskan Pembicaraan Kepada Orang Yang Diajak Bicara Dan Mengulang-ulanginya Agar Dapat Dimengerti, Jikalau Orang Itu Tidak Dapat Mengerti Kecuali Dengan Cara Mengulang-ulangi Itu",
-  "arab": "695 - عن أنسٍ - رضي الله عنه: أنَّ النَّبيَّ - صلى الله عليه وسلم - كَانَ إِذَا تَكَلَّمَ بِكَلِمَةً أعَادَهَا ثَلاَثًا حَتَّى تُفْهَمَ عَنْهُ، وَإِذَا أتَى عَلَى قَوْمٍ فَسَلَّمَ عَلَيْهِمْ سَلَّمَ عَلَيْهِمْ ثَلاثًا. رواه البخاري. \n696 - وعن عائشة رضي الله عنها، قالت: كَانَ كَلاَمُ رسول الله - صلى الله عليه وسلم - كَلامًا فَصْلًا يَفْهَمُهُ كُلُّ مَنْ يَسْمَعُهُ. رواه أَبُو داود.",
-  "terjemahan": "<p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">694. Dari Anas r.a. bahwasanya Nabi s.a.w. apabila berbicara dengan sesuatu pembicaraan, maka beliau s.a.w. mengulanginya -hingga- tiga kali sehingga dapat dimengerti apa yang dibicarakannya itu. Dan jikalau beliau s.a.w. itu datang pada sesuatu kaum, lalu memberikan salam kepada mereka, maka salam itu diucapkan sebanyak tiga kali.&quot; (Riwayat Bukhari)</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">&nbsp;</p><p style=\"margin-top: 0; margin-bottom: 0\" align=\"justify\">695. Dari Aisyah radhiallahu 'anha, katanya: &quot;Percakapannya Rasulullah s.a.w. itu adalah merupakan percakapan yang terpisah-pisah -yakni jelas sekali antara kata yang satu dengan kata yang lainnya- dan dapat dimengerti oleh setiap orang yang mendengarnya.&quot; (Riwayat Abu Daud)</p><hr color=\"#FF0000\" size=\"1\"><p style=\"margin-top: 0; margin-bottom: 0\"><p align=\"left\" style=\"margin-top: 0; margin-bottom: 0\"><b><font color=\"#000080\">"
+  "pembuka_arab": "",
+  "pembuka_terjemahan": "",
+  "jumlah_hadits": 2,
+  "hadits": [
+    {
+      "id": 1,
+      "nomor_arab": 695,
+      "nomor_terjemahan": 694,
+      "arab": "عن أنسٍ - رضي الله عنه: أنَّ النَّبيَّ - صلى الله عليه وسلم - كَانَ إِذَا تَكَلَّمَ بِكَلِمَةً أعَادَهَا ثَلاَثًا حَتَّى تُفْهَمَ عَنْهُ، وَإِذَا أتَى عَلَى قَوْمٍ فَسَلَّمَ عَلَيْهِمْ سَلَّمَ عَلَيْهِمْ ثَلاثًا. رواه البخاري.",
+      "terjemahan": "Dari Anas r.a. bahwasanya Nabi s.a.w. apabila berbicara dengan sesuatu pembicaraan, maka beliau s.a.w. mengulanginya -hingga- tiga kali sehingga dapat dimengerti apa yang dibicarakannya itu. Dan jikalau beliau s.a.w. itu datang pada sesuatu kaum, lalu memberikan salam kepada mereka, maka salam itu diucapkan sebanyak tiga kali.\" (Riwayat Bukhari)"
+    },
+    {
+      "id": 2,
+      "nomor_arab": 696,
+      "nomor_terjemahan": 695,
+      "arab": "وعن عائشة رضي الله عنها، قالت: كَانَ كَلاَمُ رسول الله - صلى الله عليه وسلم - كَلامًا فَصْلًا يَفْهَمُهُ كُلُّ مَنْ يَسْمَعُهُ. رواه أَبُو داود.",
+      "terjemahan": "Dari Aisyah radhiallahu 'anha, katanya: \"Percakapannya Rasulullah s.a.w. itu adalah merupakan percakapan yang terpisah-pisah -yakni jelas sekali antara kata yang satu dengan kata yang lainnya- dan dapat dimengerti oleh setiap orang yang mendengarnya.\" (Riwayat Abu Daud)"
+    }
+  ]
 }
