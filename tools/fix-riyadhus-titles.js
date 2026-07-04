@@ -78,16 +78,31 @@ async function fetchTitles() {
     }
   }
 
-  if (titles.size !== 372) {
-    const missing = [];
-    for (let i = 1; i <= 372; i++) {
-      if (!titles.has(i)) missing.push(i);
-    }
+  const FALLBACK_TITLES = {
+  39: "Bab 39. Hak Tetangga dan Wasiat Berbuat Baik Kepadanya",
+  54: "Bab 54. Keutamaan Menangis Karena Takut dan Rindu kepada Allah",
+  93: "Bab 93. Sunnahnya Mendatangi Shalat, Ilmu Pengetahuan dan Ibadah Lainnya dengan Tenang",
+  243: "Bab 243. Keutamaan Shalawat atas Nabi Muhammad Shallallahu ‘alaihi Wasallam",
+  300: "Bab 300. Larangan Membiarkan Api Menyala di Rumah Ketika Tidur",
+  311: "Bab 311. Larangan Masuk Masjid bagi Orang yang Makan Bawang Putih, Bawang Merah, Bawang Bakung, atau Sesuatu yang Berbau Busuk"
+};
 
-    throw new Error(
-      `Judul tidak lengkap. Dapat ${titles.size}/372. Missing: ${missing.join(", ")}`
-    );
+for (const [id, title] of Object.entries(FALLBACK_TITLES)) {
+  if (!titles.has(Number(id))) {
+    titles.set(Number(id), title);
   }
+}
+
+if (titles.size !== 372) {
+  const missing = [];
+  for (let i = 1; i <= 372; i++) {
+    if (!titles.has(i)) missing.push(i);
+  }
+
+  throw new Error(
+    `Judul tetap tidak lengkap. Dapat ${titles.size}/372. Missing: ${missing.join(", ")}`
+  );
+}
 
   return titles;
 }
