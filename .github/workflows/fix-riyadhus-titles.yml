@@ -22,10 +22,10 @@ jobs:
       - name: Fix Riyadhus titles
         run: node tools/fix-riyadhus-titles.js
 
-      - name: Commit changes
+     - name: Commit changes
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add data/riyadhus data/riyadhus.json
-          git diff --cached --quiet || git commit -m "Fix Riyadhus Shalihin chapter titles"
-          git push
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add -A
+        git diff --cached --quiet || git commit -m "Fix Riyadhus Shalihin chapter titles"
+        git push
