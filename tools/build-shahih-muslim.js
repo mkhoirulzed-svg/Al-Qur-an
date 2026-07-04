@@ -69,9 +69,11 @@ function splitSqlTuple(row) {
 }
 
 function parseSqlValue(value) {
-  if (!value || value.toUpperCase() === "NULL") return "";
+  if (value === undefined || value === null) return "";
 
-  let text = value.trim();
+  let text = String(value).trim();
+
+  if (!text || text.toUpperCase() === "NULL") return "";
 
   if (text.startsWith("'") && text.endsWith("'")) {
     text = text.slice(1, -1);
@@ -80,26 +82,112 @@ function parseSqlValue(value) {
   return cleanText(text);
 }
 
+/*
+  Fungsi ini menggantikan tupleRegex lama:
+  /\(([\s\S]*?)\)(?:,|$)/g
+
+  Kenapa?
+  Karena isi hadits bisa mengandung tanda kurung, koma,
+  petik, atau karakter escape. Kalau pakai regex sederhana,
+  sebagian row bisa terpotong dan data tidak terbaca semua.
+*/
+function extractTuples(valuesBlock) {
+  const tuples = [];
+
+  let current = "";
+  let inString = false;
+  let escape = false;
+  let depth = 0;
+  let collecting = false;
+
+  for (let i = 0; i < valuesBlock.length; i++) {
+    const char = valuesBlock[i];
+
+    if (escape) {
+      if (collecting) current += char;
+      escape = false;
+      continue;
+    }
+
+    if (char === "\\") {
+      if (collecting) current += char;
+      escape = true;
+      continue;
+    }
+
+    if (char === "'") {
+      inString = !inString;
+      if (collecting) current += char;
+      continue;
+    }
+
+    if (!inString && char === "(") {
+      if (depth === 0) {
+        collecting = true;
+        current = "";
+      } else if (collecting) {
+        current += char;
+      }
+
+      depth++;
+      continue;
+    }
+
+    if (!inString && char === ")") {
+      depth--;
+
+      if (depth === 0 && collecting) {
+        tuples.push(current.trim());
+        collecting = false;
+        current = "";
+      } else if (collecting) {
+        current += char;
+      }
+
+      continue;
+    }
+
+    if (collecting) {
+      current += char;
+    }
+  }
+
+  return tuples;
+}
+
 function extractRows(sql) {
   const rows = [];
 
   const insertRegex =
-    /INSERT INTO\s+`?[^`(\s]+`?\s*\(([^)]+)\)\s*VALUES\s*([\s\S]*?);/gi;
+    /INSERT INTO\s+`?([^`(\s]+)`?\s*\(([^)]+)\)\s*VALUES\s*([\s\S]*?);/gi;
 
   let match;
 
   while ((match = insertRegex.exec(sql)) !== null) {
-    const columns = match[1]
+    const tableName = match[1];
+
+    // Supaya aman kalau SQL berisi tabel tambahan.
+    if (!tableName.toLowerCase().includes("muslim")) {
+      continue;
+    }
+
+    const columns = match[2]
       .split(",")
       .map((col) => col.replace(/`/g, "").trim());
 
-    const valuesBlock = match[2];
+    const valuesBlock = match[3];
+    const tuples = extractTuples(valuesBlock);
 
-    const tupleRegex = /\(([\s\S]*?)\)(?:,|$)/g;
-    let tupleMatch;
+    for (const tuple of tuples) {
+      const rawValues = splitSqlTuple(tuple);
 
-    while ((tupleMatch = tupleRegex.exec(valuesBlock)) !== null) {
-      const rawValues = splitSqlTuple(tupleMatch[1]);
+      if (rawValues.length !== columns.length) {
+        console.warn(
+          `Lewati row karena jumlah kolom tidak cocok. Kolom: ${columns.length}, Value: ${rawValues.length}`
+        );
+        continue;
+      }
+
       const item = {};
 
       columns.forEach((col, index) => {
@@ -126,10 +214,10 @@ function normalizeHadith(row, index) {
     latin: "",
     terjemahan: cleanText(
       row.terjemah ||
-      row.terjemahan ||
-      row.indo ||
-      row.indonesia ||
-      ""
+        row.terjemahan ||
+        row.indo ||
+        row.indonesia ||
+        ""
     ),
     sumber: KITAB_NAMA
   };
@@ -157,7 +245,10 @@ async function main() {
   const sql = await response.text();
 
   console.log("Mengekstrak data SQL...");
+
   const rows = extractRows(sql);
+
+  console.log(`Total row SQL terbaca: ${rows.length}`);
 
   if (!rows.length) {
     throw new Error("Tidak ada data yang berhasil diekstrak dari SQL.");
@@ -166,6 +257,12 @@ async function main() {
   const hadits = rows
     .map(normalizeHadith)
     .filter((item) => item.arab || item.terjemahan);
+
+  console.log(`Total hadits valid: ${hadits.length}`);
+
+  if (!hadits.length) {
+    throw new Error("Data SQL terbaca, tapi tidak ada hadits valid.");
+  }
 
   const chunks = chunkArray(hadits, CHUNK_SIZE);
 
@@ -220,7 +317,7 @@ async function main() {
   console.log("Selesai.");
   console.log(`Total hadits: ${hadits.length}`);
   console.log(`Total bagian: ${daftarBab.length}`);
-  console.log(`Output: data/shahih-muslim/`);
+  console.log("Output: data/shahih-muslim/");
 }
 
 main().catch((error) => {
