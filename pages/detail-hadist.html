@@ -153,6 +153,34 @@
   text-align:center;
   padding:40px;
   color:var(--text-secondary);
+.doa-item{
+  background:var(--card);
+  border-radius:20px;
+  padding:17px 18px;
+  margin-bottom:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.doa-item:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+}
+
+.doa-item span{
+  font-size:15px;
+  font-weight:800;
+  color:var(--text);
+}
+
+.doa-item i{
+  color:var(--primary);
+  font-size:13px;
 }
 </style>
 </head>
@@ -186,135 +214,146 @@
 <div id="footer"></div>
 
 <script>
-const params = new URLSearchParams(location.search);
-const id = params.get("id");
-const contentEl = document.getElementById("content");
-const judulEl = document.getElementById("judul");
-const subjudulEl = document.getElementById("subjudul");
+<script>
+const detailKitabEl = document.getElementById('detailKitab');
+const judulDoaEl = document.getElementById('judul-doa');
+const subjudulDoaEl = document.getElementById('subjudul-doa');
 
-function escapeHTML(text){
-  return String(text || "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
+const params = new URLSearchParams(window.location.search);
+const idKitab = params.get('id');
 
-function renderList(items){
-  if(!Array.isArray(items) || items.length === 0) return "";
+let kitabAktif = null;
+let semuaBab = [];
 
-  return `
-    <ul class="faedah-list">
-      ${items.map(item => `<li>${escapeHTML(item)}</li>`).join("")}
-    </ul>
-  `;
-}
-
-async function loadHadits(){
+async function loadDetailKitab(){
   try{
-    if(!id){
-      contentEl.innerHTML = "<div class='loading'>ID hadits tidak ditemukan.</div>";
-      return;
+    if(!idKitab){
+      throw new Error('ID kitab tidak ditemukan');
     }
 
-    const res = await fetch("../data/hadits.json?v=" + Date.now());
+    const res = await fetch('../data/kitab.json?v=' + Date.now());
 
     if(!res.ok){
-      throw new Error("Gagal memuat hadits.json");
+      throw new Error('File kitab.json tidak ditemukan');
     }
 
     const data = await res.json();
-    const hadits = data.find(h => String(h.id) === String(id));
 
-    if(!hadits){
-      contentEl.innerHTML = "<div class='loading'>Hadits tidak ditemukan.</div>";
+    kitabAktif = data.find(item => String(item.id) === String(idKitab));
+
+    if(!kitabAktif){
+      detailKitabEl.innerHTML = '<p>Kitab tidak ditemukan.</p>';
+      subjudulDoaEl.textContent = 'Data tidak tersedia';
       return;
     }
 
-    judulEl.textContent = hadits.judul || "Hadits";
-    subjudulEl.textContent = hadits.perawi || hadits.derajat || "Detail hadits";
+    renderInfoKitab(kitabAktif);
 
-    contentEl.className = "";
-    contentEl.innerHTML = `
-      <div class="card">
-        <div class="card-title">${escapeHTML(hadits.judul || "Tanpa Judul")}</div>
+    if(kitabAktif.status !== 'tersedia'){
+      renderBelumTersedia(kitabAktif);
+      return;
+    }
 
-        <div class="meta-row">
-          ${hadits.kitab ? `
-            <div class="meta-badge">
-              <i class="fas fa-book"></i>
-              ${escapeHTML(hadits.kitab)}
-            </div>
-          ` : ""}
+    if(kitabAktif.tipe === 'per-bab' && kitabAktif.daftarBab){
+      await loadDaftarBab(kitabAktif);
+    }else{
+      renderBelumTersedia(kitabAktif);
+    }
 
-          ${hadits.derajat ? `
-            <div class="meta-badge">
-              <i class="fas fa-circle-check"></i>
-              ${escapeHTML(hadits.derajat)}
-            </div>
-          ` : ""}
-        </div>
-
-        <div class="arab">
-          ${escapeHTML(hadits.arab || "-")}
-        </div>
-
-        ${hadits.latin ? `
-          <div class="section-title">
-            <i class="fas fa-language"></i>
-            Latin
-          </div>
-          <div class="latin">
-            ${escapeHTML(hadits.latin)}
-          </div>
-        ` : ""}
-
-        <div class="section-title">
-          <i class="fas fa-align-left"></i>
-          Terjemahan
-        </div>
-        <div class="arti">
-          ${escapeHTML(hadits.terjemahan || "-")}
-        </div>
-
-        ${hadits.perawi ? `
-          <div class="perawi">
-            ${escapeHTML(hadits.perawi)}
-          </div>
-        ` : ""}
-      </div>
-
-      ${hadits.faedah && hadits.faedah.length ? `
-        <div class="card">
-          <div class="section-title" style="margin-top:0;">
-            <i class="fas fa-lightbulb"></i>
-            Faedah Hadits
-          </div>
-          ${renderList(hadits.faedah)}
-        </div>
-      ` : ""}
-
-      ${hadits.pelajaran ? `
-        <div class="card">
-          <div class="section-title" style="margin-top:0;">
-            <i class="fas fa-seedling"></i>
-            Pelajaran
-          </div>
-          <div class="pelajaran">
-            ${escapeHTML(hadits.pelajaran)}
-          </div>
-        </div>
-      ` : ""}
-    `;
-
-  }catch(e){
-    console.error(e);
-    contentEl.innerHTML = "<div class='loading'>Gagal memuat hadits.</div>";
+  }catch(err){
+    detailKitabEl.innerHTML = '<p>Gagal memuat detail kitab.</p>';
+    subjudulDoaEl.textContent = 'Terjadi kesalahan';
+    console.error(err);
   }
 }
 
-loadHadits();
+function renderInfoKitab(kitab){
+  const judul = kitab.judul || kitab.kitab || 'Tanpa Judul';
+
+  document.title = judul;
+  judulDoaEl.textContent = judul;
+  subjudulDoaEl.textContent = kitab.penulis || 'Kitab Hadits';
+
+  detailKitabEl.innerHTML = `
+    <article class="doa-card">
+      <div class="doa-title">${judul}</div>
+
+      ${kitab.penulis ? `
+        <div class="meta">
+          <div><b>Penulis:</b> ${kitab.penulis}</div>
+        </div>
+      ` : ''}
+
+      ${kitab.deskripsi ? `
+        <div class="terjemah">${kitab.deskripsi}</div>
+      ` : ''}
+
+      ${kitab.status ? `
+        <div class="meta">
+          <div><b>Status:</b> ${kitab.status === 'tersedia' ? 'Tersedia' : 'Segera hadir'}</div>
+        </div>
+      ` : ''}
+    </article>
+
+    <div id="daftarBabKitab">
+      <p>Memuat daftar bab...</p>
+    </div>
+  `;
+}
+
+async function loadDaftarBab(kitab){
+  const daftarBabEl = document.getElementById('daftarBabKitab');
+
+  try{
+    const pathBab = '../' + kitab.daftarBab;
+
+    const res = await fetch(pathBab + '?v=' + Date.now());
+
+    if(!res.ok){
+      throw new Error('File daftar bab tidak ditemukan');
+    }
+
+    semuaBab = await res.json();
+
+    if(!semuaBab || semuaBab.length === 0){
+      daftarBabEl.innerHTML = '<p>Daftar bab belum tersedia.</p>';
+      return;
+    }
+
+    daftarBabEl.innerHTML = semuaBab.map(bab => {
+      const idBab = String(bab.id).padStart(3, '0');
+      const judulBab = bab.judul || bab.kitab || `Bab ${Number(bab.id)}`;
+
+      return `
+        <div class="doa-item" onclick="bukaBab('${kitab.id}', '${idBab}')">
+          <span>${judulBab}</span>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      `;
+    }).join('');
+
+  }catch(err){
+    daftarBabEl.innerHTML = '<p>Gagal memuat daftar bab.</p>';
+    console.error(err);
+  }
+}
+
+function renderBelumTersedia(kitab){
+  const daftarBabEl = document.getElementById('daftarBabKitab');
+
+  if(!daftarBabEl) return;
+
+  daftarBabEl.innerHTML = `
+    <p>Isi kitab ini belum tersedia.</p>
+  `;
+}
+
+function bukaBab(idKitab, idBab){
+  window.location.href = `kitab-baca.html?kitab=${encodeURIComponent(idKitab)}&bab=${encodeURIComponent(idBab)}`;
+}
+
+loadDetailKitab();
+</script>
 </script>
 
 <script src="../data/loader.js"></script>
