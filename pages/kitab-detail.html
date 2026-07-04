@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Kitab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.page-doa{
+  background:var(--bg);
+}
+
+.doa-container{
+  padding:18px 18px 110px;
+}
+
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+
+.header-title{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+#judul-doa{
+  font-size:17px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+#subjudul-doa{
+  font-size:12px;
+  color:var(--text-secondary);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.doa-card{
+  background:var(--card);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  margin-bottom:14px;
+}
+
+.doa-title{
+  font-size:18px;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:16px;
+  line-height:1.5;
+}
+
+.arab{
+  font-family:'Amiri',serif;
+  font-size:28px;
+  line-height:2.1;
+  text-align:right;
+  direction:rtl;
+  color:var(--text);
+  margin-bottom:20px;
+}
+
+.terjemah{
+  font-size:15px;
+  line-height:1.8;
+  color:var(--text);
+  margin-bottom:14px;
+}
+
+.meta{
+  font-size:13px;
+  line-height:1.7;
+  color:var(--text-secondary);
+  background:rgba(10,77,58,.08);
+  border-radius:16px;
+  padding:13px 14px;
+  margin-top:14px;
+}
+
+#detailKitab p{
+  background:var(--card);
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+  color:var(--text-secondary);
+  box-shadow:var(--shadow-sm);
+}
+</style>
+</head>
+
+<body class="page-doa">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div id="judul-doa">Detail Kitab</div>
+    <div id="subjudul-doa">Memuat isi kitab...</div>
+  </div>
+</header>
+
+<main class="doa-container">
+  <div id="detailKitab">
+    <p>Memuat kitab...</p>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+const detailKitabEl = document.getElementById('detailKitab');
+const judulDoaEl = document.getElementById('judul-doa');
+const subjudulDoaEl = document.getElementById('subjudul-doa');
+
+const params = new URLSearchParams(window.location.search);
+const idKitab = params.get('id');
+
+async function loadDetailKitab(){
+  try{
+    if(!idKitab){
+      throw new Error('ID kitab tidak ditemukan');
+    }
+
+    const res = await fetch('../data/kitab.json?v=' + Date.now());
+
+    if(!res.ok){
+      throw new Error('File kitab.json tidak ditemukan');
+    }
+
+    const data = await res.json();
+
+    const kitab = data.find(item => String(item.id) === String(idKitab));
+
+    if(!kitab){
+      detailKitabEl.innerHTML = '<p>Kitab tidak ditemukan.</p>';
+      subjudulDoaEl.textContent = 'Data tidak tersedia';
+      return;
+    }
+
+    renderDetailKitab(kitab);
+
+  }catch(err){
+    detailKitabEl.innerHTML = '<p>Gagal memuat detail kitab.</p>';
+    subjudulDoaEl.textContent = 'Terjadi kesalahan';
+    console.error(err);
+  }
+}
+
+function renderDetailKitab(kitab){
+  const judul = kitab.judul || kitab.kitab || 'Tanpa Judul';
+
+  document.title = judul;
+  judulDoaEl.textContent = judul;
+  subjudulDoaEl.textContent = kitab.kitab || 'Kitab';
+
+  detailKitabEl.innerHTML = `
+    <article class="doa-card">
+      <div class="doa-title">${judul}</div>
+
+      ${kitab.arab ? `
+        <div class="arab">${kitab.arab}</div>
+      ` : ''}
+
+      ${kitab.terjemah ? `
+        <div class="terjemah">${kitab.terjemah}</div>
+      ` : ''}
+
+      ${kitab.terjemahan ? `
+        <div class="terjemah">${kitab.terjemahan}</div>
+      ` : ''}
+
+      ${kitab.perawi || kitab.derajat || kitab.kitab ? `
+        <div class="meta">
+          ${kitab.perawi ? `<div><b>Perawi:</b> ${kitab.perawi}</div>` : ''}
+          ${kitab.derajat ? `<div><b>Derajat:</b> ${kitab.derajat}</div>` : ''}
+          ${kitab.kitab ? `<div><b>Kitab:</b> ${kitab.kitab}</div>` : ''}
+        </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+loadDetailKitab();
+</script>
+
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter("kitab");
+</script>
+
+</body>
+</html>
