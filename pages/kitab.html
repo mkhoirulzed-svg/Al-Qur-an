@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.page-doa{
+  background:var(--bg);
+}
+
+.doa-container{
+  padding:18px 18px 110px;
+}
+
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+
+.header-title{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+#judul-doa{
+  font-size:17px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+#subjudul-doa{
+  font-size:12px;
+  color:var(--text-secondary);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.search-box{
+  width:100%;
+  min-height:48px;
+  padding:12px 14px;
+  font-size:14px;
+  font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.7);
+  margin-bottom:14px;
+  background:var(--card);
+  color:var(--text);
+  box-shadow:var(--shadow-sm);
+  outline:none;
+}
+
+.search-box:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(10,77,58,.12);
+}
+
+.doa-item{
+  background:var(--card);
+  border-radius:20px;
+  padding:17px 18px;
+  margin-bottom:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.doa-item:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+}
+
+.doa-item span{
+  font-size:15px;
+  font-weight:800;
+  color:var(--text);
+}
+
+.doa-item i{
+  color:var(--primary);
+  font-size:13px;
+}
+
+#daftarDoa p{
+  background:var(--card);
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+  color:var(--text-secondary);
+  box-shadow:var(--shadow-sm);
+}
+</style>
+</head>
+
+<body class="page-doa">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <div id="judul-doa">Kitab</div>
+    <div id="subjudul-doa">Pilih kitab yang ingin dibaca</div>
+  </div>
+</header>
+
+<main class="doa-container">
+  <input 
+    type="search" 
+    id="cariDoa" 
+    class="search-box" 
+    placeholder="Cari kitab..."
+  >
+
+  <div id="daftarDoa">
+    <p>Memuat kitab...</p>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+const daftarDoaEl = document.getElementById('daftarDoa');
+const cariDoaEl = document.getElementById('cariDoa');
+
+let semuaKitab = [];
+
+async function loadKitab(){
+  try{
+    const res = await fetch('../data/kitab.json?v=' + Date.now());
+
+    if(!res.ok){
+      throw new Error('File kitab.json tidak ditemukan');
+    }
+
+    semuaKitab = await res.json();
+    renderDaftarKitab(semuaKitab);
+
+  }catch(err){
+    daftarDoaEl.innerHTML = '<p>Gagal memuat daftar kitab.</p>';
+    console.error(err);
+  }
+}
+
+function renderDaftarKitab(data){
+  daftarDoaEl.innerHTML = '';
+
+  if(!data || data.length === 0){
+    daftarDoaEl.innerHTML = '<p>Kitab tidak ditemukan.</p>';
+    return;
+  }
+
+  data.forEach(kitab => {
+    const item = document.createElement('div');
+    item.className = 'doa-item';
+
+    item.innerHTML = `
+      <span>${kitab.judul || kitab.kitab || 'Tanpa Judul'}</span>
+      <i class="fas fa-chevron-right"></i>
+    `;
+
+    item.addEventListener('click', () => {
+      window.location.href = `kitab-detail.html?id=${encodeURIComponent(kitab.id)}`;
+    });
+
+    daftarDoaEl.appendChild(item);
+  });
+}
+
+cariDoaEl.addEventListener('input', () => {
+  const keyword = cariDoaEl.value.toLowerCase().trim();
+
+  const hasil = semuaKitab.filter(kitab =>
+    (kitab.judul || kitab.kitab || '').toLowerCase().includes(keyword)
+  );
+
+  renderDaftarKitab(hasil);
+});
+
+loadKitab();
+</script>
+
+<script src="../data/loader.js"></script>
+<script>
+  loadFooter("kitab");
+</script>
+
+</body>
+</html>
