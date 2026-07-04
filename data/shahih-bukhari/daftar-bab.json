@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 1: Hadits 23–253",
+    "file": "001.json",
+    "jumlah": 100
+  },
+  {
+    "id": 2,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 2: Hadits 254–418",
+    "file": "002.json",
+    "jumlah": 100
+  },
+  {
+    "id": 3,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 3: Hadits 436–787",
+    "file": "003.json",
+    "jumlah": 100
+  },
+  {
+    "id": 4,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 4: Hadits 788–1778",
+    "file": "004.json",
+    "jumlah": 100
+  },
+  {
+    "id": 5,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 5: Hadits 1779–6753",
+    "file": "005.json",
+    "jumlah": 100
+  },
+  {
+    "id": 6,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 6: Hadits 6754–6973",
+    "file": "006.json",
+    "jumlah": 95
+  }
+]

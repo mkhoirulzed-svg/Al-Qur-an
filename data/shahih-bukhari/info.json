@@ -1,0 +1,10 @@
+{
+  "id": "shahih-bukhari",
+  "nama": "Shahih Bukhari",
+  "arab": "صحيح البخاري",
+  "penulis": "Imam Muhammad bin Ismail al-Bukhari",
+  "jumlah": 595,
+  "pembagian": "Per 100 hadits",
+  "sumber": "https://github.com/irsyadulibad/hadits-database",
+  "catatan": "File SQL sumber tidak menyediakan data bab asli, sehingga data dibagi berdasarkan rentang nomor hadits."
+}
