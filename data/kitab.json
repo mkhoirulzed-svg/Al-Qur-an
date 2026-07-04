@@ -16,7 +16,7 @@
     "kitab": "Shahih Bukhari",
     "penulis": "Imam Al-Bukhari",
     "deskripsi": "Salah satu kitab hadits paling shahih yang memuat berbagai bab tentang aqidah, ibadah, muamalah, dan adab.",
-    "status": "segera",
+    "status": "tersedia",
     "tipe": "per-bab",
     "folder": "bukhari",
     "daftarBab": "data/shahih-bukhari/daftar-bab.json"
