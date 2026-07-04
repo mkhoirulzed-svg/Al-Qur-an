@@ -12,18 +12,18 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Build Riyadhus JSON
         run: node tools/build-riyadhus-json.js
 
       - name: Commit hasil JSON
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: "Build Riyadhus Shalihin JSON per bab"
           file_pattern: data/riyadhus/*.json
