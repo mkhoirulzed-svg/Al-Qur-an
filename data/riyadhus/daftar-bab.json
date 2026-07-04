@@ -1,374 +1,2606 @@
 [
-  {"id": 1, "source_id": 1, "judul": "Bab 1. Keikhlasan Dan Menghadirkan Niat Dalam Segala Perbuatan, Ucapan Dan Keadaan Yang Nyata Dan Yang Samar", "jumlah_hadits": 12, "file": "001.json"},
-  {"id": 2, "source_id": 2, "judul": "Bab 2. Taubat", "jumlah_hadits": 12, "file": "002.json"},
-  {"id": 3, "source_id": 3, "judul": "Bab 3. Sabar", "jumlah_hadits": 29, "file": "003.json"},
-  {"id": 4, "source_id": 4, "judul": "Bab 4. Kebenaran", "jumlah_hadits": 6, "file": "004.json"},
-  {"id": 5, "source_id": 5, "judul": "Bab 5. Muraqabah (Merasa Diawasi Oleh Allah)", "jumlah_hadits": 9, "file": "005.json"},
-  {"id": 6, "source_id": 6, "judul": "Bab 6. Ketaqwaan", "jumlah_hadits": 5, "file": "006.json"},
-  {"id": 7, "source_id": 7, "judul": "Bab 7. Yakin Dan Tawakkal", "jumlah_hadits": 11, "file": "007.json"},
-  {"id": 8, "source_id": 8, "judul": "Bab 8. Bertindak Lurus (Istiqomah)", "jumlah_hadits": 2, "file": "008.json"},
-  {"id": 9, "source_id": 9, "judul": "Bab 9. Memikir-mikirkan Keagungan Makhluk-makhluk Allah Ta'ala dan Rusaknya Dunia dan Kesukaran-kesukaran di Akhirat dan Perkara Yang Lain-lain di Dunia dan Akhirat Serta Keteledoran Jiwa, Juga Mendidiknya dan Mengajaknya Untuk Bersikap Istiqamah", "jumlah_hadits": 0, "file": "009.json"},
-  {"id": 10, "source_id": 10, "judul": "Bab 10. Bersegera Kepada Kebaikan Dan Menganjurkan Kepada Orang Yang Menuju Kebaikan Supaya Menghadapinya Dengan Sungguh-sungguh Tanpa Keragu-raguan", "jumlah_hadits": 8, "file": "010.json"},
-  {"id": 11, "source_id": 11, "judul": "Bab 11. Bersungguh-sungguh", "jumlah_hadits": 17, "file": "011.json"},
-  {"id": 12, "source_id": 12, "judul": "Bab 12. Menganjurkan Untuk Menambah-nambah Kebaikan Pada Akhir-akhir Umur", "jumlah_hadits": 5, "file": "012.json"},
-  {"id": 13, "source_id": 13, "judul": "Bab 13. Menerangkan Banyaknya Jalan-jalan Kebaikan", "jumlah_hadits": 25, "file": "013.json"},
-  {"id": 14, "source_id": 14, "judul": "Bab 14. Berlaku Sedang Dalam Beribadah", "jumlah_hadits": 11, "file": "014.json"},
-  {"id": 15, "source_id": 15, "judul": "Bab 15. Memelihara Kelangsungan Amalan-amalan", "jumlah_hadits": 3, "file": "015.json"},
-  {"id": 16, "source_id": 16, "judul": "Bab 16. Perintah Memelihara Sunnah Dan Adab-adabnya", "jumlah_hadits": 12, "file": "016.json"},
-  {"id": 17, "source_id": 17, "judul": "Bab 17. Kewajiban Mengikuti Hukum Allah Dan Apa-apa Yang Diucapkan Oleh Orang Yang Diajak Ke Arah Itu Dan Yang Diperintah Berbuat Kebaikan Atau Dilarang Berbuat Keburukan", "jumlah_hadits": 1, "file": "017.json"},
-  {"id": 18, "source_id": 18, "judul": "Bab 18. Larangan Terhadap Kebid'ahan-kebid'ahan Dan Perkara-perkara Yang Diada-adakan", "jumlah_hadits": 3, "file": "018.json"},
-  {"id": 19, "source_id": 19, "judul": "Bab 19. Orang Yang Memulai Membuat Sunnah Yang Baik Atau Buruk", "jumlah_hadits": 2, "file": "019.json"},
-  {"id": 20, "source_id": 20, "judul": "Bab 20. Memberikan Petunjuk Kepada Kebaikan Dan Mengajak Ke Arah Hidayat Atau Ke Arah Kesesatan", "jumlah_hadits": 4, "file": "020.json"},
-  {"id": 21, "source_id": 21, "judul": "Bab 21. Tolong-menolong Dalam Kebaikan Dan Ketaqwaan", "jumlah_hadits": 4, "file": "021.json"},
-  {"id": 22, "source_id": 22, "judul": "Bab 22. Nasihat", "jumlah_hadits": 3, "file": "022.json"},
-  {"id": 23, "source_id": 23, "judul": "Bab 23. Memerintah Dengan Kebaikan Dan Melarang Dari Kemungkaran", "jumlah_hadits": 14, "file": "023.json"},
-  {"id": 24, "source_id": 24, "judul": "Bab 24. Memperkeraskan Siksaan Orang Yang Memerintahkan Kebaikan Atau Melarang Dari Kemungkaran, Tetapi Ucapannya Tidak Tepat Dengan Kelakuannya", "jumlah_hadits": 1, "file": "024.json"},
-  {"id": 25, "source_id": 25, "judul": "Bab 25. Perintah Menunaikan Amanat", "jumlah_hadits": 4, "file": "025.json"},
-  {"id": 26, "source_id": 26, "judul": "Bab 26. Keharamannya Menganiaya Dan Perintah Mengembalikan Apa-apa Yang Dari Hasil Penganiayaan", "jumlah_hadits": 19, "file": "026.json"},
-  {"id": 27, "source_id": 27, "judul": "Bab 27. Mengagungkan Kehormatan-kehormatan Kaum Muslimin Dan Uraian Tentang Hak-hak Mereka Serta Kasih Sayang Dan Belas Kasihan Kepada Mereka", "jumlah_hadits": 18, "file": "027.json"},
-  {"id": 28, "source_id": 28, "judul": "Bab 28. Menutupi Cela-Cela Kaum Muslimin Dan Melarang Untuk Menyiar-nyiarkannya Tanpa Adanya Kepentingan Darurat", "jumlah_hadits": 4, "file": "028.json"},
-  {"id": 29, "source_id": 29, "judul": "Bab 29. Menyampaikan Hajat-hajatnya Kaum Muslimin", "jumlah_hadits": 2, "file": "029.json"},
-  {"id": 30, "source_id": 30, "judul": "Bab 30. Syafaat", "jumlah_hadits": 2, "file": "030.json"},
-  {"id": 31, "source_id": 31, "judul": "Bab 31. Mendamaikan Antara Para Manusia", "jumlah_hadits": 4, "file": "031.json"},
-  {"id": 32, "source_id": 32, "judul": "Bab 32. Keutamaan Kelemahan Kaum Muslimin, Kaum Fakir Dan Orang-orang Yang Tidak Masyhur", "jumlah_hadits": 8, "file": "032.json"},
-  {"id": 33, "source_id": 33, "judul": "Bab 33. Bersikap Lemah-lembut Kepada Anak Yatim, Anak-anak Perempuan Dan Orang-orang Lemah Lainnya, Kaum Fakir Miskin, Orang-orang Cacat, Berbuat Baik Kepada Mereka, Mengasihi, Merendahkan Diri Serta Bersikap Rendah Hati Kepada Mereka", "jumlah_hadits": 13, "file": "033.json"},
-  {"id": 34, "source_id": 34, "judul": "Bab 34. Berwasiat Kepada Kaum Wanita", "jumlah_hadits": 8, "file": "034.json"},
-  {"id": 35, "source_id": 35, "judul": "Bab 35. Hak Suami Atas Istri (Yang Wajib Dipenuhi Oleh Istri)", "jumlah_hadits": 8, "file": "035.json"},
-  {"id": 36, "source_id": 36, "judul": "Bab 36. Memberikan Nafkah Kepada Para Keluarga", "jumlah_hadits": 8, "file": "036.json"},
-  {"id": 37, "source_id": 37, "judul": "Bab 37. Memberikan Nafkah Dari Sesuatu Yang Disukai Dan Dari Sesuatu Yang Baik", "jumlah_hadits": 1, "file": "037.json"},
-  {"id": 38, "source_id": 38, "judul": "Bab 38. Kewajiban Memerintah Keluarga Dan Anak-anak Yang Sudah Tamyiz, juga Semua Orang Yang Dalam Lingkungan Penjagaannya, Supaya Taat Kepada Allah Ta'ala Dan Melarang Mereka Dari Menyalahinya, Harus Pula Mendidik Mereka Dan Mencegah Mereka Dari Melakukan Apa-apa Yang Dilarang", "jumlah_hadits": 5, "file": "038.json"},
-  {"id": 39, "source_id": 39, "judul": "Bab 39. Hak Tetangga Dan Berwasiat Dengannya", "jumlah_hadits": 9, "file": "039.json"},
-  {"id": 40, "source_id": 40, "judul": "Bab 40. Berbakti Kepada Kedua Orangtua Dan Mempererat Keluarga", "jumlah_hadits": 24, "file": "040.json"},
-  {"id": 41, "source_id": 41, "judul": "Bab 41. Keharamannya Berani -Durhaka- Kepada Orangtua Dan Memutuskan Ikatan Kekeluargaan", "jumlah_hadits": 5, "file": "041.json"},
-  {"id": 42, "source_id": 42, "judul": "Bab 42. Keutamaan Berbakti Kepada Kawan-kawannya Ayah, Kawan-kawannya Ibu, Kerabat, Kawan-kawannya Istri Dan Orang Lainnya Yang Sunnah Dimuliakan", "jumlah_hadits": 5, "file": "042.json"},
-  {"id": 43, "source_id": 43, "judul": "Bab 43. Memuliakan Ahli Baitnya Rasulullah s.a.w. Dan Menerangkan Keutamaan Mereka", "jumlah_hadits": 2, "file": "043.json"},
-  {"id": 44, "source_id": 44, "judul": "Bab 44. Memuliakan Alim Ulama, Orang-orang Tua, Ahli Keutamaan Dan Mendahulukan Mereka Atas Lain-lainnya, Meninggikan Kedudukan Mereka Serta Menampakkan Martabat Mereka", "jumlah_hadits": 12, "file": "044.json"},
-  {"id": 45, "source_id": 45, "judul": "Bab 45. Berziarah Kepada Para Ahli Kebaikan, Duduk-duduk Dengan Mereka, Mengawani -Menemani- Mereka, Mencintai Mereka, Meminta Mereka Supaya Berziarah Ke Tempat Kita, Meminta Doa Dari Mereka Serta Berziarah Ke Tempat-tempat Yang Utama", "jumlah_hadits": 15, "file": "045.json"},
-  {"id": 46, "source_id": 46, "judul": "Bab 46. Keutamaan Mencintai Karena Allah Dan Menganjurkan Sikap Sedemikian, Juga Memberitahukannya seorang Kepada Orang Yang Dicintainya Bahwa Ia Mencintainya Dan Apa Yang Diucapkan Oleh Orang Yang Diberitahu Sedemikian Itu", "jumlah_hadits": 11, "file": "046.json"},
-  {"id": 47, "source_id": 47, "judul": "Bab 47. Tanda-tanda Kecintaan Allah Kepada seorang Hamba Dan Anjuran Untuk Berakhlak Sedemikian Serta Berusaha Menghasilkannya", "jumlah_hadits": 3, "file": "047.json"},
-  {"id": 48, "source_id": 48, "judul": "Bab 48. Ancaman Dari Menyakiti Orang-orang Shalih, Kaum Yang Lemah Dan Fakir Miskin", "jumlah_hadits": 1, "file": "048.json"},
-  {"id": 49, "source_id": 49, "judul": "Bab 49. Menjalankan Hukum-hukum Terhadap Manusia Menurut Lahirnya, Sedang Keadaan Hati Mereka Terserah Allah Ta'ala", "jumlah_hadits": 6, "file": "049.json"},
-  {"id": 50, "source_id": 50, "judul": "Bab 50. Takut Kepada Allah Ta'ala", "jumlah_hadits": 16, "file": "050.json"},
-  {"id": 51, "source_id": 51, "judul": "Bab 51. Mengharapkan", "jumlah_hadits": 28, "file": "051.json"},
-  {"id": 52, "source_id": 52, "judul": "Bab 52. Keutamaan Mengharapkan", "jumlah_hadits": 3, "file": "052.json"},
-  {"id": 53, "source_id": 53, "judul": "Bab 53. Mengumpulkan Antara Takut Dan Mengharapkan", "jumlah_hadits": 3, "file": "053.json"},
-  {"id": 54, "source_id": 54, "judul": "Bab 54. Keutamaan Menangis Karena Takut Kepada Allah Ta'ala Dan Karena Rindu PadaNya", "jumlah_hadits": 10, "file": "054.json"},
-  {"id": 55, "source_id": 55, "judul": "Bab 55. Keutamaan Zuhud Di Dunia Dan Anjuran Untuk Mempersedikit Keduniaan Dan Keutamaan Kefakiran", "jumlah_hadits": 34, "file": "055.json"},
-  {"id": 56, "source_id": 56, "judul": "Bab 56. Keutamaan Lapar, Hidup Sederhana, Cukup Dengan Sedikit Saja Dalam Hal Makan, Minum, Pakaian Dan Lain-lain Dari Ketentuan-ketentuan Badan Serta Meninggalkan Kesyahwatan-kesyahwatan (Keinginan-keinginan Jasmaniyah)", "jumlah_hadits": 31, "file": "056.json"},
-  {"id": 57, "source_id": 57, "judul": "Bab 57. Qana'ah -Puas Dengan Apa Adanya Dan Tetap Berusaha-, 'Afaf -Enggan Meminta-minta-, Berlaku Sederhana Dalam Kehidupan Dan Berbelanja, Serta Mencela Meminta Tanpa Darurat", "jumlah_hadits": 16, "file": "057.json"},
-  {"id": 58, "source_id": 58, "judul": "Bab 58. Boleh Menerima Pemberian Tanpa Meminta Atau Mengintai -Mengharap-harapkan-", "jumlah_hadits": 1, "file": "058.json"},
-  {"id": 59, "source_id": 59, "judul": "Bab 59. Anjuran Untuk Makan Dari Hasil Usaha Sendiri Dan Menahan Diri Dari Meminta Serta Menuntut Agar Diberi", "jumlah_hadits": 5, "file": "059.json"},
-  {"id": 60, "source_id": 60, "judul": "Bab 60. Murah Hati Dan Dermawan Serta Membelanjakan Dalam Arah Kebaikan Dengan Percaya Penuh Kepada Allah Ta'ala", "jumlah_hadits": 19, "file": "060.json"},
-  {"id": 61, "source_id": 61, "judul": "Bab 61. Melarang Sifat Bakhil Dan Kikir", "jumlah_hadits": 1, "file": "061.json"},
-  {"id": 62, "source_id": 62, "judul": "Bab 62. Mengutamakan Orang Lain Dan Memberi Pertolongan Agar Menjadi Contoh -Ikutan atau Panutan-", "jumlah_hadits": 5, "file": "062.json"},
-  {"id": 63, "source_id": 63, "judul": "Bab 63. Berlomba-lomba Dalam Perkara Akhirat -Amal Kebaikan- Dan Mengambil Sebanyak-banyaknya Dari Apa-apa Yang Dapat Menyebabkan Keberkahan", "jumlah_hadits": 2, "file": "063.json"},
-  {"id": 64, "source_id": 64, "judul": "Bab 64. Keutamaan Orang Kaya Yang Bersyukur, Yakni Orang Yang Mengambil Harta Dari Arah Yang Diridhai Dan Membelanjakannya Ke Arah-arah Yang Diperintahkan", "jumlah_hadits": 3, "file": "064.json"},
-  {"id": 65, "source_id": 65, "judul": "Bab 65. Mengingat-ingat Kematian Dan Memperpendek Angan-angan", "jumlah_hadits": 7, "file": "065.json"},
-  {"id": 66, "source_id": 66, "judul": "Bab 66. Sunnahnya Berziarah Kubur Bagi Orang-orang Lelaki Dan Apa-apa Yang Diucapkan Oleh Orang Yang Berziarah", "jumlah_hadits": 4, "file": "066.json"},
-  {"id": 67, "source_id": 67, "judul": "Bab 67. Makruhnya Mengharapkan Kematian Dengan Sebab Adanya Bahaya Yang Menimpanya, Tetapi Tidak Mengapa Jika Karena Takut Akan Adanya Fitnah Dalam Agama", "jumlah_hadits": 3, "file": "067.json"},
-  {"id": 68, "source_id": 68, "judul": "Bab 68. Kewara'an Dan Meninggalkan Apa-apa Yang Syubhat", "jumlah_hadits": 9, "file": "068.json"},
-  {"id": 69, "source_id": 69, "judul": "Bab 69. Sunnahnya Memencilkan Diri Di Waktu Rusaknya Keadaan Zaman Atau Karena Takut Fitnah Dalam Agama Dan Jatuh Dalam Keharaman, Kesyubhatan-kesyubhatan Atau Lain-lain Sebagainya", "jumlah_hadits": 5, "file": "069.json"},
-  {"id": 70, "source_id": 70, "judul": "Bab 70. Keutamaan Bergaul Dengan Orang Banyak, Menghadiri Shalat-shalat Jum'at Dan Berjamaah Bersama Mereka Serta Mengunjungi Tempat-tempat Kebaikan Dan Majelis-majelis Dzikir, Juga Meninjau Orang Yang Sakit, Menghadiri Jenazah-jenazah, Membantu Yang Mempunyai Hajat, Menunjukkan Yang Bodoh Dan Lain-lain Yang Termasuk Kemaslahatan Mereka Bagi Orang Yang Kuasa Beramar Ma'ruf Dan Nahi Mungkar. Demikian Pula Mencegah Diri Sendiri Dari Berbuat Menyakiti Serta Sabar Atas Sesuatu Yang Menyakitkan -Yang Menimpa Pada Diri Sendiri-", "jumlah_hadits": 0, "file": "070.json"},
-  {"id": 71, "source_id": 71, "judul": "Bab 71. Tawadhu' Dan Menundukkan Sayap -Yakni Merendahkan Diri- Kepada Kaum Mu'minin", "jumlah_hadits": 10, "file": "071.json"},
-  {"id": 72, "source_id": 72, "judul": "Bab 72. Haramnya Bersikap Sombong Dan Merasa Heran -Bangga- Pada Diri Sendiri", "jumlah_hadits": 9, "file": "072.json"},
-  {"id": 73, "source_id": 73, "judul": "Bab 73. Bagusnya Budi Pekerti", "jumlah_hadits": 11, "file": "073.json"},
-  {"id": 74, "source_id": 74, "judul": "Bab 74. Sabar, Perlahan-lahan, Kasih Sayang dan Lemah Lembut", "jumlah_hadits": 11, "file": "074.json"},
-  {"id": 75, "source_id": 75, "judul": "Bab 75. Memaafkan Dan Tidak Menghiraukan Orang-orang Yang Bodoh", "jumlah_hadits": 5, "file": "075.json"},
-  {"id": 76, "source_id": 76, "judul": "Bab 76. Menahan Diri -Bersabar- Dari Apa-apa Yang Menyakitkan", "jumlah_hadits": 1, "file": "076.json"},
-  {"id": 77, "source_id": 77, "judul": "Bab 77. Marah Jikalau Kehormatan-kehormatan Syara' Dilanggar Dan Membantu Untuk Kemenangan Agama Allah Ta'ala", "jumlah_hadits": 4, "file": "077.json"},
-  {"id": 78, "source_id": 78, "judul": "Bab 78. Perintah Kepada Pemegang Pemerintahan Supaya Bersikap Lemah-lembut Kepada Rakyatnya, Memberikan Nasihat Serta Kasih Sayang Kepada Mereka, Jangan Mengelabui Dan Bersikap Keras Pada Mereka, Juga Jangan Melalaikan Kemaslahatan-kemaslahatan Mereka, Lupa Mengurus Mereka Ataupun Apa-apa Yang Menjadi Hajat Kepentingan Mereka", "jumlah_hadits": 6, "file": "078.json"},
-  {"id": 79, "source_id": 79, "judul": "Bab 79. Penguasa Yang Adil", "jumlah_hadits": 4, "file": "079.json"},
-  {"id": 80, "source_id": 80, "judul": "Bab 80. Wajibnya Mentaati Pada Penguasa Pemerintahan Dalam Perkara-perkara Bukan Kemaksiatan Dan Haramnya Mentaati Mereka Dalam Urusan Kemaksiatan", "jumlah_hadits": 11, "file": "080.json"},
-  {"id": 81, "source_id": 81, "judul": "Bab 81. Dilarang Meminta Jabatan Untuk Memegang Pemerintahan, Memilih Meninggalkan Kekuasaan Jikalau Tidak Ditentukan Untuk Itu Atau Karena Ada Hajat -Kepentingan- Padanya", "jumlah_hadits": 4, "file": "081.json"},
-  {"id": 82, "source_id": 82, "judul": "Bab 82. Memerintah Sultan Atau Qadhi Dan Lain-lainnya Dari Golongan Pemegang Pemerintahan Supaya Mengangkat Wazir -Pembantu- Yang Baik Dan Menakut-nakuti Mereka Dari Kawan-kawan Yang Jahat Serta Menerima -Membenarkan- Keterangan Mereka Itu", "jumlah_hadits": 2, "file": "082.json"},
-  {"id": 83, "source_id": 83, "judul": "Bab 83. Melarang Memberikan Jabatan Sebagai Amir -Penguasa Negara- Ataupun Kehakiman Dan Lain-lainnya Dari Jabatan-jabatan Pemerintahan Negara Kepada Orang Yang Memintanya Atau Tamak -Berambisi- Untuk Memperolehnya, Lalu Menawarkan Diri Untuk Jabatan Itu", "jumlah_hadits": 1, "file": "083.json"},
-  {"id": 84, "source_id": 84, "judul": "Bab 84. Malu Dan Keutamaannya Dan Menganjurkan Untuk Berakhlak Dengan Sifat Malu Itu", "jumlah_hadits": 4, "file": "084.json"},
-  {"id": 85, "source_id": 85, "judul": "Bab 85. Menjaga Rahasia", "jumlah_hadits": 4, "file": "085.json"},
-  {"id": 86, "source_id": 86, "judul": "Bab 86. Memenuhi Perjanjian Dan Melaksanakan Janji", "jumlah_hadits": 3, "file": "086.json"},
-  {"id": 87, "source_id": 87, "judul": "Bab 87. Memelihara Apa-apa Yang Sudah Dibiasakan Dari Hal Kebaikan -Istiqomah-", "jumlah_hadits": 1, "file": "087.json"},
-  {"id": 88, "source_id": 88, "judul": "Bab 88. Sunnahnya Berbicara Yang Baik Dan Menunjukkan Wajah Yang Manis Ketika Bertemu", "jumlah_hadits": 3, "file": "088.json"},
-  {"id": 89, "source_id": 89, "judul": "Bab 89. Sunnahnya Menerangkan Dan Menjelaskan Pembicaraan Kepada Orang Yang Diajak Bicara Dan Mengulang-ulanginya Agar Dapat Dimengerti, Jikalau Orang Itu Tidak Dapat Mengerti Kecuali Dengan Cara Mengulang-ulangi Itu", "jumlah_hadits": 2, "file": "089.json"},
-  {"id": 90, "source_id": 90, "judul": "Bab 90. Mendengarkannya Seorang Kawan Kepada Pembicaraan Kawannya Yang Tidak Berupa Pembicaraan Yang Haram Dan Memintanya Orang Alim Serta Juru Nasihat Kepada Orang-orang Yang Menghadiri Majelisnya Supaya Mereka Mendengarkan Baik-baik", "jumlah_hadits": 1, "file": "090.json"},
-  {"id": 91, "source_id": 91, "judul": "Bab 91. Menasihati Dan Berlaku Sedang Dalam Memberikan Nasihat", "jumlah_hadits": 4, "file": "091.json"},
-  {"id": 92, "source_id": 92, "judul": "Bab 92. Bersikap Tenang Dan Pelan-pelan", "jumlah_hadits": 1, "file": "092.json"},
-  {"id": 93, "source_id": 93, "judul": "Bab 93. Sunnahnya Mendatangi Shalat, Ilmu Pengetahuan Dan Lain-lainnya Dari Berbagai Ibadah Dengan Sikap Pelan-pelan Dan Tenang", "jumlah_hadits": 2, "file": "093.json"},
-  {"id": 94, "source_id": 94, "judul": "Bab 94. Memuliakan Tamu", "jumlah_hadits": 2, "file": "094.json"},
-  {"id": 95, "source_id": 95, "judul": "Bab 95. Sunnahnya Memberikan Berita Gembira Dan Mengucapkan Ikut Bergembira Dengan Diperolehnya Kebaikan", "jumlah_hadits": 4, "file": "095.json"},
-  {"id": 96, "source_id": 96, "judul": "Bab 96. Mohon Dirinya -Pamitnya- Seorang Sahabat Dan Memberikan Wasiat Padanya Ketika Hendak Berpisah Dengannya Karena Berpergian Atau Lain-lainnya, Mendoakannya Serta Meminta Doa Daripadanya (Supaya Didoakan Olehnya)", "jumlah_hadits": 6, "file": "096.json"},
-  {"id": 97, "source_id": 97, "judul": "Bab 97. Istikharah -Mohon Pilihan- Dan Bermusyawarah", "jumlah_hadits": 1, "file": "097.json"},
-  {"id": 98, "source_id": 98, "judul": "Bab 98. Sunnahnya Berpergian Menuju Shalat Hari Raya -Shalat 'Ied-, Meninjau Orang Sakit, Haji, Peperangan, Jenazah, Dan Lain-lain Sebagainya Dari Satu Macam Jalan Dan Kembali Dengan Melalui Jalan Yang Selain Waktu Perginya Itu Karena Memperbanyakkan Tempat Ibadah", "jumlah_hadits": 2, "file": "098.json"},
-  {"id": 99, "source_id": 99, "judul": "Bab 99. Sunnahnya Mendahulukan Anggota Yang Kanan Dalam Segala Sesuatu Yang Termasuk Dalam Bab Memuliakan (Yakni Karena Mulianya Anggota Kanan Itu) Misalnya Ketika Berwudhu', Mandi, Tayammum, Mengenakan Pakaian, Terompah -Sandal-, Sepatu, Celana, Masuk Masjid, Bersiwak (Bersugi), Bercelak, Memotong Kuku, Mencukur Kumis, Mencabut Rambut Ketiak, Mencukur Kepala, Bersalam Dari Shalat, Makan, Minum, Berjabatan Tangan, Menjabat Hajar Aswad, Keluar Dari Jamban, Mengambil, Memberi Dan lain-lain Yang Semakna Dengan Itu, Juga Disunnahkan Mendahulukan Anggota Yang Kiri Dalam Hal-hal Yang Sebaliknya Di Atas Seperti Beringus, Berludah Di Sebelah Kiri, Masuk Jamban, Keluar Dari Masjid, Melepaskan Sepatu, Terompah -Sandal-, Celana, Pakaian Serta Bercebok Dan Mengerjakan Apa-apa Yang Dianggap Kotor Dan Yang Serupa Dengan Itu", "jumlah_hadits": 7, "file": "099.json"},
-  {"id": 100, "source_id": 100, "judul": "Bab 100. Kitab Adab-adab Makanan Mengucapkan Bismillah Pada Permulaan Makan Dan Alhamdulillah Pada Penghabisannya", "jumlah_hadits": 8, "file": "100.json"},
-  {"id": 101, "source_id": 101, "judul": "Bab 101. Jangan Mencela Makanan Dan Sunnahnya Memuji Makanan", "jumlah_hadits": 2, "file": "101.json"},
-  {"id": 102, "source_id": 102, "judul": "Bab 102. Apa-apa Yang Diucapkan Oleh Orang Yang Mendatangi Makanan Ketika Ia Sedang Berpuasa Dan Tidak Hendak Berbuka", "jumlah_hadits": 1, "file": "102.json"},
-  {"id": 103, "source_id": 103, "judul": "Bab 103. Apa Yang Diucapkan Oleh Orang Yang Diundang Untuk Menghadiri Jamuan Makanan Lalu Diikuti Oleh Orang Lain -Tanpa Diundang-", "jumlah_hadits": 1, "file": "103.json"},
-  {"id": 104, "source_id": 104, "judul": "Bab 104. Makan Dari Apa-apa Yang Ada Di Dekatnya, Menasihati Serta Mengajarkannya Budi Pekerti Pada seorang Yang Buruk Tata Kramanya Ketika Makan", "jumlah_hadits": 2, "file": "104.json"},
-  {"id": 105, "source_id": 105, "judul": "Bab 105. Larangan Mengumpulkan Dua Buah Kurma Atau Lain-lainnya Jikalau Makan Bersama-sama Kecuali Dengan Izin Kawan-kawannya", "jumlah_hadits": 1, "file": "105.json"},
-  {"id": 106, "source_id": 106, "judul": "Bab 106. Apa-apa Yang Diucapkan Dan Dilakukan Oleh Orang Yang Makan Dan Tidak Sampai Kenyang", "jumlah_hadits": 1, "file": "106.json"},
-  {"id": 107, "source_id": 107, "judul": "Bab 107. Perintah Makan Dari Tepi Piring Dan Larangan Makan Dari Tengahnya", "jumlah_hadits": 2, "file": "107.json"},
-  {"id": 108, "source_id": 108, "judul": "Bab 108. Makruhnya Makan Sambil Bersandar", "jumlah_hadits": 2, "file": "108.json"},
-  {"id": 109, "source_id": 109, "judul": "Bab 109. Sunnahnya Makan Dengan Menggunakan Tiga Jari Dan Sunnahnya Menjilati Jari-jari Serta Makruhnya Mengusap Jari-jari Sebelum Menjilatinya, Juga Sunnahnya Menjilati Piring Dan Mengambil Suapan Yang Jatuh Daripadanya Terus Memakannya, Juga Bolehnya Mengusapkan Jari-jari Yang Sudah Dijilati Pada Kaki Dan Lain-lain Sebagainya", "jumlah_hadits": 7, "file": "109.json"},
-  {"id": 110, "source_id": 110, "judul": "Bab 110. Memperbanyakkan Tangan Pada Makanan -Yakni Hendaknya Ketika Makan Itu Beserta Orang Banyak-", "jumlah_hadits": 2, "file": "110.json"},
-  {"id": 111, "source_id": 111, "judul": "Bab 111. Kesopanan-kesopanan Minum Dan Sunnahnya Bernafas Tiga Kali Di Luar Wadah Serta Makruhnya Bernafas Di Dalam Wadah Dan Sunnahnya Memutarkan Wadah Pada Orang Yang Sebelah Kanan Lalu Yang Sebelah Kanan Lagi Sesudah Orang Yang Memulai Minum Itu", "jumlah_hadits": 5, "file": "111.json"},
-  {"id": 112, "source_id": 112, "judul": "Bab 112. Makruhnya Minum Dari Mulut Girbah -Tempat Air Dari Kulit- Dan Lain-lainnya Dan Uraian Bahwasanya Hal Itu Adalah Makruh Tanzih Dan Bukan Haram", "jumlah_hadits": 3, "file": "112.json"},
-  {"id": 113, "source_id": 113, "judul": "Bab 113. Makruhnya Meniup Dalam Minuman", "jumlah_hadits": 2, "file": "113.json"},
-  {"id": 114, "source_id": 114, "judul": "Bab 114. Uraian Tentang Bolehnya Minum Sambil Berdiri Dan Uraian Bahwa Yang Tersempurna Dan Termulia Ialah Minum Sambil Duduk", "jumlah_hadits": 6, "file": "114.json"},
-  {"id": 115, "source_id": 115, "judul": "Bab 115. Sunnahnya Orang Yang Memberi Minum Orang Banyak Supaya Ia Minum Terakhir Sekali", "jumlah_hadits": 1, "file": "115.json"},
-  {"id": 116, "source_id": 116, "judul": "Bab 116. Bolehnya Minum Dari Segala Macam Wadah Yang Suci Selain Yang Terbuat Dan Emas Dan Perak Dan Bolehnya Mengokop Yaitu Minum Langsung Dengan Mulut Dan Sungai Atau Lain-lain Tanpa Menggunakan Wadah Atau Tangan, Juga Haramnya Menggunakan Wadah Yang Terbuat Dari Emas Atau Perak Di Waktu Minum, Makan, Bersuci Dan Penggunaan Lainnya", "jumlah_hadits": 5, "file": "116.json"},
-  {"id": 117, "source_id": 117, "judul": "Bab 117. Kitab Pakaian Sunnahnya Mengenakan Pakaian Putih Dan Bolehnya Mengenakan Pakaian Berwarna Merah, Hijau, Kuning, Hitam, juga Bolehnya Mengambil Pakaian Dari Kapuk, Katun, Rambut, Bulu Dan Lain-lain Lagi Kecuali Sutera", "jumlah_hadits": 10, "file": "117.json"},
-  {"id": 118, "source_id": 118, "judul": "Bab 118. Sunnahnya Mengenakan Baju Gamis", "jumlah_hadits": 1, "file": "118.json"},
-  {"id": 119, "source_id": 119, "judul": "Bab 119. Sifat Panjangnya Gamis, Lubang Tangan Baju, Sarung, Ujung Sorban Dan Haramnya Memanjangkan Sesuatu Dari Yang Tersebut Di Atas Karena Maksud Kesombongan Dan Kemakruhannya Jikalau Tidak Karena Maksud Kesombongan", "jumlah_hadits": 12, "file": "119.json"},
-  {"id": 120, "source_id": 120, "judul": "Bab 120. Sunnahnya Meninggalkan Yang Tinggi-tinggi -Yakni Yang Terlampau Indah- Dalam Hal Pakaian Karena Maksud Merendahkan Diri", "jumlah_hadits": 1, "file": "120.json"},
-  {"id": 121, "source_id": 121, "judul": "Bab 121. Sunnahnya Bersikap Sedang -Sederhana- Dalam Pakaian Dan jangan Merasa Cukup Dengan Apa Yang Menyebabkan Celanya Yang Tidak Ada Kepentingan Atau Tidak Ada Tujuan Syara' Untuk Itu", "jumlah_hadits": 1, "file": "121.json"},
-  {"id": 122, "source_id": 122, "judul": "Bab 122. Haramnya Berpakaian Sutera Untuk Kaum Lelaki, Haramnya Duduk Di Atasnya Atau Bersandar Padanya Dan Bolehnya Mengenakannya Untuk Kaum Wanita", "jumlah_hadits": 6, "file": "122.json"},
-  {"id": 123, "source_id": 123, "judul": "Bab 123. Bolehnya Mengenakan Pakaian Sutera Untuk Orang Yang Berpenyakit Gatal-gatal", "jumlah_hadits": 1, "file": "123.json"},
-  {"id": 124, "source_id": 124, "judul": "Bab 124. Larangan Duduk Di Atas Kulit Harimau Dan Naik Di Atas Harimau", "jumlah_hadits": 2, "file": "124.json"},
-  {"id": 125, "source_id": 125, "judul": "Bab 125. Apa Yang Diucapkan Jikalau Mengenakan Pakaian Baru, Terompah -Sandal- Dan Sebagainya", "jumlah_hadits": 1, "file": "125.json"},
-  {"id": 126, "source_id": 126, "judul": "Bab 126. Sunnahnya Memulai Pada Anggota Kanan Dalam Mengenakan Pakaian", "jumlah_hadits": 0, "file": "126.json"},
-  {"id": 127, "source_id": 127, "judul": "Bab 127. Kitab Kesopanan Tidur, Adab-adab Kesopanan Tidur Dan Berbaring", "jumlah_hadits": 6, "file": "127.json"},
-  {"id": 128, "source_id": 128, "judul": "Bab 128. Bolehnya Tidur Telentang Atas Tengkuk Leher, juga Meletakkan Salah Satu Dari Kedua Kaki Jikalau Tidak Dikhawatirkan Terbukanya Aurat Dan Bolehnya Duduk Dengan Bersila Dan Duduk Ihtiba' -Yakni Duduk Berjongkok Sambil Membelitkan Sesuatu Dari Pinggang Ke Lutut Atau Tangannya Merangkul Lutut-", "jumlah_hadits": 5, "file": "128.json"},
-  {"id": 129, "source_id": 129, "judul": "Bab 129. Adab-adab Kesopanan Dalam Majelis Dan Kawan Duduk", "jumlah_hadits": 13, "file": "129.json"},
-  {"id": 130, "source_id": 130, "judul": "Bab 130. Impian Dan Apa-apa Yang Berhubungan Dengan Impian Itu", "jumlah_hadits": 7, "file": "130.json"},
-  {"id": 131, "source_id": 131, "judul": "Bab 131. Kitab Bersalam, Keutamaan Mengucapkan Salam Dan Perintah Untuk Menyebarkannya", "jumlah_hadits": 6, "file": "131.json"},
-  {"id": 132, "source_id": 132, "judul": "Bab 132. Kaifiyat -Tata Cara- Bersalam", "jumlah_hadits": 7, "file": "132.json"},
-  {"id": 133, "source_id": 133, "judul": "Bab 133. Adab-adab Kesopanan Bersalam", "jumlah_hadits": 2, "file": "133.json"},
-  {"id": 134, "source_id": 134, "judul": "Bab 134. Sunnahnya Mengulangi Salam Kepada Orang Yang Berulang Kali Pula Bertemu Dengannya Sekalipun Dalam Waktu Dekat, Seperti Ia Masuk Lalu Keluar Lalu Masuk Lagi Seketika Itu Ataupun Dihalang-halangi Oleh Pohon Dan Sebagainya Antara Kedua Orang Itu", "jumlah_hadits": 2, "file": "134.json"},
-  {"id": 135, "source_id": 135, "judul": "Bab 135. Sunnahnya Mengucapkan Salam Jikalau Memasuki Rumahnya", "jumlah_hadits": 1, "file": "135.json"},
-  {"id": 136, "source_id": 136, "judul": "Bab 136. Mengucapkan Salam Kepada Anak-anak", "jumlah_hadits": 1, "file": "136.json"},
-  {"id": 137, "source_id": 137, "judul": "Bab 137. Salamnya Seorang Lelaki Kepada Istrinya Dan Wanita Yang Menjadi Mahramnya Atau Kepada Orang Lain -Yakni Bukan Istri Atau Mahram-, Sendiri atauBanyak Yang Tidak Dikhawatirkan Timbulnya FitnahDengan Mereka Itu, Demikian Pula Salam KaumWanita Itu Pada lelaki Dengan Syarat TidakMenimbulkan Fitnah", "jumlah_hadits": 3, "file": "137.json"},
-  {"id": 138, "source_id": 138, "judul": "Bab 138. Haramnya Kita Memulai Bersalam Kepada Orang-orang Kafir Dan Caranya Menjawab Salam KepadaMereka Dan Sunnahnya Mengucapkan SalamKepada Orang-orang Yang Ada Di Dalam Majelis YangDi Antara Mereka Ada Kaum MusliminDan Kaum Kafirin", "jumlah_hadits": 3, "file": "138.json"},
-  {"id": 139, "source_id": 139, "judul": "Bab 139. Sunnahnya Memberikan Salam Jikalau Hendak Berdiri Meninggalkan Majelis Dan Memisahkan Diri Dari Kawan-kawan Duduknya, Baik Banyak Ataupun Seorang", "jumlah_hadits": 1, "file": "139.json"},
-  {"id": 140, "source_id": 140, "judul": "Bab 140. Meminta Izin Dan Adab-adab Kesopanannya", "jumlah_hadits": 4, "file": "140.json"},
-  {"id": 141, "source_id": 141, "judul": "Bab 141. Menerangkan Bahwa Sunnah Hukumnya Apabila Kepada Orang Yang Meminta Izin Ditanyakan: \"Siapakah Engkau?\" Supaya Mengucapkan \"Fulan\" Dengan Menyebut Nama Dirinya Yang Mudah Dikenali, Baik Nama Sendiri Atau Nama Panggilannya Dan Makruhnya Mengucapkan: \"Saya\" Dan Yang Seumpamanya -Yang Sulit Dikenali-", "jumlah_hadits": 4, "file": "141.json"},
-  {"id": 142, "source_id": 142, "judul": "Bab 142. Sunnahnya Mentasymitkan -Mendoakan Agar Dikaruniai Kerahmatan Oleh Allah Dengan Mengucapkan: Yarhamukallah- Kepada Orang Yang Bersin, Jikalau Ia Memuji Kepada Allah Ta'ala -Yakni Membaca Alhamdulillah- Dan Makruh Mentasymitkannya Jikalau Ia Tidak Memuji Kepada Allah Ta'ala, Begitu Pula Uraian Tentang Adab-adab Kesopanan Bertasymit, Bersin Dan Menguap", "jumlah_hadits": 7, "file": "142.json"},
-  {"id": 143, "source_id": 143, "judul": "Bab 143. Sunnahnya Berjabatan Tangan Ketika Bertemu Dan Menunjukkan Muka Yang Manis, Juga Mencium Tangan Orang Shalih Dan Mencium Anaknya, Serta Merangkul Orang Yang Baru Datang Dan Berpergian Dan Makruhnya Membungkukkan Badan Dalam Memberi Penghormatan", "jumlah_hadits": 9, "file": "143.json"},
-  {"id": 144, "source_id": 144, "judul": "Bab 144. Kitab Perihal Menjenguk Orang Sakit, Mengiringi Jenazah, Menshalatinya, Menghadiri Pemakamannya dan Berdiam Sementara Di Sisi Kuburnya Sesudah Dikuburkan", "jumlah_hadits": 7, "file": "144.json"},
-  {"id": 145, "source_id": 145, "judul": "Bab 145. Ucapan Yang Dapat Digunakan Untuk Mendoakan Orang Sakit", "jumlah_hadits": 9, "file": "145.json"},
-  {"id": 146, "source_id": 146, "judul": "Bab 146. Sunnahnya Menanyakan Kepada Keluarga Orang Yang Sakit Tentang Keadaan Orang Yang Sakit Itu", "jumlah_hadits": 1, "file": "146.json"},
-  {"id": 147, "source_id": 147, "judul": "Bab 147. Apa yang Diucapkan Oleh Orang Yang Sudah Putus Harapan Dari Hidupnya Karena Sakitnya Sudah Dirasa Sangat Parah Sekali Dan Tidak Akan Sembuh Lagi", "jumlah_hadits": 2, "file": "147.json"},
-  {"id": 148, "source_id": 148, "judul": "Bab 148. Sunnahnya Berwasiat Kepada Keluarga Orang Yang Sakit Dan Orang Yang Melayani Orang Yang Sakit Itu Supaya Berbuat Baik Padanya, Menahan Diri Dan Sabar Pada Apa Yang Menyukarkan Perkaranya, Juga Berwasiat Untuk Kepentingan Orang Yang Sudah Dekat Sebab Kematiannya Dengan Adanya Had Atau Qishash Dan Lain-Lain Sebagainya", "jumlah_hadits": 1, "file": "148.json"},
-  {"id": 149, "source_id": 149, "judul": "Bab 149. Bolehnya Seorang Yang Sakit Mengatakan: \"Saya Sakit\" Atau \"Sangat Sakit\" Atau \"Panas\" Atau \"Aduh Kepalaku\" Dan Lain Sebagainya Dan Uraian Bahwasanya Tidak Ada Kemakruhan Mengatakan Sedemikian Tadi, Asalkan Tidak Karena Timbulnya Kemarahan Dan Menunjukkan Kegelisahan Sebab Sakitnya Tadi", "jumlah_hadits": 3, "file": "149.json"},
-  {"id": 150, "source_id": 150, "judul": "Bab 150. Mengajarkan (Mentalqin) Orang Yang Sudah Hampir Didatangi Oleh Ajal Kematiannya Dengan Ucapan \"La ilaha illallah\"", "jumlah_hadits": 2, "file": "150.json"},
-  {"id": 151, "source_id": 151, "judul": "Bab 151. Apa Yang Diucapkan Ketika Memejamkan Mata Orang Mati", "jumlah_hadits": 1, "file": "151.json"},
-  {"id": 152, "source_id": 152, "judul": "Bab 152. Apa Yang Diucapkan Di Sisi Mayit Dan Apa Yang Diucapkan Oleh Orang Yang Ditinggalkan Oleh Mayit", "jumlah_hadits": 5, "file": "152.json"},
-  {"id": 153, "source_id": 153, "judul": "Bab 153. Bolehnya Menangisi Orang Mati Tanpa Meratap -Menghitung-hitung Kebaikan Mayit- Juga Tanpa Suara Keras Dalam Tangisnya Itu", "jumlah_hadits": 3, "file": "153.json"},
-  {"id": 154, "source_id": 154, "judul": "Bab 154. Menahan -Tidak Menyiar-nyiarkan Atau Menjaga Rahasia- Sesuatu Yang Tidak Baik Yang Diketahui Dari Seorang Mayit", "jumlah_hadits": 1, "file": "154.json"},
-  {"id": 155, "source_id": 155, "judul": "Bab 155. Menshalatkan Mayit, Mengantarkannya Ke Kubur, Menghadiri Pemakamannya Dan Makruhnya Kaum Wanita Ikut Mengantarkan Jenazah-jenazah", "jumlah_hadits": 3, "file": "155.json"},
-  {"id": 156, "source_id": 156, "judul": "Bab 156. Sunnahnya Memperbanyakkan Orang Yang Menshalatkan Jenazah Dan Membuat Barisan-barisan Orang-orang Yang Menshalatkan Itu Menjadi Tiga Shaf -Baris- Atau Lebih", "jumlah_hadits": 3, "file": "156.json"},
-  {"id": 157, "source_id": 157, "judul": "Bab 157. Apa-apa Yang Dibaca Dalam Shalat Jenazah", "jumlah_hadits": 6, "file": "157.json"},
-  {"id": 158, "source_id": 158, "judul": "Bab 158. Bersegera Dalam Mengubur Jenazah", "jumlah_hadits": 2, "file": "158.json"},
-  {"id": 159, "source_id": 159, "judul": "Bab 159. Bersegera Dalam Hal Pembayaran Hutangnya Mayit Dan Menyegerakan Dalam Merawatnya -Sampai Dimakamkan-, Kecuali Kalau Mati Secara Mendadak, Maka Perlu Dibiarkan Dulu Sehingga Dapat Diyakinkan Kematiannya", "jumlah_hadits": 2, "file": "159.json"},
-  {"id": 160, "source_id": 160, "judul": "Bab 160. Memberikan Nasihat Di Kubur", "jumlah_hadits": 1, "file": "160.json"},
-  {"id": 161, "source_id": 161, "judul": "Bab 161. Berdoa Untuk Mayit Sesudah Dikuburkan Dan Duduk Di Sisi Kuburnya Sebentar Untuk Mendoakannya Serta Memohonkan Pengampunan Untuknya Dan Untuk Membaca Al-Quran", "jumlah_hadits": 2, "file": "161.json"},
-  {"id": 162, "source_id": 162, "judul": "Bab 162. Bersedekah Atas Nama Si Mayit Dan Mendoakan Padanya", "jumlah_hadits": 2, "file": "162.json"},
-  {"id": 163, "source_id": 163, "judul": "Bab 163. Pujian Orang-Orang Pada Mayit", "jumlah_hadits": 2, "file": "163.json"},
-  {"id": 164, "source_id": 164, "judul": "Bab 164. Keutamaan Orang Yang Ditinggal Mati Oleh Anak-anaknya Yang Masih Kecil", "jumlah_hadits": 3, "file": "164.json"},
-  {"id": 165, "source_id": 165, "judul": "Bab 165. Menangis Serta Takut Di Waktu Melalui Kubur-kuburnya Orang-orang Yang Menganiaya Dirinya Karena Enggan Mengikuti Kebenaran, Dan Tempat Turunnya Siksa Pada Mereka Itu Serta Menunjukkan Iftiqar Kita Kepada Allah -Yakni Bahwa Kita Amat Memerlukan Bantuan Dan PertolonganNya- Dan Pula Menakut-nakuti Dari Melalaikan Yang Tersebut Di Atas Itu", "jumlah_hadits": 1, "file": "165.json"},
-  {"id": 166, "source_id": 166, "judul": "Bab 166. Kitab Adab-adab Kesopanan Berpergian, Sunnahnya Keluar Pada Hari Kamis Dan Sunnahnya Pergi Di Permulaan Siang Hari", "jumlah_hadits": 2, "file": "166.json"},
-  {"id": 167, "source_id": 167, "judul": "Bab 167. Sunnahnya Mencari Kawan Dalam Berpergian Dan Mengangkat Seseorang Di Antara Yang Sama-sama Pergi Itu Sebagai Pemimpin Mereka Yang Harus Diikuti Oleh Peserta-peserta Perjalanan Itu", "jumlah_hadits": 4, "file": "167.json"},
-  {"id": 168, "source_id": 168, "judul": "Bab 168. Adab-adab Kesopanan Perjalanan, Turun, Menginap Dan Tidur Dalam Berpergian, Juga Sunnahnya Berjalan Malam, Belas Kasihan Pada Binatang-binatang, Menjaga Kemaslahatan-kemaslahatan Binatang-binatang Tadi Serta Menyuruh Orang Yang Teledor Memberikan Hak Binatang-binatang Tadi Supaya Memberikan Haknya Dan Bolehnya Naik Di Belakang Dan Di Depan Punggung Binatang Kendaraan, Jikalau Binatang itu Kuat Dinaiki Sampai Dua Orang", "jumlah_hadits": 7, "file": "168.json"},
-  {"id": 169, "source_id": 169, "judul": "Bab 169. Menolong Kawan", "jumlah_hadits": 3, "file": "169.json"},
-  {"id": 170, "source_id": 170, "judul": "Bab 170. Apa-Apa Yang Diucapkan Apabila Seseorang Itu Menaiki Kendaraannya Untuk Berpergian", "jumlah_hadits": 3, "file": "170.json"},
-  {"id": 171, "source_id": 171, "judul": "Bab 171. Takbirnya Seorang Musafir Jikalau Menaiki Tempat Tinggi -Gunung-gunung- Dan Sebagainya Dan Bertasbih Jikalau Turun Ke Jurang -Ke Bawah- Dan Sebagainya Serta Larangan Terlampau Sangat -Keras- Dalam Mengeraskan Suara Takbir Dan Lain-lain", "jumlah_hadits": 5, "file": "171.json"},
-  {"id": 172, "source_id": 172, "judul": "Bab 172. Sunnahnya Berdoa Dalam Berpergian", "jumlah_hadits": 1, "file": "172.json"},
-  {"id": 173, "source_id": 173, "judul": "Bab 173. Apa Yang Diucapkan Sebagai Doa Apabila Seseorang Itu Takut Kepada Orang-orang Atau Lain-lainnya", "jumlah_hadits": 1, "file": "173.json"},
-  {"id": 174, "source_id": 174, "judul": "Bab 174. Apa Yang Diucapkan Jikalau seorang Itu Menempati Suatu Pondok Penginapan", "jumlah_hadits": 2, "file": "174.json"},
-  {"id": 175, "source_id": 175, "judul": "Bab 175. Sunnahnya Seorang Musafir Untuk Segera Pulang Ke Tempat Keluarganya, Jikalau Sudah Menyelesaikan Keperluannya", "jumlah_hadits": 1, "file": "175.json"},
-  {"id": 176, "source_id": 176, "judul": "Bab 176. Sunnahnya Datang Di Tempat Keluarganya Di Waktu Siang Dan Makruhnya Datang Di Waktu Malam, Jikalau Tidak Ada Keperluan Penting", "jumlah_hadits": 2, "file": "176.json"},
-  {"id": 177, "source_id": 177, "judul": "Bab 177. Apa Yang Diucapkan Apabila seorang Musafir Itu Telah Kembali Dan Telah Melihat Negerinya", "jumlah_hadits": 1, "file": "177.json"},
-  {"id": 178, "source_id": 178, "judul": "Bab 178. Sunnahnya Orang Yang Baru Datang Dari Berpergian Supaya Masuk Masjid Yang Berdekatan Dengan Tempatnya Lalu Bershalat Dua Rakaat Di Dalam Masjid Itu", "jumlah_hadits": 1, "file": "178.json"},
-  {"id": 179, "source_id": 179, "judul": "Bab 179. Haramnya Wanita Berpergian Sendirian", "jumlah_hadits": 2, "file": "179.json"},
-  {"id": 180, "source_id": 180, "judul": "Bab 180. Kitab Fadhail -Berbagai Fadhilah Atau Keutamaan- Keutamaan Membaca Al-Quran", "jumlah_hadits": 11, "file": "180.json"},
-  {"id": 181, "source_id": 181, "judul": "Bab 181. Perintah Berta'ahud Kepada Al-Quran -Memelihara Dan Membacanya Secara Tetap- Dan Menakut-nakuti Siapa yang Berpaling Daripadanya Karena Kelupaan", "jumlah_hadits": 2, "file": "181.json"},
-  {"id": 182, "source_id": 182, "judul": "Bab 182. Sunnahnya Memperbaguskan Suara Dalam Membaca Al-Quran Dan Meminta Untuk Membacanya Dari Orang Yang Bagus Suaranya Dan Mendengarkan Pada Bacaan Itu", "jumlah_hadits": 5, "file": "182.json"},
-  {"id": 183, "source_id": 183, "judul": "Bab 183. Anjuran Membaca Surat-surat Atau Ayat-ayat Yang Tertentu", "jumlah_hadits": 14, "file": "183.json"},
-  {"id": 184, "source_id": 184, "judul": "Bab 184. Sunnahnya Berkumpul Untuk Membaca Al-Quran", "jumlah_hadits": 2, "file": "184.json"},
-  {"id": 185, "source_id": 185, "judul": "Bab 185. Keutamaan Berwudhu'", "jumlah_hadits": 9, "file": "185.json"},
-  {"id": 186, "source_id": 186, "judul": "Bab 186. Keutamaan Adzan", "jumlah_hadits": 9, "file": "186.json"},
-  {"id": 187, "source_id": 187, "judul": "Bab 187. Keutamaan Shalat", "jumlah_hadits": 5, "file": "187.json"},
-  {"id": 188, "source_id": 188, "judul": "Bab 188. Keutamaan Shalat Shubuh Dan Ashar", "jumlah_hadits": 6, "file": "188.json"},
-  {"id": 189, "source_id": 189, "judul": "Bab 189. Keutamaan Pergi Ke Masjid", "jumlah_hadits": 8, "file": "189.json"},
-  {"id": 190, "source_id": 190, "judul": "Bab 190. Keutamaan Menantikan Shalat Fardhu", "jumlah_hadits": 3, "file": "190.json"},
-  {"id": 191, "source_id": 191, "judul": "Bab 191. Keutamaan Shalat Berjamaah", "jumlah_hadits": 7, "file": "191.json"},
-  {"id": 192, "source_id": 192, "judul": "Bab 192. Anjuran Mendatangi Shalat Berjamaah Shubuh Dan Isya", "jumlah_hadits": 3, "file": "192.json"},
-  {"id": 193, "source_id": 193, "judul": "Bab 193. Perintah Menjaga Shalat-shalat Wajib Dan Larangan Keras Serta Ancaman Hebat Dalam Meninggalkannya", "jumlah_hadits": 8, "file": "193.json"},
-  {"id": 194, "source_id": 194, "judul": "Bab 194. Keutamaan Shaf Pertama Dan Perintah Menyempurnakan Shaf-shaf Yang Permulaan -Yakni Jangan Berdiri Di Shaf Kedua Sebelum Sempurna Shaf Pertama Dan jangan Berdiri Di Shaf Ketiga Sebelum Sempurna Shaf Kedua Dan Seterusnya-, Serta Meratakan Shaf-shaf Dan Merapatkannya", "jumlah_hadits": 15, "file": "194.json"},
-  {"id": 195, "source_id": 195, "judul": "Bab 195. Keutamaan Shalat-shalat Sunnah Rawatib Yang Mengikuti Shalat-shalat Fardhu Dan Uraian Jumlah Minimal Rakaatnya, Jumlah Maksimal Rakaatnya Dan Yang Pertengahan Antara Keduanya", "jumlah_hadits": 3, "file": "195.json"},
-  {"id": 196, "source_id": 196, "judul": "Bab 196. Mengokohkan Secara Berkesinambungan Shalat Sunnah Dua Rakaat Sebelum Shubuh", "jumlah_hadits": 4, "file": "196.json"},
-  {"id": 197, "source_id": 197, "judul": "Bab 197. Meringankan Bacaan Pada Shalat Dua Rakaat Fajar -Shalat Sunnah Sebelum Subuh-, Uraian Apa Yang Dibaca Dalam Kedua Rakaat Itu Serta Uraian Perihal Waktunya", "jumlah_hadits": 6, "file": "197.json"},
-  {"id": 198, "source_id": 198, "judul": "Bab 198. Sunnahnya Berbaring Sesudah Mengerjakan Shalat sunnah Dua Rakaat Fajar -Sebelum Subuh- Pada Lambung Sebelah Kanan Dan Anjuran Untuk Melakukan Ini, Baikpun Pada Malam Harinya Shalat Tahajjud Atau Tidak", "jumlah_hadits": 3, "file": "198.json"},
-  {"id": 199, "source_id": 199, "judul": "Bab 199. Shalat Sunnah Dzuhur", "jumlah_hadits": 6, "file": "199.json"},
-  {"id": 200, "source_id": 200, "judul": "Bab 200. Shalat Sunnah Ashar", "jumlah_hadits": 3, "file": "200.json"},
-  {"id": 201, "source_id": 201, "judul": "Bab 201. Shalat Sunnah Maghrib, Sesudah Dan Sebelumnya", "jumlah_hadits": 4, "file": "201.json"},
-  {"id": 202, "source_id": 202, "judul": "Bab 202. Shalat Sunnah Isya' Sesudah Dan Sebelumnya", "jumlah_hadits": 0, "file": "202.json"},
-  {"id": 203, "source_id": 203, "judul": "Bab 203. Shalat Sunnah Jum'at", "jumlah_hadits": 2, "file": "203.json"},
-  {"id": 204, "source_id": 204, "judul": "Bab 204. Sunnahnya Mengerjakan Shalat-shalat Sunnah Di Rumah, Baikpun Sunnah Rawatib Atau Lain-lainnya Dan Perintah Berpindah Untuk Shalat Sunnah Dari Tempat Yang Digunakan Shalat Fardhu -Wajib- Atau Memisahkan Antara Kedua Shalat Itu Dengan Pembicaraan", "jumlah_hadits": 4, "file": "204.json"},
-  {"id": 205, "source_id": 205, "judul": "Bab 205. Anjuran Melakukan Shalat Witir Dan Uraian Bahwa Shalat ini Adalah Sunnah Yang Ditekankan Serta Uraian Mengenai Waktunya", "jumlah_hadits": 7, "file": "205.json"},
-  {"id": 206, "source_id": 206, "judul": "Bab 206. Keutamaan Shalat Dhuha Dan Uraian Perihal Sesedikit-sedikitnya Rakaat Dhuha, Sebanyak-banyaknya Dan Yang Pertengahannya Serta Anjuran Untuk Menjaga Untuk Terus Melakukannya", "jumlah_hadits": 4, "file": "206.json"},
-  {"id": 207, "source_id": 207, "judul": "Bab 207. Bolehnya Melakukan Shalat Dhuha Dari Mulai Matahari Meninggi Sampai Tergelincir -Atau Lingsirnya- Dan Yang Lebih Utama Dilakukan Adalah Ketika Suhu Udara Sedang Panas Dan Meningginya Waktu Dhuha", "jumlah_hadits": 1, "file": "207.json"},
-  {"id": 208, "source_id": 208, "judul": "Bab 208. Anjuran Melakukan Shalat Sunnah Tahiyatul Masjid -Menghormat Masjid- Dua Rakaat Dan Makruhnya Duduk Sebelum Shalat Dua Rakaat, Di Waktu Manapun juga Masuknya Masjid Itu Dan Sama Halnya, Apakah Shalat Dua Rakaat Tadi Dengan Niat Tahiyat, Shalat Fardhu, Sunnah Rawatib Dan Lain-lainnya", "jumlah_hadits": 2, "file": "208.json"},
-  {"id": 209, "source_id": 209, "judul": "Bab 209. Sunnahnya Shalat Dua Rakaat Sesudah Wudhu'", "jumlah_hadits": 1, "file": "209.json"},
-  {"id": 210, "source_id": 210, "judul": "Bab 210. Keutamaan Shalat Jum'at, Kewajibannya, Mandi Untuk Menghadirinya, Datang Diawal Waktu Kepadanya, Doa Pada Hari Jum'at, Membaca Shalawat Nabi Pada Hari Itu, Uraian Perihal Saat Jumat, Dikabulkannya Doa-doa Dan Sunnahnya Memperbanyak Dzikir Kepada Allah Ta'ala Sesudah Jum'atan", "jumlah_hadits": 12, "file": "210.json"},
-  {"id": 211, "source_id": 211, "judul": "Bab 211. Sunnahnya Sujud Syukur Ketika Mendapatkan Kenikmatan Yang Nyata Atau Terhindar Dari Bencana Yang Nyata", "jumlah_hadits": 1, "file": "211.json"},
-  {"id": 212, "source_id": 212, "judul": "Bab 212. Keutamaan Bangun Shalat Di Waktu Malam", "jumlah_hadits": 27, "file": "212.json"},
-  {"id": 213, "source_id": 213, "judul": "Bab 213. Sunnahnya Bangun Malam Ramadhan Yaitu Untuk Mengerjakan Shalat Sunnah Tarawih", "jumlah_hadits": 2, "file": "213.json"},
-  {"id": 214, "source_id": 214, "judul": "Bab 214. Keutamaan Mengerjakan Shalat Di Malam Lailatul Qadar Dan Uraian Perihal Malam-malam Yang Lebih Dapat Diharapkan Menemuinya", "jumlah_hadits": 7, "file": "214.json"},
-  {"id": 215, "source_id": 215, "judul": "Bab 215. Keutamaan Bersiwak -Sikat Gigi- dan Perkara-Perkara Kefitrahan", "jumlah_hadits": 10, "file": "215.json"},
-  {"id": 216, "source_id": 216, "judul": "Bab 216. Mengokohkan Kewajiban Zakat Dan Uraian Tentang Keutamaannya Serta Apa-apa Yang Berhubungan Dengan Zakat Itu", "jumlah_hadits": 9, "file": "216.json"},
-  {"id": 217, "source_id": 217, "judul": "Bab 217. Wajibnya Puasa Ramadhan, Uraian Keutamaan Berpuasa Dan Hal-hal Yang Berhubungan Dengan Puasa Itu", "jumlah_hadits": 7, "file": "217.json"},
-  {"id": 218, "source_id": 218, "judul": "Bab 218. Dermawan Dan Melakukan Kebaikan Serta Memperbanyak Kebagusan Dalam Bulan Ramadhan Dan Menambahkan Amalan Itu Dari Yang Sudah-sudah Apabila Tiba Sepuluh Hari Terakhir Dari Ramadhan Itu", "jumlah_hadits": 2, "file": "218.json"},
-  {"id": 219, "source_id": 219, "judul": "Bab 219. Larangan Mendahului Ramadhan Dengan Puasa Sesudah Pertengahan Sya'ban, Melainkan Bagi Orang Yang Mempersambungkan Dengan hari-hari Yang Sebelumnya Atau Tepat Pada Kebiasaan Yang Dilakukannya, Misalnya Bahwa Kebiasaannya Itu ialah Berpuasa Hari Senin Dan Kamis Lalu Bertepatan Dengan Itu", "jumlah_hadits": 4, "file": "219.json"},
-  {"id": 220, "source_id": 220, "judul": "Bab 220. Apa Yang Diucapkan Di Waktu Melihat Bulan Sabit Yakni Rukyatul Hilal", "jumlah_hadits": 1, "file": "220.json"},
-  {"id": 221, "source_id": 221, "judul": "Bab 221. Keutamaan Makan Sahur Dan Mengakhirkannya Selama Tidak Takut Menyingsingnya Fajar", "jumlah_hadits": 4, "file": "221.json"},
-  {"id": 222, "source_id": 222, "judul": "Bab 222. Keutamaan Menyegerakan Berbuka Dan Apa Yang Dimakan Untuk Berbuka Itu Serta Apa Yang Diucapkan Setelah Selesai Berbuka", "jumlah_hadits": 7, "file": "222.json"},
-  {"id": 223, "source_id": 223, "judul": "Bab 223. Perintah Kepada Orang Yang Berpuasa Supaya Menjaga Lisan Dan Anggotanya Dari Perselisihan Dan Saling Bermaki-makian Dan Sebagainya", "jumlah_hadits": 2, "file": "223.json"},
-  {"id": 224, "source_id": 224, "judul": "Bab 224. Berbagai Masalah Dalam Puasa", "jumlah_hadits": 4, "file": "224.json"},
-  {"id": 225, "source_id": 225, "judul": "Bab 225. Keutamaan Berpuasa Dalam Bulan Muharram, Sya'ban Dan Bulan-bulan Yang Mulia -Asyhurul Hurum-", "jumlah_hadits": 3, "file": "225.json"},
-  {"id": 226, "source_id": 226, "judul": "Bab 226. Keutamaan Berpuasa Dan Lain-lain Dalam Hari-hari Sepuluh Pertama Dari Bulan Zulhijjah", "jumlah_hadits": 1, "file": "226.json"},
-  {"id": 227, "source_id": 227, "judul": "Bab 227. Keutamaan Berpuasa Pada Hari Arafah, 'Asyura Dan Tasu'a", "jumlah_hadits": 4, "file": "227.json"},
-  {"id": 228, "source_id": 228, "judul": "Bab 228. Sunnahnya Berpuasa Enam Hari Di Bulan Syawal", "jumlah_hadits": 1, "file": "228.json"},
-  {"id": 229, "source_id": 229, "judul": "Bab 229. Sunnahnya Berpuasa Pada Hari Senin Dan Kamis", "jumlah_hadits": 3, "file": "229.json"},
-  {"id": 230, "source_id": 230, "judul": "Bab 230. Sunnahnya Berpuasa Tiga Hari Dalam Setiap Bulan", "jumlah_hadits": 7, "file": "230.json"},
-  {"id": 231, "source_id": 231, "judul": "Bab 231. Keutamaan Orang Yang Memberi Makanan Untuk Berbuka Kepada Orang Yang Berpuasa, Keutamaan Orang Berpuasa Yang Dimakan Makanannya Di Sisinya Dan Doanya Orang Yang Makan Kepada Orang Yang Makanannya Dimakan Di Sisinya Itu", "jumlah_hadits": 3, "file": "231.json"},
-  {"id": 232, "source_id": 232, "judul": "Bab 232. I'tikaf", "jumlah_hadits": 3, "file": "232.json"},
-  {"id": 233, "source_id": 233, "judul": "Bab 233. Haji", "jumlah_hadits": 14, "file": "233.json"},
-  {"id": 234, "source_id": 234, "judul": "Bab 234. Jihad", "jumlah_hadits": 68, "file": "234.json"},
-  {"id": 235, "source_id": 235, "judul": "Bab 235. Uraian Perihal Kelompok Golongan Orang-orang Yang Dapat Disebut Mati Syahid Dalam Pahala Akhirat Dan Mereka Ini Wajib Dimandikan Dan Dishalati, Berbeda Dengan Orang Yang Terbunuh Dalam Berperang Melawan Kaum Kafirin", "jumlah_hadits": 5, "file": "235.json"},
-  {"id": 236, "source_id": 236, "judul": "Bab 236. Keutamaan Memerdekakan Hamba Sahaya -Budak-", "jumlah_hadits": 2, "file": "236.json"},
-  {"id": 237, "source_id": 237, "judul": "Bab 237. Keutamaan Berbuat Baik Kepada Hamba Sahaya -Budak-, Juga Kepada Pelayan atau Pembantu", "jumlah_hadits": 2, "file": "237.json"},
-  {"id": 238, "source_id": 238, "judul": "Bab 238. Keutamaan Hamba Sahaya -Budak- Yang Menunaikan Hak Allah Ta'ala Dan Hak Tuannya", "jumlah_hadits": 4, "file": "238.json"},
-  {"id": 239, "source_id": 239, "judul": "Bab 239. Keutamaan Beribadah Dalam Keadaan Penuh Kekacauan Yaitu Ketika Timbulnya Berbagai Fitnah Dan Sebagainya", "jumlah_hadits": 1, "file": "239.json"},
-  {"id": 240, "source_id": 240, "judul": "Bab 240. Keutamaan Bermurah Hati Dalam Berjual Beli, Mengambil Dan Memberi, Bagusnya Menunaikan Hak Yang Menjadi Tanggungannya -Yakni Mengembalikan Hutang-, Bagusnya Meminta Haknya -Yakni Menagih-, Memantapkan Takaran Dan Timbangan, Larangan Mengurangi Timbangan, Juga Keutamaan Memberi Waktu Tangguh Bagi Seseorang Yang Kecukupan Kepada Orang Yang Kekurangan -Dalam Mengembalikan Hutangnya- Serta Menghapuskan Sama Sekali -Akan Hutang- Orang Yang Kekurangan Itu", "jumlah_hadits": 9, "file": "240.json"},
-  {"id": 241, "source_id": 241, "judul": "Bab 241. Ilmu Pengetahuan", "jumlah_hadits": 17, "file": "241.json"},
-  {"id": 242, "source_id": 242, "judul": "Bab 242. Memuji Dan Bersyukur Kepada Allah Ta'ala", "jumlah_hadits": 4, "file": "242.json"},
-  {"id": 243, "source_id": 243, "judul": "Bab 243. Bacaan Shalawat Kepada Rasulullah S.A.W.", "jumlah_hadits": 11, "file": "243.json"},
-  {"id": 244, "source_id": 244, "judul": "Bab 244. Keutamaan Dzikir Dan Anjuran Mengerjakannya", "jumlah_hadits": 36, "file": "244.json"},
-  {"id": 245, "source_id": 245, "judul": "Bab 245. Berdzikir Kepada Allah Ta'ala Dengan Berdiri, Duduk, Berbaring, Berhadas, Walaupun Ketika Sedang Junub Dan Haidh", "jumlah_hadits": 2, "file": "245.json"},
-  {"id": 246, "source_id": 246, "judul": "Bab 246. Apa Yang Diucapkan Ketika Hendak Tidur Dan Bangun Tidur", "jumlah_hadits": 1, "file": "246.json"},
-  {"id": 247, "source_id": 247, "judul": "Bab 247. Keutamaan Berkumpul Untuk Berdzikir Dan Mengajak Untuk Mengikutinya Dan Larangan Memisahkan Diri Daripadanya Kalau Tanpa Uzur -Halangan-", "jumlah_hadits": 4, "file": "247.json"},
-  {"id": 248, "source_id": 248, "judul": "Bab 248. Dzikir Di Waktu Pagi Dan Sore", "jumlah_hadits": 7, "file": "248.json"},
-  {"id": 249, "source_id": 249, "judul": "Bab 249. Apa-apa Yang Diucapkan Ketika Akan Tidur", "jumlah_hadits": 7, "file": "249.json"},
-  {"id": 250, "source_id": 250, "judul": "Bab 250. Doa-doa", "jumlah_hadits": 29, "file": "250.json"},
-  {"id": 251, "source_id": 251, "judul": "Bab 251. Keutamaan Berdoa Di Luar Adanya Orang Yang Didoakan -Yakni Orang Yang Di Doakan Tidak Mengetahui Bahwa Ia Di Doakan Olehnya-", "jumlah_hadits": 2, "file": "251.json"},
-  {"id": 252, "source_id": 252, "judul": "Bab 252. Beberapa Masalah Perihal Doa", "jumlah_hadits": 7, "file": "252.json"},
-  {"id": 253, "source_id": 253, "judul": "Bab 253. Keutamaan Para Waliyullah", "jumlah_hadits": 8, "file": "253.json"},
-  {"id": 254, "source_id": 254, "judul": "Bab 254. Haramnya Mengumpat dan Perintah Menjaga Lisan", "jumlah_hadits": 17, "file": "254.json"},
-  {"id": 255, "source_id": 255, "judul": "Bab 255. Haramnya Mendengar Kata Umpatan -Ghibah- Dan Menyuruh Kepada Orang Yang Mendengar Umpatan Yang Diharamkan Itu supaya Menolaknya dan Mengingkari -Tidak Menyetujui- Kepada Orang Yang Mengucapkannya. Jikalau Tidak Kuasa Ataupun Orang Tadi Tidak Suka Menerima Nasihatnya, Supaya Ia Memisahkan Diri Dari Tempat Itu Jikalau Mungkin Ia Berbuat Demikian", "jumlah_hadits": 3, "file": "255.json"},
-  {"id": 256, "source_id": 256, "judul": "Bab 256. Uraian Perihal Ghibah -Mengumpat- Yang Dibolehkan", "jumlah_hadits": 5, "file": "256.json"},
-  {"id": 257, "source_id": 257, "judul": "Bab 257. Haramnya Mengadu Domba Yaitu Memindahkan Kata-kata Antara Para Manusia Dengan Maksud Hendak Membuat Mereka Saling Bermusuhan, Merusak Dan Memfitnah Mereka", "jumlah_hadits": 3, "file": "257.json"},
-  {"id": 258, "source_id": 258, "judul": "Bab 258. Larangan Menyampaikan Kata-Kata Atau Pembicaraan Orang-Orang Kepada Para Penguasa Negara, Jikalau Tidak Didorong Oleh Sesuatu Keperluan Seperti Takutnya Timbulnya Kerusakan Dan Lain-Lain", "jumlah_hadits": 1, "file": "258.json"},
-  {"id": 259, "source_id": 259, "judul": "Bab 259. Tercelanya Orang Yang Bermuka Dua -Munafik-", "jumlah_hadits": 2, "file": "259.json"},
-  {"id": 260, "source_id": 260, "judul": "Bab 260. Haramnya Berdusta", "jumlah_hadits": 5, "file": "260.json"},
-  {"id": 261, "source_id": 261, "judul": "Bab 261. Uraian Perihal Dusta Yang Dibolehkan", "jumlah_hadits": 0, "file": "261.json"},
-  {"id": 262, "source_id": 262, "judul": "Bab 262. Memiliki Ketetapan -Keteguhan atau Kebenaran- Dalam Hal Apa Yang Diucapkan Atau Apa Yang Diceritakan", "jumlah_hadits": 3, "file": "262.json"},
-  {"id": 263, "source_id": 263, "judul": "Bab 263. Haramnya Bersaksi Palsu", "jumlah_hadits": 1, "file": "263.json"},
-  {"id": 264, "source_id": 264, "judul": "Bab 264. Haramnya Melaknat -Mengutuk- Diri Seseorang Atau Terhadap Binatang", "jumlah_hadits": 8, "file": "264.json"},
-  {"id": 265, "source_id": 265, "judul": "Bab 265. Bolehnya Melaknati Kepada Orang-orang Yang Mengerjakan Kemaksiatan Tanpa Menentukan Perorangannya", "jumlah_hadits": 0, "file": "265.json"},
-  {"id": 266, "source_id": 266, "judul": "Bab 266. Haramnya Memaki Orang Islam Tanpa Hak -Kebenaran-", "jumlah_hadits": 5, "file": "266.json"},
-  {"id": 267, "source_id": 267, "judul": "Bab 267. Haramnya Memaki-maki Orang-orang Yang Sudah Mati Tanpa Adanya Hak -Kebenaran- Dan Kemaslahatan Syari'at", "jumlah_hadits": 1, "file": "267.json"},
-  {"id": 268, "source_id": 268, "judul": "Bab 268. Larangan Menyakiti -Yakni Berbuat Zhalim-", "jumlah_hadits": 2, "file": "268.json"},
-  {"id": 269, "source_id": 269, "judul": "Bab 269. Larangan Saling Membenci, Memutuskan Ikatan Persahabatan Dan Saling Membelakangi -Tidak Saling Menyapa-", "jumlah_hadits": 2, "file": "269.json"},
-  {"id": 270, "source_id": 270, "judul": "Bab 270. Haramnya Hasad -Dengki- Yaitu Mengharapkan Lenyapnya Sesuatu Kenikmatan Dari Pemiliknya, Baikpun Yang Berupa Kenikmatan Urusan Agama Atau Urusan Keduniaan", "jumlah_hadits": 1, "file": "270.json"},
-  {"id": 271, "source_id": 271, "judul": "Bab 271. Larangan Menyelidiki Kesalahan -atau Kekurangan- Orang Lain Serta Mendengarkan Pada Pembicaraan Orang Lain Yang Ia Sendiri Benci Kalau Ia Mendengarnya", "jumlah_hadits": 3, "file": "271.json"},
-  {"id": 272, "source_id": 272, "judul": "Bab 272. Larangan Berprasangka Buruk Kepada Kaum Muslimin", "jumlah_hadits": 1, "file": "272.json"},
-  {"id": 273, "source_id": 273, "judul": "Bab 273. Haramnya Menghina Seorang Muslim", "jumlah_hadits": 3, "file": "273.json"},
-  {"id": 274, "source_id": 274, "judul": "Bab 274. Larangan Menampakkan Rasa Gembira Karena Adanya Bencana Yang Mengenai Seorang Muslim", "jumlah_hadits": 1, "file": "274.json"},
-  {"id": 275, "source_id": 275, "judul": "Bab 275. Haramnya Menodai Nasab -Menghina Keturunan- Yang Terang Menurut Zahirnya Syara'", "jumlah_hadits": 1, "file": "275.json"},
-  {"id": 276, "source_id": 276, "judul": "Bab 276. Larangan Mengelabui Dan Menipu", "jumlah_hadits": 5, "file": "276.json"},
-  {"id": 277, "source_id": 277, "judul": "Bab 277. Haramnya Berkhianat Dan Tidak Menepati Janji", "jumlah_hadits": 4, "file": "277.json"},
-  {"id": 278, "source_id": 278, "judul": "Bab 278. Larangan Mengungkit-ungkit Sesuatu Pemberian Dan Sebagainya", "jumlah_hadits": 1, "file": "278.json"},
-  {"id": 279, "source_id": 279, "judul": "Bab 279. Larangan Berbangga Diri Dan Melanggar Aturan", "jumlah_hadits": 2, "file": "279.json"},
-  {"id": 280, "source_id": 280, "judul": "Bab 280. Haramnya Meninggalkan Bercakap -Yakni Tidak Saling Menyapa- Antara Kaum Muslimin Lebih Dari Tiga Hari Kecuali Karena Adanya Kebid'ahan Dalam Diri Orang Yang Ditinggalkan Bercakap Tadi -Yakni Yang Tidak Disapa- Atau Karena Orang Itu Menampakkan Kefasikan Dan Lain-lain Sebagainya", "jumlah_hadits": 7, "file": "280.json"},
-  {"id": 281, "source_id": 281, "judul": "Bab 281. Larangan Saling Berbisik Antara Dua Orang Tanpa Mengajak Orang Yang Ketiga Dan Tanpa Izinnya Yang Ketiga Ini, Melainkan Karena Adanya Keperluan, Yaitu Kalau Kedua Orang Itu Bercakap-cakap Secara Rahasia Sekiranya Orang Yang Ketiga Itu Tidak Dapat Mendengarkannya Atau Yang Semakna Dengan Itu, Umpamanya Keduanya Bercakap-cakap Dengan Sesuatu Bahasa Yang Tidak Dimengerti Oleh Orang Yang Ketiga Tadi", "jumlah_hadits": 2, "file": "281.json"},
-  {"id": 282, "source_id": 282, "judul": "Bab 282. Larangan Menyiksa Hamba Sahaya, Binatang, Wanita Dan Anak Tanpa Adanya Sebab Yang Dibenarkan Oleh Syara' Ataupun Dengan Cara Yang Melebihi Kadar Kesopanan -Meskipun Dibenarkan Oleh Syara'-", "jumlah_hadits": 9, "file": "282.json"},
-  {"id": 283, "source_id": 283, "judul": "Bab 283. Haramnya Menyiksa Dengan Api Pada Semua Binatang, Sampai Pun Kutu Pada Kulit Kepala Dan Sebagainya", "jumlah_hadits": 2, "file": "283.json"},
-  {"id": 284, "source_id": 284, "judul": "Bab 284. Haramnya Menunda-nundanya Seorang Yang Kaya Pada Sesuatu Hak Yang Diminta Oleh Orang Yang Berhak Memperolehnya", "jumlah_hadits": 1, "file": "284.json"},
-  {"id": 285, "source_id": 285, "judul": "Bab 285. Makruhnya Seseorang Yang Menarik Kembali Hibah -Yakni Pemberiannya- Kepada Orang Yang Akan Dihibahi, Sebelum Diterimakan Kepada Yang Akan Dihibahi Itu Atau Hibah Yang Akan Diberikan Kepada Anaknya Dan Sudah Diterimakan Atau Belum Diterimakan Padanya, Juga Makruhnya seorang Membeli Sesuatu Benda Yang Disedekahkan Dari Orang Yang Disedekahi Atau Yang Dikeluarkan Sebagai Zakat Atau Kaffarah -Denda- Dan Lain-lain Sebagainya, Tetapi Tidak Mengapa Kalau Membelinya Itu Dari Orang Lain -Bukan Yang Disedekahi Atau Dizakati Dan Sebagainya- Karena Sudah Berpindah Milik Dari Orang Ini Ke Orang Lain Itu", "jumlah_hadits": 2, "file": "285.json"},
-  {"id": 286, "source_id": 286, "judul": "Bab 286. Haramnya Memakan Harta Anak Yatim", "jumlah_hadits": 1, "file": "286.json"},
-  {"id": 287, "source_id": 287, "judul": "Bab 287. Haramnya Memakan Harta Riba", "jumlah_hadits": 1, "file": "287.json"},
-  {"id": 288, "source_id": 288, "judul": "Bab 288. Haramnya Riya' -Pamer- Atau Memperlihatkan Kebaikan Diri Sendiri", "jumlah_hadits": 5, "file": "288.json"},
-  {"id": 289, "source_id": 289, "judul": "Bab 289. Sesuatu Yang Disangka Sebagai Riya', Tetapi Sebenarnya Bukan Riya'", "jumlah_hadits": 1, "file": "289.json"},
-  {"id": 290, "source_id": 290, "judul": "Bab 290. Haramnya Melihat Kepada Wanita Ajnabiyah -Yang Bukan Mahramnya Dan Kepada Orang Banci Yang Bagus Parasnya- Tanpa Ada Keperluan Yang Dibenarkan Menurut Syara'", "jumlah_hadits": 6, "file": "290.json"},
-  {"id": 291, "source_id": 291, "judul": "Bab 291. Haramnya Menyendiri Dengan Wanita Lain -Yakni Yang Bukan Mahramnya-", "jumlah_hadits": 3, "file": "291.json"},
-  {"id": 292, "source_id": 292, "judul": "Bab 292. Haramnya Kaum Lelaki Menyerupakan Diri Sebagai Kaum Wanita Dan Haramnya Kaum Wanita Menyerupakan Diri Sebagai Kaum Lelaki, Baik Dalam Pakaian, Gerakan Tubuh Dan Lain-lain", "jumlah_hadits": 3, "file": "292.json"},
-  {"id": 293, "source_id": 293, "judul": "Bab 293. Larangan Menyerupakan Diri Dengan Syaitan Dan Orang-orang Kafir", "jumlah_hadits": 3, "file": "293.json"},
-  {"id": 294, "source_id": 294, "judul": "Bab 294. Larangan Laki-laki Dan Perempuan Untuk Menyumba -Yakni Menyemir- Rambutnya Dengan Warna Hitam", "jumlah_hadits": 1, "file": "294.json"},
-  {"id": 295, "source_id": 295, "judul": "Bab 295. Larangan Menguncit Yaitu Mencukur Sebagian Kepala Dengan Meninggalkan Sebagian Lainnya -Cukur Jambul Atau Di Pitak- Dan Bolehnya Mencukur Seluruh Kepala Untuk Lelaki -Di Botak-, Tapi Tidak Boleh Untuk Perempuan", "jumlah_hadits": 4, "file": "295.json"},
-  {"id": 296, "source_id": 296, "judul": "Bab 296. Haramnya Menghubungkan -Menyambung- Rambut Sendiri Dengan Rambut Orang Lain -Yakni Memakai Wig atau Rambut Palsu-, Mencacah -Merajah atau Tato- Kulit Dengan Gambar, Tulisan Dan Lain-lain- Serta Wasyr Yaitu Mengikir Gigi -Untuk Merenggangkannya-", "jumlah_hadits": 4, "file": "296.json"},
-  {"id": 297, "source_id": 297, "judul": "Bab 297. Larangan Mencabut Uban dari Janggut, Kepala Dan Lain-lain", "jumlah_hadits": 2, "file": "297.json"},
-  {"id": 298, "source_id": 298, "judul": "Bab 298. Makruhnya Bercebok Dengan Tangan Kanan Dan Memegang Kemaluan Dengan Tangan Kanan Ketika Bercebok Tanpa Adanya Uzur", "jumlah_hadits": 1, "file": "298.json"},
-  {"id": 299, "source_id": 299, "judul": "Bab 299. Makruhnya Berjalan Dengan Mengenakan Sebuah Terompah Saja -Hanya Sebelah Sandal- Atau Sebuah -Sebelah Saja- Sepatu Khuf Tanpa Adanya Uzur Dan Makruhnya Mengenakan Terompah -Sandal- Atau Sepatu Khuf Sambil Berdiri Tanpa Uzur", "jumlah_hadits": 3, "file": "299.json"},
-  {"id": 300, "source_id": 300, "judul": "Bab 300. Larangan Membiarkan Api Menyala Di Rumah Ketika Hendak Tidur Dan Lain-lain, Baikpun Api Itu Berada Di Dalam Lampu Ataupun Lain-lainnya", "jumlah_hadits": 3, "file": "300.json"},
-  {"id": 301, "source_id": 301, "judul": "Bab 301. Larangan Memaksakan Diri Akan Perbuatan Dan Ucapan Yang Tidak Ada Kemaslahatan Di Dalamnya Dengan Kemasyarakatan", "jumlah_hadits": 2, "file": "301.json"},
-  {"id": 302, "source_id": 302, "judul": "Bab 302. Haramnya Menangis Dengan Suara Keras Kepada Mayat, Menampar Pipi, Merobek-robek Saku, Mencabuti Rambut, Mencukur Rambut -Akibat Kesedihan- Serta Berdoa Untuk Mendapatkan Kecelakaan Dan Kehancuran", "jumlah_hadits": 11, "file": "302.json"},
-  {"id": 303, "source_id": 303, "judul": "Bab 303. Larangan Mendatangi Ahli Tenung, Ahli Nujum, Ahli Terka, Orang-orang Yang Suka Meramal Dan Sebagainya Dengan Menunjuk Dengan Menggunakan Kerikil, Biji Sya'ir Dan Lain-lain Sebagainya", "jumlah_hadits": 6, "file": "303.json"},
-  {"id": 304, "source_id": 304, "judul": "Bab 304. Larangan Memiliki Perasaan Akan Mendapat Celaka -Rasa Sial Karena Adanya Sesuatu-", "jumlah_hadits": 4, "file": "304.json"},
-  {"id": 305, "source_id": 305, "judul": "Bab 305. Haramnya Menggambar Binatang Di Hamparan, Batu, Baju, Uang Dirham, Uang Dinar, Guling Bantal Dan lain-lain, Juga Haramnya Menggunakan Gambar Tadi Diletakkan Di Dinding Atap, Tabir, Sorban, Baju Dan Sebagainya Serta Perintah Untuk Merusak Gambar Itu", "jumlah_hadits": 10, "file": "305.json"},
-  {"id": 306, "source_id": 306, "judul": "Bab 306. Haramnya Memelihara Anjing Kecuali Untuk Berburu, Menjaga Ternak Atau Ladang Tanaman", "jumlah_hadits": 2, "file": "306.json"},
-  {"id": 307, "source_id": 307, "judul": "Bab 307. Makruhnya Menggantungkan Lonceng -Bel- Pada Unta Atau Binatang Lain-lain Dan Makruhnya Membawa Anjing Dan Lonceng -Bel- Dalam Berpergian", "jumlah_hadits": 2, "file": "307.json"},
-  {"id": 308, "source_id": 308, "judul": "Bab 308. Makruhnya Menaiki Jalalah Yaitu Unta Lelaki Atau Perempuan Yang Makan Kotoran Kecuali Jika Unta Itu Sudah Makan Makanan Biasa -Bukan Kotoran- Yang Suci Lalu Dagingnya Menjadi Enak Dimakan, Maka Hilanglah Kemakruhannya", "jumlah_hadits": 1, "file": "308.json"},
-  {"id": 309, "source_id": 309, "judul": "Bab 309. Larangan Meludah Dalam Masjid Dan Perintah Menghilangkannya Jikalau Menemukan Ludah itu Dan Juga Perintah Membersihkan Masjid Dari Segala Kotoran", "jumlah_hadits": 3, "file": "309.json"},
-  {"id": 310, "source_id": 310, "judul": "Bab 310. Makruhnya Bertengkar Dalam Masjid, Mengeraskan Suara Di Dalamnya, Menanyakan Apa-apa Yang Hilang, Jual Beli Persewaan Dan Hal-Hal Lainnya Yang Termasuk Muamalat -Jual Beli-", "jumlah_hadits": 5, "file": "310.json"},
-  {"id": 311, "source_id": 311, "judul": "Bab 311. Larangan Makan Bawang Putih, Bawang Merah, Petai Dan Lain-lain Yang Mengandung Bau Busuk Akan Masuk Masjid Sebelum Lenyapnya Bau Tersebut -Dari Mulut- Kecuali Kalau Darurat -Terpaksa-", "jumlah_hadits": 4, "file": "311.json"},
-  {"id": 312, "source_id": 312, "judul": "Bab 312. Makruhnya Duduk Ihtiba' Pada Hari Jum'at Di Waktu Imam Sedang Berkhutbah, Sebab Duduk Semacam Itu Dapat Menyebabkan Timbulnya Kantuk Lalu Tidak Memperhatikan Lagi Untuk Mendengarkan Khutbah Dan Pula Ditakutkan Akan Batalnya Wudhu'", "jumlah_hadits": 1, "file": "312.json"},
-  {"id": 313, "source_id": 313, "judul": "Bab 313. Larangan Bagi Seseorang Yang Didatangi Tanggal Sepuluh Zulhijjah Dan Ia Hendak Menyembelih Kurban Kalau Ia Mengambil -Memotong Atau Mencukur- Sesuatu Dari Rambut Atau Kukunya Sendiri, Sehingga Ia Selesai Menyembelih Kurban Tadi", "jumlah_hadits": 1, "file": "313.json"},
-  {"id": 314, "source_id": 314, "judul": "Bab 314. Larangan Bersumpah Dengan Menggunakan Makhluk Seperti Nabi, Ka'bah, Malaikat, Langit, Nenek Moyang, Kehidupan, Ruh, Kepala, Kehidupan Sultan, Kenikmatan Sultan, Tanah Si Fulan, Amanat Dan Sumpah-sumpah Semacam Inilah Yang Terkeras Larangannya", "jumlah_hadits": 5, "file": "314.json"},
-  {"id": 315, "source_id": 315, "judul": "Bab 315. Memperkeraskan Keharamannya Bersumpah Dusta Dengan Sengaja", "jumlah_hadits": 3, "file": "315.json"},
-  {"id": 316, "source_id": 316, "judul": "Bab 316. Sunnahnya Seseorang Yang Sudah Terlanjur Mengucapkan Sumpah, Lalu Melihat Ada Yang Lebih Baik Dari Yang Disumpahkannya Itu, Supaya Ia Mengerjakan Saja Apa Yang Lebih Baik Tersebut Tadi Kemudian Membayar Denda Atas Sumpahnya Tersebut", "jumlah_hadits": 4, "file": "316.json"},
-  {"id": 317, "source_id": 317, "judul": "Bab 317. Pengampunan Atas Sumpah Yang Tidak Disengaja Dan Bahwasanya Sumpah Semacam Ini Tidak Perlu Dibayarkan Kaffarah -Denda-, Yaitu Sumpah Yang Biasa Meluncur Atas Lisan Tanpa Adanya Kesengajaan, Seperti Seseorang Yang Sudah Biasa Mengucapkan: \"Tidak, Wallahi\" Dan \"Ya, Wallahi\" Dan Lain-lain Sebagainya", "jumlah_hadits": 1, "file": "317.json"},
-  {"id": 318, "source_id": 318, "judul": "Bab 318. Makruhnya Bersumpah Dalam Berjualan, Sekalipun Benar Kata-katanya", "jumlah_hadits": 2, "file": "318.json"},
-  {"id": 319, "source_id": 319, "judul": "Bab 319. Makruhnya Seseorang Meminta Dengan ZatNya Allah 'Azza Wa Jalla Selain Dari Syurga Dan Makruhnya Menolak Seorang Yang Meminta Dengan Menggunakan Ucapan \"Dengan Allah Ta'ala\" Serta Bersyafa'at Dengan Kata-kata Itu", "jumlah_hadits": 2, "file": "319.json"},
-  {"id": 320, "source_id": 320, "judul": "Bab 320. Haramnya Mengucapkan Syahansyah -Maha Raja Atau Raja Di Raja- Untuk Seorang Sultan Atau Lain-lainnya, Sebab Artinya Itu Adalah Raja Dari Sekalian Raja, Sedangkan Tidak Boleh Diberi Sifat Sedemikian Itu Melainkan Allah Subhanahu Wa Ta'ala", "jumlah_hadits": 1, "file": "320.json"},
-  {"id": 321, "source_id": 321, "judul": "Bab 321. Larangan Memanggil Orang Fasik Atau Orang Yang Berbuat Kebid'ahan Dan Yang Semacam Itu Dengan Ucapan \"Tuan -Sayyid-\" Dan Yang Seumpamanya", "jumlah_hadits": 1, "file": "321.json"},
-  {"id": 322, "source_id": 322, "judul": "Bab 322. Makruhnya Memaki-maki Penyakit Panas", "jumlah_hadits": 1, "file": "322.json"},
-  {"id": 323, "source_id": 323, "judul": "Bab 323. Larangan Memaki-maki Angin Dan Uraian Apa Yang Diucapkan Ketika Ada Hembusan Angin", "jumlah_hadits": 3, "file": "323.json"},
-  {"id": 324, "source_id": 324, "judul": "Bab 324. Makruhnya Memaki-maki Ayam", "jumlah_hadits": 1, "file": "324.json"},
-  {"id": 325, "source_id": 325, "judul": "Bab 325. Larangan Seseorang Mengucapkan \"Kita Disirami Air Hujan Karena Barokah Dari Bintang Anu\"", "jumlah_hadits": 1, "file": "325.json"},
-  {"id": 326, "source_id": 326, "judul": "Bab 326. Haramnya Seseorang Mengatakan Kepada Sesama Orang Muslim: \"Hai Orang Kafir\"", "jumlah_hadits": 2, "file": "326.json"},
-  {"id": 327, "source_id": 327, "judul": "Bab 327. Larangan Berbuat Kekejian -Atau Melanggar Batas- Serta Berkata Kotor", "jumlah_hadits": 2, "file": "327.json"},
-  {"id": 328, "source_id": 328, "judul": "Bab 328. Makruhnya Memaksa-maksakan Keindahan Dalam Bercakap-cakap Dengan Jalan Berlagak Sombong Dalam Mengeluarkan Kata-kata Dan Memaksa-maksakan Diri Untuk Dapat Berbicara Dengan Fasih Atau Menggunakan Kata-kata Yang Asing -Sukar Diterima- Serta Susunan Yang Rumit-rumit Dalam Bercakap-cakap Dengan Orang Awam Dan Yang Seumpama Mereka Itu", "jumlah_hadits": 3, "file": "328.json"},
-  {"id": 329, "source_id": 329, "judul": "Bab 329. Makruhnya berkata: \"Jiwaku Buruk -Busuk-\"", "jumlah_hadits": 1, "file": "329.json"},
-  {"id": 330, "source_id": 330, "judul": "Bab 330. Makruhnya Menamakan Anggur Dengan Sebutan Alkarmu", "jumlah_hadits": 2, "file": "330.json"},
-  {"id": 331, "source_id": 331, "judul": "Bab 331. Larangan Menguraikan Sifat -Keadaan Atau Hal Ihwal- Wanita Kepada Seorang Lelaki, Kecuali Kalau Ada Keperluan Untuk Berbuat Sedemikian Itu Untuk Kepentingan Syara' Seperti Hendak Mengawininya Dan Sebagainya", "jumlah_hadits": 1, "file": "331.json"},
-  {"id": 332, "source_id": 332, "judul": "Bab 332. Makruhnya Seseorang Mengucapkan Dalam Doanya: \"Ya Allah, Ampunilah Saya Kalau Engkau Berkehendak\", Tetapi Haruslah Ia Memantapkan Permohonannya Itu", "jumlah_hadits": 2, "file": "332.json"},
-  {"id": 333, "source_id": 333, "judul": "Bab 333. Makruhnya Mengucapkan: ''Sesuatu Yang Allah Menghendaki Dan Si Fulan Itu Juga Menghendaki\"", "jumlah_hadits": 1, "file": "333.json"},
-  {"id": 334, "source_id": 334, "judul": "Bab 334. Makruhnya Bercakap-cakap Sehabis Shalat Isya' Yang Akhir", "jumlah_hadits": 3, "file": "334.json"},
-  {"id": 335, "source_id": 335, "judul": "Bab 335. Haramnya Seorang Istri Menolak Untuk Diajak Ke Tempat Tidur Suaminya, Jikalau Suami Itu Mengajaknya, Sedangkan Istrinya Itu Tidak Mempunyai Uzur Yang Dibenarkan Oleh Syara'", "jumlah_hadits": 1, "file": "335.json"},
-  {"id": 336, "source_id": 336, "judul": "Bab 336. Haramnya Seorang Istri Mengerjakan Puasa Sunnah Di Waktu Suaminya Ada Di Rumah, Melainkan Dengan Izin Suaminya Itu", "jumlah_hadits": 1, "file": "336.json"},
-  {"id": 337, "source_id": 337, "judul": "Bab 337. Larangan Untuk Makmum Bila Mengangkat Kepala Dari Ruku' Atau Sujud Sebelum Imam -Yakni Mendahului Imam-", "jumlah_hadits": 1, "file": "337.json"},
-  {"id": 338, "source_id": 338, "judul": "Bab 338. Makruhnya Meletakkan Tangan Di Atas Khashirah -Yakni Rusuk Sebelah Atas Pangkal Paha- Ketika Shalat", "jumlah_hadits": 1, "file": "338.json"},
-  {"id": 339, "source_id": 339, "judul": "Bab 339. Makruhnya Shalat Di Muka -Di Depan- Makanan, Sedang Hatinya Ingin Padanya Atau Shalat Dengan Menahan Dua Kotoran Yaitu Ingin Kencing Atau Berak -Buang Air Besar-", "jumlah_hadits": 1, "file": "339.json"},
-  {"id": 340, "source_id": 340, "judul": "Bab 340. Larangan Mengangkat Mata Ke Langit -Yakni Ke Arah Atas- Ketika Sedang Shalat", "jumlah_hadits": 1, "file": "340.json"},
-  {"id": 341, "source_id": 341, "judul": "Bab 341. Makruhnya Menoleh Dalam Shalat Tanpa Adanya Uzur", "jumlah_hadits": 2, "file": "341.json"},
-  {"id": 342, "source_id": 342, "judul": "Bab 342. Larangan Shalat Menghadap Ke Arah Kubur", "jumlah_hadits": 1, "file": "342.json"},
-  {"id": 343, "source_id": 343, "judul": "Bab 343. Haramnya Berjalan Melalui Mukanya -Di Depan- Orang Yang Sedang Shalat", "jumlah_hadits": 1, "file": "343.json"},
-  {"id": 344, "source_id": 344, "judul": "Bab 344. Makruhnya Makmum Memulai Shalat Sunnah Setelah Muazzin Mulai Mengucapkan Iqamah, Baikpun Yang Dilakukan Itu Shalat Sunnah Dari Shalat Wajib Yang Dikerjakan Itu -Yakni Rawatib- Ataupun Shalat Sunnah Lainnya", "jumlah_hadits": 1, "file": "344.json"},
-  {"id": 345, "source_id": 345, "judul": "Bab 345. Makruhnya Mengkhususkan Hari Jum'at Untuk Berpuasa Dan Malam Jum'at Untuk Shalat Malam", "jumlah_hadits": 4, "file": "345.json"},
-  {"id": 346, "source_id": 346, "judul": "Bab 346. Haramnya Mempersambungkan Dalam Berpuasa Yaitu Berpuasa Dua Hari Atau Lebih Dan Tidak Makan Serta Tidak Minum Antara Hari-Hari Itu", "jumlah_hadits": 2, "file": "346.json"},
-  {"id": 347, "source_id": 347, "judul": "Bab 347. Haramnya Duduk Di Atas Kubur", "jumlah_hadits": 1, "file": "347.json"},
-  {"id": 348, "source_id": 348, "judul": "Bab 348. Larangan Memelur -Menyemen atau Menembok- Kubur Dan Membuat Bangunan Di Atasnya", "jumlah_hadits": 1, "file": "348.json"},
-  {"id": 349, "source_id": 349, "judul": "Bab 349. Larangan Bagi Seorang Hamba Sahaya -Budak- Melarikan Diri Dari Tuan Pemiliknya", "jumlah_hadits": 2, "file": "349.json"},
-  {"id": 350, "source_id": 350, "judul": "Bab 350. Haramnya Memberikan Syafa'at -Yakni Pertolongan- Dalam Hal Melaksanakan Had-had Atau Hukum Islam -Yang Bertujuan Agar Diurungkannya Pelaksanaan Hukuman Itu-", "jumlah_hadits": 1, "file": "350.json"},
-  {"id": 351, "source_id": 351, "judul": "Bab 351. Larangan Berak -Buang Air Besar Maupun Kencing- Di Jalanan Orang-orang -Yakni Tempat Mereka Berlalu Lintas-, juga Di Tempat Mereka Berteduh Dan Di Tempat Mendatangi Air -Sumber-sumber Air- Dan Yang Seumpamanya", "jumlah_hadits": 1, "file": "351.json"},
-  {"id": 352, "source_id": 352, "judul": "Bab 352. Larangan Kencing Dan Sebagainya Di Air Yang Berhenti -Yakni Tidak Mengalir-", "jumlah_hadits": 1, "file": "352.json"},
-  {"id": 353, "source_id": 353, "judul": "Bab 353. Makruhnya Mengutamakan Seorang Anak Melebihi Anak-anak Yang Lainnya Dalam Hal Menghibahkan -Yakni Memberikan Sesuatu Pemberian atau Hadiah-", "jumlah_hadits": 1, "file": "353.json"},
-  {"id": 354, "source_id": 354, "judul": "Bab 354. Haramnya Berkabung Bagi Seorang Wanita Atas Meninggalnya Mayit Lebih Dari Tiga Hari, Kecuali Kalau Yang Meninggal Itu Suaminya, Maka Batas Maksimal Berkabungnya Selama Empat Bulan Sepuluh Hari", "jumlah_hadits": 6, "file": "354.json"},
-  {"id": 355, "source_id": 355, "judul": "Bab 355. Haramnya Menjualkannya Orang Kota Pada Miliknya Orang Desa Dan Menyongsong Penjual Di Atas Kendaraan -Menjadi Perantara atau Calo-, Juga Haramnya Menjual Atas Jualan Saudaranya -Sesama Muslim-, Jangan Pula Melamar Atas Lamaran Saudaranya, Kecuali Kalau Ia Mengizinkan Atau Ia Ditolak Lamarannya", "jumlah_hadits": 6, "file": "355.json"},
-  {"id": 356, "source_id": 356, "judul": "Bab 356. Larangan Menyia-nyiakan Harta Yang Tidak Di Dalam Arah-arah Yang Diizinkan Oleh Syari'at Dalam Membelanjakannya", "jumlah_hadits": 2, "file": "356.json"},
-  {"id": 357, "source_id": 357, "judul": "Bab 357. Larangan Berisyarat Kepada Seorang Muslim Dengan Menggunakan Pedang Dan Sebagainya Baikpun Secara Sungguh-sungguh Atau Senda Gurau -Bercanda- Dan Larangan Memberikan Pedang Dalam Keadaan Terhunus", "jumlah_hadits": 2, "file": "357.json"},
-  {"id": 358, "source_id": 358, "judul": "Bab 358. Makruhnya Keluar Dari Masjid Sesudah Adzan Kecuali Karena Uzur, Sehingga Melakukan Shalat Yang Diwajibkan", "jumlah_hadits": 1, "file": "358.json"},
-  {"id": 359, "source_id": 359, "judul": "Bab 359. Makruhnya Menolak Pemberian Harum-haruman Tanpa Adanya Uzur", "jumlah_hadits": 2, "file": "359.json"},
-  {"id": 360, "source_id": 360, "judul": "Bab 360. Makruhnya Memuji Di Muka Orang Yang Dipuji Jikalau Dikhawatirkan Timbulnya Kerusakan Padanya Seperti Menimbulkan Rasa Bangga Pada Diri Sendiri Dan Sebagainya, Tetapi Jawaz -Yakni Boleh- Bagi Seseorang Yang Aman Hatinya Dari Perasaan Yang Sedemikian Itu Jikalau Menerima Pujian Pada Dirinya", "jumlah_hadits": 3, "file": "360.json"},
-  {"id": 361, "source_id": 361, "judul": "Bab 361. Makruhnya Keluar Dari Sesuatu Negeri Yang Dihinggapi Oleh Wabah Penyakit Karena Hendak Melarikan Diri Daripadanya Serta Makruhnya Datang Di Negeri Yang Dihinggapi Penyakit Itu", "jumlah_hadits": 2, "file": "361.json"},
-  {"id": 362, "source_id": 362, "judul": "Bab 362. Memperkeras Keharamannya Sihir", "jumlah_hadits": 1, "file": "362.json"},
-  {"id": 363, "source_id": 363, "judul": "Bab 363. Larangan Berpergian Dengan Membawa Mushaf -Yakni Kitab Suci Al-Quran- Ke Negeri Orang-orang Kafir, Jikalau Dikhawatirkan Akan Jatuhnya Mushaf Itu Di Tangan Mereka", "jumlah_hadits": 1, "file": "363.json"},
-  {"id": 364, "source_id": 364, "judul": "Bab 364. Haramnya Menggunakan Wadah Yang Terbuat Dari Emas Dan Wadah Dari Perak Untuk Makan, Minum, Bersuci Dan Macam-macam Penggunaan Yang Lain-lain", "jumlah_hadits": 3, "file": "364.json"},
-  {"id": 365, "source_id": 365, "judul": "Bab 365. Haramnya Seorang Lelaki Mengenakan Pakaian Yang Dibubuhi Minyak Za'faran", "jumlah_hadits": 2, "file": "365.json"},
-  {"id": 366, "source_id": 366, "judul": "Bab 366. Larangan Berdiam -Tidak Berbicara Seharian Hingga Malam-", "jumlah_hadits": 2, "file": "366.json"},
-  {"id": 367, "source_id": 367, "judul": "Bab 367. Haramnya Seseorang Mengaku Nasab -Atau Keturunan- Dari Seseorang Yang Bukan Ayahnya Dan Mengaku Diperintah Oleh Orang Yang Bukan Walinya -Yakni Yang Tidak Berhak Memerdekakannya-", "jumlah_hadits": 4, "file": "367.json"},
-  {"id": 368, "source_id": 368, "judul": "Bab 368. Menakut-nakuti Dari Menumpuk-numpuk Apa-apa Yang Dilarang Oleh Allah 'Azza Wa Jalla Serta Oleh Rasulullah S.A.W.", "jumlah_hadits": 1, "file": "368.json"},
-  {"id": 369, "source_id": 369, "judul": "Bab 369. Apa-apa Yang Perlu Diucapkan Dan Dikerjakan Oleh Seseorang Yang Menumpuk-numpuk Apa-apa Yang Dilarang -Oleh Agama- Atas Dirinya", "jumlah_hadits": 1, "file": "369.json"},
-  {"id": 370, "source_id": 370, "judul": "Bab 370. Beberapa Hadis Yang Tidak Termasuk Dalam Bab Tertentu Namun Sangat Penting Untuk Diketahui", "jumlah_hadits": 61, "file": "370.json"},
-  {"id": 371, "source_id": 371, "judul": "Bab 371. Kitab Istighfar -Mohon Pengampunan-", "jumlah_hadits": 11, "file": "371.json"},
-  {"id": 372, "source_id": 372, "judul": "Bab 372. Uraian Perihal Apa-apa Yang Disediakan Oleh Allah Ta'ala Untuk Kaum Mukminin Di Dalam Syurga", "jumlah_hadits": 17, "file": "372.json"}
+  {
+    "id": 1,
+    "source_id": 1,
+    "judul": "Bab 1. Ikhlas dan Menghadirkan Niat di Semua Amalan dan Ucapan Baik yang Tampak Ataupun Tersembunyi",
+    "jumlah_hadits": 12,
+    "file": "001.json"
+  },
+  {
+    "id": 2,
+    "source_id": 2,
+    "judul": "Bab 2. Tobat",
+    "jumlah_hadits": 12,
+    "file": "002.json"
+  },
+  {
+    "id": 3,
+    "source_id": 3,
+    "judul": "Bab 3. Sabar",
+    "jumlah_hadits": 29,
+    "file": "003.json"
+  },
+  {
+    "id": 4,
+    "source_id": 4,
+    "judul": "Bab 4. Kejujuran",
+    "jumlah_hadits": 6,
+    "file": "004.json"
+  },
+  {
+    "id": 5,
+    "source_id": 5,
+    "judul": "Bab 5. Murāqabah",
+    "jumlah_hadits": 9,
+    "file": "005.json"
+  },
+  {
+    "id": 6,
+    "source_id": 6,
+    "judul": "Bab 6. Takwa",
+    "jumlah_hadits": 5,
+    "file": "006.json"
+  },
+  {
+    "id": 7,
+    "source_id": 7,
+    "judul": "Bab 7. Yakin dan Tawakal",
+    "jumlah_hadits": 11,
+    "file": "007.json"
+  },
+  {
+    "id": 8,
+    "source_id": 8,
+    "judul": "Bab 8. Istikamah",
+    "jumlah_hadits": 2,
+    "file": "008.json"
+  },
+  {
+    "id": 9,
+    "source_id": 9,
+    "judul": "Bab 9. Tafakur Terhadap Keagungan Makhluk Allah, Kefanaan Dunia",
+    "jumlah_hadits": 0,
+    "file": "009.json"
+  },
+  {
+    "id": 10,
+    "source_id": 10,
+    "judul": "Bab 10. Bersegera Melakukan Kebaikan",
+    "jumlah_hadits": 8,
+    "file": "010.json"
+  },
+  {
+    "id": 11,
+    "source_id": 11,
+    "judul": "Bab 11. Mujāhadah",
+    "jumlah_hadits": 17,
+    "file": "011.json"
+  },
+  {
+    "id": 12,
+    "source_id": 12,
+    "judul": "Bab 12. Motivasi Meningkatkan Kebaikan di Akhir Usia",
+    "jumlah_hadits": 5,
+    "file": "012.json"
+  },
+  {
+    "id": 13,
+    "source_id": 13,
+    "judul": "Bab 13. Penjelasan Tentang Banyaknya Jalan Kebaikan",
+    "jumlah_hadits": 25,
+    "file": "013.json"
+  },
+  {
+    "id": 14,
+    "source_id": 14,
+    "judul": "Bab 14. Sederhana dalam Ketaatan",
+    "jumlah_hadits": 11,
+    "file": "014.json"
+  },
+  {
+    "id": 15,
+    "source_id": 15,
+    "judul": "Bab 15. Menjaga Amalan",
+    "jumlah_hadits": 3,
+    "file": "015.json"
+  },
+  {
+    "id": 16,
+    "source_id": 16,
+    "judul": "Bab 16. Perintah Menjaga Sunnah dan Adab-Adabnya",
+    "jumlah_hadits": 12,
+    "file": "016.json"
+  },
+  {
+    "id": 17,
+    "source_id": 17,
+    "judul": "Bab 17. Kewajiban Tunduk Kepada Hukum Allah dan Ucapan Orang yang Diajak Kepada Hal Itu Serta yang Diajak Kepada Kebaikan dan Dilarang dari Kemungkaran",
+    "jumlah_hadits": 1,
+    "file": "017.json"
+  },
+  {
+    "id": 18,
+    "source_id": 18,
+    "judul": "Bab 18. Larangan Melakukan Bidah dan Perkara-Perkara yang Baru dalam Agama",
+    "jumlah_hadits": 3,
+    "file": "018.json"
+  },
+  {
+    "id": 19,
+    "source_id": 19,
+    "judul": "Bab 19. Tentang Orang yang Memulai Sunah yang Baik atau Buruk",
+    "jumlah_hadits": 2,
+    "file": "019.json"
+  },
+  {
+    "id": 20,
+    "source_id": 20,
+    "judul": "Bab 20. Mengajak Kepada Kebaikan dan Petunjuk atau Kepada Kesesatan",
+    "jumlah_hadits": 4,
+    "file": "020.json"
+  },
+  {
+    "id": 21,
+    "source_id": 21,
+    "judul": "Bab 21. Tolong-Menolong dalam Kebajikan dan Ketakwaan",
+    "jumlah_hadits": 4,
+    "file": "021.json"
+  },
+  {
+    "id": 22,
+    "source_id": 22,
+    "judul": "Bab 22. Nasihat",
+    "jumlah_hadits": 3,
+    "file": "022.json"
+  },
+  {
+    "id": 23,
+    "source_id": 23,
+    "judul": "Bab 23. Amar Makruf Nahi Mungkar",
+    "jumlah_hadits": 14,
+    "file": "023.json"
+  },
+  {
+    "id": 24,
+    "source_id": 24,
+    "judul": "Bab 24. Hukuman Berat Bagi Orang yang Mengajak Kepada Kebaikan atau Mencegah Kemungkaran Tetapi Perbuatannya Menyelisihi Ucapannya",
+    "jumlah_hadits": 1,
+    "file": "024.json"
+  },
+  {
+    "id": 25,
+    "source_id": 25,
+    "judul": "Bab 25. Perintah Menunaikan Amanah",
+    "jumlah_hadits": 4,
+    "file": "025.json"
+  },
+  {
+    "id": 26,
+    "source_id": 26,
+    "judul": "Bab 26. Pengharaman Kezaliman dan Perintah Mengembalikan Hak Orang yang Terzalimi",
+    "jumlah_hadits": 19,
+    "file": "026.json"
+  },
+  {
+    "id": 27,
+    "source_id": 27,
+    "judul": "Bab 27. Mengagungkan Kehormatan Muslim dan Penjelasan Tentang Hak Mereka Serta Kasih Sayang Kepada Mereka",
+    "jumlah_hadits": 18,
+    "file": "027.json"
+  },
+  {
+    "id": 28,
+    "source_id": 28,
+    "judul": "Bab 28. Menutup Aurat (Aib) Muslim dan Larangan Menyebarkannya Tanpa Hajat",
+    "jumlah_hadits": 4,
+    "file": "028.json"
+  },
+  {
+    "id": 29,
+    "source_id": 29,
+    "judul": "Bab 29. Membantu Kebutuhan Kaum Muslimin",
+    "jumlah_hadits": 2,
+    "file": "029.json"
+  },
+  {
+    "id": 30,
+    "source_id": 30,
+    "judul": "Bab 30. Syafaat (Membantu Sebagai Perantara)",
+    "jumlah_hadits": 2,
+    "file": "030.json"
+  },
+  {
+    "id": 31,
+    "source_id": 31,
+    "judul": "Bab 31. Mendamaikan Manusia",
+    "jumlah_hadits": 4,
+    "file": "031.json"
+  },
+  {
+    "id": 32,
+    "source_id": 32,
+    "judul": "Bab 32. Keutamaan Muslim yang Lemah dan Miskin yang Tidak Dikenal",
+    "jumlah_hadits": 8,
+    "file": "032.json"
+  },
+  {
+    "id": 33,
+    "source_id": 33,
+    "judul": "Bab 33. Sikap Ramah, Baik, Sayang, Tawaduk, dan Rendah Hati Kepada Yatim, Anak Perempuan, Orang Lemah, Miskin, dan Menderita",
+    "jumlah_hadits": 13,
+    "file": "033.json"
+  },
+  {
+    "id": 34,
+    "source_id": 34,
+    "judul": "Bab 34. Wasiat Terhadap Wanita",
+    "jumlah_hadits": 8,
+    "file": "034.json"
+  },
+  {
+    "id": 35,
+    "source_id": 35,
+    "judul": "Bab 35. Hak Suami Atas Istri",
+    "jumlah_hadits": 8,
+    "file": "035.json"
+  },
+  {
+    "id": 36,
+    "source_id": 36,
+    "judul": "Bab 36. Menafkahi Keluarga",
+    "jumlah_hadits": 8,
+    "file": "036.json"
+  },
+  {
+    "id": 37,
+    "source_id": 37,
+    "judul": "Bab 37. Menginfakkan Harta yang Dicintai dan yang Bagus",
+    "jumlah_hadits": 1,
+    "file": "037.json"
+  },
+  {
+    "id": 38,
+    "source_id": 38,
+    "judul": "Bab 38. Kewajiban Memerintahkan Keluarga, Putra-Putri yang Sudah Berusia Tamyiz, dan Semua yang Ada dalam Tanggung Jawabnya Agar Taat Kepada Allah -Ta'Ālā-, Mendidik Mereka, Serta Melarang Mereka Durhaka dan Melanggar Berbagai Larangan",
+    "jumlah_hadits": 5,
+    "file": "038.json"
+  },
+  {
+    "id": 39,
+    "source_id": 39,
+    "judul": "Bab 39. Hak Tetangga dan Wasiat Berbuat Baik Kepadanya",
+    "jumlah_hadits": 9,
+    "file": "039.json"
+  },
+  {
+    "id": 40,
+    "source_id": 40,
+    "judul": "Bab 40. Berbakti Kepada Kedua Orang Tua dan Silaturahmi",
+    "jumlah_hadits": 24,
+    "file": "040.json"
+  },
+  {
+    "id": 41,
+    "source_id": 41,
+    "judul": "Bab 41. Pengharaman Durhaka Kepada Orang Tua dan Memutus Silaturahmi",
+    "jumlah_hadits": 5,
+    "file": "041.json"
+  },
+  {
+    "id": 42,
+    "source_id": 42,
+    "judul": "Bab 42. Berbuat Baik Kepada Sahabat Ayah, Ibu, Kerabat, Istri, dan Semua Orang yang Mesti Dimuliakan",
+    "jumlah_hadits": 5,
+    "file": "042.json"
+  },
+  {
+    "id": 43,
+    "source_id": 43,
+    "judul": "Bab 43. Memuliakan Ahli Bait Rasulullah -Ṣāllallāhu 'Alaihi Wa Sallam- dan Menjelaskan Keutamaan Mereka",
+    "jumlah_hadits": 2,
+    "file": "043.json"
+  },
+  {
+    "id": 44,
+    "source_id": 44,
+    "judul": "Bab 44. Menghormati Ulama, Orang Tua, dan Orang-Orang Mulia Serta Mendahulukan Mereka, Memuliakan Majelis Mereka, dan Memperlihatkan Kedudukan Mereka",
+    "jumlah_hadits": 12,
+    "file": "044.json"
+  },
+  {
+    "id": 45,
+    "source_id": 45,
+    "judul": "Bab 45. Berkunjung Kepada Orang-Orang Baik, Bergaul dan Berteman dengan Mereka,",
+    "jumlah_hadits": 15,
+    "file": "045.json"
+  },
+  {
+    "id": 46,
+    "source_id": 46,
+    "judul": "Bab 46. Keutamaan dan Anjuran Cinta Karena Allah, Ucapan Cinta Kepada Orang yang Dicintai, dan Jawaban Kepada Orang yang Mengucapkannya",
+    "jumlah_hadits": 11,
+    "file": "046.json"
+  },
+  {
+    "id": 47,
+    "source_id": 47,
+    "judul": "Bab 47. Tanda Allah Mencintai Hamba Serta Anjuran untuk Berperangai Dengannya dan Mengusahakannya",
+    "jumlah_hadits": 3,
+    "file": "047.json"
+  },
+  {
+    "id": 48,
+    "source_id": 48,
+    "judul": "Bab 48. Peringatan dari Tindakan Menyakiti Orang Saleh, Lemah, dan Miskin",
+    "jumlah_hadits": 1,
+    "file": "048.json"
+  },
+  {
+    "id": 49,
+    "source_id": 49,
+    "judul": "Bab 49. Menetapkan Hukum Terhadap Manusia Sesuai Keadaan Lahiriah Mereka dan Menyerahkan Urusan Batin Mereka Kepada Allah -Ta'Ālā-",
+    "jumlah_hadits": 6,
+    "file": "049.json"
+  },
+  {
+    "id": 50,
+    "source_id": 50,
+    "judul": "Bab 50. Khauf (Takut)",
+    "jumlah_hadits": 16,
+    "file": "050.json"
+  },
+  {
+    "id": 51,
+    "source_id": 51,
+    "judul": "Bab 51. Rajā` (Harapan)",
+    "jumlah_hadits": 28,
+    "file": "051.json"
+  },
+  {
+    "id": 52,
+    "source_id": 52,
+    "judul": "Bab 52. Keutamaan Rajā` (Harapan)",
+    "jumlah_hadits": 3,
+    "file": "052.json"
+  },
+  {
+    "id": 53,
+    "source_id": 53,
+    "judul": "Bab 53. Menggabungkan Antara Takut dan Harap",
+    "jumlah_hadits": 3,
+    "file": "053.json"
+  },
+  {
+    "id": 54,
+    "source_id": 54,
+    "judul": "Bab 54. Keutamaan Menangis Karena Takut dan Rindu kepada Allah",
+    "jumlah_hadits": 10,
+    "file": "054.json"
+  },
+  {
+    "id": 55,
+    "source_id": 55,
+    "judul": "Bab 55. Keutamaan Zuhud Terhadap Dunia, Anjuran Hidup Sederhana Serta Keutamaan Hidup Miskin",
+    "jumlah_hadits": 34,
+    "file": "055.json"
+  },
+  {
+    "id": 56,
+    "source_id": 56,
+    "judul": "Bab 56. Keutamaan Lapar dan Hidup Sederhana Serta Merasa Cukup dengan Sedikit Makanan, Minuman, Pakaian, dan Kesenangan Lainnya Serta Meninggalkan Syahwat",
+    "jumlah_hadits": 31,
+    "file": "056.json"
+  },
+  {
+    "id": 57,
+    "source_id": 57,
+    "judul": "Bab 57. Kanaah, Ifah, Infak, Hidup Sederhana, dan Celaan Terhadap Minta-Minta Tanpa Mendesak",
+    "jumlah_hadits": 16,
+    "file": "057.json"
+  },
+  {
+    "id": 58,
+    "source_id": 58,
+    "judul": "Bab 58. Boleh Menerima Pemberian Jika Tidak Diminta dan Tidak Diharapkan",
+    "jumlah_hadits": 1,
+    "file": "058.json"
+  },
+  {
+    "id": 59,
+    "source_id": 59,
+    "judul": "Bab 59. Anjuran Makan dari Usaha Sendiri dan Menjaga Kehormatan Diri dari Meminta-Minta dan Berharap Diberi",
+    "jumlah_hadits": 5,
+    "file": "059.json"
+  },
+  {
+    "id": 60,
+    "source_id": 60,
+    "judul": "Bab 60. Kedermawanan, Sumbangan, dan Infak Pada Berbagai Kebaikan Karena Yakin Kepada Allah -Ta'Ālā-",
+    "jumlah_hadits": 19,
+    "file": "060.json"
+  },
+  {
+    "id": 61,
+    "source_id": 61,
+    "judul": "Bab 61. Larangan Pelit dan Kikir",
+    "jumlah_hadits": 1,
+    "file": "061.json"
+  },
+  {
+    "id": 62,
+    "source_id": 62,
+    "judul": "Bab 62. Mendahulukan Orang Lain dan Berbagi Bersama Mereka",
+    "jumlah_hadits": 5,
+    "file": "062.json"
+  },
+  {
+    "id": 63,
+    "source_id": 63,
+    "judul": "Bab 63. Berlomba dalam Urusan Akhirat dan Memperbanyak Amalan yang Mendatangkan Berkah",
+    "jumlah_hadits": 2,
+    "file": "063.json"
+  },
+  {
+    "id": 64,
+    "source_id": 64,
+    "judul": "Bab 64. Keutamaan Orang Kaya yang Bersyukur; Yaitu Orang yang Memperoleh Harta dari Jalan yang Benar dan Menggunakannya Pada Perkara yang Diperintahkan",
+    "jumlah_hadits": 3,
+    "file": "064.json"
+  },
+  {
+    "id": 65,
+    "source_id": 65,
+    "judul": "Bab 65. Mengingat Kematian dan Singkat Angan-Angan",
+    "jumlah_hadits": 7,
+    "file": "065.json"
+  },
+  {
+    "id": 66,
+    "source_id": 66,
+    "judul": "Bab 66. Anjuran Ziarah Kubur Bagi Laki-Laki dan Bacaan Doanya",
+    "jumlah_hadits": 4,
+    "file": "066.json"
+  },
+  {
+    "id": 67,
+    "source_id": 67,
+    "judul": "Bab 67. Larangan Mengharap Kematian Karena Suatu Keburukan yang Menimpa, dan Diperbolehkan Bila Karena Takut Terfitnah dalam Agama",
+    "jumlah_hadits": 3,
+    "file": "067.json"
+  },
+  {
+    "id": 68,
+    "source_id": 68,
+    "judul": "Bab 68. Warak dan Meninggalkan Perkara Syubhat",
+    "jumlah_hadits": 9,
+    "file": "068.json"
+  },
+  {
+    "id": 69,
+    "source_id": 69,
+    "judul": "Bab 69. Anjuran Uzlah Ketika Manusia dan Zaman Telah Rusak atau Khawatir Terfitnah dalam Agama atau Khawatir Jatuh dalam Perkara Haram, Syubhat, dan Semisalnya",
+    "jumlah_hadits": 5,
+    "file": "069.json"
+  },
+  {
+    "id": 70,
+    "source_id": 70,
+    "judul": "Bab 70. Keutamaan Berbaur Bersama Masyarakat, Menghadiri Salat Jumat, Salat Jemaah, Kegiatan Kebaikan, dan Majelis Ilmu Bersama Mereka, Menjenguk yang Sakit, Menghadiri Jenazah, Membantu yang Membutuhkan, Membimbing Orang Jahil, dan Maslahat-Maslahat Lainnya Bagi Orang yang Mampu Melakukan Amar Makruf Nahi Mungkar, Menahan Diri dari Menyakiti, dan Mampu Sabar dari Berbagai Gangguan",
+    "jumlah_hadits": 0,
+    "file": "070.json"
+  },
+  {
+    "id": 71,
+    "source_id": 71,
+    "judul": "Bab 71. Tawaduk dan Merendah Kepada Orang Beriman",
+    "jumlah_hadits": 10,
+    "file": "071.json"
+  },
+  {
+    "id": 72,
+    "source_id": 72,
+    "judul": "Bab 72. Pengharaman Sombong dan Ujub",
+    "jumlah_hadits": 9,
+    "file": "072.json"
+  },
+  {
+    "id": 73,
+    "source_id": 73,
+    "judul": "Bab 73. Akhlak Baik",
+    "jumlah_hadits": 11,
+    "file": "073.json"
+  },
+  {
+    "id": 74,
+    "source_id": 74,
+    "judul": "Bab 74. Sabar (Menahan Amarah), Tenang (Tidak Tergesa-Gesa), dan Lembut",
+    "jumlah_hadits": 11,
+    "file": "074.json"
+  },
+  {
+    "id": 75,
+    "source_id": 75,
+    "judul": "Bab 75. Memberi Maaf dan Berpaling dari Orang Jahil",
+    "jumlah_hadits": 5,
+    "file": "075.json"
+  },
+  {
+    "id": 76,
+    "source_id": 76,
+    "judul": "Bab 76. Bersabar Menghadapi Perbuatan Buruk",
+    "jumlah_hadits": 1,
+    "file": "076.json"
+  },
+  {
+    "id": 77,
+    "source_id": 77,
+    "judul": "Bab 77. Marah Ketika Larangan Allah Dilanggar dan Membela Agama Allah -Ta'Ālā-",
+    "jumlah_hadits": 4,
+    "file": "077.json"
+  },
+  {
+    "id": 78,
+    "source_id": 78,
+    "judul": "Bab 78. Perintah Kepada Para Pemimpin Supaya Lembut Kepada Rakyat, Menasihati, dan Menyayangi Mereka; Larangan Menipu dan Mempersulit Mereka, Menelantarkan Maslahat Mereka, Serta Lalai Terhadap Kebutuhan Mereka",
+    "jumlah_hadits": 6,
+    "file": "078.json"
+  },
+  {
+    "id": 79,
+    "source_id": 79,
+    "judul": "Bab 79. Pemimpin yang Adil",
+    "jumlah_hadits": 4,
+    "file": "079.json"
+  },
+  {
+    "id": 80,
+    "source_id": 80,
+    "judul": "Bab 80. Kewajiban Menaati Penguasa Pada Selain Maksiat, dan Pengharaman Menaati Mereka dalam Kemaksiatan",
+    "jumlah_hadits": 11,
+    "file": "080.json"
+  },
+  {
+    "id": 81,
+    "source_id": 81,
+    "judul": "Bab 81. Larangan Meminta Jabatan, dan Memilih Meninggalkan Jabatan Bila Masih Ada Orang Lain atau Tidak Ada Kepentingan Padanya",
+    "jumlah_hadits": 4,
+    "file": "081.json"
+  },
+  {
+    "id": 82,
+    "source_id": 82,
+    "judul": "Bab 82. Anjuran Kepada Penguasa, Hakim, dan Pemegang Kekuasaan Lainnya Supaya Mengangkat Pembantu yang Saleh dan Mengingatkan Mereka dari Teman yang Buruk dan dari Menerima Masukan Mereka",
+    "jumlah_hadits": 2,
+    "file": "082.json"
+  },
+  {
+    "id": 83,
+    "source_id": 83,
+    "judul": "Bab 83. Larangan Menyerahkan Kepemimpinan, Jabatan Hakim, dan Bentuk Kekuasaan Lainnya Kepada Orang yang Memintanya Secara Langsung Ataupun yang Menginginkannya Lalu Memintanya Secara Tidak Langsung",
+    "jumlah_hadits": 1,
+    "file": "083.json"
+  },
+  {
+    "id": 84,
+    "source_id": 84,
+    "judul": "Bab 84. Sifat Malu dan Keutamaannya Serta Anjuran untuk Berperangai Dengannya",
+    "jumlah_hadits": 4,
+    "file": "084.json"
+  },
+  {
+    "id": 85,
+    "source_id": 85,
+    "judul": "Bab 85. Menjaga Rahasia",
+    "jumlah_hadits": 4,
+    "file": "085.json"
+  },
+  {
+    "id": 86,
+    "source_id": 86,
+    "judul": "Bab 86. Memenuhi Perjanjian dan Menunaikan Janji",
+    "jumlah_hadits": 3,
+    "file": "086.json"
+  },
+  {
+    "id": 87,
+    "source_id": 87,
+    "judul": "Bab 87. Perintah Menjaga Kebiasaan Baik",
+    "jumlah_hadits": 1,
+    "file": "087.json"
+  },
+  {
+    "id": 88,
+    "source_id": 88,
+    "judul": "Bab 88. Anjuran Berkata Baik dan Bermuka Ceria Ketika Berjumpa",
+    "jumlah_hadits": 3,
+    "file": "088.json"
+  },
+  {
+    "id": 89,
+    "source_id": 89,
+    "judul": "Bab 89. Anjuran Memperjelas Ucapan Kepada Lawan Bicara",
+    "jumlah_hadits": 2,
+    "file": "089.json"
+  },
+  {
+    "id": 90,
+    "source_id": 90,
+    "judul": "Bab 90. Mendengarkan Ucapan Teman Duduk yang Tidak Haram dan Supaya Seorang Alim atau Pemberi Nasihat Meminta Orang yang Hadir di Majelisnya Mendengarkan dengan Baik",
+    "jumlah_hadits": 1,
+    "file": "090.json"
+  },
+  {
+    "id": 91,
+    "source_id": 91,
+    "judul": "Bab 91. Memberi Nasihat dan Melakukannya Secara Simpel",
+    "jumlah_hadits": 4,
+    "file": "091.json"
+  },
+  {
+    "id": 92,
+    "source_id": 92,
+    "judul": "Bab 92. Sifat Wibawa dan Tenang",
+    "jumlah_hadits": 1,
+    "file": "092.json"
+  },
+  {
+    "id": 93,
+    "source_id": 93,
+    "judul": "Bab 93. Sunnahnya Mendatangi Shalat, Ilmu Pengetahuan dan Ibadah Lainnya dengan Tenang",
+    "jumlah_hadits": 2,
+    "file": "093.json"
+  },
+  {
+    "id": 94,
+    "source_id": 94,
+    "judul": "Bab 94. Memuliakan Tamu",
+    "jumlah_hadits": 2,
+    "file": "094.json"
+  },
+  {
+    "id": 95,
+    "source_id": 95,
+    "judul": "Bab 95. Anjuran Memberi Kabar Gembira dan Ucapan Selamat Ketika Ada Kebaikan",
+    "jumlah_hadits": 4,
+    "file": "095.json"
+  },
+  {
+    "id": 96,
+    "source_id": 96,
+    "judul": "Bab 96. Melepas Saudara dan Memberinya Pesan Ketika Dia Pergi untuk Perjalanan Jauh dan Semisalnya Serta Mendoakannya dan Meminta Doanya",
+    "jumlah_hadits": 6,
+    "file": "096.json"
+  },
+  {
+    "id": 97,
+    "source_id": 97,
+    "judul": "Bab 97. Istikharah dan Musyawarah",
+    "jumlah_hadits": 1,
+    "file": "097.json"
+  },
+  {
+    "id": 98,
+    "source_id": 98,
+    "judul": "Bab 98. Anjuran Berangkat Melaksanakan Salat Hari Raya, Menjenguk Orang Sakit, Berhaji, Berperang, Menyelenggarakan Jenazah, dan Semisalnya dari Satu Jalan Kemudian Pulang dari Jalan yang Lain untuk Memperbanyak Lokasi Ibadah",
+    "jumlah_hadits": 2,
+    "file": "098.json"
+  },
+  {
+    "id": 99,
+    "source_id": 99,
+    "judul": "Bab 99. Anjuran Mendahulukan yang Kanan Pada Semua yang Bersifat Pemuliaan",
+    "jumlah_hadits": 7,
+    "file": "099.json"
+  },
+  {
+    "id": 100,
+    "source_id": 100,
+    "judul": "Bab 100. Membaca Basmalah di Awal Makan dan Hamdalah Setelah Selesai",
+    "jumlah_hadits": 8,
+    "file": "100.json"
+  },
+  {
+    "id": 101,
+    "source_id": 101,
+    "judul": "Bab 101. Larangan Mencela Makanan dan Anjuran Memujinya",
+    "jumlah_hadits": 2,
+    "file": "101.json"
+  },
+  {
+    "id": 102,
+    "source_id": 102,
+    "judul": "Bab 102. Ucapan Orang yang Berpuasa Ketika Menghadiri Undangan Makan Jika Tidak Ingin Membatalkan Puasanya",
+    "jumlah_hadits": 1,
+    "file": "102.json"
+  },
+  {
+    "id": 103,
+    "source_id": 103,
+    "judul": "Bab 103. Ucapan Orang yang Diundang ke Jamuan Lalu Diikuti Oleh Orang Lain",
+    "jumlah_hadits": 1,
+    "file": "103.json"
+  },
+  {
+    "id": 104,
+    "source_id": 104,
+    "judul": "Bab 104. Mengambil Makanan yang Ada di Hadapannya dan Menasihati Serta Menghukum Orang yang Tidak Benar Cara Makannya",
+    "jumlah_hadits": 2,
+    "file": "104.json"
+  },
+  {
+    "id": 105,
+    "source_id": 105,
+    "judul": "Bab 105. Larangan Makan Dua Butir Kurma Sekaligus dan yang Lainnya Ketika Makan Berjemaah Kecuali dengan Seizin Rekannya",
+    "jumlah_hadits": 1,
+    "file": "105.json"
+  },
+  {
+    "id": 106,
+    "source_id": 106,
+    "judul": "Bab 106. Doa dan Amalan Orang yang Makan Tapi Tidak Kenyang",
+    "jumlah_hadits": 1,
+    "file": "106.json"
+  },
+  {
+    "id": 107,
+    "source_id": 107,
+    "judul": "Bab 107. Perintah Mengambil Makanan dari Bagian Pinggir Piring dan Larangan Mengambil Makanan dari Tengah",
+    "jumlah_hadits": 2,
+    "file": "107.json"
+  },
+  {
+    "id": 108,
+    "source_id": 108,
+    "judul": "Bab 108. Makruh Hukumnya Makan dengan Duduk Ittikā` (Bersandar ke Samping)",
+    "jumlah_hadits": 2,
+    "file": "108.json"
+  },
+  {
+    "id": 109,
+    "source_id": 109,
+    "judul": "Bab 109. Anjuran Makan Menggunakan Tiga Jari dan Menjilat Jari, Serta Makruh Mengelapnya Sebelum Dijilat, Anjuran Menjilat Tempat Makan dan Memungut Makanan yang Jatuh Lalu Memakannya, dan Bolehnya Mengelapkan Tangan Pada Lengan, Kaki, dan Lainnya Setelah Diisap",
+    "jumlah_hadits": 7,
+    "file": "109.json"
+  },
+  {
+    "id": 110,
+    "source_id": 110,
+    "judul": "Bab 110. Anjuran Memperbanyak Orang Ikut Makanan",
+    "jumlah_hadits": 2,
+    "file": "110.json"
+  },
+  {
+    "id": 111,
+    "source_id": 111,
+    "judul": "Bab 111. Adab Minum dan Anjuran Bernapas Tiga Kali di Luar Bejana dan Makruh Bernapas dalam Bejana Serta Anjuran Mengelilingkan Bejana Mulai dari Sebelah Kanan Orang yang Pertama Minum",
+    "jumlah_hadits": 5,
+    "file": "111.json"
+  },
+  {
+    "id": 112,
+    "source_id": 112,
+    "judul": "Bab 112. Larangan Minum Langsung dari Mulut Kirbat dan Tempat Penampungan Air Lainnya dan Penjelasan Bahwa Hal Itu Makruh Bukan Haram",
+    "jumlah_hadits": 3,
+    "file": "112.json"
+  },
+  {
+    "id": 113,
+    "source_id": 113,
+    "judul": "Bab 113. Makruh Meniup Minuman",
+    "jumlah_hadits": 2,
+    "file": "113.json"
+  },
+  {
+    "id": 114,
+    "source_id": 114,
+    "judul": "Bab 114. Boleh Minum Sambil Berdiri dan Penjelasan Bahwa yang Lebih Sempurna dan Utama Adalah Minum Sambil Duduk",
+    "jumlah_hadits": 6,
+    "file": "114.json"
+  },
+  {
+    "id": 115,
+    "source_id": 115,
+    "judul": "Bab 115. Anjuran Agar Orang yang Melayani Minum Orang Lain Adalah yang Paling Terakhir Minum",
+    "jumlah_hadits": 1,
+    "file": "115.json"
+  },
+  {
+    "id": 116,
+    "source_id": 116,
+    "judul": "Bab 116. Boleh Minum Menggunakan Semua Bejana yang Suci Selain Emas dan Perak; Boleh Minum Langsung dengan Mulut dari Sungai atau Selainnya Tanpa Menggunakan Bejana Maupun Tangan; dan Keharaman Memakai Bejana Emas dan Perak untuk Minum, Makan, Bersuci, dan Semua Bentuk Pemakaian Lainnya",
+    "jumlah_hadits": 5,
+    "file": "116.json"
+  },
+  {
+    "id": 117,
+    "source_id": 117,
+    "judul": "Bab 117. Anjuran Memakai Pakaian Warna Putih dan Boleh Juga Warna Merah, Hijau, Kuning, dan Hitam, Juga Boleh dari Bahan Katun, Linen, Bulu, Wol, dan Lainnya Kecuali Sutra",
+    "jumlah_hadits": 10,
+    "file": "117.json"
+  },
+  {
+    "id": 118,
+    "source_id": 118,
+    "judul": "Bab 118. Anjuran Memakai Gamis",
+    "jumlah_hadits": 1,
+    "file": "118.json"
+  },
+  {
+    "id": 119,
+    "source_id": 119,
+    "judul": "Bab 119. Penjelasan Ukuran Panjang Gamis, Lengan Pakaian, Sarung, dan Ujung Serban; dan Haramnya Isbāl di Semua Itu Bila Dilakukan Karena Kesombongan dan Makruh Bila Bukan Karena Kesombongan",
+    "jumlah_hadits": 12,
+    "file": "119.json"
+  },
+  {
+    "id": 120,
+    "source_id": 120,
+    "judul": "Bab 120. Anjuran Tidak Bermegah-Megahan dalam Pakaian dengan Tujuan Bersikap Tawaduk",
+    "jumlah_hadits": 1,
+    "file": "120.json"
+  },
+  {
+    "id": 121,
+    "source_id": 121,
+    "judul": "Bab 121. Anjuran Bersikap Moderat dalam Pakaian dan Tidak Membatasi Diri Pada Pakaian yang Akan Merendahkannya Tanpa Adanya Kebutuhan Maupun Maslahat yang Disyariatkan",
+    "jumlah_hadits": 1,
+    "file": "121.json"
+  },
+  {
+    "id": 122,
+    "source_id": 122,
+    "judul": "Bab 122. Pengharaman Pakaian Sutra Bagi Laki-Laki, Duduk Serta Bersandar di Atasnya; Sementara Perempuan Boleh Memakainya",
+    "jumlah_hadits": 6,
+    "file": "122.json"
+  },
+  {
+    "id": 123,
+    "source_id": 123,
+    "judul": "Bab 123. Boleh Memakai Sutra Bagi Orang yang Menderita Gatal-Gatal",
+    "jumlah_hadits": 1,
+    "file": "123.json"
+  },
+  {
+    "id": 124,
+    "source_id": 124,
+    "judul": "Bab 124. Larangan Menjadikan Kulit Harimau Sebagai Alas Duduk atau Berkendara",
+    "jumlah_hadits": 2,
+    "file": "124.json"
+  },
+  {
+    "id": 125,
+    "source_id": 125,
+    "judul": "Bab 125. Doa Ketika Memakai Pakaian Baru, Sandal, dan Semisalnya",
+    "jumlah_hadits": 1,
+    "file": "125.json"
+  },
+  {
+    "id": 126,
+    "source_id": 126,
+    "judul": "Bab 126. Anjuran Memulai dari Kanan Ketika Memakai Pakaian",
+    "jumlah_hadits": 0,
+    "file": "126.json"
+  },
+  {
+    "id": 127,
+    "source_id": 127,
+    "judul": "Bab 127. Adab Tidur dan Berbaring",
+    "jumlah_hadits": 6,
+    "file": "127.json"
+  },
+  {
+    "id": 128,
+    "source_id": 128,
+    "judul": "Bab 128. Boleh Tidur Telentang dengan Menyilang Kaki Jika Tidak Khawatir Aurat Tersingkap; Boleh Duduk Bersila dan Memeluk Betis",
+    "jumlah_hadits": 5,
+    "file": "128.json"
+  },
+  {
+    "id": 129,
+    "source_id": 129,
+    "judul": "Bab 129. Adab Majelis dan Teman Duduk",
+    "jumlah_hadits": 13,
+    "file": "129.json"
+  },
+  {
+    "id": 130,
+    "source_id": 130,
+    "judul": "Bab 130. Mimpi dan Hukum yang Terkait Dengannya",
+    "jumlah_hadits": 7,
+    "file": "130.json"
+  },
+  {
+    "id": 131,
+    "source_id": 131,
+    "judul": "Bab 131. Keutamaan Salam dan Perintah Menyebarkannya",
+    "jumlah_hadits": 6,
+    "file": "131.json"
+  },
+  {
+    "id": 132,
+    "source_id": 132,
+    "judul": "Bab 132. Tata Cara Bersalam",
+    "jumlah_hadits": 7,
+    "file": "132.json"
+  },
+  {
+    "id": 133,
+    "source_id": 133,
+    "judul": "Bab 133. Adab Bersalam",
+    "jumlah_hadits": 2,
+    "file": "133.json"
+  },
+  {
+    "id": 134,
+    "source_id": 134,
+    "judul": "Bab 134. Anjuran Mengulang Ucapan Salam Ketika Bertemu Kembali Setelah Waktu yang Tidak Lama Seperti Dia Masuk Kemudian Keluar dan Langsung Masuk Lagi atau Dipisahkan Oleh Sebuah Pohon dan Semisalnya",
+    "jumlah_hadits": 2,
+    "file": "134.json"
+  },
+  {
+    "id": 135,
+    "source_id": 135,
+    "judul": "Bab 135. Anjuran Mengucapkan Salam Ketika Masuk Rumah Sendiri",
+    "jumlah_hadits": 1,
+    "file": "135.json"
+  },
+  {
+    "id": 136,
+    "source_id": 136,
+    "judul": "Bab 136. Mengucapkan Salam Kepada Anak-Anak",
+    "jumlah_hadits": 1,
+    "file": "136.json"
+  },
+  {
+    "id": 137,
+    "source_id": 137,
+    "judul": "Bab 137. Ucapan Salam Laki-Laki Kepada Istrinya dan Perempuan dari Kalangan Mahramnya Serta Kepada Wanita Ajnabi Satu Orang Ataupun Banyak yang Tidak Dia Khawatirkan Akan Terfitnah Dengannya dan Sebaliknya Ucapan Salam Mereka Kepada Laki-Laki dengan Syarat yang Sama",
+    "jumlah_hadits": 3,
+    "file": "137.json"
+  },
+  {
+    "id": 138,
+    "source_id": 138,
+    "judul": "Bab 138. Pengharaman Memulai Bersalam Kepada Orang Kafir, Cara Menjawab Salam Mereka, dan Anjuran Memberi Salam Kepada Peserta Majelis yang Terdiri dari Muslim dan Kafir",
+    "jumlah_hadits": 3,
+    "file": "138.json"
+  },
+  {
+    "id": 139,
+    "source_id": 139,
+    "judul": "Bab 139. Anjuran Mengucapkan Salam Ketika Meninggalkan Majelis dan Berpisah dari Teman Duduk",
+    "jumlah_hadits": 1,
+    "file": "139.json"
+  },
+  {
+    "id": 140,
+    "source_id": 140,
+    "judul": "Bab 140. Meminta Izin dan Adab-Adabnya",
+    "jumlah_hadits": 4,
+    "file": "140.json"
+  },
+  {
+    "id": 141,
+    "source_id": 141,
+    "judul": "Bab 141. Penjelasan Bahwa yang Sunah Ketika Dikatakan Kepada Orang yang Meminta Izin, \"Siapa Anda?\" Supaya Dia Menjawab, \"Polan\" dengan Menyebut Nama yang Dia Dikenal Dengannya, Baik Nama Asli Ataupun Kun-Yah (Nama Ganti), dan Makruhnya Jawaban \"Saya\" dan yang Semisalnya",
+    "jumlah_hadits": 4,
+    "file": "141.json"
+  },
+  {
+    "id": 142,
+    "source_id": 142,
+    "judul": "Bab 142. Anjuran Mendoakan Orang yang Bersin Bila Dia Memuji Allah -Ta'Ālā- dan Dimakruhkan Mendoakannya Bila Dia Tidak Memuji Allah Serta, Penjelasan Adab Bersin, Mendoakan Orang yang Bersin, dan Menguap",
+    "jumlah_hadits": 7,
+    "file": "142.json"
+  },
+  {
+    "id": 143,
+    "source_id": 143,
+    "judul": "Bab 143. Anjuran Berjabat Tangan dan Berwajah Ceria Ketika Bertemu, Mencium Tangan Orang Saleh, Mencium Anak Karena Sayang, dan Merangkul Orang yang Datang dari Perjalanan Jauh Serta Makruhnya Membungkuk",
+    "jumlah_hadits": 9,
+    "file": "143.json"
+  },
+  {
+    "id": 144,
+    "source_id": 144,
+    "judul": "Bab 144. Menjenguk Orang Sakit",
+    "jumlah_hadits": 7,
+    "file": "144.json"
+  },
+  {
+    "id": 145,
+    "source_id": 145,
+    "judul": "Bab 145. Doa yang Dibaca untuk Orang Sakit",
+    "jumlah_hadits": 9,
+    "file": "145.json"
+  },
+  {
+    "id": 146,
+    "source_id": 146,
+    "judul": "Bab 146. Anjuran Menanyakan Keadaan Orang yang Sakit Kepada Keluarganya",
+    "jumlah_hadits": 1,
+    "file": "146.json"
+  },
+  {
+    "id": 147,
+    "source_id": 147,
+    "judul": "Bab 147. Doa Orang yang Tidak Memiliki Harapan Hidup",
+    "jumlah_hadits": 2,
+    "file": "147.json"
+  },
+  {
+    "id": 148,
+    "source_id": 148,
+    "judul": "Bab 148. Anjuran Memberi Pesan Kepada Keluarga Orang yang Sakit atau Pembantunya Agar Berbuat Baik Kepadanya dan Bersabar Terhadap Kesulitan Mengurusnya; Begitu Juga Pesan Pada Orang yang Telah Dekat Sebab Kematiannya Berupa Hudud atau Kisas dan yang Semisalnya",
+    "jumlah_hadits": 1,
+    "file": "148.json"
+  },
+  {
+    "id": 149,
+    "source_id": 149,
+    "judul": "Bab 149. Orang Sakit Boleh Berkata, \"Aku Sakit\", \"Aku Sangat Sakit\", \"Aku Demam\", \"Sakit Sekali Kepalaku\", dan Ucapan Lain yang Semisalnya, Serta Menjelaskan Bahwa Hal Itu Tidak Makruh Jika Diucapkan Bukan Karena Kesal Kepada Takdir dan Menampakkan Kekecewaan",
+    "jumlah_hadits": 3,
+    "file": "149.json"
+  },
+  {
+    "id": 150,
+    "source_id": 150,
+    "judul": "Bab 150. Menalkinkan Kalimat \"Lā Ilāha Illallāh\" Pada Orang yang Akan Meninggal",
+    "jumlah_hadits": 2,
+    "file": "150.json"
+  },
+  {
+    "id": 151,
+    "source_id": 151,
+    "judul": "Bab 151. Doa Setelah Memejamkan Mata Orang yang Wafat",
+    "jumlah_hadits": 1,
+    "file": "151.json"
+  },
+  {
+    "id": 152,
+    "source_id": 152,
+    "judul": "Bab 152. Doa Ketika Mengunjungi Orang yang Meninggal dan Doa Keluarga yang Ditinggal Mati",
+    "jumlah_hadits": 5,
+    "file": "152.json"
+  },
+  {
+    "id": 153,
+    "source_id": 153,
+    "judul": "Bab 153. Boleh Menangisi Orang yang Mati Tanpa Meratap dengan Menyebut-Nyebut Kebaikannya Ataupun Menangis Keras",
+    "jumlah_hadits": 3,
+    "file": "153.json"
+  },
+  {
+    "id": 154,
+    "source_id": 154,
+    "judul": "Bab 154. Merahasiakan Keburukan yang Terlihat Pada Orang yang Wafat",
+    "jumlah_hadits": 1,
+    "file": "154.json"
+  },
+  {
+    "id": 155,
+    "source_id": 155,
+    "judul": "Bab 155. Menyalati, Mengantar, dan Menghadiri Pemakaman Jenazah Serta Makruhnya Perempuan Ikut Mengiringi Jenazah",
+    "jumlah_hadits": 3,
+    "file": "155.json"
+  },
+  {
+    "id": 156,
+    "source_id": 156,
+    "judul": "Bab 156. Anjuran Memperbanyak Orang yang Menyalati Jenazah Serta Menjadikan Mereka Tiga Saf atau Lebih",
+    "jumlah_hadits": 3,
+    "file": "156.json"
+  },
+  {
+    "id": 157,
+    "source_id": 157,
+    "judul": "Bab 157. Bacaan dalam Salat Jenazah",
+    "jumlah_hadits": 6,
+    "file": "157.json"
+  },
+  {
+    "id": 158,
+    "source_id": 158,
+    "judul": "Bab 158. Menyegerakan Penyelenggaraan Jenazah",
+    "jumlah_hadits": 2,
+    "file": "158.json"
+  },
+  {
+    "id": 159,
+    "source_id": 159,
+    "judul": "Bab 159. Menyegerakan Pelunasan Utang Orang Wafat dan Segera Mengurus Jenazahnya Kecuali Dia Meninggal Mendadak Maka Ditunggu Sampai Dipastikan Kematiannya",
+    "jumlah_hadits": 2,
+    "file": "159.json"
+  },
+  {
+    "id": 160,
+    "source_id": 160,
+    "judul": "Bab 160. Menyampaikan Mauizah di Kuburan",
+    "jumlah_hadits": 1,
+    "file": "160.json"
+  },
+  {
+    "id": 161,
+    "source_id": 161,
+    "judul": "Bab 161. Mendoakan Orang Wafat Setelah Pemakaman Serta Duduk Sejenak di Sisi Kuburnya untuk Mendoakan, Memohonkannya Ampunan, dan Membaca Al-Qur`Ān",
+    "jumlah_hadits": 2,
+    "file": "161.json"
+  },
+  {
+    "id": 162,
+    "source_id": 162,
+    "judul": "Bab 162. Bersedekah Atas Nama Orang yang Wafat dan Mendoakannya",
+    "jumlah_hadits": 2,
+    "file": "162.json"
+  },
+  {
+    "id": 163,
+    "source_id": 163,
+    "judul": "Bab 163. Pujian Manusia Kepada Orang yang Meninggal",
+    "jumlah_hadits": 2,
+    "file": "163.json"
+  },
+  {
+    "id": 164,
+    "source_id": 164,
+    "judul": "Bab 164. Keutamaan Orang yang Ditinggal Mati Oleh Anak Kecilnya",
+    "jumlah_hadits": 3,
+    "file": "164.json"
+  },
+  {
+    "id": 165,
+    "source_id": 165,
+    "judul": "Bab 165. Menangis dan Takut Ketika Melewati Kubur Orang-Orang Zalim dan Lokasi Kebinasaan Mereka, Menampakkan Kefakiran Diri Kepada Allah -Ta'Ālā-, dan Peringatan Agar Tidak Melalaikannya",
+    "jumlah_hadits": 1,
+    "file": "165.json"
+  },
+  {
+    "id": 166,
+    "source_id": 166,
+    "judul": "Bab 166. Anjuran Melakukan Perjalanan Pada Hari Kamis dan di Waktu Pagi",
+    "jumlah_hadits": 2,
+    "file": "166.json"
+  },
+  {
+    "id": 167,
+    "source_id": 167,
+    "judul": "Bab 167. Anjuran Mencari Teman Safar dan Mengangkat Salah Satu dari Mereka Sebagai Pemimpin yang Ditaati",
+    "jumlah_hadits": 4,
+    "file": "167.json"
+  },
+  {
+    "id": 168,
+    "source_id": 168,
+    "judul": "Bab 168. Adab Berjalan, Singgah, Menginap, dan Tidur Ketika Safar, Anjuran Berjalan di Malam Hari, Bersikap Lembut Kepada Hewan Kendaraan, dan Memperhatikan Maslahatnya, Serta Memerintahkan Orang yang Tidak Menunaikan Haknya Supaya Menunaikan Haknya dan Bolehnya Membonceng Orang di Atas Hewan Kendaraan Jika Hewan Itu Kuat",
+    "jumlah_hadits": 7,
+    "file": "168.json"
+  },
+  {
+    "id": 169,
+    "source_id": 169,
+    "judul": "Bab 169. Membantu Teman Safar",
+    "jumlah_hadits": 3,
+    "file": "169.json"
+  },
+  {
+    "id": 170,
+    "source_id": 170,
+    "judul": "Bab 170. Doa Ketika Naik Kendaraan untuk Melakukan Safar",
+    "jumlah_hadits": 3,
+    "file": "170.json"
+  },
+  {
+    "id": 171,
+    "source_id": 171,
+    "judul": "Bab 171. Bertakbir Ketika Menaiki Bukit dan Semisalnya, Bertasbih Ketika Menuruni Lembah dan Semisalnya, dan Larangan Berlebihan dalam Mengangkat Suara Takbir dan yang Semisalnya",
+    "jumlah_hadits": 5,
+    "file": "171.json"
+  },
+  {
+    "id": 172,
+    "source_id": 172,
+    "judul": "Bab 172. Anjuran Berdoa Ketika Safar",
+    "jumlah_hadits": 1,
+    "file": "172.json"
+  },
+  {
+    "id": 173,
+    "source_id": 173,
+    "judul": "Bab 173. Doa Ketika Takut Terhadap Seseorang atau Lainnya",
+    "jumlah_hadits": 1,
+    "file": "173.json"
+  },
+  {
+    "id": 174,
+    "source_id": 174,
+    "judul": "Bab 174. Doa Ketika Singgah di Suatu Tempat",
+    "jumlah_hadits": 2,
+    "file": "174.json"
+  },
+  {
+    "id": 175,
+    "source_id": 175,
+    "judul": "Bab 175. Anjuran Bagi Musafir Agar Bersegera Pulang ke Keluarganya Bila Telah Selesai Menunaikan Hajatnya",
+    "jumlah_hadits": 1,
+    "file": "175.json"
+  },
+  {
+    "id": 176,
+    "source_id": 176,
+    "judul": "Bab 176. Anjuran Pulang ke Keluarga Pada Siang Hari dan Makruhnya Pulang Ketika Malam Tanpa Keperluan",
+    "jumlah_hadits": 2,
+    "file": "176.json"
+  },
+  {
+    "id": 177,
+    "source_id": 177,
+    "judul": "Bab 177. Doa Musafir Ketika Telah Pulang dan Melihat Negerinya",
+    "jumlah_hadits": 1,
+    "file": "177.json"
+  },
+  {
+    "id": 178,
+    "source_id": 178,
+    "judul": "Bab 178. Anjuran Bagi Orang yang Baru Pulang dari Safar Agar Terlebih Dahulu ke Masjid Terdekat dan Mengerjakan Salat Dua Rakaat",
+    "jumlah_hadits": 1,
+    "file": "178.json"
+  },
+  {
+    "id": 179,
+    "source_id": 179,
+    "judul": "Bab 179. Keharaman Perempuan Melakukan Safar Seorang Diri",
+    "jumlah_hadits": 2,
+    "file": "179.json"
+  },
+  {
+    "id": 180,
+    "source_id": 180,
+    "judul": "Bab 180. Keutamaan Membaca Al-Qur`Ān",
+    "jumlah_hadits": 11,
+    "file": "180.json"
+  },
+  {
+    "id": 181,
+    "source_id": 181,
+    "judul": "Bab 181. Perintah Menjaga Al-Qur`Ān dan Waspada dari Membiarkannya Terlupakan",
+    "jumlah_hadits": 2,
+    "file": "181.json"
+  },
+  {
+    "id": 182,
+    "source_id": 182,
+    "judul": "Bab 182. Anjuran Membaguskan Suara Bacaan Al-Qur`Ān Serta Meminta Orang yang Bagus Suaranya untuk Membaca Al-Qur`Ān dan Mendengarkan Bacaannya",
+    "jumlah_hadits": 5,
+    "file": "182.json"
+  },
+  {
+    "id": 183,
+    "source_id": 183,
+    "judul": "Bab 183. Anjuran Pada Surah dan Ayat-Ayat Tertentu",
+    "jumlah_hadits": 14,
+    "file": "183.json"
+  },
+  {
+    "id": 184,
+    "source_id": 184,
+    "judul": "Bab 184. Anjuran Berkumpul untuk Membaca Al-Qur`Ān",
+    "jumlah_hadits": 2,
+    "file": "184.json"
+  },
+  {
+    "id": 185,
+    "source_id": 185,
+    "judul": "Bab 185. Keutamaan Wudu",
+    "jumlah_hadits": 9,
+    "file": "185.json"
+  },
+  {
+    "id": 186,
+    "source_id": 186,
+    "judul": "Bab 186. Keutamaan Azan",
+    "jumlah_hadits": 9,
+    "file": "186.json"
+  },
+  {
+    "id": 187,
+    "source_id": 187,
+    "judul": "Bab 187. Keutamaan Salat",
+    "jumlah_hadits": 5,
+    "file": "187.json"
+  },
+  {
+    "id": 188,
+    "source_id": 188,
+    "judul": "Bab 188. Keutamaan Salat Subuh dan Asar",
+    "jumlah_hadits": 6,
+    "file": "188.json"
+  },
+  {
+    "id": 189,
+    "source_id": 189,
+    "judul": "Bab 189. Keutamaan Berjalan ke Masjid",
+    "jumlah_hadits": 8,
+    "file": "189.json"
+  },
+  {
+    "id": 190,
+    "source_id": 190,
+    "judul": "Bab 190. Keutamaan Menunggu Salat",
+    "jumlah_hadits": 3,
+    "file": "190.json"
+  },
+  {
+    "id": 191,
+    "source_id": 191,
+    "judul": "Bab 191. Keutamaan Salat Berjamaah",
+    "jumlah_hadits": 7,
+    "file": "191.json"
+  },
+  {
+    "id": 192,
+    "source_id": 192,
+    "judul": "Bab 192. Motivasi Menghadiri Salat Berjamaah Ketika Salat Subuh dan Isya",
+    "jumlah_hadits": 3,
+    "file": "192.json"
+  },
+  {
+    "id": 193,
+    "source_id": 193,
+    "judul": "Bab 193. Perintah Menjaga Salat Fardu dan Larangan Kuat Serta Ancaman Keras Meninggalkannya",
+    "jumlah_hadits": 8,
+    "file": "193.json"
+  },
+  {
+    "id": 194,
+    "source_id": 194,
+    "judul": "Bab 194. Keutamaan Saf Pertama, Perintah Menyempurnakan Saf Terdepan, Serta Meluruskan dan Merapatkannya",
+    "jumlah_hadits": 15,
+    "file": "194.json"
+  },
+  {
+    "id": 195,
+    "source_id": 195,
+    "judul": "Bab 195. Keutamaan Salat Sunah Rawatib, Penjelasan Jumlah Minimal dan Maksimalnya, Serta yang Pertengahan Antara Keduanya",
+    "jumlah_hadits": 3,
+    "file": "195.json"
+  },
+  {
+    "id": 196,
+    "source_id": 196,
+    "judul": "Bab 196. Penekanan Salat Sunah Dua Rakaat Sebelum Subuh",
+    "jumlah_hadits": 4,
+    "file": "196.json"
+  },
+  {
+    "id": 197,
+    "source_id": 197,
+    "judul": "Bab 197. Meringankan Salat Sunah Dua Rakaat Sebelum Subuh Serta Menjelaskan Apa yang Dibaca dan Waktunya",
+    "jumlah_hadits": 6,
+    "file": "197.json"
+  },
+  {
+    "id": 198,
+    "source_id": 198,
+    "judul": "Bab 198. Anjuran Berbaring di Atas Sisi Kanan Setelah Salat Sunah Fajar dan Motivasi Melakukannya Baik di Malam Harinya Dia Mengerjakan Salat Tahajud Maupun Tidak",
+    "jumlah_hadits": 3,
+    "file": "198.json"
+  },
+  {
+    "id": 199,
+    "source_id": 199,
+    "judul": "Bab 199. Salat Sunah Zuhur",
+    "jumlah_hadits": 6,
+    "file": "199.json"
+  },
+  {
+    "id": 200,
+    "source_id": 200,
+    "judul": "Bab 200. Salat Sunah Asar",
+    "jumlah_hadits": 3,
+    "file": "200.json"
+  },
+  {
+    "id": 201,
+    "source_id": 201,
+    "judul": "Bab 201. Salat Sunah Sebelum dan Sesudah Magrib",
+    "jumlah_hadits": 4,
+    "file": "201.json"
+  },
+  {
+    "id": 202,
+    "source_id": 202,
+    "judul": "Bab 202. Salat Sunah Sebelum dan Sesudah Isya",
+    "jumlah_hadits": 0,
+    "file": "202.json"
+  },
+  {
+    "id": 203,
+    "source_id": 203,
+    "judul": "Bab 203. Salat Sunah Jumat",
+    "jumlah_hadits": 2,
+    "file": "203.json"
+  },
+  {
+    "id": 204,
+    "source_id": 204,
+    "judul": "Bab 204. Anjuran Mengerjakan Salat Sunah di Rumah, Baik Rawatib Maupun yang Lain, dan Perintah Berpindah Tempat untuk Mengerjakan Salat Sunah dari Tempat Mengerjakan Salat Fardu atau Memisahkan Antara Keduanya dengan Ucapan",
+    "jumlah_hadits": 4,
+    "file": "204.json"
+  },
+  {
+    "id": 205,
+    "source_id": 205,
+    "judul": "Bab 205. Motivasi Salat Witir, Penjelasan Bahwa Salat Witir Hukumnya Sunah Muakadah, dan Penjelasan Waktunya",
+    "jumlah_hadits": 7,
+    "file": "205.json"
+  },
+  {
+    "id": 206,
+    "source_id": 206,
+    "judul": "Bab 206. Keutamaan Salat Duha, Penjelasan Jumlah Minimal, Maksimal, dan yang Pertengahannya, Serta Motivasi Supaya Merutinkannya",
+    "jumlah_hadits": 4,
+    "file": "206.json"
+  },
+  {
+    "id": 207,
+    "source_id": 207,
+    "judul": "Bab 207. Boleh Salat Duha Sejak Matahari Naik Hingga Tergelincir dan yang Paling Utama Dikerjakan Ketika Panas Sedang Menyengat dan Waktu Duha Telah Naik",
+    "jumlah_hadits": 1,
+    "file": "207.json"
+  },
+  {
+    "id": 208,
+    "source_id": 208,
+    "judul": "Bab 208. Anjuran Salat Dua Rakaat Tahiyat Masjid dan Makruh Duduk Sebelum Salat Dua Rakaat di Waktu Kapan Pun Dia Masuk, Baik Dia Mengerjakan Salat Dua Rakaat dengan Niat Tahiyat Masjid Ataupun Salat Fardu, Sunah Rawatib, atau Lainnya",
+    "jumlah_hadits": 2,
+    "file": "208.json"
+  },
+  {
+    "id": 209,
+    "source_id": 209,
+    "judul": "Bab 209. Anjuran Salat Dua Rakaat Setelah Wudu",
+    "jumlah_hadits": 1,
+    "file": "209.json"
+  },
+  {
+    "id": 210,
+    "source_id": 210,
+    "judul": "Bab 210. Keutamaan Hari Jumat, Kewajiban Salat Jumat, Mandi untuk Salat Jumat dan Memakai Minyak Wangi, Bersegera Menghadiri Salat Jumat, Berdoa Pada Hari Jumat dan Berselawat Kepada Nabi -Ṣallallāhu 'Alaihi Wa Sallam- Serta Anjuran Memperbanyak Zikir Kepada Allah Setelah Salat Jumat",
+    "jumlah_hadits": 12,
+    "file": "210.json"
+  },
+  {
+    "id": 211,
+    "source_id": 211,
+    "judul": "Bab 211. Anjuran Sujud Syukur Ketika Ada Nikmat yang Nyata atau Musibah Besar Terangkat",
+    "jumlah_hadits": 1,
+    "file": "211.json"
+  },
+  {
+    "id": 212,
+    "source_id": 212,
+    "judul": "Bab 212. Keutamaan Qiamulail",
+    "jumlah_hadits": 27,
+    "file": "212.json"
+  },
+  {
+    "id": 213,
+    "source_id": 213,
+    "judul": "Bab 213. Anjuran Qiyām Ramadan, Yaitu Salat Tarawih",
+    "jumlah_hadits": 2,
+    "file": "213.json"
+  },
+  {
+    "id": 214,
+    "source_id": 214,
+    "judul": "Bab 214. Keutamaan Qiyām Lailatulkadar dan Penjelasan Tentang Malam Lailatulkadar yang Paling Diharapkan",
+    "jumlah_hadits": 7,
+    "file": "214.json"
+  },
+  {
+    "id": 215,
+    "source_id": 215,
+    "judul": "Bab 215. Keutamaan Siwāk (Sikat Gigi) dan Sunah-Sunah Fitrah",
+    "jumlah_hadits": 10,
+    "file": "215.json"
+  },
+  {
+    "id": 216,
+    "source_id": 216,
+    "judul": "Bab 216. Penegasan Kewajiban Zakat, Penjelasan Keutamaannya, dan Hal-Hal yang Terkait Dengannya",
+    "jumlah_hadits": 9,
+    "file": "216.json"
+  },
+  {
+    "id": 217,
+    "source_id": 217,
+    "judul": "Bab 217. Kewajiban Puasa Ramadan, Penjelasan Keutamaan Puasa, dan yang Terkait Dengannya",
+    "jumlah_hadits": 7,
+    "file": "217.json"
+  },
+  {
+    "id": 218,
+    "source_id": 218,
+    "judul": "Bab 218. Kedermawanan, Berbuat Baik, dan Memperbanyak Kebaikan di Bulan Ramadan, Serta Meningkatkannya Lagi di Sepuluh Hari Terakhir Ramadan",
+    "jumlah_hadits": 2,
+    "file": "218.json"
+  },
+  {
+    "id": 219,
+    "source_id": 219,
+    "judul": "Bab 219. Larangan Mendahului Ramadan dengan Berpuasa Setelah Pertengahan Syakban, Kecuali Bagi Orang yang Menyambung Puasanya dengan Puasa Sebelumnya atau Bertepatan dengan Puasa Kebiasaannya, Misalnya Dia Terbiasa Puasa Senin dan Kamis Lalu Dia Berpuasa Bertepatan dengan Hari Itu",
+    "jumlah_hadits": 4,
+    "file": "219.json"
+  },
+  {
+    "id": 220,
+    "source_id": 220,
+    "judul": "Bab 220. Doa Ketika Melihat Hilal",
+    "jumlah_hadits": 1,
+    "file": "220.json"
+  },
+  {
+    "id": 221,
+    "source_id": 221,
+    "judul": "Bab 221. Keutamaan Sahur dan Mengakhirkannya Selama Tidak Khawatir Fajar Terbit",
+    "jumlah_hadits": 4,
+    "file": "221.json"
+  },
+  {
+    "id": 222,
+    "source_id": 222,
+    "judul": "Bab 222. Keutamaan Menyegerakan Berbuka Puasa, Jenis Makanan untuk Berbuka, dan Doa yang Dibaca Setelah Berbuka",
+    "jumlah_hadits": 7,
+    "file": "222.json"
+  },
+  {
+    "id": 223,
+    "source_id": 223,
+    "judul": "Bab 223. Perintah Kepada Orang yang Berpuasa untuk Menjaga Lisan dan Anggota Tubuhnya dari Penyimpangan, Saling Caci, dan Semisalnya",
+    "jumlah_hadits": 2,
+    "file": "223.json"
+  },
+  {
+    "id": 224,
+    "source_id": 224,
+    "judul": "Bab 224. Tentang Beberapa Permasalahan Puasa",
+    "jumlah_hadits": 4,
+    "file": "224.json"
+  },
+  {
+    "id": 225,
+    "source_id": 225,
+    "judul": "Bab 225. Keutamaan Puasa Muharam, Syakban, dan Bulan-Bulan Haram",
+    "jumlah_hadits": 3,
+    "file": "225.json"
+  },
+  {
+    "id": 226,
+    "source_id": 226,
+    "judul": "Bab 226. Keutamaan Puasa dan Ibadah Lainnya Pada Sepuluh Hari Pertama Zulhijah",
+    "jumlah_hadits": 1,
+    "file": "226.json"
+  },
+  {
+    "id": 227,
+    "source_id": 227,
+    "judul": "Bab 227. Keutamaan Puasa Hari Arafah, Asyura, dan Tāsū'Ā`",
+    "jumlah_hadits": 4,
+    "file": "227.json"
+  },
+  {
+    "id": 228,
+    "source_id": 228,
+    "judul": "Bab 228. Anjuran Puasa Enam Hari di Bulan Syawal",
+    "jumlah_hadits": 1,
+    "file": "228.json"
+  },
+  {
+    "id": 229,
+    "source_id": 229,
+    "judul": "Bab 229. Anjuran Puasa Senin dan Kamis",
+    "jumlah_hadits": 3,
+    "file": "229.json"
+  },
+  {
+    "id": 230,
+    "source_id": 230,
+    "judul": "Bab 230. Anjuran Puasa Tiga Hari Setiap Bulan",
+    "jumlah_hadits": 7,
+    "file": "230.json"
+  },
+  {
+    "id": 231,
+    "source_id": 231,
+    "judul": "Bab 231. Keutamaan Orang yang Memberi Buka Puasa Kepada Orang yang Berpuasa Serta Keutamaan Orang yang Berpuasa Ketika Ada yang Makan di Rumahnya dan Doa Orang yang Makan Untuknya",
+    "jumlah_hadits": 3,
+    "file": "231.json"
+  },
+  {
+    "id": 232,
+    "source_id": 232,
+    "judul": "Bab 232. Keutamaan Iktikaf",
+    "jumlah_hadits": 3,
+    "file": "232.json"
+  },
+  {
+    "id": 233,
+    "source_id": 233,
+    "judul": "Bab 233. Kewajiban Haji dan Keutamaannya",
+    "jumlah_hadits": 14,
+    "file": "233.json"
+  },
+  {
+    "id": 234,
+    "source_id": 234,
+    "judul": "Bab 234. Keutamaan Jihad",
+    "jumlah_hadits": 68,
+    "file": "234.json"
+  },
+  {
+    "id": 235,
+    "source_id": 235,
+    "judul": "Bab 235. Penjelasan Tentang Sekelompok Orang yang Dianggap Mati Syahid dalam Hal Pahala Akhirat, Tetapi Mereka Dimandikan dan Disalati, Berbeda dengan Orang yang Gugur dalam Perang Melawan Orang Kafir",
+    "jumlah_hadits": 5,
+    "file": "235.json"
+  },
+  {
+    "id": 236,
+    "source_id": 236,
+    "judul": "Bab 236. Keutamaan Memerdekakan Budak",
+    "jumlah_hadits": 2,
+    "file": "236.json"
+  },
+  {
+    "id": 237,
+    "source_id": 237,
+    "judul": "Bab 237. Keutamaan Berbuat Baik Kepada Budak",
+    "jumlah_hadits": 2,
+    "file": "237.json"
+  },
+  {
+    "id": 238,
+    "source_id": 238,
+    "judul": "Bab 238. Keutamaan Budak yang Menunaikan Hak Allah dan Hak Tuannya",
+    "jumlah_hadits": 4,
+    "file": "238.json"
+  },
+  {
+    "id": 239,
+    "source_id": 239,
+    "judul": "Bab 239. Keutamaan Ibadah Pada Masa Harj, Yaitu Kekacauan, Fitnah, dan Semisalnya",
+    "jumlah_hadits": 1,
+    "file": "239.json"
+  },
+  {
+    "id": 240,
+    "source_id": 240,
+    "judul": "Bab 240. Keutamaan Bermurah Hati dalam Jual Beli, Serah Terima, Serta Membayar dan Menagih, Melebihkan Takaran dan Timbangan Serta Larangan Menguranginya, dan Keutamaan Memberikan Penangguhan Tempo Pada Orang yang Kesulitan dan Meringankannya",
+    "jumlah_hadits": 9,
+    "file": "240.json"
+  },
+  {
+    "id": 241,
+    "source_id": 241,
+    "judul": "Bab 241. Keutamaan Ilmu",
+    "jumlah_hadits": 17,
+    "file": "241.json"
+  },
+  {
+    "id": 242,
+    "source_id": 242,
+    "judul": "Bab 242. Keutamaan Pujian dan Syukur Kepada Allah",
+    "jumlah_hadits": 4,
+    "file": "242.json"
+  },
+  {
+    "id": 243,
+    "source_id": 243,
+    "judul": "Bab 243. Keutamaan Shalawat atas Nabi Muhammad Shallallahu ‘alaihi Wasallam",
+    "jumlah_hadits": 11,
+    "file": "243.json"
+  },
+  {
+    "id": 244,
+    "source_id": 244,
+    "judul": "Bab 244. Keutamaan Zikir dan Motivasi Melakukannya",
+    "jumlah_hadits": 36,
+    "file": "244.json"
+  },
+  {
+    "id": 245,
+    "source_id": 245,
+    "judul": "Bab 245. Berzikir Kepada Allah -Ta'Ālā- Ketika Berdiri, Duduk, dan Berbaring, Serta Ketika Berhadas, Junub, dan Haid; Kecuali Membaca Al-Qur`Ān Tidak Boleh Bagi Orang yang Junub dan Haid",
+    "jumlah_hadits": 2,
+    "file": "245.json"
+  },
+  {
+    "id": 246,
+    "source_id": 246,
+    "judul": "Bab 246. Zikir Ketika Akan Tidur dan Bangun Tidur",
+    "jumlah_hadits": 1,
+    "file": "246.json"
+  },
+  {
+    "id": 247,
+    "source_id": 247,
+    "judul": "Bab 247. Keutamaan Halakah Zikir, Anjuran untuk Mengikutinya, dan Larangan Meninggalkannya Tanpa Uzur",
+    "jumlah_hadits": 4,
+    "file": "247.json"
+  },
+  {
+    "id": 248,
+    "source_id": 248,
+    "judul": "Bab 248. Zikir Ketika Pagi dan Petang",
+    "jumlah_hadits": 7,
+    "file": "248.json"
+  },
+  {
+    "id": 249,
+    "source_id": 249,
+    "judul": "Bab 249. Zikir Sebelum Tidur",
+    "jumlah_hadits": 7,
+    "file": "249.json"
+  },
+  {
+    "id": 250,
+    "source_id": 250,
+    "judul": "Bab 250. Keutamaan Doa",
+    "jumlah_hadits": 29,
+    "file": "250.json"
+  },
+  {
+    "id": 251,
+    "source_id": 251,
+    "judul": "Bab 251. Keutamaan Berdoa Tanpa Sepengetahuan Orang yang Didoakan",
+    "jumlah_hadits": 2,
+    "file": "251.json"
+  },
+  {
+    "id": 252,
+    "source_id": 252,
+    "judul": "Bab 252. Permasalahan-Permasalahan Doa",
+    "jumlah_hadits": 7,
+    "file": "252.json"
+  },
+  {
+    "id": 253,
+    "source_id": 253,
+    "judul": "Bab 253. Karamah dan Keutamaan Para Wali",
+    "jumlah_hadits": 8,
+    "file": "253.json"
+  },
+  {
+    "id": 254,
+    "source_id": 254,
+    "judul": "Bab 254. Pengharaman Gibah dan Perintah Menjaga Lisan",
+    "jumlah_hadits": 17,
+    "file": "254.json"
+  },
+  {
+    "id": 255,
+    "source_id": 255,
+    "judul": "Bab 255. Pengharaman Mendengar Gibah dan Perintah Kepada Orang yang Mendengar Gibah yang Haram untuk Menolaknya dan Mengingkari Pelakunya, Namun Bila Dia Tidak Mampu atau Ditolak Maka Hendaklah Dia Meninggalkan Majelis Tersebut Jika Memungkinkan",
+    "jumlah_hadits": 3,
+    "file": "255.json"
+  },
+  {
+    "id": 256,
+    "source_id": 256,
+    "judul": "Bab 256. Gibah yang Dibolehkan",
+    "jumlah_hadits": 5,
+    "file": "256.json"
+  },
+  {
+    "id": 257,
+    "source_id": 257,
+    "judul": "Bab 257. Pengharaman Namīmah (Adu Domba); Yaitu Menukil Ucapan di Antara Manusia dengan Tujuan Merusak",
+    "jumlah_hadits": 3,
+    "file": "257.json"
+  },
+  {
+    "id": 258,
+    "source_id": 258,
+    "judul": "Bab 258. Larangan Menyampaikan Ucapan dan Perkataan Orang Kepada Penguasa Jika Tidak Ada Hajat yang Mendesak Seperti Khawatir Menimbulkan Kerusakan dan Sebagainya",
+    "jumlah_hadits": 1,
+    "file": "258.json"
+  },
+  {
+    "id": 259,
+    "source_id": 259,
+    "judul": "Bab 259. Celaan Terhadap Orang yang Bermuka Dua",
+    "jumlah_hadits": 2,
+    "file": "259.json"
+  },
+  {
+    "id": 260,
+    "source_id": 260,
+    "judul": "Bab 260. Pengharaman Dusta",
+    "jumlah_hadits": 5,
+    "file": "260.json"
+  },
+  {
+    "id": 261,
+    "source_id": 261,
+    "judul": "Bab 261. Penjelasan Dusta yang Diperbolehkan",
+    "jumlah_hadits": 0,
+    "file": "261.json"
+  },
+  {
+    "id": 262,
+    "source_id": 262,
+    "judul": "Bab 262. Motivasi untuk Memastikan Kebenaran Apa yang Diucapkan dan Diceritakan",
+    "jumlah_hadits": 3,
+    "file": "262.json"
+  },
+  {
+    "id": 263,
+    "source_id": 263,
+    "judul": "Bab 263. Penjelasan Kerasnya Pengharaman Kesaksian Palsu",
+    "jumlah_hadits": 1,
+    "file": "263.json"
+  },
+  {
+    "id": 264,
+    "source_id": 264,
+    "judul": "Bab 264. Pengharaman Melaknat Orang Tertentu atau Hewan",
+    "jumlah_hadits": 8,
+    "file": "264.json"
+  },
+  {
+    "id": 265,
+    "source_id": 265,
+    "judul": "Bab 265. Boleh Melaknat Pelaku Maksiat Tidak Secara Perorangan",
+    "jumlah_hadits": 0,
+    "file": "265.json"
+  },
+  {
+    "id": 266,
+    "source_id": 266,
+    "judul": "Bab 266. Haram Mencaci Seorang Muslim Tanpa Alasan yang Benar",
+    "jumlah_hadits": 5,
+    "file": "266.json"
+  },
+  {
+    "id": 267,
+    "source_id": 267,
+    "judul": "Bab 267. Pengharaman Mencaci Orang yang Sudah Meninggal Tanpa Alasan yang Benar Maupun Maslahat yang Disyariatkan",
+    "jumlah_hadits": 1,
+    "file": "267.json"
+  },
+  {
+    "id": 268,
+    "source_id": 268,
+    "judul": "Bab 268. Larangan Menyakiti",
+    "jumlah_hadits": 2,
+    "file": "268.json"
+  },
+  {
+    "id": 269,
+    "source_id": 269,
+    "judul": "Bab 269. Larangan Saling Membenci, Memutuskan Hubungan, dan Membelakangi",
+    "jumlah_hadits": 2,
+    "file": "269.json"
+  },
+  {
+    "id": 270,
+    "source_id": 270,
+    "judul": "Bab 270. Pengharaman Hasad",
+    "jumlah_hadits": 1,
+    "file": "270.json"
+  },
+  {
+    "id": 271,
+    "source_id": 271,
+    "judul": "Bab 271. Larangan Memata-Matai dan Menguping Pembicaraan Orang yang Tidak Suka Didengar",
+    "jumlah_hadits": 3,
+    "file": "271.json"
+  },
+  {
+    "id": 272,
+    "source_id": 272,
+    "judul": "Bab 272. Larangan Buruk Sangka Terhadap Kaum Muslimin Tanpa Alasan Mendesak",
+    "jumlah_hadits": 1,
+    "file": "272.json"
+  },
+  {
+    "id": 273,
+    "source_id": 273,
+    "judul": "Bab 273. Pengharaman Merendahkan Kaum Muslimin",
+    "jumlah_hadits": 3,
+    "file": "273.json"
+  },
+  {
+    "id": 274,
+    "source_id": 274,
+    "judul": "Bab 274. Larangan Menampakkan Kegembiraan Terhadap Musibah yang Menimpa Seorang Muslim",
+    "jumlah_hadits": 1,
+    "file": "274.json"
+  },
+  {
+    "id": 275,
+    "source_id": 275,
+    "judul": "Bab 275. Pengharaman Mencela Nasab yang Ditetapkan Berdasarkan Syariat",
+    "jumlah_hadits": 1,
+    "file": "275.json"
+  },
+  {
+    "id": 276,
+    "source_id": 276,
+    "judul": "Bab 276. Larangan Berbuat Curang dan Menipu",
+    "jumlah_hadits": 5,
+    "file": "276.json"
+  },
+  {
+    "id": 277,
+    "source_id": 277,
+    "judul": "Bab 277. Pengharaman Ingkar Janji",
+    "jumlah_hadits": 4,
+    "file": "277.json"
+  },
+  {
+    "id": 278,
+    "source_id": 278,
+    "judul": "Bab 278. Larangan Mengungkit Pemberian dan Lainnya",
+    "jumlah_hadits": 1,
+    "file": "278.json"
+  },
+  {
+    "id": 279,
+    "source_id": 279,
+    "judul": "Bab 279. Larangan Membanggakan Diri dan Melampaui Batas",
+    "jumlah_hadits": 2,
+    "file": "279.json"
+  },
+  {
+    "id": 280,
+    "source_id": 280,
+    "judul": "Bab 280. Pengharaman Saling Memboikot di Antara Kaum Muslimin Lebih dari Tiga Hari Kecuali Karena Kebidahan Pada Orang yang Diboikot atau Melakukan Kefasikan dengan Terang-Terangan atau Sebab Semacamnya",
+    "jumlah_hadits": 7,
+    "file": "280.json"
+  },
+  {
+    "id": 281,
+    "source_id": 281,
+    "judul": "Bab 281. Larangan Berbisik-Bisik Antara Dua Orang Tanpa Mengikutsertakan Orang Ketiga Tanpa Seizinnya, Kecuali Bila Ada Keperluan, Yaitu Mereka Berbicara Secara Rahasia Sehingga Dia Tidak Mendengar Mereka, dan Semakna Dengannya Bila Mereka Berdua Berbicara Menggunakan Bahasa yang Tidak Dia Pahami",
+    "jumlah_hadits": 2,
+    "file": "281.json"
+  },
+  {
+    "id": 282,
+    "source_id": 282,
+    "judul": "Bab 282. Larangan Menyiksa Hamba Sahaya, Hewan, Perempuan, dan Anak-Anak Tanpa Alasan yang Dibenarkan Oleh Agama atau yang Lebih dari Kadar Mendidik",
+    "jumlah_hadits": 9,
+    "file": "282.json"
+  },
+  {
+    "id": 283,
+    "source_id": 283,
+    "judul": "Bab 283. Pengharaman Menyiksa Binatang dengan Api Termasuk Semut dan Sebagainya",
+    "jumlah_hadits": 2,
+    "file": "283.json"
+  },
+  {
+    "id": 284,
+    "source_id": 284,
+    "judul": "Bab 284. Haram Bagi Orang Kaya Menangguhkan Hak yang Diminta Oleh Pemiliknya",
+    "jumlah_hadits": 1,
+    "file": "284.json"
+  },
+  {
+    "id": 285,
+    "source_id": 285,
+    "judul": "Bab 285. Makruh Menarik Kembali Hibah yang Belum Diserahkan Kepada Orang yang Dihibahi Serta Hibah yang Diberikan Kepada Anak, Baik Dia Telah Menyerahkannya Ataupun Belum, dan Makruh Membeli Sesuatu yang Telah Disedekahkan dari Orang yang Dia Sedekahi atau yang Dikeluarkannya Sebagai Zakat atau Kafarat dan Sebagainya, dan Tidak Mengapa Bila Dia Membelinya dari Orang Lain Setelah Ia Berpindah Tangan",
+    "jumlah_hadits": 2,
+    "file": "285.json"
+  },
+  {
+    "id": 286,
+    "source_id": 286,
+    "judul": "Bab 286. Penegasan Pengharaman Harta Anak Yatim",
+    "jumlah_hadits": 1,
+    "file": "286.json"
+  },
+  {
+    "id": 287,
+    "source_id": 287,
+    "judul": "Bab 287. Pengharaman Keras Terhadap Riba",
+    "jumlah_hadits": 1,
+    "file": "287.json"
+  },
+  {
+    "id": 288,
+    "source_id": 288,
+    "judul": "Bab 288. Pengharaman Riba",
+    "jumlah_hadits": 5,
+    "file": "288.json"
+  },
+  {
+    "id": 289,
+    "source_id": 289,
+    "judul": "Bab 289. Hal-Hal yang Disangka Ria Namun Ia Bukan Ria",
+    "jumlah_hadits": 1,
+    "file": "289.json"
+  },
+  {
+    "id": 290,
+    "source_id": 290,
+    "judul": "Bab 290. Haram Memandang Wanita Ajnabi dan Laki-Laki Menawan Tanpa Keperluan yang Dibenarkan Syariat",
+    "jumlah_hadits": 6,
+    "file": "290.json"
+  },
+  {
+    "id": 291,
+    "source_id": 291,
+    "judul": "Bab 291. Pengharaman Berduaan dengan Wanita Ajnabi",
+    "jumlah_hadits": 3,
+    "file": "291.json"
+  },
+  {
+    "id": 292,
+    "source_id": 292,
+    "judul": "Bab 292. Haram Bagi Laki-Laki Menyerupai Perempuan dan Perempuan Menyerupai Laki-Laki dalam Pakaian, Gerakan, dan Sebagainya",
+    "jumlah_hadits": 3,
+    "file": "292.json"
+  },
+  {
+    "id": 293,
+    "source_id": 293,
+    "judul": "Bab 293. Larangan Meniru Setan dan Orang-Orang Kafir",
+    "jumlah_hadits": 3,
+    "file": "293.json"
+  },
+  {
+    "id": 294,
+    "source_id": 294,
+    "judul": "Bab 294. Larangan Menyemir Rambut dengan Warna Hitam Bagi Laki-Laki dan Perempuan",
+    "jumlah_hadits": 1,
+    "file": "294.json"
+  },
+  {
+    "id": 295,
+    "source_id": 295,
+    "judul": "Bab 295. Larangan Qaza'; Yaitu Mencukur Sebagian Kepala dan Meninggalkan Sebagian yang Lain, Serta Laki-Laki Boleh Botak, Sementara Perempuan Tidak Boleh",
+    "jumlah_hadits": 4,
+    "file": "295.json"
+  },
+  {
+    "id": 296,
+    "source_id": 296,
+    "judul": "Bab 296. Pengharaman Menyambung Rambut, Membuat Tato, dan Mengikir Gigi",
+    "jumlah_hadits": 4,
+    "file": "296.json"
+  },
+  {
+    "id": 297,
+    "source_id": 297,
+    "judul": "Bab 297. Larangan Mencabut Uban Janggut, Kepala, dan Lainnya, dan Larangan Bagi Pemuda Remaja Mencabut Bulu Janggutnya Ketika Pertama Kali Tumbuh",
+    "jumlah_hadits": 2,
+    "file": "297.json"
+  },
+  {
+    "id": 298,
+    "source_id": 298,
+    "judul": "Bab 298. Dimakruhkan Beristinja dan Memegang Kemaluan dengan Tangan Kanan Tanpa Ada Uzur",
+    "jumlah_hadits": 1,
+    "file": "298.json"
+  },
+  {
+    "id": 299,
+    "source_id": 299,
+    "judul": "Bab 299. Dimakruhkan Berjalan Menggunakan Satu Sandal atau Satu Sepatu Tanpa Uzur, Serta Dimakruhkan Memasang Sandal dan Sepatu Sambil Berdiri Tanpa Uzur",
+    "jumlah_hadits": 3,
+    "file": "299.json"
+  },
+  {
+    "id": 300,
+    "source_id": 300,
+    "judul": "Bab 300. Larangan Membiarkan Api Menyala di Rumah Ketika Tidur",
+    "jumlah_hadits": 3,
+    "file": "300.json"
+  },
+  {
+    "id": 301,
+    "source_id": 301,
+    "judul": "Bab 301. Larangan Memaksakan Diri, Yaitu Melakukan Perbuatan dan Perkataan yang Tidak Memiliki Maslahat dengan Susah Payah",
+    "jumlah_hadits": 2,
+    "file": "301.json"
+  },
+  {
+    "id": 302,
+    "source_id": 302,
+    "judul": "Bab 302. Pengharaman Meratapi Mayat, Memukul Pipi, Merobek Baju, Mencabut dan Mencukur Habis Rambut, Serta Berdoa untuk Celaka dan Binasa",
+    "jumlah_hadits": 11,
+    "file": "302.json"
+  },
+  {
+    "id": 303,
+    "source_id": 303,
+    "judul": "Bab 303. Larangan Mendatangi Dukun, Munajim, Paranormal, Peramal yang Meramal dengan Membuat Garis di Tanah, Memukulkan Kerikil dan Biji Gandum, dan Lain Sebagainya",
+    "jumlah_hadits": 6,
+    "file": "303.json"
+  },
+  {
+    "id": 304,
+    "source_id": 304,
+    "judul": "Bab 304. Larangan Taṭayyur",
+    "jumlah_hadits": 4,
+    "file": "304.json"
+  },
+  {
+    "id": 305,
+    "source_id": 305,
+    "judul": "Bab 305. Pengharaman Membuat Gambar Hewan di Tikar, Batu, Pakaian, Uang Dirham, Bantal Tidur, Uang Dinar, Bantal Duduk, dan Lain Sebagainya Serta Larangan Membuat Gambar di Dinding, Tirai, Serban, Jubah, Pakaian, dan Semisalnya dan Perintah Memusnahkan Gambar",
+    "jumlah_hadits": 10,
+    "file": "305.json"
+  },
+  {
+    "id": 306,
+    "source_id": 306,
+    "judul": "Bab 306. Pengharaman Memelihara Anjing Kecuali untuk Berburu atau Menjaga Ternak atau Tanaman",
+    "jumlah_hadits": 2,
+    "file": "306.json"
+  },
+  {
+    "id": 307,
+    "source_id": 307,
+    "judul": "Bab 307. Makruh Mengalungkan Lonceng Pada Unta dan Hewan Lainnya Serta Makruh Membawa Anjing dan Lonceng dalam Perjalanan",
+    "jumlah_hadits": 2,
+    "file": "307.json"
+  },
+  {
+    "id": 308,
+    "source_id": 308,
+    "judul": "Bab 308. Makruh Mengendarai Hewan Jallālah, Yaitu Unta yang Memakan Kotoran, Bila Kemudian Ia Makan Pakan yang Suci Sehingga Dagingnya Menjadi Baik, Maka Hukum Makruh Itu Hilang",
+    "jumlah_hadits": 1,
+    "file": "308.json"
+  },
+  {
+    "id": 309,
+    "source_id": 309,
+    "judul": "Bab 309. Larangan Meludah di Masjid dan Perintah Menghilangkannya Bila Ditemukan di Masjid Serta Perintah Membersihkan Masjid dari Kotoran",
+    "jumlah_hadits": 3,
+    "file": "309.json"
+  },
+  {
+    "id": 310,
+    "source_id": 310,
+    "judul": "Bab 310. Makruh Bertengkar dan Mengangkat Suara di dalam Masjid Serta Mengumumkan Barang Hilang, Jual Beli, Sewa-Menyewa, dan Transaksi Lainnya",
+    "jumlah_hadits": 5,
+    "file": "310.json"
+  },
+  {
+    "id": 311,
+    "source_id": 311,
+    "judul": "Bab 311. Larangan Masuk Masjid bagi Orang yang Makan Bawang Putih, Bawang Merah, Bawang Bakung, atau Sesuatu yang Berbau Busuk",
+    "jumlah_hadits": 4,
+    "file": "311.json"
+  },
+  {
+    "id": 312,
+    "source_id": 312,
+    "judul": "Bab 312. Makruh Duduk Memeluk Betis Pada Hari Jumat Ketika Khatib Berkhotbah Karena Dapat Mengundang Tidur Sehingga Dia Tidak Mendengar Khotbah dan Dikhawatirkan Wudunya Batal",
+    "jumlah_hadits": 1,
+    "file": "312.json"
+  },
+  {
+    "id": 313,
+    "source_id": 313,
+    "judul": "Bab 313. Larangan Memotong Sebagian Rambut atau Kukun Bagi Orang yang Ingin Berkurban Ketika Telah Masuk Sepuluh Hari Pertama Zulhijah Sampai Ia Berkurban",
+    "jumlah_hadits": 1,
+    "file": "313.json"
+  },
+  {
+    "id": 314,
+    "source_id": 314,
+    "judul": "Bab 314. Larangan Bersumpah dengan Makhluk Seperti Nabi, Kakbah, Malaikat, Langit, Nenek Moyang, Hidup, Ruh, Kepala, Kebaikan Raja, Tanah Polan, dan Amanah, dan Ini Adalah yang Dilarang Paling Keras",
+    "jumlah_hadits": 5,
+    "file": "314.json"
+  },
+  {
+    "id": 315,
+    "source_id": 315,
+    "judul": "Bab 315. Larangan Keras dari Sumpah Palsu yang Disengaja",
+    "jumlah_hadits": 3,
+    "file": "315.json"
+  },
+  {
+    "id": 316,
+    "source_id": 316,
+    "judul": "Bab 316. Anjuran Bagi Orang yang Bersumpah Pada Sesuatu Lalu Melihat Ada Hal Lain yang Lebih Baik Agar Mengerjakan Sesuatu yang Bukan Sumpahnya Itu Kemudian Membayar Kafarat Sumpahnya",
+    "jumlah_hadits": 4,
+    "file": "316.json"
+  },
+  {
+    "id": 317,
+    "source_id": 317,
+    "judul": "Bab 317. Ampunan untuk Sumpah Lagwu (yang Tidak Disengaja) dan Tidak Ada Kafaratnya, Yaitu Sumpah yang Mengalir Pada Lisan Tanpa Niat Bersumpah, Seperti Ucapan Sehari-Hari, \"Tidak, Demi Allah\", \"Ya, Demi Allah\", dan yang Semisalnya",
+    "jumlah_hadits": 1,
+    "file": "317.json"
+  },
+  {
+    "id": 318,
+    "source_id": 318,
+    "judul": "Bab 318. Makruh Bersumpah dalam Jual Beli Walaupun Benar",
+    "jumlah_hadits": 2,
+    "file": "318.json"
+  },
+  {
+    "id": 319,
+    "source_id": 319,
+    "judul": "Bab 319. Makruh Bagi Seseorang Meminta Selain Surga dengan (Bersumpah) Menyebut Wajah Allah dan Makruh Tidak Memberikan Orang yang Meminta dengan (Bersumpah) Menyebut Nama Allah -Ta'Ālā- dan Bertawasul Dengannya",
+    "jumlah_hadits": 2,
+    "file": "319.json"
+  },
+  {
+    "id": 320,
+    "source_id": 320,
+    "judul": "Bab 320. Pengharaman Gelar \"Syāhin Syāh\" Bagi Raja dan Lainnya Karena Memiliki Arti Raja Para Raja, dan yang Demikian Itu Tidak Boleh Diberikan Kepada Selain Allah -Subḥānahu Wa Ta'Ālā-",
+    "jumlah_hadits": 1,
+    "file": "320.json"
+  },
+  {
+    "id": 321,
+    "source_id": 321,
+    "judul": "Bab 321. Larangan Memanggil Orang Fasik, Ahli Bidah, dan Semisalnya dengan Panggilan \"Tuan\" dan Semisalnya",
+    "jumlah_hadits": 1,
+    "file": "321.json"
+  },
+  {
+    "id": 322,
+    "source_id": 322,
+    "judul": "Bab 322. Makruh Memaki Demam",
+    "jumlah_hadits": 1,
+    "file": "322.json"
+  },
+  {
+    "id": 323,
+    "source_id": 323,
+    "judul": "Bab 323. Larangan Memaki Angin dan Menjelaskan Doa yang Dibaca Ketika Angin Berhembus",
+    "jumlah_hadits": 3,
+    "file": "323.json"
+  },
+  {
+    "id": 324,
+    "source_id": 324,
+    "judul": "Bab 324. Makruh Memaki Ayam Jantan",
+    "jumlah_hadits": 1,
+    "file": "324.json"
+  },
+  {
+    "id": 325,
+    "source_id": 325,
+    "judul": "Bab 325. Larangan Perkataan Seseorang: Kita Diberikan Hujan Karena Bintang Ini dan Ini",
+    "jumlah_hadits": 1,
+    "file": "325.json"
+  },
+  {
+    "id": 326,
+    "source_id": 326,
+    "judul": "Bab 326. Pengharaman Ucapan \"Wahai Kafir\" Kepada Seorang Muslim",
+    "jumlah_hadits": 2,
+    "file": "326.json"
+  },
+  {
+    "id": 327,
+    "source_id": 327,
+    "judul": "Bab 327. Larangan Berkata Keji dan Kotor",
+    "jumlah_hadits": 2,
+    "file": "327.json"
+  },
+  {
+    "id": 328,
+    "source_id": 328,
+    "judul": "Bab 328. Makruh Berbicara dengan Memaksakan Diri, Berlebih-Lebihan, Memfasih-Fasihkan Diri, dan Menggunakan Kata Asing dan Ungkapan yang Rumit Ketika Berbicara Kepada Kalangan Awam dan Semisalnya",
+    "jumlah_hadits": 3,
+    "file": "328.json"
+  },
+  {
+    "id": 329,
+    "source_id": 329,
+    "judul": "Bab 329. Makruh Menggunakan Kata \"Jiwaku Khabīṡ (Buruk)\"",
+    "jumlah_hadits": 1,
+    "file": "329.json"
+  },
+  {
+    "id": 330,
+    "source_id": 330,
+    "judul": "Bab 330. Makruh Menyebut Anggur dengan Sebutan \"Karm\"",
+    "jumlah_hadits": 2,
+    "file": "330.json"
+  },
+  {
+    "id": 331,
+    "source_id": 331,
+    "judul": "Bab 331. Larangan Menggambarkan Kecantikan Seorang Perempuan Kepada Seorang Laki-Laki Kecuali Bila Dia Membutuhkannya dengan Tujuan yang Dibenarkan Syariat Seperti Hendak Menikahinya dan Semisalnya",
+    "jumlah_hadits": 1,
+    "file": "331.json"
+  },
+  {
+    "id": 332,
+    "source_id": 332,
+    "judul": "Bab 332. Makruh Perkataan Seseorang \"Ya Allah! Ampunilah Aku Bila Engkau Kehendaki\", Tapi Hendaklah Dia Berdoa dengan Penuh Yakin",
+    "jumlah_hadits": 2,
+    "file": "332.json"
+  },
+  {
+    "id": 333,
+    "source_id": 333,
+    "judul": "Bab 333. Makruh Perkataan \"Atas Kehendak Allah dan Kehendak Polan\"",
+    "jumlah_hadits": 1,
+    "file": "333.json"
+  },
+  {
+    "id": 334,
+    "source_id": 334,
+    "judul": "Bab 334. Makruh Bincang-Bincang Setelah Isya",
+    "jumlah_hadits": 3,
+    "file": "334.json"
+  },
+  {
+    "id": 335,
+    "source_id": 335,
+    "judul": "Bab 335. Perempuan Haram Menolak Ajakan Suaminya ke Tempat Tidur Padahal Dia Tidak Memiliki Uzur yang Dibenarkan Syariat",
+    "jumlah_hadits": 1,
+    "file": "335.json"
+  },
+  {
+    "id": 336,
+    "source_id": 336,
+    "judul": "Bab 336. Perempuan Haram Berpuasa Ketika Suaminya Ada Kecuali dengan Seizinnya",
+    "jumlah_hadits": 1,
+    "file": "336.json"
+  },
+  {
+    "id": 337,
+    "source_id": 337,
+    "judul": "Bab 337. Keharaman Makmum Mengangkat Kepala dari Rukuk atau Sujud Sebelum Imam",
+    "jumlah_hadits": 1,
+    "file": "337.json"
+  },
+  {
+    "id": 338,
+    "source_id": 338,
+    "judul": "Bab 338. Makruh Meletakkan Tangan di Pinggang Ketika Salat",
+    "jumlah_hadits": 1,
+    "file": "338.json"
+  },
+  {
+    "id": 339,
+    "source_id": 339,
+    "judul": "Bab 339. Makruh Salat Ketika Makanan Telah Disajikan Sementara Dia Menginginkannya atau Sambil Menahan Keinginan Buang Air Kecil dan Besar",
+    "jumlah_hadits": 1,
+    "file": "339.json"
+  },
+  {
+    "id": 340,
+    "source_id": 340,
+    "judul": "Bab 340. Larangan Melihat ke Atas dalam Salat",
+    "jumlah_hadits": 1,
+    "file": "340.json"
+  },
+  {
+    "id": 341,
+    "source_id": 341,
+    "judul": "Bab 341. Makruh Menoleh Ketika Salat Tanpa Uzur",
+    "jumlah_hadits": 2,
+    "file": "341.json"
+  },
+  {
+    "id": 342,
+    "source_id": 342,
+    "judul": "Bab 342. Larangan Salat Menghadap Kubur",
+    "jumlah_hadits": 1,
+    "file": "342.json"
+  },
+  {
+    "id": 343,
+    "source_id": 343,
+    "judul": "Bab 343. Larangan Melintas di Depan Orang Salat",
+    "jumlah_hadits": 1,
+    "file": "343.json"
+  },
+  {
+    "id": 344,
+    "source_id": 344,
+    "judul": "Bab 344. Makruh Bagi Makmum Memulai Salat Sunah Setelah Muazin Mulai Mengumandangkan Ikamah Salat, Baik Salat Sunah untuk Salat Tersebut atau Lainnya",
+    "jumlah_hadits": 1,
+    "file": "344.json"
+  },
+  {
+    "id": 345,
+    "source_id": 345,
+    "judul": "Bab 345. Makruh Mengkhususkan Puasa Pada Hari Jumat atau Salat Malam Pada Malam Jumat",
+    "jumlah_hadits": 4,
+    "file": "345.json"
+  },
+  {
+    "id": 346,
+    "source_id": 346,
+    "judul": "Bab 346. Pengharaman Puasa Wiṣāl, Yaitu Berpuasa Dua Hari atau Lebih dengan Bersambung Tanpa Makan dan Minum Antara Keduanya",
+    "jumlah_hadits": 2,
+    "file": "346.json"
+  },
+  {
+    "id": 347,
+    "source_id": 347,
+    "judul": "Bab 347. Pengharaman Duduk di Atas Kubur",
+    "jumlah_hadits": 1,
+    "file": "347.json"
+  },
+  {
+    "id": 348,
+    "source_id": 348,
+    "judul": "Bab 348. Larangan Menyemen Kubur dan Membuat Bangunan di Atasnya",
+    "jumlah_hadits": 1,
+    "file": "348.json"
+  },
+  {
+    "id": 349,
+    "source_id": 349,
+    "judul": "Bab 349. Kerasnya Pengharaman Budak Melarikan Diri dari Tuannya",
+    "jumlah_hadits": 2,
+    "file": "349.json"
+  },
+  {
+    "id": 350,
+    "source_id": 350,
+    "judul": "Bab 350. Haram Memberi Syafaat dalam Hukuman Hudud",
+    "jumlah_hadits": 1,
+    "file": "350.json"
+  },
+  {
+    "id": 351,
+    "source_id": 351,
+    "judul": "Bab 351. Larangan Buang Air Besar di Jalan, Tempat Berteduh, Tempat Air, dan Semisalnya",
+    "jumlah_hadits": 1,
+    "file": "351.json"
+  },
+  {
+    "id": 352,
+    "source_id": 352,
+    "judul": "Bab 352. Larangan Kencing dan Sejenisnya di Air Tergenang",
+    "jumlah_hadits": 1,
+    "file": "352.json"
+  },
+  {
+    "id": 353,
+    "source_id": 353,
+    "judul": "Bab 353. Makruh Bagi Orang Tua Melebihkan Sebagian Anaknya dalam Hibah",
+    "jumlah_hadits": 1,
+    "file": "353.json"
+  },
+  {
+    "id": 354,
+    "source_id": 354,
+    "judul": "Bab 354. Haram Bagi Perempuan Berkabung Karena Kematian Seseorang Lebih dari Tiga Hari Kecuali (Karena Kematian) Suaminya Selama Empat Bulan Sepuluh Hari",
+    "jumlah_hadits": 6,
+    "file": "354.json"
+  },
+  {
+    "id": 355,
+    "source_id": 355,
+    "judul": "Bab 355. Haram Bagi Orang Kota Menjualkan Barang Orang Pedalaman, Mencegat Rombongan Dagang Sebelum Sampai ke Pasar, Melakukan Jual Beli di Atas Jual Beli Saudaranya dan Melamar di Atas Lamaran Saudaranya, Kecuali Bila Dia Mengizinkannya atau Membatalkannya",
+    "jumlah_hadits": 6,
+    "file": "355.json"
+  },
+  {
+    "id": 356,
+    "source_id": 356,
+    "judul": "Bab 356. Larangan Menghambur-Hamburkan Harta untuk Hal-Hal yang Tidak Diizinkan Agama",
+    "jumlah_hadits": 2,
+    "file": "356.json"
+  },
+  {
+    "id": 357,
+    "source_id": 357,
+    "judul": "Bab 357. Larangan Mengarahkan Senjata dan Semisalnya Kepada Seorang Muslim, Baik Serius Ataupun Main-Main, dan Larangan Serah Terima Pedang dalam Keadaan Terhunus",
+    "jumlah_hadits": 2,
+    "file": "357.json"
+  },
+  {
+    "id": 358,
+    "source_id": 358,
+    "judul": "Bab 358. Makruh Keluar dari Masjid Setelah Azan Kecuali Karena Uzur Sehingga Dia Menunaikan Salat Fardu",
+    "jumlah_hadits": 1,
+    "file": "358.json"
+  },
+  {
+    "id": 359,
+    "source_id": 359,
+    "judul": "Bab 359. Makruh Menolak Minyak Wangi Tanpa Alasan",
+    "jumlah_hadits": 2,
+    "file": "359.json"
+  },
+  {
+    "id": 360,
+    "source_id": 360,
+    "judul": "Bab 360. Makruh Memuji Seseorang Langsung di Hadapannya Jika Dia Dikhawatirkan Akan Ujub atau Kerusakan Lainnya yang Semisal, dan Itu Boleh Bagi Orang yang Aman dari Hal Tesebut Bila Dipuji",
+    "jumlah_hadits": 3,
+    "file": "360.json"
+  },
+  {
+    "id": 361,
+    "source_id": 361,
+    "judul": "Bab 361. Makruh Meninggalkan dari Negeri yang Ditimpa Wabah untuk Meyelamatkan Diri, dan Makruh Masuk ke Sana",
+    "jumlah_hadits": 2,
+    "file": "361.json"
+  },
+  {
+    "id": 362,
+    "source_id": 362,
+    "judul": "Bab 362. Kerasnya Pengharaman Sihir",
+    "jumlah_hadits": 1,
+    "file": "362.json"
+  },
+  {
+    "id": 363,
+    "source_id": 363,
+    "judul": "Bab 363. Larangan Melakukan Perjalanan dengan Membawa Mushaf ke Negeri Orang Kafir Bila Dikhawatirkan Akan Jatuh ke Tangan Musuh",
+    "jumlah_hadits": 1,
+    "file": "363.json"
+  },
+  {
+    "id": 364,
+    "source_id": 364,
+    "judul": "Bab 364. Haram Menggunakan Bejana Emas dan Bejana Perak untuk Makan, Minum, Bersuci, dan Bentuk-Bentuk Penggunaan Lainnya",
+    "jumlah_hadits": 3,
+    "file": "364.json"
+  },
+  {
+    "id": 365,
+    "source_id": 365,
+    "judul": "Bab 365. Haram Bagi Laki-Laki Memakai Pakaian yang Dicelup dengan Pewarna Safron",
+    "jumlah_hadits": 2,
+    "file": "365.json"
+  },
+  {
+    "id": 366,
+    "source_id": 366,
+    "judul": "Bab 366. Larangan Tidak Bicara Hingga Malam",
+    "jumlah_hadits": 2,
+    "file": "366.json"
+  },
+  {
+    "id": 367,
+    "source_id": 367,
+    "judul": "Bab 367. Haram Bagi Seseorang Menisbahkan Diri Kepada Selain Ayahnya dan Selain yang Memerdekakannya",
+    "jumlah_hadits": 4,
+    "file": "367.json"
+  },
+  {
+    "id": 368,
+    "source_id": 368,
+    "judul": "Bab 368. Peringatan dari Melanggar Larangan Allah -'Azza Wa Jalla- atau Larangan Rasul-Nya -Ṣallallāhu 'Alaihi Wa Sallam-",
+    "jumlah_hadits": 1,
+    "file": "368.json"
+  },
+  {
+    "id": 369,
+    "source_id": 369,
+    "judul": "Bab 369. Ucapan dan Perbuatan yang Harus Dilakukan Oleh Orang yang Melanggar Sebuah Larangan",
+    "jumlah_hadits": 1,
+    "file": "369.json"
+  },
+  {
+    "id": 370,
+    "source_id": 370,
+    "judul": "Bab 370. Al-Manṡūrāt dan Al-Mulaḥ",
+    "jumlah_hadits": 61,
+    "file": "370.json"
+  },
+  {
+    "id": 371,
+    "source_id": 371,
+    "judul": "Bab 371. Istigfar",
+    "jumlah_hadits": 11,
+    "file": "371.json"
+  },
+  {
+    "id": 372,
+    "source_id": 372,
+    "judul": "Bab 372. Penjelasan Tentang Apa yang Allah Siapkan Bagi Kaum Mukminin di dalam Surga",
+    "jumlah_hadits": 17,
+    "file": "372.json"
+  }
 ]
