@@ -1,130 +1,160 @@
 const fs = require("fs");
 const path = require("path");
 
-const SOURCE_URL =
-  "https://raw.githubusercontent.com/irsyadulibad/hadits-database/refs/heads/main/riyadhus-shalihin.sql";
+const SOURCE =
+"https://raw.githubusercontent.com/irsyadulibad/hadits-database/refs/heads/main/riyadhus-shalihin.sql";
 
-const OUT_DIR = path.join(__dirname, "..", "data");
-const OUT_FILE = path.join(OUT_DIR, "riyadhus-shalihin.json");
+const OUT_DIR = path.join(__dirname, "..", "data", "riyadhus");
 
-function unescapeSql(str) {
-  return str
-    .replace(/\\r/g, "\r")
-    .replace(/\\n/g, "\n")
-    .replace(/\\'/g, "'")
-    .replace(/\\"/g, '"')
-    .replace(/\\\\/g, "\\")
-    .trim();
+function clean(text){
+    return text
+        .replace(/\\r\\n/g,"\n")
+        .replace(/\\r/g,"\n")
+        .replace(/\\\\/g,"\\")
+        .replace(/\\'/g,"'")
+        .trim();
 }
 
-function splitRows(valuesText) {
-  const rows = [];
-  let current = "";
-  let inString = false;
-  let depth = 0;
+function pad(num){
+    return String(num).padStart(3,"0");
+}
 
-  for (let i = 0; i < valuesText.length; i++) {
-    const ch = valuesText[i];
-    const prev = valuesText[i - 1];
+async function main(){
 
-    if (ch === "'" && prev !== "\\") inString = !inString;
+    console.log("Downloading SQL...");
 
-    if (!inString) {
-      if (ch === "(") depth++;
-      if (ch === ")") depth--;
+    const res = await fetch(SOURCE);
+
+    if(!res.ok) throw new Error("Download gagal");
+
+    const sql = await res.text();
+
+    fs.mkdirSync(OUT_DIR,{recursive:true});
+
+    const regex =
+/\((\d+),\s*'([^']*)',\s*'([\s\S]*?)',\s*'([\s\S]*?)'\)(?:,|;)/g;
+
+    let match;
+
+    let currentBab = null;
+    let daftarBab = [];
+
+    while((match = regex.exec(sql)) !== null){
+
+        const id = Number(match[1]);
+
+        let arab = clean(match[3]);
+        let indo = clean(match[4]);
+
+        //---------------------------------------
+        // cek apakah awal bab
+        //---------------------------------------
+
+        const titleMatch =
+            indo.match(/<h1[^>]*>(.*?)<\/h1>/is);
+
+        if(titleMatch){
+
+            if(currentBab){
+
+                const fileName = pad(currentBab.id)+".json";
+
+                fs.writeFileSync(
+                    path.join(OUT_DIR,fileName),
+                    JSON.stringify(currentBab,null,2),
+                    "utf8"
+                );
+
+                daftarBab.push({
+                    id:currentBab.id,
+                    judul:currentBab.judul,
+                    jumlah_hadits:currentBab.hadits.length,
+                    file:fileName
+                });
+
+            }
+
+            const judul = titleMatch[1]
+                .replace(/<[^>]+>/g,"")
+                .replace(/^Bab\s+/i,"")
+                .trim();
+
+            indo = indo.replace(titleMatch[0],"").trim();
+
+            const arabTitle =
+                arab.match(/\d+\s*-\s*باب[^\n<]*/);
+
+            if(arabTitle){
+
+                arab = arab.replace(arabTitle[0],"").trim();
+
+            }
+
+            currentBab = {
+
+                id:daftarBab.length+1,
+
+                judul,
+
+                hadits:[]
+
+            };
+
+        }
+
+        if(!currentBab) continue;
+
+        currentBab.hadits.push({
+
+            id,
+
+            arab,
+
+            terjemahan:indo
+
+        });
+
     }
 
-    current += ch;
+    //---------------------------------------
+    // simpan bab terakhir
+    //---------------------------------------
 
-    if (!inString && depth === 0 && ch === ")") {
-      rows.push(current.trim());
-      current = "";
-      while (valuesText[i + 1] === "," || /\s/.test(valuesText[i + 1])) i++;
-    }
-  }
+    if(currentBab){
 
-  return rows;
-}
+        const fileName = pad(currentBab.id)+".json";
 
-function splitFields(row) {
-  row = row.replace(/^\(/, "").replace(/\)$/, "");
+        fs.writeFileSync(
+            path.join(OUT_DIR,fileName),
+            JSON.stringify(currentBab,null,2),
+            "utf8"
+        );
 
-  const fields = [];
-  let current = "";
-  let inString = false;
+        daftarBab.push({
 
-  for (let i = 0; i < row.length; i++) {
-    const ch = row[i];
-    const prev = row[i - 1];
+            id:currentBab.id,
+            judul:currentBab.judul,
+            jumlah_hadits:currentBab.hadits.length,
+            file:fileName
 
-    if (ch === "'" && prev !== "\\") {
-      inString = !inString;
-      continue;
+        });
+
     }
 
-    if (ch === "," && !inString) {
-      fields.push(current.trim());
-      current = "";
-      continue;
-    }
+    fs.writeFileSync(
 
-    current += ch;
-  }
+        path.join(OUT_DIR,"daftar-bab.json"),
 
-  fields.push(current.trim());
-  return fields;
+        JSON.stringify(daftarBab,null,2),
+
+        "utf8"
+
+    );
+
+    console.log("Bab :",daftarBab.length);
+
+    console.log("Selesai.");
+
 }
 
-function getBabTitle(text) {
-  const match = text.match(/(?:^|\n)\s*\d+\s*-\s*(باب[^\n\r]+)/);
-  return match ? match[1].trim() : "";
-}
-
-async function main() {
-  console.log("Mengambil file SQL...");
-
-  const res = await fetch(SOURCE_URL);
-  if (!res.ok) throw new Error(`Gagal download SQL: ${res.status}`);
-
-  const sql = await res.text();
-
-  const insertMatch = sql.match(
-    /INSERT INTO `riyadhus_shalihin` \(`id`, `kitab`, `arab`, `terjemah`\) VALUES\s*([\s\S]*?);/m
-  );
-
-  if (!insertMatch) {
-    throw new Error("Data INSERT riyadhus_shalihin tidak ditemukan.");
-  }
-
-  const rows = splitRows(insertMatch[1]);
-
-  let currentBab = "Mukadimah";
-
-  const data = rows.map((row) => {
-    const [id, kitab, arab, terjemah] = splitFields(row);
-
-    const cleanArab = unescapeSql(arab);
-    const cleanTerjemah = unescapeSql(terjemah);
-
-    const foundBab = getBabTitle(cleanArab);
-    if (foundBab) currentBab = foundBab;
-
-    return {
-      id: Number(id),
-      judul_bab: currentBab,
-      arab: cleanArab,
-      terjemahan: cleanTerjemah
-    };
-  });
-
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-  fs.writeFileSync(OUT_FILE, JSON.stringify(data, null, 2), "utf8");
-
-  console.log(`Berhasil membuat ${OUT_FILE}`);
-  console.log(`Total data: ${data.length}`);
-}
-
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main().catch(console.error);
