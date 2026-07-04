@@ -1,0 +1,31 @@
+name: Build Shahih Bukhari JSON
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-bukhari:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Shahih Bukhari JSON
+        run: node tools/build-shahih-bukhari.js
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/shahih-bukhari
+          git diff --cached --quiet || git commit -m "Build Shahih Bukhari JSON"
+          git push
