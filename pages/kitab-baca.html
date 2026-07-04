@@ -213,7 +213,7 @@ const subjudulKitabEl = document.getElementById('subjudul-kitab');
 
 const params = new URLSearchParams(window.location.search);
 
-const idKitab = params.get('kitab') || 'riyadhus';
+const idKitab = params.get('kitab') || 'riyadhus-shalihin';
 const idBab = params.get('bab') || '001';
 
 let kitabInfo = null;
@@ -225,22 +225,26 @@ let babAktif = null;
 ========================= */
 function getFolderKitab(id){
   const map = {
+    'riyadhus-shalihin': 'riyadhus',
     riyadhus: 'riyadhus',
-    bukhari: 'bukhari',
-    muslim: 'muslim',
+
+    'shahih-bukhari': 'shahih-bukhari',
+    bukhari: 'shahih-bukhari',
+
+    'shahih-muslim': 'shahih-muslim',
+    muslim: 'shahih-muslim',
+
     arbain: 'arbain',
+    'arbain-nawawi': 'arbain',
+
     'bulughul-maram': 'bulughul-maram'
   };
 
   return map[id] || id;
 }
+
 /* =========================
    NORMALISASI DATA HADITS
-   Biar aman walaupun JSON beda format:
-   - array langsung
-   - object dengan items
-   - object dengan data
-   - object dengan hadits
 ========================= */
 function getItems(data){
   if(Array.isArray(data)) return data;
@@ -262,21 +266,32 @@ async function loadKitabBaca(){
     const babFile = String(idBab).padStart(3, '0');
 
     const kitabRes = await fetch('../data/kitab.json?v=' + Date.now());
+
     if(kitabRes.ok){
       const semuaKitab = await kitabRes.json();
-      kitabInfo = semuaKitab.find(item => String(item.id) === String(idKitab));
+
+      if(Array.isArray(semuaKitab)){
+        kitabInfo = semuaKitab.find(item => String(item.id) === String(idKitab));
+      }
     }
 
     const daftarBabRes = await fetch(`../data/${folder}/daftar-bab.json?v=${Date.now()}`);
+
     if(daftarBabRes.ok){
       daftarBab = await daftarBabRes.json();
-      babAktif = daftarBab.find(bab => String(bab.id).padStart(3, '0') === babFile);
+
+      if(Array.isArray(daftarBab)){
+        babAktif = daftarBab.find(bab =>
+          String(bab.id).padStart(3, '0') === babFile ||
+          String(bab.file || '').replace('.json', '') === babFile
+        );
+      }
     }
 
     const isiRes = await fetch(`../data/${folder}/${babFile}.json?v=${Date.now()}`);
 
     if(!isiRes.ok){
-      throw new Error(`File ${babFile}.json tidak ditemukan`);
+      throw new Error(`File ${babFile}.json tidak ditemukan di folder ${folder}`);
     }
 
     const dataBab = await isiRes.json();
@@ -291,7 +306,7 @@ async function loadKitabBaca(){
     `;
     judulKitabEl.textContent = 'Baca Kitab';
     subjudulKitabEl.textContent = 'Data tidak tersedia';
-    console.error(err);
+    console.error('Error load kitab baca:', err);
   }
 }
 
@@ -302,13 +317,16 @@ function renderKitab(dataBab, babFile){
   const items = getItems(dataBab);
 
   const namaKitab =
+    kitabInfo?.nama ||
     kitabInfo?.judul ||
     kitabInfo?.kitab ||
     formatNamaKitab(idKitab);
 
   const judulBab =
     dataBab.judul ||
+    dataBab.nama ||
     dataBab.namaBab ||
+    babAktif?.nama ||
     babAktif?.judul ||
     `Bab ${Number(babFile)}`;
 
@@ -395,7 +413,8 @@ function renderNavigasiBab(babFile){
   if(!daftarBab || daftarBab.length === 0) return '';
 
   const currentIndex = daftarBab.findIndex(bab =>
-    String(bab.id).padStart(3, '0') === String(babFile).padStart(3, '0')
+    String(bab.id).padStart(3, '0') === String(babFile).padStart(3, '0') ||
+    String(bab.file || '').replace('.json', '') === String(babFile).padStart(3, '0')
   );
 
   const prevBab = currentIndex > 0 ? daftarBab[currentIndex - 1] : null;
@@ -403,8 +422,13 @@ function renderNavigasiBab(babFile){
     ? daftarBab[currentIndex + 1]
     : null;
 
-  const prevId = prevBab ? String(prevBab.id).padStart(3, '0') : '';
-  const nextId = nextBab ? String(nextBab.id).padStart(3, '0') : '';
+  const prevId = prevBab
+    ? String(prevBab.file || String(prevBab.id).padStart(3, '0')).replace('.json', '')
+    : '';
+
+  const nextId = nextBab
+    ? String(nextBab.file || String(nextBab.id).padStart(3, '0')).replace('.json', '')
+    : '';
 
   return `
     <div class="nav-bab">
@@ -421,6 +445,7 @@ function renderNavigasiBab(babFile){
 
 function pindahBab(bab){
   if(!bab) return;
+
   window.location.href =
     `kitab-baca.html?kitab=${encodeURIComponent(idKitab)}&bab=${encodeURIComponent(bab)}`;
 }
@@ -429,10 +454,10 @@ function pindahBab(bab){
    HELPER
 ========================= */
 function formatNamaKitab(id){
-  if(id === 'riyadhus') return 'Riyadhus Shalihin';
-  if(id === 'bukhari') return 'Shahih Bukhari';
-  if(id === 'muslim') return 'Shahih Muslim';
-  if(id === 'arbain') return "Arba'in Nawawi";
+  if(id === 'riyadhus' || id === 'riyadhus-shalihin') return 'Riyadhus Shalihin';
+  if(id === 'bukhari' || id === 'shahih-bukhari') return 'Shahih Bukhari';
+  if(id === 'muslim' || id === 'shahih-muslim') return 'Shahih Muslim';
+  if(id === 'arbain' || id === 'arbain-nawawi') return "Arba'in Nawawi";
   if(id === 'bulughul-maram') return 'Bulughul Maram';
 
   return 'Kitab';
