@@ -4,7 +4,7 @@ const path = require("path");
 const SOURCE_URL =
   "https://raw.githubusercontent.com/irsyadulibad/hadits-database/refs/heads/main/riyadhus-shalihin.sql";
 
-const OUT_DIR = path.join(__dirname, "..", "data", "riyadhus");
+const OUT_DIR = path.join(process.cwd(), "data", "riyadhus");
 
 function pad(num) {
   return String(num).padStart(3, "0");
@@ -30,7 +30,7 @@ function cleanHtml(text) {
     .trim();
 }
 
-function findInsertEnd(sql, startIndex) {
+function findStatementEnd(sql, startIndex) {
   let inString = false;
   let escapeNext = false;
 
@@ -60,24 +60,27 @@ function findInsertEnd(sql, startIndex) {
   return -1;
 }
 
-function extractInsertValues(sql) {
+function extractAllInsertValues(sql) {
   const marker =
-    /INSERT INTO\s+`riyadhus_shalihin`\s+\(`id`,\s*`kitab`,\s*`arab`,\s*`terjemah`\)\s+VALUES/i;
+    /INSERT INTO\s+`riyadhus_shalihin`\s+\(`id`,\s*`kitab`,\s*`arab`,\s*`terjemah`\)\s+VALUES/gi;
 
-  const match = marker.exec(sql);
+  const blocks = [];
+  let match;
 
-  if (!match) {
-    throw new Error("Blok INSERT INTO riyadhus_shalihin tidak ditemukan.");
+  while ((match = marker.exec(sql)) !== null) {
+    const start = match.index + match[0].length;
+    const end = findStatementEnd(sql, start);
+
+    if (end === -1) {
+      throw new Error("Akhir INSERT tidak ditemukan.");
+    }
+
+    blocks.push(sql.slice(start, end));
+
+    marker.lastIndex = end + 1;
   }
 
-  const start = match.index + match[0].length;
-  const end = findInsertEnd(sql, start);
-
-  if (end === -1) {
-    throw new Error("Akhir INSERT tidak ditemukan.");
-  }
-
-  return sql.slice(start, end);
+  return blocks;
 }
 
 function parseRows(valuesText) {
@@ -222,8 +225,20 @@ async function main() {
 
   console.log("Ukuran SQL:", sql.length);
 
-  const valuesText = extractInsertValues(sql);
-  const rowTexts = parseRows(valuesText);
+  const insertBlocks = extractAllInsertValues(sql);
+
+  console.log("Total blok INSERT:", insertBlocks.length);
+
+  if (insertBlocks.length === 0) {
+    throw new Error("Tidak ada INSERT riyadhus_shalihin yang ditemukan.");
+  }
+
+  const rowTexts = [];
+
+  for (const block of insertBlocks) {
+    const rows = parseRows(block);
+    rowTexts.push(...rows);
+  }
 
   console.log("Total row SQL terbaca:", rowTexts.length);
 
