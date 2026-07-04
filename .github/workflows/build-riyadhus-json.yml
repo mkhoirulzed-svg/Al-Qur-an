@@ -1,9 +1,7 @@
-name: Build Riyadhus Shalihin JSON
+name: Build Riyadhus JSON
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * 0"
 
 permissions:
   contents: write
@@ -21,11 +19,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Build JSON
+      - name: Build Riyadhus JSON
         run: node tools/build-riyadhus-json.js
 
       - name: Commit hasil JSON
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update riyadhus-shalihin.json"
-          file_pattern: data/riyadhus-shalihin.json
+          commit_message: "Build Riyadhus Shalihin JSON per bab"
+          file_pattern: data/riyadhus/*.json
