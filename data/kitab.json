@@ -30,7 +30,7 @@
     "status": "segera",
     "tipe": "per-bab",
     "folder": "muslim",
-    "daftarBab": "data/muslim/daftar-bab.json"
+    "daftarBab": "data/sahih-muslim/daftar-bab.json"
   },
   {
     "id": "arbain",
