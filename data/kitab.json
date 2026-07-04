@@ -22,15 +22,15 @@
     "daftarBab": "data/shahih-bukhari/daftar-bab.json"
   },
   {
-    "id": "muslim",
-    "judul": "Shahih Muslim",
-    "kitab": "Shahih Muslim",
-    "penulis": "Imam Muslim",
-    "deskripsi": "Kitab hadits shahih yang disusun secara sistematis oleh Imam Muslim bin Al-Hajjaj.",
-    "status": "segera",
-    "tipe": "per-bab",
-    "folder": "muslim",
-    "daftarBab": "data/sahih-muslim/daftar-bab.json"
+  "id": "muslim",
+  "judul": "Shahih Muslim",
+  "kitab": "Shahih Muslim",
+  "penulis": "Imam Muslim",
+  "deskripsi": "Kitab hadits shahih yang disusun secara sistematis oleh Imam Muslim bin Al-Hajjaj.",
+  "status": "tersedia",
+  "tipe": "per-bab",
+  "folder": "shahih-muslim",
+  "daftarBab": "data/shahih-muslim/daftar-bab.json"
   },
   {
     "id": "arbain",
