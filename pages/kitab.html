@@ -184,8 +184,10 @@ function renderDaftarKitab(data){
     const item = document.createElement('div');
     item.className = 'doa-item';
 
+    const namaKitab = kitab.nama || kitab.judul || kitab.kitab || 'Tanpa Judul';
+
     item.innerHTML = `
-      <span>${kitab.judul || kitab.kitab || 'Tanpa Judul'}</span>
+      <span>${namaKitab}</span>
       <i class="fas fa-chevron-right"></i>
     `;
 
@@ -196,13 +198,14 @@ function renderDaftarKitab(data){
     daftarDoaEl.appendChild(item);
   });
 }
-
+  
 cariDoaEl.addEventListener('input', () => {
   const keyword = cariDoaEl.value.toLowerCase().trim();
 
-  const hasil = semuaKitab.filter(kitab =>
-    (kitab.judul || kitab.kitab || '').toLowerCase().includes(keyword)
-  );
+  const hasil = semuaKitab.filter(kitab => {
+    const namaKitab = kitab.nama || kitab.judul || kitab.kitab || '';
+    return namaKitab.toLowerCase().includes(keyword);
+  });
 
   renderDaftarKitab(hasil);
 });
