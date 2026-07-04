@@ -1,0 +1,57 @@
+[
+  {
+    "id": "riyadhus",
+    "judul": "Riyadhus Shalihin",
+    "kitab": "Riyadhus Shalihin",
+    "penulis": "Imam An-Nawawi",
+    "deskripsi": "Kumpulan hadits pilihan tentang akhlak, adab, ibadah, muamalah, dan penyucian jiwa.",
+    "status": "tersedia",
+    "tipe": "per-bab",
+    "folder": "ryadhus",
+    "daftarBab": "data/ryadhus/daftar-bab.json"
+  },
+  {
+    "id": "bukhari",
+    "judul": "Shahih Bukhari",
+    "kitab": "Shahih Bukhari",
+    "penulis": "Imam Al-Bukhari",
+    "deskripsi": "Salah satu kitab hadits paling shahih yang memuat berbagai bab tentang aqidah, ibadah, muamalah, dan adab.",
+    "status": "segera",
+    "tipe": "per-bab",
+    "folder": "bukhari",
+    "daftarBab": "data/bukhari/daftar-bab.json"
+  },
+  {
+    "id": "muslim",
+    "judul": "Shahih Muslim",
+    "kitab": "Shahih Muslim",
+    "penulis": "Imam Muslim",
+    "deskripsi": "Kitab hadits shahih yang disusun secara sistematis oleh Imam Muslim bin Al-Hajjaj.",
+    "status": "segera",
+    "tipe": "per-bab",
+    "folder": "muslim",
+    "daftarBab": "data/muslim/daftar-bab.json"
+  },
+  {
+    "id": "arbain",
+    "judul": "Arba'in Nawawi",
+    "kitab": "Arba'in Nawawi",
+    "penulis": "Imam An-Nawawi",
+    "deskripsi": "Kumpulan hadits pokok agama Islam yang ringkas dan sangat populer untuk dipelajari.",
+    "status": "segera",
+    "tipe": "langsung",
+    "folder": "arbain",
+    "file": "data/arbain/arbain.json"
+  },
+  {
+    "id": "bulughul-maram",
+    "judul": "Bulughul Maram",
+    "kitab": "Bulughul Maram",
+    "penulis": "Ibnu Hajar Al-Asqalani",
+    "deskripsi": "Kitab hadits hukum yang banyak digunakan dalam pembahasan fikih.",
+    "status": "segera",
+    "tipe": "per-bab",
+    "folder": "bulughul-maram",
+    "daftarBab": "data/bulughul-maram/daftar-bab.json"
+  }
+]
