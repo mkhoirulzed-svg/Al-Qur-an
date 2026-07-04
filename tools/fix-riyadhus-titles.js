@@ -8,9 +8,11 @@ const DATA_DIR = path.join(ROOT_DIR, "data", "riyadhus");
 
 // Sesuaikan kalau nama index kamu beda
 const INDEX_CANDIDATES = [
+  path.join(DATA_DIR, "daftar-bab.json"),
   path.join(DATA_DIR, "index.json"),
   path.join(DATA_DIR, "kitab-index.json"),
   path.join(DATA_DIR, "riyadhus-index.json"),
+  path.join(ROOT_DIR, "data", "daftar-bab.json"),
   path.join(ROOT_DIR, "data", "riyadhus.json"),
 ];
 
