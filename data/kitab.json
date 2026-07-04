@@ -19,7 +19,7 @@
     "status": "segera",
     "tipe": "per-bab",
     "folder": "bukhari",
-    "daftarBab": "data/bukhari/daftar-bab.json"
+    "daftarBab": "data/shahih-bukhari/daftar-bab.json"
   },
   {
     "id": "muslim",
