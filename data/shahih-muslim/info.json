@@ -1,0 +1,10 @@
+{
+  "id": "shahih-muslim",
+  "nama": "Shahih Muslim",
+  "arab": "صحيح مسلم",
+  "penulis": "Imam Muslim bin al-Hajjaj",
+  "jumlah": 708,
+  "pembagian": "Per 100 hadits",
+  "sumber": "https://github.com/irsyadulibad/hadits-database",
+  "catatan": "File SQL sumber tidak menyediakan data bab asli, sehingga data dibagi berdasarkan rentang nomor hadits."
+}
