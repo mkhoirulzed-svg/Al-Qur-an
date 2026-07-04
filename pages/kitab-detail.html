@@ -104,6 +104,36 @@
   color:var(--text-secondary);
   box-shadow:var(--shadow-sm);
 }
+
+  .doa-item{
+  background:var(--card);
+  border-radius:20px;
+  padding:17px 18px;
+  margin-bottom:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.doa-item:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+}
+
+.doa-item span{
+  font-size:15px;
+  font-weight:800;
+  color:var(--text);
+}
+
+.doa-item i{
+  color:var(--primary);
+  font-size:13px;
+}
 </style>
 </head>
 
@@ -156,7 +186,6 @@ async function loadDetailKitab(){
     }
 
     const data = await res.json();
-
     const kitab = data.find(item => String(item.id) === String(idKitab));
 
     if(!kitab){
@@ -165,7 +194,18 @@ async function loadDetailKitab(){
       return;
     }
 
-    renderDetailKitab(kitab);
+    renderInfoKitab(kitab);
+
+    if(kitab.status !== 'tersedia'){
+      renderBelumTersedia();
+      return;
+    }
+
+    if(kitab.daftarBab){
+      await loadDaftarBab(kitab);
+    }else{
+      renderBelumTersedia();
+    }
 
   }catch(err){
     detailKitabEl.innerHTML = '<p>Gagal memuat detail kitab.</p>';
@@ -174,38 +214,86 @@ async function loadDetailKitab(){
   }
 }
 
-function renderDetailKitab(kitab){
+function renderInfoKitab(kitab){
   const judul = kitab.judul || kitab.kitab || 'Tanpa Judul';
 
   document.title = judul;
   judulDoaEl.textContent = judul;
-  subjudulDoaEl.textContent = kitab.kitab || 'Kitab';
+  subjudulDoaEl.textContent = kitab.penulis || 'Kitab Hadits';
 
   detailKitabEl.innerHTML = `
     <article class="doa-card">
       <div class="doa-title">${judul}</div>
 
-      ${kitab.arab ? `
-        <div class="arab">${kitab.arab}</div>
-      ` : ''}
-
-      ${kitab.terjemah ? `
-        <div class="terjemah">${kitab.terjemah}</div>
-      ` : ''}
-
-      ${kitab.terjemahan ? `
-        <div class="terjemah">${kitab.terjemahan}</div>
-      ` : ''}
-
-      ${kitab.perawi || kitab.derajat || kitab.kitab ? `
+      ${kitab.penulis ? `
         <div class="meta">
-          ${kitab.perawi ? `<div><b>Perawi:</b> ${kitab.perawi}</div>` : ''}
-          ${kitab.derajat ? `<div><b>Derajat:</b> ${kitab.derajat}</div>` : ''}
-          ${kitab.kitab ? `<div><b>Kitab:</b> ${kitab.kitab}</div>` : ''}
+          <div><b>Penulis:</b> ${kitab.penulis}</div>
         </div>
       ` : ''}
+
+      ${kitab.deskripsi ? `
+        <div class="terjemah">${kitab.deskripsi}</div>
+      ` : ''}
+
+      <div class="meta">
+        <div><b>Status:</b> ${kitab.status === 'tersedia' ? 'Tersedia' : 'Segera hadir'}</div>
+      </div>
     </article>
+
+    <div id="daftarBabKitab">
+      <p>Memuat daftar bab...</p>
+    </div>
   `;
+}
+
+async function loadDaftarBab(kitab){
+  const daftarBabEl = document.getElementById('daftarBabKitab');
+
+  try{
+    const res = await fetch('../' + kitab.daftarBab + '?v=' + Date.now());
+
+    if(!res.ok){
+      throw new Error('File daftar bab tidak ditemukan');
+    }
+
+    const daftarBab = await res.json();
+
+    if(!daftarBab || daftarBab.length === 0){
+      daftarBabEl.innerHTML = '<p>Daftar bab belum tersedia.</p>';
+      return;
+    }
+
+    daftarBabEl.innerHTML = daftarBab.map(bab => {
+      const idBab = String(bab.id).padStart(3, '0');
+      const judulBab = bab.judul || bab.kitab || `Bab ${Number(bab.id)}`;
+
+      return `
+        <div class="doa-item" onclick="bukaBab('${kitab.id}', '${idBab}')">
+          <span>${judulBab}</span>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      `;
+    }).join('');
+
+  }catch(err){
+    daftarBabEl.innerHTML = '<p>Gagal memuat daftar bab.</p>';
+    console.error(err);
+  }
+}
+
+function renderBelumTersedia(){
+  const daftarBabEl = document.getElementById('daftarBabKitab');
+
+  if(!daftarBabEl) return;
+
+  daftarBabEl.innerHTML = `
+    <p>Isi kitab ini belum tersedia.</p>
+  `;
+}
+
+function bukaBab(idKitab, idBab){
+  window.location.href =
+    `kitab-baca.html?kitab=${encodeURIComponent(idKitab)}&bab=${encodeURIComponent(idBab)}`;
 }
 
 loadDetailKitab();
