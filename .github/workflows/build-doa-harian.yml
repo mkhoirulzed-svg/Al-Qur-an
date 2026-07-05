@@ -24,9 +24,12 @@ jobs:
 
       - name: Create converter script
         run: |
+          rm -f tools/build-doa-harian.js
+
           cat > tools/build-doa-harian.js <<'EOF'
           const fs = require("fs");
           const path = require("path");
+          const vm = require("vm");
 
           const SOURCE_URL =
             "https://raw.githubusercontent.com/mazipan/baca-quran.id/master/src/data/daily-doa.ts";
@@ -42,25 +45,26 @@ jobs:
               .trim();
           }
 
-          function extractArrayFromTs(content) {
-            const possibleMarkers = [
-              "export const dailyDoa",
-              "const dailyDoa",
-              "dailyDoa: DailyDoaItem[]"
-            ];
+          function extractDailyDoaArray(content) {
+            const marker = "const dailyDoa";
+            const markerIndex = content.indexOf(marker);
 
-            let startMarker = -1;
-
-            for (const marker of possibleMarkers) {
-              startMarker = content.indexOf(marker);
-              if (startMarker !== -1) break;
+            if (markerIndex === -1) {
+              console.log("Preview isi sumber:");
+              console.log(content.slice(0, 1000));
+              throw new Error("Tidak menemukan const dailyDoa");
             }
 
-            if (startMarker === -1) {
-              throw new Error("Tidak menemukan data dailyDoa");
+            const equalIndex = content.indexOf("=", markerIndex);
+
+            if (equalIndex === -1) {
+              throw new Error("Tidak menemukan tanda = setelah const dailyDoa");
             }
 
-            const arrayStart = content.indexOf("[", startMarker);
+            // PENTING:
+            // cari [ setelah tanda =
+            // bukan [ pada DailyDoaItem[]
+            const arrayStart = content.indexOf("[", equalIndex);
 
             if (arrayStart === -1) {
               throw new Error("Tidak menemukan awal array dailyDoa");
@@ -70,9 +74,25 @@ jobs:
             let inString = false;
             let stringChar = "";
             let escaped = false;
+            let inLineComment = false;
+            let inBlockComment = false;
 
             for (let i = arrayStart; i < content.length; i++) {
               const char = content[i];
+              const next = content[i + 1];
+
+              if (inLineComment) {
+                if (char === "\n") inLineComment = false;
+                continue;
+              }
+
+              if (inBlockComment) {
+                if (char === "*" && next === "/") {
+                  inBlockComment = false;
+                  i++;
+                }
+                continue;
+              }
 
               if (inString) {
                 if (escaped) {
@@ -83,6 +103,18 @@ jobs:
                   inString = false;
                   stringChar = "";
                 }
+                continue;
+              }
+
+              if (char === "/" && next === "/") {
+                inLineComment = true;
+                i++;
+                continue;
+              }
+
+              if (char === "/" && next === "*") {
+                inBlockComment = true;
+                i++;
                 continue;
               }
 
@@ -103,24 +135,10 @@ jobs:
             throw new Error("Tidak menemukan akhir array dailyDoa");
           }
 
-          function jsArrayToJsonText(arrayText) {
-            return arrayText
-              .replace(/`([^`]*)`/gs, (_, value) => JSON.stringify(value))
-              .replace(/'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_, value) => {
-                return JSON.stringify(value.replace(/\\'/g, "'"));
-              })
-              .replace(/([{,]\s*)([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:/g, '$1"$2":')
-              .replace(/,\s*([}\]])/g, "$1");
-          }
-
-          function normalizeSource(source) {
-            if (!source) return "";
-
-            if (Array.isArray(source)) {
-              return source.filter(Boolean).join("; ");
-            }
-
-            return String(source);
+          function parseTsArray(arrayText) {
+            // Array di file TS masih valid sebagai JavaScript expression:
+            // boleh single quote, comment, trailing comma, unquoted key.
+            return vm.runInNewContext("(" + arrayText + ")", {});
           }
 
           function convertItem(item) {
@@ -130,12 +148,12 @@ jobs:
               arab: cleanText(item.arabic),
               latin: cleanText(item.latin),
               arti: cleanText(item.translation),
-              sumber: cleanText(normalizeSource(item.source))
+              sumber: cleanText(item.source)
             };
           }
 
           async function main() {
-            console.log("Mengambil data doa harian dari mazipan/baca-quran.id...");
+            console.log("Mengambil daily-doa.ts dari mazipan/baca-quran.id...");
 
             const res = await fetch(SOURCE_URL);
 
@@ -145,24 +163,18 @@ jobs:
 
             const tsContent = await res.text();
 
-            const arrayText = extractArrayFromTs(tsContent);
-            const jsonText = jsArrayToJsonText(arrayText);
+            console.log("File sumber berhasil diambil.");
+            console.log("Mencari array setelah: const dailyDoa ... = [");
 
-            let data;
+            const arrayText = extractDailyDoaArray(tsContent);
+            const data = parseTsArray(arrayText);
 
-            try {
-              data = JSON.parse(jsonText);
-            } catch (err) {
-              console.error("Gagal parse data daily-doa.ts");
-              console.error(err.message);
+            if (!Array.isArray(data)) {
+              throw new Error("Hasil parse bukan array");
+            }
 
-              fs.writeFileSync(
-                path.join(__dirname, "debug-daily-doa.json.txt"),
-                jsonText,
-                "utf8"
-              );
-
-              throw err;
+            if (data.length === 0) {
+              throw new Error("Data dailyDoa kosong. Kemungkinan array yang diambil salah.");
             }
 
             const result = data.map(convertItem);
@@ -172,6 +184,8 @@ jobs:
 
             console.log(`Berhasil membuat ${result.length} doa`);
             console.log(`Output: ${OUT_FILE}`);
+            console.log("Contoh item pertama:");
+            console.log(JSON.stringify(result[0], null, 2));
           }
 
           main().catch((err) => {
