@@ -230,21 +230,50 @@ searchInput.addEventListener('input', async () => {
   try {
     const searchData = await loadQuranSearch();
 
-    const filteredAyat = searchData.filter(a => {
-  const text = `
-    ${a.nama || ''}
-    ${a.artiSurah || ''}
-    ${a.terjemahan || ''}
-    ${a.latin || ''}
-    ${a.arab || ''}
-    ${a.surah || ''}
-    ${a.ayat || ''}
-  `.toLowerCase();
+   const rankedAyat = searchData
+  .map(a => {
+    const nama = `${a.nama || ''}`.toLowerCase();
+    const artiSurah = `${a.artiSurah || ''}`.toLowerCase();
+    const terjemahan = `${a.terjemahan || ''}`.toLowerCase();
+    const latin = `${a.latin || ''}`.toLowerCase();
+    const arab = `${a.arab || ''}`.toLowerCase();
+    const nomor = `${a.surah || ''} ${a.ayat || ''}`.toLowerCase();
 
-  return keywords.some(k => text.includes(k));
-});
+    const allText = `
+      ${nama}
+      ${artiSurah}
+      ${terjemahan}
+      ${latin}
+      ${arab}
+      ${nomor}
+    `;
 
-    renderSearchResults(filteredAyat);
+    let score = 0;
+
+    // Bonus besar kalau frasa lengkap cocok
+    if (allText.includes(q)) score += 20;
+
+    // Bonus kalau semua kata ditemukan
+    if (keywords.every(k => allText.includes(k))) score += 10;
+
+    keywords.forEach(k => {
+      if (terjemahan.includes(k)) score += 5;
+      if (nama.includes(k)) score += 3;
+      if (artiSurah.includes(k)) score += 3;
+      if (latin.includes(k)) score += 2;
+      if (arab.includes(k)) score += 2;
+      if (nomor.includes(k)) score += 1;
+    });
+
+    return {
+      ...a,
+      score
+    };
+  })
+  .filter(a => a.score > 0)
+  .sort((a, b) => b.score - a.score);
+
+renderSearchResults(rankedAyat);
   } catch (err) {
     list.innerHTML = '<p>Gagal memuat data pencarian</p>';
   }
