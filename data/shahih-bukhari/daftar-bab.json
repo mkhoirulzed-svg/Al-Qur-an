@@ -2,43 +2,498 @@
   {
     "id": 1,
     "kitab": "shahih-bukhari",
-    "nama": "Bagian 1: Hadits 1–102",
+    "nama": "Bagian 1: Hadits 1–100",
     "file": "001.json",
     "jumlah": 100
   },
   {
     "id": 2,
     "kitab": "shahih-bukhari",
-    "nama": "Bagian 2: Hadits 103–203",
+    "nama": "Bagian 2: Hadits 101–200",
     "file": "002.json",
     "jumlah": 100
   },
   {
     "id": 3,
     "kitab": "shahih-bukhari",
-    "nama": "Bagian 3: Hadits 204–307",
+    "nama": "Bagian 3: Hadits 201–300",
     "file": "003.json",
     "jumlah": 100
   },
   {
     "id": 4,
     "kitab": "shahih-bukhari",
-    "nama": "Bagian 4: Hadits 308–408",
+    "nama": "Bagian 4: Hadits 301–400",
     "file": "004.json",
     "jumlah": 100
   },
   {
     "id": 5,
     "kitab": "shahih-bukhari",
-    "nama": "Bagian 5: Hadits 409–513",
+    "nama": "Bagian 5: Hadits 401–500",
     "file": "005.json",
     "jumlah": 100
   },
   {
     "id": 6,
     "kitab": "shahih-bukhari",
-    "nama": "Bagian 6: Hadits 514–616",
+    "nama": "Bagian 6: Hadits 501–600",
     "file": "006.json",
-    "jumlah": 95
+    "jumlah": 100
+  },
+  {
+    "id": 7,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 7: Hadits 601–700",
+    "file": "007.json",
+    "jumlah": 100
+  },
+  {
+    "id": 8,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 8: Hadits 701–800",
+    "file": "008.json",
+    "jumlah": 100
+  },
+  {
+    "id": 9,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 9: Hadits 801–900",
+    "file": "009.json",
+    "jumlah": 100
+  },
+  {
+    "id": 10,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 10: Hadits 901–1000",
+    "file": "010.json",
+    "jumlah": 100
+  },
+  {
+    "id": 11,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 11: Hadits 1001–1100",
+    "file": "011.json",
+    "jumlah": 100
+  },
+  {
+    "id": 12,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 12: Hadits 1101–1200",
+    "file": "012.json",
+    "jumlah": 100
+  },
+  {
+    "id": 13,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 13: Hadits 1201–1300",
+    "file": "013.json",
+    "jumlah": 100
+  },
+  {
+    "id": 14,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 14: Hadits 1301–1400",
+    "file": "014.json",
+    "jumlah": 100
+  },
+  {
+    "id": 15,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 15: Hadits 1401–1500",
+    "file": "015.json",
+    "jumlah": 100
+  },
+  {
+    "id": 16,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 16: Hadits 1501–1600",
+    "file": "016.json",
+    "jumlah": 100
+  },
+  {
+    "id": 17,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 17: Hadits 1601–1700",
+    "file": "017.json",
+    "jumlah": 100
+  },
+  {
+    "id": 18,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 18: Hadits 1701–1800",
+    "file": "018.json",
+    "jumlah": 100
+  },
+  {
+    "id": 19,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 19: Hadits 1801–1900",
+    "file": "019.json",
+    "jumlah": 100
+  },
+  {
+    "id": 20,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 20: Hadits 1901–2000",
+    "file": "020.json",
+    "jumlah": 100
+  },
+  {
+    "id": 21,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 21: Hadits 2001–2100",
+    "file": "021.json",
+    "jumlah": 100
+  },
+  {
+    "id": 22,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 22: Hadits 2101–2200",
+    "file": "022.json",
+    "jumlah": 100
+  },
+  {
+    "id": 23,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 23: Hadits 2201–2300",
+    "file": "023.json",
+    "jumlah": 100
+  },
+  {
+    "id": 24,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 24: Hadits 2301–2400",
+    "file": "024.json",
+    "jumlah": 100
+  },
+  {
+    "id": 25,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 25: Hadits 2401–2500",
+    "file": "025.json",
+    "jumlah": 100
+  },
+  {
+    "id": 26,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 26: Hadits 2501–2600",
+    "file": "026.json",
+    "jumlah": 100
+  },
+  {
+    "id": 27,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 27: Hadits 2601–2700",
+    "file": "027.json",
+    "jumlah": 100
+  },
+  {
+    "id": 28,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 28: Hadits 2701–2800",
+    "file": "028.json",
+    "jumlah": 100
+  },
+  {
+    "id": 29,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 29: Hadits 2801–2900",
+    "file": "029.json",
+    "jumlah": 100
+  },
+  {
+    "id": 30,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 30: Hadits 2901–3000",
+    "file": "030.json",
+    "jumlah": 100
+  },
+  {
+    "id": 31,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 31: Hadits 3001–3100",
+    "file": "031.json",
+    "jumlah": 100
+  },
+  {
+    "id": 32,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 32: Hadits 3101–3200",
+    "file": "032.json",
+    "jumlah": 100
+  },
+  {
+    "id": 33,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 33: Hadits 3201–3300",
+    "file": "033.json",
+    "jumlah": 100
+  },
+  {
+    "id": 34,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 34: Hadits 3301–3400",
+    "file": "034.json",
+    "jumlah": 100
+  },
+  {
+    "id": 35,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 35: Hadits 3401–3500",
+    "file": "035.json",
+    "jumlah": 100
+  },
+  {
+    "id": 36,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 36: Hadits 3501–3600",
+    "file": "036.json",
+    "jumlah": 100
+  },
+  {
+    "id": 37,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 37: Hadits 3601–3700",
+    "file": "037.json",
+    "jumlah": 100
+  },
+  {
+    "id": 38,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 38: Hadits 3701–3800",
+    "file": "038.json",
+    "jumlah": 100
+  },
+  {
+    "id": 39,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 39: Hadits 3801–3900",
+    "file": "039.json",
+    "jumlah": 100
+  },
+  {
+    "id": 40,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 40: Hadits 3901–4000",
+    "file": "040.json",
+    "jumlah": 100
+  },
+  {
+    "id": 41,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 41: Hadits 4001–4100",
+    "file": "041.json",
+    "jumlah": 100
+  },
+  {
+    "id": 42,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 42: Hadits 4101–4200",
+    "file": "042.json",
+    "jumlah": 100
+  },
+  {
+    "id": 43,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 43: Hadits 4201–4300",
+    "file": "043.json",
+    "jumlah": 100
+  },
+  {
+    "id": 44,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 44: Hadits 4301–4400",
+    "file": "044.json",
+    "jumlah": 100
+  },
+  {
+    "id": 45,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 45: Hadits 4401–4500",
+    "file": "045.json",
+    "jumlah": 100
+  },
+  {
+    "id": 46,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 46: Hadits 4501–4600",
+    "file": "046.json",
+    "jumlah": 100
+  },
+  {
+    "id": 47,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 47: Hadits 4601–4700",
+    "file": "047.json",
+    "jumlah": 100
+  },
+  {
+    "id": 48,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 48: Hadits 4701–4800",
+    "file": "048.json",
+    "jumlah": 100
+  },
+  {
+    "id": 49,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 49: Hadits 4801–4900",
+    "file": "049.json",
+    "jumlah": 100
+  },
+  {
+    "id": 50,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 50: Hadits 4901–5000",
+    "file": "050.json",
+    "jumlah": 100
+  },
+  {
+    "id": 51,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 51: Hadits 5001–5100",
+    "file": "051.json",
+    "jumlah": 100
+  },
+  {
+    "id": 52,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 52: Hadits 5101–5200",
+    "file": "052.json",
+    "jumlah": 100
+  },
+  {
+    "id": 53,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 53: Hadits 5201–5300",
+    "file": "053.json",
+    "jumlah": 100
+  },
+  {
+    "id": 54,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 54: Hadits 5301–5400",
+    "file": "054.json",
+    "jumlah": 100
+  },
+  {
+    "id": 55,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 55: Hadits 5401–5500",
+    "file": "055.json",
+    "jumlah": 100
+  },
+  {
+    "id": 56,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 56: Hadits 5501–5600",
+    "file": "056.json",
+    "jumlah": 100
+  },
+  {
+    "id": 57,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 57: Hadits 5601–5700",
+    "file": "057.json",
+    "jumlah": 100
+  },
+  {
+    "id": 58,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 58: Hadits 5701–5800",
+    "file": "058.json",
+    "jumlah": 100
+  },
+  {
+    "id": 59,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 59: Hadits 5801–5900",
+    "file": "059.json",
+    "jumlah": 100
+  },
+  {
+    "id": 60,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 60: Hadits 5901–6000",
+    "file": "060.json",
+    "jumlah": 100
+  },
+  {
+    "id": 61,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 61: Hadits 6001–6100",
+    "file": "061.json",
+    "jumlah": 100
+  },
+  {
+    "id": 62,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 62: Hadits 6101–6200",
+    "file": "062.json",
+    "jumlah": 100
+  },
+  {
+    "id": 63,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 63: Hadits 6201–6300",
+    "file": "063.json",
+    "jumlah": 100
+  },
+  {
+    "id": 64,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 64: Hadits 6301–6400",
+    "file": "064.json",
+    "jumlah": 100
+  },
+  {
+    "id": 65,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 65: Hadits 6401–6500",
+    "file": "065.json",
+    "jumlah": 100
+  },
+  {
+    "id": 66,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 66: Hadits 6501–6600",
+    "file": "066.json",
+    "jumlah": 100
+  },
+  {
+    "id": 67,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 67: Hadits 6601–6700",
+    "file": "067.json",
+    "jumlah": 100
+  },
+  {
+    "id": 68,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 68: Hadits 6701–6800",
+    "file": "068.json",
+    "jumlah": 100
+  },
+  {
+    "id": 69,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 69: Hadits 6801–6900",
+    "file": "069.json",
+    "jumlah": 100
+  },
+  {
+    "id": 70,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 70: Hadits 6901–7000",
+    "file": "070.json",
+    "jumlah": 100
+  },
+  {
+    "id": 71,
+    "kitab": "shahih-bukhari",
+    "nama": "Bagian 71: Hadits 7001–7008",
+    "file": "071.json",
+    "jumlah": 8
   }
 ]
