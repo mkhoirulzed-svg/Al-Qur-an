@@ -1,38 +1,3 @@
-/* FEEL LIKE NATIVE APP */
-html,
-body,
-a,
-button,
-.nav-item,
-.menu-item,
-.surah-item,
-.toggle-btn,
-.back-btn,
-.search-btn {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-button,
-a,
-.nav-item,
-.menu-item,
-.surah-item,
-.toggle-btn,
-.back-btn,
-.search-btn {
-  touch-action: manipulation;
-}
-
-input,
-textarea {
-  -webkit-user-select: text;
-  user-select: text;
-  -webkit-touch-callout: default;
-}
-
 :root{
   --bg:#f5f1ea;
   --card:#ffffff;
@@ -341,3 +306,39 @@ button{
   height:42px;
   flex-shrink:0;
 }
+
+/* FEEL LIKE NATIVE APP */
+html,
+body,
+a,
+button,
+.nav-item,
+.menu-item,
+.surah-item,
+.toggle-btn,
+.back-btn,
+.search-btn {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+.nav-item,
+.menu-item,
+.surah-item,
+.toggle-btn,
+.back-btn,
+.search-btn {
+  touch-action: manipulation;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
