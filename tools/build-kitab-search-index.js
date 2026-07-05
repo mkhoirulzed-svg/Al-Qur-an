@@ -3,7 +3,12 @@ const path = require("path");
 
 const ROOT_DIR = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT_DIR, "data");
-const KITAB_JSON = path.join(DATA_DIR, "kitab.json");
+
+const SKIP_FILES = new Set([
+  "kitab.json",
+  "daftar-bab.json",
+  "search-index.json"
+]);
 
 function cleanText(text) {
   if (text === null || text === undefined) return "";
@@ -23,83 +28,99 @@ function writeJson(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
-function getFolderFromKitab(kitab) {
-  if (kitab.folder) {
-    return String(kitab.folder)
-      .replace(/^data\//, "")
-      .replace(/^\/+/, "")
-      .replace(/\/+$/, "");
-  }
+function isHaditsLikeObject(obj) {
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) return false;
 
-  if (kitab.daftarBab) {
-    const clean = String(kitab.daftarBab).replace(/^\/+/, "");
+  const keys = Object.keys(obj);
 
-    if (clean.startsWith("data/")) {
-      const parts = clean.split("/");
-      return parts[1];
-    }
-
-    const parts = clean.split("/");
-    return parts[0];
-  }
-
-  if (kitab.path) {
-    const clean = String(kitab.path)
-      .replace(/^\/+/, "")
-      .replace(/^data\//, "");
-
-    const parts = clean.split("/");
-    return parts[0];
-  }
-
-  return kitab.id;
-}
-
-function extractHaditsArray(json) {
-  if (Array.isArray(json)) return json;
-
-  if (!json || typeof json !== "object") return [];
-
-  const candidates = [
-    json.hadits,
-    json.data,
-    json.items,
-    json.list,
-    json.isi,
-    json.daftar,
-    json.riwayat,
-    json.contents,
-    json.content,
-
-    json.data?.hadits,
-    json.data?.items,
-    json.data?.list,
-    json.data?.isi,
-    json.data?.daftar,
-
-    json.result?.hadits,
-    json.result?.items,
-    json.result?.list,
-    json.result?.isi,
-
-    json.bab?.hadits,
-    json.bab?.items,
-    json.bab?.list,
-    json.bab?.isi
+  const textKeys = [
+    "arab",
+    "arabic",
+    "teksArab",
+    "textArab",
+    "matan",
+    "terjemahan",
+    "terjemah",
+    "indonesia",
+    "teksIndonesia",
+    "arti",
+    "translation",
+    "judul",
+    "title",
+    "latin",
+    "faedah",
+    "keterangan"
   ];
 
-  for (const candidate of candidates) {
-    if (Array.isArray(candidate)) {
-      return candidate;
+  return keys.some(key => textKeys.includes(key));
+}
+
+function scoreArray(arr) {
+  if (!Array.isArray(arr)) return 0;
+  if (arr.length === 0) return 0;
+
+  let score = 0;
+
+  for (const item of arr.slice(0, 10)) {
+    if (isHaditsLikeObject(item)) score += 3;
+    if (typeof item === "object" && item !== null) score += 1;
+    if (typeof item === "string" && item.trim().length > 20) score += 1;
+  }
+
+  return score;
+}
+
+function findBestHaditsArrayDeep(json) {
+  const candidates = [];
+
+  function walk(value, pathName, depth) {
+    if (depth > 5) return;
+
+    if (Array.isArray(value)) {
+      const score = scoreArray(value);
+
+      if (score > 0) {
+        candidates.push({
+          path: pathName,
+          score,
+          length: value.length,
+          value
+        });
+      }
+
+      for (let i = 0; i < Math.min(value.length, 5); i++) {
+        walk(value[i], `${pathName}[${i}]`, depth + 1);
+      }
+
+      return;
+    }
+
+    if (value && typeof value === "object") {
+      for (const key of Object.keys(value)) {
+        walk(value[key], pathName ? `${pathName}.${key}` : key, depth + 1);
+      }
     }
   }
 
-  return [];
+  walk(json, "", 0);
+
+  candidates.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return b.length - a.length;
+  });
+
+  return candidates[0] || null;
 }
 
 function getTextField(item, fields) {
+  if (!item || typeof item !== "object") return "";
+
   for (const field of fields) {
-    if (item[field] !== undefined && item[field] !== null && item[field] !== "") {
+    if (
+      item[field] !== undefined &&
+      item[field] !== null &&
+      String(item[field]).trim() !== ""
+    ) {
       return item[field];
     }
   }
@@ -195,108 +216,110 @@ function normalizeItem(item, kitabId, babId, index) {
   };
 }
 
-function findBabFiles(kitabDir) {
-  const files = fs.readdirSync(kitabDir);
+function getJsonFilesInFolder(folderPath) {
+  return fs
+    .readdirSync(folderPath)
+    .filter(file => file.endsWith(".json"))
+    .filter(file => !SKIP_FILES.has(file))
+    .sort((a, b) => {
+      const na = Number(a.replace(/\D/g, ""));
+      const nb = Number(b.replace(/\D/g, ""));
 
-  // Prioritas utama: 001.json, 002.json, dst
-  let babFiles = files
-    .filter(file => /^\d{3}\.json$/.test(file))
-    .sort();
+      if (!Number.isNaN(na) && !Number.isNaN(nb)) {
+        return na - nb;
+      }
 
-  if (babFiles.length > 0) return babFiles;
-
-  // Cadangan kalau namanya 1.json, 2.json, dst
-  babFiles = files
-    .filter(file => /^\d+\.json$/.test(file))
-    .filter(file => !["kitab.json", "daftar-bab.json", "search-index.json"].includes(file))
-    .sort((a, b) => Number(a.replace(".json", "")) - Number(b.replace(".json", "")));
-
-  return babFiles;
+      return a.localeCompare(b);
+    });
 }
 
-function normalizeBabId(file) {
+function getBabIdFromFilename(file, fallbackIndex) {
   const raw = file.replace(".json", "");
-  return raw.padStart(3, "0");
+  const numberOnly = raw.match(/\d+/);
+
+  if (numberOnly) {
+    return String(numberOnly[0]).padStart(3, "0");
+  }
+
+  return String(fallbackIndex + 1).padStart(3, "0");
 }
 
-function buildOneKitab(kitab) {
-  const kitabId = kitab.id;
-  const status = kitab.status || "";
+function buildFolderIndex(folderName) {
+  const folderPath = path.join(DATA_DIR, folderName);
+
+  if (!fs.statSync(folderPath).isDirectory()) return;
+
+  const jsonFiles = getJsonFilesInFolder(folderPath);
 
   console.log("\n==============================");
-  console.log(`KITAB: ${kitabId}`);
-  console.log(`STATUS: ${status || "-"}`);
+  console.log(`FOLDER: data/${folderName}`);
+  console.log(`JSON FILES: ${jsonFiles.length}`);
 
-  if (status !== "tersedia") {
-    console.log(`LEWATI: status bukan tersedia`);
-    return;
-  }
-
-  const folder = getFolderFromKitab(kitab);
-  const kitabDir = path.join(DATA_DIR, folder);
-
-  console.log(`FOLDER: data/${folder}`);
-
-  if (!fs.existsSync(kitabDir)) {
-    console.log(`LEWATI: folder tidak ditemukan`);
-    return;
-  }
-
-  const files = findBabFiles(kitabDir);
-
-  console.log(`JUMLAH FILE BAB: ${files.length}`);
-
-  if (files.length === 0) {
-    console.log(`LEWATI: tidak ada file 001.json / 1.json dst`);
+  if (jsonFiles.length === 0) {
+    console.log("LEWATI: tidak ada file json isi kitab");
     return;
   }
 
   const result = [];
 
-  for (const file of files) {
-    const filePath = path.join(kitabDir, file);
-    const babId = normalizeBabId(file);
+  jsonFiles.forEach((file, fileIndex) => {
+    const filePath = path.join(folderPath, file);
+    const babId = getBabIdFromFilename(file, fileIndex);
 
     try {
       const json = readJson(filePath);
-      const haditsArray = extractHaditsArray(json);
+      const found = findBestHaditsArrayDeep(json);
 
-      if (!Array.isArray(haditsArray) || haditsArray.length === 0) {
-        const keys = json && typeof json === "object" ? Object.keys(json).join(", ") : "bukan object";
-        console.log(`KOSONG: data/${folder}/${file} | keys: ${keys}`);
-        continue;
+      if (!found) {
+        const keys =
+          json && typeof json === "object" && !Array.isArray(json)
+            ? Object.keys(json).join(", ")
+            : Array.isArray(json)
+              ? "array kosong / array tidak cocok"
+              : typeof json;
+
+        console.log(`KOSONG: ${file} | keys: ${keys}`);
+        return;
       }
 
-      haditsArray.forEach((item, index) => {
-        result.push(normalizeItem(item, kitabId, babId, index));
+      const arr = found.value;
+
+      arr.forEach((item, index) => {
+        result.push(normalizeItem(item, folderName, babId, index));
       });
 
-      console.log(`OK: data/${folder}/${file} -> ${haditsArray.length} item`);
+      console.log(
+        `OK: ${file} -> ${arr.length} item | path: ${found.path || "root"}`
+      );
     } catch (err) {
-      console.log(`ERROR: data/${folder}/${file} -> ${err.message}`);
+      console.log(`ERROR: ${file} -> ${err.message}`);
     }
-  }
+  });
 
-  const outputPath = path.join(kitabDir, "search-index.json");
+  const outputPath = path.join(folderPath, "search-index.json");
   writeJson(outputPath, result);
 
   console.log(`HASIL: ${result.length} item`);
-  console.log(`OUTPUT: data/${folder}/search-index.json`);
+  console.log(`OUTPUT: data/${folderName}/search-index.json`);
 }
 
 function main() {
-  if (!fs.existsSync(KITAB_JSON)) {
-    throw new Error("data/kitab.json tidak ditemukan");
+  if (!fs.existsSync(DATA_DIR)) {
+    throw new Error("Folder data/ tidak ditemukan");
   }
 
-  const kitabList = readJson(KITAB_JSON);
+  const folders = fs
+    .readdirSync(DATA_DIR)
+    .filter(name => {
+      const fullPath = path.join(DATA_DIR, name);
+      return fs.statSync(fullPath).isDirectory();
+    })
+    .sort();
 
-  if (!Array.isArray(kitabList)) {
-    throw new Error("Format data/kitab.json harus array []");
-  }
+  console.log(`TOTAL FOLDER DI data/: ${folders.length}`);
 
-  kitabList.forEach(kitab => {
-    buildOneKitab(kitab);
+  folders.forEach(folderName => {
+    buildFolderIndex(folderName);
   });
 }
 
