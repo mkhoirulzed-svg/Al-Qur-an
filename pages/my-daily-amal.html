@@ -131,14 +131,14 @@
 }
 
 .amal-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 11px 0;
-  border-bottom: 1px solid #e5e7eb;
-  transition: background .3s ease, transform .25s ease;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  cursor: pointer;
+  touch-action: manipulation;
 }
-
+  
 .amal-item:last-child {
   border-bottom: none;
 }
@@ -164,6 +164,10 @@
 .amal-item label {
   flex: 1;
   font-size: .95rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 input[type="checkbox"] {
@@ -256,6 +260,45 @@ hr {
   padding: 7px 10px;
   border-radius: 10px;
   margin-bottom: 4px;
+  }
+}
+  /* ANTI TEXT SELECT / NATIVE APP FEEL */
+.daily-card,
+.progress-card,
+.daily-head,
+.daily-title,
+.daily-date,
+.setting-btn,
+.progress-card *,
+.amal-item,
+.amal-item *,
+.checkmark,
+.custom-box button {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.amal-item,
+.amal-item label,
+.checkmark,
+.setting-btn,
+.custom-box button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+/* input tetap bisa diketik dan diseleksi */
+.custom-box input {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+  .amal-item label span,
+.amal-item label p,
+.amal-item label div {
+  pointer-events: none;
 }
 </style>
 </head>
