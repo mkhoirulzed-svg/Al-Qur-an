@@ -416,6 +416,8 @@
 <script src="../data/surah-names.js"></script>
 
 <script>
+const paramAwal = Number(params.get('awal'));
+const paramAkhir = Number(params.get('akhir'));
 const params = new URLSearchParams(location.search);
 const no = Number(params.get('no')) || 1;
 
@@ -634,6 +636,14 @@ async function loadSurah(){
     ayatAwalInput.max = ayahs.length;
     ayatAkhirInput.max = ayahs.length;
     ayatAkhirInput.value = ayahs.length;
+
+ if (paramAwal) {
+  ayatAwalInput.value = Math.min(Math.max(paramAwal, 1), ayahs.length);
+}
+
+if (paramAkhir) {
+  ayatAkhirInput.value = Math.min(Math.max(paramAkhir, Number(ayatAwalInput.value)), ayahs.length);
+}
 
     loadProgress();
     renderAyat();
