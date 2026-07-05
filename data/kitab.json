@@ -7,8 +7,9 @@
     "deskripsi": "Kumpulan hadits pilihan tentang akhlak, adab, ibadah, muamalah, dan penyucian jiwa.",
     "status": "tersedia",
     "tipe": "per-bab",
-    "folder": "ryadhus",
-    "daftarBab": "data/riyadhus/daftar-bab.json"
+    "folder": "riyadhus",
+    "daftarBab": "data/riyadhus/daftar-bab.json",
+    "searchIndex": "data/riyadhus/search-index.json"
   },
   {
     "id": "bukhari",
@@ -18,18 +19,20 @@
     "deskripsi": "Salah satu kitab hadits paling shahih yang memuat berbagai bab tentang aqidah, ibadah, muamalah, dan adab.",
     "status": "tersedia",
     "tipe": "per-bab",
-    "folder": "bukhari",
-    "daftarBab": "data/shahih-bukhari/daftar-bab.json"
+    "folder": "shahih-bukhari",
+    "daftarBab": "data/shahih-bukhari/daftar-bab.json",
+    "searchIndex": "data/shahih-bukhari/search-index.json"
   },
   {
-  "id": "muslim",
-  "judul": "Shahih Muslim",
-  "kitab": "Shahih Muslim",
-  "penulis": "Imam Muslim",
-  "deskripsi": "Kitab hadits shahih yang disusun secara sistematis oleh Imam Muslim bin Al-Hajjaj.",
-  "status": "tersedia",
-  "tipe": "per-bab",
-  "folder": "shahih-muslim",
-  "daftarBab": "data/shahih-muslim/daftar-bab.json"
+    "id": "muslim",
+    "judul": "Shahih Muslim",
+    "kitab": "Shahih Muslim",
+    "penulis": "Imam Muslim",
+    "deskripsi": "Kitab hadits shahih yang disusun secara sistematis oleh Imam Muslim bin Al-Hajjaj.",
+    "status": "tersedia",
+    "tipe": "per-bab",
+    "folder": "shahih-muslim",
+    "daftarBab": "data/shahih-muslim/daftar-bab.json",
+    "searchIndex": "data/shahih-muslim/search-index.json"
   }
 ]
