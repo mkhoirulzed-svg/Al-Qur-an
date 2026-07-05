@@ -241,7 +241,7 @@ searchInput.addEventListener('input', async () => {
     ${a.ayat || ''}
   `.toLowerCase();
 
-  return keywords.every(k => text.includes(k));
+  return keywords.some(k => text.includes(k));
 });
 
     renderSearchResults(filteredAyat);
