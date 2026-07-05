@@ -216,6 +216,9 @@ const params = new URLSearchParams(window.location.search);
 const idKitab = params.get('kitab') || 'riyadhus-shalihin';
 const idBab = params.get('bab') || '001';
 
+// target dari halaman pencarian
+const targetHadits = params.get('hadits') || params.get('target') || params.get('ayat') || '';
+
 let kitabInfo = null;
 let daftarBab = [];
 let babAktif = null;
@@ -297,6 +300,7 @@ async function loadKitabBaca(){
     const dataBab = await isiRes.json();
 
     renderKitab(dataBab, babFile);
+    scrollKeTargetHadits();
 
   }catch(err){
     isiKitabEl.innerHTML = `
@@ -376,7 +380,7 @@ function renderHadits(item, index){
   const sumber = item.sumber || item.kitab || '';
 
   return `
-    <article class="hadits-card">
+  <article class="hadits-card" id="hadits-${nomor}" data-hadits="${nomor}">
       <div class="hadits-number">Hadits ${nomor}</div>
 
       ${judul ? `
@@ -463,6 +467,31 @@ function formatNamaKitab(id){
   return 'Kitab';
 }
 
+ function scrollKeTargetHadits(){
+  if(!targetHadits) return;
+
+  setTimeout(() => {
+    const targetEl =
+      document.getElementById(`hadits-${targetHadits}`) ||
+      document.querySelector(`[data-hadits="${targetHadits}"]`);
+
+    if(!targetEl) return;
+
+    targetEl.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+    targetEl.style.outline = '3px solid var(--primary)';
+    targetEl.style.outlineOffset = '4px';
+
+    setTimeout(() => {
+      targetEl.style.outline = '';
+      targetEl.style.outlineOffset = '';
+    }, 2200);
+  }, 300);
+} 
+  
 loadKitabBaca();
 </script>
 
