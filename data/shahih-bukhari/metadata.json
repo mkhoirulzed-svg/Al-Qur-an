@@ -1,0 +1,9 @@
+{
+  "kitab": "Shahih Bukhari",
+  "sumber": {
+    "nama": "hadits-database",
+    "url": "https://github.com/irsyadulibad/hadits-database",
+    "lisensi": "MIT",
+    "keterangan": "Data asli diproses ulang menjadi JSON untuk kebutuhan aplikasi."
+  }
+}
