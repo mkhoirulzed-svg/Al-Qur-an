@@ -416,10 +416,10 @@
 <script src="../data/surah-names.js"></script>
 
 <script>
-const paramAwal = Number(params.get('awal'));
-const paramAkhir = Number(params.get('akhir'));
 const params = new URLSearchParams(location.search);
 const no = Number(params.get('no')) || 1;
+const paramAwal = Number(params.get('awal'));
+const paramAkhir = Number(params.get('akhir'));
 
 const judul = document.getElementById('judul');
 const ayatList = document.getElementById('ayatList');
@@ -637,16 +637,20 @@ async function loadSurah(){
     ayatAkhirInput.max = ayahs.length;
     ayatAkhirInput.value = ayahs.length;
 
- if (paramAwal) {
+loadProgress();
+
+if (paramAwal) {
   ayatAwalInput.value = Math.min(Math.max(paramAwal, 1), ayahs.length);
 }
 
 if (paramAkhir) {
-  ayatAkhirInput.value = Math.min(Math.max(paramAkhir, Number(ayatAwalInput.value)), ayahs.length);
+  ayatAkhirInput.value = Math.min(
+    Math.max(paramAkhir, Number(ayatAwalInput.value)),
+    ayahs.length
+  );
 }
 
-    loadProgress();
-    renderAyat();
+renderAyat();
 
     progressTitle.textContent = `QS. ${surahLatin}`;
     progressInfo.textContent = `Total ${ayahs.length} ayat`;
