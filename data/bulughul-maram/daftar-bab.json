@@ -1,0 +1,98 @@
+[
+  {
+    "id": "001",
+    "judul": "The Book of Purification",
+    "arab": "كتاب الطهارة",
+    "jumlah": 0
+  },
+  {
+    "id": "002",
+    "judul": "The Book of Prayer",
+    "arab": "كتاب الصلاة",
+    "jumlah": 0
+  },
+  {
+    "id": "003",
+    "judul": "Funerals",
+    "arab": "كتاب الجنائز",
+    "jumlah": 0
+  },
+  {
+    "id": "004",
+    "judul": "The Book of Zakah",
+    "arab": "كتاب الزكاة",
+    "jumlah": 0
+  },
+  {
+    "id": "005",
+    "judul": "Fasting",
+    "arab": "كتاب الصيام",
+    "jumlah": 0
+  },
+  {
+    "id": "006",
+    "judul": "Hajj",
+    "arab": "كتاب الحج",
+    "jumlah": 0
+  },
+  {
+    "id": "007",
+    "judul": "Business Transactions",
+    "arab": "كتاب البيوع",
+    "jumlah": 0
+  },
+  {
+    "id": "008",
+    "judul": "Marriage",
+    "arab": "كتاب النكاح",
+    "jumlah": 0
+  },
+  {
+    "id": "009",
+    "judul": "Crimes (Qisas or Retaliation)",
+    "arab": "كتاب الجنايات",
+    "jumlah": 0
+  },
+  {
+    "id": "010",
+    "judul": "Hudud",
+    "arab": "كتاب الحدود",
+    "jumlah": 0
+  },
+  {
+    "id": "011",
+    "judul": "Jihad",
+    "arab": "كتاب الجهاد",
+    "jumlah": 0
+  },
+  {
+    "id": "012",
+    "judul": "Food",
+    "arab": "كتاب الأطعمة",
+    "jumlah": 0
+  },
+  {
+    "id": "013",
+    "judul": "Oaths and Vows",
+    "arab": "كتاب الأيمان والنذور",
+    "jumlah": 0
+  },
+  {
+    "id": "014",
+    "judul": "Judgments",
+    "arab": "كتاب القضاء",
+    "jumlah": 0
+  },
+  {
+    "id": "015",
+    "judul": "Emancipation",
+    "arab": "كتاب العتق",
+    "jumlah": 0
+  },
+  {
+    "id": "016",
+    "judul": "The Comprehensive Book",
+    "arab": "كتاب الجامع",
+    "jumlah": 0
+  }
+]
