@@ -10,12 +10,11 @@ const KITAB_ID = "shahih-bukhari";
 const KITAB_NAMA = "Shahih Bukhari";
 const CHUNK_SIZE = 100; // Ubah nilai ini untuk chunk size berbeda
 
-// Konfigurasi untuk optimasi
 const CONFIG = {
   MAX_RETRIES: 3,
   RETRY_DELAY: 1000, // ms
   TIMEOUT: 30000, // ms
-  VERBOSE: true // Set ke false untuk output lebih ringkas
+  VERBOSE: true
 };
 
 function pad(num) {
@@ -42,46 +41,6 @@ function cleanText(text) {
     .trim();
 }
 
-function splitSqlTuple(row) {
-  const result = [];
-  let current = "";
-  let inString = false;
-  let escape = false;
-
-  for (let i = 0; i < row.length; i++) {
-    const char = row[i];
-
-    if (escape) {
-      current += char;
-      escape = false;
-      continue;
-    }
-
-    if (char === "\\") {
-      current += char;
-      escape = true;
-      continue;
-    }
-
-    if (char === "'") {
-      inString = !inString;
-      current += char;
-      continue;
-    }
-
-    if (char === "," && !inString) {
-      result.push(current.trim());
-      current = "";
-      continue;
-    }
-
-    current += char;
-  }
-
-  result.push(current.trim());
-  return result;
-}
-
 function parseSqlValue(value) {
   if (!value || value.toUpperCase() === "NULL") return "";
 
@@ -94,58 +53,120 @@ function parseSqlValue(value) {
   return cleanText(text);
 }
 
-function extractRowsImproved(sql) {
-  const rows = [];
-  let parseErrors = 0;
+/**
+ * Parses one VALUES(...),(...),(...); block starting at the index of the
+ * first opening parenthesis. This is a linear character-by-character scan —
+ * NOT regex-based — so it cannot suffer catastrophic backtracking regardless
+ * of how large or irregular the input is.
+ */
+function parseValuesBlock(text, startIndex) {
+  const tuples = [];
+  let i = startIndex;
+  const n = text.length;
 
-  // Regex yang lebih robust untuk extract INSERT statements
-  const insertRegex =
-    /INSERT INTO\s+`?[^`(\s]+`?\s*\(([^)]+)\)\s*VALUES\s*([\s\S]*?)(?=INSERT INTO|;[\s]*$)/gi;
+  while (i < n) {
+    // skip whitespace/commas between tuples
+    while (i < n && (text[i] === "," || /\s/.test(text[i]))) i++;
+    if (i >= n || text[i] === ";") break;
+    if (text[i] !== "(") break;
 
-  let match;
+    i++; // skip opening '('
+    const values = [];
+    let current = "";
+    let inString = false;
 
-  while ((match = insertRegex.exec(sql)) !== null) {
-    try {
-      const columns = match[1]
-        .split(",")
-        .map((col) => col.replace(/`/g, "").trim());
+    while (i < n) {
+      const ch = text[i];
 
-      const valuesBlock = match[2];
-
-      // Lebih robust tuple parsing
-      const tupleRegex = /\(([^)]*(?:'[^']*'[^)]*)*)\)(?:,|$)/g;
-      let tupleMatch;
-
-      while ((tupleMatch = tupleRegex.exec(valuesBlock)) !== null) {
-        try {
-          const rawValues = splitSqlTuple(tupleMatch[1]);
-          const item = {};
-
-          columns.forEach((col, index) => {
-            item[col] = parseSqlValue(rawValues[index] || "");
-          });
-
-          // Validasi minimal: harus ada arab atau terjemahan
-          if (item.arab || item.terjemah || item.terjemahan) {
-            rows.push(item);
-          }
-        } catch (e) {
-          parseErrors++;
-          if (CONFIG.VERBOSE) {
-            console.warn(`⚠️  Error parsing tuple: ${e.message}`);
-          }
+      if (inString) {
+        if (ch === "\\" && i + 1 < n) {
+          // keep escape sequence as-is; cleanText handles it later
+          current += ch + text[i + 1];
+          i += 2;
+          continue;
         }
+        if (ch === "'") {
+          inString = false;
+          current += ch;
+          i++;
+          continue;
+        }
+        current += ch;
+        i++;
+        continue;
       }
-    } catch (e) {
-      parseErrors++;
-      if (CONFIG.VERBOSE) {
-        console.warn(`⚠️  Error parsing INSERT block: ${e.message}`);
+
+      if (ch === "'") {
+        inString = true;
+        current += ch;
+        i++;
+        continue;
       }
+      if (ch === ",") {
+        values.push(current.trim());
+        current = "";
+        i++;
+        continue;
+      }
+      if (ch === ")") {
+        values.push(current.trim());
+        current = "";
+        i++;
+        break;
+      }
+
+      current += ch;
+      i++;
     }
+
+    tuples.push(values);
   }
 
-  if (parseErrors > 0) {
-    log(`⚠️  Total parse errors: ${parseErrors} (ignored)`);
+  return { tuples, endIndex: i };
+}
+
+function extractRows(sql) {
+  const rows = [];
+  const insertMarker = "INSERT INTO";
+  let searchFrom = 0;
+
+  while (true) {
+    const insertIdx = sql.indexOf(insertMarker, searchFrom);
+    if (insertIdx === -1) break;
+
+    const valuesIdx = sql.indexOf("VALUES", insertIdx);
+    if (valuesIdx === -1) break;
+
+    const colStart = sql.indexOf("(", insertIdx);
+    const colEnd = sql.indexOf(")", colStart);
+
+    if (colStart === -1 || colEnd === -1) {
+      searchFrom = insertIdx + insertMarker.length;
+      continue;
+    }
+
+    const columns = sql
+      .slice(colStart + 1, colEnd)
+      .split(",")
+      .map((c) => c.replace(/`/g, "").trim());
+
+    const tupleStart = sql.indexOf("(", valuesIdx);
+    if (tupleStart === -1) {
+      searchFrom = valuesIdx + 6;
+      continue;
+    }
+
+    const { tuples, endIndex } = parseValuesBlock(sql, tupleStart);
+
+    for (const tupleValues of tuples) {
+      const item = {};
+      columns.forEach((col, idx) => {
+        item[col] = parseSqlValue(tupleValues[idx]);
+      });
+      rows.push(item);
+    }
+
+    searchFrom = endIndex;
   }
 
   return rows;
@@ -161,7 +182,7 @@ function normalizeHadith(row, index) {
     no: noUrut,
     judul: `Hadits Shahih Bukhari No. ${noUrut}`,
     arab: cleanText(row.arab || ""),
-    latin: cleanText(row.latin || ""),
+    latin: "",
     terjemahan: cleanText(row.terjemah || row.terjemahan || ""),
     sumber: KITAB_NAMA
   };
@@ -213,7 +234,7 @@ async function fetchWithRetry(url, retries = CONFIG.MAX_RETRIES) {
 
 async function main() {
   console.log("=".repeat(60));
-  console.log("📚 HADITS DATABASE FETCHER - OPTIMIZED");
+  console.log("📚 HADITS DATABASE FETCHER");
   console.log("=".repeat(60));
 
   log(`📥 Mengambil file Shahih Bukhari dari: ${SOURCE_URL}`);
@@ -237,8 +258,10 @@ async function main() {
     process.exit(1);
   }
 
-  log("🔍 Mengekstrak data dari SQL...");
-  const rows = extractRowsImproved(sql);
+  log("🔍 Mengekstrak data dari SQL (linear scan, no regex backtracking)...");
+  const t0 = Date.now();
+  const rows = extractRows(sql);
+  log(`⏱️  Parsing selesai dalam ${Date.now() - t0}ms`);
 
   if (!rows.length) {
     console.error("❌ Tidak ada data yang berhasil diekstrak dari SQL.");
@@ -275,10 +298,6 @@ async function main() {
       "utf8"
     );
 
-    if ((nomorBagian - 1) % 10 === 0 || nomorBagian === chunks.length) {
-      log(`  ✓ Menulis bagian ${nomorBagian}/${chunks.length}`);
-    }
-
     return {
       id: nomorBagian,
       kitab: KITAB_ID,
@@ -293,7 +312,6 @@ async function main() {
     JSON.stringify(daftarBab, null, 2),
     "utf8"
   );
-  log("✅ daftar-bab.json berhasil ditulis");
 
   const info = {
     id: KITAB_ID,
@@ -314,7 +332,6 @@ async function main() {
     JSON.stringify(info, null, 2),
     "utf8"
   );
-  log("✅ info.json berhasil ditulis");
 
   console.log("\n" + "=".repeat(60));
   console.log("✨ SELESAI");
