@@ -1,0 +1,9 @@
+{
+  "kitab": "Doa Harian",
+  "sumber": {
+    "nama": "Doa daily",
+    "url": "hhttps://raw.githubusercontent.com/mazipan/baca-quran.id/master/src/data/daily-doa.ts",
+    "lisensi": "MIT",
+    "keterangan": "Data asli diproses ulang menjadi JSON untuk kebutuhan aplikasi."
+  }
+}
