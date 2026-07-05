@@ -448,6 +448,35 @@ body.addEventListener('change', e => {
 
 updateProgress();
 </script>
+  <script>
+document.addEventListener('selectstart', function(e) {
+  const target = e.target;
+
+  if (
+    target.closest('input') ||
+    target.closest('textarea') ||
+    target.closest('[contenteditable="true"]')
+  ) {
+    return;
+  }
+
+  e.preventDefault();
+});
+
+document.addEventListener('contextmenu', function(e) {
+  const target = e.target;
+
+  if (
+    target.closest('input') ||
+    target.closest('textarea') ||
+    target.closest('[contenteditable="true"]')
+  ) {
+    return;
+  }
+
+  e.preventDefault();
+});
+</script>
 
 </body>
 </html>
