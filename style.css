@@ -1,3 +1,52 @@
+:root {
+  --bg:#f5f1ea;
+  --card:#ffffff;
+  --primary:#0a4d3a;
+  --primary-hover:#0d6b4f;
+  --primary-ghost:rgba(10,77,58,.08);
+  --primary-ghost-strong:rgba(10,77,58,.14);
+  --accent:#c49a2a;
+  --text:#1c1c28;
+  --text-secondary:#5f5f72;
+  --text-muted:#9a9aaa;
+  --border:#e6e1d8;
+  --shadow-sm:0 2px 8px rgba(10,77,58,.05);
+  --shadow-md:0 4px 20px rgba(10,77,58,.08);
+  --shadow-lg:0 8px 40px rgba(10,77,58,.12);
+  --radius:20px;
+  --radius-sm:14px;
+}
+
+/* TEMA BIRU */
+body.theme-blue {
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --primary:#0284c7;
+  --primary-hover:#0369a1;
+  --primary-ghost:rgba(2,132,199,.08);
+  --primary-ghost-strong:rgba(2,132,199,.14);
+  --accent:#f59e0b;
+  --text:#0f172a;
+  --text-secondary:#475569;
+  --text-muted:#94a3b8;
+  --border:#e2e8f0;
+}
+
+/* TEMA GELAP */
+body.theme-dark {
+  --bg:#0f172a;
+  --card:#1e293b;
+  --primary:#38bdf8;
+  --primary-hover:#7dd3fc;
+  --primary-ghost:rgba(56,189,248,.10);
+  --primary-ghost-strong:rgba(56,189,248,.18);
+  --accent:#facc15;
+  --text:#f8fafc;
+  --text-secondary:#cbd5e1;
+  --text-muted:#94a3b8;
+  --border:#334155;
+}
+
 :root{
   --bg:#f5f1ea;
   --card:#ffffff;
