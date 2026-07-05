@@ -1,0 +1,153 @@
+const fs = require("fs");
+const path = require("path");
+
+const SOURCE_URL =
+  "https://raw.githubusercontent.com/mazipan/baca-quran.id/master/src/data/daily-doa.ts";
+
+const OUT_FILE = path.join(__dirname, "..", "data", "doa-harian.json");
+
+function cleanText(text) {
+  if (text === null || text === undefined) return "";
+
+  return String(text)
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .trim();
+}
+
+function extractArrayFromTs(content) {
+  const possibleMarkers = [
+    "export const dailyDoa",
+    "const dailyDoa",
+    "dailyDoa: DailyDoaItem[]"
+  ];
+
+  let startMarker = -1;
+
+  for (const marker of possibleMarkers) {
+    startMarker = content.indexOf(marker);
+    if (startMarker !== -1) break;
+  }
+
+  if (startMarker === -1) {
+    throw new Error("Tidak menemukan data dailyDoa");
+  }
+
+  const arrayStart = content.indexOf("[", startMarker);
+
+  if (arrayStart === -1) {
+    throw new Error("Tidak menemukan awal array dailyDoa");
+  }
+
+  let depth = 0;
+  let inString = false;
+  let stringChar = "";
+  let escaped = false;
+
+  for (let i = arrayStart; i < content.length; i++) {
+    const char = content[i];
+
+    if (inString) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === stringChar) {
+        inString = false;
+        stringChar = "";
+      }
+      continue;
+    }
+
+    if (char === '"' || char === "'" || char === "`") {
+      inString = true;
+      stringChar = char;
+      continue;
+    }
+
+    if (char === "[") depth++;
+    if (char === "]") depth--;
+
+    if (depth === 0) {
+      return content.slice(arrayStart, i + 1);
+    }
+  }
+
+  throw new Error("Tidak menemukan akhir array dailyDoa");
+}
+
+function jsArrayToJsonText(arrayText) {
+  return arrayText
+    .replace(/`([^`]*)`/gs, (_, value) => JSON.stringify(value))
+    .replace(/'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_, value) => {
+      return JSON.stringify(value.replace(/\\'/g, "'"));
+    })
+    .replace(/([{,]\s*)([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:/g, '$1"$2":')
+    .replace(/,\s*([}\]])/g, "$1");
+}
+
+function normalizeSource(source) {
+  if (!source) return "";
+
+  if (Array.isArray(source)) {
+    return source.filter(Boolean).join("; ");
+  }
+
+  return String(source);
+}
+
+function convertItem(item) {
+  return {
+    id: cleanText(item.id),
+    judul: cleanText(item.title),
+    arab: cleanText(item.arabic),
+    latin: cleanText(item.latin),
+    arti: cleanText(item.translation),
+    sumber: cleanText(normalizeSource(item.source))
+  };
+}
+
+async function main() {
+  console.log("Mengambil data doa harian dari mazipan/baca-quran.id...");
+
+  const res = await fetch(SOURCE_URL);
+
+  if (!res.ok) {
+    throw new Error(`Gagal mengambil data. Status: ${res.status}`);
+  }
+
+  const tsContent = await res.text();
+
+  const arrayText = extractArrayFromTs(tsContent);
+  const jsonText = jsArrayToJsonText(arrayText);
+
+  let data;
+
+  try {
+    data = JSON.parse(jsonText);
+  } catch (err) {
+    console.error("Gagal parse data daily-doa.ts");
+    console.error(err.message);
+
+    fs.writeFileSync(
+      path.join(__dirname, "debug-daily-doa.json.txt"),
+      jsonText,
+      "utf8"
+    );
+
+    throw err;
+  }
+
+  const result = data.map(convertItem);
+
+  fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
+  fs.writeFileSync(OUT_FILE, JSON.stringify(result, null, 2), "utf8");
+
+  console.log(`Berhasil membuat ${result.length} doa`);
+  console.log(`Output: ${OUT_FILE}`);
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
