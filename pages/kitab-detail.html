@@ -487,22 +487,41 @@ function cariDalamKitab(keyword, hasilEl, infoEl){
   const kata = q.split(' ').filter(Boolean);
 
   const hasil = searchIndexKitab
-    .filter(item => {
-      const terjemahan = item.terjemahan || item.terjemah || item.indonesia || '';
-      const judul = item.judul || item.nama || item.kitab || '';
+  .map(item => {
+    const terjemahan = item.terjemahan || item.terjemah || item.indonesia || '';
+    const judul = item.judul || item.nama || item.kitab || '';
 
-      const gabungan = normalizeSearchText(`
-        ${judul}
-        ${item.arab || ''}
-        ${item.latin || ''}
-        ${terjemahan}
-        ${item.faedah || ''}
-        ${item.sumber || ''}
-      `);
+    const gabungan = normalizeSearchText(`
+      ${judul}
+      ${item.arab || ''}
+      ${item.latin || ''}
+      ${terjemahan}
+      ${item.faedah || ''}
+      ${item.sumber || ''}
+    `);
 
-      return kata.every(k => gabungan.includes(k));
-    })
-    .slice(0, 50);
+    let skor = 0;
+
+    // Nilai tertinggi kalau frasa lengkap cocok
+    if(gabungan.includes(q)){
+      skor += 100;
+    }
+
+    // Nilai tambahan untuk tiap kata yang cocok
+    kata.forEach(k => {
+      if(gabungan.includes(k)){
+        skor += 10;
+      }
+    });
+
+    return {
+      ...item,
+      _skor: skor
+    };
+  })
+  .filter(item => item._skor > 0)
+  .sort((a, b) => b._skor - a._skor)
+  .slice(0, 50);
 
   infoEl.innerHTML = `Ditemukan <b>${hasil.length}</b> hasil untuk: <b>${escapeHtml(keyword)}</b>`;
 
