@@ -134,6 +134,103 @@
   color:var(--primary);
   font-size:13px;
 }
+
+  .search-box{
+  background:var(--card);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  margin-bottom:14px;
+}
+
+.search-title{
+  font-size:16px;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:12px;
+}
+
+.search-input-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(10,77,58,.08);
+  border-radius:16px;
+  padding:0 14px;
+}
+
+.search-input-wrap i{
+  color:var(--primary);
+  font-size:14px;
+}
+
+#searchKitabInput{
+  width:100%;
+  border:none;
+  outline:none;
+  background:transparent;
+  padding:14px 0;
+  font-size:15px;
+  color:var(--text);
+}
+
+#searchKitabInput::placeholder{
+  color:var(--text-secondary);
+}
+
+.search-info{
+  font-size:13px;
+  color:var(--text-secondary);
+  margin-top:10px;
+  line-height:1.6;
+}
+
+.search-result-card{
+  background:var(--card);
+  border-radius:20px;
+  padding:17px 18px;
+  margin-bottom:12px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  cursor:pointer;
+}
+
+.search-result-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+}
+
+.search-result-title{
+  font-size:15px;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:10px;
+  line-height:1.5;
+}
+
+.search-result-arab{
+  font-family:'Amiri',serif;
+  font-size:22px;
+  line-height:2;
+  text-align:right;
+  direction:rtl;
+  color:var(--text);
+  margin-bottom:12px;
+}
+
+.search-result-text{
+  font-size:14px;
+  line-height:1.8;
+  color:var(--text);
+}
+
+mark{
+  background:rgba(255,214,10,.45);
+  color:inherit;
+  padding:1px 4px;
+  border-radius:5px;
+}
 </style>
 </head>
 
@@ -252,15 +349,36 @@ function renderInfoKitab(kitab){
         <div class="terjemah">${kitab.deskripsi}</div>
       ` : ''}
 
-      <div class="meta">
+            <div class="meta">
         <div><b>Status:</b> ${kitab.status === 'tersedia' ? 'Tersedia' : 'Segera hadir'}</div>
       </div>
     </article>
+
+    <div class="search-box">
+      <div class="search-title">Cari dalam kitab</div>
+
+      <div class="search-input-wrap">
+        <i class="fas fa-search"></i>
+        <input
+          id="searchKitabInput"
+          type="search"
+          placeholder="Cari kata, contoh: iman, shalat, niat..."
+        >
+      </div>
+
+      <div id="searchKitabInfo" class="search-info">
+        Memuat index pencarian...
+      </div>
+    </div>
+
+    <div id="hasilCariKitab"></div>
 
     <div id="daftarBabKitab">
       <p>Memuat daftar bab...</p>
     </div>
   `;
+
+  setupPencarianKitab(kitab);
 }
 
 async function loadDaftarBab(kitab, daftarBabPath){
@@ -299,6 +417,174 @@ async function loadDaftarBab(kitab, daftarBabPath){
   }
 }
 
+let searchIndexKitab = [];
+let searchTimer = null;
+
+async function setupPencarianKitab(kitab){
+  const input = document.getElementById('searchKitabInput');
+  const hasilEl = document.getElementById('hasilCariKitab');
+  const infoEl = document.getElementById('searchKitabInfo');
+
+  if(!input || !hasilEl || !infoEl) return;
+
+  try{
+    const folderKitab = kitab.folder || kitab.id;
+
+    const res = await fetch(`../data/${folderKitab}/search-index.json?v=` + Date.now());
+
+    if(!res.ok){
+      infoEl.textContent = 'Pencarian belum tersedia untuk kitab ini.';
+      return;
+    }
+
+    const data = await res.json();
+
+    if(!Array.isArray(data)){
+      infoEl.textContent = 'Format index pencarian tidak valid.';
+      return;
+    }
+
+    searchIndexKitab = data;
+
+    infoEl.textContent = `Pencarian siap. Total ${searchIndexKitab.length} data.`;
+
+  }catch(err){
+    console.error('Gagal memuat search-index:', err);
+    infoEl.textContent = 'Gagal memuat fitur pencarian.';
+    return;
+  }
+
+  input.addEventListener('input', function(){
+    clearTimeout(searchTimer);
+
+    searchTimer = setTimeout(() => {
+      cariDalamKitab(input.value, hasilEl, infoEl);
+    }, 250);
+  });
+}
+
+function normalizeSearchText(text){
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function cariDalamKitab(keyword, hasilEl, infoEl){
+  const q = normalizeSearchText(keyword);
+
+  if(q.length < 2){
+    hasilEl.innerHTML = '';
+    infoEl.textContent = `Pencarian siap. Total ${searchIndexKitab.length} data.`;
+    return;
+  }
+
+  const kata = q.split(' ').filter(Boolean);
+
+  const hasil = searchIndexKitab
+    .filter(item => {
+      const gabungan = normalizeSearchText(`
+        ${item.judul || ''}
+        ${item.arab || ''}
+        ${item.latin || ''}
+        ${item.terjemahan || ''}
+        ${item.faedah || ''}
+        ${item.sumber || ''}
+      `);
+
+      return kata.every(k => gabungan.includes(k));
+    })
+    .slice(0, 50);
+
+  infoEl.innerHTML = `Ditemukan <b>${hasil.length}</b> hasil untuk: <b>${escapeHtml(keyword)}</b>`;
+
+  if(hasil.length === 0){
+    hasilEl.innerHTML = '<p>Tidak ada hasil ditemukan.</p>';
+    return;
+  }
+
+  hasilEl.innerHTML = hasil.map(item => {
+    const judul = item.judul || `Hadits ${item.id}`;
+    const bab = item.bab || '';
+    const terjemahan = item.terjemahan || '';
+    const arab = item.arab || '';
+
+    return `
+      <article class="search-result-card" onclick="bukaHasilCari('${escapeAttr(idKitab)}', '${escapeAttr(bab)}', '${escapeAttr(item.id)}')">
+        <div class="search-result-title">
+          ${escapeHtml(judul)}
+        </div>
+
+        ${arab ? `
+          <div class="search-result-arab">
+            ${escapeHtml(potongText(arab, 220))}
+          </div>
+        ` : ''}
+
+        ${terjemahan ? `
+          <div class="search-result-text">
+            ${highlightText(escapeHtml(potongText(terjemahan, 280)), keyword)}
+          </div>
+        ` : ''}
+
+        <div class="meta">
+          <div><b>Bagian:</b> ${escapeHtml(bab)}</div>
+          <div><b>No:</b> ${escapeHtml(item.id)}</div>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function potongText(text, max){
+  text = String(text || '');
+
+  if(text.length <= max) return text;
+
+  return text.slice(0, max).trim() + '...';
+}
+
+function highlightText(text, keyword){
+  if(!keyword) return text;
+
+  const words = String(keyword)
+    .trim()
+    .split(/\s+/)
+    .filter(w => w.length >= 2);
+
+  let result = String(text || '');
+
+  words.forEach(word => {
+    const safe = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${safe})`, 'gi');
+    result = result.replace(regex, '<mark>$1</mark>');
+  });
+
+  return result;
+}
+
+function bukaHasilCari(idKitab, idBab, idHadits){
+  window.location.href =
+    `kitab-baca.html?kitab=${encodeURIComponent(idKitab)}&bab=${encodeURIComponent(idBab)}&hadits=${encodeURIComponent(idHadits)}`;
+}
+
+function escapeHtml(value){
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function escapeAttr(value){
+  return String(value ?? '')
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/"/g, '&quot;');
+}  
+  
 function renderBelumTersedia(){
   const daftarBabEl = document.getElementById('daftarBabKitab');
 
