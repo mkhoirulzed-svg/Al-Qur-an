@@ -430,23 +430,50 @@ async function setupPencarianKitab(kitab){
   try{
     const folderKitab = kitab.folder || kitab.id;
 
-    const res = await fetch(`../data/${folderKitab}/search-index.json?v=` + Date.now());
+    const kandidatPath = [
+      kitab.searchIndex,
+      `data/${folderKitab}/search-index.json`,
+      `data/${kitab.id}/search-index.json`,
+      `data/${folderKitab}/index-search.json`,
+      `data/${kitab.id}/index-search.json`
+    ].filter(Boolean);
 
-    if(!res.ok){
+    let data = null;
+    let pathBerhasil = '';
+
+    for(const path of kandidatPath){
+      const cleanPath = String(path).replace(/^\/+/, '');
+
+      try{
+        const res = await fetch('../' + cleanPath + '?v=' + Date.now());
+
+        if(res.ok){
+          data = await res.json();
+          pathBerhasil = cleanPath;
+          break;
+        }
+      }catch(e){
+        console.warn('Gagal coba path:', cleanPath, e);
+      }
+    }
+
+    if(!data){
       infoEl.textContent = 'Pencarian belum tersedia untuk kitab ini.';
+      console.error('Semua path search-index gagal:', kandidatPath);
       return;
     }
 
-    const data = await res.json();
-
     if(!Array.isArray(data)){
       infoEl.textContent = 'Format index pencarian tidak valid.';
+      console.error('Search index bukan array:', pathBerhasil, data);
       return;
     }
 
     searchIndexKitab = data;
 
     infoEl.textContent = `Pencarian siap. Total ${searchIndexKitab.length} data.`;
+
+    console.log('Search index berhasil dimuat:', pathBerhasil, searchIndexKitab.length);
 
   }catch(err){
     console.error('Gagal memuat search-index:', err);
@@ -484,11 +511,14 @@ function cariDalamKitab(keyword, hasilEl, infoEl){
 
   const hasil = searchIndexKitab
     .filter(item => {
+      const terjemahan = item.terjemahan || item.terjemah || item.indonesia || '';
+      const judul = item.judul || item.nama || item.kitab || '';
+
       const gabungan = normalizeSearchText(`
-        ${item.judul || ''}
+        ${judul}
         ${item.arab || ''}
         ${item.latin || ''}
-        ${item.terjemahan || ''}
+        ${terjemahan}
         ${item.faedah || ''}
         ${item.sumber || ''}
       `);
@@ -505,9 +535,9 @@ function cariDalamKitab(keyword, hasilEl, infoEl){
   }
 
   hasilEl.innerHTML = hasil.map(item => {
-    const judul = item.judul || `Hadits ${item.id}`;
-    const bab = item.bab || '';
-    const terjemahan = item.terjemahan || '';
+    const judul = item.judul || item.nama || item.kitab || `Hadits ${item.id}`;
+    const bab = normalizeBabId(item.bab || item.idBab || item.kitab_id || '');
+    const terjemahan = item.terjemahan || item.terjemah || item.indonesia || '';
     const arab = item.arab || '';
 
     return `
@@ -564,6 +594,18 @@ function highlightText(text, keyword){
   return result;
 }
 
+function normalizeBabId(value){
+  if(value === null || value === undefined || value === '') return '';
+
+  const text = String(value).trim();
+
+  if(/^\d+$/.test(text)){
+    return text.padStart(3, '0');
+  }
+
+  return text;
+}  
+  
 function bukaHasilCari(idKitab, idBab, idHadits){
   window.location.href =
     `kitab-baca.html?kitab=${encodeURIComponent(idKitab)}&bab=${encodeURIComponent(idBab)}&hadits=${encodeURIComponent(idHadits)}`;
