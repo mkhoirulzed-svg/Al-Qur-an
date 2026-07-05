@@ -429,51 +429,28 @@ async function setupPencarianKitab(kitab){
 
   try{
     const folderKitab = kitab.folder || kitab.id;
+    const searchIndexPath = kitab.searchIndex || `data/${folderKitab}/search-index.json`;
 
-    const kandidatPath = [
-      kitab.searchIndex,
-      `data/${folderKitab}/search-index.json`,
-      `data/${kitab.id}/search-index.json`,
-      `data/${folderKitab}/index-search.json`,
-      `data/${kitab.id}/index-search.json`
-    ].filter(Boolean);
+    const cleanPath = searchIndexPath.replace(/^\/+/, '');
+    const res = await fetch('../' + cleanPath + '?v=' + Date.now());
 
-    let data = null;
-    let pathBerhasil = '';
-
-    for(const path of kandidatPath){
-      const cleanPath = String(path).replace(/^\/+/, '');
-
-      try{
-        const res = await fetch('../' + cleanPath + '?v=' + Date.now());
-
-        if(res.ok){
-          data = await res.json();
-          pathBerhasil = cleanPath;
-          break;
-        }
-      }catch(e){
-        console.warn('Gagal coba path:', cleanPath, e);
-      }
-    }
-
-    if(!data){
+    if(!res.ok){
       infoEl.textContent = 'Pencarian belum tersedia untuk kitab ini.';
-      console.error('Semua path search-index gagal:', kandidatPath);
+      console.error('Search index tidak ditemukan:', cleanPath);
       return;
     }
 
+    const data = await res.json();
+
     if(!Array.isArray(data)){
       infoEl.textContent = 'Format index pencarian tidak valid.';
-      console.error('Search index bukan array:', pathBerhasil, data);
       return;
     }
 
     searchIndexKitab = data;
 
     infoEl.textContent = `Pencarian siap. Total ${searchIndexKitab.length} data.`;
-
-    console.log('Search index berhasil dimuat:', pathBerhasil, searchIndexKitab.length);
+    console.log('Search index berhasil dimuat:', cleanPath);
 
   }catch(err){
     console.error('Gagal memuat search-index:', err);
@@ -489,7 +466,7 @@ async function setupPencarianKitab(kitab){
     }, 250);
   });
 }
-
+  
 function normalizeSearchText(text){
   return String(text || '')
     .toLowerCase()
