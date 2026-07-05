@@ -52,7 +52,7 @@ function normalizeHadits(item, kitabId, babId, index) {
     item.terjemah ||
     item.indonesia ||
     item.teksIndonesia ||
-    item arti ||
+    item.arti ||
     "";
 
   const faedah =
