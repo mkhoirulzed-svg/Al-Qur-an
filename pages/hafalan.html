@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hafalan Al-Qur'an</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+
+<style>
+.page-hafalan{
+  background:var(--bg);
+}
+
+.hafalan-container{
+  padding:14px 16px 120px;
+}
+
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+
+.header-title{
+  flex:1;
+  font-size:16px;
+  font-weight:800;
+  color:var(--primary);
+  line-height:1.25;
+}
+
+.hafalan-panel{
+  background:linear-gradient(145deg,#0a4d3a,#0f6e52);
+  color:#fff;
+  border-radius:24px;
+  padding:18px;
+  margin-bottom:16px;
+  box-shadow:0 8px 28px rgba(10,77,58,.22);
+}
+
+.panel-title{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+.panel-desc{
+  font-size:13px;
+  line-height:1.6;
+  opacity:.88;
+  margin-bottom:14px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.form-group label{
+  font-size:12px;
+  font-weight:700;
+  opacity:.9;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  border:none;
+  border-radius:14px;
+  padding:12px;
+  font-size:14px;
+  font-weight:700;
+  outline:none;
+  color:#16372d;
+  background:#fff;
+}
+
+.form-full{
+  grid-column:1 / -1;
+}
+
+.control-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+
+.action-btn{
+  border:none;
+  border-radius:15px;
+  padding:13px 12px;
+  font-weight:800;
+  font-size:14px;
+  background:#fff;
+  color:#0a4d3a;
+}
+
+.action-btn.primary{
+  background:var(--accent);
+  color:#fff;
+}
+
+.action-btn.danger{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.28);
+}
+
+.progress-card{
+  background:var(--card);
+  border-radius:20px;
+  padding:14px 16px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.progress-title{
+  font-size:13px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+.progress-info{
+  font-size:12px;
+  color:var(--text-secondary);
+  font-weight:700;
+}
+
+.progress-bar{
+  height:9px;
+  border-radius:999px;
+  background:var(--border);
+  overflow:hidden;
+}
+
+.progress-fill{
+  width:0%;
+  height:100%;
+  background:var(--primary);
+  border-radius:999px;
+  transition:.25s ease;
+}
+
+.mode-tools{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.tool-btn{
+  border:none;
+  border-radius:16px;
+  background:var(--card);
+  color:var(--primary);
+  padding:12px;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:var(--shadow-sm);
+}
+
+.tool-btn.active{
+  background:var(--primary);
+  color:#fff;
+}
+
+.bismillah{
+  background:var(--card);
+  color:var(--primary);
+  border-radius:20px;
+  padding:18px 16px;
+  margin-bottom:14px;
+  text-align:center;
+  direction:rtl;
+  font-size:27px;
+  box-shadow:var(--shadow-sm);
+  font-family:'Amiri',serif;
+}
+
+.ayat-item{
+  background:var(--card);
+  border-radius:20px;
+  padding:18px 16px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  transition:.25s ease;
+}
+
+.ayat-item.playing{
+  border-left:4px solid var(--primary);
+  background:var(--primary-ghost-strong);
+}
+
+.ayat-item.done{
+  border-left:4px solid var(--accent);
+}
+
+.ayat-content{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.ayat-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  color:var(--text-secondary);
+  font-weight:800;
+}
+
+.repeat-badge{
+  background:var(--primary-ghost);
+  color:var(--primary);
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:11px;
+}
+
+.ayat-arab{
+  font-family:'Amiri',serif;
+  direction:rtl;
+  text-align:right;
+  font-size:29px;
+  line-height:2.15;
+  color:var(--text);
+}
+
+.ayat-nomor-inline{
+  display:inline-block;
+  color:var(--primary);
+  font-size:23px;
+  margin-right:6px;
+}
+
+.ayat-indo{
+  font-size:14px;
+  line-height:1.75;
+  color:var(--text-secondary);
+}
+
+.hide-translation .ayat-indo{
+  display:none;
+}
+
+.hide-arab .ayat-arab{
+  filter:blur(8px);
+  user-select:none;
+}
+
+.hide-arab .ayat-item.revealed .ayat-arab{
+  filter:none;
+}
+
+.focus-mode .ayat-item:not(.playing){
+  opacity:.45;
+}
+
+.empty-state{
+  background:var(--card);
+  border-radius:20px;
+  padding:20px;
+  color:var(--text-secondary);
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+}
+
+.small-note{
+  margin-top:10px;
+  font-size:12px;
+  line-height:1.55;
+  opacity:.82;
+}
+
+@media(max-width:360px){
+  .form-grid,
+  .control-row,
+  .mode-tools{
+    grid-template-columns:1fr;
+  }
+
+  .ayat-arab{
+    font-size:27px;
+  }
+}
+</style>
+</head>
+
+<body class="page-hafalan">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <span id="judul">Hafalan</span>
+  </div>
+
+  <button class="nav-btn" id="toggleTerjemah">🌐</button>
+</header>
+
+<main class="hafalan-container">
+
+  <section class="hafalan-panel">
+    <div class="panel-title">Mode Hafalan</div>
+    <div class="panel-desc">
+      Pilih rentang ayat, lalu ulangi bacaan per ayat atau gabungan ayat. Cocok untuk metode dengar, tirukan, ulangi, lalu setor mandiri.
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="ayatAwal">Ayat awal</label>
+        <input id="ayatAwal" type="number" min="1" value="1">
+      </div>
+
+      <div class="form-group">
+        <label for="ayatAkhir">Ayat akhir</label>
+        <input id="ayatAkhir" type="number" min="1" value="1">
+      </div>
+
+      <div class="form-group">
+        <label for="ulangAyat">Ulang / ayat</label>
+        <input id="ulangAyat" type="number" min="1" max="20" value="5">
+      </div>
+
+      <div class="form-group">
+        <label for="ulangBlok">Ulang blok</label>
+        <input id="ulangBlok" type="number" min="1" max="20" value="3">
+      </div>
+
+      <div class="form-group">
+        <label for="jedaAyat">Jeda detik</label>
+        <input id="jedaAyat" type="number" min="0" max="10" value="1">
+      </div>
+
+      <div class="form-group">
+        <label for="metode">Metode</label>
+        <select id="metode">
+          <option value="ummi">Ummi bertahap</option>
+          <option value="ayat">Ulang per ayat</option>
+          <option value="blok">Ulang satu blok</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-row">
+      <button class="action-btn primary" id="startBtn">▶ Mulai Hafalan</button>
+      <button class="action-btn danger" id="stopBtn">■ Berhenti</button>
+    </div>
+
+    <div class="small-note">
+      Ummi bertahap: ayat 1 diulang, lalu ayat 1–2, lalu ayat 1–3, dan seterusnya sampai ayat akhir.
+    </div>
+  </section>
+
+  <section class="progress-card">
+    <div class="progress-top">
+      <div>
+        <div class="progress-title" id="progressTitle">Belum mulai</div>
+        <div class="progress-info" id="progressInfo">Pilih ayat lalu tekan mulai</div>
+      </div>
+      <div class="progress-info" id="progressPercent">0%</div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </section>
+
+  <section class="mode-tools">
+    <button class="tool-btn" id="toggleArab">🙈 Sembunyikan Ayat</button>
+    <button class="tool-btn" id="toggleFocus">🎯 Fokus Ayat</button>
+  </section>
+
+  <section id="ayatList">
+    <div class="empty-state">Memuat ayat...</div>
+  </section>
+
+</main>
+
+<audio id="audioPlayer"></audio>
+
+<script src="../data/surah-names.js"></script>
+
+<script>
+const params = new URLSearchParams(location.search);
+const no = Number(params.get('no')) || 1;
+
+const judul = document.getElementById('judul');
+const ayatList = document.getElementById('ayatList');
+const audioPlayer = document.getElementById('audioPlayer');
+
+const ayatAwalInput = document.getElementById('ayatAwal');
+const ayatAkhirInput = document.getElementById('ayatAkhir');
+const ulangAyatInput = document.getElementById('ulangAyat');
+const ulangBlokInput = document.getElementById('ulangBlok');
+const jedaAyatInput = document.getElementById('jedaAyat');
+const metodeInput = document.getElementById('metode');
+
+const startBtn = document.getElementById('startBtn');
+const stopBtn = document.getElementById('stopBtn');
+const toggleTerjemah = document.getElementById('toggleTerjemah');
+const toggleArab = document.getElementById('toggleArab');
+const toggleFocus = document.getElementById('toggleFocus');
+
+const progressTitle = document.getElementById('progressTitle');
+const progressInfo = document.getElementById('progressInfo');
+const progressPercent = document.getElementById('progressPercent');
+const progressFill = document.getElementById('progressFill');
+
+let ayahs = [];
+let ayatElements = [];
+let playlist = [];
+let playlistIndex = -1;
+let isPlaying = false;
+let currentPlaying = null;
+let showTerjemah = true;
+let hideArab = false;
+let focusMode = false;
+let pauseTimer = null;
+
+/* ================= AUDIO URL ================= */
+const AYAT_PER_SURAH = [
+  7, 286, 200, 176, 120, 165, 206, 75, 129, 109,
+  123, 111, 43, 52, 99, 128, 111, 110, 98, 135,
+  112, 78, 118, 64, 77, 227, 93, 88, 69, 60,
+  34, 30, 73, 54, 45, 83, 182, 88, 75, 85,
+  54, 53, 89, 59, 37, 35, 38, 29, 18, 45,
+  60, 49, 62, 55, 78, 96, 29, 22, 24, 13,
+  14, 11, 11, 18, 12, 12, 30, 52, 52, 44,
+  28, 28, 20, 56, 40, 31, 50, 40, 46, 42,
+  29, 19, 36, 25, 22, 17, 19, 26, 30, 20,
+  15, 21, 11, 8, 8, 19, 5, 8, 8, 11,
+  11, 8, 3, 9, 5, 4, 7, 3, 6, 3,
+  5, 4, 5, 6
+];
+
+const SURAH_START_AYAH = [];
+(function buildStartTable(){
+  let running = 1;
+  for(let i = 0; i < AYAT_PER_SURAH.length; i++){
+    SURAH_START_AYAH.push(running);
+    running += AYAT_PER_SURAH[i];
+  }
+})();
+
+const AUDIO_BASE = 'https://cdn.islamic.network/quran/audio/128/ar.alafasy';
+
+function getAudioUrl(surah, ayat){
+  const start = SURAH_START_AYAH[Number(surah) - 1];
+  if(!start) return '';
+  const globalNo = start + (Number(ayat) - 1);
+  return `${AUDIO_BASE}/${globalNo}.mp3`;
+}
+
+/* ================= UTIL ================= */
+function toArabicNumber(num){
+  const d = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(num).replace(/\d/g, x => d[x]);
+}
+
+function removeBismillah(text = ''){
+  return text
+    .replace(/^بِسْمِ\s*اللّٰهِ\s*الرَّحْمٰنِ\s*الرَّحِيْمِ\s*/u, '')
+    .replace(/^بِسْمِ\s*الله\s*الرحمن\s*الرحيم\s*/u, '')
+    .trim();
+}
+
+function clampNumber(value, min, max){
+  const n = Number(value);
+  if(Number.isNaN(n)) return min;
+  return Math.min(Math.max(n, min), max);
+}
+
+function getAyatEl(ayatNo){
+  return ayatElements.find(el => Number(el.dataset.ayat) === Number(ayatNo));
+}
+
+function setProgress(done, total){
+  const percent = total ? Math.round((done / total) * 100) : 0;
+  progressPercent.textContent = `${percent}%`;
+  progressFill.style.width = `${percent}%`;
+}
+
+function saveProgress(){
+  const key = `hafalan-progress-${no}`;
+  const data = {
+    surah: no,
+    surahName: judul.textContent,
+    ayatAwal: ayatAwalInput.value,
+    ayatAkhir: ayatAkhirInput.value,
+    ulangAyat: ulangAyatInput.value,
+    ulangBlok: ulangBlokInput.value,
+    metode: metodeInput.value,
+    updatedAt: new Date().toISOString()
+  };
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+function loadProgress(){
+  try{
+    const key = `hafalan-progress-${no}`;
+    const data = JSON.parse(localStorage.getItem(key));
+    if(!data) return;
+
+    ayatAwalInput.value = data.ayatAwal || 1;
+    ayatAkhirInput.value = data.ayatAkhir || ayahs.length || 1;
+    ulangAyatInput.value = data.ulangAyat || 5;
+    ulangBlokInput.value = data.ulangBlok || 3;
+    metodeInput.value = data.metode || 'ummi';
+  }catch{}
+}
+
+/* ================= RENDER ================= */
+function renderBismillah(){
+  if(no === 1 || no === 9) return '';
+
+  return `
+    <div class="bismillah">
+      ❁ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ❁
+    </div>
+  `;
+}
+
+function createAyatElement(a){
+  let ayatText = a.arab || '';
+
+  if(Number(a.ayat) === 1 && no !== 1 && no !== 9){
+    ayatText = removeBismillah(ayatText);
+  }
+
+  const div = document.createElement('div');
+  div.className = 'ayat-item';
+  div.id = `ayat-${a.ayat}`;
+  div.dataset.ayat = a.ayat;
+  div.dataset.audio = getAudioUrl(no, a.ayat);
+
+  div.innerHTML = `
+    <div class="ayat-content">
+      <div class="ayat-meta">
+        <span>Ayat ${a.ayat}</span>
+        <span class="repeat-badge" id="badge-${a.ayat}">Belum diulang</span>
+      </div>
+
+      <div class="ayat-arab">
+        ${ayatText}
+        <span class="ayat-nomor-inline">﴿${toArabicNumber(a.ayat)}﴾</span>
+      </div>
+
+      <div class="ayat-indo">${a.terjemahan || ''}</div>
+    </div>
+  `;
+
+  div.addEventListener('click', () => {
+    if(hideArab){
+      div.classList.toggle('revealed');
+    }else{
+      playSingleAyat(div);
+    }
+  });
+
+  return div;
+}
+
+function renderAyat(){
+  ayatList.innerHTML = renderBismillah();
+  ayatElements = [];
+
+  const fragment = document.createDocumentFragment();
+
+  ayahs.forEach(a => {
+    const el = createAyatElement(a);
+    ayatElements.push(el);
+    fragment.appendChild(el);
+  });
+
+  ayatList.appendChild(fragment);
+}
+
+/* ================= LOAD DATA ================= */
+async function loadSurah(){
+  try{
+    const res = await fetch('../data/quran-search.json?v=' + Date.now());
+    if(!res.ok) throw new Error('Gagal mengambil data');
+
+    const data = await res.json();
+
+    ayahs = data
+      .filter(a => Number(a.surah) === no)
+      .sort((a, b) => Number(a.ayat) - Number(b.ayat))
+      .filter((a, i, arr) => i === 0 || Number(a.ayat) !== Number(arr[i - 1].ayat));
+
+    if(!ayahs.length){
+      ayatList.innerHTML = '<div class="empty-state">Surah tidak ditemukan.</div>';
+      return;
+    }
+
+    const surahLatin = ayahs[0].nama || SURAH_NAMES[no] || `Surah ${no}`;
+    judul.textContent = `Hafalan ${surahLatin}`;
+
+    ayatAwalInput.max = ayahs.length;
+    ayatAkhirInput.max = ayahs.length;
+    ayatAkhirInput.value = ayahs.length;
+
+    loadProgress();
+    renderAyat();
+
+    progressTitle.textContent = `QS. ${surahLatin}`;
+    progressInfo.textContent = `Total ${ayahs.length} ayat`;
+
+  }catch(err){
+    ayatList.innerHTML = '<div class="empty-state">Gagal memuat ayat.</div>';
+  }
+}
+
+/* ================= PLAYLIST ================= */
+function buildPlaylist(){
+  const maxAyat = ayahs.length;
+  const awal = clampNumber(ayatAwalInput.value, 1, maxAyat);
+  const akhir = clampNumber(ayatAkhirInput.value, awal, maxAyat);
+  const ulangAyat = clampNumber(ulangAyatInput.value, 1, 20);
+  const ulangBlok = clampNumber(ulangBlokInput.value, 1, 20);
+  const metode = metodeInput.value;
+
+  ayatAwalInput.value = awal;
+  ayatAkhirInput.value = akhir;
+
+  const list = [];
+
+  if(metode === 'ayat'){
+    for(let ayat = awal; ayat <= akhir; ayat++){
+      for(let r = 1; r <= ulangAyat; r++){
+        list.push({
+          ayat,
+          label: `Ayat ${ayat}, ulang ${r}/${ulangAyat}`
+        });
+      }
+    }
+  }
+
+  if(metode === 'blok'){
+    for(let b = 1; b <= ulangBlok; b++){
+      for(let ayat = awal; ayat <= akhir; ayat++){
+        list.push({
+          ayat,
+          label: `Blok ${awal}-${akhir}, putaran ${b}/${ulangBlok}`
+        });
+      }
+    }
+  }
+
+  if(metode === 'ummi'){
+    for(let target = awal; target <= akhir; target++){
+      for(let r = 1; r <= ulangAyat; r++){
+        list.push({
+          ayat: target,
+          label: `Dengar ayat ${target}, ulang ${r}/${ulangAyat}`
+        });
+      }
+
+      for(let b = 1; b <= ulangBlok; b++){
+        for(let ayat = awal; ayat <= target; ayat++){
+          list.push({
+            ayat,
+            label: `Gabungan ${awal}-${target}, putaran ${b}/${ulangBlok}`
+          });
+        }
+      }
+    }
+  }
+
+  return list;
+}
+
+function clearPlayingState(){
+  if(currentPlaying){
+    currentPlaying.classList.remove('playing');
+    currentPlaying = null;
+  }
+}
+
+function markDone(ayatNo){
+  const el = getAyatEl(ayatNo);
+  if(!el) return;
+
+  el.classList.add('done');
+
+  const badge = document.getElementById(`badge-${ayatNo}`);
+  if(badge){
+    badge.textContent = 'Sudah dilatih';
+  }
+}
+
+function playCurrent(){
+  if(!isPlaying) return;
+
+  clearPlayingState();
+
+  const item = playlist[playlistIndex];
+  if(!item){
+    finishPlaylist();
+    return;
+  }
+
+  const el = getAyatEl(item.ayat);
+  if(!el || !el.dataset.audio){
+    playlistIndex++;
+    playCurrent();
+    return;
+  }
+
+  currentPlaying = el;
+  currentPlaying.classList.add('playing');
+
+  progressTitle.textContent = item.label;
+  progressInfo.textContent = `Langkah ${playlistIndex + 1} dari ${playlist.length}`;
+  setProgress(playlistIndex, playlist.length);
+
+  audioPlayer.src = el.dataset.audio;
+  audioPlayer.play();
+
+  el.scrollIntoView({
+    behavior:'smooth',
+    block:'center'
+  });
+}
+
+function finishPlaylist(){
+  isPlaying = false;
+  clearPlayingState();
+  setProgress(playlist.length, playlist.length);
+  progressTitle.textContent = 'Selesai';
+  progressInfo.textContent = 'Alhamdulillah, sesi hafalan selesai.';
+  saveProgress();
+}
+
+function startHafalan(){
+  playlist = buildPlaylist();
+
+  if(!playlist.length){
+    progressTitle.textContent = 'Rentang belum valid';
+    progressInfo.textContent = 'Periksa ayat awal dan ayat akhir.';
+    return;
+  }
+
+  document.querySelectorAll('.ayat-item').forEach(el => {
+    el.classList.remove('playing', 'done', 'revealed');
+  });
+
+  document.querySelectorAll('.repeat-badge').forEach(badge => {
+    badge.textContent = 'Belum diulang';
+  });
+
+  saveProgress();
+
+  isPlaying = true;
+  playlistIndex = 0;
+  setProgress(0, playlist.length);
+  playCurrent();
+}
+
+function stopHafalan(){
+  isPlaying = false;
+  audioPlayer.pause();
+  audioPlayer.currentTime = 0;
+
+  if(pauseTimer){
+    clearTimeout(pauseTimer);
+    pauseTimer = null;
+  }
+
+  clearPlayingState();
+  progressTitle.textContent = 'Dihentikan';
+  progressInfo.textContent = 'Tekan mulai untuk mengulang sesi.';
+}
+
+function playSingleAyat(el){
+  stopHafalan();
+
+  currentPlaying = el;
+  currentPlaying.classList.add('playing');
+
+  progressTitle.textContent = `Putar ayat ${el.dataset.ayat}`;
+  progressInfo.textContent = 'Mode dengar cepat';
+  setProgress(0, 1);
+
+  audioPlayer.src = el.dataset.audio;
+  audioPlayer.play();
+
+  el.scrollIntoView({
+    behavior:'smooth',
+    block:'center'
+  });
+}
+
+/* ================= EVENTS ================= */
+audioPlayer.addEventListener('ended', () => {
+  if(!isPlaying){
+    clearPlayingState();
+    setProgress(1, 1);
+    return;
+  }
+
+  const currentItem = playlist[playlistIndex];
+
+  if(currentItem){
+    markDone(currentItem.ayat);
+  }
+
+  playlistIndex++;
+  setProgress(playlistIndex, playlist.length);
+
+  const jeda = clampNumber(jedaAyatInput.value, 0, 10) * 1000;
+
+  if(pauseTimer){
+    clearTimeout(pauseTimer);
+  }
+
+  pauseTimer = setTimeout(() => {
+    playCurrent();
+  }, jeda);
+});
+
+startBtn.onclick = startHafalan;
+stopBtn.onclick = stopHafalan;
+
+toggleTerjemah.onclick = () => {
+  showTerjemah = !showTerjemah;
+  document.body.classList.toggle('hide-translation', !showTerjemah);
+};
+
+toggleArab.onclick = () => {
+  hideArab = !hideArab;
+  document.body.classList.toggle('hide-arab', hideArab);
+  toggleArab.classList.toggle('active', hideArab);
+  toggleArab.textContent = hideArab ? '👁 Tampilkan Saat Tap' : '🙈 Sembunyikan Ayat';
+};
+
+toggleFocus.onclick = () => {
+  focusMode = !focusMode;
+  document.body.classList.toggle('focus-mode', focusMode);
+  toggleFocus.classList.toggle('active', focusMode);
+};
+
+/* ================= START ================= */
+loadSurah();
+</script>
+
+</body>
+</html>
