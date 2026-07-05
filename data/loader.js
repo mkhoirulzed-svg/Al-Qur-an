@@ -1,12 +1,20 @@
-(function(){
+function setTheme(theme) {
+  document.body.classList.remove('theme-blue', 'theme-dark');
+
+  if (theme !== 'default') {
+    document.body.classList.add(theme);
+  }
+
+  localStorage.setItem('appTheme', theme);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
   const savedTheme = localStorage.getItem('appTheme') || 'default';
 
-  document.documentElement.classList.remove('theme-blue', 'theme-dark');
-
-  if(savedTheme !== 'default'){
-    document.documentElement.classList.add(savedTheme);
+  if (savedTheme !== 'default') {
+    document.body.classList.add(savedTheme);
   }
-})();
+});
 
 async function loadFooter(currentPage){
 
