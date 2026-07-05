@@ -14,7 +14,8 @@
       "Tauhid adalah kunci pintu surga.",
       "Iman yang benar akan mengantarkan seseorang masuk surga."
     ],
-    "pelajaran": "Penting bagi kita untuk terus memperbaiki tauhid, bukan hanya dalam lisan, tetapi juga dalam hati dan perbuatan."
+    "pelajaran": "Penting bagi kita untuk terus memperbaiki tauhid, bukan hanya dalam lisan, tetapi juga dalam hati dan perbuatan.",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 2,
@@ -30,7 +31,8 @@
       "Jika pemilik tempat duduk itu berdiri karena ada hajat (kebutuhan) lalu kembali, maka ia lebih berhak menempati tempat duduk tersebut dibanding yang lain.",
       "Islam mengajarkan memberikan sesuatu sesuai haknya untuk mencegah kezaliman dan kerusakan."
     ],
-    "pelajaran": "Orang yang lebih dahulu menempati suatu tempat memiliki hak atas tempat tersebut selama ia kembali setelah ada keperluan."
+    "pelajaran": "Orang yang lebih dahulu menempati suatu tempat memiliki hak atas tempat tersebut selama ia kembali setelah ada keperluan.",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 3,
@@ -46,7 +48,8 @@
       "Dalam majelis ilmu terdapat adab-adab yang perlu diperhatikan.",
       "Boleh meminta orang lain merapat apabila masih ada celah kosong selama tidak mengganggu mereka."
     ],
-    "pelajaran": "Islam mengajarkan adab ketika menghadiri majelis dengan tidak melangkahi atau merebut tempat orang lain."
+    "pelajaran": "Islam mengajarkan adab ketika menghadiri majelis dengan tidak melangkahi atau merebut tempat orang lain.",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 4,
@@ -64,7 +67,8 @@
       "Wajib diam ketika imam berkhutbah.",
       "Amalan-amalan tersebut menjadi sebab diampuninya dosa antara dua Jumat."
     ],
-    "pelajaran": "Adab menuju shalat Jumat mencakup menjaga kebersihan, tidak mengganggu orang lain, memperbanyak ibadah, dan menyimak khutbah dengan baik."
+    "pelajaran": "Adab menuju shalat Jumat mencakup menjaga kebersihan, tidak mengganggu orang lain, memperbanyak ibadah, dan menyimak khutbah dengan baik.",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 1453,
@@ -84,7 +88,8 @@
       "Jika derajatnya sama, maka sebaik-baik di antara mereka adalah yang memulai mengucapkan salam.",
       "Memulai mengucapkan salam menunjukkan semangat menjalankan adab dan syariat."
     ],
-    "pelajaran": "Mengucapkan salam adalah bentuk memuliakan orang lain dengan berbagai urutan yang telah ditetapkan Nabi. Yang muda harus menghormati yang tua, orang yang bergerak harus menghormati yang diam, dan kelompok kecil menghormati kelompok besar."
+    "pelajaran": "Mengucapkan salam adalah bentuk memuliakan orang lain dengan berbagai urutan yang telah ditetapkan Nabi. Yang muda harus menghormati yang tua, orang yang bergerak harus menghormati yang diam, dan kelompok kecil menghormati kelompok besar.",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 1454,
@@ -103,7 +108,8 @@
       "Jika yang diberi salam adalah kelompok orang dan yang menjawab hanya anak-anak, maka belum mencukupi sampai dijawab oleh orang dewasa.",
       "Yang afdal (lebih utama) adalah semuanya mengucapkan dan menjawab salam."
     ],
-    "pelajaran": "Dalam situasi berjamaah, cukup satu orang mewakili untuk memulai dan membalas salam. Namun yang lebih baik adalah semuanya ikut serta dalam mengucapkan dan menjawab salam."
+    "pelajaran": "Dalam situasi berjamaah, cukup satu orang mewakili untuk memulai dan membalas salam. Namun yang lebih baik adalah semuanya ikut serta dalam mengucapkan dan menjawab salam.",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 1455,
@@ -122,10 +128,11 @@
       "Maksud 'persempitlah jalan mereka' adalah jangan membuka jalan kepada orang kafir dalam rangka memuliakan atau menghormati mereka.",
       "Pemahaman hadits ini bukan berarti menyakiti orang kafir secara berlebihan tanpa ada sebab yang jelas."
     ],
-    "pelajaran": "Seorang muslim tidak boleh memulai mengucapkan salam kepada orang kafir, namun jika mereka memberi salam, dapat dijawab dengan cara yang spesifik. Ini adalah bentuk menjaga identitas dan kehormatan kaum muslimin."
+    "pelajaran": "Seorang muslim tidak boleh memulai mengucapkan salam kepada orang kafir, namun jika mereka memberi salam, dapat dijawab dengan cara yang spesifik. Ini adalah bentuk menjaga identitas dan kehormatan kaum muslimin.",
+    "sumber": "rumaysho.com"
   },
   {
-     "id": 6,
+    "id": 6,
     "judul": "Keutamaan Bersiwak Sebelum Shalat",
     "arab": "لَوْلاَ أَنْ أَشُقَّ عَلَى أُمَّتِي – أَوْ عَلَى النَّاسِ – لأَمَرْتُهُمْ بِالسِّوَاكِ مَعَ كُلِّ صَلاَةٍ",
     "latin": "",
@@ -134,7 +141,8 @@
     "derajat": "Muttafaqun 'alaih",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 7,
@@ -146,10 +154,11 @@
     "derajat": "Muttafaqun 'alaih",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-     "id": 8,
+    "id": 8,
     "judul": "Bersiwak Sebelum Shalat Malam",
     "arab": "كُنَّا نُعِدُّ لِرَسُولِ اللهِ ﷺ سِوَاكَهُ وَطَهُورَهُ ... فَيَتَسَوَّكُ وَيَتَوَضَّأُ وَيُصَلِّي",
     "latin": "",
@@ -158,10 +167,11 @@
     "derajat": "",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-     "id": 9,
+    "id": 9,
     "judul": "Anjuran Memperbanyak Bersiwak",
     "arab": "أَكْثَرْتُ عَلَيْكُمْ فِي السِّوَاكِ",
     "latin": "",
@@ -170,10 +180,11 @@
     "derajat": "",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-     "id": 10,
+    "id": 10,
     "judul": "Bersiwak Saat Memasuki Rumah",
     "arab": "بِالسِّوَاكِ",
     "latin": "",
@@ -182,10 +193,11 @@
     "derajat": "",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-     "id": 11,
+    "id": 11,
     "judul": "Nabi Bersiwak Hingga Menyentuh Lidah",
     "arab": "دَخَلْتُ عَلَى النَّبِيِّ ﷺ وَطَرَفُ السِّوَاكِ عَلَى لِسَانِهِ",
     "latin": "",
@@ -194,7 +206,8 @@
     "derajat": "Muttafaqun 'alaih",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 12,
@@ -206,10 +219,11 @@
     "derajat": "Shahih",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-     "id": 13,
+    "id": 13,
     "judul": "Lima Perkara Fitrah",
     "arab": "الفِطْرَةُ خَمْسٌ ... الخِتَانُ وَالاسْتِحْدَادُ وَتَقْلِيمُ الأظْفَارِ وَنَتْفُ الإِبْطِ وَقَصُّ الشَّارِبِ",
     "latin": "",
@@ -218,10 +232,11 @@
     "derajat": "Muttafaqun 'alaih",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-     "id": 14,
+    "id": 14,
     "judul": "Sepuluh Perkara Fitrah",
     "arab": "عَشْرٌ مِنَ الفِطْرَةِ ...",
     "latin": "",
@@ -230,7 +245,8 @@
     "derajat": "",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 15,
@@ -242,7 +258,8 @@
     "derajat": "Muttafaqun 'alaih",
     "kitab": "Riyadhus Shalihin",
     "faedah": [],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 17,
@@ -258,7 +275,8 @@
       "Hadits ini mendorong kita untuk memberi makan kepada orang fakir dan miskin, ibnu sabil, orang-orang yang lemah, serta memberi hadiah pada tetangga.",
       "Sudah sepatutnya kita menebar salam tanpa mengkhususkan pada orang yang dikenal saja karena ucapan salam termasuk hak umumnya kaum muslimin."
     ],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
     "id": 18,
@@ -277,10 +295,11 @@
       "Adam adalah bapak manusia.",
       "Hadits ini menunjukkan perintah mengambil ilmu dari ahlinya."
     ],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-   "id": 19,
+    "id": 19,
     "judul": "Tujuh Perkara yang Diperintahkan Rasulullah",
     "arab": "بِعِيادَةِ الَمرِيضِ. وَاتِّبَاعِ الجَنائِزِ، وَتَشْمِيْتُ العَاطِسِ، وَنَصْرِ الضَّعِيْفِ، وَعَوْنُ المَظْلُومِ، وَإفْشَاءِ السَّلاَمِ، وَإِبْرَارِ المُقسِمِ",
     "latin": "",
@@ -300,10 +319,11 @@
       "Hendaklah orang yang bersin mengucapkan doa hidayah dan perbaikan keadaan setelah adanya doa rahmat sebelumnya.",
       "Hal mulia lain yang diajarkan dalam hadits ini adalah membantu yang lemah, menolong yang dizalimi, menyebarkan salam, dan memenuhi sumpah."
     ],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-   "id": 20,
+    "id": 20,
     "judul": "Menyebarkan Salam Menumbuhkan Cinta",
     "arab": "لاَ تَدْخُلُوا الجَنَّةَ حَتَّى تُؤْمِنُوا وَلا تُؤْمِنُوا حَتىَّ تحَابُّوا، أَوَلاَ أَدُلُّكُمْ عَلَى شَئٍ إِذَا فَعَلْتُمُوهُ تَحاَبَبْتُمْ؟ أَفْشُوا السَّلاَم بَيْنَكُم",
     "latin": "",
@@ -321,92 +341,97 @@
       "Hadits ini mengajarkan untuk tawadhu’ pada orang beriman.",
       "Dengan mengucapkan salam akan menghilangkan permusuhan."
     ],
-    "pelajaran": ""
+    "pelajaran": "",
+    "sumber": "rumaysho.com"
   },
   {
-  "id": 21,
-  "judul": "Menjauhi Syubhat",
-  "arab": "إِنَّ اَلْحَلَالَ بَيِّنٌ، وَإِنَّ اَلْحَرَامَ بَيِّنٌ، وَبَيْنَهُمَا مُشْتَبِهَاتٌ، لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ اَلنَّاسِ، فَمَنِ اتَّقَى اَلشُّبُهَاتِ، فَقَدِ اِسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ، وَمَنْ وَقَعَ فِي اَلشُّبُهَاتِ وَقَعَ فِي اَلْحَرَامِ، كَالرَّاعِي يَرْعَى حَوْلَ اَلْحِمَى يُوشِكُ أَنْ يَقَعَ فِيهِ، أَلَا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى، أَلَا وَإِنَّ حِمَى اَللَّهِ مَحَارِمُهُ، أَلَا وَإِنَّ فِي اَلْجَسَدِ مُضْغَةً، إِذَا صَلَحَتْ صَلَحَ اَلْجَسَدُ كُلُّهُ، وَإِذَا فَسَدَتْ فَسَدَ اَلْجَسَدُ كُلُّهُ، أَلَا وَهِيَ اَلْقَلْبُ",
-  "latin": "",
-  "terjemahan": "Sesungguhnya yang halal itu jelas dan yang haram itu jelas. Di antara keduanya terdapat perkara-perkara syubhat yang tidak diketahui oleh kebanyakan manusia. Barang siapa menjaga diri dari perkara syubhat, maka ia telah menjaga agama dan kehormatannya. Barang siapa terjatuh ke dalam perkara syubhat, maka ia akan terjatuh ke dalam perkara haram. Seperti penggembala yang menggembala di sekitar tanah larangan, hampir-hampir ia memasukinya. Ketahuilah, setiap raja memiliki tanah larangan, dan tanah larangan Allah adalah apa yang diharamkan-Nya. Ketahuilah, dalam jasad terdapat segumpal daging. Jika ia baik maka baiklah seluruh jasad, dan jika ia rusak maka rusaklah seluruh jasad. Ketahuilah, itulah hati.",
-  "perawi": "HR. Bukhari No. 52 dan Muslim No. 1599",
-  "derajat": "Muttafaqun 'alaih",
-  "kitab": "Bulughul Maram",
-  "faedah": [
-    "Halal dan haram pada dasarnya telah jelas berdasarkan dalil syariat.",
-    "Perkara syubhat adalah perkara yang samar antara halal dan haram sehingga tidak diketahui oleh kebanyakan manusia.",
-    "Orang yang menjauhi perkara syubhat telah menjaga agama dan kehormatannya.",
-    "Meremehkan perkara syubhat dapat menjadi jalan menuju perkara yang haram.",
-    "Syariat membagi hukum menjadi halal, haram, dan syubhat.",
-    "Dalam perkara syubhat hendaknya mengikuti penjelasan ulama yang berilmu dan bersikap wara'.",
-    "Menjaga kehormatan diri termasuk bagian dari sikap wara' dan kehati-hatian dalam agama.",
-    "Baik dan buruknya amal sangat dipengaruhi oleh keadaan hati.",
-    "Memperbaiki hati merupakan kunci baiknya seluruh anggota badan.",
-    "Zuhud dan wara' diwujudkan dengan menjauhi perkara syubhat, mencukupkan diri dengan yang halal, dan meninggalkan yang haram."
-  ],
-  "pelajaran": "Hadits ini mengajarkan agar seorang muslim berhati-hati dalam perkara yang belum jelas hukumnya, tidak meremehkan syubhat, selalu menjaga hati, serta mencukupkan diri dengan yang halal demi menjaga agama dan kehormatannya."
-},
+    "id": 21,
+    "judul": "Menjauhi Syubhat",
+    "arab": "إِنَّ اَلْحَلَالَ بَيِّنٌ، وَإِنَّ اَلْحَرَامَ بَيِّنٌ، وَبَيْنَهُمَا مُشْتَبِهَاتٌ، لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ اَلنَّاسِ، فَمَنِ اتَّقَى اَلشُّبُهَاتِ، فَقَدِ اِسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ، وَمَنْ وَقَعَ فِي اَلشُّبُهَاتِ وَقَعَ فِي اَلْحَرَامِ، كَالرَّاعِي يَرْعَى حَوْلَ اَلْحِمَى يُوشِكُ أَنْ يَقَعَ فِيهِ، أَلَا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى، أَلَا وَإِنَّ حِمَى اَللَّهِ مَحَارِمُهُ، أَلَا وَإِنَّ فِي اَلْجَسَدِ مُضْغَةً، إِذَا صَلَحَتْ صَلَحَ اَلْجَسَدُ كُلُّهُ، وَإِذَا فَسَدَتْ فَسَدَ اَلْجَسَدُ كُلُّهُ، أَلَا وَهِيَ اَلْقَلْبُ",
+    "latin": "",
+    "terjemahan": "Sesungguhnya yang halal itu jelas dan yang haram itu jelas. Di antara keduanya terdapat perkara-perkara syubhat yang tidak diketahui oleh kebanyakan manusia. Barang siapa menjaga diri dari perkara syubhat, maka ia telah menjaga agama dan kehormatannya. Barang siapa terjatuh ke dalam perkara syubhat, maka ia akan terjatuh ke dalam perkara haram. Seperti penggembala yang menggembala di sekitar tanah larangan, hampir-hampir ia memasukinya. Ketahuilah, setiap raja memiliki tanah larangan, dan tanah larangan Allah adalah apa yang diharamkan-Nya. Ketahuilah, dalam jasad terdapat segumpal daging. Jika ia baik maka baiklah seluruh jasad, dan jika ia rusak maka rusaklah seluruh jasad. Ketahuilah, itulah hati.",
+    "perawi": "HR. Bukhari No. 52 dan Muslim No. 1599",
+    "derajat": "Muttafaqun 'alaih",
+    "kitab": "Bulughul Maram",
+    "faedah": [
+      "Halal dan haram pada dasarnya telah jelas berdasarkan dalil syariat.",
+      "Perkara syubhat adalah perkara yang samar antara halal dan haram sehingga tidak diketahui oleh kebanyakan manusia.",
+      "Orang yang menjauhi perkara syubhat telah menjaga agama dan kehormatannya.",
+      "Meremehkan perkara syubhat dapat menjadi jalan menuju perkara yang haram.",
+      "Syariat membagi hukum menjadi halal, haram, dan syubhat.",
+      "Dalam perkara syubhat hendaknya mengikuti penjelasan ulama yang berilmu dan bersikap wara'.",
+      "Menjaga kehormatan diri termasuk bagian dari sikap wara' dan kehati-hatian dalam agama.",
+      "Baik dan buruknya amal sangat dipengaruhi oleh keadaan hati.",
+      "Memperbaiki hati merupakan kunci baiknya seluruh anggota badan.",
+      "Zuhud dan wara' diwujudkan dengan menjauhi perkara syubhat, mencukupkan diri dengan yang halal, dan meninggalkan yang haram."
+    ],
+    "pelajaran": "Hadits ini mengajarkan agar seorang muslim berhati-hati dalam perkara yang belum jelas hukumnya, tidak meremehkan syubhat, selalu menjaga hati, serta mencukupkan diri dengan yang halal demi menjaga agama dan kehormatannya.",
+    "sumber": "rumaysho.com"
+  },
   {
-  "id": 22,
-  "judul": "Membalas Kebaikan Orang Lain",
-  "arab": "مَنْ اسْتَعَاذَكُمْ بِاللَّهِ فَأَعِيذُوهُ، وَمَنْ سَأَلَكُمْ بِاللَّهِ فَأَعْطُوهُ، وَمَنْ أَتَى إِلَيْكُمْ مَعْرُوفًا فَكَافِئُوهُ، فَإِنْ لَمْ تَجِدُوا، فَادْعُوا لَهُ",
-  "latin": "",
-  "terjemahan": "Barang siapa meminta perlindungan kepadamu dengan nama Allah, lindungilah dia; barang siapa meminta sesuatu kepadamu dengan nama Allah, berilah dia; barang siapa berbuat baik kepadamu, balaslah dia. Jika engkau tidak mampu, berdoalah untuknya.",
-  "perawi": "HR. Abu Dawud No. 1672, An-Nasa'i No. 2568, Ahmad, Al-Hakim, dan Al-Baihaqi",
-  "derajat": "Shahih",
-  "kitab": "Bulughul Maram",
-  "faedah": [
-    "Wajib memberikan perlindungan kepada orang yang meminta perlindungan dengan menyebut nama Allah selama bukan untuk menghindari kewajiban atau melakukan kemaksiatan.",
-    "Orang yang meminta sesuatu dengan menyebut nama Allah hendaknya diberi apabila permintaannya benar dan dibenarkan syariat.",
-    "Permintaan yang bertujuan melakukan dosa atau kemaksiatan tidak boleh dipenuhi meskipun menyebut nama Allah.",
-    "Memenuhi undangan walimah seorang muslim hukumnya wajib menurut jumhur ulama apabila tidak ada uzur yang menghalangi.",
-    "Memenuhi undangan dapat mempererat hubungan, memuliakan orang yang mengundang, dan menumbuhkan kasih sayang di antara kaum muslimin.",
-    "Undangan selain walimah hukumnya sunnah untuk dipenuhi.",
-    "Hendaknya membalas kebaikan orang yang telah berbuat baik kepada kita apabila mampu.",
-    "Membalas kebaikan merupakan akhlak yang dicintai Allah dan Rasul-Nya.",
-    "Membalas kebaikan akan mendorong orang lain terus berbuat baik serta menumbuhkan rasa cinta di antara sesama.",
-    "Jika tidak mampu membalas suatu kebaikan, maka balaslah dengan doa yang tulus untuk orang tersebut."
-  ],
-  "pelajaran": "Hadits ini mengajarkan agar seorang muslim menghormati nama Allah, membalas setiap kebaikan dengan yang setimpal atau lebih baik, serta menggantinya dengan doa apabila tidak mampu membalasnya. Sikap ini akan mempererat ukhuwah dan menumbuhkan kasih sayang di tengah kaum muslimin."
-},
+    "id": 22,
+    "judul": "Membalas Kebaikan Orang Lain",
+    "arab": "مَنْ اسْتَعَاذَكُمْ بِاللَّهِ فَأَعِيذُوهُ، وَمَنْ سَأَلَكُمْ بِاللَّهِ فَأَعْطُوهُ، وَمَنْ أَتَى إِلَيْكُمْ مَعْرُوفًا فَكَافِئُوهُ، فَإِنْ لَمْ تَجِدُوا، فَادْعُوا لَهُ",
+    "latin": "",
+    "terjemahan": "Barang siapa meminta perlindungan kepadamu dengan nama Allah, lindungilah dia; barang siapa meminta sesuatu kepadamu dengan nama Allah, berilah dia; barang siapa berbuat baik kepadamu, balaslah dia. Jika engkau tidak mampu, berdoalah untuknya.",
+    "perawi": "HR. Abu Dawud No. 1672, An-Nasa'i No. 2568, Ahmad, Al-Hakim, dan Al-Baihaqi",
+    "derajat": "Shahih",
+    "kitab": "Bulughul Maram",
+    "faedah": [
+      "Wajib memberikan perlindungan kepada orang yang meminta perlindungan dengan menyebut nama Allah selama bukan untuk menghindari kewajiban atau melakukan kemaksiatan.",
+      "Orang yang meminta sesuatu dengan menyebut nama Allah hendaknya diberi apabila permintaannya benar dan dibenarkan syariat.",
+      "Permintaan yang bertujuan melakukan dosa atau kemaksiatan tidak boleh dipenuhi meskipun menyebut nama Allah.",
+      "Memenuhi undangan walimah seorang muslim hukumnya wajib menurut jumhur ulama apabila tidak ada uzur yang menghalangi.",
+      "Memenuhi undangan dapat mempererat hubungan, memuliakan orang yang mengundang, dan menumbuhkan kasih sayang di antara kaum muslimin.",
+      "Undangan selain walimah hukumnya sunnah untuk dipenuhi.",
+      "Hendaknya membalas kebaikan orang yang telah berbuat baik kepada kita apabila mampu.",
+      "Membalas kebaikan merupakan akhlak yang dicintai Allah dan Rasul-Nya.",
+      "Membalas kebaikan akan mendorong orang lain terus berbuat baik serta menumbuhkan rasa cinta di antara sesama.",
+      "Jika tidak mampu membalas suatu kebaikan, maka balaslah dengan doa yang tulus untuk orang tersebut."
+    ],
+    "pelajaran": "Hadits ini mengajarkan agar seorang muslim menghormati nama Allah, membalas setiap kebaikan dengan yang setimpal atau lebih baik, serta menggantinya dengan doa apabila tidak mampu membalasnya. Sikap ini akan mempererat ukhuwah dan menumbuhkan kasih sayang di tengah kaum muslimin.",
+    "sumber": "rumaysho.com"
+  },
   {
-  "id": 23,
-  "judul": "Bantu Orang Susah dan Menutupi Aib Muslim",
-  "arab": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ اَلدُّنْيَا، نَفَّسَ اَللَّهُ عَنْهُ كُرْبَةً مِنْ كُرْبِ يَوْمِ اَلْقِيَامَةِ، وَمَنْ يَسَّرَ عَلَى مُعْسِرٍ، يَسَّرَ اَللَّهُ عَلَيْهِ فِي اَلدُّنْيَا وَالْآخِرَةِ، وَمَنْ سَتَرَ مُسْلِمًا، سَتَرَهُ اَللَّهُ فِي اَلدُّنْيَا وَالْآخِرَةِ، وَاَللَّهُ فِي عَوْنِ اَلْعَبْدِ مَا كَانَ اَلْعَبْدُ فِي عَوْنِ أَخِيهِ",
-  "latin": "",
-  "terjemahan": "Barang siapa melepaskan kesusahan seorang mukmin dari kesusahan dunia, Allah akan melepaskan kesusahannya pada hari kiamat. Barang siapa memudahkan orang yang sedang mengalami kesulitan, Allah akan memudahkan urusannya di dunia dan akhirat. Barang siapa menutupi aib seorang muslim, Allah akan menutupi aibnya di dunia dan akhirat. Allah senantiasa menolong hamba-Nya selama hamba tersebut menolong saudaranya.",
-  "perawi": "HR. Muslim No. 2699",
-  "derajat": "Shahih",
-  "kitab": "Bulughul Maram",
-  "faedah": [
-    "Hadits ini mengandung banyak kaidah, adab, keutamaan, dan hukum dalam bermuamalah.",
-    "Melepaskan kesulitan seorang muslim menjadi sebab Allah menghilangkan kesulitan pada hari kiamat.",
-    "Membantu orang yang mengalami kesempitan, termasuk dalam urusan utang atau kebutuhan hidup, akan dibalas dengan kemudahan dari Allah di dunia dan akhirat.",
-    "Menutupi aib seorang muslim yang tidak terang-terangan berbuat maksiat merupakan amalan yang sangat dianjurkan.",
-    "Balasan suatu amal sesuai dengan jenis amalnya; siapa menolong saudaranya akan mendapatkan pertolongan Allah.",
-    "Hadits ini mendorong kaum muslimin untuk saling membantu dan meringankan beban sesama.",
-    "Keutamaan menolong sesama tidak terbatas pada bantuan materi, tetapi juga mencakup bantuan tenaga, nasihat, doa, dan bentuk pertolongan lainnya."
-  ],
-  "pelajaran": "Seorang muslim hendaknya menjadi pribadi yang peduli terhadap kesulitan orang lain, gemar membantu, tidak membuka aib saudaranya, serta yakin bahwa setiap pertolongan yang diberikan kepada sesama akan dibalas dengan pertolongan Allah di dunia dan akhirat."
-},
+    "id": 23,
+    "judul": "Bantu Orang Susah dan Menutupi Aib Muslim",
+    "arab": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ اَلدُّنْيَا، نَفَّسَ اَللَّهُ عَنْهُ كُرْبَةً مِنْ كُرْبِ يَوْمِ اَلْقِيَامَةِ، وَمَنْ يَسَّرَ عَلَى مُعْسِرٍ، يَسَّرَ اَللَّهُ عَلَيْهِ فِي اَلدُّنْيَا وَالْآخِرَةِ، وَمَنْ سَتَرَ مُسْلِمًا، سَتَرَهُ اَللَّهُ فِي اَلدُّنْيَا وَالْآخِرَةِ، وَاَللَّهُ فِي عَوْنِ اَلْعَبْدِ مَا كَانَ اَلْعَبْدُ فِي عَوْنِ أَخِيهِ",
+    "latin": "",
+    "terjemahan": "Barang siapa melepaskan kesusahan seorang mukmin dari kesusahan dunia, Allah akan melepaskan kesusahannya pada hari kiamat. Barang siapa memudahkan orang yang sedang mengalami kesulitan, Allah akan memudahkan urusannya di dunia dan akhirat. Barang siapa menutupi aib seorang muslim, Allah akan menutupi aibnya di dunia dan akhirat. Allah senantiasa menolong hamba-Nya selama hamba tersebut menolong saudaranya.",
+    "perawi": "HR. Muslim No. 2699",
+    "derajat": "Shahih",
+    "kitab": "Bulughul Maram",
+    "faedah": [
+      "Hadits ini mengandung banyak kaidah, adab, keutamaan, dan hukum dalam bermuamalah.",
+      "Melepaskan kesulitan seorang muslim menjadi sebab Allah menghilangkan kesulitan pada hari kiamat.",
+      "Membantu orang yang mengalami kesempitan, termasuk dalam urusan utang atau kebutuhan hidup, akan dibalas dengan kemudahan dari Allah di dunia dan akhirat.",
+      "Menutupi aib seorang muslim yang tidak terang-terangan berbuat maksiat merupakan amalan yang sangat dianjurkan.",
+      "Balasan suatu amal sesuai dengan jenis amalnya; siapa menolong saudaranya akan mendapatkan pertolongan Allah.",
+      "Hadits ini mendorong kaum muslimin untuk saling membantu dan meringankan beban sesama.",
+      "Keutamaan menolong sesama tidak terbatas pada bantuan materi, tetapi juga mencakup bantuan tenaga, nasihat, doa, dan bentuk pertolongan lainnya."
+    ],
+    "pelajaran": "Seorang muslim hendaknya menjadi pribadi yang peduli terhadap kesulitan orang lain, gemar membantu, tidak membuka aib saudaranya, serta yakin bahwa setiap pertolongan yang diberikan kepada sesama akan dibalas dengan pertolongan Allah di dunia dan akhirat.",
+    "sumber": "rumaysho.com"
+  },
   {
-  "id": 24,
-  "judul": "Setiap Kebaikan itu Sedekah",
-  "arab": "كُلُّ مَعْرُوفٍ صَدَقَةٌ",
-  "latin": "",
-  "terjemahan": "Setiap kebaikan adalah sedekah.",
-  "perawi": "HR. Bukhari No. 6021. Diriwayatkan pula oleh Muslim No. 1005 dari hadits Hudzaifah.",
-  "derajat": "Shahih",
-  "kitab": "Bulughul Maram",
-  "faedah": [
-    "Makruf adalah setiap bentuk kebaikan yang memberikan manfaat kepada orang lain, baik dengan perkataan, perbuatan, harta, tenaga, nasihat, maupun kemaslahatan duniawi.",
-    "Sedekah pada asalnya adalah mengeluarkan harta karena Allah Ta'ala, dan ada yang hukumnya wajib maupun sunnah.",
-    "Makna hadits ini adalah setiap perbuatan makruf mendapatkan pahala seperti pahala sedekah.",
-    "Hadits ini termasuk jawami'ul kalim, yaitu kalimat yang singkat namun mengandung makna yang sangat luas.",
-    "Hadits ini mendorong setiap muslim untuk memperbanyak perbuatan makruf karena semuanya bernilai sedekah.",
-    "Sedekah tidak terbatas pada harta, tetapi juga mencakup mendamaikan orang yang berselisih, membantu orang naik kendaraan, mengangkatkan barang, mengucapkan kalimat yang baik, melangkah menuju masjid, dan menyingkirkan gangguan dari jalan.",
-    "Perbuatan makruf dapat berupa amalan badan, pengorbanan harta, maupun gabungan keduanya seperti haji dan jihad."
-  ],
-  "pelajaran": "Hadits ini mengajarkan bahwa setiap bentuk kebaikan yang dilakukan dengan ikhlas bernilai sedekah di sisi Allah. Oleh karena itu, seorang muslim hendaknya tidak membatasi sedekah hanya pada pemberian harta, tetapi juga memperbanyak ucapan, bantuan, dan amal saleh yang bermanfaat bagi sesama."
-}
+    "id": 24,
+    "judul": "Setiap Kebaikan itu Sedekah",
+    "arab": "كُلُّ مَعْرُوفٍ صَدَقَةٌ",
+    "latin": "",
+    "terjemahan": "Setiap kebaikan adalah sedekah.",
+    "perawi": "HR. Bukhari No. 6021. Diriwayatkan pula oleh Muslim No. 1005 dari hadits Hudzaifah.",
+    "derajat": "Shahih",
+    "kitab": "Bulughul Maram",
+    "faedah": [
+      "Makruf adalah setiap bentuk kebaikan yang memberikan manfaat kepada orang lain, baik dengan perkataan, perbuatan, harta, tenaga, nasihat, maupun kemaslahatan duniawi.",
+      "Sedekah pada asalnya adalah mengeluarkan harta karena Allah Ta'ala, dan ada yang hukumnya wajib maupun sunnah.",
+      "Makna hadits ini adalah setiap perbuatan makruf mendapatkan pahala seperti pahala sedekah.",
+      "Hadits ini termasuk jawami'ul kalim, yaitu kalimat yang singkat namun mengandung makna yang sangat luas.",
+      "Hadits ini mendorong setiap muslim untuk memperbanyak perbuatan makruf karena semuanya bernilai sedekah.",
+      "Sedekah tidak terbatas pada harta, tetapi juga mencakup mendamaikan orang yang berselisih, membantu orang naik kendaraan, mengangkatkan barang, mengucapkan kalimat yang baik, melangkah menuju masjid, dan menyingkirkan gangguan dari jalan.",
+      "Perbuatan makruf dapat berupa amalan badan, pengorbanan harta, maupun gabungan keduanya seperti haji dan jihad."
+    ],
+    "pelajaran": "Hadits ini mengajarkan bahwa setiap bentuk kebaikan yang dilakukan dengan ikhlas bernilai sedekah di sisi Allah. Oleh karena itu, seorang muslim hendaknya tidak membatasi sedekah hanya pada pemberian harta, tetapi juga memperbanyak ucapan, bantuan, dan amal saleh yang bermanfaat bagi sesama.",
+    "sumber": "rumaysho.com"
+  }
 ]
