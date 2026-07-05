@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Hafalan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+
+<style>
+.page-hafalan-list{
+  background:var(--bg);
+}
+
+.hafalan-list-container{
+  padding:16px 16px 120px;
+}
+
+.nav-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+
+.header-title{
+  flex:1;
+  font-size:16px;
+  font-weight:800;
+  color:var(--primary);
+  line-height:1.25;
+}
+
+.hero-hafalan{
+  background:linear-gradient(145deg,#0a4d3a,#0f6e52);
+  color:#fff;
+  border-radius:24px;
+  padding:20px 18px;
+  margin-bottom:16px;
+  box-shadow:0 8px 28px rgba(10,77,58,.22);
+}
+
+.hero-title{
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.hero-desc{
+  font-size:13px;
+  line-height:1.7;
+  opacity:.9;
+}
+
+.search-box{
+  background:var(--card);
+  border-radius:18px;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  margin-bottom:14px;
+}
+
+.search-box span{
+  color:var(--primary);
+  font-size:18px;
+}
+
+.search-box input{
+  flex:1;
+  border:none;
+  outline:none;
+  background:transparent;
+  color:var(--text);
+  font-size:14px;
+  font-weight:700;
+}
+
+.search-box input::placeholder{
+  color:var(--text-muted);
+  font-weight:600;
+}
+
+.quick-card{
+  background:var(--card);
+  border-radius:20px;
+  padding:14px 16px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+}
+
+.quick-title{
+  font-size:14px;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.quick-btn{
+  border:none;
+  border-radius:14px;
+  background:var(--primary-ghost);
+  color:var(--primary);
+  padding:12px 10px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.section-title{
+  font-size:14px;
+  font-weight:800;
+  color:var(--text-secondary);
+  margin:14px 2px 10px;
+}
+
+.surah-card{
+  background:var(--card);
+  border-radius:20px;
+  padding:15px 15px;
+  margin-bottom:12px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,.7);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transition:.2s ease;
+}
+
+.surah-card:active{
+  transform:scale(.985);
+}
+
+.surah-number{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border-radius:14px;
+  background:var(--primary-ghost);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:800;
+}
+
+.surah-info{
+  flex:1;
+  min-width:0;
+}
+
+.surah-name{
+  font-size:15px;
+  font-weight:800;
+  color:var(--text);
+  margin-bottom:4px;
+}
+
+.surah-meta{
+  font-size:12px;
+  color:var(--text-secondary);
+  font-weight:700;
+}
+
+.surah-arab{
+  font-family:'Amiri',serif;
+  direction:rtl;
+  color:var(--primary);
+  font-size:24px;
+  line-height:1;
+}
+
+.empty-state{
+  background:var(--card);
+  border-radius:20px;
+  padding:22px;
+  color:var(--text-secondary);
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+}
+
+/* ===== POPUP ===== */
+.range-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.42);
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  z-index:999;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+
+.range-popup.hidden{
+  display:none;
+}
+
+.popup-sheet{
+  width:100%;
+  max-width:480px;
+  background:var(--card);
+  color:var(--text);
+  border-radius:24px 24px 0 0;
+  padding:16px 18px 22px;
+  box-shadow:0 -8px 40px rgba(0,0,0,.18);
+  animation:slideUp .25s ease;
+}
+
+.popup-handle{
+  width:42px;
+  height:4px;
+  background:var(--border);
+  border-radius:999px;
+  margin:0 auto 12px;
+}
+
+.popup-title{
+  text-align:center;
+  font-size:16px;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:4px;
+}
+
+.popup-subtitle{
+  text-align:center;
+  font-size:13px;
+  color:var(--text-secondary);
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.form-group label{
+  font-size:12px;
+  font-weight:800;
+  color:var(--text-secondary);
+}
+
+.form-group input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:13px;
+  font-size:15px;
+  font-weight:800;
+  color:var(--text);
+  background:var(--bg);
+  outline:none;
+}
+
+.popup-btn{
+  width:100%;
+  padding:14px;
+  margin-top:8px;
+  border-radius:16px;
+  border:none;
+  background:var(--primary);
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+}
+
+.popup-btn.secondary{
+  background:var(--primary-ghost);
+  color:var(--primary);
+}
+
+.popup-close{
+  background:transparent;
+  color:var(--text-muted);
+  border:none;
+  width:100%;
+  padding:12px;
+  font-size:14px;
+  font-weight:800;
+}
+
+@keyframes slideUp{
+  from{transform:translateY(100%)}
+  to{transform:translateY(0)}
+}
+
+@media(max-width:360px){
+  .quick-grid,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .surah-arab{
+    display:none;
+  }
+}
+</style>
+</head>
+
+<body class="page-hafalan-list">
+
+<header class="app-header">
+  <button class="nav-btn back-btn" onclick="history.back()">
+    <svg viewBox="0 0 24 24" width="22" height="22"
+      fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <div class="header-title">
+    <span>Pilih Hafalan</span>
+  </div>
+</header>
+
+<main class="hafalan-list-container">
+
+  <section class="hero-hafalan">
+    <div class="hero-title">Hafalan Al-Qur'an</div>
+    <div class="hero-desc">
+      Pilih surah dan rentang ayat yang ingin dihafal. Setelah itu kamu bisa mengulang ayat, mengulang blok, atau latihan bertahap.
+    </div>
+  </section>
+
+  <section class="search-box">
+    <span>🔎</span>
+    <input type="text" id="searchInput" placeholder="Cari surah, contoh: Mulk, Yasin, Al Baqarah...">
+  </section>
+
+  <section class="quick-card">
+    <div class="quick-title">Mulai cepat</div>
+    <div class="quick-grid">
+      <button class="quick-btn" onclick="openRangeByNo(1)">Al-Fatihah</button>
+      <button class="quick-btn" onclick="openRangeByNo(36)">Yasin</button>
+      <button class="quick-btn" onclick="openRangeByNo(67)">Al-Mulk</button>
+      <button class="quick-btn" onclick="openRangeByNo(78)">An-Naba'</button>
+    </div>
+  </section>
+
+  <div class="section-title">Daftar Surah</div>
+
+  <section id="surahList">
+    <div class="empty-state">Memuat daftar surah...</div>
+  </section>
+
+</main>
+
+<!-- ===== POPUP PILIH AYAT ===== -->
+<div id="rangePopup" class="range-popup hidden">
+  <div class="popup-sheet">
+    <div class="popup-handle"></div>
+
+    <div class="popup-title" id="popupTitle">Surah</div>
+    <div class="popup-subtitle" id="popupSubtitle">Pilih rentang ayat</div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="ayatAwal">Ayat awal</label>
+        <input type="number" id="ayatAwal" min="1" value="1">
+      </div>
+
+      <div class="form-group">
+        <label for="ayatAkhir">Ayat akhir</label>
+        <input type="number" id="ayatAkhir" min="1" value="1">
+      </div>
+    </div>
+
+    <button class="popup-btn" id="mulaiBtn">Mulai Hafalan</button>
+    <button class="popup-btn secondary" id="fullSurahBtn">Hafalkan Full Surah</button>
+    <button class="popup-close" id="popupClose">Tutup</button>
+  </div>
+</div>
+
+<script src="../data/surah-names.js"></script>
+
+<script>
+const surahListEl = document.getElementById('surahList');
+const searchInput = document.getElementById('searchInput');
+
+const rangePopup = document.getElementById('rangePopup');
+const popupTitle = document.getElementById('popupTitle');
+const popupSubtitle = document.getElementById('popupSubtitle');
+const popupClose = document.getElementById('popupClose');
+
+const ayatAwalInput = document.getElementById('ayatAwal');
+const ayatAkhirInput = document.getElementById('ayatAkhir');
+const mulaiBtn = document.getElementById('mulaiBtn');
+const fullSurahBtn = document.getElementById('fullSurahBtn');
+
+let surahData = [];
+let selectedSurah = null;
+
+const AYAT_PER_SURAH = [
+  7, 286, 200, 176, 120, 165, 206, 75, 129, 109,
+  123, 111, 43, 52, 99, 128, 111, 110, 98, 135,
+  112, 78, 118, 64, 77, 227, 93, 88, 69, 60,
+  34, 30, 73, 54, 45, 83, 182, 88, 75, 85,
+  54, 53, 89, 59, 37, 35, 38, 29, 18, 45,
+  60, 49, 62, 55, 78, 96, 29, 22, 24, 13,
+  14, 11, 11, 18, 12, 12, 30, 52, 52, 44,
+  28, 28, 20, 56, 40, 31, 50, 40, 46, 42,
+  29, 19, 36, 25, 22, 17, 19, 26, 30, 20,
+  15, 21, 11, 8, 8, 19, 5, 8, 8, 11,
+  11, 8, 3, 9, 5, 4, 7, 3, 6, 3,
+  5, 4, 5, 6
+];
+
+const SURAH_ARAB = [
+  "الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس",
+  "هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه",
+  "الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم",
+  "لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر",
+  "فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق",
+  "الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة",
+  "الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج",
+  "نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس",
+  "التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد",
+  "الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات",
+  "القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر",
+  "المسد","الإخلاص","الفلق","الناس"
+];
+
+function normalizeText(text = '') {
+  return String(text)
+    .toLowerCase()
+    .replace(/-/g, ' ')
+    .replace(/'/g, '')
+    .replace(/’/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function toArabicNumber(num) {
+  const d = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(num).replace(/\d/g, x => d[x]);
+}
+
+function buildSurahData() {
+  surahData = AYAT_PER_SURAH.map((jumlahAyat, index) => {
+    const no = index + 1;
+    const latin = SURAH_NAMES[no] || `Surah ${no}`;
+
+    return {
+      no,
+      latin,
+      arab: SURAH_ARAB[index] || '',
+      jumlahAyat
+    };
+  });
+}
+
+function renderSurahList(list = surahData) {
+  if (!list.length) {
+    surahListEl.innerHTML = '<div class="empty-state">Surah tidak ditemukan.</div>';
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  surahListEl.innerHTML = '';
+
+  list.forEach(surah => {
+    const card = document.createElement('div');
+    card.className = 'surah-card';
+    card.onclick = () => openRange(surah);
+
+    card.innerHTML = `
+      <div class="surah-number">${surah.no}</div>
+
+      <div class="surah-info">
+        <div class="surah-name">${surah.latin}</div>
+        <div class="surah-meta">${surah.jumlahAyat} ayat</div>
+      </div>
+
+      <div class="surah-arab">${surah.arab}</div>
+    `;
+
+    fragment.appendChild(card);
+  });
+
+  surahListEl.appendChild(fragment);
+}
+
+function filterSurah(keyword) {
+  const q = normalizeText(keyword);
+
+  if (!q) {
+    renderSurahList(surahData);
+    return;
+  }
+
+  const filtered = surahData.filter(surah => {
+    const latin = normalizeText(surah.latin);
+    const arab = normalizeText(surah.arab);
+    const no = String(surah.no);
+
+    return latin.includes(q) || arab.includes(q) || no === q;
+  });
+
+  renderSurahList(filtered);
+}
+
+function openRange(surah) {
+  selectedSurah = surah;
+
+  popupTitle.textContent = `QS. ${surah.latin}`;
+  popupSubtitle.textContent = `${surah.jumlahAyat} ayat`;
+
+  ayatAwalInput.min = 1;
+  ayatAwalInput.max = surah.jumlahAyat;
+  ayatAwalInput.value = 1;
+
+  ayatAkhirInput.min = 1;
+  ayatAkhirInput.max = surah.jumlahAyat;
+  ayatAkhirInput.value = Math.min(10, surah.jumlahAyat);
+
+  rangePopup.classList.remove('hidden');
+
+  setTimeout(() => {
+    ayatAwalInput.focus();
+  }, 250);
+}
+
+function openRangeByNo(no) {
+  const surah = surahData.find(s => Number(s.no) === Number(no));
+  if (surah) openRange(surah);
+}
+
+function closePopup() {
+  rangePopup.classList.add('hidden');
+}
+
+function clampAyat(value, min, max) {
+  const n = Number(value);
+  if (Number.isNaN(n)) return min;
+  return Math.min(Math.max(n, min), max);
+}
+
+function goToHafalan(full = false) {
+  if (!selectedSurah) return;
+
+  let awal = 1;
+  let akhir = selectedSurah.jumlahAyat;
+
+  if (!full) {
+    awal = clampAyat(ayatAwalInput.value, 1, selectedSurah.jumlahAyat);
+    akhir = clampAyat(ayatAkhirInput.value, awal, selectedSurah.jumlahAyat);
+  }
+
+  location.href = `hafalan.html?no=${selectedSurah.no}&awal=${awal}&akhir=${akhir}`;
+}
+
+searchInput.addEventListener('input', e => {
+  filterSurah(e.target.value);
+});
+
+popupClose.onclick = closePopup;
+
+rangePopup.addEventListener('click', e => {
+  if (e.target === rangePopup) {
+    closePopup();
+  }
+});
+
+mulaiBtn.onclick = () => goToHafalan(false);
+fullSurahBtn.onclick = () => goToHafalan(true);
+
+ayatAwalInput.addEventListener('input', () => {
+  if (!selectedSurah) return;
+
+  const awal = clampAyat(ayatAwalInput.value, 1, selectedSurah.jumlahAyat);
+  const akhir = clampAyat(ayatAkhirInput.value, awal, selectedSurah.jumlahAyat);
+
+  ayatAwalInput.value = awal;
+  ayatAkhirInput.value = akhir;
+});
+
+ayatAkhirInput.addEventListener('input', () => {
+  if (!selectedSurah) return;
+
+  const awal = clampAyat(ayatAwalInput.value, 1, selectedSurah.jumlahAyat);
+  const akhir = clampAyat(ayatAkhirInput.value, awal, selectedSurah.jumlahAyat);
+
+  ayatAwalInput.value = awal;
+  ayatAkhirInput.value = akhir;
+});
+
+buildSurahData();
+renderSurahList();
+</script>
+
+</body>
+</html>
