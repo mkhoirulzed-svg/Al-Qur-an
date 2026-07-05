@@ -31,27 +31,5 @@
   "tipe": "per-bab",
   "folder": "shahih-muslim",
   "daftarBab": "data/shahih-muslim/daftar-bab.json"
-  },
-  {
-    "id": "arbain",
-    "judul": "Arba'in Nawawi",
-    "kitab": "Arba'in Nawawi",
-    "penulis": "Imam An-Nawawi",
-    "deskripsi": "Kumpulan hadits pokok agama Islam yang ringkas dan sangat populer untuk dipelajari.",
-    "status": "segera",
-    "tipe": "langsung",
-    "folder": "arbain",
-    "file": "data/arbain/arbain.json"
-  },
-  {
-    "id": "bulughul-maram",
-    "judul": "Bulughul Maram",
-    "kitab": "Bulughul Maram",
-    "penulis": "Ibnu Hajar Al-Asqalani",
-    "deskripsi": "Kitab hadits hukum yang banyak digunakan dalam pembahasan fikih.",
-    "status": "segera",
-    "tipe": "per-bab",
-    "folder": "bulughul-maram",
-    "daftarBab": "data/bulughul-maram/daftar-bab.json"
   }
 ]
