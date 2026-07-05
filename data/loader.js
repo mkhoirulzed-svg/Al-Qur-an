@@ -1,3 +1,13 @@
+(function(){
+  const savedTheme = localStorage.getItem('appTheme') || 'default';
+
+  document.documentElement.classList.remove('theme-blue', 'theme-dark');
+
+  if(savedTheme !== 'default'){
+    document.documentElement.classList.add(savedTheme);
+  }
+})();
+
 async function loadFooter(currentPage){
 
     const isRoot =
