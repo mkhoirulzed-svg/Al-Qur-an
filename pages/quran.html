@@ -208,6 +208,7 @@ openSearch.onclick = () => {
   
 searchInput.addEventListener('input', async () => {
   const q = searchInput.value.toLowerCase().trim();
+  const keywords = q.split(/\s+/).filter(Boolean);
 
   if (!q) {
     renderSurah(SURAH_CACHE);
@@ -240,7 +241,7 @@ searchInput.addEventListener('input', async () => {
     ${a.ayat || ''}
   `.toLowerCase();
 
-  return text.includes(q);
+  return keywords.every(k => text.includes(k));
 });
 
     renderSearchResults(filteredAyat);
