@@ -14,6 +14,23 @@ document.addEventListener('DOMContentLoaded', function() {
   if (savedTheme !== 'default') {
     document.body.classList.add(savedTheme);
   }
+
+  const isJadwalPage = /\/pages\/jadwal\.html$/.test(location.pathname);
+  if (isJadwalPage && !document.querySelector('script[data-jadwal-native-alarm]')) {
+    const bridge = document.createElement('script');
+    bridge.src = '../data/android-prayer-alarm-bridge.js?v=1';
+    bridge.dataset.androidPrayerAlarmBridge = 'true';
+
+    bridge.addEventListener('load', () => {
+      const script = document.createElement('script');
+      script.src = '../data/jadwal-native-alarm.js?v=2';
+      script.defer = true;
+      script.dataset.jadwalNativeAlarm = 'true';
+      document.head.appendChild(script);
+    });
+
+    document.head.appendChild(bridge);
+  }
 });
 
 async function loadFooter(currentPage){
