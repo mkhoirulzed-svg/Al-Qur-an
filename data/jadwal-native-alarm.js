@@ -14,7 +14,11 @@
   }
 
   function writeJson(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.warn('Tidak dapat menyimpan pengaturan alarm:', error);
+    }
   }
 
   function getSettings() {
@@ -37,22 +41,30 @@
     return date;
   }
 
-  async function requestNotificationPermission() {
+  async function requestWebNotificationPermission() {
     if (!('Notification' in window)) return false;
     if (Notification.permission === 'granted') return true;
     if (Notification.permission === 'denied') return false;
-    return (await Notification.requestPermission()) === 'granted';
+    try {
+      return (await Notification.requestPermission()) === 'granted';
+    } catch {
+      return false;
+    }
   }
 
-  function showNotification(name, time) {
+  function showWebNotification(name, time) {
     if (!('Notification' in window) || Notification.permission !== 'granted') return;
-    new Notification(`Waktu ${name}`, {
-      body: `Telah masuk waktu ${name} pukul ${time}.`,
-      icon: '../assets/icons/192x192.png',
-      badge: '../assets/icons/192x192.png',
-      tag: `sholat-${name}`,
-      renotify: true
-    });
+    try {
+      new Notification(`Waktu ${name}`, {
+        body: `Telah masuk waktu ${name} pukul ${time}.`,
+        icon: '../assets/icons/192x192.png',
+        badge: '../assets/icons/192x192.png',
+        tag: `sholat-${name}`,
+        renotify: true
+      });
+    } catch (error) {
+      console.error('Notifikasi web gagal:', error);
+    }
   }
 
   function callNative(method, payload) {
@@ -60,8 +72,7 @@
     if (!bridge || typeof bridge[method] !== 'function') return false;
 
     try {
-      bridge[method](JSON.stringify(payload));
-      return true;
+      return bridge[method](JSON.stringify(payload)) !== false;
     } catch (error) {
       console.error('Gagal memanggil alarm native:', error);
       return false;
@@ -77,10 +88,10 @@
   function scheduleWebFallback(name, time) {
     clearWebTimer(name);
     const target = nextOccurrence(time);
-    const delay = target.getTime() - Date.now();
+    const delay = Math.max(0, target.getTime() - Date.now());
 
     const timer = setTimeout(() => {
-      showNotification(name, time);
+      showWebNotification(name, time);
       if (typeof window.mainkanAlarm === 'function') window.mainkanAlarm(name);
       scheduleWebFallback(name, time);
     }, delay);
@@ -91,7 +102,7 @@
   async function scheduleAlarm(name, time) {
     const target = nextOccurrence(time);
     const payload = {
-      id: `sholat-${name.toLowerCase()}`,
+      id: `sholat-${name.toLowerCase().replace(/\s+/g, '-')}`,
       name,
       time,
       triggerAt: target.getTime(),
@@ -104,30 +115,35 @@
     schedule[name] = payload;
     writeJson(SCHEDULE_KEY, schedule);
 
-    await requestNotificationPermission();
     const nativeScheduled = callNative('schedule', payload);
-    if (!nativeScheduled) scheduleWebFallback(name, time);
-
+    if (!nativeScheduled) {
+      await requestWebNotificationPermission();
+      scheduleWebFallback(name, time);
+    }
     return nativeScheduled;
   }
 
   function cancelAlarm(name) {
     const schedule = getSchedule();
-    const payload = schedule[name] || { id: `sholat-${name.toLowerCase()}`, name };
+    const payload = schedule[name] || {
+      id: `sholat-${name.toLowerCase().replace(/\s+/g, '-')}`,
+      name
+    };
+
     delete schedule[name];
     writeJson(SCHEDULE_KEY, schedule);
-
     clearWebTimer(name);
     callNative('cancel', payload);
   }
 
-  function setEnabled(name, time, enabled) {
+  async function setEnabled(name, time, enabled) {
     const settings = getSettings();
     settings[name] = enabled;
     writeJson(STORAGE_KEY, settings);
 
-    if (enabled) scheduleAlarm(name, time);
-    else cancelAlarm(name);
+    if (enabled) return scheduleAlarm(name, time);
+    cancelAlarm(name);
+    return false;
   }
 
   function enhanceCard(card) {
@@ -142,30 +158,33 @@
     const time = timeEl.textContent.trim();
     if (!name || !/^\d{1,2}:\d{2}$/.test(time)) return;
 
-    const settings = getSettings();
-    const enabled = !!settings[name];
-
+    const enabled = !!getSettings()[name];
     const button = document.createElement('button');
     button.type = 'button';
     button.className = `alarm-toggle${enabled ? ' active' : ''}`;
     button.dataset.nama = name;
     button.setAttribute('aria-label', `${enabled ? 'Matikan' : 'Aktifkan'} alarm ${name}`);
-    button.title = `${enabled ? 'Matikan' : 'Aktifkan'} alarm ${name}`;
+    button.title = button.getAttribute('aria-label');
     button.innerHTML = `<i class="fa-solid ${enabled ? 'fa-bell' : 'fa-bell-slash'}"></i>`;
 
     button.addEventListener('click', async () => {
+      if (button.disabled) return;
+      button.disabled = true;
       const nextEnabled = !button.classList.contains('active');
-      button.classList.toggle('active', nextEnabled);
-      button.querySelector('i').className = `fa-solid ${nextEnabled ? 'fa-bell' : 'fa-bell-slash'}`;
-      button.setAttribute('aria-label', `${nextEnabled ? 'Matikan' : 'Aktifkan'} alarm ${name}`);
-      button.title = button.getAttribute('aria-label');
-      setEnabled(name, time, nextEnabled);
+
+      try {
+        await setEnabled(name, time, nextEnabled);
+        button.classList.toggle('active', nextEnabled);
+        button.querySelector('i').className = `fa-solid ${nextEnabled ? 'fa-bell' : 'fa-bell-slash'}`;
+        button.setAttribute('aria-label', `${nextEnabled ? 'Matikan' : 'Aktifkan'} alarm ${name}`);
+        button.title = button.getAttribute('aria-label');
+      } finally {
+        button.disabled = false;
+      }
     });
 
     right.appendChild(button);
     card.dataset.nativeAlarmReady = 'true';
-
-    if (enabled) scheduleAlarm(name, time);
   }
 
   function enhanceAllCards() {
@@ -200,37 +219,51 @@
     status.style.cssText = 'font-size:12px;color:var(--text-secondary);text-align:center;margin:-6px 0 14px;display:none';
 
     button.addEventListener('click', async () => {
+      if (button.disabled) return;
       button.disabled = true;
       const oldHtml = button.innerHTML;
       button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i><span>Menjadwalkan...</span>';
 
-      const triggerAt = Date.now() + 60 * 1000;
-      const target = new Date(triggerAt);
-      const time = target.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }).replace('.', ':');
-      const payload = {
-        id: 'sholat-test-alarm',
-        name: 'Tes Alarm',
-        time,
-        triggerAt,
-        repeatDaily: false,
-        title: 'Tes Alarm Jadwal Sholat',
-        message: 'Alarm native berhasil bekerja.'
-      };
+      try {
+        const triggerAt = Date.now() + 60 * 1000;
+        const target = new Date(triggerAt);
+        const time = target.toLocaleTimeString('id-ID', {
+          hour: '2-digit',
+          minute: '2-digit'
+        }).replace('.', ':');
 
-      await requestNotificationPermission();
-      const nativeScheduled = callNative('schedule', payload);
+        const payload = {
+          id: 'sholat-test-alarm',
+          name: 'Tes Alarm',
+          time,
+          triggerAt,
+          repeatDaily: false,
+          title: 'Tes Alarm Jadwal Sholat',
+          message: 'Alarm native Al-Qur’an berhasil bekerja.'
+        };
 
-      if (!nativeScheduled) {
-        const delay = Math.max(0, triggerAt - Date.now());
-        setTimeout(() => {
-          showNotification('Tes Alarm', time);
-          if (typeof window.mainkanAlarm === 'function') window.mainkanAlarm('Tes Alarm');
-        }, delay);
+        const nativeScheduled = callNative('schedule', payload);
+
+        if (!nativeScheduled) {
+          await requestWebNotificationPermission();
+          const delay = Math.max(0, triggerAt - Date.now());
+          setTimeout(() => {
+            showWebNotification('Tes Alarm', time);
+            if (typeof window.mainkanAlarm === 'function') window.mainkanAlarm('Tes Alarm');
+          }, delay);
+        }
+
+        status.style.display = 'block';
+        status.textContent = nativeScheduled
+          ? `Permintaan dikirim ke Android untuk pukul ${time}. Berikan izin Notifikasi dan Alarm & pengingat bila diminta.`
+          : `Alarm web dijadwalkan pukul ${time}. Halaman harus tetap terbuka agar alarm berjalan.`;
+        button.innerHTML = '<i class="fa-solid fa-check"></i><span>Alarm Dijadwalkan</span>';
+      } catch (error) {
+        console.error(error);
+        status.style.display = 'block';
+        status.textContent = 'Alarm gagal dijadwalkan. Coba buka ulang aplikasi.';
+        button.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>Gagal</span>';
       }
-
-      status.style.display = 'block';
-      status.textContent = `Alarm tes dijadwalkan pukul ${time}. Tutup aplikasi dan kunci layar.`;
-      button.innerHTML = '<i class="fa-solid fa-check"></i><span>Alarm Dijadwalkan</span>';
 
       setTimeout(() => {
         button.disabled = false;
@@ -257,7 +290,8 @@
     cancel: cancelAlarm,
     refresh: enhanceAllCards,
     testInOneMinute: () => document.getElementById('testPrayerAlarmBtn')?.click(),
-    hasNativeBridge: () => !!window.AndroidPrayerAlarm
+    hasNativeBridge: () => !!window.AndroidPrayerAlarm,
+    bridgeStatus: () => window.AndroidPrayerAlarmBridgeStatus || null
   };
 
   if (document.readyState === 'loading') {
