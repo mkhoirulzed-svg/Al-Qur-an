@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
   if (savedTheme !== 'default') {
     document.body.classList.add(savedTheme);
   }
+
+  const isJadwalPage = /\/pages\/jadwal\.html$/.test(location.pathname);
+  if (isJadwalPage && !document.querySelector('script[data-jadwal-native-alarm]')) {
+    const script = document.createElement('script');
+    script.src = '../data/jadwal-native-alarm.js?v=1';
+    script.defer = true;
+    script.dataset.jadwalNativeAlarm = 'true';
+    document.head.appendChild(script);
+  }
 });
 
 async function loadFooter(currentPage){
