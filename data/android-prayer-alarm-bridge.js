@@ -1,41 +1,18 @@
 (() => {
   'use strict';
 
+  // Jangan membuat bridge native palsu melalui custom URL scheme.
+  // Pada paket Android/TWA yang tidak memiliki handler alarm yang cocok,
+  // membuka `alquran://prayer-alarm/...` dapat menutup paksa aplikasi.
+  //
+  // Bridge native yang benar harus disuntikkan oleh aplikasi Android sebagai
+  // `window.AndroidPrayerAlarm` sebelum file ini dimuat. Jika tidak tersedia,
+  // jadwal-native-alarm.js otomatis memakai fallback web yang aman.
   if (window.AndroidPrayerAlarm) return;
 
-  function openNative(action, rawPayload) {
-    let payload = {};
-    try {
-      payload = typeof rawPayload === 'string' ? JSON.parse(rawPayload) : (rawPayload || {});
-    } catch {
-      payload = {};
-    }
-
-    const params = new URLSearchParams();
-    Object.entries(payload).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) params.set(key, String(value));
-    });
-
-    const url = `alquran://prayer-alarm/${action}?${params.toString()}`;
-
-    // Buka handler Android sebagai aktivitas terpisah agar halaman Jadwal Sholat
-    // tetap berada di TWA dan tidak berubah menjadi halaman kosong/custom scheme.
-    const link = document.createElement('a');
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    setTimeout(() => link.remove(), 1000);
-  }
-
-  window.AndroidPrayerAlarm = {
-    schedule(payload) {
-      openNative('schedule', payload);
-    },
-    cancel(payload) {
-      openNative('cancel', payload);
-    }
-  };
+  window.AndroidPrayerAlarmBridgeStatus = Object.freeze({
+    available: false,
+    transport: 'web-fallback',
+    reason: 'Native Android prayer alarm bridge is not installed.'
+  });
 })();
