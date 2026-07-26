@@ -18,9 +18,16 @@
 
     const url = `alquran://prayer-alarm/${action}?${params.toString()}`;
 
-    // Custom scheme di dalam iframe sering diblokir oleh Chrome/TWA.
-    // Navigasi langsung memastikan Android menerima intent tersebut.
-    window.location.href = url;
+    // Buka handler Android sebagai aktivitas terpisah agar halaman Jadwal Sholat
+    // tetap berada di TWA dan tidak berubah menjadi halaman kosong/custom scheme.
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    setTimeout(() => link.remove(), 1000);
   }
 
   window.AndroidPrayerAlarm = {
