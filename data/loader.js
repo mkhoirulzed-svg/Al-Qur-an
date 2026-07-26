@@ -17,11 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const isJadwalPage = /\/pages\/jadwal\.html$/.test(location.pathname);
   if (isJadwalPage && !document.querySelector('script[data-jadwal-native-alarm]')) {
-    const script = document.createElement('script');
-    script.src = '../data/jadwal-native-alarm.js?v=1';
-    script.defer = true;
-    script.dataset.jadwalNativeAlarm = 'true';
-    document.head.appendChild(script);
+    const bridge = document.createElement('script');
+    bridge.src = '../data/android-prayer-alarm-bridge.js?v=1';
+    bridge.dataset.androidPrayerAlarmBridge = 'true';
+
+    bridge.addEventListener('load', () => {
+      const script = document.createElement('script');
+      script.src = '../data/jadwal-native-alarm.js?v=2';
+      script.defer = true;
+      script.dataset.jadwalNativeAlarm = 'true';
+      document.head.appendChild(script);
+    });
+
+    document.head.appendChild(bridge);
   }
 });
 
