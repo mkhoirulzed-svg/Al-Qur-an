@@ -17,11 +17,10 @@
     });
 
     const url = `alquran://prayer-alarm/${action}?${params.toString()}`;
-    const frame = document.createElement('iframe');
-    frame.style.display = 'none';
-    frame.src = url;
-    document.body.appendChild(frame);
-    setTimeout(() => frame.remove(), 1500);
+
+    // Custom scheme di dalam iframe sering diblokir oleh Chrome/TWA.
+    // Navigasi langsung memastikan Android menerima intent tersebut.
+    window.location.href = url;
   }
 
   window.AndroidPrayerAlarm = {
