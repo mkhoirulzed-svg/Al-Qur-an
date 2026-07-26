@@ -8,6 +8,21 @@
   <link rel="stylesheet" href="../style.css">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.search-highlight {
+  background: #fde68a;
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+body.dark-mode .search-highlight,
+[data-theme="dark"] .search-highlight {
+  background: #92400e;
+  color: #fef3c7;
+}
+</style>
 </head>
 
 <body>
@@ -179,7 +194,35 @@ openSearch.onclick = () => {
   }
 };
 
- function renderSearchResults(data) {
+function escapeHtml(text = '') {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function escapeRegExp(text = '') {
+  return String(text).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function highlightText(text, query) {
+  const safeText = escapeHtml(text);
+  const keywords = String(query)
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp);
+
+  if (!keywords.length) return safeText;
+
+  const pattern = new RegExp(`(${keywords.join('|')})`, 'gi');
+  return safeText.replace(pattern, '<mark class="search-highlight">$1</mark>');
+}
+
+ function renderSearchResults(data, query) {
   list.innerHTML = '';
 
   if (!data.length) {
@@ -195,8 +238,8 @@ openSearch.onclick = () => {
 
     item.innerHTML = `
       <div>
-        <strong>${a.nama} : ${a.ayat}</strong>
-        <small>${a.terjemahan}</small>
+        <strong>${highlightText(a.nama, query)} : ${a.ayat}</strong>
+        <small>${highlightText(a.terjemahan, query)}</small>
       </div>
       <span>Ayat</span>
     `;
@@ -273,7 +316,7 @@ searchInput.addEventListener('input', async () => {
   .filter(a => a.score > 0)
   .sort((a, b) => b.score - a.score);
 
-renderSearchResults(rankedAyat);
+renderSearchResults(rankedAyat, q);
   } catch (err) {
     list.innerHTML = '<p>Gagal memuat data pencarian</p>';
   }
