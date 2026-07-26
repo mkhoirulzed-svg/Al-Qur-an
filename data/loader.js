@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const isJadwalPage = /\/pages\/jadwal\.html$/.test(location.pathname);
   if (isJadwalPage && !document.querySelector('script[data-jadwal-native-alarm]')) {
     const bridge = document.createElement('script');
-    bridge.src = '../data/android-prayer-alarm-bridge.js?v=1';
+    bridge.src = '../data/android-prayer-alarm-bridge.js?v=3';
     bridge.dataset.androidPrayerAlarmBridge = 'true';
 
     bridge.addEventListener('load', () => {
       const script = document.createElement('script');
-      script.src = '../data/jadwal-native-alarm.js?v=2';
+      script.src = '../data/jadwal-native-alarm.js?v=4';
       script.defer = true;
       script.dataset.jadwalNativeAlarm = 'true';
       document.head.appendChild(script);
