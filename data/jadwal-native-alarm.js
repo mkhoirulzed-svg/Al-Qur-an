@@ -191,105 +191,19 @@
     document.querySelectorAll('.jadwal-card').forEach(enhanceCard);
   }
 
-  function addTestButton() {
-    if (document.getElementById('testPrayerAlarmBtn')) return;
-    const container = document.querySelector('.sholat-container');
-    const schedule = document.getElementById('jadwalSholat');
-    if (!container || !schedule) return;
-
-    const button = document.createElement('button');
-    button.id = 'testPrayerAlarmBtn';
-    button.type = 'button';
-    button.className = 'kota-select';
-    button.style.cssText = [
-      'border:none',
-      'background:linear-gradient(145deg,#c49a2a,#a97f19)',
-      'color:#fff',
-      'cursor:pointer',
-      'margin-bottom:14px',
-      'display:flex',
-      'align-items:center',
-      'justify-content:center',
-      'gap:9px'
-    ].join(';');
-    button.innerHTML = '<i class="fa-solid fa-bell"></i><span>Tes Alarm 1 Menit</span>';
-
-    const status = document.createElement('div');
-    status.id = 'testPrayerAlarmStatus';
-    status.style.cssText = 'font-size:12px;color:var(--text-secondary);text-align:center;margin:-6px 0 14px;display:none';
-
-    button.addEventListener('click', async () => {
-      if (button.disabled) return;
-      button.disabled = true;
-      const oldHtml = button.innerHTML;
-      button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i><span>Menjadwalkan...</span>';
-
-      try {
-        const triggerAt = Date.now() + 60 * 1000;
-        const target = new Date(triggerAt);
-        const time = target.toLocaleTimeString('id-ID', {
-          hour: '2-digit',
-          minute: '2-digit'
-        }).replace('.', ':');
-
-        const payload = {
-          id: 'sholat-test-alarm',
-          name: 'Tes Alarm',
-          time,
-          triggerAt,
-          repeatDaily: false,
-          title: 'Tes Alarm Jadwal Sholat',
-          message: 'Alarm native Al-Qur’an berhasil bekerja.'
-        };
-
-        const nativeScheduled = callNative('schedule', payload);
-
-        if (!nativeScheduled) {
-          await requestWebNotificationPermission();
-          const delay = Math.max(0, triggerAt - Date.now());
-          setTimeout(() => {
-            showWebNotification('Tes Alarm', time);
-            if (typeof window.mainkanAlarm === 'function') window.mainkanAlarm('Tes Alarm');
-          }, delay);
-        }
-
-        status.style.display = 'block';
-        status.textContent = nativeScheduled
-          ? `Permintaan dikirim ke Android untuk pukul ${time}. Berikan izin Notifikasi dan Alarm & pengingat bila diminta.`
-          : `Alarm web dijadwalkan pukul ${time}. Halaman harus tetap terbuka agar alarm berjalan.`;
-        button.innerHTML = '<i class="fa-solid fa-check"></i><span>Alarm Dijadwalkan</span>';
-      } catch (error) {
-        console.error(error);
-        status.style.display = 'block';
-        status.textContent = 'Alarm gagal dijadwalkan. Coba buka ulang aplikasi.';
-        button.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>Gagal</span>';
-      }
-
-      setTimeout(() => {
-        button.disabled = false;
-        button.innerHTML = oldHtml;
-      }, 5000);
-    });
-
-    container.insertBefore(button, schedule);
-    container.insertBefore(status, schedule);
-  }
-
   const observer = new MutationObserver(enhanceAllCards);
 
   function init() {
-    const container = document.getElementById('jadwalSholat');
-    if (!container) return;
-    addTestButton();
-    enhanceAllCards();
-    observer.observe(container, { childList: true, subtree: true });
-  }
+  const container = document.getElementById('jadwalSholat');
+  if (!container) return;
+  enhanceAllCards();
+  observer.observe(container, { childList: true, subtree: true });
+}
 
   window.AlQuranPrayerAlarm = {
     schedule: scheduleAlarm,
     cancel: cancelAlarm,
     refresh: enhanceAllCards,
-    testInOneMinute: () => document.getElementById('testPrayerAlarmBtn')?.click(),
     hasNativeBridge: () => !!window.AndroidPrayerAlarm,
     bridgeStatus: () => window.AndroidPrayerAlarmBridgeStatus || null
   };
