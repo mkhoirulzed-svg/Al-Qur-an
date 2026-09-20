@@ -245,9 +245,9 @@ KOTA_INDONESIA.forEach(kota => {
   opt.value = kota;
   opt.textContent = kota;
   kotaSelect.appendChild(opt);
-   kotaSelect.value = "Palangka Raya";
-
 });
+
+kotaSelect.value = "Palangka Raya";
 
 const jadwalEl = document.getElementById('jadwalSholat');
 const autoBtn = document.getElementById('autoLocationBtn');
@@ -536,7 +536,9 @@ if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
     const res = await fetch(
       `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
     );
+
     const json = await res.json();
+
     const city =
       json.address.city ||
       json.address.town ||
@@ -545,8 +547,32 @@ if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
 
     const state = json.address.state || '';
 
-    lokasiEl.textContent = `📍 ${city}${state ? ', ' + state : ''}`;
+    const namaKota = city || 'Lokasi saat ini';
+
+    // =========================
+    // TAMBAHKAN KOTA GPS KE DROPDOWN
+    // =========================
+    if (namaKota && namaKota !== 'Lokasi saat ini') {
+      const sudahAda = Array.from(kotaSelect.options)
+        .some(option => option.value.toLowerCase() === namaKota.toLowerCase());
+
+      if (!sudahAda) {
+        const opt = document.createElement('option');
+        opt.value = namaKota;
+        opt.textContent = `📍 ${namaKota}`;
+        kotaSelect.appendChild(opt);
+      }
+
+      // pilih kota hasil GPS
+      kotaSelect.value = namaKota;
+    }
+
+    // tampilkan lokasi aktif
+    lokasiEl.textContent =
+      `📍 ${namaKota}${state ? ', ' + state : ''}`;
+
     return lokasiEl.textContent;
+
   } catch {
     lokasiEl.textContent = '📍 Lokasi saat ini';
     return lokasiEl.textContent;
