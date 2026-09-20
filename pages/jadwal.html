@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css?v=2">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   
+
 <style>
 /* =========================
    JADWAL SHOLAT STYLE
@@ -245,9 +245,9 @@ KOTA_INDONESIA.forEach(kota => {
   opt.value = kota;
   opt.textContent = kota;
   kotaSelect.appendChild(opt);
-});
+   kotaSelect.value = "Palangka Raya";
 
-kotaSelect.value = "Palangka Raya";
+});
 
 const jadwalEl = document.getElementById('jadwalSholat');
 const autoBtn = document.getElementById('autoLocationBtn');
@@ -261,7 +261,7 @@ const LOKASI_DEFAULT_KEY = 'sholatLokasiDefault';
 const ADZAN_SUBUH_AUDIO_SRC = '../data/audio/adzan-subuh.mp3'; // adzan subuh (ada "ashsholatu khoirun minan naum")
 const ADZAN_AUDIO_SRC = '../data/audio/adzan.mp3'; // adzan Dzuhur/Ashar/Maghrib/Isya
 const SIRINE_AUDIO_SRC = '../data/audio/sirine.mp3';
-   
+
 function getAlarmSettings() {
   try {
     return JSON.parse(localStorage.getItem(ALARM_STORAGE_KEY) || '{}');
@@ -530,15 +530,13 @@ if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
   lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
   loadJadwal(kotaSelect.value);
 }
-   
+
    async function getNamaLokasi(lat, lon) {
   try {
     const res = await fetch(
       `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
     );
-
     const json = await res.json();
-
     const city =
       json.address.city ||
       json.address.town ||
@@ -547,39 +545,15 @@ if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
 
     const state = json.address.state || '';
 
-    const namaKota = city || 'Lokasi saat ini';
-
-    // =========================
-    // TAMBAHKAN KOTA GPS KE DROPDOWN
-    // =========================
-    if (namaKota && namaKota !== 'Lokasi saat ini') {
-      const sudahAda = Array.from(kotaSelect.options)
-        .some(option => option.value.toLowerCase() === namaKota.toLowerCase());
-
-      if (!sudahAda) {
-        const opt = document.createElement('option');
-        opt.value = namaKota;
-        opt.textContent = `📍 ${namaKota}`;
-        kotaSelect.appendChild(opt);
-      }
-
-      // pilih kota hasil GPS
-      kotaSelect.value = namaKota;
-    }
-
-    // tampilkan lokasi aktif
-    lokasiEl.textContent =
-      `📍 ${namaKota}${state ? ', ' + state : ''}`;
-
+    lokasiEl.textContent = `📍 ${city}${state ? ', ' + state : ''}`;
     return lokasiEl.textContent;
-
   } catch {
     lokasiEl.textContent = '📍 Lokasi saat ini';
     return lokasiEl.textContent;
   }
 }
 
-   
+
 </script>
 <div id="footer"></div>
 
