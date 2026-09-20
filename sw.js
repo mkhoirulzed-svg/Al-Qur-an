@@ -1,4 +1,4 @@
-const CACHE_NAME = "alquran-offline-v7";
+const CACHE_NAME = "alquran-offline-v8";
 
 const FILES_TO_CACHE = [
   "/",
