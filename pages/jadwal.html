@@ -239,14 +239,20 @@
 
    const kotaSelect = document.getElementById('kotaSelect');
 
-// isi dropdown kota
+// Pilihan awal dikosongkan agar tidak menganggap semua pengguna berada di Palangka Raya.
+const placeholderKota = document.createElement('option');
+placeholderKota.value = '';
+placeholderKota.textContent = 'Pilih kota di Indonesia';
+placeholderKota.disabled = true;
+placeholderKota.selected = true;
+kotaSelect.appendChild(placeholderKota);
+
+// Isi daftar kota Indonesia tanpa menetapkan kota default.
 KOTA_INDONESIA.forEach(kota => {
   const opt = document.createElement('option');
   opt.value = kota;
   opt.textContent = kota;
   kotaSelect.appendChild(opt);
-   kotaSelect.value = "Palangka Raya";
-
 });
 
 const jadwalEl = document.getElementById('jadwalSholat');
@@ -526,9 +532,10 @@ if (lokasiTersimpan && lokasiTersimpan.type === 'coord') {
   loadJadwal(lokasiTersimpan.kota);
 
 } else {
-  kotaSelect.value = "Palangka Raya";
-  lokasiEl.textContent = `🏙️ ${kotaSelect.value}`;
-  loadJadwal(kotaSelect.value);
+  // Belum ada lokasi pilihan: jangan memuat Palangka Raya secara otomatis.
+  kotaSelect.value = "";
+  lokasiEl.textContent = "Pilih lokasi untuk melihat jadwal sholat";
+  jadwalEl.innerHTML = '<p>Pilih kota di Indonesia atau tekan “Gunakan Lokasi Saat Ini” untuk menampilkan jadwal sholat. GPS juga dapat digunakan saat berada di luar negeri.</p>';
 }
 
    async function getNamaLokasi(lat, lon) {
