@@ -160,7 +160,10 @@ function renderBookmarks() {
 
   list.innerHTML = '';
 
-  bookmarks.forEach((b, index) => {
+  // Tampilkan bookmark terbaru di urutan paling atas.
+  // Index asli tetap dipakai agar tombol hapus menghapus bookmark yang benar.
+  [...bookmarks].reverse().forEach((b, displayIndex) => {
+    const index = bookmarks.length - 1 - displayIndex;
     const item = document.createElement('div');
     item.className = 'bookmark-item';
 
